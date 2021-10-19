@@ -1,5 +1,5 @@
 #include <string>
-#include "../include/OstreamManipulator.h"
+#include "../include/osmanip.h"
 using namespace std;
 
 //Reset variables definition:

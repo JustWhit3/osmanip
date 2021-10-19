@@ -1,14 +1,14 @@
 CC=g++
 CFLAGS=-I.
-DEPS = ../OstreamManipulator/include/OstreamManipulator.h
-OBJ = Main.o ../OstreamManipulator/src/OstreamManipulator.o
+DEPS = ../osmanip/include/osmanip.h
+OBJ = main.o ../osmanip/src/osmanip.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-Main: $(OBJ)
+main: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 	
 .PHONY: clean
 clean:
-	rm -f Main.o Main ../OstreamManipulator/src/OstreamManipulator.o ../OstreamManipulator/src/OstreamManipulator.cpp.save
+	rm -f main.o main ../osmanip/src/osmanip.o ../osmanip/src/osmanip.cpp.save

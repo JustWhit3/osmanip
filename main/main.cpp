@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../OstreamManipulator/include/OstreamManipulator.h"
+#include "../osmanip/include/osmanip.h"
 using namespace std;
 
 int main ()

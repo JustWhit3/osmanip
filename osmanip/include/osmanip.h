@@ -1,5 +1,5 @@
-#ifndef OSTREAM_MANIPULATOR_H
-#define OSTREAM_MANIPULATOR_H
+#ifndef OSMANIP_H
+#define OSMANIP_H
 
 #include <string>
 using namespace std;
