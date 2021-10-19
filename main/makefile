@@ -11,4 +11,4 @@ Main: $(OBJ)
 	
 .PHONY: clean
 clean:
-	rm -f Main.o Main ../OstreamManipulator/src/OstreamManipulator.o
+	rm -f Main.o Main ../OstreamManipulator/src/OstreamManipulator.o ../OstreamManipulator/src/OstreamManipulator.cpp.save

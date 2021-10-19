@@ -7,7 +7,6 @@ using namespace std;
 //Functions definition:
 string color (string color_string),
        style (string style_string);
-       //light (string light_string);
        
 //Reset variables declaration:
 extern string reset;
@@ -24,6 +23,8 @@ extern string black,
               violet,
               light_blue,
               white;
+              
+//Light color variables declaration:
                                     
 //Style variables declaration:
 extern string bold, 

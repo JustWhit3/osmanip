@@ -25,4 +25,8 @@ int main ()
        << style("highlighted") << "This is an highlighted string." << style("reset") << endl
        << style("invisible") << "This is an invisible string." << style("reset") << "It was an invisible string." << endl
        << style("striped") << "This is a striped string." << style("reset") << endl;
+       
+       //Mixed strings:
  }
+ 
+ 
