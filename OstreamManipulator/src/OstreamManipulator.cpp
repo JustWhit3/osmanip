@@ -2,15 +2,11 @@
 #include "../include/OstreamManipulator.h"
 using namespace std;
 
-
-//Functions definition:
-string color (string){return 0;};
-string style (string){return 0;};
-
-
 //Reset variables definition:
 string reset = "\033[0m";
 
+//Error variables definition:
+string error = "Inserted option is not valid!";
 
 //Color variables definition:
 string black = "\033[30m",
@@ -22,7 +18,6 @@ string black = "\033[30m",
        light_blue = "\033[36m",
        white = "\033[37m";
 
-
 //Style variables definition:
 string bold = "\033[1m",
        transparent = "\033[2m",
@@ -31,4 +26,32 @@ string bold = "\033[1m",
        highlighted = "\033[7m",
        invisible = "\033[8m",
        striped = "\033[9m";
+
+//Functions definition:
+string color (string color_string)
+ {
+  if (color_string == "reset") {return reset;}
+  else if (color_string == "black") {return black;}
+  else if (color_string == "red") {return red;}
+  else if (color_string == "green") {return green;}
+  else if (color_string == "orange") {return orange;}
+  else if (color_string == "blue") {return blue;}
+  else if (color_string == "violet") {return violet;}
+  else if (color_string == "light blue") {return light_blue;}
+  else if (color_string == "white") {return white;}
+  else {return error;}
+ }
+
+string style (string style_string)
+ {
+  if (style_string == "reset") {return reset;}
+  else if (style_string == "bold") {return bold;}
+  else if (style_string == "transparent") {return transparent;}
+  else if (style_string == "italics") {return italics;}
+  else if (style_string == "underlined") {return underlined;}
+  else if (style_string == "highlighted") {return highlighted;}
+  else if (style_string == "invisible") {return invisible;}
+  else if (style_string == "striped") {return striped;}
+  else {return error;}
+ }
 
