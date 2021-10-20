@@ -66,15 +66,15 @@ make clean
 
 ### How does osmanip work
 
-Once you have opened the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp) or you have added the manipulator declaration and definition to one of your project (paying attention to re-adapting it with the right paths in the `include` options of any file and makefile of your project), you may want to be able to use it freely in your code. In order to let it works you have to include it at the beginning of a code in this way:
+Once you have added the manipulator declaration and definition to one of your project, you may want to be able to use it freely in your code. In order to let it works you have to include it at the beginning of a code in this way:
 ```c++
 #include "path/to/osmanip/osmanip.h"
 ```
-Where `path/to/osmanip/` is the path to the directory in which you put the osmanip manipulator. If you put the manipulator in the same folder of the project you are working you have simply to do:
+Where `path/to/osmanip/` is the path to the directory in which you put the osmanip manipulator. If you put the manipulator in the same folder of the project you are working with you have simply to do:
 ```c++
 #include "osmanip.h"
 ```
-So, in this case you can omit the full path (remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) and in your makefile.
+In this latter case you can omit the full path. Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) and in your makefile.
 
 Now you are able to access al the functions of the manipulator. If you want to change the output stream style you can do for example:
 ```c++
