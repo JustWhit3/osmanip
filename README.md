@@ -67,5 +67,5 @@ make clean
 
 Here you can find a screenshot of the output stream of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp) program which shows you all the features supported in the current version of the manipulator:
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/shell.png">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/output.png">
 
