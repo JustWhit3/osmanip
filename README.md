@@ -14,7 +14,7 @@ Here I want to present you my personal C++ output-stream manipulator, called *os
 
 ## Description of the repository
 
-Excluding this README.md file, the [*License*](https://github.com/JustWhit3/osmanip/blob/main/License) file and the [**img**](https://github.com/JustWhit3/osmanip/tree/main/img) folder (which contains images for the README.md), the repository contains two directories:
+Excluding this README.md file, the [*License*](https://github.com/JustWhit3/osmanip/blob/main/License) file, the [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore) file and the [**img**](https://github.com/JustWhit3/osmanip/tree/main/img) folder (which contains images for the README.md), the repository contains two directories:
 - [**osmanip**](https://github.com/JustWhit3/osmanip/tree/main/osmanip): which contains two subdirectories:
   * [**include**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/include): which contains the manipulator declaration file [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/include/osmanip.h).
   * [**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains the manipulator definition file [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp).
