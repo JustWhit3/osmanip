@@ -59,6 +59,10 @@ An executable file called *main* is now created and to run the code you have to 
 ```shell
 ./main
 ```
+There is also an option to go back to the pre-compilation state of the code. To get this simply type this in the **main** folder:
+```shell
+make clean
+```
 
 ## List of features
 
