@@ -2,7 +2,7 @@
 #include "../include/osmanip.h"
 using namespace std;
 
-//Reset variables definition:
+//Reset variables declaration (please note that the reset variable resets ALL, both colors and styles):
 string reset = "\033[0m";
 
 //Error variables definition:

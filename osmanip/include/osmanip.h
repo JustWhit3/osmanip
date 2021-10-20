@@ -8,7 +8,7 @@ using namespace std;
 string color (string color_string),
        style (string style_string);
        
-//Reset variables declaration:
+//Reset variables declaration (please note that the reset variable resets ALL, both colors and styles):
 extern string reset;
 
 //Error variables declaration:
