@@ -16,7 +16,6 @@ int main ()
        << color ("cyan") << "This is a cyan string." << reset () << endl
        << color ("white") << "This is a white string." << reset () << endl
        
-       
        //Styled strings:
        << endl << "---------------------   LIST OF THE AVAILABLE STYLES   ---------------------" << endl << endl
        
