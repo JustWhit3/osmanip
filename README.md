@@ -20,7 +20,7 @@ Excluding this README.md file and the [**License**](https://github.com/JustWhit3
   * [**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains the manipulator definition file [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp).
 - [**main**](https://github.com/JustWhit3/osmanip/tree/main/main): which contains the main code [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp), which shows an example of the manipolator utility, and a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for compilation.
 
-Detailed information about variables and functions utility will be shown in the [List of features](#list-of-features) section.
+Detailed information about variables and functions utility can be seen in the manipulator declaration and definition files, since for each passaga a proper comment has been added before the command lines.
 
 Note: the structure of the repository may seems more complex than what is needed since there are many subdirectories and a makefile for compilation that may be avoided in this case, due to the simplicity of the code structure, however I usually prefer using this structure in all my projects since it is for me the basic structure I use for any C++ code/project. Therefore is is just a matter of conventions.
 
@@ -62,5 +62,5 @@ An executable file called *main* is now created and to run the code you have to 
 
 ## List of features
 
-List all the colors and styles supported at the moment.
+List all the colors and styles supported at the moment. Put screenshot.
 
