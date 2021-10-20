@@ -18,7 +18,7 @@ Excluding this README.md file and the [**License**](https://github.com/JustWhit3
 - [**osmanip**](https://github.com/JustWhit3/osmanip/tree/main/osmanip): which contains two subdirectories:
   * [**include**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/include): which contains the manipulator declaration file [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/include/osmanip.h).
   * [**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains the manipulator definition file [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp).
-- [**main**](https://github.com/JustWhit3/osmanip/tree/main/main): which contains the main code [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp) and a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for compilation.
+- [**main**](https://github.com/JustWhit3/osmanip/tree/main/main): which contains the main code [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp), which shows an example of the manipolator utility, and a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for compilation.
 
 Detailed information about variables and functions utility will be shown in the [List of features](#list-of-features) section.
 
@@ -30,7 +30,7 @@ Note: the structure of the repository may seems more complex than what is needed
 
 First of all, you need to download the code: go to the [main page](https://github.com/JustWhit3/osmanip) of the repository and click on the upper right green button *Code*. Than click on *Download ZIP* and wait the download to be completed.
 
-Then open a fresh shell and move the downloaded zipped file to your home (or to any other place you prefer):
+Then open a fresh shell and move the downloaded zipped file to your home directory (or to any other place you prefer):
 ```shell
 mv Downloads/osmanip $HOME
 ```
@@ -50,8 +50,15 @@ cd osmanip
 
 ### Compile and run
 
-Compilation and execution.
-Alternative simple compilation without makefile.
+For the compilation part I prepared a [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile), in order to make easier this procedure. Therefore you have to simply enter the **main** folder and run the makefile by typing:
+```shell
+cd main
+make
+```
+An executable file called *main* is now created and to run the code you have to simply type:
+```shell
+./main
+```
 
 ## List of features
 
