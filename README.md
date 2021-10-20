@@ -4,6 +4,8 @@
 - [Introdutction](#introdutction)
 - [Description of the repository](#description-of-the-repository)
 - [Run the code](#run-the-code)
+  * [Download](#download)
+  * [Compile and run](#compile-and-run)
 - [List of features](#list-of-features)
 
 ## Introdutction
@@ -24,15 +26,29 @@ Note: the structure of the repository may seems more complex than what is needed
 
 ## Run the code
 
-First of all, you need to download the code: go to the [main page](https://github.com/JustWhit3/osmanip) of the repository and click in the upper right green button *Code*. Than click on *Download ZIP* and wait the download is completed.
+### Download
 
-Then open a fresh shell and move the downloaded zipped folder to your home:
+First of all, you need to download the code: go to the [main page](https://github.com/JustWhit3/osmanip) of the repository and click on the upper right green button *Code*. Than click on *Download ZIP* and wait the download to be completed.
+
+Then open a fresh shell and move the downloaded zipped file to your home (or to any other place you prefer):
 ```shell
 mv Downloads/osmanip $HOME
 ```
-Where *Downloads* have to be replaced with the right name (and maybe the right path) of your downloads zipped folder.
+Where *Downloads* have to be replaced with the right name (and maybe the right path) of your downloads folder. And then enter your home folder:
+```shell
+cd $HOME
+```
+Now you have to extract the folder from the zipped file and renaming itself with its right repository name by typing this two commands one after the other:
+```shell
+unzip osmanip-main.zip
+mv osmanip-main osmanip
+```
+And that's all. You can enter the folder by typing:
+```shell
+cd osmanip
+```
 
-Now you have to extract the folder from the zipped file, than type this two commands one after the other:
+### Compile and run
 
 Compilation and execution.
 Alternative simple compilation without makefile.
