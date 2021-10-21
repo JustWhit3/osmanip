@@ -19,39 +19,18 @@ string color (string color_string),
        reset ();
        
 //Reset variable declaration (please note that the reset variable resets both colors and styles):
-extern string reset_var;
+extern string reset_var,
 
 //Error variables declaration:
-extern string error;
+              error,
 
 //Color variables declaration:
-extern string black,
-              red,
-              green,
-              orange,
-              blue,
-              magenta,
-              cyan,
-              white;
+              black, red, green, orange, blue, magenta, cyan, white,
               
 //Highlight color variables declaration:
-extern string hl_green_1,
-              hl_green_2,
-              hl_green_3,
-              hl_red,
-              hl_yellow,
-              hl_cyan,
-              hl_grey,
-              hl_white;
-              
+              hl_green_1, hl_green_2, hl_green_3, hl_red, hl_yellow, hl_cyan, hl_grey, hl_white,   
                                     
 //Style variables declaration:
-extern string bold, 
-              transparent,
-              italics,
-              underlined,
-              highlighted,
-              invisible,
-              striped;
+              bold, transparent, italics, underlined, highlighted, invisible, striped;
             
 #endif
