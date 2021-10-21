@@ -7,6 +7,8 @@
   * [Download](#download)
   * [Compile and run](#compile-and-run)
 - [How does osmanip work](#how-does-osmanip-work)
+  * [Include the library](#include-the-library)
+  * [Functions and variables](#functions-and-variables)
 - [List of features](#list-of-features)
 
 ## Introduction
@@ -50,7 +52,7 @@ cd osmanip
 
 ### Compile and run
 
-Now, let's suppose to continue from the previous step. For the compilation part I prepared a [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile), in order to simplify this procedure. So you have to enter the [**main**]((https://github.com/JustWhit3/osmanip/tree/main/main) folder and run the [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) by typing:
+Now, let's suppose to continue from the previous step. For the compilation part I prepared a [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile), in order to simplify this procedure. So you have to enter the [**main**](https://github.com/JustWhit3/osmanip/tree/main/main) folder and run the [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) by typing:
 ```shell
 cd main
 make
@@ -66,6 +68,8 @@ make clean
 
 ## How does osmanip work
 
+### Include the library
+
 Once you have added the manipulator declaration and definition to one of your project, you may want to be able to use it freely in your code. In order to let it works you have to include it at the beginning of a code in this way:
 ```c++
 #include "path/to/osmanip/osmanip.h"
@@ -74,11 +78,26 @@ Where `path/to/osmanip/` is the path to the directory in which you put the osman
 ```c++
 #include "osmanip.h"
 ```
-In this latter case you can omit the full path. Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) and in your makefile.
+In this latter case you can omit the full path. Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) and in your makefile or maybe set this latter in order to avoid this path dependence.
 
-Now you are able to access al the functions of the manipulator. If you want to change the output stream style you can do for example:
+Now you are able to access al the functions of the manipulator. 
+
+### Functions and variables
+
+Each function has to be placed after the `<<` operator, in order to change the output stream until it will meet the `reset()` function. This is the list of the currently defined functions:
+- `string color (string color_string)`: which returns a string and is used to set the color of the output stream by giving the color name to its argument.
+- `hl_color (string hl_color_string)`: which returns a string and is used to set the highlight color of the output stream by giving the highlight color name to its argument.
+- `style (string style_string)`: which returns a string and is used to set the style of the output stream by giving the style name to its argument.
+- `reset ();`: which doesn't return anything and is used to reset the style of the output stream.
+
+THis is the list of the currently defined color / style variables you can pass to the previously defined functions:
+- For the `color` function: `black`, `red`, `green`, `orange`, `blue`, `magenta`, `cyan` and `white`.
+- For the `hl_color` function: `hl_green_1`, `hl_green_2`, `hl_green_3`, `hl_red`, `hl_yellow`, `hl_cyan`, `hl_grey` and `hl_white`.
+- For the `style` function: `bold`, `transparent`, `italics`, `underlined`, `highlighted`, `invisible` and `striped`.
+
+THerefore, if you want to change, for example, the output stream color into red you can do this:
 ```c++
-color ("red") << "This stream is red!" << reset () << endl;
+cout << color ("red") << "This stream is red!" << reset ();
 ```
 It will color the output stream in red until you put the `reset ()` function which resets the output stream style to the original one.
 
