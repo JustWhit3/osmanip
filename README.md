@@ -64,7 +64,7 @@ There is also an option to go back to the pre-compilation state of the code, to 
 make clean
 ```
 
-### How does osmanip work
+## How does osmanip work
 
 Once you have added the manipulator declaration and definition to one of your project, you may want to be able to use it freely in your code. In order to let it works you have to include it at the beginning of a code in this way:
 ```c++
