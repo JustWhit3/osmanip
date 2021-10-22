@@ -23,9 +23,12 @@ Excluding this README.md file, the [*License*](https://github.com/JustWhit3/osma
   * [**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains the manipulator definition file [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp).
 - [**main**](https://github.com/JustWhit3/osmanip/tree/main/main): which contains the main code [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp), which shows you an example of the manipulator utility and a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for code compilation.
 
-Detailed information about variables and functions utility can be seen in the manipulator declaration and definition files, since for each passage a proper comment has been added before several command lines.
-
-Note: the structure of the repository may seems more complex than what is needed, since there are many subdirectories and a makefile for compilation, that can be avoided in this case, due to the simplicity of the code structure, however I usually prefer keeping this structure in all my projects. Therefore is is just a matter of conventions.
+> **Note**
+> 
+>The structure of the repository may seems more complex than what is needed, since there are many 
+>subdirectories and a makefile for compilation, that can be avoided in this case, due to the 
+> simplicity of the code structure, however I usually prefer keeping this structure in all 
+> my projects. Therefore is is just a matter of conventions.
 
 ## Run the code
 
@@ -78,7 +81,9 @@ Where `path/to/osmanip/` is the path to the directory in which you put the osman
 ```c++
 #include "osmanip.h"
 ```
-In this latter case you can omit the full path. Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) and in your makefile or maybe set this latter in order to avoid this path dependence.
+In this latter case you can omit the full path. 
+> Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) 
+> and in your makefile or maybe set this latter in order to avoid this path dependence.
 
 Now you are able to access al the functions of the manipulator. 
 
