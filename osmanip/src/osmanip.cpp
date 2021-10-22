@@ -1,4 +1,5 @@
 #include <string>
+#include <cstdlib>
 #include "../include/osmanip.h"
 using namespace std;
 
@@ -54,7 +55,7 @@ string color (string color_string)
   else if (color_string == "magenta") {return magenta;}
   else if (color_string == "cyan") {return cyan;}
   else if (color_string == "white") {return white;}
-  else {return error;}
+  else {return error; exit(0);}
  }
  
 //Highlight color function definition:
@@ -68,7 +69,7 @@ string hl_color (string hl_color_string)
   else if (hl_color_string == "hl cyan") {return hl_cyan;}
   else if (hl_color_string == "hl grey") {return hl_grey;}
   else if (hl_color_string == "hl white") {return hl_white;}
-  else {return error;}
+  else {return error; exit(0);}
  }
 
 //Style function definition:
@@ -81,6 +82,8 @@ string style (string style_string)
   else if (style_string == "highlighted") {return highlighted;}
   else if (style_string == "invisible") {return invisible;}
   else if (style_string == "striped") {return striped;}
-  else {return error;}
+  else {return error; exit(0);}
  }
+
+
 
