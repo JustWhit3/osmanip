@@ -1,5 +1,3 @@
-osmanip/src/osmanip.o
-osmanip/src/osmanip.cpp.save
-main/main
-main/main.o
+obj
+main
 todo.cpp

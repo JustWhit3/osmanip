@@ -10,6 +10,7 @@
   * [Include the library](#include-the-library)
   * [Functions and variables](#functions-and-variables)
 - [List of features](#list-of-features)
+- [List of future implementations](#list-of-future-implementations)
 
 ## Introduction
 
@@ -18,10 +19,11 @@ Here I want to present you my personal C++ output-stream manipulator, called *os
 ## Description of the repository
 
 Excluding this README.md file, the [*License*](https://github.com/JustWhit3/osmanip/blob/main/License) file, the [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore) file and the [**img**](https://github.com/JustWhit3/osmanip/tree/main/img) folder (which contains images for the README.md), the repository contains two directories:
-- [**osmanip**](https://github.com/JustWhit3/osmanip/tree/main/osmanip): which contains two subdirectories:
-  * [**include**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/include): which contains the manipulator declaration file [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/include/osmanip.h).
-  * [**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains the manipulator definition file [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp).
-- [**main**](https://github.com/JustWhit3/osmanip/tree/main/main): which contains the main code [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp), which shows you an example of the manipulator utility and a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for code compilation.
+- [**include**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/include): which contains the manipulator declaration file [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/include/osmanip.h).
+[**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains two .cpp files:
+ * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp): which is the manipulator definition file.
+ * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp): which shows you an example of the manipulator utility.
+It also contains a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for code compilation.
 
 > **Note**
 > 
@@ -60,7 +62,7 @@ Now, let's suppose to continue from the previous step. For the compilation part 
 cd main
 make
 ```
-An executable file called *main* is now created and you have simply to run it in order to run the entire code:
+An extra **src** folder which contains the object files and an executable called *main* are now created: you have simply to run this latter in order to run the entire example code:
 ```shell
 ./main
 ```
@@ -111,4 +113,14 @@ It will color the output stream in red until you put the `reset ()` function whi
 Here you can find a screenshot of the output stream of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp) program which shows you all the features supported in the current version of the manipulator:
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/output.png">
+
+## List of future implementations
+
+Here a list of implementations I planned for future developments:
+
+- Bold, bright and background output colors.
+- Cursor navigation.
+- Progress indicator (percentage that loads).
+- ASCII progress bar (and maybe also multiple loading bars).
+
 

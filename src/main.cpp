@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../osmanip/include/osmanip.h"
+#include "../include/osmanip.h"
 using namespace std;
 
 int main ()
