@@ -20,10 +20,11 @@ Here I want to present you my personal C++ output-stream manipulator, called *os
 
 Excluding this README.md file, the [*License*](https://github.com/JustWhit3/osmanip/blob/main/License) file, the [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore) file and the [**img**](https://github.com/JustWhit3/osmanip/tree/main/img) folder (which contains images for the README.md), the repository contains two directories:
 - [**include**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/include): which contains the manipulator declaration file [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/include/osmanip.h).
-[**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains two .cpp files:
- * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp): which is the manipulator definition file.
- * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp): which shows you an example of the manipulator utility.
-It also contains a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for code compilation.
+- [**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains two .cpp files:
+  * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp): which is the manipulator definition file.
+  * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp): which shows you an example of the manipulator utility.
+
+There is also a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for code compilation.
 
 > **Note**
 > 
@@ -62,7 +63,7 @@ Now, let's suppose to continue from the previous step. For the compilation part 
 cd main
 make
 ```
-An extra **src** folder which contains the object files and an executable called *main* are now created: you have simply to run this latter in order to run the entire example code:
+An extra **src** folder with object files and an executable called *main* are now created: you have simply to run this latter in order to run the entire example code:
 ```shell
 ./main
 ```
@@ -91,7 +92,7 @@ Now you are able to access al the functions of the manipulator.
 
 ### Functions and variables
 
-Each function has to be placed after the `<<` operator, in order to change the output stream until it will meet the `reset()` function. This is the list of the currently defined functions:
+Each function has to be placed after the `<<` operator, in order to change the output stream until the `reset()` function is met. This is the list of the currently defined functions:
 - `string color (string color_string)`: which returns a string and is used to set the color of the output stream by giving the color name to its argument.
 - `hl_color (string hl_color_string)`: which returns a string and is used to set the highlight color of the output stream by giving the highlight color name to its argument.
 - `style (string style_string)`: which returns a string and is used to set the style of the output stream by giving the style name to its argument.
