@@ -93,12 +93,12 @@ Now you are able to access al the functions of the manipulator.
 ### Functions and variables
 
 List of the currently defined functions:
-- `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat )`: which takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the correspondent key.
+- `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat )`: which takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
 
 List of the currently defined std::map objects:
-- `std::map <std::string, std::string> col`: which is used for the color features and currently supports the following list of colors (first `std::string`) with the correspondent ASCII code (second `std::string`) or string value in the case of the `error` feature: 
-  * `reset` / `\033[0m`
+- `std::map <std::string, std::string> col`: which is used for the color features and currently supports the following list of colors (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
   * `error` / `Inserted color is not supported!\n`
+  * `reset` / `\033[0m`
   * `black` / `\033[30m`
   * `red` / `\033[31m`
   * `green` / `\033[32m`
@@ -108,20 +108,20 @@ List of the currently defined std::map objects:
   * `cyan` / `\033[36m`
   * `white` / `\033[37m`
   * `bg green 1` / `\033[40m`
-  * `bg green 2` / `\033[42m`
-  * `bg green 3` / `\033[46m`
   * `bg red` / `\033[41m`
+  * `bg green 2` / `\033[42m`
   * `bg yellow` / `\033[43m`
   * `bg cyan` / `\033[44m`
   * `bg grey` / `\033[45m`
+  * `bg green 3` / `\033[46m`
   * `bg white` / `\033[47m`
 
 > **Note**
 > "bg" is the prefix of the background color features.
 
-- `std::map <std::string, std::string> sty`: which is used for the style features and currently supports the following list of styles (first `std::string`) with the correspondent ASCII code (second `std::string`) or string value in the case of the `error` feature: 
-  * `reset` / `\033[0m`
+- `std::map <std::string, std::string> sty`: which is used for the style features and currently supports the following list of styles (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
   * `error` / `Inserted color is not supported!\n`
+  * `reset` / `\033[0m`
   * `bold` / `\033[1m`
   * `faint` / `\033[2m`
   * `italics` / `\033[3m`
