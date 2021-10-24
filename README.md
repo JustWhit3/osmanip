@@ -134,7 +134,7 @@ THerefore, if you want to change, for example, the output stream color into red 
 ```c++
 cout << feat( col, "red" ) << "This stream is red!" << feat( col, "reset" );
 ```
-It will color the output stream in red until you put the `rfeat( col, "reset" )` function which resets the output stream style to the original one.
+It will color the output stream in red until you put the `feat( col, "reset" )` function which resets the output stream style to the original one.
 
 Along with each function, at the end of the [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) file, test functions have been produced in order to test the correct output of each function. The list of the currently defined test functions is here:
 - `void feat_test( std::map <std::string, std::string> & generic_map_test );`: which tests the correct functionality of the `feat` function.
