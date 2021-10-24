@@ -103,10 +103,10 @@ List of the currently defined std::map objects:
   * `red` / `\033[31m`
   * `green` / `\033[32m`
   * `orange` / `\033[33m`
-  * `blue`/ `\033[34m`
-  * `magenta`/ `\033[35m`
-  * `cyan`/ `\033[36m`
-  * `white`/ `\033[37m`
+  * `blue` / `\033[34m`
+  * `magenta` / `\033[35m`
+  * `cyan` / `\033[36m`
+  * `white` / `\033[37m`
   * `bg green 1` / `\033[40m`
   * `bg green 2` / `\033[42m`
   * `bg green 3` / `\033[46m`
