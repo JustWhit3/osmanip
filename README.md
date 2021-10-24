@@ -79,7 +79,7 @@ unzip osmanip-x.y.z.zip
 mv osmanip-x.y.z osmanip
 ```
 
-> If you prefer to download the tar.gz format of the release you have to run the `gunzip` command followed by the `tar -xvf` command and than proceed with `mv`. 
+> If you prefer to download the tar.gz format of the release you have to run the `gunzip` command followed by the `tar -xvf` command on the zipped release folder and than proceed with `mv`. 
 
 And that's all. You can enter the folder by simply typing:
 ```shell
