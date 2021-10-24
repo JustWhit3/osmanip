@@ -5,6 +5,8 @@
 - [Description of the repository](#description-of-the-repository)
 - [Run the code](#run-the-code)
   * [Download](#download)
+    * [Download the whole repository](#download-the-whole-repository)
+    * [Download the latest release](#download-the-latest-release)
   * [Compile and run](#compile-and-run)
 - [How does osmanip work](#how-does-osmanip-work)
   * [Include the library](#include-the-library)
@@ -35,7 +37,11 @@ There is also a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main
 
 ## Run the code
 
-### Download
+### Download 
+
+To download the manipulator you can proceed in two independent ways.
+
+#### Download the whole repository
 
 First of all, you need to download the code: go to the [main page](https://github.com/JustWhit3/osmanip) of the repository and click on the upper right green button called `Code`. Than click on `Download ZIP` and wait the download to be completed.
 
@@ -51,6 +57,30 @@ cd $HOME
 unzip osmanip-main.zip
 mv osmanip-main osmanip
 ```
+And that's all. You can enter the folder by simply typing:
+```shell
+cd osmanip
+```
+
+#### Download the latest release
+
+Alternatively you can download the last version of the repository from the ``Releases`` button on the right of the repository main page. In this case the procedure is similar:
+
+Open a fresh shell and move the downloaded zipped file to your home directory (or to any other place you prefer):
+```shell
+mv Downloads/osmanip-x.y.z.zip $HOME
+```
+Where `x.y.z` is the release tag and ``Downloads`` have to be replaced with the right name (and maybe the right path) of your downloads directory.
+
+Now you have to enter your home folder (unless you were already in it, in this case skip this passage), extract the folder from the zipped file and renaming itself with its right repository name. Therefore lets type this commands one after the other:
+```shell
+cd $HOME
+unzip osmanip-x.y.z.zip
+mv osmanip-x.y.z osmanip
+```
+
+> If you prefer to download the tar.gz format of the release you have to run the `gunzip` command followed by the `tar -xvf` command and than proceed with `mv`. 
+
 And that's all. You can enter the folder by simply typing:
 ```shell
 cd osmanip
