@@ -93,10 +93,32 @@ Now you are able to access al the functions of the manipulator.
 ### Functions and variables
 
 List of the currently defined functions:
-- `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat )`: which takes a std::map object and a std::string object as arguments and return the interested feature.
+- `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat )`: which takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the correspondent key.
 
 List of the currently defined std::map objects:
-- `std::map <std::string, std::string> col` for the color features; it currently supports this list of colors: `black`, `red`, `green`, `orange`, `blue`, `magenta`, `cyan`, `white`, `hl green 1`, `hl green 2`, `hl green 3`, `hl red`, `hl yellow`, `hl cyan`, `hl grey` and `hl white`.
+- `std::map <std::string, std::string> col`: which is used for the color features and currently supports the following list of colors (first `std::string`) with the correspondent ASCII code (second `std::string`) or string value in the case of the `error` feature: 
+  * `reset` / `\033[0m`
+  * `error` / `Inserted color is not supported!\n`
+  * `black` / \033[30m
+  * `red` / \033[31m
+  * `green` / \033[32m
+  * `orange` / \033[33m
+  * `blue`/ \033[34m
+  * `magenta`/ \033[35m
+  * `cyan`/ \033[36m
+  * `white`/ \033[37m
+  * `bg green 1` / \033[40m
+  * `bg green 2` /
+  * `bg green 3` /
+  * `bg red` /
+  * `bg yellow` /
+  * `bg cyan` /
+  * `bg grey` /
+  * `bg white` /
+
+> **Note**
+> "bg" is the prefix of the background colors.
+
 - `std::map <std::string, std::string> sty` for the style features; it currently supports this list of styles: `bold`, `faint`, `italics`, `underlined`, `highlighted`, `invisible` and `striped`.
 
 THerefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
