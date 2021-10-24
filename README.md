@@ -92,22 +92,21 @@ Now you are able to access al the functions of the manipulator.
 
 ### Functions and variables
 
-Each function has to be placed after the `<<` operator, in order to change the output stream until the `reset()` function is met. This is the list of the currently defined functions:
-- `string color (string color_string)`: which returns a string and is used to set the color of the output stream by giving the color name to its argument.
-- `hl_color (string hl_color_string)`: which returns a string and is used to set the highlight color of the output stream by giving the highlight color name to its argument.
-- `style (string style_string)`: which returns a string and is used to set the style of the output stream by giving the style name to its argument.
-- `reset ();`: which doesn't return anything and is used to reset the style of the output stream.
+List of the currently defined functions:
+- `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat )`: which takes a std::map object and a std::string object as arguments and return the interested feature.
 
-THis is the list of the currently defined color / style variables you can pass to the previously defined functions:
-- For the `color` function: `black`, `red`, `green`, `orange`, `blue`, `magenta`, `cyan` and `white`.
-- For the `hl_color` function: `hl_green_1`, `hl_green_2`, `hl_green_3`, `hl_red`, `hl_yellow`, `hl_cyan`, `hl_grey` and `hl_white`.
-- For the `style` function: `bold`, `transparent`, `italics`, `underlined`, `highlighted`, `invisible` and `striped`.
+List of the currently defined std::map objects:
+- `std::map <std::string, std::string> col` for the color features; it currently supports this list of colors: `black`, `red`, `green`, `orange`, `blue`, `magenta`, `cyan`, `white`, `hl green 1`, `hl green 2`, `hl green 3`, `hl red`, `hl yellow`, `hl cyan`, `hl grey` and `hl white`.
+- `std::map <std::string, std::string> sty` for the style features; it currently supports this list of styles: `bold`, `faint`, `italics`, `underlined`, `highlighted`, `invisible` and `striped`.
 
-THerefore, if you want to change, for example, the output stream color into red you can do this:
+THerefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
-cout << color ("red") << "This stream is red!" << reset ();
+cout << feat( col, "red" ) << "This stream is red!" << feat( col, "reset" );
 ```
-It will color the output stream in red until you put the `reset ()` function which resets the output stream style to the original one.
+It will color the output stream in red until you put the `rfeat( col, "reset" )` function which resets the output stream style to the original one.
+
+Along with each function, at the end of the [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) file, test functions have been produced in order to test the correct output of each function. The list of the currently defined test functions is here:
+- `void feat_test( std::map <std::string, std::string> & generic_map_test );`: which tests the correct functionality of the `feat` function.
 
 ## List of features
 

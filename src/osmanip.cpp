@@ -1,89 +1,71 @@
+#include <iostream>
 #include <string>
-#include <cstdlib>
+#include <map>
+#include <cassert>
 #include "../include/osmanip.h"
-using namespace std;
 
-//Reset variables declaration (please note that the reset variable resets ALL, both colors and styles):
-string reset_var = "\033[0m";
 
-//Error variables definition:
-string error = "Inserted option is not valid!";
+//-----------------------------------------   DEFINITIONS   -----------------------------------------
 
-//Color variables definition:
-string black = "\033[30m",
-       red = "\033[31m",
-       green = "\033[32m",
-       orange = "\033[33m",
-       blue = "\033[34m",
-       magenta = "\033[35m",
-       cyan = "\033[36m",
-       white = "\033[37m";
 
-//Highlight color variables definition:
-string hl_green_1 = "\033[40m",
-       hl_green_2 = "\033[42m",
-       hl_green_3 = "\033[46m",
-       hl_red = "\033[41m",
-       hl_yellow = "\033[43m",
-       hl_cyan = "\033[44m",
-       hl_grey = "\033[45m",
-       hl_white = "\033[47m";
-
-//Style variables definition:
-string bold = "\033[1m",
-       transparent = "\033[2m",
-       italics = "\033[3m",
-       underlined = "\033[4m",
-       highlighted = "\033[7m",
-       invisible = "\033[8m",
-       striped = "\033[9m";
-
-//Reset function definition:
-string reset ()
+//Definition of the color map:
+std::map <std::string, std::string> col 
  {
-  return reset_var;
- }
+  { "error", "Inserted color is not supported!\n" }, { "reset", "\033[0m" },
+  { "black", "\033[30m" }, { "red", "\033[31m" }, { "green", "\033[32m" }, { "orange", "\033[33m" }, { "blue", "\033[34m" }, { "magenta", "\033[35m" }, 
+  { "cyan", "\033[36m" }, { "white", "\033[37m" }, { "hl green 1", "\033[40m" }, { "hl green 2", "\033[42m" }, { "hl green 3", "\033[46m" }, 
+  { "hl red", "\033[41m" }, { "hl yellow", "\033[43m" }, { "hl cyan", "\033[44m" }, { "hl grey", "\033[45m" }, { "hl white", "\033[47m" }
+ };
 
-//Color function definition:
-string color (string color_string)
+//Definition of the style map:
+std::map <std::string, std::string> sty 
  {
-  if (color_string == "black") {return black;}
-  else if (color_string == "red") {return red;}
-  else if (color_string == "green") {return green;}
-  else if (color_string == "orange") {return orange;}
-  else if (color_string == "blue") {return blue;}
-  else if (color_string == "magenta") {return magenta;}
-  else if (color_string == "cyan") {return cyan;}
-  else if (color_string == "white") {return white;}
-  else {return error; exit(0);}
+  { "error", "Inserted style is not supported!\n" }, { "reset", "\033[0m" },
+  { "bold", "\033[1m" }, { "faint", "\033[2m" }, { "italics", "\033[3m" }, { "underlined", "\033[4m" }, { "highlighted", "\033[7m" }, 
+  { "invisible", "\033[8m" }, { "striped", "\033[9m" }
+ };
+ 
+//Definiton of the feature function:
+std::string feat( std::map <std::string, std::string> & generic_map, std::string feat )
+ {
+  if ( generic_map.find( feat ) == generic_map.end() ) 
+   {
+    throw std::runtime_error( generic_map.at( "error" ) );
+   } 
+  else
+   {
+    return generic_map.at( feat );
+   }
  }
  
-//Highlight color function definition:
-string hl_color (string hl_color_string)
+ 
+//-----------------------------------------   TESTINGS   -----------------------------------------
+
+
+//Definition of the "feat" function testing function:
+void feat_test( std::map <std::string, std::string> & generic_map_test  )
  {
-  if (hl_color_string == "hl green 1") {return hl_green_1;}
-  else if (hl_color_string == "hl green 2") {return hl_green_2;}
-  else if (hl_color_string == "hl green 3") {return hl_green_3;}
-  else if (hl_color_string == "hl red") {return hl_red;}
-  else if (hl_color_string == "hl yellow") {return hl_yellow;}
-  else if (hl_color_string == "hl cyan") {return hl_cyan;}
-  else if (hl_color_string == "hl grey") {return hl_grey;}
-  else if (hl_color_string == "hl white") {return hl_white;}
-  else {return error; exit(0);}
+  for( auto & element: generic_map_test )
+   {
+    if( generic_map_test.find( element.first ) == generic_map_test.end() )
+     {
+      bool exceptionThrown = false;
+      try 
+       {
+        feat( generic_map_test, element.first );
+       } 
+      catch( std::runtime_error & )
+       {
+        exceptionThrown = true;
+       }
+      assert( exceptionThrown &&
+      "Function \"feat\" didn't return runtime error if an invalid feature is inserted!" );
+     }
+    else
+     {
+      assert( feat( generic_map_test, element.first ) == generic_map_test.at( element.first ) &&
+     "Function \"feat\" didn't return the correct feature!" );
+     }
+   }
  }
-
-//Style function definition:
-string style (string style_string)
- {
-  if (style_string == "bold") {return bold;}
-  else if (style_string == "transparent") {return transparent;}
-  else if (style_string == "italics") {return italics;}
-  else if (style_string == "underlined") {return underlined;}
-  else if (style_string == "highlighted") {return highlighted;}
-  else if (style_string == "invisible") {return invisible;}
-  else if (style_string == "striped") {return striped;}
-  else {return error; exit(0);}
- }
-
-
 
