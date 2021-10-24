@@ -58,7 +58,7 @@ cd osmanip
 
 ### Compile and run
 
-Now, let's suppose to continue from the previous step. For the compilation part I prepared a [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile), in order to simplify this procedure. So you have to enter the [**main**](https://github.com/JustWhit3/osmanip/tree/main/main) folder and run the [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) by typing:
+Now, let's su> ppose to continue from the previous step. For the compilation part I prepared a [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile), in order to simplify this procedure. So you have to enter the [**main**](https://github.com/JustWhit3/osmanip/tree/main/main) folder and run the [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) by typing:
 ```shell
 cd main
 make
@@ -89,6 +89,9 @@ In this latter case you can omit the full path.
 > and in your makefile or maybe set this latter in order to avoid this path dependence.
 
 Now you are able to access al the functions of the manipulator. 
+
+> **Note**
+> If you want to keep the manipulator only, in order to use it in one of your projects, you can delete the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp) and the [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) files.
 
 ### Functions and variables
 
