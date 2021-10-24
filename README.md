@@ -99,27 +99,36 @@ List of the currently defined std::map objects:
 - `std::map <std::string, std::string> col`: which is used for the color features and currently supports the following list of colors (first `std::string`) with the correspondent ASCII code (second `std::string`) or string value in the case of the `error` feature: 
   * `reset` / `\033[0m`
   * `error` / `Inserted color is not supported!\n`
-  * `black` / \033[30m
-  * `red` / \033[31m
-  * `green` / \033[32m
-  * `orange` / \033[33m
-  * `blue`/ \033[34m
-  * `magenta`/ \033[35m
-  * `cyan`/ \033[36m
-  * `white`/ \033[37m
-  * `bg green 1` / \033[40m
-  * `bg green 2` /
-  * `bg green 3` /
-  * `bg red` /
-  * `bg yellow` /
-  * `bg cyan` /
-  * `bg grey` /
-  * `bg white` /
+  * `black` / `\033[30m`
+  * `red` / `\033[31m`
+  * `green` / `\033[32m`
+  * `orange` / `\033[33m`
+  * `blue`/ `\033[34m`
+  * `magenta`/ `\033[35m`
+  * `cyan`/ `\033[36m`
+  * `white`/ `\033[37m`
+  * `bg green 1` / `\033[40m`
+  * `bg green 2` / `\033[42m`
+  * `bg green 3` / `\033[46m`
+  * `bg red` / `\033[41m`
+  * `bg yellow` / `\033[43m`
+  * `bg cyan` / `\033[44m`
+  * `bg grey` / `\033[45m`
+  * `bg white` / `\033[47m`
 
 > **Note**
-> "bg" is the prefix of the background colors.
+> "bg" is the prefix of the background color features.
 
-- `std::map <std::string, std::string> sty` for the style features; it currently supports this list of styles: `bold`, `faint`, `italics`, `underlined`, `highlighted`, `invisible` and `striped`.
+- `std::map <std::string, std::string> sty`: which is used for the style features and currently supports the following list of styles (first `std::string`) with the correspondent ASCII code (second `std::string`) or string value in the case of the `error` feature: 
+  * `reset` / `\033[0m`
+  * `error` / `Inserted color is not supported!\n`
+  * `bold` / `\033[1m`
+  * `faint` / `\033[2m`
+  * `italics` / `\033[3m`
+  * `underlined` / `\033[4m`
+  * `highlighted` / `\033[7m`
+  * `invisible` / `\033[8m`
+  * `striped` / `\033[9m`
 
 THerefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
