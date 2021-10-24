@@ -21,12 +21,12 @@ Here I want to present you my personal C++ output-stream manipulator, called *os
 ## Description of the repository
 
 Excluding this README.md file, the [*License*](https://github.com/JustWhit3/osmanip/blob/main/License) file, the [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore) file and the [**img**](https://github.com/JustWhit3/osmanip/tree/main/img) folder (which contains images for the README.md), the repository contains two directories:
-- [**include**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/include): which contains the manipulator declaration file [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/include/osmanip.h).
-- [**src**](https://github.com/JustWhit3/osmanip/tree/main/osmanip/src): which contains two .cpp files:
-  * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp): which is the manipulator definition file.
-  * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp): which shows you an example of the manipulator utility.
+- [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): which contains the manipulator declaration file [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h).
+- [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): which contains two .cpp files:
+  * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): which is the manipulator definition file.
+  * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you an example of the manipulator utility.
 
-There is also a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) for code compilation.
+There is also a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile) for code compilation.
 
 > **Note**
 > 
@@ -88,16 +88,15 @@ cd osmanip
 
 ### Compile and run
 
-Now, let's su> ppose to continue from the previous step. For the compilation part I prepared a [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile), in order to simplify this procedure. So you have to enter the [**main**](https://github.com/JustWhit3/osmanip/tree/main/main) folder and run the [makefile](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) by typing:
+Now, let's supppose to continue from the previous step. For the compilation part I prepared a [makefile](https://github.com/JustWhit3/osmanip/blob/main/makefile), in order to simplify this procedure. So you can run it by simply typing:
 ```shell
-cd main
 make
 ```
-An extra **src** folder with object files and an executable called *main* are now created: you have simply to run this latter in order to run the entire example code:
+An extra **obj** folder with object files and an executable called *main* are now created: you have simply to run this latter in order to run the entire example code:
 ```shell
 ./main
 ```
-There is also an option to go back to the pre-compilation state of the code, to do this simply type this command where you are in the **main** folder:
+There is also an option to go back to the pre-compilation state of the code, to do this simply type this command:
 ```shell
 make clean
 ```
@@ -115,13 +114,13 @@ Where `path/to/osmanip/` is the path to the directory in which you put the osman
 #include "osmanip.h"
 ```
 In this latter case you can omit the full path. 
-> Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) 
+> Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp) 
 > and in your makefile or maybe set this latter in order to avoid this path dependence.
 
 Now you are able to access al the functions of the manipulator. 
 
 > **Note**
-> If you want to keep the manipulator only, in order to use it in one of your projects, you can delete the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp) and the [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/main/makefile) files.
+> If you want to keep the manipulator only, in order to use it in one of your projects, you can delete the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main.cpp) and the [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile) files.
 
 ### Functions and variables
 
@@ -169,12 +168,12 @@ cout << feat( col, "red" ) << "This stream is red!" << feat( col, "reset" );
 ```
 This will color the output stream in red until the `feat( col, "reset" )` function is met again, but with the `reset` key as the second argument, in ordert to reset the output stream style.
 
-Along with each function, at the end of the [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/osmanip/src/osmanip.cpp) file, test functions have been produced in order to test the correct output of each function. The list of the currently defined test functions is the following:
+Along with each function, at the end of the [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp) file, test functions have been produced in order to test the correct output of each function. The list of the currently defined test functions is the following:
 - `void feat_test( std::map <std::string, std::string> & generic_map_test );`: which tests the correct functionality of the `feat` function.
 
 ## List of features
 
-Here you can find a screenshot of the output stream of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main/main.cpp) program which shows you all the features supported in the current version of the manipulator:
+Here you can find a screenshot of the output stream of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main.cpp) program which shows you all the features supported in the current version of the manipulator:
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/output.png">
 
