@@ -22,14 +22,14 @@ int main ()
        
        << endl << "---------------------   LIST OF THE AVAILABLE BACKGROUND COLORS   ---------------------" << endl << endl
        
-       << feat( col, "hl green 1" ) << "This is a background green 1 string." << feat( col, "reset" ) << endl
-       << feat( col, "hl green 2" ) << "This is a background green 2 string." << feat( col, "reset" ) << endl
-       << feat( col, "hl green 3" ) << "This is a green background 3 string." << feat( col, "reset" ) << endl
-       << feat( col, "hl red" ) << "This is a background red string." << feat( col, "reset" ) << endl
-       << feat( col, "hl yellow" ) << "This is a background yellow string." << feat( col, "reset" ) << endl
-       << feat( col, "hl cyan" ) << "This is a background cyan string." << feat( col, "reset" ) << endl
-       << feat( col, "hl grey" ) << "This is a background grey string." << feat( col, "reset" ) << endl
-       << feat( col, "hl white" ) << "This is a background white string." << feat( col, "reset" ) << endl
+       << feat( col, "bg green 1" ) << "This is a background green 1 string." << feat( col, "reset" ) << endl
+       << feat( col, "bg green 2" ) << "This is a background green 2 string." << feat( col, "reset" ) << endl
+       << feat( col, "bg green 3" ) << "This is a green background 3 string." << feat( col, "reset" ) << endl
+       << feat( col, "bg red" ) << "This is a background red string." << feat( col, "reset" ) << endl
+       << feat( col, "bg yellow" ) << "This is a background yellow string." << feat( col, "reset" ) << endl
+       << feat( col, "bg cyan" ) << "This is a background cyan string." << feat( col, "reset" ) << endl
+       << feat( col, "bg grey" ) << "This is a background grey string." << feat( col, "reset" ) << endl
+       << feat( col, "bg white" ) << "This is a background white string." << feat( col, "reset" ) << endl
        
        << endl << "---------------------   LIST OF THE AVAILABLE STYLES   ---------------------" << endl << endl
        

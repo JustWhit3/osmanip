@@ -13,8 +13,8 @@ std::map <std::string, std::string> col
  {
   { "error", "Inserted color is not supported!\n" }, { "reset", "\033[0m" },
   { "black", "\033[30m" }, { "red", "\033[31m" }, { "green", "\033[32m" }, { "orange", "\033[33m" }, { "blue", "\033[34m" }, { "magenta", "\033[35m" }, 
-  { "cyan", "\033[36m" }, { "white", "\033[37m" }, { "hl green 1", "\033[40m" }, { "hl green 2", "\033[42m" }, { "hl green 3", "\033[46m" }, 
-  { "hl red", "\033[41m" }, { "hl yellow", "\033[43m" }, { "hl cyan", "\033[44m" }, { "hl grey", "\033[45m" }, { "hl white", "\033[47m" }
+  { "cyan", "\033[36m" }, { "white", "\033[37m" }, { "bg green 1", "\033[40m" }, { "bg green 2", "\033[42m" }, { "bg green 3", "\033[46m" }, 
+  { "bg red", "\033[41m" }, { "bg yellow", "\033[43m" }, { "bg cyan", "\033[44m" }, { "bg grey", "\033[45m" }, { "bg white", "\033[47m" }
  };
 
 //Definition of the style map:
