@@ -64,7 +64,7 @@ cd osmanip
 
 #### Download the latest release
 
-Alternatively you can download the last version of the repository from the ``Releases`` button on the right of the repository main page. In this case the procedure is similar:
+Alternatively you can download the latest version of the repository from the ``Releases`` button on the right of the repository main page by clicking on the source code link. In this case the procedure is similar:
 
 Open a fresh shell and move the downloaded zipped file to your home directory (or to any other place you prefer):
 ```shell
