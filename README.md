@@ -193,7 +193,7 @@ This will color the output stream in red until the `reset( "color" )` function i
 
 You can also print mixed color and styles strings:
 ```c++
-feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
+cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
 ```
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in ordert to reset all the output stream color / style.
 
