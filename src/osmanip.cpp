@@ -8,33 +8,81 @@
 //-----------------------------------------   DEFINITIONS   -----------------------------------------
 
 
-//Definition of the color map:
+//Definition of the "color" map:
 std::map <std::string, std::string> col 
  {
-  { "error", "Inserted color is not supported!\n" }, { "reset", "\033[0m" },
-  { "black", "\033[30m" }, { "red", "\033[31m" }, { "green", "\033[32m" }, { "orange", "\033[33m" }, { "blue", "\033[34m" }, { "magenta", "\033[35m" }, 
-  { "cyan", "\033[36m" }, { "white", "\033[37m" }, { "bg green 1", "\033[40m" }, { "bg green 2", "\033[42m" }, { "bg green 3", "\033[46m" }, 
-  { "bg red", "\033[41m" }, { "bg yellow", "\033[43m" }, { "bg cyan", "\033[44m" }, { "bg grey", "\033[45m" }, { "bg white", "\033[47m" }
+  //Error variables:
+  { "error", "Inserted color" },
+  
+  //Color variables:
+  { "black", "\033[30m" }, { "red", "\033[31m" }, { "green", "\033[32m" }, { "orange", "\033[33m" }, { "blue", "\033[34m" }, { "purple", "\033[35m" }, 
+  { "cyan", "\033[36m" }, { "gray", "\033[37m" }, { "bg green 1", "\033[40m" }, { "bg green 2", "\033[42m" }, { "bg green 3", "\033[46m" }, 
+  { "bg red", "\033[41m" }, { "bg yellow", "\033[43m" }, { "bg cyan", "\033[44m" }, { "bg grey", "\033[45m" }, { "bg white", "\033[47m" },
+  { "bd black", "\033[1;30m"}, { "bd red", "\033[1;31m" }, { "bd green", "\033[1;32m" }, { "bd orange", "\033[1;33m" }, 
+  { "bd blue", "\033[1;34m" }, { "bd purple", "\033[1;35m"}, { "bd cyan", "\033[1;36m" }, { "bd gray", "\033[1;37m" }
  };
 
-//Definition of the style map:
+//Definition of the "style" map:
 std::map <std::string, std::string> sty 
  {
-  { "error", "Inserted style is not supported!\n" }, { "reset", "\033[0m" },
-  { "bold", "\033[1m" }, { "faint", "\033[2m" }, { "italics", "\033[3m" }, { "underlined", "\033[4m" }, { "highlighted", "\033[7m" }, 
-  { "invisible", "\033[8m" }, { "striped", "\033[9m" }
+  //Error variables:
+  { "error", "Inserted style" },
+  
+  //Color variables:
+  { "bold", "\033[1m" }, { "faint", "\033[2m" }, { "italics", "\033[3m" }, { "underlined", "\033[4m" }, { "blink", "\033[5m" }, { "inverse", "\033[7m" }, 
+  { "invisible", "\033[8m" }, { "crossed", "\033[9m" },  {"d-underlined", "\033[21m" }
  };
  
-//Definiton of the feature function:
-std::string feat( std::map <std::string, std::string> & generic_map, std::string feat )
+//Definition of the "reset" map:
+std::map <std::string, std::string> rst 
  {
-  if ( generic_map.find( feat ) == generic_map.end() ) 
+  //Error variables:
+  { "error", "Inserted reset command" },
+  
+  //Reset total variables:
+  { "all", "\033[0m" },
+  
+  //Reset color variables:
+  { "color", "\033[39m" }, { "bg color", "\033[49m" }, {"bd color", "\033[22m \033[39m"  },
+  
+  //Reset style variables:
+  { "bd/ft", "\033[22m" }, { "italics", "\033[23m" }, { "underlined", "\033[24m" }, { "blink", "\033[25m" }, { "inverse", "\033[27m" },
+  { "invisible", "\033[28m" }, { "crossed", "\033[29m" },
+ };
+ 
+//Definiton of the "feat" function:
+std::string feat( std::map <std::string, std::string> & generic_map, std::string feat_string )
+ {
+  if ( generic_map.find( feat_string ) == generic_map.end() ) 
    {
-    throw std::runtime_error( generic_map.at( "error" ) );
+    std::string conct;
+    conct.append( generic_map.at( "error" ) );
+    conct.append( " \"" );
+    conct.append( feat_string );
+    conct.append( "\" is not supported!\n" );
+    throw std::runtime_error( conct );
    } 
   else
    {
-    return generic_map.at( feat );
+    return generic_map.at( feat_string );
+   }
+ }
+ 
+//Definition of the "reset" function
+std::string reset ( std::string reset_string )
+ {
+  if ( rst.find( reset_string ) == rst.end() ) 
+   {
+    std::string conct;
+    conct.append( rst.at( "error" ) );
+    conct.append( " \"" );
+    conct.append( reset_string );
+    conct.append( "\" is not supported!\n" );
+    throw std::runtime_error( conct );
+   } 
+  else
+   {
+    return rst.at( reset_string );
    }
  }
  
@@ -65,6 +113,33 @@ void feat_test( std::map <std::string, std::string> & generic_map_test  )
      {
       assert( feat( generic_map_test, element.first ) == generic_map_test.at( element.first ) &&
      "Function \"feat\" didn't return the correct feature!" );
+     }
+   }
+ }
+ 
+//Definition of the "reset" function testing function:
+void reset_test ()
+ {
+  for( auto & element: rst )
+   {
+    if( rst.find( element.first ) == rst.end() )
+     {
+      bool exceptionThrown = false;
+      try 
+       {
+        reset( element.first );
+       } 
+      catch( std::runtime_error & )
+       {
+        exceptionThrown = true;
+       }
+      assert( exceptionThrown &&
+      "Function \"reset\" didn't return runtime error if an invalid reset command is inserted!" );
+     }
+    else
+     {
+      assert( reset( element.first ) == rst.at( element.first ) &&
+     "Function \"reset\" didn't return the correct reset command!" );
      }
    }
  }

@@ -125,20 +125,20 @@ Now you are able to access al the functions of the manipulator.
 ### Functions and variables
 
 List of the currently defined functions:
-- `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat )`: which takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
+- `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )`: which takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
+- `std::string reset ( std::string reset_string )`: which takes a `std::string` object (`reset` map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
 
 List of the currently defined std::map objects:
 - `std::map <std::string, std::string> col`: which is used for the color features and currently supports the following list of colors (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
-  * `error` / `Inserted color is not supported!\n`
-  * `reset` / `\033[0m`
+  * `error` / `Inserted color`
   * `black` / `\033[30m`
   * `red` / `\033[31m`
   * `green` / `\033[32m`
   * `orange` / `\033[33m`
   * `blue` / `\033[34m`
-  * `magenta` / `\033[35m`
+  * `purple` / `\033[35m`
   * `cyan` / `\033[36m`
-  * `white` / `\033[37m`
+  * `gray` / `\033[37m`
   * `bg green 1` / `\033[40m`
   * `bg red` / `\033[41m`
   * `bg green 2` / `\033[42m`
@@ -147,29 +147,59 @@ List of the currently defined std::map objects:
   * `bg grey` / `\033[45m`
   * `bg green 3` / `\033[46m`
   * `bg white` / `\033[47m`
+  * `bd black` / `\033[1;30m`
+  * `bd red` / `\033[1;31m`
+  * `bd green` / `\033[1;32m`
+  * `bd orange` / `\033[1;33m`
+  * `bd blue` / `\033[1;34m`
+  * `bd purple` / `\033[1;35m`
+  * `bd cyan` / `\033[1;36m`
+  * `bd gray` / `\033[1;37m`
 
 > **Note**
-> "bg" is the prefix of the background color features.
+> "bg" is the prefix of the background color features and "bd" is the one of the bold color features.
 
 - `std::map <std::string, std::string> sty`: which is used for the style features and currently supports the following list of styles (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
-  * `error` / `Inserted color is not supported!\n`
-  * `reset` / `\033[0m`
+  * `error` / `Inserted color`
   * `bold` / `\033[1m`
   * `faint` / `\033[2m`
   * `italics` / `\033[3m`
   * `underlined` / `\033[4m`
-  * `highlighted` / `\033[7m`
+  * `blink` / `\033[5m`
+  * `inverse` / `\033[7m`
   * `invisible` / `\033[8m`
-  * `striped` / `\033[9m`
+  * `crossed` / `\033[9m`
+  * `d-underlined` / `\033[21m`
+  
+- `std::map <std::string, std::string> rst`: which is used to reset features and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
+  * `error` / `Inserted reset command`
+  * `all` / `\033[0m`
+  * `color` / `\033[39m`
+  * `bg color` / `\033[49m`
+  * `bd color` / `\033[22m + \033[39m`
+  * `bd/ft` / `\033[22m`
+  * `italics` / `\033[23m`
+  * `underlined` / `\033[24m`
+  * `blink` / `\033[25m`
+  * `inverse` / `\033[27m`
+  * `invisible` / `\033[28m`
+  * `crossed` / `\033[29m`
 
 THerefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
-cout << feat( col, "red" ) << "This stream is red!" << feat( col, "reset" );
+cout << feat( col, "red" ) << "This stream is red!" << reset( "color" );
 ```
-This will color the output stream in red until the `feat( col, "reset" )` function is met again, but with the `reset` key as the second argument, in ordert to reset the output stream style.
+This will color the output stream in red until the `reset( "color" )` function is met again, in ordert to reset the output stream color.
+
+You can also print mixed color and styles strings:
+```c++
+feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
+```
+This will underline and color the output stream in red until the `reset( "all" )` function is met again, in ordert to reset all the output stream color / style.
 
 Along with each function, at the end of the [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp) file, test functions have been produced in order to test the correct output of each function. The list of the currently defined test functions is the following:
 - `void feat_test( std::map <std::string, std::string> & generic_map_test );`: which tests the correct functionality of the `feat` function.
+- `void reset_test();`: which tests the correct functionality of the `reset` function.
 
 ## List of features
 
