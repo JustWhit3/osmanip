@@ -185,7 +185,7 @@ List of the currently defined std::map objects:
   * `invisible` / `\033[28m`
   * `crossed` / `\033[29m`
 
-THerefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
+Therefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
 cout << feat( col, "red" ) << "This stream is red!" << reset( "color" );
 ```
