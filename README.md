@@ -201,7 +201,7 @@ List of the currently defined std::map objects:
   * `invisible` / `\033[28m`
   * `crossed` / `\033[29m`
 
-THerefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
+Therefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
 cout << feat( col, "red" ) << "This stream is red!" << reset( "color" );
 ```
@@ -209,7 +209,7 @@ This will color the output stream in red until the `reset( "color" )` function i
 
 You can also print mixed color and styles strings:
 ```c++
-feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
+cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
 ```
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in ordert to reset all the output stream color / style.
 
