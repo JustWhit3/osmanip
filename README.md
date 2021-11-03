@@ -227,7 +227,6 @@ Here you can find a screenshot of the output stream of the [*main.cpp*](https://
 
 Here a list of implementations I planned for future developments:
 
-- Bold, bright and background output colors.
 - Cursor navigation.
 - Progress indicator (percentage that loads).
 - ASCII progress bar (and maybe also multiple loading bars).
