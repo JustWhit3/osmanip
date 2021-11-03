@@ -60,6 +60,16 @@ std::map <std::string, std::string> rst
   { "inverse", "\033[27m" }, { "invisible", "\033[28m" }, { "crossed", "\033[29m" },
  };
  
+//Definition of the "cursor" map:
+std::map <std::string, std::string> crs
+ {
+  //Error variables:
+  { "error", "Inserted cursor command" },
+  
+  //Cursor variables:
+  { "up", "\u001b[A" }, { "down", "\u001b[B" }, { "right", "\u001b[C" }, { "left", "\u001b[D" }
+ };
+ 
 //Definiton of the "feat" function:
 std::string feat( std::map <std::string, std::string> & generic_map, std::string feat_string )
  {

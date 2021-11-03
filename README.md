@@ -200,6 +200,13 @@ List of the currently defined std::map objects:
   * `inverse` / `\033[27m`
   * `invisible` / `\033[28m`
   * `crossed` / `\033[29m`
+  
+- `std::map <std::string, std::string> crs`: which is used for the cursor naviagation features and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
+  * `error` / `Inserted cursor command`
+  * `up` / \ `u001b[A`
+  * `down` / `\u001b[B`
+  * `right` / `\u001b[C`
+  * `left` / `\u001b[D`
 
 Therefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
