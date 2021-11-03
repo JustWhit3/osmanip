@@ -15,9 +15,18 @@ std::map <std::string, std::string> col
   { "error", "Inserted color" },
   
   //Color variables:
-  { "black", "\033[30m" }, { "red", "\033[31m" }, { "green", "\033[32m" }, { "orange", "\033[33m" }, { "blue", "\033[34m" }, { "purple", "\033[35m" }, 
-  { "cyan", "\033[36m" }, { "gray", "\033[37m" }, { "bg green 1", "\033[40m" }, { "bg green 2", "\033[42m" }, { "bg green 3", "\033[46m" }, 
-  { "bg red", "\033[41m" }, { "bg yellow", "\033[43m" }, { "bg cyan", "\033[44m" }, { "bg grey", "\033[45m" }, { "bg white", "\033[47m" },
+  { "black", "\033[30m" }, { "red", "\033[31m" }, { "green", "\033[32m" }, { "orange", "\033[33m" }, 
+  { "blue", "\033[34m" }, { "purple", "\033[35m" }, { "cyan", "\033[36m" }, { "gray", "\033[37m" }, 
+  { "dk gray", "\033[90m" }, { "lt red", "\033[91m" },  { "lt green", "\033[92m" }, { "yellow", "\033[93m" },
+  { "lt blue", "\033[94m"}, { "lt purple", "\033[95m" }, { "lt cyan", "\033[96m" }, { "white", "\033[97m" },
+  
+  //Background color variables:
+  { "bg black", "\033[40m" }, { "bg red", "\033[41m" }, { "bg green", "\033[42m" }, { "bg orange", "\033[43m" },
+  { "bg cyan", "\033[44m" }, { "bg purple", "\033[45m" }, { "bg blue", "\033[46m" }, { "bg gray", "\033[47m" },
+  { "bg dk gray", "\033[100m"}, { "bg lt red", "\033[101m" },  { "bg lt green", "\033[102m" }, { "bg yellow", "\033[103m" },
+  { "bg lt blue", "\033[104m"}, { "bg lt purple", "\033[105m" }, { "bg lt cyan", "\033[106m" }, { "bg white", "\033[107m" },
+  
+  //Bold color variables:
   { "bd black", "\033[1;30m"}, { "bd red", "\033[1;31m" }, { "bd green", "\033[1;32m" }, { "bd orange", "\033[1;33m" }, 
   { "bd blue", "\033[1;34m" }, { "bd purple", "\033[1;35m"}, { "bd cyan", "\033[1;36m" }, { "bd gray", "\033[1;37m" }
  };
@@ -29,8 +38,9 @@ std::map <std::string, std::string> sty
   { "error", "Inserted style" },
   
   //Color variables:
-  { "bold", "\033[1m" }, { "faint", "\033[2m" }, { "italics", "\033[3m" }, { "underlined", "\033[4m" }, { "blink", "\033[5m" }, { "inverse", "\033[7m" }, 
-  { "invisible", "\033[8m" }, { "crossed", "\033[9m" },  {"d-underlined", "\033[21m" }
+  { "bold", "\033[1m" }, { "faint", "\033[2m" }, { "italics", "\033[3m" }, { "underlined", "\033[4m" }, 
+  { "blink", "\033[5m" }, { "inverse", "\033[7m" }, { "invisible", "\033[8m" }, { "crossed", "\033[9m" },
+  {"d-underlined", "\033[21m" }
  };
  
 //Definition of the "reset" map:
@@ -46,8 +56,8 @@ std::map <std::string, std::string> rst
   { "color", "\033[39m" }, { "bg color", "\033[49m" }, {"bd color", "\033[22m \033[39m"  },
   
   //Reset style variables:
-  { "bd/ft", "\033[22m" }, { "italics", "\033[23m" }, { "underlined", "\033[24m" }, { "blink", "\033[25m" }, { "inverse", "\033[27m" },
-  { "invisible", "\033[28m" }, { "crossed", "\033[29m" },
+  { "bd/ft", "\033[22m" }, { "italics", "\033[23m" }, { "underlined", "\033[24m" }, { "blink", "\033[25m" }, 
+  { "inverse", "\033[27m" }, { "invisible", "\033[28m" }, { "crossed", "\033[29m" },
  };
  
 //Definiton of the "feat" function:

@@ -139,14 +139,30 @@ List of the currently defined std::map objects:
   * `purple` / `\033[35m`
   * `cyan` / `\033[36m`
   * `gray` / `\033[37m`
-  * `bg green 1` / `\033[40m`
+  * `dk gray` / `\033[90m`
+  * `lt red` / `\033[91m`
+  * `lt green` / `\033[92m`
+  * `yellow` / `\033[93m`
+  * `lt blue` / `\033[94m`
+  * `lt purple` / `\033[95m`
+  * `lt cyan` / `\033[96m`
+  * `white` / `\033[97m`
+  * `bg black` / `\033[40m`
   * `bg red` / `\033[41m`
-  * `bg green 2` / `\033[42m`
-  * `bg yellow` / `\033[43m`
+  * `bg green` / `\033[42m`
+  * `bg orange` / `\033[43m`
   * `bg cyan` / `\033[44m`
-  * `bg grey` / `\033[45m`
-  * `bg green 3` / `\033[46m`
-  * `bg white` / `\033[47m`
+  * `bg purple` / `\033[45m`
+  * `bg blue` / `\033[46m`
+  * `bg gray` / `\033[47m`
+  * `bg dk gray` / `\033[100m`
+  * `bg lt red` / `\033[101m`
+  * `bg lt green` / `\033[102m`
+  * `bg yellow` / `\033[103m`
+  * `bg lt blue` / `\033[104m`
+  * `bg lt purple` / `\033[105m`
+  * `bg ly cyan` / `\033[106m`
+  * `bg white` / `\033[107m`
   * `bd black` / `\033[1;30m`
   * `bd red` / `\033[1;31m`
   * `bd green` / `\033[1;32m`

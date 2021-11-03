@@ -20,6 +20,14 @@ int main ()
        << feat( col, "purple" ) << "This is a purple string." << reset( "color" ) << endl
        << feat( col, "cyan" ) << "This is a cyan string." << reset( "color" ) << endl
        << feat( col, "gray" ) << "This is a gray string." << reset( "color" ) << endl
+       << feat( col, "dk gray" ) << "This is a dark gray string." << reset( "color" ) << endl
+       << feat( col, "lt red" ) << "This is a light red string." << reset( "color" ) << endl
+       << feat( col, "lt green" ) << "This is a light green string." << reset( "color" ) << endl
+       << feat( col, "yellow" ) << "This is a yellow string." << reset( "color" ) << endl
+       << feat( col, "lt blue" ) << "This is a light blue string." << reset( "color" ) << endl
+       << feat( col, "lt purple" ) << "This is a light purple string." << reset( "color" ) << endl
+       << feat( col, "lt cyan" ) << "This is a light cyan string." << reset( "color" ) << endl
+       << feat( col, "white" ) << "This is a white string." << reset( "color" ) << endl
        
        << endl << "---------------------   BOLD COLORS   ---------------------" << endl << endl
        
@@ -34,14 +42,22 @@ int main ()
        
        << endl << "---------------------   BACKGROUND COLORS   ---------------------" << endl << endl
        
-       << feat( col, "bg green 1" ) << "This is a background green 1 string." << reset( "bg color" ) << endl
-       << feat( col, "bg green 2" ) << "This is a background green 2 string." << reset( "bg color" ) << endl
-       << feat( col, "bg green 3" ) << "This is a green background 3 string." << reset( "bg color" ) << endl
+       << feat( col, "bg black" ) << "This is a background black string." << reset( "bg color" ) << endl
        << feat( col, "bg red" ) << "This is a background red string." << reset( "bg color" ) << endl
-       << feat( col, "bg yellow" ) << "This is a background yellow string." << reset( "bg color" ) << endl
+       << feat( col, "bg green" ) << "This is a background green string." << reset( "bg color" ) << endl
+       << feat( col, "bg orange" ) << "This is a background orange string." << reset( "bg color" ) << endl
+       << feat( col, "bg blue" ) << "This is a background blue string." << reset( "bg color" ) << endl
+       << feat( col, "bg purple" ) << "This is a background purple string." << reset( "bg color" ) << endl
        << feat( col, "bg cyan" ) << "This is a background cyan string." << reset( "bg color" ) << endl
-       << feat( col, "bg grey" ) << "This is a background grey string." << reset( "bg color" ) << endl
-       << feat( col, "bg white" ) << "This is a background white string." << reset( "bg color" ) << endl
+       << feat( col, "bg gray" ) << "This is a background gray string." << reset( "bg color" ) << endl
+       << feat( col, "bg dk gray" ) << "This is a background dark gray string." << reset( "bg color" ) << endl
+       << feat( col, "bg lt red" ) << "This is a background light red string." << reset( "bg color" ) << endl
+       << feat( col, "bg lt green" ) << "This is a background light green string." << reset( "bg color" ) << endl
+       << feat( col, "bg yellow" ) << "This is a background yellow string." << reset( "bg color" ) << endl
+       << feat( col, "bg lt blue" ) << "This is a background light blue string." << reset( "bg color" ) << endl
+       << feat( col, "bg lt purple" ) << "This is a background light purple string." << reset( "bg color" ) << endl
+       << feat( col, "bg lt cyan" ) << "This is a background light cyan string." << reset( "bg color" ) << endl
+       << feat( col, "bg white" ) << "This is a background white string." << reset( "bg color" ) << " <-(white)" << endl
        
        << endl << "---------------------   STYLES   ---------------------" << endl << endl
        
