@@ -1,6 +1,10 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include "../include/osmanip.h"
 using namespace std;
+using namespace std::this_thread;
+using namespace std::chrono;
 
 int main ()
  {
@@ -75,7 +79,23 @@ int main ()
        
        << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" ) << endl
        << feat( sty, "italics" ) << feat( col, "blue" ) << "This is an italics blue string." << reset( "all" ) << endl
-       << feat( sty, "faint" ) << feat( col, "orange" ) << "This is a faint orange string." << reset( "all" ) << endl;
+       << feat( sty, "faint" ) << feat( col, "orange" ) << "This is a faint orange string." << reset( "all" ) << endl
+       
+       << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
+       
+       ProgressBar percentage_bar;
+       percentage_bar.setMin( -5 );
+       percentage_bar.setMax ( 30 );
+       percentage_bar.setStyle( "%" );
+       
+       cout << "Percentage bar: " << endl;
+       for ( int i=-5; i<30; i++ )
+        {
+         sleep_for( milliseconds( 100 ) );
+         percentage_bar.update( i );
+         //Do some operations...
+        }
+       cout << endl;
  }
  
 

@@ -73,7 +73,7 @@ std::map <std::string, std::string> crs
 //Definiton of the "feat" function:
 std::string feat( std::map <std::string, std::string> & generic_map, std::string feat_string )
  {
-  if ( generic_map.find( feat_string ) == generic_map.end() ) 
+  if( generic_map.find( feat_string ) == generic_map.end() ) 
    {
     std::string conct;
     conct.append( generic_map.at( "error" ) );
@@ -81,7 +81,7 @@ std::string feat( std::map <std::string, std::string> & generic_map, std::string
     conct.append( feat_string );
     conct.append( "\" is not supported!\n" );
     throw std::runtime_error( conct );
-   } 
+   }
   else
    {
     return generic_map.at( feat_string );
@@ -91,7 +91,7 @@ std::string feat( std::map <std::string, std::string> & generic_map, std::string
 //Definition of the "reset" function
 std::string reset ( std::string reset_string )
  {
-  if ( rst.find( reset_string ) == rst.end() ) 
+  if( rst.find( reset_string ) == rst.end() ) 
    {
     std::string conct;
     conct.append( rst.at( "error" ) );
@@ -106,6 +106,11 @@ std::string reset ( std::string reset_string )
    }
  }
  
+//Definition of the "progress bar" class constructors, methods and members:
+ProgressBar::ProgressBar(): max_( 100 ), min_( 0 ), iterating_var_( 1 ) {}
+
+ProgressBar::~ProgressBar() {}
+
  
 //-----------------------------------------   TESTINGS   -----------------------------------------
 
