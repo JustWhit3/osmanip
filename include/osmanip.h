@@ -11,14 +11,11 @@ extern std::map <std::string, std::string> col, sty, rst, crs;
 std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string ),
             reset ( std::string reset_string );
 
-//void progress_bar( std::string type, int iterating_var );
-
 //Test functions declaration:
 void feat_test( std::map <std::string, std::string> & generic_map_test ),
      reset_test();
      
-     
-//ProgressBar class declarations:
+//ProgressBar class declaration:
 class ProgressBar
  {
   public:
@@ -39,18 +36,19 @@ class ProgressBar
 
    //Other methods declaration:
    template < typename any_type > void update( any_type iterating_var );
+   void reset();
   
   private:
 
   //Attributes declaration and initializations:
    int max_, min_, iterating_var_;
    std::string style_, conct_;
-   const std::string error_ = "Inserted ProgressBar style:";
+   static const std::string error_;
  };
  
 //ProgressBar setters definition:
 template < typename any_type >
-inline void ProgressBar::setMax( any_type max ) { max_ = any_type( max ) -1 - min_; }
+inline void ProgressBar::setMax( any_type max ) { max_ = any_type( max ); }
 
 template < typename any_type >
 inline void ProgressBar::setMin( any_type min ) { min_ = any_type( min ); }
@@ -83,7 +81,7 @@ inline any_type ProgressBar::getStyle() const { return style_; }
 template < typename any_type >
 void ProgressBar::update( any_type iterating_var )
  {
-  iterating_var_ = 100 * ( iterating_var - min_ ) / max_; //Solve this in case of min =! 0.
+  iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ -1 );
   if( style_ == "%" )
    {
     conct_.append( "\u001b[100D" );

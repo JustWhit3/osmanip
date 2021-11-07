@@ -84,12 +84,12 @@ int main ()
        << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
        
        ProgressBar percentage_bar;
-       percentage_bar.setMin( -5 );
-       percentage_bar.setMax ( 30 );
+       percentage_bar.setMin( 5 );
+       percentage_bar.setMax ( 33 );
        percentage_bar.setStyle( "%" );
        
        cout << "Percentage bar: " << endl;
-       for ( int i=-5; i<30; i++ )
+       for ( int i = percentage_bar.getMin<int>(); i < percentage_bar.getMax<int>(); i++ )
         {
          sleep_for( milliseconds( 100 ) );
          percentage_bar.update( i );

@@ -107,9 +107,13 @@ std::string reset ( std::string reset_string )
  }
  
 //Definition of the "progress bar" class constructors, methods and members:
-ProgressBar::ProgressBar(): max_( 100 ), min_( 0 ), iterating_var_( 1 ) {}
+ProgressBar::ProgressBar(): max_( 100 ), min_( 0 ), style_( "%" ) {}
 
 ProgressBar::~ProgressBar() {}
+
+const std::string ProgressBar::error_ = "Inserted ProgressBar style:";
+
+void ProgressBar::reset() { max_ = 100, min_ = 0, style_ = "%"; } 
 
  
 //-----------------------------------------   TESTINGS   -----------------------------------------
