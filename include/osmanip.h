@@ -25,32 +25,38 @@ class ProgressBar
    ~ProgressBar();
 
    //Setters declaration:
-   void setMax( int max );
-   void setMin( int min );
-   void setStyle( std::string style );
-   void setMessage( std::string message );
+   void setMax( long long int max ),
+        setMin( long long int min ),
+        setStyle( std::string style ),
+        setMessage( std::string message ),
+        setBegin(),
+        setEnd(),
 
    //Resetters declaration:
-   void reset();
-   void resetMax();
-   void resetMin();
-   void resetStyle();
-   void resetMessage();
+        reset(),
+        resetMax(),
+        resetMin(),
+        resetStyle(),
+        resetMessage(),
+        resetTime();
 
    //Getters declaration:
-   int getMax() const;
-   int getMin() const;
+   int getMax() const,
+       getMin() const,
+       getTime() const;
    std::string getStyle() const;
 
+
    //Other methods declaration:
-   void update( int iterating_var );
+   void update( long long int iterating_var );
   
   private:
 
    //Attributes declaration and initializations:
-   int max_, min_, iterating_var_;
+   long long int max_, min_, iterating_var_, time_count_;
    std::string style_, conct_, message_;
    static const std::string error_;
+   std::chrono::steady_clock::time_point begin, end;
  };
       
 #endif

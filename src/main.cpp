@@ -85,19 +85,23 @@ int main ()
        << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
        
        ProgressBar percentage_bar;
-       percentage_bar.setMin( 3 );
-       percentage_bar.setMax ( 35 );
+       percentage_bar.setMin( 0 );
+       percentage_bar.setMax ( 30 );
        percentage_bar.setStyle( "%" );
        percentage_bar.setMessage( " processing..." );
        
        cout << "This is a percentage bar: " << endl;
        for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
         {
+         percentage_bar.setBegin();
+
          sleep_for( milliseconds( 100 ) );
          percentage_bar.update( i );
          //Do some operations...
+
+         percentage_bar.setEnd();
         }
-       cout << endl;
+       cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
  }
  
 
