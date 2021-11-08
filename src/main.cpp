@@ -2,6 +2,7 @@
 #include <thread>
 #include <chrono>
 #include "../include/osmanip.h"
+
 using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
@@ -84,12 +85,13 @@ int main ()
        << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
        
        ProgressBar percentage_bar;
-       percentage_bar.setMin( 5 );
-       percentage_bar.setMax ( 33 );
+       percentage_bar.setMin( 3 );
+       percentage_bar.setMax ( 35 );
        percentage_bar.setStyle( "%" );
+       percentage_bar.setMessage( " processing..." );
        
-       cout << "Percentage bar: " << endl;
-       for ( int i = percentage_bar.getMin<int>(); i < percentage_bar.getMax<int>(); i++ )
+       cout << "This is a percentage bar: " << endl;
+       for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
         {
          sleep_for( milliseconds( 100 ) );
          percentage_bar.update( i );
