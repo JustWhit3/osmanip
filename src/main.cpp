@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+
 #include "../include/osmanip.h"
 
 using namespace std;
@@ -84,13 +85,45 @@ int main ()
        
        << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
        
+       //Normal percentage bar settings:
        ProgressBar percentage_bar;
-       percentage_bar.setMin( 0 );
-       percentage_bar.setMax ( 30 );
+       percentage_bar.setMin( 3 );
+       percentage_bar.setMax ( 22 );
        percentage_bar.setStyle( "%" );
-       percentage_bar.setMessage( " processing..." );
        
-       cout << "This is a percentage bar: " << endl;
+       cout << "This is a normal percentage bar: " << endl;
+       for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+        {
+         percentage_bar.setBegin();
+
+         sleep_for( milliseconds( 100 ) );
+         percentage_bar.update( i );
+         //Do some operations...
+
+         percentage_bar.setEnd();
+        }
+        cout << endl << endl;
+       
+       //Percentage bar with message:
+       percentage_bar.setMessage( " processing..." );
+
+       cout << "This is a percentage bar with message: " << endl;
+       for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+        {
+         percentage_bar.setBegin();
+
+         sleep_for( milliseconds( 100 ) );
+         percentage_bar.update( i );
+         //Do some operations...
+
+         percentage_bar.setEnd();
+        }
+       cout << endl << endl;
+
+       //Percentage bar with time consuming info:
+       percentage_bar.resetMessage();
+
+       cout << "This is a percentage bar with time consuming info: " << endl;
        for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
         {
          percentage_bar.setBegin();
