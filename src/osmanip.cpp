@@ -138,26 +138,30 @@ void ProgressBar::setStyle( std::string style )
 void ProgressBar::setMessage( std::string message ) { message_ = message; }
 
 //ProgressBar resetters definition:
-void ProgressBar::reset() { max_ = 0, min_ = 0, style_ = "", message_ = "", time_count_ = 0; } 
+void ProgressBar::reset() { max_ = 0, min_ = 0, style_ = "", message_ = "", time_count_ = 0; }
 
 void ProgressBar::resetMax() { max_ = 0; }
 
 void ProgressBar::resetMin() { min_ = 0; }
 
-void ProgressBar::resetStyle() { style_ = ""; }
+void ProgressBar::resetStyle() { style_ = ""; } 
 
-void ProgressBar::resetMessage() { message_ = ""; }
+void ProgressBar::resetMessage() { message_ = ""; } 
 
 void ProgressBar::resetTime() { time_count_ = 0; }
 
 //ProgressBar getters definition:
-int ProgressBar::getMax() const { return max_; }
+long long int ProgressBar::getMax() const { return max_; }
 
-int ProgressBar::getMin() const { return min_; }
+long long int ProgressBar::getMin() const { return min_; } 
+
+long long int ProgressBar::getTime() const { return time_count_; }
+
+long long int ProgressBar::getIteratingVar() const { return iterating_var_; }
 
 std::string ProgressBar::getStyle() const { return style_; }
 
-int ProgressBar::getTime() const { return time_count_; }
+std::string ProgressBar::getMessage() const { return message_; }
  
 //ProgressBar other methods definition:
 void ProgressBar::update( long long int iterating_var )
@@ -182,64 +186,5 @@ void ProgressBar::update( long long int iterating_var )
  void ProgressBar::setEnd()
   {
    end = std::chrono::steady_clock::now();
-   time_count_ += std::chrono::duration_cast < std::chrono::milliseconds >( end - begin ).count();
+   time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
   }
- 
-
-//-----------------------------------------   TESTINGS   -----------------------------------------
-
-
-//Definition of the "feat" function testing function:
-void feat_test( std::map <std::string, std::string> & generic_map_test  )
- {
-  for( auto & element: generic_map_test )
-   {
-    if( generic_map_test.find( element.first ) == generic_map_test.end() )
-     {
-      bool exceptionThrown = false;
-      try 
-       {
-        feat( generic_map_test, element.first );
-       } 
-      catch( std::runtime_error & )
-       {
-        exceptionThrown = true;
-       }
-      assert( exceptionThrown &&
-      "Function \"feat\" didn't return runtime error if an invalid feature is inserted!" );
-     }
-    else
-     {
-      assert( feat( generic_map_test, element.first ) == generic_map_test.at( element.first ) &&
-     "Function \"feat\" didn't return the correct feature!" );
-     }
-   }
- }
- 
-//Definition of the "reset" function testing function:
-void reset_test ()
- {
-  for( auto & element: rst )
-   {
-    if( rst.find( element.first ) == rst.end() )
-     {
-      bool exceptionThrown = false;
-      try 
-       {
-        reset( element.first );
-       } 
-      catch( std::runtime_error & )
-       {
-        exceptionThrown = true;
-       }
-      assert( exceptionThrown &&
-      "Function \"reset\" didn't return runtime error if an invalid reset command is inserted!" );
-     }
-    else
-     {
-      assert( reset( element.first ) == rst.at( element.first ) &&
-     "Function \"reset\" didn't return the correct reset command!" );
-     }
-   }
- }
-

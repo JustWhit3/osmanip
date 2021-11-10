@@ -8,7 +8,7 @@ OBJ_DIR := obj
 TEST_DIR := test
 
 SRC := $(shell find $(SRC_DIR) -name '*.cpp')
-TEST := $(shell find $(TEST_DIR) -name '*.cpp')
+TEST := $(shell find $(SRC_DIR) -name 'osmanip.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
 OBJ := $(SRC:%=$(OBJ_DIR)/%.o)
 TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 DEPS := $(OBJ:.o=.d)

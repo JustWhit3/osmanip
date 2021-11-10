@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <chrono>
 
 //Maps declaration:
 extern std::map <std::string, std::string> col, sty, rst, crs;
@@ -41,11 +42,12 @@ class ProgressBar
         resetTime();
 
    //Getters declaration:
-   int getMax() const,
-       getMin() const,
-       getTime() const;
-   std::string getStyle() const;
-
+   long long int getMax() const,
+                 getMin() const,
+                 getTime() const,
+                 getIteratingVar() const;
+   std::string getStyle() const,
+               getMessage() const;
 
    //Other methods declaration:
    void update( long long int iterating_var );

@@ -1,3 +1,13 @@
+
+#Makefile objects:
 obj
+
+#Executables:
 main
+tests
+
+#Personal TODO file:
 todo.cpp
+
+#VS code settings:
+.vscode

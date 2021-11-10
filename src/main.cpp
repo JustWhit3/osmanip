@@ -10,11 +10,6 @@ using namespace std::chrono;
 
 int main ()
  {
-  //Testing functions:
-  feat_test( col );
-  feat_test( sty );
-  reset_test();
-
   //Output all the features:
   cout << endl << "---------------------   COLORS   ---------------------" << endl << endl
   
@@ -94,13 +89,9 @@ int main ()
        cout << "This is a normal percentage bar: " << endl;
        for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
         {
-         percentage_bar.setBegin();
-
          sleep_for( milliseconds( 100 ) );
          percentage_bar.update( i );
          //Do some operations...
-
-         percentage_bar.setEnd();
         }
         cout << endl << endl;
        
@@ -110,13 +101,9 @@ int main ()
        cout << "This is a percentage bar with message: " << endl;
        for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
         {
-         percentage_bar.setBegin();
-
          sleep_for( milliseconds( 100 ) );
          percentage_bar.update( i );
          //Do some operations...
-
-         percentage_bar.setEnd();
         }
        cout << endl << endl;
 
