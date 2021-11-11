@@ -132,6 +132,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
 
   SUBCASE( "Testing update method" )
    {
+    bar.setMax( 5 );
+    bar.setMin( -3 );
+
     //There is not much to test in it since it doesn't modify almost anything.
     for ( int i = -3; i < 5; i++ )
      {
