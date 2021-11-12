@@ -82,8 +82,8 @@ int main ()
        
        //Normal percentage bar settings:
        ProgressBar percentage_bar;
-       percentage_bar.setMin( 3 );
-       percentage_bar.setMax ( 22 );
+       percentage_bar.setMin( 0 );
+       percentage_bar.setMax ( 100 );
        percentage_bar.setStyle( "%" );
        
        cout << "This is a normal percentage bar: " << endl;
