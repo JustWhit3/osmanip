@@ -10,36 +10,38 @@
   * [Compile and run](#compile-and-run)
 - [How does osmanip work](#how-does-osmanip-work)
   * [Include the library](#include-the-library)
-  * [Functions and variables](#functions-and-variables)
+  * [Classes, functions and variables](#classes-functions-and-variables)
 - [List of features](#list-of-features)
+  * [Colors and styles manipulation](colors-and-styles-manipulation)
+  * [Progress bars](progress-bars)
 - [List of future implementations](#list-of-future-implementations)
 
 ## Introduction
 
-Here I want to present you my personal C++ output-stream manipulator, called *osmanip*. Probably there are already some similar libraries/manipulators/classes in the web that do the same work, but since I personally don't like them at all I preferred writing my own manipulator, in order to deal with different colors, styles and much more in the output stream of any program that I usually write. Using different features for the output stream may be very useful to better read error messages or special information you want to be sure other users see when they run a certain code, or to do many other useful procedures to adorn your general output stream.
+Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to be used in your code. Probably there are already some similar libraries in the web that do the same work, but since I personally don't like them at all I preferred writing my own module. With it you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using different this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
+
+> **NOTE**: all the manipulators of this library are compatible with [iomanip](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/iomanip).
 
 ## Description of the repository
 
-Excluding this README.md file, the [*License*](https://github.com/JustWhit3/osmanip/blob/main/License) file, the [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore) file and the [**img**](https://github.com/JustWhit3/osmanip/tree/main/img) folder (which contains images for the README.md), the repository contains two directories:
-- [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): which contains the manipulator declaration file [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h).
-- [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): which contains two .cpp files:
-  * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): which is the manipulator definition file.
-  * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you an example of the manipulator utility.
-
-There is also a [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile) for code compilation.
-
-> **Note**
-> 
->The structure of the repository may seems more complex than what is needed, since there are many 
->subdirectories and a makefile for compilation, that can be avoided in this case, due to the 
-> simplicity of the code structure, however I usually prefer keeping this structure in all 
-> my projects. Therefore is is just a matter of conventions.
+The repository contains the following directories / files:
+- [*License*](https://github.com/JustWhit3/osmanip/blob/main/License): is the License file, please read it before using this library with your own public code.
+- [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore): it ignores some temporary files you don't have to care about.
+- [**img**](https://github.com/JustWhit3/osmanip/tree/main/img): it contains media used for documentation.
+- [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): it contains the library header files:
+  * [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): which is the general header file with global functions, classes and variables declaration.
+- [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): it contains library implementation and main files:
+  * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): which is the general library implementation file.
+  * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you examples of the library utility.
+- [**test**](https://github.com/JustWhit3/osmanip/blob/main/test): it contains testing scripts:
+  * [*tests.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests.cpp): which tests the main library functions and methods.
+- [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile): for main and tests codes compilation.
 
 ## Run the code
 
 ### Download 
 
-To download the manipulator you can proceed in two independent ways.
+To download the library you can proceed in two independent ways.
 
 #### Download the whole repository
 
@@ -92,9 +94,24 @@ Now, let's supppose to continue from the previous step. For the compilation part
 ```shell
 make
 ```
-An extra **obj** folder with object files and an executable called *main* are now created: you have simply to run this latter in order to run the entire example code:
+This will compile both main and tests codes. An extra **obj** folder with object files and two executables, *main* and *tests*, are now created.
+> To correctly compile and run the tests.cpp file you need the [doctest](https://github.com/onqtam/doctest) tool installed into your computer.
+
+You have simply to run the former in order to run the entire example code:
 ```shell
 ./main
+```
+or the latter in order to test the correct functionalities of the library classes and methods:
+```shell
+./tests
+```
+If you want to compile only the main code you can simply enter:
+```shell
+make main
+```
+if instead you want to compile only the tests code you can use the following command:
+```shell
+make tests
 ```
 There is also an option to go back to the pre-compilation state of the code, to do this simply type this command:
 ```shell
@@ -105,31 +122,60 @@ make clean
 
 ### Include the library
 
-Once you have added the manipulator declaration and definition to one of your project, you may want to be able to use it freely in your code. In order to let it works you have to include it at the beginning of a code in this way:
+Once you have added the library header and implementation files to one of your project, you may want to be able to use it freely. In order to let it works you have to include it at the beginning of a a code in this way:
 ```c++
 #include "path/to/osmanip/osmanip.h"
 ```
-Where `path/to/osmanip/` is the path to the directory in which you put the osmanip manipulator. If you put the manipulator in the same folder of the project you are working with you have simply to do:
+Where `path/to/osmanip/` is the path to the directory in which you put the osmanip library. If you put the library in the same folder of the project you are working with, you have simply to do:
 ```c++
 #include "osmanip.h"
 ```
-In this latter case you can omit the full path. 
-> Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp) 
-> and in your makefile or maybe set this latter in order to avoid this path dependence.
+In this latter case you can omit the full path.
+> Remember to do this also in [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp)
+> and in your makefile, or maybe set this latter in order to avoid this path dependence.
 
-Now you are able to access al the functions of the manipulator. 
+Now you are able to access al the functions and classes of the manipulator.
+### Classes, functions and variables
 
-> **Note**
-> If you want to keep the manipulator only, in order to use it in one of your projects, you can delete the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main.cpp) and the [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile) files.
+List of the currently defined classes:
+- `ProgressBar`: used to create progress bars. 
+  * Constructors / destructor:
+    * `ProgressBar()`: default constructor which set to null values the main attributes.
+    * `~ProgressBar()`: destructor. It doesn't do anything.
+  * Setter methods: 
+    * `void setMax( long long int max )`: to set max value of the bar.
+    * `void setMin( long long int min )`: to set min value of the bar.
+    * `void setStyle( std::string style )`: to set the bar style.
+    * `void setMessage( std::string message )`: to set optional message of the bar.
+    * `void setBegin()`: to set begin time for the CPU time counting.
+    * `void setEnd()`: to set end time for the CPU time counting.
+    * `void reset()`: to reset all the main attributes.
+    * `void resetMax()`: to reset max value of the bar.
+    * `void resetMin()`: to reset min value of the bar.
+    * `void resetStyle()`: to reset the bar style.
+    * `void resetMessage()`: to reset optional message of the bar.
+    * `void resetTime()`: to reset CPU time count.
+    > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment.
+  * Getter methods: 
+    * `long long int getMax()`: to get max value of the bar.
+    * `long long int getMin()`: to get min value of the bar.
+    * `long long int getTime()`: to get time for the CPU counting of a process.
+    * `long long int getIteratingVar()`: to get the iterating variable of the `update` method.
+    * `std::string getStyle()`: to get the bar style.
+    * `std::string getMessage()`: to get the optional bar message.
+  * Other methods: 
+    * `void update( long long int iterating_var )`: to update the bar after each loop cycle.
+    > **NOTE**: `std::cout` object cannot be used inside a loop within the `update` method.
+  * All the attributes are private and used in the above methods, therefore they don't need to be explained here.
 
-### Functions and variables
+> **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment.
 
 List of the currently defined functions:
 - `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )`: which takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
 - `std::string reset ( std::string reset_string )`: which takes a `std::string` object (`reset` map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
 
 List of the currently defined std::map objects:
-- `std::map <std::string, std::string> col`: which is used for the color features and currently supports the following list of colors (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
+- `std::map <std::string, std::string> col`: which is used for the color output stream manipulation and currently supports the following list of colors (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
   * `error` / `Inserted color`
   * `black` / `\033[30m`
   * `red` / `\033[31m`
@@ -175,7 +221,7 @@ List of the currently defined std::map objects:
 > **Note**
 > "bg" is the prefix of the background color features and "bd" is the one of the bold color features.
 
-- `std::map <std::string, std::string> sty`: which is used for the style features and currently supports the following list of styles (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
+- `std::map <std::string, std::string> sty`: which is used for the style output stream manipulation and currently supports the following list of styles (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
   * `error` / `Inserted color`
   * `bold` / `\033[1m`
   * `faint` / `\033[2m`
@@ -201,41 +247,100 @@ List of the currently defined std::map objects:
   * `invisible` / `\033[28m`
   * `crossed` / `\033[29m`
   
-- `std::map <std::string, std::string> crs`: which is used for the cursor naviagation features and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
+- `std::map <std::string, std::string> crs`: which is used for the output stream cursor naviagation and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature:
   * `error` / `Inserted cursor command`
   * `up` / \ `u001b[A`
   * `down` / `\u001b[B`
   * `right` / `\u001b[C`
   * `left` / `\u001b[D`
 
-Therefore, if you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
+## List of features
+
+Here you can find info and media of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main.cpp) output stream which shows you all the features supported in the current version of the manipulator.
+### Colors and styles manipulation
+
+List of the supported color / style features:
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/output.png">
+
+Blink string feature:
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif">
+
+If you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
 cout << feat( col, "red" ) << "This stream is red!" << reset( "color" );
 ```
 This will color the output stream in red until the `reset( "color" )` function is met again, in ordert to reset the output stream color.
 
-You can also print mixed color and styles strings:
+You can also print mixed color and style strings:
 ```c++
 cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
 ```
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in ordert to reset all the output stream color / style.
 
-Along with each function, at the end of the [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp) file, test functions have been produced in order to test the correct output of each function. The list of the currently defined test functions is the following:
-- `void feat_test( std::map <std::string, std::string> & generic_map_test );`: which tests the correct functionality of the `feat` function.
-- `void reset_test();`: which tests the correct functionality of the `reset` function.
+### Progress bars
 
-## List of features
+From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) of the library, also progress bars have been introduced. Here you can find some examples about how to use them into your code.
 
-Here you can find a screenshot of the output stream of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/main.cpp) program which shows you all the features supported in the current version of the manipulator:
+Initialize and use a percentage progress bar:
+```c++
+ProgressBar percentage_bar;
+percentage_bar.setMin( 5 );
+percentage_bar.setMax ( 50 );
+percentage_bar.setStyle( "%" );
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/output.png">
+cout << "This is a normal percentage bar: " << endl;
+ for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+  {
+   sleep_for( milliseconds( 100 ) );
+   percentage_bar.update( i );
+   //Do some operations...
+  }
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif">
+
+Add a message to a percentage bar:
+```c++
+percentage_bar.setMessage( " processing..." );
+
+cout << "This is a percentage bar with message: " << endl;
+ for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+  {
+   sleep_for( milliseconds( 100 ) );
+   percentage_bar.update( i );
+   //Do some operations...
+  }
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif">
+
+Add CPU time consuming info when using a progress bar in loops:
+```c++
+percentage_bar.setMessage( " processing..." );
+
+cout << "This is a percentage bar with time consuming info: " << endl;
+ for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+  {
+   percentage_bar.setBegin();
+   sleep_for( milliseconds( 100 ) );
+   percentage_bar.update( i );
+   //Do some operations...
+   percentage_bar.setEnd();
+  }
+cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif">
 
 ## List of future implementations
 
 Here a list of implementations I planned for future developments:
 
-- Cursor navigation.
-- Progress indicator (percentage that loads).
-- ASCII progress bar (and maybe also multiple loading bars).
-
-
+- Repository installer script.
+- Color palette.
+- Implement ANSII escape sequences manipulation.
+- Implement other progress bar styles (es: loading bar).
+- Use template class and methods for the ProgressBar features, in order to better deal with also double and float variables (already supported, but not optimally working).
+- Possibility to use multiple loading bars simultaneously using threads.
