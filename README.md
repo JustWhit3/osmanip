@@ -27,6 +27,7 @@ Here I want to present you *osmanip*: my personal C++ library containing useful 
 The repository contains the following directories / files:
 - [*License*](https://github.com/JustWhit3/osmanip/blob/main/License): is the License file, please read it before using this library with your own public code.
 - [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore): it ignores some temporary files you don't have to care about.
+- [**.vscode**](https://github.com/JustWhit3/osmanip/blob/main/.vscode): it contains vs code settings in case you are using vs code as an editor.
 - [**img**](https://github.com/JustWhit3/osmanip/tree/main/img): it contains media used for documentation.
 - [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): it contains the library header files:
   * [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): which is the general header file with global functions, classes and variables declaration.
