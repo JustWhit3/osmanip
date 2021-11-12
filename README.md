@@ -27,6 +27,7 @@ Here I want to present you *osmanip*: my personal C++ library containing useful 
 The repository contains the following directories / files:
 - [*License*](https://github.com/JustWhit3/osmanip/blob/main/License): is the License file, please read it before using this library with your own public code.
 - [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore): it ignores some temporary files you don't have to care about.
+- [**.vscode**](https://github.com/JustWhit3/osmanip/blob/main/.vscode): it contains vs code settings in case you are using vs code as an editor.
 - [**img**](https://github.com/JustWhit3/osmanip/tree/main/img): it contains media used for documentation.
 - [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): it contains the library header files:
   * [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): which is the general header file with global functions, classes and variables declaration.
@@ -265,7 +266,7 @@ List of the supported color / style features:
 
 Blink string feature:
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif" width="250" height="25">
 
 If you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
@@ -299,7 +300,7 @@ cout << "This is a normal percentage bar: " << endl;
   }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif" width="300" height="50">
 
 Add a message to a percentage bar:
 ```c++
@@ -314,7 +315,7 @@ cout << "This is a percentage bar with message: " << endl;
   }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif" width="370" height="50">
 
 Add CPU time consuming info when using a progress bar in loops:
 ```c++
@@ -332,7 +333,7 @@ cout << "This is a percentage bar with time consuming info: " << endl;
 cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="450" height="50">
 
 ## List of future implementations
 
