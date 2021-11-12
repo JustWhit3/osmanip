@@ -10,4 +10,4 @@ tests
 todo.cpp
 
 #VS code settings:
-.vscode/
+.vscode/*
