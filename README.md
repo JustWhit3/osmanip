@@ -339,7 +339,7 @@ cout << "This is a percentage bar with time consuming info: " << endl;
 cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="475" height="80">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="475" height="85">
 
 ## List of future implementations
 
