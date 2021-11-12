@@ -11,3 +11,4 @@ todo.cpp
 
 #VS code settings:
 .vscode/*
+!.vscode/settings.json
