@@ -266,7 +266,7 @@ List of the supported color / style features:
 
 Blink string feature:
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif" width="250" height="25">
 
 If you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
@@ -300,7 +300,7 @@ cout << "This is a normal percentage bar: " << endl;
   }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif" width="300" height="50">
 
 Add a message to a percentage bar:
 ```c++
@@ -315,7 +315,7 @@ cout << "This is a percentage bar with message: " << endl;
   }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif" width="370" height="50">
 
 Add CPU time consuming info when using a progress bar in loops:
 ```c++
@@ -333,7 +333,7 @@ cout << "This is a percentage bar with time consuming info: " << endl;
 cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="450" height="50">
 
 ## List of future implementations
 
