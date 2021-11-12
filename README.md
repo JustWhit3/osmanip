@@ -18,7 +18,7 @@
 
 ## Introduction
 
-Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to be used in your code. Probably there are already some similar libraries in the web that do the same work, but since I personally don't like them at all I preferred writing my own module. With it you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using different this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
+Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to be used in your code. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own functiona and classes. With it you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
 
 > **NOTE**: all the manipulators of this library are compatible with [iomanip](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/iomanip).
 
@@ -32,8 +32,8 @@ The repository contains the following directories / files:
 - [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): it contains the library header files:
   * [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): which is the general header file with global functions, classes and variables declaration.
 - [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): it contains library implementation and main files:
-  * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): which is the general library implementation file.
-  * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you examples of the library utility.
+  * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): which is the general library implementation code.
+  * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you examples of the library utilities.
 - [**test**](https://github.com/JustWhit3/osmanip/blob/main/test): it contains testing scripts:
   * [*tests.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests.cpp): which tests the main library functions and methods.
 - [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile): for main and tests codes compilation.
@@ -102,7 +102,7 @@ You have simply to run the former in order to run the entire example code:
 ```shell
 ./main
 ```
-or the latter in order to test the correct functionalities of the library classes and methods:
+or the latter in order to test the correct functionalities of the library classes methods and functions:
 ```shell
 ./tests
 ```
@@ -139,10 +139,10 @@ Now you are able to access al the functions and classes of the manipulator.
 ### Classes, functions and variables
 
 List of the currently defined classes:
-- `ProgressBar`: used to create progress bars. 
+- `ProgressBar` which is used to create progress bars. 
   * Constructors / destructor:
     * `ProgressBar()`: default constructor which set to null values the main attributes.
-    * `~ProgressBar()`: destructor. It doesn't do anything.
+    * `~ProgressBar()`: standard destructor. It doesn't do anything.
   * Setter methods: 
     * `void setMax( long long int max )`: to set max value of the bar.
     * `void setMin( long long int min )`: to set min value of the bar.
@@ -156,7 +156,7 @@ List of the currently defined classes:
     * `void resetStyle()`: to reset the bar style.
     * `void resetMessage()`: to reset optional message of the bar.
     * `void resetTime()`: to reset CPU time count.
-    > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment.
+    > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment, in the sense that a few precision in lost when using them into loops.
   * Getter methods: 
     * `long long int getMax()`: to get max value of the bar.
     * `long long int getMin()`: to get min value of the bar.
@@ -168,8 +168,6 @@ List of the currently defined classes:
     * `void update( long long int iterating_var )`: to update the bar after each loop cycle.
     > **NOTE**: `std::cout` object cannot be used inside a loop within the `update` method.
   * All the attributes are private and used in the above methods, therefore they don't need to be explained here.
-
-> **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment.
 
 List of the currently defined functions:
 - `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )`: which takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
@@ -266,9 +264,9 @@ List of the supported color / style features:
 
 Blink string feature:
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif" width="250" height="25">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif" width="250" height="27">
 
-If you want to change, for example, the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
+If you want to change for example the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
 cout << feat( col, "red" ) << "This stream is red!" << reset( "color" );
 ```
@@ -287,8 +285,8 @@ From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) o
 Initialize and use a percentage progress bar:
 ```c++
 ProgressBar percentage_bar;
-percentage_bar.setMin( 5 );
-percentage_bar.setMax ( 50 );
+percentage_bar.setMin( 1 );
+percentage_bar.setMax ( 100 );
 percentage_bar.setStyle( "%" );
 
 cout << "This is a normal percentage bar: " << endl;
@@ -299,11 +297,16 @@ cout << "This is a normal percentage bar: " << endl;
    //Do some operations...
   }
 ```
+> **NOTE**: `sleep_for( milliseconds( 100 ) )` has been inserted to delay the loop in order to better visualize the progress bar into this .gif file. You don't need to use it in your code.
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif" width="300" height="50">
 
 Add a message to a percentage bar:
 ```c++
+ProgressBar percentage_bar;
+percentage_bar.setMin( 1 );
+percentage_bar.setMax ( 100 );
+percentage_bar.setStyle( "%" );
 percentage_bar.setMessage( " processing..." );
 
 cout << "This is a percentage bar with message: " << endl;
@@ -315,11 +318,14 @@ cout << "This is a percentage bar with message: " << endl;
   }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif" width="370" height="50">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif" width="350" height="50">
 
 Add CPU time consuming info when using a progress bar in loops:
 ```c++
-percentage_bar.setMessage( " processing..." );
+ProgressBar percentage_bar;
+percentage_bar.setMin( 1 );
+percentage_bar.setMax ( 100 );
+percentage_bar.setStyle( "%" );
 
 cout << "This is a percentage bar with time consuming info: " << endl;
  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
@@ -333,7 +339,7 @@ cout << "This is a percentage bar with time consuming info: " << endl;
 cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="450" height="50">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="475" height="80">
 
 ## List of future implementations
 
