@@ -1,9 +1,9 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-
 #include "../include/osmanip.h"
 
+using namespace osm;
 using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
@@ -82,7 +82,7 @@ int main ()
        
        //Normal percentage bar settings:
        ProgressBar percentage_bar;
-       percentage_bar.setMin( 0 );
+       percentage_bar.setMin( 1 );
        percentage_bar.setMax ( 100 );
        percentage_bar.setStyle( "%" );
        

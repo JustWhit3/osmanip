@@ -1,13 +1,13 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "doctest/doctest.h"
+#include "doctest.h"
 #include <map>
 #include <vector>
 #include <thread>
 #include <chrono>
-
 #include "../include/osmanip.h"
 
+using namespace osm;
 using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
