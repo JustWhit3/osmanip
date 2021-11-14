@@ -5,13 +5,13 @@
 - [Classes](#classes)
   * [ProgressBar](#progressbar)
 - [Functions](#functions)
-  * [`std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )`](#-std--string-feat---std--map--std--string--std--string----generic-map--std--string-feat-string---)
-  * [`std::string reset ( std::string reset_string )`](#-std--string-reset---std--string-reset-string---)
+  * [std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )](#-std--string-feat---std--map--std--string--std--string----generic-map--std--string-feat-string---)
+  * [std::string reset ( std::string reset_string )](#-std--string-reset---std--string-reset-string---)
 - [Global variables](#global-variables)
-  * [`std::map <std::string, std::string> col`](#-std--map--std--string--std--string--col-)
-  * [`std::map <std::string, std::string> sty`](#-std--map--std--string--std--string--sty-)
-  * [`std::map <std::string, std::string> rst`](#-std--map--std--string--std--string--rst-)
-  * [`std::map <std::string, std::string> crs`](#-std--map--std--string--std--string--crs-)
+  * [std::map <std::string, std::string> col](#-std--map--std--string--std--string--col-)
+  * [std::map <std::string, std::string> sty](#-std--map--std--string--std--string--sty-)
+  * [std::map <std::string, std::string> rst](#-std--map--std--string--std--string--rst-)
+  * [std::map <std::string, std::string> crs](#-std--map--std--string--std--string--crs-)
 
 ## Namespaces
 
@@ -58,17 +58,23 @@ All the attributes are private and used in the above methods, therefore they don
 
 ## Functions
 
-### `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )`
+### feat
+
+Complete definition: `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )`.
 
 It takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
 
-### `std::string reset ( std::string reset_string )`
+### reset
+
+Complete definition: `std::string reset ( std::string reset_string )`
 
 It takes a `std::string` object (`reset` map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
 
 ## Global variables
 
-### `std::map <std::string, std::string> col`
+### col
+
+Complete definition: `std::map <std::string, std::string> col`
 
 It is used for the color output stream manipulation and currently supports the following list of colors (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
   * `error` / `Inserted color`
@@ -115,7 +121,9 @@ It is used for the color output stream manipulation and currently supports the f
 > **Note**
 > "bg" is the prefix of the background color features and "bd" is the one of the bold color features.
 
-### `std::map <std::string, std::string> sty`
+### sty
+
+Complete definition: `std::map <std::string, std::string> sty`
 
 It is used for the style output stream manipulation and currently supports the following list of styles (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
   * `error` / `Inserted color`
@@ -129,7 +137,9 @@ It is used for the style output stream manipulation and currently supports the f
   * `crossed` / `\033[9m`
   * `d-underlined` / `\033[21m`
   
-### `std::map <std::string, std::string> rst`
+### rst
+
+Complete definition: `std::map <std::string, std::string> rst`
 
 It is used to reset features and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
   * `error` / `Inserted reset command`
@@ -145,7 +155,9 @@ It is used to reset features and currently supports the following list of comman
   * `invisible` / `\033[28m`
   * `crossed` / `\033[29m`
   
-### `std::map <std::string, std::string> crs`
+### crs
+
+Complete definition: `std::map <std::string, std::string> crs`
 
 It is used for the output stream cursor naviagation and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature:
   * `error` / `Inserted cursor command`
