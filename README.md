@@ -4,8 +4,8 @@
 - [Introduction](#introduction)
 - [Documentation](#documentation)
 - [List of features](#list-of-features)
-  * [Colors and styles manipulation](colors-and-styles-manipulation)
-  * [Progress bars](progress-bars)
+  * [Colors and styles manipulation](#colors-and-styles-manipulation)
+  * [Progress bars](#progress-bars)
 
 ## Introduction
 
