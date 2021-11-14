@@ -2,6 +2,9 @@
 #Makefile objects:
 obj
 
+#Libraries for installation:
+lib
+
 #Executables:
 main
 tests
