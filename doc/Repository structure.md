@@ -37,4 +37,4 @@ Other:
 ## Scripts
 
 Installation scripts:
-- [*install*](https://github.com/JustWhit3/osmanip/blob/main/install): is the script used to install the software in your computer.
+- [*install.sh*](https://github.com/JustWhit3/osmanip/blob/main/install.sh): is the script used to install the software in your computer.
