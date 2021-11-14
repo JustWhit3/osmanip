@@ -7,6 +7,7 @@
 - [Functions](#functions)
   * [feat](#feat)
   * [reset](#reset)
+- [Global variables](#global-variables)
   * [col](#col)
   * [sty](#sty)
   * [rst](#rst)
