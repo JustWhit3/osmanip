@@ -5,13 +5,12 @@
 - [Classes](#classes)
   * [ProgressBar](#progressbar)
 - [Functions](#functions)
-  * [std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )](#-std--string-feat---std--map--std--string--std--string----generic-map--std--string-feat-string---)
-  * [std::string reset ( std::string reset_string )](#-std--string-reset---std--string-reset-string---)
-- [Global variables](#global-variables)
-  * [std::map <std::string, std::string> col](#-std--map--std--string--std--string--col-)
-  * [std::map <std::string, std::string> sty](#-std--map--std--string--std--string--sty-)
-  * [std::map <std::string, std::string> rst](#-std--map--std--string--std--string--rst-)
-  * [std::map <std::string, std::string> crs](#-std--map--std--string--std--string--crs-)
+  * [feat](#feat)
+  * [reset](#reset)
+  * [col](#col)
+  * [sty](#sty)
+  * [rst](#rst)
+  * [crs](#crs)
 
 ## Namespaces
 
