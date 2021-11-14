@@ -2,6 +2,11 @@
 
 ## Table of contents
 - [Download](#download)
+  * [Download the whole repository](#download-the-whole-repository)
+  * [Download the latest release](#download-the-latest-release)
+- [Install](#install)
+- [Compile and run](#compile-and-run)
+- [Compile the source code example and testing](#compile-the-source-code-example-and-testing)
 
 ## Download 
 
@@ -52,7 +57,7 @@ And that's all. You can enter the folder by simply typing:
 cd osmanip
 ```
 
-### Install
+## Install
 
 From release [2.1.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.1.0) an installer script, called [install.sh](https://github.com/JustWhit3/osmanip/blob/main/install.sh), has been introduced. This script can be used to properly install the library into your computer, in order to easily use it in your programs.
 
@@ -65,7 +70,7 @@ Once the source code has been downloaded you can simply run this script opening 
 ```
 A new library *libosmanip* will be created into the `/usr/local/lib` folder of your computer and the [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h) will be installed into `/usr/local/include`.
 
-### Compile and run
+## Compile and run
 
 Once you have installed the library you can freely use it in one of your C++ projects by adding this line of code at the beginning of the code:
 ```c++
@@ -92,7 +97,7 @@ and then you can run the code with:
 ```
 > **NOTE**: at least c++17 standard is required to successfully access al the library features.
 
-### Compile the source code example and testing
+## Compile the source code example and testing
 
 The source code contains also an example code [*src/main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) to show the user a simple usage of all the features supported by the library and a test code [*test/tests.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests.cpp) to test the correct functionality of the library functions and methods.
 
