@@ -16,9 +16,9 @@ Here I want to present you *osmanip*: my personal C++ library containing useful 
 ## Documentation
 
 In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder useful documentation files are stored, in order to help the user learning how to properly use the library:
-- [*Repository structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Repository-structure.md): contains general information about the files and folders of the repository.
-- [*Code structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Code-structure.md): contains general information about the code structure of the library, therefore details on classes, functions and variables used in it.
-- [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download-and-install.md): a guide to download, install and run the library into your system.
+- [*Repository structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Repository%20structure.md): contains general information about the files and folders of the repository.
+- [*Code structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md): contains general information about the code structure of the library, therefore details on classes, functions and variables used in it.
+- [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download%20and%20install.md): a guide to download, install and run the library into your system.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
 
 ## List of features
