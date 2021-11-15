@@ -11,7 +11,7 @@ echo ""
 #Static library creation:
 echo "Creating the static library into the lib folder..."
 mkdir -p lib 
-if ! ( ar rvs lib/libosmanip.a obj/src/osmanip.cpp.o ) ; then
+if ! ( ar rvs lib/libosmanip.a obj/src/csmanip.cpp.o obj/src/progressbar.cpp.o ) ; then
     echo "Cannot create the static library!"
     exit
 fi
@@ -20,7 +20,7 @@ echo ""
 #Saving files into the system:
 echo "Enter your password for the last installation step:"
 echo "Installing osmanip header into /usr/local/include folder..."
-if ! ( sudo cp include/osmanip.h /usr/local/include ) ; then
+if ! ( sudo cp include/* /usr/local/include ) ; then
     echo "Cannot install the header file into /usr/local/include position of the system!"
 fi
 echo "Installing osmanip lib into /usr/local/lib folder..."
