@@ -1,4 +1,4 @@
 # Credits
 
 ## Main authors
-- [Gianluca Bianco](https://www.unibo.it/sitoweb/gianluca.bianco4/)
+- [Gianluca Bianco](https://github.com/JustWhit3)
