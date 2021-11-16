@@ -1,4 +1,3 @@
-
 #Makefile objects:
 obj
 
@@ -6,8 +5,7 @@ obj
 lib
 
 #Executables:
-main
-tests
+bin
 
 #Personal TODO file:
 todo.cpp
