@@ -106,24 +106,24 @@ To compile them I prepared a [makefile](https://github.com/JustWhit3/osmanip/blo
 ```shell
 make
 ```
-This will compile both main and test codes. An extra **obj** folder with object files and two executables, *main* and *tests*, are now created.
+This will compile both main and test codes. An extra **obj** folder with object files and a **bin** folder with two executables, *main* and *tests*, are now created.
 > **NOTE**: to correctly compile and run the tests.cpp file you need the [doctest](https://github.com/onqtam/doctest) tool installed into your computer.
 
 You have simply to run the former in order to run the entire example code:
 ```shell
-./main
+./bin/main
 ```
 or the latter in order to test the correct functionalities of the library classes methods and functions:
 ```shell
-./tests
+./bin/tests
 ```
 If you want to compile only the main code you can simply enter:
 ```shell
-make main
+make bin/main
 ```
 if instead you want to compile only the tests code you can use the following command:
 ```shell
-make tests
+make bin/tests
 ```
 There is also an option to go back to the pre-compilation state of the code, to do this simply type this command:
 ```shell

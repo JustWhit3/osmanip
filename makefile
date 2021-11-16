@@ -2,7 +2,7 @@ TARGET_EXEC := main
 TEST_EXEC := tests
 CC := g++
 
-BUILD_DIR := .
+BUILD_DIR := bin
 SRC_DIR := src
 OBJ_DIR := obj
 TEST_DIR := test
@@ -24,9 +24,11 @@ CPPFLAGS := $(INC_FLAGS) -MMD -MP
 all: $(BUILD_DIR)/$(TARGET_EXEC) $(BUILD_DIR)/$(TEST_EXEC)
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJ)
+	@ mkdir -p $(dir $@)
 	$(CC) $(OBJ) -o $@ $(LDFLAGS)
 
 $(BUILD_DIR)/$(TEST_EXEC): $(TEST_OBJ)
+	@ mkdir -p $(dir $@)
 	$(CC) $(TEST_OBJ) -o $@ $(LDFLAGS)
 
 $(OBJ_DIR)/%.cpp.o: %.cpp
@@ -34,6 +36,6 @@ $(OBJ_DIR)/%.cpp.o: %.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -r $(OBJ_DIR) main tests
+	rm -r $(OBJ_DIR) $(BUILD_DIR)
 	
 -include $(DEPS)
