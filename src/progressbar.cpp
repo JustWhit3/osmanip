@@ -35,6 +35,14 @@ namespace osm
 
   void ProgressBar::setMessage( std::string message ) { message_ = message; }
 
+  void ProgressBar::setBegin() { begin = std::chrono::steady_clock::now(); }
+
+  void ProgressBar::setEnd()
+    {
+     end = std::chrono::steady_clock::now();
+     time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
+    }
+
   //ProgressBar resetters definition:
   void ProgressBar::reset() { max_ = 0, min_ = 0, style_ = "", message_ = "", time_count_ = 0; }
 
@@ -61,7 +69,7 @@ namespace osm
 
   std::string ProgressBar::getMessage() const { return message_; }
  
-  //ProgressBar other methods definition:
+  //ProgressBar update method definition:
   void ProgressBar::update( long long int iterating_var )
    {
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - 1 );
@@ -79,11 +87,13 @@ namespace osm
      }
    }
 
-   void ProgressBar::setBegin() { begin = std::chrono::steady_clock::now(); }
-
-   void ProgressBar::setEnd()
+   //ProgressBar print method definition:
+   void ProgressBar::print() const
     {
-     end = std::chrono::steady_clock::now();
-     time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
+     std::cout << "Max: " << max_ << std::endl 
+               << "Min: " << min_ << std::endl 
+               << "Time counter: " << time_count_ << std::endl 
+               << "Style: " << style_ << std::endl
+               << "Message: " << message_ << std::endl;
     }
  }

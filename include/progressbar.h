@@ -40,7 +40,8 @@ namespace osm
                  getMessage() const;
 
      //Other methods declaration:
-     void update( long long int iterating_var );
+     void update( long long int iterating_var ),
+          print() const;
   
     private:
 
