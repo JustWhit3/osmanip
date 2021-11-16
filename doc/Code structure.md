@@ -15,13 +15,17 @@
 
 ## Namespaces
 
-A global namespace `osm` is used to contain all the library classes, functions and variables.
+A global namespace `osm` is used to contain all the library classes, functions and variables. It is present in all the header files.
 
 ## Classes
 
 ### ProgressBar
 
-This class is used to create progress bars. 
+This class is used to create progress bars.
+
+Header file: [*progressbar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar.h)
+
+Source code: [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar.cpp)
 
 Constructors / destructor:
 - `ProgressBar()`: default constructor which set to null values the main attributes.
@@ -60,11 +64,19 @@ All the attributes are private and used in the above methods, therefore they don
 
 ### feat
 
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
 Complete definition: `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )`.
 
 It takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
 
 ### reset
+
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
 Complete definition: `std::string reset ( std::string reset_string )`
 
@@ -73,6 +85,10 @@ It takes a `std::string` object (`reset` map key) as argument and returns the in
 ## Global variables
 
 ### col
+
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::string> col`
 
@@ -123,6 +139,10 @@ It is used for the color output stream manipulation and currently supports the f
 
 ### sty
 
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
 Complete definition: `std::map <std::string, std::string> sty`
 
 It is used for the style output stream manipulation and currently supports the following list of styles (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
@@ -138,6 +158,10 @@ It is used for the style output stream manipulation and currently supports the f
   * `d-underlined` / `\033[21m`
   
 ### rst
+
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::string> rst`
 
@@ -156,6 +180,10 @@ It is used to reset features and currently supports the following list of comman
   * `crossed` / `\033[29m`
   
 ### crs
+
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::string> crs`
 

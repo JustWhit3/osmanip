@@ -69,7 +69,7 @@ Once the source code has been downloaded you can simply run this script. Enter t
 ```shell
 ./install.sh
 ```
-A new library *libosmanip* will be created into the `/usr/local/lib` folder of your computer and the [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h) header will be installed into `/usr/local/include`.
+A new library *libosmanip* will be created into the `/usr/local/lib` folder of your computer and the [*header*](https://github.com/JustWhit3/osmanip/blob/main/include) files will be installed into `/usr/local/include`.
 
 ## Compile and run
 

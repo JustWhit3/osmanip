@@ -2,39 +2,50 @@
 
 ## Table of contents
 - [Folders](#folders)
+  * [Settings folders:](#settings-folders-)
+  * [Documentation folders:](#documentation-folders-)
+  * [Code folders:](#code-folders-)
 - [Files](#files)
+  * [Setting files](#setting-files)
+  * [Compilation files:](#compilation-files-)
+  * [Other:](#other-)
 - [Scripts](#scripts)
+  * [Installation scripts:](#installation-scripts-)
 
 ## Folders
 
-Settings folders:
+### Settings folders:
 - [**.vscode**](https://github.com/JustWhit3/osmanip/blob/main/.vscode): it contains vs code files:
   * [*settings.json*](https://github.com/JustWhit3/osmanip/blob/main/.vscode/settings.json): which contains vs code settings (in case you are using vs code as editor).
 
-Documentation folders:
+### Documentation folders:
 - [**img**](https://github.com/JustWhit3/osmanip/tree/main/img): it contains media used for documentation.
+- [**doc**](https://github.com/JustWhit3/osmanip/tree/main/doc): it contains the library documentation. More info are explained in the [*main*](https://github.com/JustWhit3/osmanip/tree/main) page of the repository.
 
-Code folders:
+### Code folders:
 - [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): it contains the library header files:
-  * [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): which is the general header file with global functions, classes and variables declaration.
+  * [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): general header file containing all the others.
+  * [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): colors/styles manipulation header.
+  * [*progressbar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): progress bar functionalities header.
 - [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): it contains library implementation and main files:
-  * [*osmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): which is the general library implementation code.
+  * [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): *osmanip.h* implementation code.
+  * [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): *progressbar.h* implementation code.
   * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you examples of the library utilities.
 - [**test**](https://github.com/JustWhit3/osmanip/blob/main/test): it contains testing scripts:
   * [*tests.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests.cpp): which tests the main library functions and methods.
 
 ## Files
 
-Setting files
+### Setting files
 - [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore): it ignores some temporary files you don't have to care about.
 
-Compilation files:
+### Compilation files:
 - [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile): for main and tests codes compilation.
 
-Other:
+### Other:
 - [*License*](https://github.com/JustWhit3/osmanip/blob/main/License): is the License file, please read it before using this library with your own public code.
 
 ## Scripts
 
-Installation scripts:
+### Installation scripts:
 - [*install.sh*](https://github.com/JustWhit3/osmanip/blob/main/install.sh): is the script used to install the software in your computer.
