@@ -57,6 +57,7 @@ Getter methods:
 Other methods: 
 - `void update( long long int iterating_var )`: to update the bar after each loop cycle.
 > **NOTE**: `std::cout` object cannot be used inside a loop within the `update` method.
+- `void print()`: to print on the screen all the progress bar variable values.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
 
