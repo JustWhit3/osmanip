@@ -24,15 +24,6 @@ else
 fi
 echo ""
 
-#Static library creation:
-echo "Creating the static library into the lib folder..."
-mkdir -p lib 
-if ! ( ar rvs lib/libosmanip.a obj/src/csmanip.cpp.o obj/src/progressbar.cpp.o ) ; then
-    echo "Cannot create the static library!"
-    exit
-fi
-echo ""
-
 #Saving files into the system:
 echo "Enter your password for the last installation step:"
 echo "Installing osmanip header files into /usr/local/include folder..."
