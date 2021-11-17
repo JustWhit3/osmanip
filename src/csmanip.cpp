@@ -88,7 +88,7 @@ namespace osm
    }
  
   //Definition of the "reset" function
-  std::string reset ( std::string reset_string )
+  std::string reset( std::string reset_string )
    {
     if( rst.find( reset_string ) == rst.end() ) 
      {

@@ -112,3 +112,25 @@ cout << endl << "Time needed to complete the previous cycle: " << percentage_bar
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="475" height="85">
+
+You can also create a classic loading bar:
+```c++
+ProgressBar loading_bar;
+loading_bar.setMin( 3 );
+loading_bar.setMax ( 22 );
+loading_bar.setStyle( "#" );
+loading_bar.setBrackets( "[", "]" );
+loading_bar.setMessage( "processing..." );
+
+cout << "This is a normal loading bar: " << endl;
+for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
+ {
+  sleep_for( milliseconds( 100 ) );
+  loading_bar.update( i );
+  //Do some operations...
+ }
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_loading.gif" width="300" height="50">
+
+And customize it with messages and time-consuming info, like the previous percentage.

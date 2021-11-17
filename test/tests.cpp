@@ -60,7 +60,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
                 min = -1e15,
                 time = 1e10;
   string style = "%",
-              message = "meessage";
+         message = "meessage",
+         bracket_open = "{",
+         bracket_close = "}";
 
   SUBCASE( "Testing naked getters and constructor" ) 
    {
@@ -69,20 +71,25 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getStyle() == "" );
     CHECK( bar.getTime() == 0 );
     CHECK( bar.getMessage() == "" );
+    CHECK( bar.getBrackets_close() == "" );
+    CHECK( bar.getBrackets_open() == "" );
    }
 
   bar.setMax( max );
   bar.setMin( min );
   bar.setStyle( style );
   bar.setMessage( message );
+  bar.setBrackets( bracket_open, bracket_close );
 
   SUBCASE( "Testing setters and getters with values different from 0" ) 
    {
     CHECK( bar.getMax() == max );
     CHECK( bar.getMin() == min );
     CHECK( bar.getMessage() == message );
+    CHECK( bar.getBrackets_open() == bracket_open );
+    CHECK( bar.getBrackets_close() == bracket_close );
 
-    if ( bar.getStyle() != "%" )
+    if ( bar.getStyle() != "%" && bar.getStyle() != "#" )
      {
       CHECK_THROWS_AS( bar.setStyle( style ), runtime_error );
      }
@@ -114,6 +121,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getTime() == 0 );
     bar.resetMessage();
     CHECK( bar.getMessage() == "" );
+    bar.resetBrackets();
+    CHECK( bar.getBrackets_open() == "" );
+    CHECK( bar.getBrackets_close() == "" );
    }
 
   SUBCASE( "Testing time methods" )
@@ -134,12 +144,14 @@ TEST_CASE( "Testing the ProgressBar class methods." )
    {
     bar.setMax( 5 );
     bar.setMin( -3 );
+    bar.resetStyle();
+    bar.setStyle( "#" );
 
     //There is not much to test in it since it doesn't modify almost anything.
     for ( int i = -3; i < 5; i++ )
      {
       bar.update( i );
-      CHECK( bar.getIteratingVar() == 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - 1 ) +1 );
+      CHECK( bar.getIteratingVar() == 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - 1 ) );
      }
    }
  }

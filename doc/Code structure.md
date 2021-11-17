@@ -4,6 +4,8 @@
 - [Namespaces](#namespaces)
 - [Classes](#classes)
   * [ProgressBar](#progressbar)
+- [Operators redefinition](#operators-redefinition)
+  * [Operator *](operator-*)
 - [Functions](#functions)
   * [feat](#feat)
   * [reset](#reset)
@@ -38,12 +40,15 @@ Setter methods:
 - `void setMessage( std::string message )`: to set optional message of the bar.
 - `void setBegin()`: to set begin time for the CPU time counting.
 - `void setEnd()`: to set end time for the CPU time counting.
+- `void setBrackets()`: to set brackets style.
 - `void reset()`: to reset all the main attributes.
 - `void resetMax()`: to reset max value of the bar.
 - `void resetMin()`: to reset min value of the bar.
 - `void resetStyle()`: to reset the bar style.
 - `void resetMessage()`: to reset optional message of the bar.
 - `void resetTime()`: to reset CPU time count.
+- `void resetBrackets()`: to reset brackets style.
+- 'void '
 > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment, in the sense that a few precision in lost when using them into loops.
 
 Getter methods:
@@ -53,6 +58,8 @@ Getter methods:
 - `long long int getIteratingVar()`: to get the iterating variable of the `update` method.
 - `std::string getStyle()`: to get the bar style.
 - `std::string getMessage()`: to get the optional bar message.
+- `std::string getBrackets_open()`: to get the opening bracket.
+- `std::string getBrackets_close()`: to get the closing bracket.
 
 Other methods: 
 - `void update( long long int iterating_var )`: to update the bar after each loop cycle.
@@ -60,6 +67,16 @@ Other methods:
 - `void print()`: to print on the screen all the progress bar variable values.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
+
+## Operators redefinition
+
+### Operator *
+
+Header file: [*progressbar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar.h)
+
+Source code: [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar.cpp)
+
+Operators redefinition in order to mupltiply strings by integer. It is used in the method of the ProgressBar class.
 
 ## Functions
 

@@ -8,7 +8,7 @@ using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
 
-int main ()
+void col_sty()
  {
   //Output all the features:
   cout << endl << "---------------------   COLORS   ---------------------" << endl << endl
@@ -76,52 +76,106 @@ int main ()
        
        << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" ) << endl
        << feat( sty, "italics" ) << feat( col, "blue" ) << "This is an italics blue string." << reset( "all" ) << endl
-       << feat( sty, "faint" ) << feat( col, "orange" ) << "This is a faint orange string." << reset( "all" ) << endl
+       << feat( sty, "faint" ) << feat( col, "orange" ) << "This is a faint orange string." << reset( "all" ) << endl;
+ }
+
+void perc_bars()
+ {
+  cout << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
+  
+  //Normal percentage bar settings:
+  ProgressBar percentage_bar;
+  percentage_bar.setMin( 1 );
+  percentage_bar.setMax ( 100 );
+  percentage_bar.setStyle( "%" );
        
-       << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
-       
-       //Normal percentage bar settings:
-       ProgressBar percentage_bar;
-       percentage_bar.setMin( 1 );
-       percentage_bar.setMax ( 100 );
-       percentage_bar.setStyle( "%" );
-       
-       cout << "This is a normal percentage bar: " << endl;
-       for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-        {
-         sleep_for( milliseconds( 100 ) );
-         percentage_bar.update( i );
-         //Do some operations...
-        }
-        cout << endl << endl;
-       
-       //Percentage bar with message:
-       percentage_bar.setMessage( " processing..." );
+  cout << "This is a normal percentage bar: " << endl;
+  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    percentage_bar.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;
+            
+  //Percentage bar with message:
+  percentage_bar.setMessage( " processing..." );
 
-       cout << "This is a percentage bar with message: " << endl;
-       for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-        {
-         sleep_for( milliseconds( 100 ) );
-         percentage_bar.update( i );
-         //Do some operations...
-        }
-       cout << endl << endl;
+  cout << "This is a percentage bar with message: " << endl;
+  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    percentage_bar.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;
 
-       //Percentage bar with time consuming info:
-       percentage_bar.resetMessage();
+  //Percentage bar with time consuming info:
+  percentage_bar.resetMessage();
 
-       cout << "This is a percentage bar with time consuming info: " << endl;
-       for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-        {
-         percentage_bar.setBegin();
+  cout << "This is a percentage bar with time consuming info: " << endl;
+  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+   {
+    percentage_bar.setBegin();
+    sleep_for( milliseconds( 100 ) );
+    percentage_bar.update( i );
+    //Do some operations...
+    percentage_bar.setEnd();
+   }
+  cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl << endl;
+ }
 
-         sleep_for( milliseconds( 100 ) );
-         percentage_bar.update( i );
-         //Do some operations...
+void load_bars()
+ {
+  ProgressBar loading_bar;
+  loading_bar.setMin( 3 );
+  loading_bar.setMax ( 22 );
+  loading_bar.setStyle( "#" );
+  loading_bar.setBrackets( "[", "]" );
 
-         percentage_bar.setEnd();
-        }
-       cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
+  cout << "This is a normal loading bar: " << endl;
+  for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    loading_bar.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;
+
+  //Loading bar with message:
+  loading_bar.resetBrackets();
+  loading_bar.setMessage( " processing..." );
+  loading_bar.setBrackets( "{", "}" );
+
+  cout << "This is a loading bar with message: " << endl;
+  for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    loading_bar.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;
+
+  //Loading bar with time consuming info:
+  loading_bar.resetMessage();
+
+  cout << "This is a loading bar with time consuming info: " << endl;
+  for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
+   {
+    loading_bar.setBegin();
+    sleep_for( milliseconds( 100 ) );
+    loading_bar.update( i );
+    //Do some operations...
+    loading_bar.setEnd();
+   }
+  cout << endl << "Time needed to complete the previous cycle: " << loading_bar.getTime() << " ms." << endl;
+ }
+
+int main ()
+ {
+  col_sty(); //Color/style.
+  perc_bars(); //Percentage bar.
+  load_bars(); //Loading bar.
  }
  
 
