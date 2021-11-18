@@ -173,8 +173,8 @@ void load_bars()
 
 int main ()
  {
-  //col_sty(); //Color/style.
-  //perc_bars(); //Percentage bar.
+  col_sty(); //Color/style.
+  perc_bars(); //Percentage bar.
   load_bars(); //Loading bar.
  }
  

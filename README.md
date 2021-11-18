@@ -5,6 +5,7 @@
 - [Documentation](#documentation)
 - [List of features](#list-of-features)
   * [Colors and styles manipulation](#colors-and-styles-manipulation)
+  * [Cursor navigation](#cursor-navigation)
   * [Progress bars](#progress-bars)
 
 ## Introduction
@@ -49,6 +50,16 @@ You can also print mixed color and style strings:
 cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
 ```
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in order to reset all the output stream color / style.
+
+### Cursor navigation
+
+You can modify the cursor navigation in all the 4 directions (up, down, right, left) by using the `feat` function within the `crs` map, in this way:
+```c++
+cout << feat( crs, "left" ) << "Moving cursor on the left";
+```
+You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSII code of the cursor navigation (see [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)).
+
+It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp) for more information.
 
 ### Progress bars
 
