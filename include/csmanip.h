@@ -11,6 +11,7 @@ namespace osm
 
   //Functions declaration:
   std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string ),
+              feat ( std::map <std::string, std::string> & generic_map, std::string feat_string, int feat_int ),
               reset ( std::string reset_string );
 
   //Test functions declaration:

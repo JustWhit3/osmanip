@@ -86,9 +86,9 @@ void perc_bars()
   //Normal percentage bar settings:
   ProgressBar percentage_bar;
   percentage_bar.setMin( 1 );
-  percentage_bar.setMax ( 100 );
+  percentage_bar.setMax ( 20 );
   percentage_bar.setStyle( "%" );
-       
+
   cout << "This is a normal percentage bar: " << endl;
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
@@ -132,7 +132,7 @@ void load_bars()
   loading_bar.setMax ( 22 );
   loading_bar.setStyle( "#" );
   loading_bar.setBrackets( "[", "]" );
-
+ 
   cout << "This is a normal loading bar: " << endl;
   for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
@@ -173,8 +173,8 @@ void load_bars()
 
 int main ()
  {
-  col_sty(); //Color/style.
-  perc_bars(); //Percentage bar.
+  //col_sty(); //Color/style.
+  //perc_bars(); //Percentage bar.
   load_bars(); //Loading bar.
  }
  

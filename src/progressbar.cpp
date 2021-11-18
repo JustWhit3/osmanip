@@ -2,8 +2,8 @@
 #include <sstream>
 #include <string>
 #include <chrono>
-
 #include "../include/progressbar.h"
+#include "../include/csmanip.h"
 
 namespace osm
  {
@@ -58,13 +58,13 @@ namespace osm
 
   void ProgressBar::resetMin() { min_ = 0; }
 
-  void ProgressBar::resetStyle() { style_ = ""; } 
+  void ProgressBar::resetStyle() { style_.clear(); } 
 
-  void ProgressBar::resetMessage() { message_ = ""; } 
+  void ProgressBar::resetMessage() { message_.clear(); } 
 
   void ProgressBar::resetTime() { time_count_ = 0; }
 
-  void ProgressBar::resetBrackets() { brackets_open_ = "", brackets_close_ = ""; }
+  void ProgressBar::resetBrackets() { brackets_open_.clear(), brackets_close_.clear(); }
 
   //ProgressBar getters definition:
   long long int ProgressBar::getMax() const { return max_; }
@@ -98,20 +98,16 @@ namespace osm
 
     if( style_ == "%" )
      {
-      conct_.append( "\u001b[100D" );
-      conct_.append( std::to_string( iterating_var_ ++ ) );
-      conct_.append( "%" );
-      std::cout << conct_ << message_ << std::flush;
+      std::cout << feat( crs, "left", 100 ) + std::to_string( iterating_var_ ++ ) + getStyle()
+                << message_ << std::flush;
      }
     else if( style_ == "#" )
      {
       width_ = ( iterating_var_ + 1 ) / 4;
 
-      conct_.append( "\u001b[100D" );
-      conct_.append( getBrackets_open() );
-      conct_.append( getStyle() * width_ + static_cast<std::string>(" ") * ( 25 - width_ ) );
-      conct_.append( getBrackets_close() );
-      std::cout << conct_ << message_ << std::flush;
+      std::cout << feat( crs, "left", 100 ) + getBrackets_open() + getStyle() * width_ +
+                   static_cast <std::string>( " " ) * ( 25 - width_ ) + getBrackets_close() 
+                << message_ << std::flush;
      }
     else
      {

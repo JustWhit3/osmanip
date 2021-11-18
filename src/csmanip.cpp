@@ -66,7 +66,7 @@ namespace osm
     { "error", "Inserted cursor command" },
   
     //Cursor variables:
-    { "up", "\u001b[A" }, { "down", "\u001b[B" }, { "right", "\u001b[C" }, { "left", "\u001b[D" }
+    { "up", "\u001b[" }, { "down", "\u001b[" }, { "right", "\u001b[" }, { "left", "\u001b[" }
    };
  
   //Definiton of the "feat" function:
@@ -83,6 +83,43 @@ namespace osm
      }
     else
      {
+      return generic_map.at( feat_string );
+     }
+   }
+
+  //Definiton of the "feat" function overload for the crs map:
+  std::string feat( std::map <std::string, std::string> & generic_map, std::string feat_string, int feat_int )
+   {
+    if( generic_map.find( feat_string ) == generic_map.end() ) 
+     {
+      std::string conct;
+      conct.append( generic_map.at( "error" ) );
+      conct.append( " \"" );
+      conct.append( feat_string );
+      conct.append( "\" is not supported!\n" );
+      throw std::runtime_error( conct );
+     }
+    else
+     {
+      if( generic_map == crs )
+       {
+        if( feat_string == "up")
+         {
+          return generic_map.at( feat_string ) + std::to_string( feat_int ) + "A";
+         }
+        else if( feat_string == "down")
+         {
+          return generic_map.at( feat_string ) + std::to_string( feat_int ) + "B";
+         }
+        else if( feat_string == "right")
+         {
+          return generic_map.at( feat_string ) + std::to_string( feat_int ) + "C";
+         }
+        else
+         {
+         return generic_map.at( feat_string ) + std::to_string( feat_int ) + "D";
+         }
+       }
       return generic_map.at( feat_string );
      }
    }
