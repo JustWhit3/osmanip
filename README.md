@@ -131,6 +131,6 @@ for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
  }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_loading.gif" width="300" height="50">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_loading.gif" width="400" height="60">
 
 And customize it with messages and time-consuming info, like the previous percentage.
