@@ -74,12 +74,7 @@ namespace osm
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
-      std::string conct;
-      conct.append( generic_map.at( "error" ) );
-      conct.append( " \"" );
-      conct.append( feat_string );
-      conct.append( "\" is not supported!\n" );
-      throw std::runtime_error( conct );
+      throw std::runtime_error( generic_map.at( "error" ) + " \"" + feat_string + "\" is not supported!\n" );
      }
     else
      {
@@ -92,12 +87,7 @@ namespace osm
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
-      std::string conct;
-      conct.append( generic_map.at( "error" ) );
-      conct.append( " \"" );
-      conct.append( feat_string );
-      conct.append( "\" is not supported!\n" );
-      throw std::runtime_error( conct );
+      throw std::runtime_error( generic_map.at( "error" ) + " \"" + feat_string + "\" is not supported!\n" );
      }
     else
      {
@@ -129,12 +119,7 @@ namespace osm
    {
     if( rst.find( reset_string ) == rst.end() ) 
      {
-      std::string conct;
-      conct.append( rst.at( "error" ) );
-      conct.append( " \"" );
-      conct.append( reset_string );
-      conct.append( "\" is not supported!\n" );
-      throw std::runtime_error( conct );
+      throw std::runtime_error( rst.at( "error" ) + " \"" + reset_string + "\" is not supported!\n" );
      } 
     else
      {

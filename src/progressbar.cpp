@@ -27,11 +27,7 @@ namespace osm
 
     if( style_ != "%" && style_ != "#" )
      {
-      conct_.append( error_ );
-      conct_.append( " \"" );
-      conct_.append( style_ );
-      conct_.append( "\" is not supported!\n" );
-      throw std::runtime_error( conct_ );
+      throw std::runtime_error( error_ + " \"" + style_ + "\" is not supported!\n" );
      }
    }
 
