@@ -1,6 +1,6 @@
 # List of future implementations
 
-- Repository installer script.
+- Repository updater and uninstaller script.
 - Color palette.
 - Implement ANSII escape sequences manipulation.
 - Implement other progress bar styles.

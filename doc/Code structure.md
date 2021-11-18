@@ -90,6 +90,10 @@ Complete definition: `std::string feat ( std::map <std::string, std::string> & g
 
 It takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
 
+Overload: `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string, int feat_int )`.
+
+The overload additionally takes an extra integer argument to correctly set the parameter of the [`crs`](#crs) map.
+
 ### reset
 
 Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)

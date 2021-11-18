@@ -38,6 +38,7 @@
 
 ### Setting files
 - [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore): it ignores some temporary files you don't have to care about.
+- [*.gitattributes*](https://github.com/JustWhit3/osmanip/blob/main/.gitattributes): it corrects the language percentage assignment.
 
 ### Compilation files:
 - [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile): for main and tests codes compilation.

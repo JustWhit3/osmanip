@@ -24,7 +24,7 @@ TEST_CASE( "Testing the feat function." )
    {
     for( auto & element_m: element_v )
     {
-     if( element_v.find( element_m.first ) == col.end() )
+     if( element_v.find( element_m.first ) == element_v.end() )
       {
        CHECK_THROWS_AS( feat( element_v, element_m.first ), runtime_error );
       }
@@ -33,6 +33,38 @@ TEST_CASE( "Testing the feat function." )
        CHECK( feat( element_v, element_m.first ) == element_v.at( element_m.first ) );
       }
     }
+   }
+ }
+
+//Testing the "feat" function overload for the crs map:
+TEST_CASE( "Testing the feat function overload for the crs map." )
+ {
+  int feat_int = 100;
+  for( auto & element_m: crs )
+   {
+    if( crs.find( element_m.first ) == crs.end() )
+     {
+      CHECK_THROWS_AS( feat( crs, element_m.first, feat_int ), runtime_error );
+     }
+    else
+     { 
+      if( crs.at( element_m.first ) == "up")
+       {
+        CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ) + std::to_string( feat_int ) + "A" ) );
+       }
+      else if( crs.at( element_m.first ) == "down")
+       {
+        CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ) + std::to_string( feat_int ) + "B" ) );
+       }
+      else if( crs.at( element_m.first ) == "right")
+       {
+        CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ) + std::to_string( feat_int ) + "C" ) );
+       }
+      else if( crs.at( element_m.first ) == "right")
+       {
+        CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ) + std::to_string( feat_int ) + "D" ) );
+       }
+     }
    }
  }
 

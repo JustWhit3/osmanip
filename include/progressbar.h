@@ -16,36 +16,36 @@ namespace osm
      ~ProgressBar();
 
      //Setters declaration:
-     void setMax( long long int max ),
-          setMin( long long int min ),
-          setStyle( std::string style ),
-          setMessage( std::string message ),
-          setBrackets( std::string brackets_open, std::string brackets_close ),
-          setBegin(),
-          setEnd(),
+     void setMax( long long int max );
+     void setMin( long long int min );
+     void setStyle( std::string style );
+     void setMessage( std::string message );
+     void setBrackets( std::string brackets_open, std::string brackets_close );
+     void setBegin();
+     void setEnd();
 
      //Resetters declaration:
-          reset(),
-          resetMax(),
-          resetMin(),
-          resetStyle(),
-          resetMessage(),
-          resetTime(),
-          resetBrackets();
+     void reset();
+     void resetMax();
+     void resetMin();
+     void resetStyle();
+     void resetMessage();
+     void resetTime();
+     void resetBrackets();
 
      //Getters declaration:
-     long long int getMax() const,
-                   getMin() const,
-                   getTime() const,
-                   getIteratingVar() const;
-     std::string getStyle() const,
-                 getMessage() const,
-                 getBrackets_open() const,
-                 getBrackets_close() const;
+     long long int getMax() const;
+     long long int getMin() const;
+     long long int getTime() const;
+     long long int getIteratingVar() const;
+     std::string getStyle() const;
+     std::string getMessage() const;
+     std::string getBrackets_open() const;
+     std::string getBrackets_close() const;
 
      //Other methods declaration:
-     void update( long long int iterating_var ),
-          print() const;
+     void update( long long int iterating_var );
+     void print() const;
   
     private:
 

@@ -129,7 +129,7 @@ void load_bars()
  {
   ProgressBar loading_bar;
   loading_bar.setMin( 3 );
-  loading_bar.setMax ( 22 );
+  loading_bar.setMax ( 100 );
   loading_bar.setStyle( "#" );
   loading_bar.setBrackets( "[", "]" );
  
