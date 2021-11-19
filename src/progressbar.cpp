@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 #include <chrono>
+#include <set>
 #include "../include/progressbar.h"
 #include "../include/csmanip.h"
 
@@ -14,7 +15,9 @@ namespace osm
   ProgressBar::~ProgressBar() {}
 
   //ProgressBar variables declaration:
-  const std::string ProgressBar::error_ = "Inserted ProgressBar style:";
+  const std::string ProgressBar::error_ = "Inserted ProgressBar style";
+  std::set <std::string> ProgressBar::set_p_ { "%" };
+  std::set <std::string> ProgressBar::set_l_ { "#" };
 
   //ProgressBar setters definition:
   void ProgressBar::setMax( long long int max ) { max_ = max; }
@@ -25,7 +28,7 @@ namespace osm
    {
     style_ = style;
 
-    if( style_ != "%" && style_ != "#" )
+    if( set_p_.find( style_ ) == set_p_.end() && set_l_.find( style_ ) == set_l_.end() )
      {
       throw std::runtime_error( error_ + " \"" + style_ + "\" is not supported!\n" );
      }
@@ -54,9 +57,9 @@ namespace osm
 
   void ProgressBar::resetMin() { min_ = 0; }
 
-  void ProgressBar::resetStyle() { style_.clear(); } 
+  void ProgressBar::resetStyle() { style_ = ""; } 
 
-  void ProgressBar::resetMessage() { message_.clear(); } 
+  void ProgressBar::resetMessage() { message_ = ""; } 
 
   void ProgressBar::resetTime() { time_count_ = 0; }
 
@@ -91,16 +94,15 @@ namespace osm
   void ProgressBar::update( long long int iterating_var )
    {
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - 1 );
+    width_ = ( iterating_var_ + 1 ) / 4;
 
-    if( style_ == "%" )
+    if( set_p_.find( style_ ) != set_p_.end() )
      {
       std::cout << feat( crs, "left", 100 ) + std::to_string( iterating_var_ ++ ) + getStyle()
                 << message_ << std::flush;
      }
-    else if( style_ == "#" )
+    else if( set_l_.find( style_ ) != set_l_.end() )
      {
-      width_ = ( iterating_var_ + 1 ) / 4;
-
       std::cout << feat( crs, "left", 100 ) + getBrackets_open() + getStyle() * width_ +
                    static_cast <std::string>( " " ) * ( 25 - width_ ) + getBrackets_close() 
                 << message_ << std::flush;

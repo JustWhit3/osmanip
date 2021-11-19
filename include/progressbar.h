@@ -3,6 +3,7 @@
 
 #include <string>
 #include <chrono>
+#include <set>
 
 namespace osm
  {
@@ -54,6 +55,7 @@ namespace osm
      std::string style_, conct_, message_, brackets_open_, brackets_close_;
      static const std::string error_;
      std::chrono::steady_clock::time_point begin, end;
+     static std::set <std::string> set_p_, set_l_;
    };
   
   //Operator * redefinition declaration to multiply strings by an integer:
