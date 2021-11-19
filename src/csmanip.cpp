@@ -2,7 +2,7 @@
 #include <string>
 #include <map>
 #include <chrono>
-
+#include <utility>
 #include "../include/csmanip.h"
 
 namespace osm
@@ -60,13 +60,14 @@ namespace osm
    };
  
   //Definition of the "cursor" map:
-  std::map <std::string, std::string> crs
+  std::map <std::string, std::pair<std::string, std::string>> crs
    {
     //Error variables:
-    { "error", "Inserted cursor command" },
+    { "error", std::make_pair( "Inserted cursor command", "" ) },
   
     //Cursor variables:
-    { "up", "\u001b[" }, { "down", "\u001b[" }, { "right", "\u001b[" }, { "left", "\u001b[" }
+    { "up", std::make_pair( "\u001b[", "A" ) }, { "down", std::make_pair( "\u001b[", "B" ) }, 
+    { "right", std::make_pair( "\u001b[", "C" ) }, { "left", std::make_pair( "\u001b[", "D" ) }
    };
  
   //Definiton of the "feat" function:
@@ -83,34 +84,20 @@ namespace osm
    }
 
   //Definiton of the "feat" function overload for the crs map:
-  std::string feat( std::map <std::string, std::string> & generic_map, std::string feat_string, int feat_int )
+  std::string feat( std::map <std::string, std::pair<std::string, std::string>> & generic_map, 
+                    std::string feat_string, int feat_int )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
-      throw std::runtime_error( generic_map.at( "error" ) + " \"" + feat_string + "\" is not supported!\n" );
+      throw std::runtime_error( generic_map.at( "error" ).first + " \"" + feat_string + "\" is not supported!\n" );
      }
     else
      {
       if( generic_map == crs )
        {
-        if( feat_string == "up")
-         {
-          return generic_map.at( feat_string ) + std::to_string( feat_int ) + "A";
-         }
-        else if( feat_string == "down")
-         {
-          return generic_map.at( feat_string ) + std::to_string( feat_int ) + "B";
-         }
-        else if( feat_string == "right")
-         {
-          return generic_map.at( feat_string ) + std::to_string( feat_int ) + "C";
-         }
-        else
-         {
-         return generic_map.at( feat_string ) + std::to_string( feat_int ) + "D";
-         }
+        return generic_map.at( feat_string ).first + std::to_string( feat_int ) + generic_map.at( feat_string ).second;
        }
-      return generic_map.at( feat_string );
+      return generic_map.at( feat_string ).first;
      }
    }
  

@@ -18,7 +18,6 @@ TEST_CASE( "Testing the feat function." )
   vector <map <string, string>> maps_vector;
   maps_vector.push_back( col );
   maps_vector.push_back( sty );
-  maps_vector.push_back( crs );
 
   for( auto & element_v: maps_vector )
    {
@@ -48,22 +47,7 @@ TEST_CASE( "Testing the feat function overload for the crs map." )
      }
     else
      { 
-      if( crs.at( element_m.first ) == "up")
-       {
-        CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ) + std::to_string( feat_int ) + "A" ) );
-       }
-      else if( crs.at( element_m.first ) == "down")
-       {
-        CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ) + std::to_string( feat_int ) + "B" ) );
-       }
-      else if( crs.at( element_m.first ) == "right")
-       {
-        CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ) + std::to_string( feat_int ) + "C" ) );
-       }
-      else if( crs.at( element_m.first ) == "right")
-       {
-        CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ) + std::to_string( feat_int ) + "D" ) );
-       }
+      CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ).first + std::to_string( feat_int ) + crs.at( element_m.first ).second ) );
      }
    }
  }

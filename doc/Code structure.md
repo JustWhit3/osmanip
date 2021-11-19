@@ -90,9 +90,9 @@ Complete definition: `std::string feat ( std::map <std::string, std::string> & g
 
 It takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
 
-Overload: `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string, int feat_int )`.
+Overload: `std::string feat( std::map <std::string, std::pair<std::string, std::string>> & generic_map, std::string feat_string, int feat_int )`.
 
-The overload additionally takes an extra integer argument to correctly set the parameter of the [`crs`](#crs) map.
+The overload, with respect to the standard function definition, takes an `std::map` object as the first argument, but with an `std::pair` as second type and additionally takes an extra integer argument to correctly set the parameter of the [`crs`](#crs) map.
 
 ### reset
 
@@ -207,11 +207,11 @@ Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/includ
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `std::map <std::string, std::string> crs`
+Complete definition: `std::map <std::string, std::pair<std::string, std::string>> crs`
 
-It is used for the output stream cursor naviagation and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature:
+It is used for the output stream cursor navigation and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::pair<std::string, std::string>`) or string value in the case of the `error` feature:
   * `error` / `Inserted cursor command`
-  * `up` / \ `u001b[A`
-  * `down` / `\u001b[B`
-  * `right` / `\u001b[C`
-  * `left` / `\u001b[D`
+  * `up` / `\u001b[` / `A`
+  * `down` / `\u001b[` / `B`
+  * `right` / `\u001b[` / `C`
+  * `left` / `\u001b[` / `D`
