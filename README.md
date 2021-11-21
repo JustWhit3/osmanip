@@ -145,3 +145,11 @@ for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_loading.gif" width="400" height="60">
 
 And customize it with messages and time-consuming info, like the previous percentage.
+
+If using mixed bar styles, for example:
+```c++
+loading_bar.setStyle( "%#" );
+```
+you can create loading bar with percentage counter (mixed bar):
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar.gif" width="400" height="60">

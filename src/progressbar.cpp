@@ -16,7 +16,9 @@ namespace osm
 
   //ProgressBar variables declaration:
   const std::string ProgressBar::error_ = "Inserted ProgressBar style";
+
   std::set <std::string> ProgressBar::set_p_ { "%" };
+  
   std::set <std::string> ProgressBar::set_l_ { "#" };
 
   //ProgressBar setters definition:
@@ -28,9 +30,16 @@ namespace osm
    {
     style_ = style;
 
-    if( set_p_.find( style_ ) == set_p_.end() && set_l_.find( style_ ) == set_l_.end() )
+    for(auto & element_p: set_p_)
      {
-      throw std::runtime_error( error_ + " \"" + style_ + "\" is not supported!\n" );
+      for(auto & element_l: set_l_ )
+       {
+        if( ( set_p_.find( style_ ) == set_p_.end() && set_l_.find( style_ ) == set_l_.end() ) &&
+            ( style_.find( element_p ) == std::string::npos && style_.find( element_l ) == std::string::npos ) )
+         {
+          throw std::runtime_error( error_ + " \"" + style_ + "\" is not supported!\n" );
+         }
+       }
      }
    }
 
@@ -57,9 +66,9 @@ namespace osm
 
   void ProgressBar::resetMin() { min_ = 0; }
 
-  void ProgressBar::resetStyle() { style_ = ""; } 
+  void ProgressBar::resetStyle() { style_.clear(); } 
 
-  void ProgressBar::resetMessage() { message_ = ""; } 
+  void ProgressBar::resetMessage() { message_.clear(); } 
 
   void ProgressBar::resetTime() { time_count_ = 0; }
 
@@ -98,18 +107,34 @@ namespace osm
 
     if( set_p_.find( style_ ) != set_p_.end() )
      {
-      std::cout << feat( crs, "left", 100 ) + std::to_string( iterating_var_ ++ ) + getStyle()
-                << message_ << std::flush;
+      output_ = feat( crs, "left", 100 ) + std::to_string( iterating_var_ ++ ) + getStyle();
+      std::cout << output_ << message_ << std::flush;
      }
     else if( set_l_.find( style_ ) != set_l_.end() )
      {
-      std::cout << feat( crs, "left", 100 ) + getBrackets_open() + getStyle() * width_ +
-                   static_cast <std::string>( " " ) * ( 25 - width_ ) + getBrackets_close() 
-                << message_ << std::flush;
+      output_ = feat( crs, "left", 100 ) + getBrackets_open() + getStyle() * width_ + 
+                static_cast <std::string>( " " ) * ( 25 - width_ ) + getBrackets_close();       
+      std::cout << output_ << message_ << std::flush;
      }
     else
      {
-      throw std::runtime_error( "ProgressBar style has not been set!" );
+      for( auto & element_p: set_p_ )
+       {
+        for( auto & element_l: set_l_ )
+         {
+          if( style_.find( element_p ) != std::string::npos && style_.find( element_l ) != std::string::npos )
+           {
+            output_= feat( crs, "left", 100 ) + getBrackets_open() + element_l * width_ + 
+                          static_cast <std::string>( " " ) * ( 25 - width_ ) + getBrackets_close() +
+                          std::to_string( iterating_var_ ++ ) + element_p; 
+            std::cout << output_ << output_ << message_ << std::flush;
+           }
+          else
+           {
+            throw std::runtime_error( "ProgressBar style has not been set!" );
+           }
+         }
+       }
      }
    }
 

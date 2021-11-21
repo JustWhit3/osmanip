@@ -173,15 +173,30 @@ void load_bars()
 
 void mixed_bars()
  {
+  ProgressBar mixed_bar;
+  mixed_bar.setMin( 3 );
+  mixed_bar.setMax ( 35 );
+  mixed_bar.setStyle( "%#" );
+  mixed_bar.setBrackets( "[", "]" );
+  mixed_bar.setMessage( " elaborating..." );
+ 
+  cout << "This is a mixed progress bar: " << endl;
+  for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    mixed_bar.update( i );
+    //Do some operations...
+   }
+
 
  }
 
 int main ()
  {
-  //col_sty(); //Color/style.
+  col_sty(); //Color/style.
   perc_bars(); //Percentage bar.
   load_bars(); //Loading bar.
-  mixed_bars();
+  mixed_bars(); //Mixed bar.
  }
  
 

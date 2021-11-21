@@ -50,9 +50,9 @@ namespace osm
   
     private:
 
-     //Attributes declaration and initializations:
+     //Attributes declaration:
      long long int max_, min_, iterating_var_, time_count_, width_;
-     std::string style_, conct_, message_, brackets_open_, brackets_close_;
+     std::string style_, conct_, message_, brackets_open_, brackets_close_, output_;
      static const std::string error_;
      std::chrono::steady_clock::time_point begin, end;
      static std::set <std::string> set_p_, set_l_;
