@@ -37,18 +37,21 @@ Setter methods:
 - `void setMax( long long int max )`: to set max value of the bar.
 - `void setMin( long long int min )`: to set min value of the bar.
 - `void setStyle( std::string style )`: to set the bar style.
+> Standard available styles are percentage (`%`) and loading (`#`).
 - `void setMessage( std::string message )`: to set optional message of the bar.
 - `void setBegin()`: to set begin time for the CPU time counting.
 - `void setEnd()`: to set end time for the CPU time counting.
 - `void setBrackets()`: to set brackets style.
-- `void reset()`: to reset all the main attributes.
+- `void setColor( std::string color )`: to set progress bar color.
+> Color name has to be set with corresponding name of a `crs` map element.
+- `void resetAll()`: to reset all the main attributes.
 - `void resetMax()`: to reset max value of the bar.
 - `void resetMin()`: to reset min value of the bar.
 - `void resetStyle()`: to reset the bar style.
 - `void resetMessage()`: to reset optional message of the bar.
 - `void resetTime()`: to reset CPU time count.
 - `void resetBrackets()`: to reset brackets style.
-- 'void '
+- `void resetColor()`: to reset progress bar color.
 > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment, in the sense that a few precision in lost when using them into loops.
 
 Getter methods:
@@ -60,6 +63,7 @@ Getter methods:
 - `std::string getMessage()`: to get the optional bar message.
 - `std::string getBrackets_open()`: to get the opening bracket.
 - `std::string getBrackets_close()`: to get the closing bracket.
+- `std::string getColor()`: to get the progress bar color.
 
 Other methods: 
 - `void update( long long int iterating_var )`: to update the bar after each loop cycle.

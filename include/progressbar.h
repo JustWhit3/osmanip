@@ -24,15 +24,17 @@ namespace osm
      void setBrackets( std::string brackets_open, std::string brackets_close );
      void setBegin();
      void setEnd();
+     void setColor( std::string color );
 
      //Resetters declaration:
-     void reset();
+     void resetAll();
      void resetMax();
      void resetMin();
      void resetStyle();
      void resetMessage();
      void resetTime();
      void resetBrackets();
+     void resetColor();
 
      //Getters declaration:
      long long int getMax() const;
@@ -43,6 +45,7 @@ namespace osm
      std::string getMessage() const;
      std::string getBrackets_open() const;
      std::string getBrackets_close() const;
+     std::string getColor() const;
 
      //Other methods declaration:
      void update( long long int iterating_var );
@@ -52,7 +55,7 @@ namespace osm
 
      //Attributes declaration:
      long long int max_, min_, iterating_var_, time_count_, width_;
-     std::string style_, conct_, message_, brackets_open_, brackets_close_, output_;
+     std::string style_, conct_, message_, brackets_open_, brackets_close_, output_, color_;
      static const std::string error_;
      std::chrono::steady_clock::time_point begin, end;
      static std::set <std::string> set_p_, set_l_;

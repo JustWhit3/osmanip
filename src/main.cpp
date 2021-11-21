@@ -168,7 +168,7 @@ void load_bars()
     //Do some operations...
     loading_bar.setEnd();
    }
-  cout << endl << "Time needed to complete the previous cycle: " << loading_bar.getTime() << " ms." << endl;
+  cout << endl << "Time needed to complete the previous cycle: " << loading_bar.getTime() << " ms." << endl << endl;
  }
 
 void mixed_bars()
@@ -187,8 +187,18 @@ void mixed_bars()
     mixed_bar.update( i );
     //Do some operations...
    }
+  cout << endl << endl;
 
+  mixed_bar.setColor( "red" );
 
+  cout << "This is a mixed progress bar with color: " << endl;
+  for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    mixed_bar.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;
  }
 
 int main ()

@@ -36,7 +36,7 @@ namespace osm
     //Error variables:
     { "error", "Inserted style" },
   
-    //Color variables:
+    //Style variables:
     { "bold", "\033[1m" }, { "faint", "\033[2m" }, { "italics", "\033[3m" }, { "underlined", "\033[4m" }, 
     { "blink", "\033[5m" }, { "inverse", "\033[7m" }, { "invisible", "\033[8m" }, { "crossed", "\033[9m" },
     {"d-underlined", "\033[21m" }

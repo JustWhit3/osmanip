@@ -124,6 +124,8 @@ cout << endl << "Time needed to complete the previous cycle: " << percentage_bar
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="475" height="85">
 
+It is possible to add also colors and much more.
+
 You can also create a classic loading bar:
 ```c++
 ProgressBar loading_bar;

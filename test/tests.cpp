@@ -78,7 +78,8 @@ TEST_CASE( "Testing the ProgressBar class methods." )
   string style = "%",
          message = "meessage",
          bracket_open = "{",
-         bracket_close = "}";
+         bracket_close = "}",
+         color = "red";
 
   SUBCASE( "Testing naked getters and constructor" ) 
    {
@@ -89,6 +90,7 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getMessage() == "" );
     CHECK( bar.getBrackets_close() == "" );
     CHECK( bar.getBrackets_open() == "" );
+    CHECK( bar.getColor() == reset( "color" ));
    }
 
   bar.setMax( max );
@@ -96,6 +98,7 @@ TEST_CASE( "Testing the ProgressBar class methods." )
   bar.setStyle( style );
   bar.setMessage( message );
   bar.setBrackets( bracket_open, bracket_close );
+  bar.setColor( color );
 
   SUBCASE( "Testing setters and getters with values different from 0" ) 
    {
@@ -104,6 +107,7 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getMessage() == message );
     CHECK( bar.getBrackets_open() == bracket_open );
     CHECK( bar.getBrackets_close() == bracket_close );
+    CHECK( bar.getColor() == feat( col, "red" ) );
 
     if ( bar.getStyle() != "%" && bar.getStyle() != "#" )
      {
@@ -117,12 +121,13 @@ TEST_CASE( "Testing the ProgressBar class methods." )
 
   SUBCASE( "Testing reset method" ) 
    {
-    bar.reset();
+    bar.resetAll();
     CHECK( bar.getMax() == 0 );
     CHECK( bar.getMin() == 0 );
     CHECK( bar.getStyle() == "" );
     CHECK( bar.getTime() == 0 );
     CHECK( bar.getMessage() == "" );
+    CHECK( bar.getColor() == reset( "color" ) );
    }
 
   SUBCASE( "Testing each single reset method" ) 
@@ -140,6 +145,8 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     bar.resetBrackets();
     CHECK( bar.getBrackets_open() == "" );
     CHECK( bar.getBrackets_close() == "" );
+    bar.resetColor();
+    CHECK( bar.getColor() == reset( "color" ) );
    }
 
   SUBCASE( "Testing time methods" )

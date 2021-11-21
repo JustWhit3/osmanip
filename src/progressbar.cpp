@@ -10,7 +10,7 @@ namespace osm
  {
   //Definition of the "progress bar" class constructors, methods and members:
   ProgressBar::ProgressBar(): max_( 0 ), min_( 0 ), style_( "" ), message_( "" ), time_count_( 0 ),
-                              brackets_open_( "" ), brackets_close_( "" ) {}
+                              brackets_open_( "" ), brackets_close_( "" ), color_( reset( "color" ) ) {}
 
   ProgressBar::~ProgressBar() {}
 
@@ -59,8 +59,11 @@ namespace osm
     brackets_close_ = brackets_close;
    }
 
+  void ProgressBar::setColor( std::string color ) { color_ = feat( col, color ); }
+
   //ProgressBar resetters definition:
-  void ProgressBar::reset() { max_ = 0, min_ = 0, style_ = "", message_ = "", time_count_ = 0; }
+  void ProgressBar::resetAll() { max_ = 0, min_ = 0, style_ = "", message_ = "", time_count_ = 0,
+                                 color_ = reset( "color" ); }
 
   void ProgressBar::resetMax() { max_ = 0; }
 
@@ -73,6 +76,8 @@ namespace osm
   void ProgressBar::resetTime() { time_count_ = 0; }
 
   void ProgressBar::resetBrackets() { brackets_open_.clear(), brackets_close_.clear(); }
+
+  void ProgressBar::resetColor() { color_ = reset( "color" ); }
 
   //ProgressBar getters definition:
   long long int ProgressBar::getMax() const { return max_; }
@@ -91,6 +96,8 @@ namespace osm
 
   std::string ProgressBar::getBrackets_close() const { return brackets_close_; }
 
+  std::string ProgressBar::getColor() const { return color_; }
+
   //Operator * redefinition definition to multiply strings by an integer:
   std::string operator * ( const std::string & generic_string, unsigned long long int integer )
    {
@@ -107,14 +114,15 @@ namespace osm
 
     if( set_p_.find( style_ ) != set_p_.end() )
      {
-      output_ = feat( crs, "left", 100 ) + std::to_string( iterating_var_ ++ ) + getStyle();
-      std::cout << output_ << message_ << std::flush;
+      output_ = feat( crs, "left", 100 ) + getColor() + std::to_string( iterating_var_ ++ ) +
+                reset( "color" ) + getStyle();
+      std::cout << output_ << getColor() << message_ << reset( "color" ) << std::flush;
      }
     else if( set_l_.find( style_ ) != set_l_.end() )
      {
-      output_ = feat( crs, "left", 100 ) + getBrackets_open() + getStyle() * width_ + 
-                static_cast <std::string>( " " ) * ( 25 - width_ ) + getBrackets_close();       
-      std::cout << output_ << message_ << std::flush;
+      output_ = feat( crs, "left", 100 ) + getBrackets_open() + getColor() + getStyle() * width_ + 
+                static_cast <std::string>( " " ) * ( 25 - width_ ) + reset( "color" ) + getBrackets_close();       
+      std::cout << output_ << getColor() << message_ << reset( "color" ) << std::flush;
      }
     else
      {
@@ -124,10 +132,11 @@ namespace osm
          {
           if( style_.find( element_p ) != std::string::npos && style_.find( element_l ) != std::string::npos )
            {
-            output_= feat( crs, "left", 100 ) + getBrackets_open() + element_l * width_ + 
-                          static_cast <std::string>( " " ) * ( 25 - width_ ) + getBrackets_close() +
-                          std::to_string( iterating_var_ ++ ) + element_p; 
-            std::cout << output_ << output_ << message_ << std::flush;
+            output_= feat( crs, "left", 100 ) + getBrackets_open() + getColor() + element_l * width_ + 
+                          static_cast <std::string>( " " ) * ( 25 - width_ ) + reset( "color" ) +
+                          getBrackets_close() + getColor() + std::to_string( iterating_var_ ++ ) + 
+                          reset( "color" ) + element_p; 
+            std::cout << output_ << getColor() << message_ << reset( "color" ) << std::flush;
            }
           else
            {
