@@ -28,16 +28,25 @@ namespace osm
 
   void ProgressBar::setStyle( std::string style )
    {
-    style_ = style;
-
-    for(auto & element_p: set_p_)
+    if( set_p_.find( style ) != set_p_.end() || set_l_.find( style ) != set_l_.end() )
      {
-      for(auto & element_l: set_l_ )
+      style_ = style;
+     }
+    else
+     {
+      for( auto & element_p: set_p_ )
        {
-        if( ( set_p_.find( style_ ) == set_p_.end() && set_l_.find( style_ ) == set_l_.end() ) &&
-            ( style_.find( element_p ) == std::string::npos && style_.find( element_l ) == std::string::npos ) )
+        for( auto & element_l: set_l_ )
          {
-          throw std::runtime_error( error_ + " \"" + style_ + "\" is not supported!\n" );
+          if ( ( style.find( element_p ) != std::string::npos && style.find( element_l ) != std::string::npos ) &&
+                 style.length() == 2 )
+           {
+            style_ = style;
+           }
+          else
+           {
+            throw std::runtime_error( error_ + " \"" + style + "\" is not supported!\n" );
+           }
          }
        }
      }
