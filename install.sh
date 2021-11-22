@@ -25,14 +25,24 @@ fi
 echo ""
 
 #Saving files into the system:
-echo "Enter your password for the last installation step:"
-echo "Installing osmanip header files into /usr/local/include folder..."
-if ! ( sudo cp include/* /usr/local/include ) ; then
-    echo "Cannot install the header file into /usr/local/include position of the system!"
-fi
-echo "Installing osmanip lib into /usr/local/lib folder..."
-if ! ( sudo cp lib/* /usr/local/lib ) ; then
-    echo "Cannot install the header file into /usr/local/lib position of the system!"
+include_var=$(stat -c%s "include")
+lib_var=$(stat -c%s "lib")
+var=$(expr $include_var + $lib_var)
+echo "Installation will take up $var bytes of disk space. Would you like to continue? (y/n)"
+read word
+if [ $word == "y" ] || [ $word == "Y" ] ; then
+    echo "Enter your password for the last installation step:"
+    sudo echo "Installing osmanip header files into /usr/local/include folder..."
+    if ! ( sudo cp include/* /usr/local/include ) ; then
+        echo "Cannot install the header file into /usr/local/include position of the system!"
+    fi
+    echo "Installing osmanip lib into /usr/local/lib folder..."
+    if ! ( sudo cp lib/* /usr/local/lib ) ; then
+        echo "Cannot install the header file into /usr/local/lib position of the system!"
+    fi
+else
+    echo "Installation has been canceled!"
+    exit
 fi
 echo ""
 
