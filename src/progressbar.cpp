@@ -155,6 +155,7 @@ namespace osm
                << "Time counter: " << time_count_ << std::endl 
                << "Style: " << style_ << std::endl
                << "Message: " << message_ << std::endl
-               << "Brackets style: " << brackets_open_ << brackets_close_<< std::endl;
+               << "Brackets style: " << brackets_open_ << brackets_close_<< std::endl
+               << "Color: " << color_ << std::endl;
     }
  }
