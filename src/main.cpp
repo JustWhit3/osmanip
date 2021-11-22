@@ -179,7 +179,8 @@ void mixed_bars()
   mixed_bar.setStyle( "%#" );
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( " elaborating..." );
- 
+ cout << endl << endl;
+ sleep_for( seconds( 3 ) );
   cout << "This is a mixed progress bar: " << endl;
   for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
    {
@@ -187,7 +188,7 @@ void mixed_bars()
     mixed_bar.update( i );
     //Do some operations...
    }
-  cout << endl << endl;
+  sleep_for( seconds( 3 ) );
 
   mixed_bar.setColor( "red" );
 

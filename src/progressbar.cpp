@@ -134,7 +134,7 @@ namespace osm
            {
             output_= feat( crs, "left", 100 ) + getBrackets_open() + getColor() + element_l * width_ + 
                           static_cast <std::string>( " " ) * ( 25 - width_ ) + reset( "color" ) +
-                          getBrackets_close() + getColor() + std::to_string( iterating_var_ ++ ) + 
+                          getBrackets_close() + getColor() + " " + std::to_string( iterating_var_ ++ ) + 
                           reset( "color" ) + element_p; 
             std::cout << output_ << getColor() << message_ << reset( "color" ) << std::flush;
            }
