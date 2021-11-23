@@ -79,13 +79,15 @@ TEST_CASE( "Testing the ProgressBar class methods." )
          message = "meessage",
          bracket_open = "{",
          bracket_close = "}",
-         color = "red";
+         color = "red",
+         type = "indicator";
 
   SUBCASE( "Testing naked getters and constructor" ) 
    {
     CHECK( bar.getMax() == 0 );
     CHECK( bar.getMin() == 0 );
     CHECK( bar.getStyle() == "" );
+    CHECK( bar.getType() == "" );
     CHECK( bar.getTime() == 0 );
     CHECK( bar.getMessage() == "" );
     CHECK( bar.getBrackets_close() == "" );
@@ -95,7 +97,7 @@ TEST_CASE( "Testing the ProgressBar class methods." )
 
   bar.setMax( max );
   bar.setMin( min );
-  bar.setStyle( style );
+  bar.setStyle( type, style );
   bar.setMessage( message );
   bar.setBrackets( bracket_open, bracket_close );
   bar.setColor( color );
@@ -109,13 +111,14 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getBrackets_close() == bracket_close );
     CHECK( bar.getColor() == feat( col, "red" ) );
 
-    if ( bar.getStyle() != "%" && bar.getStyle() != "#" )
+    if ( bar.getStyle() == "%" && bar.getType() == "indicator" )
      {
-      CHECK_THROWS_AS( bar.setStyle( style ), runtime_error );
+      CHECK( bar.getStyle() == style );
+      CHECK( bar.getType() == type );
      }
     else
      {
-      CHECK( bar.getStyle() == style );
+      CHECK_THROWS_AS( bar.setStyle( type, style ), runtime_error );
      }
    }
 
@@ -125,6 +128,7 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getMax() == 0 );
     CHECK( bar.getMin() == 0 );
     CHECK( bar.getStyle() == "" );
+    CHECK( bar.getType() == "" );
     CHECK( bar.getTime() == 0 );
     CHECK( bar.getMessage() == "" );
     CHECK( bar.getColor() == reset( "color" ) );
@@ -138,6 +142,7 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getMin() == 0 );
     bar.resetStyle();
     CHECK( bar.getStyle() == "" );
+    CHECK( bar.getType() == "" );
     bar.resetTime();
     CHECK( bar.getTime() == 0 );
     bar.resetMessage();
@@ -168,13 +173,13 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     bar.setMax( 5 );
     bar.setMin( -3 );
     bar.resetStyle();
-    bar.setStyle( "#" );
+    bar.setStyle( type, "%" );
 
     //There is not much to test in it since it doesn't modify almost anything.
     for ( int i = -3; i < 5; i++ )
      {
       bar.update( i );
-      CHECK( bar.getIteratingVar() == 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - 1 ) );
+      CHECK( bar.getIteratingVar() == 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - 1 ) + 1 );
      }
    }
  }

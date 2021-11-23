@@ -13,6 +13,7 @@ namespace osm
    max_( 0 ), 
    min_( 0 ), 
    style_( "" ), 
+   type_( "" ),
    message_( "" ), 
    time_count_( 0 ),
    brackets_open_( "" ), 
@@ -40,11 +41,13 @@ namespace osm
     min_ = min; 
    }
 
-  void ProgressBar::setStyle( std::string style )
+  void ProgressBar::setStyle( std::string type, std::string style )
    {
-    if( set_p_.find( style ) != set_p_.end() || set_l_.find( style ) != set_l_.end() )
+    if( ( set_p_.find( style ) != set_p_.end() || set_l_.find( style ) != set_l_.end() ) &&
+        ( type == "indicator" || type == "loader" ) )
      {
       style_ = style;
+      type_ = type;
      }
     else
      {
@@ -53,11 +56,20 @@ namespace osm
         for( auto & element_l: set_l_ )
          {
           if ( ( style.find( element_p ) != std::string::npos && style.find( element_l ) != std::string::npos ) &&
-                 style.length() == 2 )
+               style.length() == 2 && type == "complete" )
            {
             style_ = style;
+            type_ = type;
            }
-           throw std::runtime_error( error_ + " \"" + style + "\" is not supported!\n" );
+          else
+           {
+            throw std::runtime_error( "Inserted ProgressBar style" + 
+                                      static_cast <std::string>(" \"") + 
+                                      style + 
+                                      "\"" + " or type" + " \"" + 
+                                      type + 
+                                      "\" is not supported!\n" );
+           }
          }
        }
      }
@@ -96,6 +108,7 @@ namespace osm
     max_ = 0, 
     min_ = 0, 
     style_ = "", 
+    type_ = "",
     message_ = "", 
     time_count_ = 0,
     brackets_open_ = "", 
@@ -116,6 +129,7 @@ namespace osm
   void ProgressBar::resetStyle()
    {
     style_.clear();
+    type_.clear();
    } 
 
   void ProgressBar::resetMessage()
@@ -165,6 +179,11 @@ namespace osm
     return style_; 
    }
 
+  std::string ProgressBar::getType() const 
+   { 
+    return type_; 
+   }
+
   std::string ProgressBar::getMessage() const 
    { 
     return message_; 
@@ -204,7 +223,8 @@ namespace osm
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - 1 );
     width_ = ( iterating_var_ + 1 ) / 4;
 
-    if( set_p_.find( style_ ) != set_p_.end() )
+    if( ( set_p_.find( style_ ) != set_p_.end() ) &&
+        type_ == "indicator" )
      {
       output_ = feat( crs, "left", 100 ) + 
                 getColor() + 
@@ -218,7 +238,8 @@ namespace osm
                 << reset( "color" ) 
                 << std::flush;
      }
-    else if( set_l_.find( style_ ) != set_l_.end() )
+    else if( ( set_l_.find( style_ ) != set_l_.end() ) &&
+               type_ == "loader" )
      {
       output_ = feat( crs, "left", 100 ) + 
                 getBrackets_open() + 
@@ -240,7 +261,8 @@ namespace osm
        {
         for( auto & element_l: set_l_ )
          {
-          if( style_.find( element_p ) != std::string::npos && style_.find( element_l ) != std::string::npos )
+          if( style_.find( element_p ) != std::string::npos && style_.find( element_l ) != std::string::npos &&
+              type_ == "complete" )
            {
             output_= feat( crs, "left", 100 ) + 
                      getBrackets_open() + 
@@ -261,7 +283,10 @@ namespace osm
                       << reset( "color" ) 
                       << std::flush;
            }
-           throw std::runtime_error( "ProgressBar style has not been set!" );
+          else
+           {
+            throw std::runtime_error( "ProgressBar style has not been set!" );
+           }
          }
        }
      }

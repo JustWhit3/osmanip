@@ -87,7 +87,7 @@ void perc_bars()
   ProgressBar percentage_bar;
   percentage_bar.setMin( 1 );
   percentage_bar.setMax ( 20 );
-  percentage_bar.setStyle( "%" );
+  percentage_bar.setStyle( "indicator", "%" );
 
   cout << "This is a normal percentage bar: " << endl;
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
@@ -130,7 +130,7 @@ void load_bars()
   ProgressBar loading_bar;
   loading_bar.setMin( 3 );
   loading_bar.setMax ( 25 );
-  loading_bar.setStyle( "#" );
+  loading_bar.setStyle( "loader", "#" );
   loading_bar.setBrackets( "[", "]" );
  
   cout << "This is a normal loading bar: " << endl;
@@ -176,9 +176,10 @@ void mixed_bars()
   ProgressBar mixed_bar;
   mixed_bar.setMin( 3 );
   mixed_bar.setMax ( 35 );
-  mixed_bar.setStyle( "%#" );
+  mixed_bar.setStyle( "complete", "%#" );
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( " elaborating..." );
+  cout << mixed_bar.getStyle();
  
   cout << "This is a mixed progress bar: " << endl;
   for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )

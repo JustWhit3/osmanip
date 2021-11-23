@@ -58,19 +58,21 @@ You can modify the cursor navigation in all the 4 directions (up, down, right, l
 cout << feat( crs, "left" ) << "Moving cursor on the left";
 ```
 You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSII code of the cursor navigation (see [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)).
+> If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
 
 It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp) for more information.
 
 ### Progress bars
 
 From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) of the library, also progress bars have been introduced. Here you can find some examples about how to use them into your code.
+> If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
 
 Initialize and use a percentage progress bar:
 ```c++
 ProgressBar percentage_bar;
 percentage_bar.setMin( 1 );
 percentage_bar.setMax ( 100 );
-percentage_bar.setStyle( "%" );
+percentage_bar.setStyle( "indicator", "%" );
 
 cout << "This is a normal percentage bar: " << endl;
  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
@@ -89,7 +91,7 @@ Add a message to a percentage bar:
 ProgressBar percentage_bar;
 percentage_bar.setMin( 1 );
 percentage_bar.setMax ( 100 );
-percentage_bar.setStyle( "%" );
+percentage_bar.setStyle( "indicator", "%" );
 percentage_bar.setMessage( " processing..." );
 
 cout << "This is a percentage bar with message: " << endl;
@@ -108,7 +110,7 @@ Add CPU time consuming info when using a progress bar in loops:
 ProgressBar percentage_bar;
 percentage_bar.setMin( 1 );
 percentage_bar.setMax ( 100 );
-percentage_bar.setStyle( "%" );
+percentage_bar.setStyle( "indicator", "%" );
 
 cout << "This is a percentage bar with time consuming info: " << endl;
  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
@@ -131,7 +133,7 @@ You can also create a classic loading bar:
 ProgressBar loading_bar;
 loading_bar.setMin( 3 );
 loading_bar.setMax ( 22 );
-loading_bar.setStyle( "#" );
+loading_bar.setStyle( "loader", "#" );
 loading_bar.setBrackets( "[", "]" );
 loading_bar.setMessage( "processing..." );
 
@@ -150,7 +152,7 @@ And customize it with messages and time-consuming info, like the previous percen
 
 If using mixed bar styles, for example:
 ```c++
-loading_bar.setStyle( "%#" );
+loading_bar.setStyle( "complete", "%#" );
 ```
 you can create loading bar with percentage counter (mixed bar):
 

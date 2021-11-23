@@ -19,7 +19,7 @@ namespace osm
      //Setters declaration:
      void setMax( long long max );
      void setMin( long long min );
-     void setStyle( std::string style );
+     void setStyle( std::string type, std::string style );
      void setMessage( std::string message );
      void setBrackets( std::string brackets_open, std::string brackets_close );
      void setBegin();
@@ -46,6 +46,7 @@ namespace osm
      std::string getBrackets_open() const;
      std::string getBrackets_close() const;
      std::string getColor() const;
+     std::string getType() const;
 
      //Other methods declaration:
      void update( long long iterating_var );
@@ -65,6 +66,7 @@ namespace osm
                time_count_, 
                width_;
      std::string style_, 
+                 type_,
                  conct_, 
                  message_, 
                  brackets_open_, 

@@ -4,8 +4,6 @@
 - [Namespaces](#namespaces)
 - [Classes](#classes)
   * [ProgressBar](#progressbar)
-- [Operators redefinition](#operators-redefinition)
-  * [Operator *](operator-*)
 - [Functions](#functions)
   * [feat](#feat)
   * [reset](#reset)
@@ -34,10 +32,10 @@ Constructors / destructor:
 - `~ProgressBar()`: standard destructor. It doesn't do anything.
 
 Setter methods: 
-- `void setMax( long long int max )`: to set max value of the bar.
-- `void setMin( long long int min )`: to set min value of the bar.
-- `void setStyle( std::string style )`: to set the bar style.
-> Standard available styles are percentage (`%`) and loading (`#`).
+- `void setMax( long long max )`: to set max value of the bar.
+- `void setMin( long long min )`: to set min value of the bar.
+- `void setStyle( std::string type, std::string style )`: to set the bar style.
+> Standard available styles are indicator (`%`) and loader (`#`).
 - `void setMessage( std::string message )`: to set optional message of the bar.
 - `void setBegin()`: to set begin time for the CPU time counting.
 - `void setEnd()`: to set end time for the CPU time counting.
@@ -55,32 +53,23 @@ Setter methods:
 > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment, in the sense that a few precision in lost when using them into loops.
 
 Getter methods:
-- `long long int getMax()`: to get max value of the bar.
-- `long long int getMin()`: to get min value of the bar.
-- `long long int getTime()`: to get time for the CPU counting of a process.
-- `long long int getIteratingVar()`: to get the iterating variable of the `update` method.
+- `long long getMax()`: to get max value of the bar.
+- `long long getMin()`: to get min value of the bar.
+- `long long getTime()`: to get time for the CPU counting of a process.
+- `long long getIteratingVar()`: to get the iterating variable of the `update` method.
 - `std::string getStyle()`: to get the bar style.
+- `std::string getType()`: to get the bar type.
 - `std::string getMessage()`: to get the optional bar message.
 - `std::string getBrackets_open()`: to get the opening bracket.
 - `std::string getBrackets_close()`: to get the closing bracket.
 - `std::string getColor()`: to get the progress bar color.
 
 Other methods: 
-- `void update( long long int iterating_var )`: to update the bar after each loop cycle.
+- `void update( long long iterating_var )`: to update the bar after each loop cycle.
 > **NOTE**: `std::cout` object cannot be used inside a loop within the `update` method.
 - `void print()`: to print on the screen all the progress bar variable values.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
-
-## Operators redefinition
-
-### Operator *
-
-Header file: [*progressbar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar.h)
-
-Source code: [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar.cpp)
-
-Operators redefinition in order to mupltiply strings by integer. It is used in the method of the ProgressBar class.
 
 ## Functions
 
