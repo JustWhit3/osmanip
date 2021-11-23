@@ -129,7 +129,7 @@ void load_bars()
  {
   ProgressBar loading_bar;
   loading_bar.setMin( 3 );
-  loading_bar.setMax ( 100 );
+  loading_bar.setMax ( 25 );
   loading_bar.setStyle( "#" );
   loading_bar.setBrackets( "[", "]" );
  
@@ -179,8 +179,7 @@ void mixed_bars()
   mixed_bar.setStyle( "%#" );
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( " elaborating..." );
- cout << endl << endl;
- sleep_for( seconds( 3 ) );
+ 
   cout << "This is a mixed progress bar: " << endl;
   for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
    {
@@ -188,7 +187,7 @@ void mixed_bars()
     mixed_bar.update( i );
     //Do some operations...
    }
-  sleep_for( seconds( 3 ) );
+  cout << endl << endl;
 
   mixed_bar.setColor( "red" );
 
