@@ -55,7 +55,6 @@ namespace osm
     private:
 
      //Static attributes declaration:
-     static const std::string error_;
      static std::set <std::string> set_p_, 
                                    set_l_;
      
@@ -66,6 +65,8 @@ namespace osm
                time_count_, 
                width_;
      std::string style_, 
+                 error_style_,
+                 error_type_,
                  type_,
                  conct_, 
                  message_, 

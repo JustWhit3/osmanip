@@ -98,10 +98,11 @@ void perc_bars()
    }
   cout << endl << endl;
             
-  //Percentage bar with message:
-  percentage_bar.setMessage( " processing..." );
+  //Percentage bar with message and different style:
+  percentage_bar.setMessage( "processing..." );
+  percentage_bar.setStyle( "indicator", "/100" );
 
-  cout << "This is a percentage bar with message: " << endl;
+  cout << "This is a percentage bar with message and the /100 style: " << endl;
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
     sleep_for( milliseconds( 100 ) );
@@ -112,6 +113,7 @@ void perc_bars()
 
   //Percentage bar with time consuming info:
   percentage_bar.resetMessage();
+  percentage_bar.setStyle( "indicator", "%" );
 
   cout << "This is a percentage bar with time consuming info: " << endl;
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
@@ -144,7 +146,7 @@ void load_bars()
 
   //Loading bar with message:
   loading_bar.resetBrackets();
-  loading_bar.setMessage( " processing..." );
+  loading_bar.setMessage( "processing..." );
   loading_bar.setBrackets( "{", "}" );
 
   cout << "This is a loading bar with message: " << endl;
@@ -175,11 +177,10 @@ void mixed_bars()
  {
   ProgressBar mixed_bar;
   mixed_bar.setMin( 3 );
-  mixed_bar.setMax ( 35 );
+  mixed_bar.setMax ( 25 );
   mixed_bar.setStyle( "complete", "%#" );
   mixed_bar.setBrackets( "[", "]" );
-  mixed_bar.setMessage( " elaborating..." );
-  cout << mixed_bar.getStyle();
+  mixed_bar.setMessage( "elaborating..." );
  
   cout << "This is a mixed progress bar: " << endl;
   for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )

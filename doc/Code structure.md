@@ -35,7 +35,9 @@ Setter methods:
 - `void setMax( long long max )`: to set max value of the bar.
 - `void setMin( long long min )`: to set min value of the bar.
 - `void setStyle( std::string type, std::string style )`: to set the bar style.
-> Standard available styles are indicator (`%`) and loader (`#`).
+> Standard available types are `indicator` and `loader` and `complete` (with both `indicator` and `loader`).
+
+> Standard available styles are: `%` and `/100` for indicator and `#` for loader.
 - `void setMessage( std::string message )`: to set optional message of the bar.
 - `void setBegin()`: to set begin time for the CPU time counting.
 - `void setEnd()`: to set end time for the CPU time counting.

@@ -24,9 +24,7 @@ namespace osm
   ProgressBar::~ProgressBar() {}
 
   //ProgressBar static attributes definition:
-  const std::string ProgressBar::error_ = "Inserted ProgressBar style";
-
-  std::set <std::string> ProgressBar::set_p_ { "%" };
+  std::set <std::string> ProgressBar::set_p_ { "%", "/100" };
   
   std::set <std::string> ProgressBar::set_l_ { "#" };
 
@@ -43,35 +41,45 @@ namespace osm
 
   void ProgressBar::setStyle( std::string type, std::string style )
    {
-    if( ( set_p_.find( style ) != set_p_.end() || set_l_.find( style ) != set_l_.end() ) &&
-        ( type == "indicator" || type == "loader" ) )
+    error_style_ = "Inserted ProgressBar style" + static_cast <std::string>(" \"") + 
+                   style + "\" is not supported for this type!\n",
+    error_type_ = "Inserted ProgressBar type" + static_cast <std::string>(" \"") + 
+                  type + "\" is not supported!\n";
+    
+    if( ( set_p_.find( style ) != set_p_.end() && type == "indicator" ) ||
+        ( set_l_.find( style ) != set_l_.end() && type == "loader" ) )
      {
       style_ = style;
       type_ = type;
      }
-    else
+    else if( ( set_p_.find( style ) == set_p_.end() && type == "indicator" ) ||
+             ( set_l_.find( style ) == set_l_.end() && type == "loader" ) )
      {
+      throw std::runtime_error( error_style_ );
+     }
+    else if( type == "complete" )
+     {
+      type_ = type;
+
       for( auto & element_p: set_p_ )
        {
         for( auto & element_l: set_l_ )
          {
-          if ( ( style.find( element_p ) != std::string::npos && style.find( element_l ) != std::string::npos ) &&
-               style.length() == 2 && type == "complete" )
+          if( ( style.find( element_p ) != std::string::npos && style.find( element_l ) != std::string::npos ) && 
+                style.length() == element_p.length() + element_l.length() )
            {
             style_ = style;
-            type_ = type;
-           }
-          else
-           {
-            throw std::runtime_error( "Inserted ProgressBar style" + 
-                                      static_cast <std::string>(" \"") + 
-                                      style + 
-                                      "\"" + " or type" + " \"" + 
-                                      type + 
-                                      "\" is not supported!\n" );
            }
          }
        }
+      if( style_ != style )
+       {
+        throw std::runtime_error( error_style_ );
+       }
+     }
+    else
+     {
+      throw std::runtime_error( error_type_ );
      }
    }
 
@@ -223,8 +231,7 @@ namespace osm
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - 1 );
     width_ = ( iterating_var_ + 1 ) / 4;
 
-    if( ( set_p_.find( style_ ) != set_p_.end() ) &&
-        type_ == "indicator" )
+    if( set_p_.find( style_ ) != set_p_.end() && type_ == "indicator" )
      {
       output_ = feat( crs, "left", 100 ) + 
                 getColor() + 
@@ -234,12 +241,11 @@ namespace osm
 
       std::cout << output_ 
                 << getColor() 
-                << message_ 
+                << " " + message_ 
                 << reset( "color" ) 
                 << std::flush;
      }
-    else if( ( set_l_.find( style_ ) != set_l_.end() ) &&
-               type_ == "loader" )
+    else if( set_l_.find( style_ ) != set_l_.end() && type_ == "loader" )
      {
       output_ = feat( crs, "left", 100 ) + 
                 getBrackets_open() + 
@@ -251,18 +257,17 @@ namespace osm
                      
       std::cout << output_ 
                 << getColor() 
-                << message_ 
+                << " " + message_
                 << reset( "color" ) 
                 << std::flush;
      }
-    else
+    else if ( type_ == "complete" )
      {
       for( auto & element_p: set_p_ )
        {
         for( auto & element_l: set_l_ )
          {
-          if( style_.find( element_p ) != std::string::npos && style_.find( element_l ) != std::string::npos &&
-              type_ == "complete" )
+          if( style_.find( element_p ) != std::string::npos && style_.find( element_l ) != std::string::npos )
            {
             output_= feat( crs, "left", 100 ) + 
                      getBrackets_open() + 
@@ -279,16 +284,16 @@ namespace osm
 
             std::cout << output_ 
                       << getColor() 
-                      << message_ 
+                      << " " + message_ 
                       << reset( "color" ) 
                       << std::flush;
            }
-          else
-           {
-            throw std::runtime_error( "ProgressBar style has not been set!" );
-           }
          }
        }
+     }
+    else
+     {
+      throw std::runtime_error( "ProgressBar style has not been set!" );
      }
    }
 
