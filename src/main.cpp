@@ -219,10 +219,10 @@ void mixed_bars()
 
 int main ()
  {
-  col_sty(); //Color/style.
+  //col_sty(); //Color/style.
   perc_bars(); //Percentage bar.
-  load_bars(); //Loading bar.
-  mixed_bars(); //Mixed bar.
+  //load_bars(); //Loading bar.
+  //mixed_bars(); //Mixed bar.
  }
  
 

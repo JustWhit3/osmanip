@@ -45,16 +45,23 @@ namespace osm
   //First overload, to set style of single loader or indicator:
   void ProgressBar::setStyle( std::string type, std::string style )
    {
-    if( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )
+    try
      {
-      style_ = style;
-      type_ = type;
+      if( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )
+       { 
+        style_ = style;
+        type_ = type;
+       }
+      else if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
+       {
+        throw runtime_error_func( "Inserted ProgressBar style", style, "is not supported for this type!" );
+       }
+      else
+       {
+        throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
+       }
      }
-    else if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
-     {
-      throw runtime_error_func( "Inserted ProgressBar style", style, "is not supported for this type!" );
-     }
-    else
+    catch ( std::out_of_range const & exception )
      {
       throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
      }

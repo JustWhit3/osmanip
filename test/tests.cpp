@@ -184,4 +184,21 @@ TEST_CASE( "Testing the helper function." )
     CHECK( example * 3 == "aaa" );
     CHECK( 3 * example == "aaa" );
    }
+
+  SUBCASE( "Testing the elem_in_map function" )
+   {
+    std::string color = "red";
+    std::string color_null = "null";
+    std::string indicator = "indicator";
+
+    string_set_map styles_map_
+     {
+      { "indicator", { "%", "/100" } },
+      { "loader", { "#" } },
+     };
+
+    CHECK( elem_in_map( color, col ) );
+    CHECK( !elem_in_map( color_null, col ) );
+    CHECK( elem_in_map( indicator, styles_map_ ) );
+   }
  }
