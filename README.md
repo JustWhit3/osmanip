@@ -151,4 +151,4 @@ progress_bar.addStyle( "loader", ">" );
 progress_bar.setStyle( "complete", "|100", ">" );
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar_add.gif" width="400" height="60">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar_add.gif" width="500" height="60">
