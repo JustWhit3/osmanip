@@ -182,7 +182,7 @@ void mixed_bars()
   mixed_bar.setBrackets( "[", "]" );
   //mixed_bar.setMessage( "elaborating..." );
  
-  /*cout << "This is a mixed progress bar: " << endl;
+  cout << "This is a mixed progress bar: " << endl;
   for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
    {
     sleep_for( milliseconds( 100 ) );
@@ -202,7 +202,7 @@ void mixed_bars()
    }
   cout << endl << endl;
 
-  mixed_bar.resetColor();*/
+  mixed_bar.resetColor();
   mixed_bar.addStyle( "indicator", "|100" );
   mixed_bar.addStyle( "loader", ">" );
   mixed_bar.setStyle( "complete", "|100", ">" );
@@ -221,9 +221,9 @@ void mixed_bars()
 
 int main ()
  {
-  //col_sty(); //Color/style.
-  //perc_bars(); //Percentage bar.
-  //load_bars(); //Loading bar.
+  col_sty(); //Color/style.
+  perc_bars(); //Percentage bar.
+  load_bars(); //Loading bar.
   mixed_bars(); //Mixed bar.
  }
  
