@@ -206,8 +206,6 @@ void mixed_bars()
   mixed_bar.addStyle( "indicator", "|100" );
   mixed_bar.addStyle( "loader", ">" );
   mixed_bar.setStyle( "complete", "|100", ">" );
-  cout << endl <<endl;
-  sleep_for( seconds( 3 ) );
 
   cout << "This is a mixed progress bar with two customized styles: " << endl;
   for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
@@ -215,7 +213,7 @@ void mixed_bars()
     sleep_for( milliseconds( 100 ) );
     mixed_bar.update( i );
     //Do some operations...
-   }sleep_for( seconds( 3 ) );
+   }
   cout << endl << endl;
  }
 
