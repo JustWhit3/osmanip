@@ -84,34 +84,19 @@ cout << "This is a normal percentage bar: " << endl;
 ```
 > **NOTE**: `sleep_for( milliseconds( 100 ) )` has been inserted to delay the loop in order to better visualize the progress bar into this .gif file. You don't need to use it in your code.
 
+> **NOTE**: you can insert each `min` and `max` value you prefer, like also -3 and 52 for example, and the bar will work perfectly too.
+
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif" width="300" height="50">
 
 Add a message to a percentage bar:
 ```c++
-ProgressBar percentage_bar;
-percentage_bar.setMin( 1 );
-percentage_bar.setMax ( 100 );
-percentage_bar.setStyle( "indicator", "%" );
 percentage_bar.setMessage( " processing..." );
-
-cout << "This is a percentage bar with message: " << endl;
- for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-  {
-   sleep_for( milliseconds( 100 ) );
-   percentage_bar.update( i );
-   //Do some operations...
-  }
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif" width="350" height="50">
 
 Add CPU time consuming info when using a progress bar in loops:
 ```c++
-ProgressBar percentage_bar;
-percentage_bar.setMin( 1 );
-percentage_bar.setMax ( 100 );
-percentage_bar.setStyle( "indicator", "%" );
-
 cout << "This is a percentage bar with time consuming info: " << endl;
  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
   {
@@ -152,8 +137,18 @@ And customize it with messages and time-consuming info, like the previous percen
 
 If using mixed bar styles, for example:
 ```c++
-loading_bar.setStyle( "complete", "%#" );
+progress_bar.setStyle( "complete", "%", "#" );
 ```
 you can create loading bar with percentage counter (mixed bar):
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar.gif" width="400" height="60">
+
+You can also add new customized styles, both for indicator and loader:
+
+```c++
+progress_bar.addStyle( "indicator", "|100" );
+progress_bar.addStyle( "loader", ">" );
+progress_bar.setStyle( "complete", "|100", ">" );
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar_add.gif" width="400" height="60">

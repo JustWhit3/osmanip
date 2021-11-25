@@ -5,6 +5,7 @@
 #include <vector>
 #include <thread>
 #include <chrono>
+#include <set>
 #include "../include/osmanip.h"
 
 using namespace osm;
@@ -23,16 +24,10 @@ TEST_CASE( "Testing the feat function." )
    {
     for( auto & element_m: element_v )
     {
-     if( element_v.find( element_m.first ) == element_v.end() )
-      {
-       CHECK_THROWS_AS( feat( element_v, element_m.first ), runtime_error );
-      }
-     else
-      {
-       CHECK( feat( element_v, element_m.first ) == element_v.at( element_m.first ) );
-      }
+     CHECK( feat( element_v, element_m.first ) == element_v.at( element_m.first ) );
     }
    }
+  CHECK_THROWS_AS( feat( col, "not" ), runtime_error );
  }
 
 //Testing the "feat" function overload for the crs map:
@@ -41,15 +36,9 @@ TEST_CASE( "Testing the feat function overload for the crs map." )
   int feat_int = 100;
   for( auto & element_m: crs )
    {
-    if( crs.find( element_m.first ) == crs.end() )
-     {
-      CHECK_THROWS_AS( feat( crs, element_m.first, feat_int ), runtime_error );
-     }
-    else
-     { 
-      CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ).first + std::to_string( feat_int ) + crs.at( element_m.first ).second ) );
-     }
+    CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ).first + std::to_string( feat_int ) + crs.at( element_m.first ).second ) );
    }
+  CHECK_THROWS_AS( feat( crs, "not", 32 ), runtime_error );
  }
 
 //Testing the "reset" function:
@@ -57,15 +46,9 @@ TEST_CASE( "Testing the reset function." )
  {
   for( auto & element_m: rst )
    {
-   if( rst.find( element_m.first ) == rst.end() )
-     {
-      CHECK_THROWS_AS( reset( element_m.first ), runtime_error );
-     }
-   else
-     {
-      CHECK( reset( element_m.first ) == rst.at( element_m.first ) );
-     }
+    CHECK( reset( element_m.first ) == rst.at( element_m.first ) );
    }
+  CHECK_THROWS_AS( reset ( "not" ), runtime_error );
  }
 
 //Testing the ProgressBar class methods:
@@ -76,7 +59,7 @@ TEST_CASE( "Testing the ProgressBar class methods." )
                 min = -1e15,
                 time = 1e10;
   string style = "%",
-         message = "meessage",
+         message = "message",
          bracket_open = "{",
          bracket_close = "}",
          color = "red",
@@ -110,16 +93,11 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getBrackets_open() == bracket_open );
     CHECK( bar.getBrackets_close() == bracket_close );
     CHECK( bar.getColor() == feat( col, "red" ) );
+    CHECK( bar.getStyle() == style );
+    CHECK( bar.getType() == type );
 
-    if ( bar.getStyle() == "%" && bar.getType() == "indicator" )
-     {
-      CHECK( bar.getStyle() == style );
-      CHECK( bar.getType() == type );
-     }
-    else
-     {
-      CHECK_THROWS_AS( bar.setStyle( type, style ), runtime_error );
-     }
+    CHECK_THROWS_AS( bar.setStyle( type, "a" ), runtime_error );
+    //CHECK_THROWS_AS( bar.setStyle( "a", style ), runtime_error ); //Need to fix this.
    }
 
   SUBCASE( "Testing reset method" ) 
@@ -181,5 +159,29 @@ TEST_CASE( "Testing the ProgressBar class methods." )
       bar.update( i );
       CHECK( bar.getIteratingVar() == 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - 1 ) + 1 );
      }
+   }
+
+  SUBCASE( "Testing addStyle method" )
+   {
+    bar.addStyle( "indicator", "|100" );
+    bar.setStyle( "indicator", "|100" );
+    CHECK( bar.getStyle() == "|100" );
+    bar.addStyle( "loader", ">" );
+    bar.setStyle( "complete", "|100", ">" );
+    CHECK( bar.getStyle() == "|100>" );
+    CHECK_THROWS_AS( bar.addStyle( "indicator", "%" ), runtime_error );
+    CHECK_THROWS_AS( bar.addStyle( "loader", "#" ), runtime_error );
+    //CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), runtime_error ); //Need to fix this.
+   }
+ }
+
+//Testing the helper functions:
+TEST_CASE( "Testing the helper function." )
+ {
+  SUBCASE( "Testing the * redefinition for string multiplication by an integer" )
+   {
+    std::string example = "a";
+    CHECK( example * 3 == "aaa" );
+    CHECK( 3 * example == "aaa" );
    }
  }

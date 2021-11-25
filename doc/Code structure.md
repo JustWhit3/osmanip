@@ -35,6 +35,7 @@ Setter methods:
 - `void setMax( long long max )`: to set max value of the bar.
 - `void setMin( long long min )`: to set min value of the bar.
 - `void setStyle( std::string type, std::string style )`: to set the bar style.
+- `void setStyle( std::string type, std::string style_p, std::string style_l )`: to set the bar style in case of a complete bar.
 > Standard available types are `indicator` and `loader` and `complete` (with both `indicator` and `loader`).
 
 > Standard available styles are: `%` and `/100` for indicator and `#` for loader.
@@ -70,6 +71,7 @@ Other methods:
 - `void update( long long iterating_var )`: to update the bar after each loop cycle.
 > **NOTE**: `std::cout` object cannot be used inside a loop within the `update` method.
 - `void print()`: to print on the screen all the progress bar variable values.
+- `void addStyle( std::string type, std::string style )`: to create customized progress bar styles.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
 

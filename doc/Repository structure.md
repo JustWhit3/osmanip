@@ -26,10 +26,12 @@
 - [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): it contains the library header files:
   * [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): general header file containing all the others.
   * [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): colors/styles manipulation header.
-  * [*progressbar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): progress bar functionalities header.
+  * [*progress_bar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/progress_bar.h): progress bar functionalities header.
+  * [*helper_tools.h*](https://github.com/JustWhit3/osmanip/blob/main/include/helper_tools.h): helper tools header. It contains tools used in the main code headers.
 - [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): it contains library implementation and main files:
   * [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): *osmanip.h* implementation code.
-  * [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): *progressbar.h* implementation code.
+  * [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp): *helper_tools.h* implementation code.
+  * [*helper_tools.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/helper_tools.cpp): *helper_tools* implementation code.
   * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you examples of the library utilities.
 - [**test**](https://github.com/JustWhit3/osmanip/blob/main/test): it contains testing scripts:
   * [*tests.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests.cpp): which tests the main library functions and methods.

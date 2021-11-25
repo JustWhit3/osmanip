@@ -4,9 +4,13 @@
 #include <string>
 #include <chrono>
 #include <set>
+#include <map>
 
 namespace osm
  {
+  //Type aliases declaration:
+  using string_set_map = std::map <std::string, std::set<std::string>>;
+
   //ProgressBar class declaration:
   class ProgressBar
    {
@@ -20,6 +24,7 @@ namespace osm
      void setMax( long long max );
      void setMin( long long min );
      void setStyle( std::string type, std::string style );
+     void setStyle( std::string type, std::string style_p, std::string style_l );
      void setMessage( std::string message );
      void setBrackets( std::string brackets_open, std::string brackets_close );
      void setBegin();
@@ -51,12 +56,12 @@ namespace osm
      //Other methods declaration:
      void update( long long iterating_var );
      void print() const;
+     void addStyle( std::string type, std::string style );
   
     private:
 
      //Static attributes declaration:
-     static std::set <std::string> set_p_, 
-                                   set_l_;
+     static string_set_map styles_map_;
      
      //Dynamic attributes declaration:
      long long max_, 
@@ -65,8 +70,8 @@ namespace osm
                time_count_, 
                width_;
      std::string style_, 
-                 error_style_,
-                 error_type_,
+                 style_p_,
+                 style_l_,
                  type_,
                  conct_, 
                  message_, 
@@ -77,9 +82,6 @@ namespace osm
      std::chrono::steady_clock::time_point begin, 
                                            end;
    };
-  
-  //Operator * redefinition declaration to multiply strings by an integer:
-  std::string operator * ( const std::string & generic_string,  unsigned long long integer );
  }
       
 #endif

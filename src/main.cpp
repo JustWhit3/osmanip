@@ -178,11 +178,11 @@ void mixed_bars()
   ProgressBar mixed_bar;
   mixed_bar.setMin( 3 );
   mixed_bar.setMax ( 25 );
-  mixed_bar.setStyle( "complete", "%#" );
+  mixed_bar.setStyle( "complete", "%", "#" );
   mixed_bar.setBrackets( "[", "]" );
-  mixed_bar.setMessage( "elaborating..." );
+  //mixed_bar.setMessage( "elaborating..." );
  
-  cout << "This is a mixed progress bar: " << endl;
+  /*cout << "This is a mixed progress bar: " << endl;
   for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
    {
     sleep_for( milliseconds( 100 ) );
@@ -201,13 +201,29 @@ void mixed_bars()
     //Do some operations...
    }
   cout << endl << endl;
+
+  mixed_bar.resetColor();*/
+  mixed_bar.addStyle( "indicator", "|100" );
+  mixed_bar.addStyle( "loader", ">" );
+  mixed_bar.setStyle( "complete", "|100", ">" );
+  cout << endl <<endl;
+  sleep_for( seconds( 3 ) );
+
+  cout << "This is a mixed progress bar with two customized styles: " << endl;
+  for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    mixed_bar.update( i );
+    //Do some operations...
+   }sleep_for( seconds( 3 ) );
+  cout << endl << endl;
  }
 
 int main ()
  {
-  col_sty(); //Color/style.
-  perc_bars(); //Percentage bar.
-  load_bars(); //Loading bar.
+  //col_sty(); //Color/style.
+  //perc_bars(); //Percentage bar.
+  //load_bars(); //Loading bar.
   mixed_bars(); //Mixed bar.
  }
  

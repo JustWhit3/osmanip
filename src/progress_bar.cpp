@@ -1,10 +1,11 @@
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <chrono>
 #include <set>
-#include "../include/progressbar.h"
+#include <map>
+#include "../include/helper_tools.h"
 #include "../include/csmanip.h"
+#include "../include/progress_bar.h"
 
 namespace osm
  {
@@ -24,9 +25,11 @@ namespace osm
   ProgressBar::~ProgressBar() {}
 
   //ProgressBar static attributes definition:
-  std::set <std::string> ProgressBar::set_p_ { "%", "/100" };
-  
-  std::set <std::string> ProgressBar::set_l_ { "#" };
+  string_set_map ProgressBar::styles_map_
+   {
+    { "indicator", { "%", "/100" } },
+    { "loader", { "#" } },
+   };
 
   //ProgressBar setters definition:
   void ProgressBar::setMax( long long max )
@@ -39,47 +42,47 @@ namespace osm
     min_ = min; 
    }
 
+  //First overload, to set style of single loader or indicator:
   void ProgressBar::setStyle( std::string type, std::string style )
    {
-    error_style_ = "Inserted ProgressBar style" + static_cast <std::string>(" \"") + 
-                   style + "\" is not supported for this type!\n",
-    error_type_ = "Inserted ProgressBar type" + static_cast <std::string>(" \"") + 
-                  type + "\" is not supported!\n";
-    
-    if( ( set_p_.find( style ) != set_p_.end() && type == "indicator" ) ||
-        ( set_l_.find( style ) != set_l_.end() && type == "loader" ) )
+    if( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )
      {
       style_ = style;
       type_ = type;
      }
-    else if( ( set_p_.find( style ) == set_p_.end() && type == "indicator" ) ||
-             ( set_l_.find( style ) == set_l_.end() && type == "loader" ) )
+    else if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
      {
-      throw std::runtime_error( error_style_ );
-     }
-    else if( type == "complete" )
-     {
-      type_ = type;
-
-      for( auto & element_p: set_p_ )
-       {
-        for( auto & element_l: set_l_ )
-         {
-          if( ( style.find( element_p ) != std::string::npos && style.find( element_l ) != std::string::npos ) && 
-                style.length() == element_p.length() + element_l.length() )
-           {
-            style_ = style;
-           }
-         }
-       }
-      if( style_ != style )
-       {
-        throw std::runtime_error( error_style_ );
-       }
+      throw runtime_error_func( "Inserted ProgressBar style", style, "is not supported for this type!" );
      }
     else
      {
-      throw std::runtime_error( error_type_ );
+      throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
+     }
+   }
+
+  //Second overload, to set style of complete bar:
+  void ProgressBar::setStyle( std::string type, std::string style_p, std::string style_l )
+   {
+    if( styles_map_.at( "indicator" ).find( style_p ) != styles_map_.at( "indicator" ).end() &&
+        styles_map_.at( "loader" ).find( style_l ) != styles_map_.at( "loader" ).end() &&
+        type == "complete" )
+     {
+      style_ = style_p + style_l;
+      style_p_ = style_p;
+      style_l_ = style_l;
+      type_ = type;
+     }
+    else if( styles_map_.at( "indicator" ).find( style_p ) == styles_map_.at( "indicator" ).end() )
+     {
+      throw runtime_error_func( "Inserted indicator style", style_p, "is not supported for this type!" );
+     }
+    else if( styles_map_.at( "loader" ).find( style_l ) == styles_map_.at( "loader" ).end() )
+     {
+      throw runtime_error_func( "Inserted loader style", style_l, "is not supported for this type!" );
+     }
+    else
+     {
+      throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
      }
    }
 
@@ -211,19 +214,6 @@ namespace osm
    { 
     return color_; 
    }
-
-  //Operator * redefinition definition to multiply strings by an integer:
-  std::string operator * ( const std::string & generic_string, unsigned long long integer )
-   {
-    std::stringstream out;
-
-    while ( integer-- ) 
-     {
-      out << generic_string; 
-     }
-     
-    return out.str();
-   }
  
   //ProgressBar update method definition:
   void ProgressBar::update( long long iterating_var )
@@ -231,7 +221,7 @@ namespace osm
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - 1 );
     width_ = ( iterating_var_ + 1 ) / 4;
 
-    if( set_p_.find( style_ ) != set_p_.end() && type_ == "indicator" )
+    if( styles_map_.at( "indicator" ).find( style_ ) != styles_map_.at( "indicator" ).end() )
      {
       output_ = feat( crs, "left", 100 ) + 
                 getColor() + 
@@ -245,7 +235,7 @@ namespace osm
                 << reset( "color" ) 
                 << std::flush;
      }
-    else if( set_l_.find( style_ ) != set_l_.end() && type_ == "loader" )
+    else if( styles_map_.at( "loader" ).find( style_ ) != styles_map_.at( "loader" ).end() )
      {
       output_ = feat( crs, "left", 100 ) + 
                 getBrackets_open() + 
@@ -261,35 +251,27 @@ namespace osm
                 << reset( "color" ) 
                 << std::flush;
      }
-    else if ( type_ == "complete" )
+    else if ( style_.find( style_p_ ) != std::string::npos && style_.find( style_l_ ) != std::string::npos &&
+              type_ == "complete"  )
      {
-      for( auto & element_p: set_p_ )
-       {
-        for( auto & element_l: set_l_ )
-         {
-          if( style_.find( element_p ) != std::string::npos && style_.find( element_l ) != std::string::npos )
-           {
-            output_= feat( crs, "left", 100 ) + 
-                     getBrackets_open() + 
-                     getColor() + 
-                     element_l * width_ + 
-                     static_cast <std::string>( " " ) * ( 25 - width_ ) + 
-                     reset( "color" ) +
-                     getBrackets_close() + 
-                     getColor() + 
-                     " " + 
-                     std::to_string( iterating_var_ ++ ) + 
-                     reset( "color" ) + 
-                     element_p; 
+      output_= feat( crs, "left", 100 ) + 
+               getBrackets_open() + 
+               getColor() + 
+               style_l_ * width_ + 
+               static_cast <std::string>( " " ) * ( 25 - width_ ) + 
+               reset( "color" ) +
+               getBrackets_close() + 
+               getColor() + 
+               " " + 
+               std::to_string( iterating_var_ ++ ) + 
+               reset( "color" ) + 
+               style_p_; 
 
-            std::cout << output_ 
-                      << getColor() 
-                      << " " + message_ 
-                      << reset( "color" ) 
-                      << std::flush;
-           }
-         }
-       }
+      std::cout << output_ 
+                << getColor() 
+                << " " + message_ 
+                << reset( "color" ) 
+                << std::flush;
      }
     else
      {
@@ -307,5 +289,22 @@ namespace osm
                << "Message: " << message_ << std::endl
                << "Brackets style: " << brackets_open_ << brackets_close_<< std::endl
                << "Color: " << color_ << std::endl;
+    }
+
+   //ProgressBar addStyle method to add new styles to the already existing ones:
+   void ProgressBar::addStyle( std::string type, std::string style )
+    {
+     if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
+      {
+       styles_map_.at(type).insert(style);
+      }
+     else if( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )
+      {
+       throw runtime_error_func( "Inserted ProgressBar style", style, "is already available!" ); 
+      }
+     else
+      {
+       throw runtime_error_func( "Inserted ProgressBar type", type, "is already available!" );
+      }
     }
  }

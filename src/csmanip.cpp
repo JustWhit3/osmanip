@@ -3,6 +3,7 @@
 #include <map>
 #include <utility>
 #include "../include/csmanip.h"
+#include "../include/helper_tools.h"
 
 namespace osm
  {
@@ -119,7 +120,7 @@ namespace osm
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
-      throw std::runtime_error( generic_map.at( "error" ) + " \"" + feat_string + "\" is not supported!\n" );
+      throw runtime_error_func( generic_map.at( "error" ), feat_string, "is not supported!" );
      }
     return generic_map.at( feat_string );
    }
@@ -129,7 +130,7 @@ namespace osm
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
-      throw std::runtime_error( generic_map.at( "error" ).first + " \"" + feat_string + "\" is not supported!\n" );
+      throw runtime_error_func( generic_map.at( "error" ).first, feat_string, "is not supported!" );
      }
     else
      {
@@ -146,7 +147,7 @@ namespace osm
    {
     if( rst.find( reset_string ) == rst.end() ) 
      {
-      throw std::runtime_error( rst.at( "error" ) + " \"" + reset_string + "\" is not supported!\n" );
+      throw runtime_error_func( rst.at( "error" ), reset_string, "is not supported!" );
      } 
     return rst.at( reset_string );
    }
