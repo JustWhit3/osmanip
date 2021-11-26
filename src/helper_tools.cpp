@@ -36,21 +36,4 @@ namespace osm
    }
   
   template std::runtime_error runtime_error_func <std::string>( std::string beg, std::string variable, std::string end );
-
-  //Function to check if an element is present in map keys:
-  template <typename T, typename M>
-  bool elem_in_map( T elem, std::map <T, M> map_)
-   {
-    for( const auto & element: map_ )
-     {
-      if( element.first == elem )
-       {
-        return true;
-       }
-     }
-    return false;
-   }
-
-  template bool elem_in_map <std::string, std::string>( std::string elem, std::map <std::string, std::string> map_ );
-  template bool elem_in_map <std::string, std::set<std::string>>( std::string elem, std::map <std::string, std::set<std::string>> map_ );
  }

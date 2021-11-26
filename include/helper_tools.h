@@ -13,8 +13,5 @@ namespace osm
   //Template functions definition:
   template <typename T>
   extern std::runtime_error runtime_error_func( std::string beg, T variable, std::string end );
-
-  template <typename T, typename M>
-  extern bool elem_in_map( T elem, std::map <T, M> map_);
  }
 #endif
