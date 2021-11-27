@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <set>
+#include <functional>
 #include "../include/helper_tools.h"
   
 namespace osm
@@ -35,5 +36,23 @@ namespace osm
     return std::runtime_error( error );
    }
   
-  template std::runtime_error runtime_error_func <std::string>( std::string beg, std::string variable, std::string end );
+  template std::runtime_error runtime_error_func <std::string>
+  ( std::string beg, std::string variable, std::string end );
+
+  //Function to check if a given condition is verified or not and in positive case return it:
+  template <typename T>
+  T check_condition( std::function <bool()> condition, T return_it)
+   {
+    if( condition() )
+     {
+      return return_it;
+     }
+    else
+     {
+      return "";
+     }
+   }
+  
+  template std::string check_condition <std::string>
+  ( std::function <bool()> condition, std::string return_it );
  }

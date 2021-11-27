@@ -109,18 +109,18 @@ namespace osm
     { "error", "Inserted terminal control sequence" },
 
     //Control characters variables:
-    { "bell", "\x07" },                      //Bell sound
-    { "bksp", "\x08" },                      //Backspace
-    { "tab", "\x09" },                       //Tab
-    { "lfd", "\x0A" },                       //Line feed
-    { "ffd", "\x0A" },                       //Form feed
-    { "crt", "\x0D" },                       //Carriage return
+    { "bell", "\x07" },     //Bell sound
+    { "bksp", "\x08" },     //Backspace
+    { "tab", "\x09" },      //Tab
+    { "lfd", "\x0A" },      //Line feed
+    { "ffd", "\x0A" },      //Form feed
+    { "crt", "\x0D" },      //Carriage return
 
     //Control sequence introducer sequences variables:
-    { "clear sc", "\x1b[2J\x1b[1;1H" },      //Clear screen
-    { "clear ln", "\x1b[2K" },               //Clear line
-    { "hide crs", "\x1b[?25l" },             //Hide cursor
-    { "show crs", "\x1b[?25h" }              //Show cursor
+    { "csc", "\x1b[2J\x1b[1;1H" },      //Clear screen
+    { "cln", "\x1b[2K" },               //Clear line
+    { "hcrs", "\x1b[?25l" },            //Hide cursor
+    { "scrs", "\x1b[?25h" }             //Show cursor
    };
  
   //Definition of the "cursor" map:
@@ -133,7 +133,7 @@ namespace osm
     { "up", std::make_pair( "\u001b[", "A" ) },
     { "down", std::make_pair( "\u001b[", "B" ) }, 
     { "right", std::make_pair( "\u001b[", "C" ) },
-    { "left", std::make_pair( "\u001b[", "D" ) },
+    { "left", std::make_pair( "\u001b[", "D" ) }
    };
  
   //Definiton of the "feat" function:

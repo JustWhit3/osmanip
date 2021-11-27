@@ -6,6 +6,7 @@
 #include <thread>
 #include <chrono>
 #include <set>
+#include <functional>
 #include "../include/osmanip.h"
 
 using namespace osm;
@@ -183,5 +184,13 @@ TEST_CASE( "Testing the helper function." )
     std::string example = "a";
     CHECK( example * 3 == "aaa" );
     CHECK( 3 * example == "aaa" );
+   }
+
+  SUBCASE( "Testing the check_condition function ")
+   {
+    int a = 3, b = 4;
+    std::string test_string = "nice";
+    CHECK( check_condition( [ a, b ](){ return a < b; }, test_string ) == test_string );
+    CHECK( check_condition( [ a, b ](){ return a > b; }, test_string ) == "" );
    }
  }

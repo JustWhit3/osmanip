@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <functional>
 
 namespace osm
  {
@@ -13,5 +14,8 @@ namespace osm
   //Template functions definition:
   template <typename T>
   extern std::runtime_error runtime_error_func( std::string beg, T variable, std::string end );
+
+  template <typename T>
+  extern T check_condition( std::function <bool()> condition, T return_it );
  }
 #endif

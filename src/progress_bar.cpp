@@ -236,11 +236,13 @@ namespace osm
                 reset( "color" ) + 
                 getStyle();
 
-      std::cout << output_ 
+      std::cout << check_condition( [ = ]{ return iterating_var == min_; }, feat( tcs, "hcrs" ) )
+                << output_ 
                 << getColor() 
                 << " " + message_ 
                 << reset( "color" ) 
-                << std::flush;
+                << std::flush
+                << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ) );
      }
     else if( styles_map_.at( "loader" ).find( style_ ) != styles_map_.at( "loader" ).end() )
      {
@@ -252,11 +254,13 @@ namespace osm
                 reset( "color" ) + 
                 getBrackets_close();  
                      
-      std::cout << output_ 
+      std::cout << check_condition( [ = ]{ return iterating_var == min_; }, feat( tcs, "hcrs" ) )
+                << output_ 
                 << getColor() 
                 << " " + message_
                 << reset( "color" ) 
-                << std::flush;
+                << std::flush
+                << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ) );
      }
     else if ( style_.find( style_p_ ) != std::string::npos && style_.find( style_l_ ) != std::string::npos &&
               type_ == "complete"  )
@@ -274,11 +278,13 @@ namespace osm
                reset( "color" ) + 
                style_p_; 
 
-      std::cout << output_ 
+      std::cout << check_condition( [ = ]{ return iterating_var == min_; }, feat( tcs, "hcrs" ) )
+                << output_ 
                 << getColor() 
                 << " " + message_ 
                 << reset( "color" ) 
-                << std::flush;
+                << std::flush
+                << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ) );
      }
     else
      {
