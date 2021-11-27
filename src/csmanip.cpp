@@ -101,6 +101,27 @@ namespace osm
     { "invisible", "\033[28m" },
     { "crossed", "\033[29m" },
    };
+  
+  //Definition of the "terminal control sequences" map:
+  string_map tcs
+   {
+    //Error variables:
+    { "error", "Inserted terminal control sequence" },
+
+    //Control characters variables:
+    { "bell", "\x07" },                      //Bell sound
+    { "bksp", "\x08" },                      //Backspace
+    { "tab", "\x09" },                       //Tab
+    { "lfd", "\x0A" },                       //Line feed
+    { "ffd", "\x0A" },                       //Form feed
+    { "crt", "\x0D" },                       //Carriage return
+
+    //Control sequence introducer sequences variables:
+    { "clear sc", "\x1b[2J\x1b[1;1H" },      //Clear screen
+    { "clear ln", "\x1b[2K" },               //Clear line
+    { "hide crs", "\x1b[?25l" },             //Hide cursor
+    { "show crs", "\x1b[?25h" }              //Show cursor
+   };
  
   //Definition of the "cursor" map:
   string_pair_map crs
@@ -112,7 +133,7 @@ namespace osm
     { "up", std::make_pair( "\u001b[", "A" ) },
     { "down", std::make_pair( "\u001b[", "B" ) }, 
     { "right", std::make_pair( "\u001b[", "C" ) },
-    { "left", std::make_pair( "\u001b[", "D" ) }
+    { "left", std::make_pair( "\u001b[", "D" ) },
    };
  
   //Definiton of the "feat" function:
@@ -136,13 +157,15 @@ namespace osm
      {
       if( generic_map == crs )
        {
-        return generic_map.at( feat_string ).first + std::to_string( feat_int ) + generic_map.at( feat_string ).second;
+        return generic_map.at( feat_string ).first + 
+               std::to_string( feat_int ) + 
+               generic_map.at( feat_string ).second;
        }
       return generic_map.at( feat_string ).first;
      }
    }
  
-  //Definition of the "reset" function
+  //Definition of the "reset" function:
   std::string reset( std::string reset_string )
    {
     if( rst.find( reset_string ) == rst.end() ) 
@@ -150,5 +173,15 @@ namespace osm
       throw runtime_error_func( rst.at( "error" ), reset_string, "is not supported!" );
      } 
     return rst.at( reset_string );
+   }
+
+  //Definition of the "go_to" function:
+  std::string go_to( int x, int y )
+   {
+    return "\u001b[" + 
+           std::to_string( x ) + 
+           static_cast <std::string>( ";" ) +
+           std::to_string( y ) +
+           static_cast <std::string>( "H" );
    }
  }

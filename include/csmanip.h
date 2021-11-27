@@ -14,13 +14,15 @@ namespace osm
   //Variables declaration:
   extern string_map col,
                     sty,
-                    rst;
+                    rst,
+                    tcs;
   extern string_pair_map crs;
 
   //Functions declaration:
   extern std::string feat ( string_map & generic_map, std::string feat_string );
   extern std::string feat ( string_pair_map & generic_map, std::string feat_string, int feat_int );
   extern std::string reset ( std::string reset_string );
+  extern std::string go_to( int x, int y );
  }
       
 #endif

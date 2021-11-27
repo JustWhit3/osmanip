@@ -212,3 +212,13 @@ It is used for the output stream cursor navigation and currently supports the fo
   * `down` / `\u001b[` / `B`
   * `right` / `\u001b[` / `C`
   * `left` / `\u001b[` / `D`
+
+### go_to
+
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+Complete definition: `std::string go_to( int x, int y )`.
+
+It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
