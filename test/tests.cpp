@@ -55,7 +55,7 @@ TEST_CASE( "Testing the reset function." )
 //Testing the ProgressBar class methods:
 TEST_CASE( "Testing the ProgressBar class methods." )
  {
-  ProgressBar bar; 
+  ProgressBar <long long> bar; 
   long long int max = 1e15,
                 min = -1e15,
                 time = 1e10;
@@ -174,6 +174,21 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK_THROWS_AS( bar.addStyle( "loader", "#" ), runtime_error );
     //CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), runtime_error ); //Need to fix this.
    }
+
+  SUBCASE( "Testing the one method" )
+   {
+    std::vector <int> v = { 1, 2, 3, 4 }, counter_ ( 2 );
+    ProgressBar <int> progress;
+    for( const auto & element: v )
+     {
+      if( counter_.size() == 2 )
+       {
+        progress.one( element ) == abs( abs( counter_.front() ) - abs( counter_.back() ) );
+       }
+      progress.one( element ) == 0;
+     }
+    CHECK( counter_.size() == 2 );
+   }
  }
 
 //Testing the helper functions:
@@ -189,8 +204,20 @@ TEST_CASE( "Testing the helper function." )
   SUBCASE( "Testing the check_condition function ")
    {
     int a = 3, b = 4;
-    std::string test_string = "nice";
-    CHECK( check_condition( [ a, b ](){ return a < b; }, test_string ) == test_string );
-    CHECK( check_condition( [ a, b ](){ return a > b; }, test_string ) == "" );
+    std::string test_string = "nice", null_str = "";
+    CHECK( check_condition( [ a, b ](){ return a < b; }, test_string, null_str ) == test_string );
+    CHECK( check_condition( [ a, b ](){ return a > b; }, test_string, null_str ) == null_str );
+   }
+  
+  SUBCASE( "Testing the isFLoatingPoint function" )
+   {
+    int a = 3;
+    double d = 3.4;
+    float f = 45.3F;
+    long double ld = 4.2L;
+    CHECK( !isFloatingPoint( a ) );
+    CHECK( isFloatingPoint( d ) );
+    CHECK( isFloatingPoint( f ) );
+    CHECK( isFloatingPoint( ld ) );
    }
  }

@@ -1,7 +1,8 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <functional>  
+#include <cmath>
+#include <iomanip>
 #include "../include/osmanip.h"
 
 using namespace osm;
@@ -85,9 +86,9 @@ void perc_bars()
   cout << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
   
   //Normal percentage bar settings:
-  ProgressBar percentage_bar;
-  percentage_bar.setMin( 1 );
-  percentage_bar.setMax ( 20 );
+  ProgressBar <int> percentage_bar;
+  percentage_bar.setMin( 5 );
+  percentage_bar.setMax ( 46 );
   percentage_bar.setStyle( "indicator", "%" );
 
   cout << "This is a normal percentage bar: " << endl;
@@ -100,14 +101,17 @@ void perc_bars()
   cout << endl << endl;
             
   //Percentage bar with message and different style:
-  percentage_bar.setMessage( "processing..." );
-  percentage_bar.setStyle( "indicator", "/100" );
+  ProgressBar <float> percentage_bar_2;
+  percentage_bar_2.setMin( 1.2f );
+  percentage_bar_2.setMax ( 6.4f );
+  percentage_bar_2.setMessage( "processing..." );
+  percentage_bar_2.setStyle( "indicator", "/100" );
 
   cout << "This is a percentage bar with message and the /100 style: " << endl;
-  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+  for ( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
    {
     sleep_for( milliseconds( 100 ) );
-    percentage_bar.update( i );
+    percentage_bar_2.update( i );
     //Do some operations...
    }
   cout << endl << endl;
@@ -130,7 +134,7 @@ void perc_bars()
 
 void load_bars()
  {
-  ProgressBar loading_bar;
+  ProgressBar <int> loading_bar;
   loading_bar.setMin( 3 );
   loading_bar.setMax ( 25 );
   loading_bar.setStyle( "loader", "#" );
@@ -176,7 +180,7 @@ void load_bars()
 
 void mixed_bars()
  {
-  ProgressBar mixed_bar;
+  ProgressBar <int> mixed_bar;
   mixed_bar.setMin( 3 );
   mixed_bar.setMax ( 25 );
   mixed_bar.setStyle( "complete", "%", "#" );
@@ -221,10 +225,10 @@ void mixed_bars()
 int main ()
  {
   //Manipulators:
-  col_sty(); //Color/style.
+  // col_sty(); //Color/style.
 
   //Progress bars:
   perc_bars(); //Percentage bar.
-  load_bars(); //Loading bar.
-  mixed_bars(); //Mixed bar.
+  //load_bars(); //Loading bar.
+  //mixed_bars(); //Mixed bar.
  }

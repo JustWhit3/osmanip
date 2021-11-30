@@ -4,7 +4,6 @@
 #include <string>
 #include <map>
 #include <functional>
-
 namespace osm
  {
   //Operators redefinition:
@@ -15,7 +14,10 @@ namespace osm
   template <typename T>
   extern std::runtime_error runtime_error_func( std::string beg, T variable, std::string end );
 
+  template <typename T, typename R>
+  extern T check_condition( std::function <bool()> condition, T return_it, R return_false );
+
   template <typename T>
-  extern T check_condition( std::function <bool()> condition, T return_it );
+  extern bool isFloatingPoint( const T & expression );
  }
 #endif

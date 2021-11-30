@@ -3,6 +3,7 @@
 #include <map>
 #include <set>
 #include <functional>
+#include <type_traits>
 #include "../include/helper_tools.h"
   
 namespace osm
@@ -40,8 +41,8 @@ namespace osm
   ( std::string beg, std::string variable, std::string end );
 
   //Function to check if a given condition is verified or not and in positive case return it:
-  template <typename T>
-  T check_condition( std::function <bool()> condition, T return_it)
+  template <typename T, typename R>
+  T check_condition( std::function <bool()> condition, T return_it, R return_false)
    {
     if( condition() )
      {
@@ -49,10 +50,24 @@ namespace osm
      }
     else
      {
-      return "";
+      return return_false;
      }
    }
   
-  template std::string check_condition <std::string>
-  ( std::function <bool()> condition, std::string return_it );
+  template std::string check_condition <std::string, std::string> 
+  ( std::function <bool()> condition, std::string return_it, std::string return_false );
+
+  //Function to check if expression type is floating point:
+  template <typename T>
+  bool isFloatingPoint( const T & expression )
+   {
+    return std::is_floating_point <T>::value;
+   }
+
+  template bool isFloatingPoint <int> ( const int & expression );
+  template bool isFloatingPoint <long> ( const long & expression );
+  template bool isFloatingPoint <long long> ( const long long & expression );
+  template bool isFloatingPoint <float> ( const float & expression );
+  template bool isFloatingPoint <double> ( const double & expression );
+  template bool isFloatingPoint <long double> ( const long double & expression );
  }

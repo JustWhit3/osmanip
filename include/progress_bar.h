@@ -5,6 +5,7 @@
 #include <chrono>
 #include <set>
 #include <map>
+#include <vector>
 
 namespace osm
  {
@@ -12,6 +13,7 @@ namespace osm
   using string_set_map = std::map <std::string, std::set<std::string>>;
 
   //ProgressBar class declaration:
+  template <typename bar_type>
   class ProgressBar
    {
     public:
@@ -21,8 +23,8 @@ namespace osm
      ~ProgressBar();
 
      //Setters declaration:
-     void setMax( long long max );
-     void setMin( long long min );
+     void setMax( bar_type max );
+     void setMin( bar_type min );
      void setStyle( std::string type, std::string style );
      void setStyle( std::string type, std::string style_p, std::string style_l );
      void setMessage( std::string message );
@@ -42,10 +44,10 @@ namespace osm
      void resetColor();
 
      //Getters declaration:
-     long long getMax() const;
-     long long getMin() const;
      long long getTime() const;
-     long long getIteratingVar() const;
+     bar_type getMax() const;
+     bar_type getMin() const;
+     bar_type getIteratingVar() const;
      std::string getStyle() const;
      std::string getMessage() const;
      std::string getBrackets_open() const;
@@ -54,21 +56,24 @@ namespace osm
      std::string getType() const;
 
      //Other methods declaration:
-     void update( long long iterating_var );
+     void update( bar_type iterating_var );
      void print() const;
      void addStyle( std::string type, std::string style );
+     bar_type one( bar_type iterating_var );
   
     private:
 
      //Static attributes declaration:
      static string_set_map styles_map_;
+     static std::string null_str, empty_space;
+     static std::vector <bar_type> counter_;
      
      //Dynamic attributes declaration:
-     long long max_, 
-               min_, 
-               iterating_var_, 
-               time_count_, 
-               width_;
+     bar_type max_, 
+              min_, 
+              iterating_var_, 
+              width_;
+     int time_count_;
      std::string style_, 
                  style_p_,
                  style_l_,
