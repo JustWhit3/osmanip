@@ -113,7 +113,7 @@ namespace osm
     { "bksp", "\x08" },     //Backspace
     { "tab", "\x09" },      //Tab
     { "lfd", "\x0A" },      //Line feed
-    { "ffd", "\x0A" },      //Form feed
+    { "ffd", "\x0C" },      //Form feed
     { "crt", "\x0D" },      //Carriage return
 
     //Control sequence introducer sequences variables:

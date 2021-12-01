@@ -57,7 +57,7 @@ namespace osm
     min_ = min; 
    }
 
-  //First overload, to set style of single loader or indicator:
+  //First setStyle overload, to set style of loader or indicator:
   template <typename bar_type>
   void ProgressBar <bar_type>::setStyle( std::string type, std::string style )
    {
@@ -83,7 +83,7 @@ namespace osm
      }
    }
 
-  //Second overload, to set style of complete bar:
+  //Second setStyle overload, to set style of complete bar:
   template <typename bar_type>
   void ProgressBar <bar_type>::setStyle( std::string type, std::string style_p, std::string style_l )
    {
@@ -276,15 +276,9 @@ namespace osm
        {
         return abs( abs( counter_.front() ) - abs( counter_.back() ) );
        }
-      else 
-       {
-        return 0;
-       }
+      return 0;
      }
-    else
-     {
-      return 1;
-     }
+    return 1;
    }
  
   //ProgressBar update method definition:
@@ -294,6 +288,7 @@ namespace osm
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - one( iterating_var ) );
     width_ = ( iterating_var_ + 1 ) / 4;
 
+    //Update of the progress indicator only:
     if( styles_map_.at( "indicator" ).find( style_ ) != styles_map_.at( "indicator" ).end() )
      {
       output_ = feat( crs, "left", 100 ) + 
@@ -310,6 +305,8 @@ namespace osm
                 << std::flush
                 << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ), null_str );
      }
+
+    //Update of the loader indicator only:
     else if( styles_map_.at( "loader" ).find( style_ ) != styles_map_.at( "loader" ).end() )
      {
       output_ = feat( crs, "left", 100 ) + 
@@ -328,6 +325,8 @@ namespace osm
                 << std::flush
                 << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ), null_str );
      }
+
+    //Update of the whole progress bar:
     else if ( style_.find( style_p_ ) != std::string::npos && style_.find( style_l_ ) != std::string::npos &&
               type_ == "complete"  )
      {
@@ -352,6 +351,7 @@ namespace osm
                 << std::flush
                 << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ), null_str );
      }
+     
     else
      {
       throw std::runtime_error( "ProgressBar style has not been set!" );

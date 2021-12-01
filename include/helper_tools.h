@@ -4,8 +4,12 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <type_traits>
 namespace osm
  {
+  //Global helper variables:
+  extern std::string output, error;
+
   //Operators redefinition:
   extern std::string operator * ( const std::string & generic_string, unsigned int integer );
   extern std::string operator * ( unsigned int integer, const std::string & generic_string );

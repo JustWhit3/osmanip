@@ -225,10 +225,10 @@ void mixed_bars()
 int main ()
  {
   //Manipulators:
-  // col_sty(); //Color/style.
+  col_sty(); //Color/style.
 
   //Progress bars:
   perc_bars(); //Percentage bar.
-  //load_bars(); //Loading bar.
-  //mixed_bars(); //Mixed bar.
+  load_bars(); //Loading bar.
+  mixed_bars(); //Mixed bar.
  }

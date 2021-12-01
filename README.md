@@ -6,11 +6,12 @@
 - [List of features](#list-of-features)
   * [Colors and styles manipulation](#colors-and-styles-manipulation)
   * [Cursor navigation](#cursor-navigation)
+  * [Terminal control sequences](#terminal-control-sequences)
   * [Progress bars](#progress-bars)
 
 ## Introduction
 
-Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to be used in your code. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own code for that. Thanks to this you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
+Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to format and customize your output stream. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own code for that. Thanks to this you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
 
 > **NOTE**: all the manipulators of this library are compatible with [iomanip](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/iomanip).
 
@@ -50,6 +51,7 @@ You can also print mixed color and style strings:
 cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
 ```
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in order to reset all the output stream color / style.
+> If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
 
 ### Cursor navigation
 
@@ -62,16 +64,33 @@ You can additionally add a third argument to the `feat` function, in order to in
 
 It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp) for more information.
 
+### Terminal control sequences
+
+You can add a terminal control sequency to your output by using the `feat`  function within the `tcs` map, in this way:
+```c++
+cout << feat( tcs, "bell" );
+```
+For example, the previous command will output a bell sound from your computer.
+> If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
+
 ### Progress bars
 
-From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) of the library, also progress bars have been introduced. Here you can find some examples about how to use them into your code.
+From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) of the library, also progress bars have been introduced. 
+
+Main proprieties:
+
+- Compatibile with any positive or negative variable type (integer, float, double, customized types and others).
+- Maximum and minimum values can be set with any value you prefer and the progress bar will be self-built with respect to them.
+- It can be fully customized regarding to your requirements.
+
+Here you can find some examples about how to use them into your code.
 > If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
 
 Initialize and use a percentage progress bar:
 ```c++
-ProgressBar percentage_bar;
-percentage_bar.setMin( 1 );
-percentage_bar.setMax ( 100 );
+ProgressBar <int> percentage_bar;
+percentage_bar.setMin( 5 );
+percentage_bar.setMax ( 46 );
 percentage_bar.setStyle( "indicator", "%" );
 
 cout << "This is a normal percentage bar: " << endl;
@@ -115,11 +134,11 @@ It is possible to add also colors and much more.
 
 You can also create a classic loading bar:
 ```c++
-ProgressBar loading_bar;
+ProgressBar <int> loading_bar;
 loading_bar.setMin( 3 );
-loading_bar.setMax ( 22 );
+loading_bar.setMax ( 25 );
 loading_bar.setStyle( "loader", "#" );
-loading_bar.setBrackets( "[", "]" );
+loading_bar.setBrackets( "{", "}" );
 loading_bar.setMessage( "processing..." );
 
 cout << "This is a normal loading bar: " << endl;

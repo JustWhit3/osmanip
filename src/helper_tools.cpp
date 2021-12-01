@@ -8,10 +8,13 @@
   
 namespace osm
  {
-  //Operator * redefinition definition to multiply strings by an integer:
+  //Global variables declaration in implementation file:
+  std::string output, error;
+
+  //Operator * redefinitions to multiply strings by an integer:
   std::string operator * ( const std::string & generic_string, unsigned int integer ) 
    {
-    std::string output = "";
+    output = "";
     while ( integer -- ) 
      {
       output += generic_string;
@@ -28,12 +31,12 @@ namespace osm
   template <typename T>
   std::runtime_error runtime_error_func( std::string beg, T variable, std::string end )
    {
-    std::string error = beg + 
-                        static_cast <std::string>(" \"") + 
-                        static_cast <std::string>( variable ) +
-                        static_cast <std::string>( "\" " ) + 
-                        end + 
-                        "\n";
+    error = beg + 
+            static_cast <std::string>(" \"") + 
+            static_cast <std::string>( variable ) +
+            static_cast <std::string>( "\" " ) + 
+            end + 
+            "\n";
     return std::runtime_error( error );
    }
   

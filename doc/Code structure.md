@@ -7,11 +7,13 @@
 - [Functions](#functions)
   * [feat](#feat)
   * [reset](#reset)
+  * [go_to](#goto)
 - [Global variables](#global-variables)
   * [col](#col)
   * [sty](#sty)
   * [rst](#rst)
   * [crs](#crs)
+  * [tcs](#tcs)
 
 ## Namespaces
 
@@ -21,7 +23,7 @@ A global namespace `osm` is used to contain all the library classes, functions a
 
 ### ProgressBar
 
-This class is used to create progress bars.
+This template class is used to create progress bars. Templated type is called `bar_type`.
 
 Header file: [*progressbar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar.h)
 
@@ -32,8 +34,8 @@ Constructors / destructor:
 - `~ProgressBar()`: standard destructor. It doesn't do anything.
 
 Setter methods: 
-- `void setMax( long long max )`: to set max value of the bar.
-- `void setMin( long long min )`: to set min value of the bar.
+- `void setMax( bar_type max )`: to set max value of the bar.
+- `void setMin( bar_type min )`: to set min value of the bar.
 - `void setStyle( std::string type, std::string style )`: to set the bar style.
 - `void setStyle( std::string type, std::string style_p, std::string style_l )`: to set the bar style in case of a complete bar.
 > Standard available types are `indicator` and `loader` and `complete` (with both `indicator` and `loader`).
@@ -56,10 +58,10 @@ Setter methods:
 > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment, in the sense that a few precision in lost when using them into loops.
 
 Getter methods:
-- `long long getMax()`: to get max value of the bar.
-- `long long getMin()`: to get min value of the bar.
-- `long long getTime()`: to get time for the CPU counting of a process.
-- `long long getIteratingVar()`: to get the iterating variable of the `update` method.
+- `bar_type getMax()`: to get max value of the bar.
+- `bar_type getMin()`: to get min value of the bar.
+- `bar_type getTime()`: to get time for the CPU counting of a process.
+- `bar_type getIteratingVar()`: to get the iterating variable of the `update` method.
 - `std::string getStyle()`: to get the bar style.
 - `std::string getType()`: to get the bar type.
 - `std::string getMessage()`: to get the optional bar message.
@@ -68,10 +70,11 @@ Getter methods:
 - `std::string getColor()`: to get the progress bar color.
 
 Other methods: 
-- `void update( long long iterating_var )`: to update the bar after each loop cycle.
+- `void update( bar_type iterating_var )`: to update the bar after each loop cycle.
 > **NOTE**: `std::cout` object cannot be used inside a loop within the `update` method.
 - `void print()`: to print on the screen all the progress bar variable values.
 - `void addStyle( std::string type, std::string style )`: to create customized progress bar styles.
+- `bar_type( bar_type iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
 
@@ -100,6 +103,16 @@ Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/
 Complete definition: `std::string reset ( std::string reset_string )`
 
 It takes a `std::string` object (`reset` map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
+
+### go_to
+
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+Complete definition: `std::string go_to( int x, int y )`.
+
+It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
 
 ## Global variables
 
@@ -208,17 +221,28 @@ Complete definition: `std::map <std::string, std::pair<std::string, std::string>
 
 It is used for the output stream cursor navigation and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::pair<std::string, std::string>`) or string value in the case of the `error` feature:
   * `error` / `Inserted cursor command`
-  * `up` / `\u001b[` / `A`
-  * `down` / `\u001b[` / `B`
-  * `right` / `\u001b[` / `C`
-  * `left` / `\u001b[` / `D`
+  * `up` / `\u001b[` / `A` : move cursor up.
+  * `down` / `\u001b[` / `B` : move cursor down.
+  * `right` / `\u001b[` / `C` : move cursor right.
+  * `left` / `\u001b[` / `D` : move cursor left.
 
-### go_to
+### tcs
 
 Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `std::string go_to( int x, int y )`.
+Complete definition: `std::map <std::string, std::string> tcs`
 
-It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
+It is used for the terminal control sequences manipulation and currently supports the following list of sequences (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
+  * `error` / `Inserted terminal control sequence`
+  * `bell` / `\x07` : bell sound.
+  * `bksp` / `\x08` : backspace.
+  * `tab` / `\x09` : tab.
+  * `lfd` / `\x0A` : line feed.
+  * `ffd` / `\x0C` : form feed.
+  * `crt` / `\x0D` : carriage return.
+  * `csc` / `\x1b[2J\x1b[1;1H` : clear screen.
+  * `cln` / `\x1b[2K` : clear line.
+  * `hcrs` / `\x1b[?25l` : hide cursor.
+  * `scrs` / `\x1b[?25h` : show cursor.

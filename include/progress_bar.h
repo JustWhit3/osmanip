@@ -65,7 +65,8 @@ namespace osm
 
      //Static attributes declaration:
      static string_set_map styles_map_;
-     static std::string null_str, empty_space;
+     static std::string null_str,
+                        empty_space;
      static std::vector <bar_type> counter_;
      
      //Dynamic attributes declaration:
