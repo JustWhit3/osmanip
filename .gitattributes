@@ -1,3 +1,2 @@
 #Force all .h files to be recognized as C++ and not C files.
-*ipynb linguist-vendored
 *.h linguist-language=C++
