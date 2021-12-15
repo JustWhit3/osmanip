@@ -243,6 +243,20 @@ namespace osm
    }
 
   template <typename bar_type>
+  std::string ProgressBar <bar_type>::getStyleComplete() const 
+   { 
+    if( type_ == "complete" )
+     {
+      return "Percentage: \"" + style_p_ + "\"\n" + 
+             "Loader: \"" + style_l_ + "\"\n"; 
+     }
+    else
+     {
+      return style_; 
+     }
+   }
+
+  template <typename bar_type>
   std::string ProgressBar <bar_type>::getType() const 
    { 
     return type_; 

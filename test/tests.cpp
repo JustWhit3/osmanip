@@ -98,7 +98,16 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getType() == type );
 
     CHECK_THROWS_AS( bar.setStyle( type, "a" ), runtime_error );
-    //CHECK_THROWS_AS( bar.setStyle( "a", style ), runtime_error ); //Need to fix this.
+    CHECK_THROWS_AS( bar.setStyle( "a", style ), runtime_error );
+
+    //Extra test for getStyle:
+    string style_p_ = "%",
+           style_l_ = "#",
+           complete_style = "Percentage: \"" + style_p_ + "\"\n" + "Loader: \"" + style_l_ + "\"\n"; 
+
+    bar.setStyle( "complete", style_p_, style_l_ );
+    CHECK( bar.getStyleComplete() == complete_style );
+    bar.setStyle( type, style );
    }
 
   SUBCASE( "Testing reset method" ) 

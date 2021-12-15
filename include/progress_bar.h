@@ -59,6 +59,7 @@ namespace osm
      bar_type getMin() const;
      bar_type getIteratingVar() const;
      std::string getStyle() const;
+     std::string getStyleComplete() const;
      std::string getMessage() const;
      std::string getBrackets_open() const;
      std::string getBrackets_close() const;
