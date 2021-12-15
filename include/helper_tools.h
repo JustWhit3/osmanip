@@ -7,14 +7,20 @@
 #include <type_traits>
 namespace osm
  {
-  //Global helper variables:
+  //====================================================
+  //     GLOBAL HELPER VARIABLES
+  //====================================================
   extern std::string output, error;
 
-  //Operators redefinition:
+  //====================================================
+  //     OPERATORS REDEFINITION
+  //====================================================
   extern std::string operator * ( const std::string & generic_string, unsigned int integer );
   extern std::string operator * ( unsigned int integer, const std::string & generic_string );
 
-  //Template functions definition:
+  //====================================================
+  //     TEMPLATE FUNCTIONS DEFINITION
+  //====================================================
   template <typename T>
   extern std::runtime_error runtime_error_func( std::string beg, T variable, std::string end );
 

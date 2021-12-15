@@ -8,10 +8,16 @@
   
 namespace osm
  {
-  //Global variables declaration in implementation file:
+  //====================================================
+  //     GLOBAL VARIABLES DECLARATION
+  //       (in implementation file)
+  //====================================================
   std::string output, error;
 
-  //Operator * redefinitions to multiply strings by an integer:
+  //====================================================
+  //     OPERATOR * REDEFINITIONS
+  // (to multiply strings by an integer)
+  //====================================================
   std::string operator * ( const std::string & generic_string, unsigned int integer ) 
    {
     output = "";
@@ -27,7 +33,9 @@ namespace osm
     return generic_string * integer;
    }
 
-  //Function to give customized runtime error:
+  //====================================================
+  //     FUNCTION FOR CUSTOMIZED RUNTIME ERROR
+  //====================================================
   template <typename T>
   std::runtime_error runtime_error_func( std::string beg, T variable, std::string end )
    {
@@ -43,7 +51,10 @@ namespace osm
   template std::runtime_error runtime_error_func <std::string>
   ( std::string beg, std::string variable, std::string end );
 
-  //Function to check if a given condition is verified or not and in positive case return it:
+  //====================================================
+  //     FUNCTION TO CHECK IF A CONDITION IS VERIFIED
+  //     AND IN POSITIVE CASE RETURN IT
+  //====================================================
   template <typename T, typename R>
   T check_condition( std::function <bool()> condition, T return_it, R return_false)
    {
@@ -60,7 +71,10 @@ namespace osm
   template std::string check_condition <std::string, std::string> 
   ( std::function <bool()> condition, std::string return_it, std::string return_false );
 
-  //Function to check if expression type is floating point:
+  //====================================================
+  //     FUNCTION TO CHECK IF EXPRESSION TYPE IS
+  //     FLOATING POINT
+  //====================================================
   template <typename T>
   bool isFloatingPoint( const T & expression )
    {

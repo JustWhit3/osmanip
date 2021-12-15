@@ -1,6 +1,9 @@
 #!/bin/bash
 
-#Compilation of the source code (check if doctest is installed):
+#====================================================
+#     COMPILATION OF THE SOURCE CODE
+#     (check if doctest is installed)
+#====================================================
 if [ -f "/usr/include/doctest.h" ] ; then
     echo "Compiling the whole code..."
     if ! make ; then
@@ -24,7 +27,9 @@ else
 fi
 echo ""
 
-#Saving files into the system:
+#====================================================
+#     SAVING FILES INTO THE SYSTEM
+#====================================================
 include_var=$(stat -c%s "include")
 lib_var=$(stat -c%s "lib")
 var=$(expr $include_var + $lib_var)
@@ -46,7 +51,9 @@ else
 fi
 echo ""
 
-#Installation completed:
+#====================================================
+#     INSTALLATION COMPLETED
+#====================================================
 echo "Osmanip has been succesfully installed!"
 echo ""
 echo "To compile any C++ program with this library use:"

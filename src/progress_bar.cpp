@@ -10,7 +10,9 @@
 
 namespace osm
  {
-  //Definition of the "progress bar" class constructors and destructors:
+  //====================================================
+  //     DEFINITION OF THE CONSTRUCTORS AND DESTRUCTOR
+  //====================================================
   template <typename bar_type>
   ProgressBar <bar_type>::ProgressBar(): 
    max_( 0 ), 
@@ -18,7 +20,7 @@ namespace osm
    style_( "" ), 
    type_( "" ),
    message_( "" ), 
-   time_count_( 0 ),
+   time_count_( time_type::duration::zero().count() ),
    brackets_open_( "" ), 
    brackets_close_( "" ), 
    color_( reset( "color" ) ) 
@@ -27,7 +29,9 @@ namespace osm
   template <typename bar_type>
   ProgressBar <bar_type>::~ProgressBar() {}
 
-  //ProgressBar static attributes definition:
+  //====================================================
+  //     DEFINITION OF THE STATIC ATTRIBUTES
+  //====================================================
   template <typename bar_type>
   string_set_map ProgressBar <bar_type>::styles_map_
    {
@@ -44,7 +48,9 @@ namespace osm
   template <typename bar_type>
   std::string ProgressBar <bar_type>::empty_space = " ";
   
-  //ProgressBar setters definition:
+  //====================================================
+  //     DEFINITION OF THE SETTERS
+  //====================================================
   template <typename bar_type>
   void ProgressBar <bar_type>::setMax( bar_type max )
    { 
@@ -119,13 +125,13 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::setBegin() 
    { 
-    begin = std::chrono::steady_clock::now();
+    begin = time_type::now();
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::setEnd()
    {
-    end = std::chrono::steady_clock::now();
+    end = time_type::now();
     time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
    }
   
@@ -142,12 +148,14 @@ namespace osm
     color_ = feat( col, color );
    }
 
-  //ProgressBar resetters definition:
+  //====================================================
+  //     DEFINITION OF THE RESETTERS
+  //====================================================
   template <typename bar_type>
   void ProgressBar <bar_type>::resetAll() 
    { 
-    max_ = 0, 
-    min_ = 0, 
+    max_ = static_cast<bar_type> ( NULL ), 
+    min_ = static_cast<bar_type> ( NULL ), 
     style_ = "", 
     type_ = "",
     message_ = "", 
@@ -160,13 +168,13 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::resetMax()
    { 
-    max_ = 0;
+    max_ = static_cast<bar_type> ( NULL );
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::resetMin()
    {
-    min_ = 0;
+    min_ = static_cast<bar_type> ( NULL );
    }
 
   template <typename bar_type>
@@ -185,7 +193,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::resetTime()
    {
-    time_count_ = 0;
+    time_count_ = time_type::duration::zero().count();
    }
 
   template <typename bar_type>
@@ -201,7 +209,9 @@ namespace osm
     color_ = reset( "color" ); 
    }
 
-  //ProgressBar getters definition:
+  //====================================================
+  //     DEFINITION OF THE GETTERS
+  //====================================================
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::getMax() const 
    { 
@@ -262,7 +272,9 @@ namespace osm
     return color_; 
    }
 
-  //ProgressBar one method definition:
+  //====================================================
+  //     DEFINITION OF THE "one" METHOD
+  //====================================================
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::one( bar_type iterating_var )
    {
@@ -276,12 +288,14 @@ namespace osm
        {
         return abs( abs( counter_.front() ) - abs( counter_.back() ) );
        }
-      return 0;
+      return static_cast<bar_type> ( NULL );
      }
     return 1;
    }
  
-  //ProgressBar update method definition:
+  //====================================================
+  //     DEFINITION OF THE "update" METHOD
+  //====================================================
   template <typename bar_type>
   void ProgressBar <bar_type>::update( bar_type iterating_var )
    {
@@ -358,7 +372,9 @@ namespace osm
      }
    }
 
-   //ProgressBar print method definition:
+  //====================================================
+  //     DEFINITION OF THE "print" METHOD
+  //====================================================
    template <typename bar_type>
    void ProgressBar <bar_type>::print() const
     {
@@ -389,7 +405,9 @@ namespace osm
       }
     }
   
-  //Template class specializations:
+  //====================================================
+  //     TEMPLATE SPECIALIZATIONS
+  //====================================================
   template class ProgressBar <long long>;
   template class ProgressBar <long>;
   template class ProgressBar <int>;

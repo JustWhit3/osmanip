@@ -1,34 +1,50 @@
-#Main objects definition:
+#====================================================
+#     VARIABLES
+#====================================================
 TARGET_EXEC := main
 TEST_EXEC := tests
 LIB := libosmanip.a
 CC := g++
 
-#Folders declaration:
+#====================================================
+#     FOLDERS
+#====================================================
 BUILD_DIR := bin
 SRC_DIR := src
 OBJ_DIR := obj
 TEST_DIR := test
 LIB_DIR := lib
 
-#Source files definition:
+#====================================================
+#     SOURCE FILES
+#====================================================
 SRC := $(shell find $(SRC_DIR) -name '*.cpp')
 SRC_LIB := $(shell find $(SRC_DIR) -type f | grep -v 'main.cpp')
 TEST := $(shell find $(SRC_DIR) -type f | grep -v 'main.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
 
-#Source objects definition:
+#====================================================
+#     SOURCE OBJECTS
+#====================================================
 OBJ := $(SRC:%=$(OBJ_DIR)/%.o)
 OBJ_LIB := $(SRC_LIB:%=$(OBJ_DIR)/%.o)
 TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 
-#Dependencies and flags settings:
+#====================================================
+#     DEPENDENCIES AND FLAGS
+#====================================================
 DEPS := $(OBJ:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 CPPFLAGS := $(INC_FLAGS) -MMD -MP
 
-#Command aliases creation:
+#====================================================
+#     ALIASES
+#====================================================
 .PHONY: clean all
+
+#====================================================
+#     BUILDING
+#====================================================
 
 #Building all:
 all: $(BUILD_DIR)/$(TARGET_EXEC) $(BUILD_DIR)/$(TEST_EXEC) $(LIB_DIR)/$(LIB)
@@ -53,9 +69,13 @@ $(LIB_DIR)/$(LIB): $(OBJ_LIB)
 	@ mkdir -p $(dir $@)
 	ar rcs $(LIB_DIR)/$(LIB) $(OBJ_LIB)
 
-#Make clean command:
+#====================================================
+#     CLEAN
+#====================================================
 clean:
 	rm -r $(OBJ_DIR) $(BUILD_DIR) $(LIB_DIR)
 
-#include commands:
+#====================================================
+#     INCLUDE
+#====================================================
 -include $(DEPS)

@@ -12,7 +12,9 @@ using namespace std::chrono;
 
 void col_sty()
  {
-  //Output all the features:
+  //====================================================
+  //     CSMANIP FEATURES
+  //====================================================
   cout << endl << "---------------------   COLORS   ---------------------" << endl << endl
   
        << feat( col, "black" ) << "This is a black string." << reset( "color" ) << endl
@@ -81,11 +83,14 @@ void col_sty()
        << feat( sty, "faint" ) << feat( col, "orange" ) << "This is a faint orange string." << reset( "all" ) << endl;
  }
 
+//====================================================
+//     PERCENTAGE BAR
+//====================================================
 void perc_bars()
  {
   cout << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
   
-  //Normal percentage bar settings:
+  //Normal percentage bar.
   ProgressBar <int> percentage_bar;
   percentage_bar.setMin( 5 );
   percentage_bar.setMax ( 46 );
@@ -132,6 +137,9 @@ void perc_bars()
   cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl << endl;
  }
 
+//====================================================
+//     LOADING BAR
+//====================================================
 void load_bars()
  {
   ProgressBar <int> loading_bar;
@@ -178,6 +186,9 @@ void load_bars()
   cout << endl << "Time needed to complete the previous cycle: " << loading_bar.getTime() << " ms." << endl << endl;
  }
 
+//====================================================
+//     MIXED BAR
+//====================================================
 void mixed_bars()
  {
   ProgressBar <int> mixed_bar;
@@ -222,6 +233,9 @@ void mixed_bars()
   cout << endl << endl;
  }
 
+//====================================================
+//     MAIN
+//====================================================
 int main ()
  {
   //Manipulators:
@@ -231,4 +245,19 @@ int main ()
   perc_bars(); //Percentage bar.
   load_bars(); //Loading bar.
   mixed_bars(); //Mixed bar.
+
+  /*vector<int> v = {1,2,3,1,2,3,1,1,2,3,4,3,2,1,12,3,4,1,2,4,4,2,2,3,4,5,5};
+  ProgressBar <vector<int>::iterator> percentage_bar;
+  percentage_bar.setMin( v.begin() );
+  percentage_bar.setMax ( v.end() );
+  percentage_bar.setStyle( "indicator", "%" );
+
+  cout << "This is a normal percentage bar: " << endl;
+  for ( vector<int>::iterator i = v.begin(); i < v.end(); ++i )
+   {
+    sleep_for( milliseconds( 100 ) );
+    percentage_bar.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;*/
  }

@@ -9,20 +9,26 @@
 
 namespace osm
  {
-  //Type aliases declaration:
+  //====================================================
+  //     TYPE ALIASES DECLARATION
+  //====================================================
   using string_set_map = std::map <std::string, std::set<std::string>>;
+  using time_type = std::chrono::steady_clock;
 
-  //ProgressBar class declaration:
   template <typename bar_type>
   class ProgressBar
    {
     public:
 
-     //Constructors and destructors declaration:
+    //====================================================
+    //     CONSTRUCTORS AND DESTRUCTOR DECLARATION
+    //====================================================
      ProgressBar();
      ~ProgressBar();
 
-     //Setters declaration:
+    //====================================================
+    //     SETTERS DECLARATION
+    //====================================================
      void setMax( bar_type max );
      void setMin( bar_type min );
      void setStyle( std::string type, std::string style );
@@ -33,7 +39,9 @@ namespace osm
      void setEnd();
      void setColor( std::string color );
 
-     //Resetters declaration:
+    //====================================================
+    //     RESETTERS DECLARATION
+    //====================================================
      void resetAll();
      void resetMax();
      void resetMin();
@@ -43,7 +51,9 @@ namespace osm
      void resetBrackets();
      void resetColor();
 
-     //Getters declaration:
+    //====================================================
+    //     GETTERS DECLARATION
+    //====================================================
      long long getTime() const;
      bar_type getMax() const;
      bar_type getMin() const;
@@ -55,7 +65,9 @@ namespace osm
      std::string getColor() const;
      std::string getType() const;
 
-     //Other methods declaration:
+    //====================================================
+    //     OTHER METHODS DECLARATION
+    //====================================================
      void update( bar_type iterating_var );
      void print() const;
      void addStyle( std::string type, std::string style );
@@ -63,18 +75,22 @@ namespace osm
   
     private:
 
-     //Static attributes declaration:
+    //====================================================
+    //     STATIC ATTRIBUTES DECLARATION
+    //====================================================
      static string_set_map styles_map_;
      static std::string null_str,
                         empty_space;
      static std::vector <bar_type> counter_;
      
-     //Dynamic attributes declaration:
+    //====================================================
+    //     NON-STATIC ATTRIBUTES DECLARATION
+    //====================================================
+     long long time_count_;
      bar_type max_, 
               min_, 
               iterating_var_, 
               width_;
-     int time_count_;
      std::string style_, 
                  style_p_,
                  style_l_,
@@ -85,8 +101,8 @@ namespace osm
                  brackets_close_, 
                  output_, 
                  color_;
-     std::chrono::steady_clock::time_point begin, 
-                                           end;
+     time_type::time_point begin, 
+                           end;
    };
  }
       

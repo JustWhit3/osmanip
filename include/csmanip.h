@@ -7,18 +7,24 @@
 
 namespace osm
  {
-  //Type aliases declarations:
+  //====================================================
+  //     TYPE ALIASES DEFINITION
+  //====================================================
   using string_map = std::map <std::string, std::string>;
   using string_pair_map = std::map <std::string, std::pair<std::string, std::string>>;
 
-  //Variables declaration:
+  //====================================================
+  //     VARIABLES DECLARATION
+  //====================================================
   extern string_map col,
                     sty,
                     rst,
                     tcs;
   extern string_pair_map crs;
 
-  //Functions declaration:
+  //====================================================
+  //     FUNCTIONS DECLARATION
+  //====================================================
   extern std::string feat ( string_map & generic_map, std::string feat_string );
   extern std::string feat ( string_pair_map & generic_map, std::string feat_string, int feat_int );
   extern std::string reset ( std::string reset_string );

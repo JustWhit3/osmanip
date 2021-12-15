@@ -7,7 +7,9 @@
 
 namespace osm
  {
-  //Definition of the "color" map:
+  //====================================================
+  //     DEFINITION OF THE "color" MAP
+  //====================================================
   string_map col 
    {
     //Error variables:
@@ -60,6 +62,9 @@ namespace osm
     { "bd gray", "\033[1;37m" }
    };
 
+  //====================================================
+  //     DEFINITION OF THE "style" MAP
+  //====================================================
   //Definition of the "style" map:
   string_map sty 
    {
@@ -78,7 +83,9 @@ namespace osm
     {"d-underlined", "\033[21m" }
    };
  
-  //Definition of the "reset" map:
+  //====================================================
+  //     DEFINITION OF THE "reset" MAP
+  //====================================================
   string_map rst 
    {
     //Error variables:
@@ -102,7 +109,10 @@ namespace osm
     { "crossed", "\033[29m" },
    };
   
-  //Definition of the "terminal control sequences" map:
+  //====================================================
+  //     DEFINITION OF THE "tcs" MAP
+  //     (terminal control sequences)
+  //====================================================
   string_map tcs
    {
     //Error variables:
@@ -123,7 +133,9 @@ namespace osm
     { "scrs", "\x1b[?25h" }             //Show cursor
    };
  
-  //Definition of the "cursor" map:
+  //====================================================
+  //     DEFINITION OF THE "cursor" MAP
+  //====================================================
   string_pair_map crs
    {
     //Error variables:
@@ -136,7 +148,9 @@ namespace osm
     { "left", std::make_pair( "\u001b[", "D" ) }
    };
  
-  //Definiton of the "feat" function:
+  //====================================================
+  //     DEFINITION OF THE "feat" FUNCTION
+  //====================================================
   std::string feat( string_map & generic_map, std::string feat_string )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
@@ -146,7 +160,11 @@ namespace osm
     return generic_map.at( feat_string );
    }
 
-  //Definiton of the "feat" function overload for the crs map:
+  //====================================================
+  //     DEFINITION OF THE "feat" FUNCTION OVERLOAD
+  //     (for the crs map)
+  //====================================================
+
   std::string feat( string_pair_map & generic_map, std::string feat_string, int feat_int )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
@@ -165,7 +183,9 @@ namespace osm
      }
    }
  
-  //Definition of the "reset" function:
+  //====================================================
+  //     DEFINITION OF THE "reset" FUNCTION
+  //====================================================
   std::string reset( std::string reset_string )
    {
     if( rst.find( reset_string ) == rst.end() ) 
@@ -175,7 +195,9 @@ namespace osm
     return rst.at( reset_string );
    }
 
-  //Definition of the "go_to" function:
+  //====================================================
+  //     DEFINITION OF THE "go_to" FUNCTION
+  //====================================================
   std::string go_to( int x, int y )
    {
     return "\u001b[" + 
