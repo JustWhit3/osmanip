@@ -14,7 +14,10 @@ using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
 
-//Testing the "feat" function:
+//====================================================
+//     TESTING "feat" FUNCTIONS
+//====================================================
+//First overload:
 TEST_CASE( "Testing the feat function." )
  {
   vector <map <string, string>> maps_vector;
@@ -42,7 +45,9 @@ TEST_CASE( "Testing the feat function overload for the crs map." )
   CHECK_THROWS_AS( feat( crs, "not", 32 ), runtime_error );
  }
 
-//Testing the "reset" function:
+//====================================================
+//     TESTING"reset"FUNCTION
+//====================================================
 TEST_CASE( "Testing the reset function." )
  {
   for( auto & element_m: rst )
@@ -52,7 +57,9 @@ TEST_CASE( "Testing the reset function." )
   CHECK_THROWS_AS( reset ( "not" ), runtime_error );
  }
 
-//Testing the ProgressBar class methods:
+//====================================================
+//     TESTING "ProgressBar" class METHODS
+//====================================================
 TEST_CASE( "Testing the ProgressBar class methods." )
  {
   ProgressBar <long long> bar; 
@@ -181,7 +188,7 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getStyle() == "|100>" );
     CHECK_THROWS_AS( bar.addStyle( "indicator", "%" ), runtime_error );
     CHECK_THROWS_AS( bar.addStyle( "loader", "#" ), runtime_error );
-    //CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), runtime_error ); //Need to fix this.
+    CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), out_of_range );
    }
 
   SUBCASE( "Testing the one method" )
@@ -200,7 +207,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
    }
  }
 
-//Testing the helper functions:
+//====================================================
+//     TESTING THE HELPER TOOLS
+//====================================================
 TEST_CASE( "Testing the helper function." )
  {
   SUBCASE( "Testing the * redefinition for string multiplication by an integer" )
