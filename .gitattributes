@@ -1,2 +1,4 @@
-#Force all .h files to be recognized as C++ and not C files.
+#====================================================
+#     CORRECT LANGUAGES MATCH
+#====================================================
 *.h linguist-language=C++

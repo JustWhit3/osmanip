@@ -1,15 +1,17 @@
-#Makefile objects:
+#====================================================
+#     MAKEFILE OBJECTS
+#====================================================
 obj
-
-#Libraries for installation:
 lib
-
-#Executables:
 bin
 
-#Personal TODO file:
+#====================================================
+#     PERSONAL FILES
+#====================================================
 todo.cpp
 
-#VS code settings:
+#====================================================
+#     VS CODE SETTINGS
+#====================================================
 .vscode/*
 !.vscode/settings.json
