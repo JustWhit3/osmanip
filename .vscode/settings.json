@@ -76,6 +76,7 @@
         "variant": "cpp"
     },
     "cSpell.words": [
-        "bksp"
+        "bksp",
+        "memcheck"
     ]
 }

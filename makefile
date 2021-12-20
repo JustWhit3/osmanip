@@ -1,8 +1,8 @@
 #====================================================
 #     VARIABLES
 #====================================================
-TARGET_EXEC := main
-TEST_EXEC := tests
+TARGET_EXEC := main.exe
+TEST_EXEC := tests.exe
 LIB := libosmanip.a
 CC := g++
 
@@ -35,7 +35,7 @@ TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 DEPS := $(OBJ:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
-CPPFLAGS := $(INC_FLAGS) -MMD -MP
+CPPFLAGS := -g $(INC_FLAGS) -MMD -MP
 
 #====================================================
 #     ALIASES
