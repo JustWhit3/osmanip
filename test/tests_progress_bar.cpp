@@ -1,61 +1,13 @@
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-
 #include <doctest.h>
-#include <map>
 #include <vector>
 #include <thread>
 #include <chrono>
-#include <set>
-#include <functional>
 #include "../include/osmanip.h"
 
 using namespace osm;
 using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
-
-//====================================================
-//     TESTING "feat" FUNCTIONS
-//====================================================
-//First overload:
-TEST_CASE( "Testing the feat function." )
- {
-  vector <map <string, string>> maps_vector;
-  maps_vector.push_back( col );
-  maps_vector.push_back( sty );
-
-  for( auto & element_v: maps_vector )
-   {
-    for( auto & element_m: element_v )
-    {
-     CHECK( feat( element_v, element_m.first ) == element_v.at( element_m.first ) );
-    }
-   }
-  CHECK_THROWS_AS( feat( col, "not" ), runtime_error );
- }
-
-//Testing the "feat" function overload for the crs map:
-TEST_CASE( "Testing the feat function overload for the crs map." )
- {
-  int feat_int = 100;
-  for( auto & element_m: crs )
-   {
-    CHECK( feat( crs, element_m.first, feat_int ) == ( crs.at( element_m.first ).first + std::to_string( feat_int ) + crs.at( element_m.first ).second ) );
-   }
-  CHECK_THROWS_AS( feat( crs, "not", 32 ), runtime_error );
- }
-
-//====================================================
-//     TESTING"reset"FUNCTION
-//====================================================
-TEST_CASE( "Testing the reset function." )
- {
-  for( auto & element_m: rst )
-   {
-    CHECK( reset( element_m.first ) == rst.at( element_m.first ) );
-   }
-  CHECK_THROWS_AS( reset ( "not" ), runtime_error );
- }
 
 //====================================================
 //     TESTING "ProgressBar" class METHODS
@@ -73,6 +25,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
          color = "red",
          type = "indicator";
 
+  //====================================================
+  //     TESTING GETTERS, SETTERS AND CONSTRUCTORS
+  //====================================================
   SUBCASE( "Testing naked getters and constructor" ) 
    {
     CHECK( bar.getMax() == 0 );
@@ -117,6 +72,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     bar.setStyle( type, style );
    }
 
+  //====================================================
+  //     TESTING RESETTERS
+  //====================================================
   SUBCASE( "Testing reset method" ) 
    {
     bar.resetAll();
@@ -149,6 +107,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getColor() == reset( "color" ) );
    }
 
+  //====================================================
+  //     TESTING THE "time" METHODS
+  //====================================================
   SUBCASE( "Testing time methods" )
    {
     bar.setBegin();
@@ -163,6 +124,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK( bar.getTime() == 0 );
    }
 
+  //====================================================
+  //     TESTING THE "update" METHOD
+  //====================================================
   SUBCASE( "Testing update method" )
    {
     bar.setMax( 5 );
@@ -178,6 +142,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
      }
    }
 
+  //====================================================
+  //     TESTING THE "addStyle" METHOD
+  //====================================================
   SUBCASE( "Testing addStyle method" )
    {
     bar.addStyle( "indicator", "|100" );
@@ -191,6 +158,9 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), out_of_range );
    }
 
+  //====================================================
+  //     TESTING THE "one" METHOD
+  //====================================================
   SUBCASE( "Testing the one method" )
    {
     std::vector <int> v = { 1, 2, 3, 4 }, counter_ ( 2 );
@@ -204,38 +174,5 @@ TEST_CASE( "Testing the ProgressBar class methods." )
       progress.one( element ) == 0;
      }
     CHECK( counter_.size() == 2 );
-   }
- }
-
-//====================================================
-//     TESTING THE HELPER TOOLS
-//====================================================
-TEST_CASE( "Testing the helper function." )
- {
-  SUBCASE( "Testing the * redefinition for string multiplication by an integer" )
-   {
-    std::string example = "a";
-    CHECK( example * 3 == "aaa" );
-    CHECK( 3 * example == "aaa" );
-   }
-
-  SUBCASE( "Testing the check_condition function ")
-   {
-    int a = 3, b = 4;
-    std::string test_string = "nice", null_str = "";
-    CHECK( check_condition( [ a, b ](){ return a < b; }, test_string, null_str ) == test_string );
-    CHECK( check_condition( [ a, b ](){ return a > b; }, test_string, null_str ) == null_str );
-   }
-  
-  SUBCASE( "Testing the isFLoatingPoint function" )
-   {
-    int a = 3;
-    double d = 3.4;
-    float f = 45.3F;
-    long double ld = 4.2L;
-    CHECK( !isFloatingPoint( a ) );
-    CHECK( isFloatingPoint( d ) );
-    CHECK( isFloatingPoint( f ) );
-    CHECK( isFloatingPoint( ld ) );
    }
  }

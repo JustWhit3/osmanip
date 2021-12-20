@@ -34,8 +34,10 @@
   * [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp): *helper_tools.h* implementation code.
   * [*helper_tools.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/helper_tools.cpp): *helper_tools* implementation code.
   * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you examples of the library utilities.
-- [**test**](https://github.com/JustWhit3/osmanip/blob/main/test): it contains testing scripts:
-  * [*tests.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests.cpp): which tests the main library functions and methods.
+- [**test**](https://github.com/JustWhit3/osmanip/blob/main/test): it contains testing codes:
+  * [*tests_csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests_csmanip.cpp): which tests the [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp) objects.
+  * [*tests_progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests_progress_bar.cpp): which tests the [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp) objects.
+  * [*tests_helper_tools.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests_helper_tools.cpp): which tests the [*helper_tools.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/helper_tools.cpp) objects.
 
 ### Other
 
