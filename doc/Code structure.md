@@ -63,6 +63,7 @@ Getter methods:
 - `bar_type getTime()`: to get time for the CPU counting of a process.
 - `bar_type getIteratingVar()`: to get the iterating variable of the `update` method.
 - `std::string getStyle()`: to get the bar style.
+- `std::string getStyleComplete()`: to get the bar style in case of a mixed type.
 - `std::string getType()`: to get the bar type.
 - `std::string getMessage()`: to get the optional bar message.
 - `std::string getBrackets_open()`: to get the opening bracket.

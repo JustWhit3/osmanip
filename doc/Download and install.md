@@ -6,7 +6,10 @@
   * [Download the latest release](#download-the-latest-release)
 - [Install](#install)
 - [Compile and run](#compile-and-run)
-- [Compile the source code example and testing](#compile-the-source-code-example-and-testing)
+  * [Use in your device](#use-in-your-device)
+  * [Compile the source code example and testing](#compile-the-source-code-example-and-testing)
+- [Other scripts](#other-scripts)
+  * [valgrind.sh](#valgrindsh)
 
 ## Download 
 
@@ -67,11 +70,15 @@ Operating systems compatibility: Ubuntu and WSL.
 
 Once the source code has been downloaded you can simply run this script. Enter the osmanip folder and type this command on the shell:
 ```shell
-./install.sh
+./scripts/install.sh
 ```
+> **NOTE**: scripts have to be run directly from the repository home directory.
+
 A new library *libosmanip* will be created into the `/usr/local/lib` folder of your computer and the [*header*](https://github.com/JustWhit3/osmanip/blob/main/include) files will be installed into `/usr/local/include`.
 
 ## Compile and run
+
+### Use in your device
 
 Once you have installed the library you can freely use it in one of your C++ projects by adding this line of code at the beginning of a program:
 ```c++
@@ -98,7 +105,7 @@ and then you can run the code with:
 ```
 > **NOTE**: at least c++17 standard is required to successfully access al the library features.
 
-## Compile the source code example and testing
+### Compile the source code example and testing
 
 The source code contains also an example code [*src/main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) to show the user a simple usage of all the features supported by the library and a test code [*test/tests.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests.cpp) to test the correct functionality of the library functions and methods.
 
@@ -111,21 +118,40 @@ This will compile both main and test codes. An extra **obj** folder with object 
 
 You have simply to run the former in order to run the entire example code:
 ```shell
-./bin/main
+./bin/main.exe
 ```
 or the latter in order to test the correct functionalities of the library classes methods and functions:
 ```shell
-./bin/tests
+./bin/tests.exe
 ```
 If you want to compile only the main code you can simply enter:
 ```shell
-make bin/main
+make bin/main.exe
 ```
 if instead you want to compile only the tests code you can use the following command:
 ```shell
-make bin/tests
+make bin/tests.exe
 ```
 There is also an option to go back to the pre-compilation state of the code, to do this simply type this command:
 ```shell
 make clean
+```
+## Other scripts
+
+Other scripts have been provided into the [*scripts*](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder. They have to be run from the repository home directory.
+
+### valgrind.sh
+
+This script is used to run [Valgrind](https://valgrind.org/) debugging tools on the whole code.
+> **NOTE**: you need Valgrind installed before running this script.
+
+You can run Valgrind debugging tools with a specific executable:
+```shell
+./scripts/valgrind.sh [tool-name] [executable-name]
+```
+> **NOTE**: where `[tool-name]` is the Valgrind tool name and `[executable-name]` is the executable name (you have to indicate also the path to it).
+
+Or you can run them to all the executables of the repository:
+```shell
+./scripts/valgrind.sh [tool-name] all
 ```
