@@ -9,7 +9,7 @@
   * [Use in your device](#use-in-your-device)
   * [Compile the source code example and testing](#compile-the-source-code-example-and-testing)
 - [Other scripts](#other-scripts)
-  * [valgrind.sh](#valgrindsh)
+  * [debug.sh](#debugsh)
 
 ## Download 
 
@@ -140,18 +140,26 @@ make clean
 
 Other scripts have been provided into the [*scripts*](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder. They have to be run from the repository home directory.
 
-### valgrind.sh
+### debug.sh
 
-This script is used to run [Valgrind](https://valgrind.org/) debugging tools on the whole code.
-> **NOTE**: you need Valgrind installed before running this script.
+This script is used to run [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) debugging tools on the whole code.
+> **NOTE**: you need Valgrind and Cppcheck installed before running this script.
 
 You can run Valgrind debugging tools with a specific executable:
 ```shell
-./scripts/valgrind.sh [tool-name] [executable-name]
+./scripts/debug.sh [valgrind-tool-name] [executable-name]
 ```
 > **NOTE**: where `[tool-name]` is the Valgrind tool name and `[executable-name]` is the executable name (you have to indicate also the path to it).
 
-Or you can run them to all the executables of the repository:
+Or you can run them for all the executables of the repository:
 ```shell
-./scripts/valgrind.sh [tool-name] all
+./scripts/debug.sh [valgrind-tool-name] all
+```
+You can also run Cppcheck tool for a specific source code directory:
+```shell
+./scripts/debug.sh cppcheck [source-code-dir]
+```
+Or for a .cpp file only:
+```shell
+./scripts/debug.sh cppcheck [file.cpp]
 ```

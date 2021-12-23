@@ -10,8 +10,6 @@
   * [Setting files](#setting-files)
   * [Compilation files](#compilation-files-)
   * [Other](#other-)
-- [Scripts](#scripts)
-  * [Installation scripts](#installation-scripts-)
 
 ## Folders
 
@@ -43,7 +41,7 @@
 
 - [**scripts**](https://github.com/JustWhit3/osmanip/tree/main/scripts): it contains the repository scripts:
   * [*install.sh*](https://github.com/JustWhit3/osmanip/blob/main/scripts/install.sh): it is used to install the software in your computer.
-  * [*valgrind.sh*](https://github.com/JustWhit3/osmanip/blob/main/scripts/valgrind.sh): it is used to run valgrind debugging tools.
+  * [*debug.sh*](https://github.com/JustWhit3/osmanip/blob/main/scripts/debug.sh): it is used to run valgrind debugging tools.
 
 
 ## Files
