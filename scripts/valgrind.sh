@@ -9,11 +9,11 @@ if [ "$2" == "all" ] ; then
         echo ""
         echo "Running $1 tool on $exec..."
         echo ""
-        valgrind --tool=$1 --log-fd=9 $exec 9>&1 1>/dev/null 2>/dev/null
+        valgrind --tool=$1 -s --log-fd=9 $exec 9>&1 1>/dev/null 2>/dev/null
     done
 else
     echo ""
     echo "Running $1 tool on $2..."
     echo ""
-    valgrind --tool=$1 --log-fd=9 $2 9>&1 1>/dev/null 2>/dev/null
+    valgrind --tool=$1 -s --log-fd=9 $2 9>&1 1>/dev/null 2>/dev/null
 fi
