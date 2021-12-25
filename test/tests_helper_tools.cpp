@@ -1,45 +1,66 @@
+#define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
+
 #include <doctest.h>
 #include <functional>
+#include <string>
 #include "../include/osmanip.h"
+#include "../include/helper_tools.h"
 
 using namespace osm;
 using namespace std;
 
 //====================================================
+//     GLOBAL MACROS DEFINITION
+//====================================================
+#define test_string_hp "first" +                            \
+                     static_cast <std::string>(" \"") +     \
+                     static_cast <std::string>( var ) +     \
+                     static_cast <std::string>( "\" " ) +   \
+                     "second" +                             \
+                     "\n"                                   \
+
+#define example "a"                                         \
+
+#define integer 2                                           \
+
+//====================================================
 //     TESTING THE * REDEFINITION
 //====================================================
-TEST_CASE( "Testing the * redefinition for string multiplication by an integer" )
+TEST_CASE( "Testing the * redefinition for string multiplication by an integer." )
  {
-  std::string example = "a";
-
-  CHECK( example * 3 == "aaa" );
-  CHECK( 3 * example == "aaa" );
+  CHECK_EQ( static_cast<string> ( example ) * 3, "aaa" );
+  CHECK_EQ( 3 * static_cast<string> ( example ), "aaa" );
  }
 
 //====================================================
 //     TESTING THE "check condition" FUNCTION
 //====================================================
-TEST_CASE( "Testing the check_condition function ")
+TEST_CASE_TEMPLATE( "Testing the check_condition function.", T, string )
  {
-  int a = 3, b = 4;
-  std::string test_string = "nice", null_str = "";
+  T test_string = "nice", null_str = "";
 
-  CHECK( check_condition( [ a, b ](){ return a < b; }, test_string, null_str ) == test_string );
-  CHECK( check_condition( [ a, b ](){ return a > b; }, test_string, null_str ) == null_str );
+  CHECK_EQ( check_condition( [](){ return 3 < 4; }, test_string, null_str ), test_string );
+  CHECK_EQ( check_condition( [](){ return 3 > 4; }, test_string, null_str ), null_str );
  }
   
 //====================================================
 //     TESTING THE "isFloatingPoint" FUNCTION
 //====================================================
-TEST_CASE( "Testing the isFLoatingPoint function" )
+TEST_CASE_TEMPLATE( "Testing the isFLoatingPoint function.", T, double, float, long double )
  {
-  int a = 3;
-  double d = 3.4;
-  float f = 45.3F;
-  long double ld = 4.2L;
+  T type;
   
-  CHECK( !isFloatingPoint( a ) );
-  CHECK( isFloatingPoint( d ) );
-  CHECK( isFloatingPoint( f ) );
-  CHECK( isFloatingPoint( ld ) );
+  CHECK( !isFloatingPoint( integer ) );
+  CHECK( isFloatingPoint( type ) );
+ }
+
+//====================================================
+//     TESTING THE "runtime_error_func" FUNCTION
+//==================================================== 
+TEST_CASE_TEMPLATE( "Testing the runtime_error_func function.", T, string )
+ {
+  T var = "this";
+                       
+  CHECK_THROWS_AS( throw( runtime_error_func( "first", var, "second" ) ), runtime_error );
+  CHECK_THROWS_MESSAGE( throw( runtime_error_func( "first", var, "second" ) ), test_string_hp );
  }

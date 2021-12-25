@@ -1,3 +1,5 @@
+#define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
+
 #include <doctest.h>
 #include <vector>
 #include <thread>
@@ -10,35 +12,61 @@ using namespace std::this_thread;
 using namespace std::chrono;
 
 //====================================================
+//     GLOBAL MACROS DEFINITION
+//====================================================
+#define style "%"                            \
+
+#define message "message"                    \
+
+#define bracket_open "{"                     \
+
+#define bracket_close "}"                    \
+
+#define color "red"                          \
+
+#define style_p_ ( ( string ) "%" )          \
+
+#define style_l_ ( ( string ) "#" )          \
+
+#define complete_style "Percentage: \"" +    \
+                       style_p_ +            \
+                       "\"\n" +              \
+                       "Loader: \"" +        \
+                       style_l_ +            \
+                       "\"\n"                \
+
+#define counter_ vector <int> {}             \
+
+#define v vector <int> { 1, 2, 3, 4 }        \
+
+//====================================================
 //     TESTING "ProgressBar" class METHODS
 //====================================================
-TEST_CASE( "Testing the ProgressBar class methods." )
+TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, 
+                    int, long, long long, double, long double, float )
  {
-  ProgressBar <long long> bar; 
-  long long int max = 1e15,
-                min = -1e15,
-                time = 1e10;
-  string style = "%",
-         message = "message",
-         bracket_open = "{",
-         bracket_close = "}",
-         color = "red",
-         type = "indicator";
+  ProgressBar <T> bar; 
+  T max = 10.,
+    min = 5.,
+    time = 34.;
+  string type = "indicator";
 
   //====================================================
   //     TESTING GETTERS, SETTERS AND CONSTRUCTORS
   //====================================================
-  SUBCASE( "Testing naked getters and constructor" ) 
+  TEST_SUITE_BEGIN( "Setters, getters and constructors." );
+
+  SUBCASE( "Testing naked getters and constructor." ) 
    {
-    CHECK( bar.getMax() == 0 );
-    CHECK( bar.getMin() == 0 );
-    CHECK( bar.getStyle() == "" );
-    CHECK( bar.getType() == "" );
-    CHECK( bar.getTime() == 0 );
-    CHECK( bar.getMessage() == "" );
-    CHECK( bar.getBrackets_close() == "" );
-    CHECK( bar.getBrackets_open() == "" );
-    CHECK( bar.getColor() == reset( "color" ));
+    CHECK_EQ( bar.getMax(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getMin(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getStyle(), "" );
+    CHECK_EQ( bar.getType(), "" );
+    CHECK_EQ( bar.getTime(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getMessage(), "" );
+    CHECK_EQ( bar.getBrackets_close(), "" );
+    CHECK_EQ( bar.getBrackets_open(), "" );
+    CHECK_EQ( bar.getColor(), reset( "color" ));
    }
 
   bar.setMax( max );
@@ -48,69 +76,91 @@ TEST_CASE( "Testing the ProgressBar class methods." )
   bar.setBrackets( bracket_open, bracket_close );
   bar.setColor( color );
 
-  SUBCASE( "Testing setters and getters with values different from 0" ) 
+  //Require values have been correctly initialized.
+  REQUIRE( bar.getMax() != static_cast<T> ( NULL ) );
+  REQUIRE( bar.getMin() != static_cast<T> ( NULL ) );
+  REQUIRE( bar.getStyle() != "" );
+  REQUIRE( bar.getType() != "" );
+  REQUIRE( bar.getMessage() != "" );
+  REQUIRE( bar.getBrackets_close() != "" );
+  REQUIRE( bar.getBrackets_open() != "" );
+  REQUIRE( bar.getColor() != reset( "color" ) );  
+
+  SUBCASE( "Testing setters and getters with initialized values." ) 
    {
-    CHECK( bar.getMax() == max );
-    CHECK( bar.getMin() == min );
-    CHECK( bar.getMessage() == message );
-    CHECK( bar.getBrackets_open() == bracket_open );
-    CHECK( bar.getBrackets_close() == bracket_close );
-    CHECK( bar.getColor() == feat( col, "red" ) );
-    CHECK( bar.getStyle() == style );
-    CHECK( bar.getType() == type );
+    CHECK_EQ( bar.getMax(), max );
+    CHECK_EQ( bar.getMin(), min );
+    CHECK_EQ( bar.getMessage(), message );
+    CHECK_EQ( bar.getBrackets_open(), bracket_open );
+    CHECK_EQ( bar.getBrackets_close(), bracket_close );
+    CHECK_EQ( bar.getColor(), feat( col, "red" ) );
+    CHECK_EQ( bar.getStyle(), style );
+    CHECK_EQ( bar.getType(), type );
 
     CHECK_THROWS_AS( bar.setStyle( type, "a" ), runtime_error );
     CHECK_THROWS_AS( bar.setStyle( "a", style ), runtime_error );
 
     //Extra test for getStyle:
-    string style_p_ = "%",
-           style_l_ = "#",
-           complete_style = "Percentage: \"" + style_p_ + "\"\n" + "Loader: \"" + style_l_ + "\"\n"; 
-
     bar.setStyle( "complete", style_p_, style_l_ );
-    CHECK( bar.getStyleComplete() == complete_style );
+
+    CHECK_EQ( bar.getStyleComplete(), complete_style );
+
     bar.setStyle( type, style );
    }
+
+  TEST_SUITE_END();
 
   //====================================================
   //     TESTING RESETTERS
   //====================================================
-  SUBCASE( "Testing reset method" ) 
+  TEST_SUITE_BEGIN( "Resetters." );
+
+  SUBCASE( "Testing reset method." ) 
    {
     bar.resetAll();
-    CHECK( bar.getMax() == 0 );
-    CHECK( bar.getMin() == 0 );
-    CHECK( bar.getStyle() == "" );
-    CHECK( bar.getType() == "" );
-    CHECK( bar.getTime() == 0 );
-    CHECK( bar.getMessage() == "" );
-    CHECK( bar.getColor() == reset( "color" ) );
+
+    CHECK_EQ( bar.getMax(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getMin(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getStyle(), "" );
+    CHECK_EQ( bar.getType(), "" );
+    CHECK_EQ( bar.getMessage(), "" );
+    CHECK_EQ( bar.getColor(), reset( "color" ) );
    }
 
-  SUBCASE( "Testing each single reset method" ) 
+  bar.setMax( max );
+  bar.setMin( min );
+  bar.setStyle( type, style );
+  bar.setMessage( message );
+  bar.setBrackets( bracket_open, bracket_close );
+  bar.setColor( color );
+
+  SUBCASE( "Testing each single reset method." ) 
    {
     bar.resetMax();
-    CHECK( bar.getMax() == 0 );
     bar.resetMin();
-    CHECK( bar.getMin() == 0 );
     bar.resetStyle();
-    CHECK( bar.getStyle() == "" );
-    CHECK( bar.getType() == "" );
-    bar.resetTime();
-    CHECK( bar.getTime() == 0 );
     bar.resetMessage();
-    CHECK( bar.getMessage() == "" );
     bar.resetBrackets();
-    CHECK( bar.getBrackets_open() == "" );
-    CHECK( bar.getBrackets_close() == "" );
     bar.resetColor();
-    CHECK( bar.getColor() == reset( "color" ) );
+
+    CHECK_EQ( bar.getMin(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getMax(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getStyle(), "" );
+    CHECK_EQ( bar.getType(), "" );
+    CHECK_EQ( bar.getMessage(), "" );
+    CHECK_EQ( bar.getBrackets_open(), "" );
+    CHECK_EQ( bar.getBrackets_close(), "" );
+    CHECK_EQ( bar.getColor(), reset( "color" ) );
    }
+
+  TEST_SUITE_END();
+
+  TEST_SUITE_BEGIN( "Other methods." );
 
   //====================================================
   //     TESTING THE "time" METHODS
   //====================================================
-  SUBCASE( "Testing time methods" )
+  SUBCASE( "Testing time methods." )
    {
     bar.setBegin();
      for ( int i = 0; i < 5; i++ )
@@ -118,16 +168,18 @@ TEST_CASE( "Testing the ProgressBar class methods." )
        sleep_for( milliseconds( 100 ) );
       }
     bar.setEnd();
-    CHECK( bar.getTime() == 500 );
+
+    CHECK_EQ( bar.getTime(), 500 );
 
     bar.resetTime();
-    CHECK( bar.getTime() == 0 );
+
+    CHECK_EQ( bar.getTime(), static_cast<T> ( NULL ) );
    }
 
   //====================================================
   //     TESTING THE "update" METHOD
   //====================================================
-  SUBCASE( "Testing update method" )
+  SUBCASE( "Testing update method." )
    {
     bar.setMax( 5 );
     bar.setMin( -3 );
@@ -135,24 +187,27 @@ TEST_CASE( "Testing the ProgressBar class methods." )
     bar.setStyle( type, "%" );
 
     //There is not much to test in it since it doesn't modify almost anything.
-    for ( int i = -3; i < 5; i++ )
+    for ( T i = bar.getMax(); i < bar.getMin(); i++ )
      {
       bar.update( i );
-      CHECK( bar.getIteratingVar() == 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - 1 ) + 1 );
+      CHECK_EQ( bar.getIteratingVar(), 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - bar.one( i ) ) + 1 );
      }
    }
 
   //====================================================
   //     TESTING THE "addStyle" METHOD
   //====================================================
-  SUBCASE( "Testing addStyle method" )
+  SUBCASE( "Testing addStyle method." )
    {
     bar.addStyle( "indicator", "|100" );
     bar.setStyle( "indicator", "|100" );
-    CHECK( bar.getStyle() == "|100" );
+
+    CHECK_EQ( bar.getStyle(), "|100" );
+
     bar.addStyle( "loader", ">" );
     bar.setStyle( "complete", "|100", ">" );
-    CHECK( bar.getStyle() == "|100>" );
+
+    CHECK_EQ( bar.getStyle(), "|100>" );
     CHECK_THROWS_AS( bar.addStyle( "indicator", "%" ), runtime_error );
     CHECK_THROWS_AS( bar.addStyle( "loader", "#" ), runtime_error );
     CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), out_of_range );
@@ -161,18 +216,19 @@ TEST_CASE( "Testing the ProgressBar class methods." )
   //====================================================
   //     TESTING THE "one" METHOD
   //====================================================
-  SUBCASE( "Testing the one method" )
+  SUBCASE( "Testing the one method." )
    {
-    std::vector <int> v = { 1, 2, 3, 4 }, counter_ ( 2 );
-    ProgressBar <int> progress;
+    ProgressBar <T> progress;
+
     for( const auto & element: v )
      {
       if( counter_.size() == 2 )
        {
-        progress.one( element ) == abs( abs( counter_.front() ) - abs( counter_.back() ) );
+        CHECK_EQ( progress.one( element ), abs( abs( counter_.front() ) - abs( counter_.back() ) ) );
        }
-      progress.one( element ) == 0;
+      counter_.push_back( element );
      }
-    CHECK( counter_.size() == 2 );
    }
+   
+  TEST_SUITE_END();
  }
