@@ -13,17 +13,17 @@ using namespace std;
 //     GLOBAL MACROS DEFINITION
 //====================================================
 #define test_string "error" +                                      \
-                     static_cast <std::string>(" \"") +            \
-                     static_cast <std::string>( "not" ) +          \
-                     static_cast <std::string>( "\" " ) +          \
-                     "supported" +                                 \
-                     "\n"                                          \
+                    static_cast <std::string>(" \"") +             \
+                    static_cast <std::string>( "not" ) +           \
+                    static_cast <std::string>( "\" " ) +           \
+                    "supported" +                                  \
+                    "\n"                                           \
 
 #define test_string_goto "\u001b[" +                               \
-                            std::to_string( 2 ) +                  \
-                            static_cast <std::string>( ";" ) +     \
-                            std::to_string( 5 ) +                  \
-                            static_cast <std::string>( "H" )       \
+                         std::to_string( 2 ) +                     \
+                         static_cast <std::string>( ";" ) +        \
+                         std::to_string( 5 ) +                     \
+                         static_cast <std::string>( "H" )          \
 
 #define maps_vector vector <map <string, string>> { col, sty }     \
 

@@ -13,11 +13,11 @@ using namespace std;
 //     GLOBAL MACROS DEFINITION
 //====================================================
 #define test_string_hp "first" +                            \
-                     static_cast <std::string>(" \"") +     \
-                     static_cast <std::string>( var ) +     \
-                     static_cast <std::string>( "\" " ) +   \
-                     "second" +                             \
-                     "\n"                                   \
+                       static_cast <std::string>(" \"") +   \
+                       static_cast <std::string>( var ) +   \
+                       static_cast <std::string>( "\" " ) + \
+                       "second" +                           \
+                       "\n"                                 \
 
 #define example "a"                                         \
 
