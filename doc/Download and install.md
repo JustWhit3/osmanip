@@ -5,6 +5,7 @@
   * [Download the whole repository](#download-the-whole-repository)
   * [Download the latest release](#download-the-latest-release)
 - [Install](#install)
+- [Update](#update)
 - [Compile and run](#compile-and-run)
   * [Use in your device](#use-in-your-device)
   * [Compile the source code example and testing](#compile-the-source-code-example-and-testing)
@@ -75,6 +76,21 @@ Once the source code has been downloaded you can simply run this script. Enter t
 > **NOTE**: scripts have to be run directly from the repository home directory.
 
 A new library *libosmanip* will be created into the `/usr/local/lib` folder of your computer and the [*header*](https://github.com/JustWhit3/osmanip/blob/main/include) files will be installed into `/usr/local/include`.
+
+## Update
+
+In case you want to update the source code from the latest improvements of the repository, you can use the updater script, called [update.sh](https://github.com/JustWhit3/osmanip/blob/main/update.sh).
+
+Prerequisites: [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) software.
+
+From the repository folder type this command on the shell:
+```shell
+./scripts/update.sh
+```
+Then, you can reinstall the repository:
+```shell
+./scripts/install.sh
+```
 
 ## Compile and run
 

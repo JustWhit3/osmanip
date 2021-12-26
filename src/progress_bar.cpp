@@ -422,6 +422,8 @@ namespace osm
   //====================================================
   //     TEMPLATE SPECIALIZATIONS
   //====================================================
+
+  //Standard types:
   template class ProgressBar <long long>;
   template class ProgressBar <long>;
   template class ProgressBar <int>;

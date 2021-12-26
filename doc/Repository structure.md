@@ -41,6 +41,7 @@
 
 - [**scripts**](https://github.com/JustWhit3/osmanip/tree/main/scripts): it contains the repository scripts:
   * [*install.sh*](https://github.com/JustWhit3/osmanip/blob/main/scripts/install.sh): it is used to install the software in your computer.
+  * [*update.sh*](https://github.com/JustWhit3/osmanip/blob/main/scripts/update.sh): it is used to update the software in your computer.
   * [*debug.sh*](https://github.com/JustWhit3/osmanip/blob/main/scripts/debug.sh): it is used to run valgrind debugging tools.
 
 
