@@ -8,6 +8,7 @@
   * [feat](#feat)
   * [reset](#reset)
   * [go_to](#goto)
+  * [RGB](#RGB)
 - [Global variables](#global-variables)
   * [col](#col)
   * [sty](#sty)
@@ -114,6 +115,16 @@ Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/
 Complete definition: `std::string go_to( int x, int y )`.
 
 It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
+
+### RGB
+
+Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+Complete definition: `std::string RGB( int r, int g, int b )`.
+
+It takes three integers as arguments which are the correspoing rgb triplets of a color (see [here](http://www.aksiom.net/rgb.html) for the full list of availables colors). It can be used to output a wider variety of colors with respect to the standard availables from the `col` map.
 
 ## Global variables
 

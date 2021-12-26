@@ -164,7 +164,6 @@ namespace osm
   //     DEFINITION OF THE "feat" FUNCTION OVERLOAD
   //     (for the crs map)
   //====================================================
-
   std::string feat( string_pair_map & generic_map, std::string feat_string, int feat_int )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
@@ -205,5 +204,19 @@ namespace osm
            static_cast <std::string>( ";" ) +
            std::to_string( y ) +
            static_cast <std::string>( "H" );
+   }
+
+  //====================================================
+  //     DEFINITION OF THE "RGB" FUNCTION
+  //====================================================
+  std::string RGB( int r, int g, int b )
+   {
+    return "\x1b[38;2;" +
+            std::to_string( r ) + 
+            static_cast <std::string>( ";" ) +
+            std::to_string( g ) +
+            static_cast <std::string>( ";" ) +
+            std::to_string( b ) +
+            static_cast <std::string>( "m" );
    }
  }

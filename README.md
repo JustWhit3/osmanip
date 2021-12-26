@@ -46,6 +46,13 @@ cout << feat( col, "red" ) << "This stream is red!" << reset( "color" );
 ```
 This will color the output stream in red until the `reset( "color" )` function is met again, in order to reset the output stream color.
 
+It is possible to access a wider variety of colors by directly using the `RGB( int r, int g, int b )` function and the corresponding rgb color codes from [this page](http://www.aksiom.net/rgb.html). For example:
+```c++
+std::string DeepPink = RGB( 255, 20, 147 );
+
+cout << DeepPink << "This stream is deep pink!" << reset( "color" );
+```
+
 You can also print mixed color and style strings:
 ```c++
 cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );

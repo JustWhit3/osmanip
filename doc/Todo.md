@@ -1,5 +1,5 @@
 # List of future implementations
 
-- Color palette.
-- Implement customized shell builder.
+- Implement command line builder.
 - Possibility to use multiple loading bars simultaneously using threads.
+- Extend the ProgressBar class usage to non-standard types also (vectors, maps etc...).

@@ -25,10 +25,11 @@ namespace osm
   //====================================================
   //     FUNCTIONS DECLARATION
   //====================================================
-  extern std::string feat ( string_map & generic_map, std::string feat_string );
-  extern std::string feat ( string_pair_map & generic_map, std::string feat_string, int feat_int );
-  extern std::string reset ( std::string reset_string );
+  extern std::string feat( string_map & generic_map, std::string feat_string );
+  extern std::string feat( string_pair_map & generic_map, std::string feat_string, int feat_int );
+  extern std::string reset( std::string reset_string );
   extern std::string go_to( int x, int y );
+  extern std::string RGB( int r, int g, int b );
  }
       
 #endif
