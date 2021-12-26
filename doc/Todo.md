@@ -1,6 +1,5 @@
 # List of future implementations
 
-- Repository updater and uninstaller script.
 - Color palette.
-- Implement customized shell creator.
+- Implement customized shell builder.
 - Possibility to use multiple loading bars simultaneously using threads.

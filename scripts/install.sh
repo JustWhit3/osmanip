@@ -43,7 +43,7 @@ if [ $word == "y" ] || [ $word == "Y" ] ; then
     fi
     echo "Installing osmanip lib into /usr/local/lib folder..."
     if ! ( sudo cp lib/* /usr/local/lib ) ; then
-        echo "Cannot install the header file into /usr/local/lib position of the system!"
+        echo "Cannot install the library into /usr/local/lib position of the system!"
     fi
 else
     echo "Installation has been canceled!"

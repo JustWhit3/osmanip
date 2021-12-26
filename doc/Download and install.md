@@ -6,6 +6,7 @@
   * [Download the latest release](#download-the-latest-release)
 - [Install](#install)
 - [Update](#update)
+- [Uninstall](#uninstall)
 - [Compile and run](#compile-and-run)
   * [Use in your device](#use-in-your-device)
   * [Compile the source code example and testing](#compile-the-source-code-example-and-testing)
@@ -90,6 +91,15 @@ From the repository folder type this command on the shell:
 Then, you can reinstall the repository:
 ```shell
 ./scripts/install.sh
+```
+
+## Uninstall
+
+In case you want to uninstall the software from your computer, you can use the uninstaller script, called [uninstall.sh](https://github.com/JustWhit3/osmanip/blob/main/uninstall.sh).
+
+From the repository folder type this command on the shell:
+```shell
+./scripts/uninstall.sh
 ```
 
 ## Compile and run
