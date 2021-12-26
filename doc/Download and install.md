@@ -138,7 +138,7 @@ make clean
 ```
 ## Other scripts
 
-Other scripts have been provided into the [*scripts*](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder. They have to be run from the repository home directory.
+Other scripts have been provided into the [*scripts*](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder. After compiling the source code, they can be run from the repository home directory.
 
 ### debug.sh
 

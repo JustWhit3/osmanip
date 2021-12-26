@@ -196,7 +196,7 @@ void mixed_bars()
   mixed_bar.setMax ( 25 );
   mixed_bar.setStyle( "complete", "%", "#" );
   mixed_bar.setBrackets( "[", "]" );
-  //mixed_bar.setMessage( "elaborating..." );
+  mixed_bar.setMessage( "elaborating..." );
  
   cout << "This is a mixed progress bar: " << endl;
   for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )

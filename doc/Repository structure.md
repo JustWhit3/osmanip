@@ -55,4 +55,7 @@
 - [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile): for main and tests codes compilation.
 
 ### Other
+- [*README.md*](https://github.com/JustWhit3/osmanip/blob/main/README.md): is the main README.md file of the software.
+- [*CREDITS.md*](https://github.com/JustWhit3/osmanip/blob/main/CREDITS.md): it contains names of the contributors of the software.
 - [*License*](https://github.com/JustWhit3/osmanip/blob/main/License): is the License file, please read it before using this library with your own public code.
+- [*CITATION.cff*](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff): it contains information about how to properly cite this software.
