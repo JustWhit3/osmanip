@@ -306,6 +306,21 @@ namespace osm
      }
     return 1;
    }
+
+  //====================================================
+  //     DEFINITION OF THE "update_output" METHOD
+  //====================================================
+  template <typename bar_type>
+  void ProgressBar <bar_type>::update_output( bar_type iterating_var, std::string output )
+   {
+    std::cout << check_condition( [ = ]{ return iterating_var == min_; }, feat( tcs, "hcrs" ), null_str )
+              << output
+              << getColor()
+              << empty_space + message_
+              << reset( "color" )
+              << std::flush
+              << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ), null_str );
+   }
  
   //====================================================
   //     DEFINITION OF THE "update" METHOD
@@ -325,13 +340,7 @@ namespace osm
                 reset( "color" ) + 
                 getStyle();
 
-      std::cout << check_condition( [ = ]{ return iterating_var == min_; }, feat( tcs, "hcrs" ), null_str )
-                << output_ 
-                << getColor() 
-                << empty_space + message_ 
-                << reset( "color" ) 
-                << std::flush
-                << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ), null_str );
+      update_output( iterating_var, output_ );
      }
 
     //Update of the loader indicator only:
@@ -345,13 +354,7 @@ namespace osm
                 reset( "color" ) + 
                 getBrackets_close();  
                      
-      std::cout << check_condition( [ = ]{ return iterating_var == min_; }, feat( tcs, "hcrs" ), null_str )
-                << output_ 
-                << getColor() 
-                << empty_space + message_
-                << reset( "color" ) 
-                << std::flush
-                << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ), null_str );
+      update_output( iterating_var, output_ );
      }
 
     //Update of the whole progress bar:
@@ -371,13 +374,7 @@ namespace osm
                reset( "color" ) + 
                style_p_; 
 
-      std::cout << check_condition( [ = ]{ return iterating_var == min_; }, feat( tcs, "hcrs" ), null_str )
-                << output_ 
-                << getColor() 
-                << empty_space + message_ 
-                << reset( "color" ) 
-                << std::flush
-                << check_condition( [ = ]{ return iterating_var == max_ - 1; }, feat( tcs, "scrs" ), null_str );
+      update_output( iterating_var, output_ );
      }
      
     else
@@ -401,7 +398,9 @@ namespace osm
                << "Color: " << color_ << std::endl;
     }
 
-   //ProgressBar addStyle method to add new styles to the already existing ones:
+  //====================================================
+  //     DEFINITION OF THE "addStyle" METHOD
+  //====================================================
    template <typename bar_type>
    void ProgressBar <bar_type>::addStyle( std::string type, std::string style )
     {
