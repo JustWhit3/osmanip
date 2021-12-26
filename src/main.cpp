@@ -239,27 +239,10 @@ void mixed_bars()
 int main ()
  {
   //Manipulators:
-  //col_sty(); //Color/style.
+  col_sty(); //Color/style.
 
   //Progress bars:
-  //perc_bars(); //Percentage bar.
-  //load_bars(); //Loading bar.
-  //mixed_bars(); //Mixed bar.
-
-  /*vector<int> v = {1,2,3,1,2,3,1,1,2,3,4,3,2,1,12,3,4,1,2,4,4,2,2,3,4,5,5};
-  ProgressBar <vector<int>::iterator> percentage_bar;
-  percentage_bar.setMin( v.begin() );
-  percentage_bar.setMax ( v.end() );
-  percentage_bar.setStyle( "indicator", "%" );
-
-  cout << "This is a normal percentage bar: " << endl;
-  for ( vector<int>::iterator i = v.begin(); i < v.end(); ++i )
-   {
-    sleep_for( milliseconds( 100 ) );
-    percentage_bar.update( i );
-    //Do some operations...
-   }
-  cout << endl << endl;*/
-  cout << "\x1b[38;2;255;20;147m" << "Testtttt" << reset( "color" ) << endl;
-  cout << RGB( 255, 20, 147 ) << "Testtttt" << reset( "color" ) << endl;
+  perc_bars(); //Percentage bar.
+  load_bars(); //Loading bar.
+  mixed_bars(); //Mixed bar.
  }
