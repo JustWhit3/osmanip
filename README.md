@@ -13,6 +13,8 @@
 
 Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to format and customize your output stream. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own code for that. Thanks to this you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
 
+This software has been built for Linux systems (it has been tested with Ubuntu and WSL). Its compatibility has not been tested with Windows or MacOS operating systems.
+
 > **NOTE**: all the manipulators of this library are compatible with [iomanip](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/iomanip).
 
 ## Documentation
@@ -69,7 +71,7 @@ cout << feat( crs, "left" ) << "Moving cursor on the left";
 You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSII code of the cursor navigation (see [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)).
 > If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
 
-It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp) for more information.
+It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp) for more information.
 
 ### Terminal control sequences
 
@@ -86,7 +88,7 @@ From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) o
 
 Main proprieties:
 
-- Compatibile with any positive or negative variable type (integer, float, double, customized types and others).
+- Compatibile with any positive or negative variable of any standard type (integer, float, double and others).
 - Maximum and minimum values can be set with any value you prefer and the progress bar will be self-built with respect to them.
 - It can be fully customized regarding to your requirements.
 
