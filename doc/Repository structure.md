@@ -1,6 +1,7 @@
 # Repository structure
 
 ## Table of contents
+- [Repository diagram structure](#repository-diagram-structure)
 - [Folders](#folders)
   * [Settings folders](#settings-folders-)
   * [Documentation folders](#documentation-folders-)
@@ -10,6 +11,55 @@
   * [Setting files](#setting-files)
   * [Compilation files](#compilation-files-)
   * [Other](#other-)
+
+## Repository diagram structure
+
+```
+osmanip/
+├── .vscode/
+│   ├── settings.json
+├── doc/
+│   ├── Code structure.md
+│   ├── Download and install.md
+│   ├── Repository structure.md
+│   ├── Todo.md
+├── img/
+│   ├── blink.gif
+│   ├── message_percentage.gif
+│   ├── mixed_bar.gif
+│   ├── mixed_bar_add.gif
+│   ├── normal_loading.gif
+│   ├── normal_percentage.gif
+│   ├── time_percentage.gif
+│   ├── output.png
+├── include/
+│   ├── csmanip.h
+│   ├── helper_tools.h
+│   ├── osmanip.h
+│   ├── progress_bar.h
+├── src/
+│   ├── csmanip.cpp
+│   ├── helper_tools.cpp
+│   ├── main.cpp
+│   ├── progress_bar.cpp
+├── scripts/
+│   ├── debug.sh
+│   ├── install.sh
+│   ├── uninstall.sh
+│   ├── update.sh
+├── test/
+│   ├── tests_csmanip.cpp
+│   ├── tests_helper_tools.cpp
+│   ├── tests_progress_bar.cpp
+│── README.md
+│── License
+│── .gitignore
+│── .gitattributes
+│── .valgrindrc
+│── CITATION.cff
+│── CREDITS.md
+│── makefile
+```
 
 ## Folders
 
