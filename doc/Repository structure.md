@@ -15,8 +15,6 @@
 
 ```
 osmanip/
-├── .vscode/
-│   ├── settings.json
 ├── doc/
 │   ├── Code structure.md
 │   ├── Download and install.md
