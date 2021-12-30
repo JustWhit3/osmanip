@@ -76,7 +76,7 @@ Other methods:
 > **NOTE**: `std::cout` object cannot be used inside a loop within the `update` method.
 - `void print()`: to print on the screen all the progress bar variable values.
 - `void addStyle( std::string type, std::string style )`: to create customized progress bar styles.
-- `bar_type( bar_type iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
+- `bar_type one( bar_type iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
 

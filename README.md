@@ -90,9 +90,9 @@ From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) o
 
 Main proprieties:
 
-- Compatibile with any positive or negative variable of any standard type (integer, float, double and others).
+- Compatible with positive or negative variable of any standard type (integer, float, double and others).
 - Maximum and minimum values can be set with any value you prefer and the progress bar will be self-built with respect to them.
-- It can be fully customized regarding to your requirements.
+- Each progress bar feature can be fully customized (messages, style, color, brackets type etc...) regarding to your requirements.
 
 Here you can find some examples about how to use them into your code.
 > If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
