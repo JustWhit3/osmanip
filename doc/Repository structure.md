@@ -2,7 +2,6 @@
 
 ## Table of contents
 - [Folders](#folders)
-  * [Settings folders](#settings-folders-)
   * [Documentation folders](#documentation-folders-)
   * [Code folders](#code-folders-)
   * [Other](#other)
@@ -12,10 +11,6 @@
   * [Other](#other-)
 
 ## Folders
-
-### Settings folders
-- [**.vscode**](https://github.com/JustWhit3/osmanip/blob/main/.vscode): it contains vs code files:
-  * [*settings.json*](https://github.com/JustWhit3/osmanip/blob/main/.vscode/settings.json): which contains vs code settings (in case you are using vs code as editor).
 
 ### Documentation folders
 - [**img**](https://github.com/JustWhit3/osmanip/tree/main/img): it contains media used for documentation.
