@@ -11,7 +11,7 @@
 
 ## Introduction
 
-Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to format and customize your output stream. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own code for that. Thanks to this you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
+Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to customize your output stream. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own code for that. Thanks to this you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
 
 This software has been built for Linux systems (it has been tested with Ubuntu and WSL). Its compatibility has not been tested with Windows or MacOS operating systems.
 
@@ -96,6 +96,8 @@ Main proprieties:
 
 Here you can find some examples about how to use them into your code.
 > If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
+
+> It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
 
 Initialize and use a percentage progress bar:
 ```c++
