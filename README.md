@@ -42,7 +42,7 @@ List of the supported color / style features (part of the output of the [*main.c
 
 Blink string feature:
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif" width="250" height="27">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/blink.gif" width="250">
 
 If you want to change for example the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
@@ -118,7 +118,7 @@ cout << "This is a normal percentage bar: " << endl;
 
 > **NOTE**: you can insert each `min` and `max` value you prefer, like also -3 and 52 for example, and the bar will work perfectly too.
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif" width="400" height="55">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif" width="400">
 
 Add a message to a percentage bar and change its style:
 ```c++
@@ -126,7 +126,7 @@ percentage_bar.setMessage( " processing..." );
 percentage_bar.setStyle( "indicator", "/100" );
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif" width="500" height="57">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif" width="550">
 
 Add CPU time consuming info when using a progress bar in loops:
 ```c++
@@ -142,7 +142,7 @@ cout << "This is a percentage bar with time consuming info: " << endl;
 cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="500" height="80">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="500">
 
 It is possible to add also colors and much more.
 
@@ -164,7 +164,7 @@ for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
  }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_loading.gif" width="400" height="55">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_loading.gif" width="400">
 
 And customize it with messages and time-consuming info, like the previous percentage.
 
@@ -174,7 +174,7 @@ progress_bar.setStyle( "complete", "%", "#" );
 ```
 you can create loading bar with percentage counter (mixed bar):
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar.gif" width="400" height="55">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar.gif" width="400">
 
 You can also add new customized styles, both for indicator and loader:
 
@@ -184,4 +184,4 @@ progress_bar.addStyle( "loader", ">" );
 progress_bar.setStyle( "complete", "|100", ">" );
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar_add.gif" width="530" height="55">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar_add.gif" width="550">
