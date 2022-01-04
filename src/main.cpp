@@ -96,7 +96,7 @@ void perc_bars()
   percentage_bar.setMax ( 46 );
   percentage_bar.setStyle( "indicator", "%" );
 
-  /*cout << "This is a normal percentage bar: " << endl;
+  cout << "This is a normal percentage bar: " << endl;
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
     sleep_for( milliseconds( 100 ) );
@@ -119,7 +119,7 @@ void perc_bars()
     percentage_bar_2.update( i );
     //Do some operations...
    }
-  cout << endl << endl;*/
+  cout << endl << endl;
 
   //Percentage bar with time consuming info:
   percentage_bar.resetMessage();
@@ -242,10 +242,10 @@ void mixed_bars()
 int main()
  {
   //Manipulators:
-  //col_sty(); //Color/style.
+  col_sty(); //Color/style.
 
   //Progress bars:
   perc_bars(); //Percentage bar.
-  //load_bars(); //Loading bar.
-  //mixed_bars(); //Mixed bar.
+  load_bars(); //Loading bar.
+  mixed_bars(); //Mixed bar.
  }
