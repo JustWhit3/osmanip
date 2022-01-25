@@ -7,8 +7,6 @@
         <img title="MIT License" alt="license" src="https://img.shields.io/badge/license-MIT-informational?style=flat-square">
     </a>
 	<img title="C++17" alt="C++17" src="https://img.shields.io/badge/c++-17-informational?style=flat-square">
-	<a href="https://github.com/MiguelMJ/Answerable/wiki">
-	<a href="https://github.com/psf/black">
     </a>
 </p>
 
