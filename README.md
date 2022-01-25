@@ -1,4 +1,18 @@
-# osmanip
+<p align="center"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
+
+<h3 align="center">Library with output stream tools like: colors and styles manipulators and progress bars</h3>
+<p align="center">
+    <img title="v2.4" alt="v2.4" src="https://img.shields.io/badge/version-v2.4-informational?style=flat-square"
+    <a href="LICENSE">
+        <img title="MIT License" alt="license" src="https://img.shields.io/badge/license-MIT-informational?style=flat-square">
+    </a>
+	<img title="C++17" alt="C++17" src="https://img.shields.io/badge/c++-17-informational?style=flat-square">
+	<a href="https://github.com/MiguelMJ/Answerable/wiki">
+	<a href="https://github.com/psf/black">
+    </a>
+</p>
+
+***
 
 ## Table of contents
 - [Introduction](#introduction)
