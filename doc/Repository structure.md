@@ -21,14 +21,6 @@ osmanip/
 │   ├── Repository structure.md
 │   ├── Todo.md
 ├── img/
-│   ├── blink.gif
-│   ├── message_percentage.gif
-│   ├── mixed_bar.gif
-│   ├── mixed_bar_add.gif
-│   ├── normal_loading.gif
-│   ├── normal_percentage.gif
-│   ├── time_percentage.gif
-│   ├── output.png
 ├── include/
 │   ├── csmanip.h
 │   ├── helper_tools.h
