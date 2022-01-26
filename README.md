@@ -31,7 +31,7 @@ If you want to use this software in one of your project, please cite it. You can
 
 > **NOTE**: all the manipulators of this library are compatible with [iomanip](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/iomanip).
 
-The software is and will stay free, but if you want to support me it would be really appreciated!
+The software is and will stay **free**, but if you want to support me with a donation it would be really appreciated!
 
 <a href="https://www.buymeacoffee.com/JustWhit33" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
