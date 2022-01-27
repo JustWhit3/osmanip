@@ -6,6 +6,7 @@
 #include <set>
 #include <map>
 #include <vector>
+#include <mutex>
 
 namespace osm
  {
@@ -84,6 +85,7 @@ namespace osm
      static std::string null_str,
                         empty_space;
      static std::vector <bar_type> counter_;
+     static std::mutex mutex_;
      
     //====================================================
     //     NON-STATIC ATTRIBUTES DECLARATION

@@ -124,8 +124,6 @@ void perc_bars()
   //Percentage bar with time consuming info:
   percentage_bar.resetMessage();
   percentage_bar.setStyle( "indicator", "%" );
-cout << endl << endl;
-  sleep_for( seconds( 3 ) );
 
   cout << "This is a percentage bar with time consuming info: " << endl;
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
@@ -137,7 +135,6 @@ cout << endl << endl;
     percentage_bar.setEnd();
    }
   cout << endl << "Time needed to complete the previous loop: " << percentage_bar.getTime() << " ms." << endl << endl;
-  sleep_for( seconds( 3 ) );
  }
 
 //====================================================
@@ -186,7 +183,7 @@ void load_bars()
     //Do some operations...
     loading_bar.setEnd();
    }
-  cout << endl << "Time needed to complete the previous cycle: " << loading_bar.getTime() << " ms." << endl << endl;
+  cout << endl << "Time needed to complete the previous loop: " << loading_bar.getTime() << " ms." << endl << endl;
  }
 
 //====================================================
