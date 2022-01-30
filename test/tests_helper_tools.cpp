@@ -12,13 +12,6 @@ using namespace std;
 //====================================================
 //     GLOBAL MACROS DEFINITION
 //====================================================
-#define test_string_hp "first" +                            \
-                       static_cast <std::string>(" \"") +   \
-                       static_cast <std::string>( var ) +   \
-                       static_cast <std::string>( "\" " ) + \
-                       "second" +                           \
-                       "\n"                                 \
-
 #define example "a"                                         \
 
 #define integer 2                                           \
@@ -60,6 +53,12 @@ TEST_CASE_TEMPLATE( "Testing the isFLoatingPoint function.", T, double, float, l
 TEST_CASE_TEMPLATE( "Testing the runtime_error_func function.", T, string )
  {
   T var = "this";
+
+  string test_string_hp =  "first" + static_cast <std::string>(" \"") +
+                           static_cast <std::string>( var ) + 
+                           static_cast <std::string>( "\" " ) +
+                           "second" +
+                           "\n";
                        
   CHECK_THROWS_AS( throw( runtime_error_func( "first", var, "second" ) ), runtime_error );
   CHECK_THROWS_MESSAGE( throw( runtime_error_func( "first", var, "second" ) ), test_string_hp );

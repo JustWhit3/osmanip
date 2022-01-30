@@ -5,6 +5,7 @@
 #include <map>
 #include <cmath>
 #include <mutex>
+#include <stdexcept>
 #include "../include/helper_tools.h"
 #include "../include/csmanip.h"
 #include "../include/progress_bar.h"
