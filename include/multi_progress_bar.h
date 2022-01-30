@@ -8,7 +8,6 @@
 #include <mutex>
 #include <atomic>
 #include <utility>
-//#include <progress_bar.h>
 #include "../include/csmanip.h"
 
 namespace osm
