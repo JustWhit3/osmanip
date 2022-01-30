@@ -4,6 +4,8 @@
 #include <set>
 #include <functional>
 #include <type_traits>
+#include <stdexcept>
+#include <stdexcept>
 #include "../include/helper_tools.h"
   
 namespace osm
