@@ -32,11 +32,11 @@ If you want to use this software in one of your project, please cite it. You can
 
 Example output of the [main.cpp]() program, color/styles manipulators:
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/csmanip_intro.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/csmanip_intro.gif" width = "600">
 
 Progress bars:
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/progressbars_intro.gif">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/progressbars_intro.gif" width = "600">
 
 The software is and will stay **free**, but if you want to support me with a donation it would be really appreciated!
 
