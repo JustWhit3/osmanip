@@ -5,6 +5,7 @@
 #include <map>
 #include <functional>
 #include <type_traits>
+#include <stdexcept>
 namespace osm
  {
   //====================================================
