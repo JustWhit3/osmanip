@@ -32,9 +32,11 @@ void col_sty()
        << feat( col, "lt blue" ) << "This is a light blue string." << reset( "color" ) << endl
        << feat( col, "lt purple" ) << "This is a light purple string." << reset( "color" ) << endl
        << feat( col, "lt cyan" ) << "This is a light cyan string." << reset( "color" ) << endl
-       << feat( col, "white" ) << "This is a white string." << reset( "color" ) << endl
+       << feat( col, "white" ) << "This is a white string." << reset( "color" ) << endl;
+
+  sleep_for( seconds( 2 ) );
        
-       << endl << "---------------------   BOLD COLORS   ---------------------" << endl << endl
+  cout << endl << "---------------------   BOLD COLORS   ---------------------" << endl << endl
        
        << feat( col, "bd black" ) << "This is a bold black string." << reset( "bd color" ) << endl
        << feat( col, "bd red" ) << "This is a bold red string." << reset( "bd color" ) << endl
@@ -43,9 +45,11 @@ void col_sty()
        << feat( col, "bd blue" ) << "This is a bold blue string." << reset( "bd color" ) << endl
        << feat( col, "bd purple" ) << "This is a bold purple string." << reset( "bd color" ) << endl
        << feat( col, "bd cyan" ) << "This is a bold cyan string." << reset( "bd color" ) << endl
-       << feat( col, "bd gray" ) << "This is a bold gray string." << reset( "bd color" ) << endl
+       << feat( col, "bd gray" ) << "This is a bold gray string." << reset( "bd color" ) << endl;
+
+  sleep_for( seconds( 2 ) );
        
-       << endl << "---------------------   BACKGROUND COLORS   ---------------------" << endl << endl
+  cout << endl << "---------------------   BACKGROUND COLORS   ---------------------" << endl << endl
        
        << feat( col, "bg black" ) << "This is a background black string." << reset( "bg color" ) << endl
        << feat( col, "bg red" ) << "This is a background red string." << reset( "bg color" ) << endl
@@ -62,9 +66,11 @@ void col_sty()
        << feat( col, "bg lt blue" ) << "This is a background light blue string." << reset( "bg color" ) << endl
        << feat( col, "bg lt purple" ) << "This is a background light purple string." << reset( "bg color" ) << endl
        << feat( col, "bg lt cyan" ) << "This is a background light cyan string." << reset( "bg color" ) << endl
-       << feat( col, "bg white" ) << "This is a background white string." << reset( "bg color" ) << " <-(white)" << endl
+       << feat( col, "bg white" ) << "This is a background white string." << reset( "bg color" ) << " <-(white)" << endl;
+
+  sleep_for( seconds( 2 ) );
        
-       << endl << "---------------------   STYLES   ---------------------" << endl << endl
+  cout << endl << "---------------------   STYLES   ---------------------" << endl << endl
        
        << feat( sty, "bold" ) << "This is a bold string." << reset( "bd/ft" ) << endl
        << feat( sty, "faint" ) << "This is a faint string." << reset( "bd/ft" ) << endl
@@ -93,7 +99,7 @@ void perc_bars()
   //Normal percentage bar.
   ProgressBar <int> percentage_bar;
   percentage_bar.setMin( 5 );
-  percentage_bar.setMax ( 46 );
+  percentage_bar.setMax ( 32 );
   percentage_bar.setStyle( "indicator", "%" );
 
   cout << "This is a normal percentage bar: " << endl;
@@ -108,7 +114,7 @@ void perc_bars()
   //Percentage bar with message and different style:
   ProgressBar <float> percentage_bar_2;
   percentage_bar_2.setMin( 1.2f );
-  percentage_bar_2.setMax ( 6.4f );
+  percentage_bar_2.setMax ( 4.4f );
   percentage_bar_2.setMessage( "processing..." );
   percentage_bar_2.setStyle( "indicator", "/100" );
 
@@ -191,15 +197,15 @@ void load_bars()
 //====================================================
 void mixed_bars()
  {
-  ProgressBar <int> mixed_bar;
-  mixed_bar.setMin( 3 );
-  mixed_bar.setMax ( 25 );
-  mixed_bar.setStyle( "complete", "%", "#" );
+  ProgressBar <float> mixed_bar;
+  mixed_bar.setMin( 0.1f );
+  mixed_bar.setMax ( 2.8f );
+  mixed_bar.setStyle( "complete", "%", "■" );
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( "elaborating..." );
  
   cout << "This is a mixed progress bar: " << endl;
-  for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
+  for ( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
     sleep_for( milliseconds( 100 ) );
     mixed_bar.update( i );
@@ -210,7 +216,7 @@ void mixed_bars()
   mixed_bar.setColor( "red" );
 
   cout << "This is a mixed progress bar with color: " << endl;
-  for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
+  for ( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
     sleep_for( milliseconds( 100 ) );
     mixed_bar.update( i );
@@ -224,7 +230,7 @@ void mixed_bars()
   mixed_bar.setStyle( "complete", "|100", ">" );
 
   cout << "This is a mixed progress bar with two customized styles: " << endl;
-  for ( int i = mixed_bar.getMin(); i < mixed_bar.getMax(); i++ )
+  for ( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
     sleep_for( milliseconds( 100 ) );
     mixed_bar.update( i );
@@ -234,53 +240,64 @@ void mixed_bars()
  }
 
 //====================================================
-//     MIXED BAR
+//     MULTI BARS
 //====================================================
 void multi_bars()
  {
+  cout << "These are 3 progress bars printed simultaneously: " << endl << endl << endl;
+
   ProgressBar<int> prog_int;
   prog_int.setMin( 0 );
-  prog_int.setMax ( 100 );
+  prog_int.setMax ( 60 );
   prog_int.setStyle( "complete", "%", "#" );
   prog_int.setBrackets( "[", "]" );
+  prog_int.setMessage( "Installing..." );
+  prog_int.setColor( "red" );
 
   ProgressBar<int> prog_int_2;
   prog_int_2.setMin( 5 );
   prog_int_2.setMax ( 25 );
-  prog_int_2.setStyle( "complete", "%", "#" );
-  prog_int_2.setBrackets( "[", "]" );
+  prog_int_2.setStyle( "complete", "%", "■" );
+  prog_int_2.setBrackets( "{", "}" );
+  prog_int_2.setMessage( "Processing..." );
+  prog_int_2.setColor( "purple" );
 
   ProgressBar<float> prog_float;
   prog_float.setMin( 0.1f );
-  prog_float.setMax ( 12.1f );
+  prog_float.setMax ( 5.8f );
   prog_float.setStyle( "complete", "%", "#" );
   prog_float.setBrackets( "[", "]" );
+  prog_float.setMessage( "Downloading..." );
+  prog_float.setColor( "yellow" );
 
   auto bars = MultiProgressBar( prog_int, prog_int_2, prog_float );
 
-  auto job1 = [&bars, &prog_int]() {
-    for (int i = prog_int.getMin(); i < prog_int.getMax(); i++) {
-      bars.for_one(0, updater{}, i);
+  auto job1 = [ &bars, &prog_int ]() 
+   {
+    for( int i = prog_int.getMin(); i < prog_int.getMax(); i++ ) 
+     {
+      bars.for_one( 0, updater{}, i );
       sleep_for( milliseconds( 100 ) );
-    }
-    cout << endl;
-  };
+     }
+   };
 
-  auto job2 = [&bars, &prog_int_2]() {
-    for (int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++) {
-      bars.for_one(1, updater{}, i);
-      sleep_for(milliseconds(200));
-    }
-    cout << endl;
-  };
+  auto job2 = [ &bars, &prog_int_2 ]() 
+   {
+    for(int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++) 
+     {
+      bars.for_one( 1, updater{}, i );
+      sleep_for( milliseconds( 200 ) );
+     }
+   };
 
-  auto job3 = [&bars, &prog_float]() {
-    for (float i = prog_float.getMin(); i < prog_float.getMax(); i += 0.1f) {
-      bars.for_one(2, updater{}, i);
-      sleep_for(milliseconds(60));
-    }
-    cout << endl;
-  };
+  auto job3 = [ &bars, &prog_float ]() 
+   {
+    for( float i = prog_float.getMin(); i < prog_float.getMax(); i += 0.1f ) 
+     {
+      bars.for_one( 2, updater{}, i );
+      sleep_for( milliseconds( 60 ) );
+     }
+   };
 
   thread first_job(job1);
   thread second_job(job2);
@@ -289,6 +306,8 @@ void multi_bars()
   first_job.join();
   second_job.join();
   third_job.join();
+
+  cout << endl << endl << endl;
  }
 
 //====================================================
@@ -296,12 +315,18 @@ void multi_bars()
 //====================================================
 int main()
  {
+  SET_CURSOR_VIEW( "OFF" );
+ 
   //Manipulators:
   //col_sty(); //Color/style.
 
+  cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl << endl;
+  sleep_for( seconds( 2 ) );
   //Progress bars:
-  //perc_bars(); //Percentage bar.
-  //load_bars(); //Loading bar.
-  //mixed_bars(); //Mixed bar.
+  perc_bars(); //Percentage bar.
+  load_bars(); //Loading bar.
+  mixed_bars(); //Mixed bar.
   multi_bars(); //Multi progress bars.
+
+  SET_CURSOR_VIEW( "ON" );
  }

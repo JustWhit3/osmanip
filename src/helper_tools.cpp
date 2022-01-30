@@ -71,6 +71,8 @@ namespace osm
   
   template std::string check_condition <std::string, std::string> 
   ( std::function <bool()> condition, std::string return_it, std::string return_false );
+  template int check_condition <int, int> 
+  ( std::function <bool()> condition, int return_it, int return_false );
 
   //====================================================
   //     FUNCTION TO CHECK IF EXPRESSION TYPE IS

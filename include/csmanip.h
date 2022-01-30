@@ -30,6 +30,7 @@ namespace osm
   extern std::string reset( std::string reset_string );
   extern std::string go_to( int x, int y );
   extern std::string RGB( int r, int g, int b );
+  extern void SET_CURSOR_VIEW( const std::string onof );
  }
       
 #endif

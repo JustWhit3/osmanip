@@ -36,7 +36,7 @@ namespace osm
      //     CONSTRUCTORS
      //====================================================
      template <class... Inds>
-     make_MultiProgressBar( Inds&&... bars ): bars_{ std::forward <Inds> ( bars )... }, last_updated_index(0) {}
+     make_MultiProgressBar( Inds&&... bars ): bars_{ std::forward <Inds> ( bars )... }, last_updated_index( 0 ) {}
   
      //====================================================
      //     OTHER PUBLIC METHODS
@@ -46,14 +46,12 @@ namespace osm
      template <class Func, class... Args>
      void for_one( size_t idx, Func&& func, Args&&... args )
       {
-       //std::lock_guard<std::mutex> lock{mutex_};
        call_one( idx, gen_indices <sizeof...( Indicators )> (), std::forward <Func> ( func ), std::forward <Args> ( args )... );
       }
   
      template <class Func, class... Args>
      void for_each( Func&& func, Args&&... args ) 
       {
-       //std::lock_guard<std::mutex> lock{mutex_};
        call_all( gen_indices <sizeof...( Indicators )> (), std::forward <Func> ( func ), std::forward <Args> ( args )... );
       }
   
@@ -65,20 +63,26 @@ namespace osm
      template <size_t... Ids, class Func, class... Args>
      void call_one( size_t idx, indices <Ids...>, Func func, Args&&... args )
       {
-       std::lock_guard <std::mutex> lock{mutex_};
+       std::lock_guard <std::mutex> lock{ mutex_ };
        int idx_delta = idx - last_updated_index;
        std::string direction;
-       if(idx_delta < 0){
-        direction = "up";
-        idx_delta = -idx_delta;
-       }else{
-        direction = "down";
-       }
-       for(int i = 0; i < idx_delta; i++){                                                                                                               
-        std::cout << feat(crs, direction, 1);
-       }
+
+       if( idx_delta < 0 )
+        {
+         direction = "up";
+         idx_delta = -idx_delta;
+        }
+       else
+        {
+         direction = "down";
+        }
+       for( int i = 0; i < idx_delta; i++ )
+        {                                                                                                               
+         std::cout << feat( crs, direction, 1 );
+        }
        last_updated_index = idx;
        [](...) {} 
+       
         (
          (idx == Ids &&
           ( ( void ) std::forward <Func> ( func )( std::get <Ids> ( bars_ ), 

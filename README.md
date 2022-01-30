@@ -28,8 +28,15 @@ Here I want to present you *osmanip*: my personal C++ library containing useful 
 This software has been built for Linux systems (it has been tested with Ubuntu and WSL). Its compatibility has not been tested with Windows or MacOS operating systems.
 
 If you want to use this software in one of your project, please cite it. You can find the citation template [here](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
-
 > **NOTE**: all the manipulators of this library are compatible with [iomanip](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/iomanip).
+
+Example output of the [main.cpp]() program, color/styles manipulators:
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/csmanip_intro.gif">
+
+Progress bars:
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/progressbars_intro.gif">
 
 The software is and will stay **free**, but if you want to support me with a donation it would be really appreciated!
 

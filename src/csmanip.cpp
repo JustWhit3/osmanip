@@ -219,4 +219,19 @@ namespace osm
             std::to_string( b ) +
             static_cast <std::string>( "m" );
    }
+
+  //====================================================
+  //     DEFINITION OF THE "SET_CURSOR_VIEW" FUNCTION
+  //====================================================
+  void SET_CURSOR_VIEW( const std::string onof )
+   {
+    if( onof == "on" || onof == "ON" )
+     {
+      std::cout << feat( tcs, "scrs" );
+     }
+    else if( onof == "off" || onof == "OFF" )
+     {
+      std::cout << feat( tcs, "hcrs" );
+     }
+   }
  }
