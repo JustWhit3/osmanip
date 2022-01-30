@@ -234,15 +234,97 @@ void mixed_bars()
  }
 
 //====================================================
+//     MIXED BAR
+//====================================================
+void multi_bars()
+ {
+  ProgressBar<int> prog_int;
+  prog_int.setMin( 0 );
+  prog_int.setMax ( 100 );
+  prog_int.setStyle( "complete", "%", "#" );
+  prog_int.setBrackets( "[", "]" );
+
+  ProgressBar<int> prog_int_2;
+  prog_int_2.setMin( 5 );
+  prog_int_2.setMax ( 25 );
+  prog_int_2.setStyle( "complete", "%", "#" );
+  prog_int_2.setBrackets( "[", "]" );
+
+  ProgressBar<float> prog_float;
+  prog_float.setMin( 0.1f );
+  prog_float.setMax ( 12.1f );
+  prog_float.setStyle( "complete", "%", "#" );
+  prog_float.setBrackets( "[", "]" );
+
+  auto bars = MultiProgressBar( prog_int, prog_int_2, prog_float );
+  
+  /*cout << "Bar: " << endl;
+  for ( int i = prog_int.getMin(); i < prog_int.getMax(); i++ )
+   {
+    bars.for_one(0, updater{}, i);
+    sleep_for( milliseconds( 100 ) );
+    //Do some operations...
+   }
+  cout << endl << endl;
+
+  cout << "Bar: " << endl;
+  for ( int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++ )
+   {
+    bars.for_one(1, updater{}, i);
+    sleep_for( milliseconds( 100 ) );
+    //Do some operations...
+   }
+  cout << endl << endl;*/
+
+
+
+  // Job for the first bar
+  auto job1 = [&bars]() {
+    for (int i = 0; i <= 100; i++) {
+      bars.for_one(0, updater{}, i);
+      sleep_for( milliseconds( 100 ) );
+    }
+    cout << endl;
+  };
+
+  // Job for the second bar
+  auto job2 = [&bars]() {
+    for (int i = 5; i <= 25; i++) {
+      bars.for_one(1, updater{}, i);
+      sleep_for(std::chrono::milliseconds(200));
+    }
+    cout << endl;
+  };
+
+  // Job for the third bar
+  auto job3 = [&bars]() {
+    for (float i = 0.1f; i <= 12.1f; i += 0.1f) {
+      bars.for_one(2, updater{}, i);
+      sleep_for(std::chrono::milliseconds(60));
+    }
+    cout << endl;
+  };
+
+  thread first_job(job1);
+  thread second_job(job2);
+  thread third_job(job3);
+
+  first_job.join();
+  second_job.join();
+  third_job.join();
+ }
+
+//====================================================
 //     MAIN
 //====================================================
 int main()
  {
   //Manipulators:
-  col_sty(); //Color/style.
+  //col_sty(); //Color/style.
 
   //Progress bars:
-  perc_bars(); //Percentage bar.
-  load_bars(); //Loading bar.
-  mixed_bars(); //Mixed bar.
+  //perc_bars(); //Percentage bar.
+  //load_bars(); //Loading bar.
+  //mixed_bars(); //Mixed bar.
+  multi_bars(); //Multi progress bars.
  }

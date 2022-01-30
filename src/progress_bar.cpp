@@ -58,14 +58,14 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::setMax( bar_type max )
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard<std::mutex> lock(mutex_);
     max_ = max; 
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::setMin( bar_type min )
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     min_ = min; 
    }
 
@@ -73,7 +73,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::setStyle( std::string type, std::string style )
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     try
      {
       if( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )
@@ -100,7 +100,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::setStyle( std::string type, std::string style_p, std::string style_l )
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     if( styles_map_.at( "indicator" ).find( style_p ) != styles_map_.at( "indicator" ).end() &&
         styles_map_.at( "loader" ).find( style_l ) != styles_map_.at( "loader" ).end() &&
         type == "complete" )
@@ -127,21 +127,21 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::setMessage( std::string message ) 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     message_ = message; 
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::setBegin() 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     begin = time_type::now();
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::setEnd()
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     end = time_type::now();
     time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
    }
@@ -149,7 +149,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::setBrackets( std::string brackets_open, std::string brackets_close )
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     brackets_open_ = brackets_open,
     brackets_close_ = brackets_close;
    }
@@ -157,7 +157,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::setColor( std::string color )
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     color_ = feat( col, color );
    }
 
@@ -167,7 +167,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::resetAll() 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     max_ = static_cast<bar_type> ( NULL ), 
     min_ = static_cast<bar_type> ( NULL ), 
     style_ = "", 
@@ -182,21 +182,21 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::resetMax()
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     max_ = static_cast<bar_type> ( NULL );
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::resetMin()
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     min_ = static_cast<bar_type> ( NULL );
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::resetStyle()
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     style_.clear();
     type_.clear();
    } 
@@ -204,21 +204,21 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::resetMessage()
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     message_.clear();
    } 
 
   template <typename bar_type>
   void ProgressBar <bar_type>::resetTime()
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     time_count_ = time_type::duration::zero().count();
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::resetBrackets() 
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     brackets_open_.clear(),
     brackets_close_.clear(); 
    }
@@ -226,7 +226,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::resetColor() 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     color_ = reset( "color" ); 
    }
 
@@ -236,42 +236,42 @@ namespace osm
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::getMax() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return max_; 
    }
 
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::getMin() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return min_;
    } 
 
   template <typename bar_type>
   long long ProgressBar <bar_type>::getTime() const 
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return time_count_;
    }
 
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::getIteratingVar() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return iterating_var_; 
    }
 
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getStyle() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return style_; 
    }
 
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getStyleComplete() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     if( type_ == "complete" )
      {
       return "Percentage: \"" + style_p_ + "\"\n" + 
@@ -286,35 +286,35 @@ namespace osm
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getType() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return type_; 
    }
 
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getMessage() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return message_; 
    }
 
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getBrackets_open() const 
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return brackets_open_; 
    }
 
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getBrackets_close() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return brackets_close_; 
    }
 
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getColor() const 
    { 
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     return color_; 
    }
 
@@ -324,7 +324,7 @@ namespace osm
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::one( bar_type iterating_var )
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     if( isFloatingPoint( iterating_var ) )
      {
       if( counter_.size() < 2 )
@@ -346,7 +346,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::update_output( bar_type iterating_var, std::string output )
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    //std::lock_guard <std::mutex> lock{mutex_};
     std::cout << check_condition( [ = ]{ return iterating_var == min_; }, feat( tcs, "hcrs" ), null_str )
               << output
               << getColor()
@@ -362,7 +362,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::update( bar_type iterating_var )
    {
-    std::unique_lock <std::mutex> lock{mutex_};
+    std::lock_guard <std::mutex> lock{mutex_};
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - one( iterating_var ) );
     width_ = ( iterating_var_ + 1 ) / 4;
 
@@ -424,7 +424,7 @@ namespace osm
    template <typename bar_type>
    void ProgressBar <bar_type>::print() const
     {
-     std::unique_lock <std::mutex> lock{mutex_};
+     //std::lock_guard <std::mutex> lock{mutex_};
      std::cout << "Max: " << max_ << std::endl 
                << "Min: " << min_ << std::endl 
                << "Time counter: " << time_count_ << std::endl 
@@ -440,7 +440,7 @@ namespace osm
    template <typename bar_type>
    void ProgressBar <bar_type>::addStyle( std::string type, std::string style )
     {
-     std::unique_lock <std::mutex> lock{mutex_};
+     //std::lock_guard <std::mutex> lock{mutex_};
      if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
       {
        styles_map_.at(type).insert(style);
