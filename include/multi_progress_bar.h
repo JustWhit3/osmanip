@@ -89,7 +89,7 @@ namespace osm
      template <size_t... Ids, class Func, class... Args>
      void call_all( indices <Ids...>, Func func, Args&&... args )
       {
-       //std::lock_guard<std::mutex> lock{mutex_};
+       std::lock_guard<std::mutex> lock{mutex_};
        auto dummy = { ( func( std::get <Ids>( bars_ ), args...), 0 )... };
        ( void )dummy;
       } 

@@ -257,50 +257,27 @@ void multi_bars()
   prog_float.setBrackets( "[", "]" );
 
   auto bars = MultiProgressBar( prog_int, prog_int_2, prog_float );
-  
-  /*cout << "Bar: " << endl;
-  for ( int i = prog_int.getMin(); i < prog_int.getMax(); i++ )
-   {
-    bars.for_one(0, updater{}, i);
-    sleep_for( milliseconds( 100 ) );
-    //Do some operations...
-   }
-  cout << endl << endl;
 
-  cout << "Bar: " << endl;
-  for ( int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++ )
-   {
-    bars.for_one(1, updater{}, i);
-    sleep_for( milliseconds( 100 ) );
-    //Do some operations...
-   }
-  cout << endl << endl;*/
-
-
-
-  // Job for the first bar
-  auto job1 = [&bars]() {
-    for (int i = 0; i <= 100; i++) {
+  auto job1 = [&bars, &prog_int]() {
+    for (int i = prog_int.getMin(); i < prog_int.getMax(); i++) {
       bars.for_one(0, updater{}, i);
       sleep_for( milliseconds( 100 ) );
     }
     cout << endl;
   };
 
-  // Job for the second bar
-  auto job2 = [&bars]() {
-    for (int i = 5; i <= 25; i++) {
+  auto job2 = [&bars, &prog_int_2]() {
+    for (int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++) {
       bars.for_one(1, updater{}, i);
-      sleep_for(std::chrono::milliseconds(200));
+      sleep_for(milliseconds(200));
     }
     cout << endl;
   };
 
-  // Job for the third bar
-  auto job3 = [&bars]() {
-    for (float i = 0.1f; i <= 12.1f; i += 0.1f) {
+  auto job3 = [&bars, &prog_float]() {
+    for (float i = prog_float.getMin(); i < prog_float.getMax(); i += 0.1f) {
       bars.for_one(2, updater{}, i);
-      sleep_for(std::chrono::milliseconds(60));
+      sleep_for(milliseconds(60));
     }
     cout << endl;
   };

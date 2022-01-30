@@ -364,6 +364,7 @@ namespace osm
   void ProgressBar <bar_type>::update( bar_type iterating_var )
    {
     std::lock_guard <std::mutex> lock{mutex_};
+    
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - one( iterating_var ) );
     width_ = ( iterating_var_ + 1 ) / 4;
 
