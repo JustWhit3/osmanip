@@ -9,6 +9,7 @@
 #include <atomic>
 #include <utility>
 //#include <progress_bar.h>
+#include "../include/csmanip.h"
 
 namespace osm
  {
@@ -36,7 +37,7 @@ namespace osm
      //     CONSTRUCTORS
      //====================================================
      template <class... Inds>
-     make_MultiProgressBar( Inds&&... bars ): bars_{ std::forward <Inds> ( bars )... } {}
+     make_MultiProgressBar( Inds&&... bars ): bars_{ std::forward <Inds> ( bars )... }, last_updated_index(0) {}
   
      //====================================================
      //     OTHER PUBLIC METHODS
@@ -66,6 +67,18 @@ namespace osm
      void call_one( size_t idx, indices <Ids...>, Func func, Args&&... args )
       {
        std::lock_guard <std::mutex> lock{mutex_};
+       int idx_delta = idx - last_updated_index;
+       std::string direction;
+       if(idx_delta < 0){
+        direction = "up";
+        idx_delta = -idx_delta;
+       }else{
+        direction = "down";
+       }
+       for(int i = 0; i < idx_delta; i++){                                                                                                               
+        std::cout << feat(crs, direction, 1);
+       }
+       last_updated_index = idx;
        [](...) {} 
         (
          (idx == Ids &&
@@ -87,6 +100,7 @@ namespace osm
      //====================================================
      std::tuple <Indicators&...> bars_;
      std::mutex mutex_;
+     uint last_updated_index;
    };
   
   //====================================================
