@@ -36,8 +36,8 @@ If you want to use this software in one of your project, please cite it. You can
 Example output of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) program demo:
 
 <p float="left">
-  <img src="https://github.com/JustWhit3/osmanip/blob/main/img/csmanip_intro.gif"  width = "450">
-  <img src="https://github.com/JustWhit3/osmanip/blob/main/img/progressbars_intro.gif" width = "450"> 
+  <img src="https://github.com/JustWhit3/osmanip/blob/main/img/csmanip_intro.gif"  width = "410">
+  <img src="https://github.com/JustWhit3/osmanip/blob/main/img/progressbars_intro.gif" width = "420"> 
 </p>
 
 The software is and will stay **free**, but if you want to support me with a donation it would be really appreciated!
