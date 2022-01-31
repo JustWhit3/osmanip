@@ -2,7 +2,7 @@
 
 <h3 align="center">Library with output stream tools like: colors and styles manipulators and progress bars</h3>
 <p align="center">
-    <img title="v2.4" alt="v2.4" src="https://img.shields.io/badge/version-v2.4-informational?style=flat-square"
+    <img title="v2.5" alt="v2.5" src="https://img.shields.io/badge/version-v2.5-informational?style=flat-square"
     <a href="LICENSE">
         <img title="MIT License" alt="license" src="https://img.shields.io/badge/license-MIT-informational?style=flat-square">
     </a>
