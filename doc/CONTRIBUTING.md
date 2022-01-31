@@ -19,7 +19,7 @@ In case you want to contribute, even with a small bug fix, you will be featured 
 To add your contribution, please follow these guidelines:
 
 1) Fork your own copy of the repository.
-2) Work on your changes / improvements.
+2) Work on your changes / improvements in the forked repo.
 3) **Test** if your changes / improvements are correctly implemented and all the other features are not compromised. For this latter requirement, please run the main and tests executables and check if you find something different from before.
 4) Optional, but really appreciated: update the [documentation](https://github.com/JustWhit3/osmanip/blob/main/doc) or the main [README](https://github.com/JustWhit3/osmanip/blob/main/README.md) with the new features you added.
 5) Finally, make the pull request.
