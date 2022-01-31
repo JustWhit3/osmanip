@@ -15,7 +15,9 @@ void col_sty()
   //====================================================
   //     CSMANIP FEATURES
   //====================================================
-  cout << endl << "---------------------   COLORS   ---------------------" << endl << endl
+  cout << endl << "======================================================" << endl
+       << "     COLORS                                           " << endl
+       << "======================================================" << endl
   
        << feat( col, "black" ) << "This is a black string." << reset( "color" ) << endl
        << feat( col, "red" ) << "This is a red string." << reset( "color" ) << endl
@@ -36,7 +38,9 @@ void col_sty()
 
   sleep_for( seconds( 2 ) );
        
-  cout << endl << "---------------------   BOLD COLORS   ---------------------" << endl << endl
+  cout << endl << "======================================================" << endl
+       << "     BOLD COLORS                                      " << endl
+       << "======================================================" << endl << endl
        
        << feat( col, "bd black" ) << "This is a bold black string." << reset( "bd color" ) << endl
        << feat( col, "bd red" ) << "This is a bold red string." << reset( "bd color" ) << endl
@@ -49,7 +53,9 @@ void col_sty()
 
   sleep_for( seconds( 2 ) );
        
-  cout << endl << "---------------------   BACKGROUND COLORS   ---------------------" << endl << endl
+  cout << endl << "======================================================" << endl
+       << "     BACKGROUND COLORS                                " << endl
+       << "======================================================" << endl << endl
        
        << feat( col, "bg black" ) << "This is a background black string." << reset( "bg color" ) << endl
        << feat( col, "bg red" ) << "This is a background red string." << reset( "bg color" ) << endl
@@ -70,7 +76,9 @@ void col_sty()
 
   sleep_for( seconds( 2 ) );
        
-  cout << endl << "---------------------   STYLES   ---------------------" << endl << endl
+  cout << endl << "======================================================" << endl
+       << "     STYLES                                           " << endl
+       << "======================================================" << endl << endl
        
        << feat( sty, "bold" ) << "This is a bold string." << reset( "bd/ft" ) << endl
        << feat( sty, "faint" ) << "This is a faint string." << reset( "bd/ft" ) << endl
@@ -80,13 +88,16 @@ void col_sty()
        << feat( sty, "inverse" ) << "This is an inverse string." << reset( "inverse" ) << endl
        << feat( sty, "invisible" ) << "This is an invisible string." << reset( "invisible" ) << "It was an invisible string." << endl
        << feat( sty, "crossed" ) << "This is a crossed-out string." << reset( "crossed" ) << endl
-       << feat( sty, "blink" ) << "This is a blink string." << reset( "blink" ) << endl
+       << feat( sty, "blink" ) << "This is a blink string." << reset( "blink" ) << endl;
        
-       << endl << "---------------------   MIXED   ---------------------" << endl << endl
+  cout << endl << "======================================================" << endl
+       << "     MIXED                                           " << endl
+       << "======================================================" << endl << endl
        
        << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" ) << endl
        << feat( sty, "italics" ) << feat( col, "blue" ) << "This is an italics blue string." << reset( "all" ) << endl
        << feat( sty, "faint" ) << feat( col, "orange" ) << "This is a faint orange string." << reset( "all" ) << endl;
+         sleep_for( seconds( 2 ) );
  }
 
 //====================================================
@@ -94,12 +105,14 @@ void col_sty()
 //====================================================
 void perc_bars()
  {
-  cout << endl << "---------------------   PROGRESS BARS   ---------------------" << endl << endl;
+  cout << endl << "======================================================" << endl
+       << "     PROGRESS BARS                                    " << endl
+       << "======================================================" << endl << endl;
   
   //Normal percentage bar.
   ProgressBar <int> percentage_bar;
   percentage_bar.setMin( 5 );
-  percentage_bar.setMax ( 32 );
+  percentage_bar.setMax ( 46 );
   percentage_bar.setStyle( "indicator", "%" );
 
   cout << "This is a normal percentage bar: " << endl;
@@ -199,7 +212,7 @@ void mixed_bars()
  {
   ProgressBar <float> mixed_bar;
   mixed_bar.setMin( 0.1f );
-  mixed_bar.setMax ( 2.8f );
+  mixed_bar.setMax ( 3.8f );
   mixed_bar.setStyle( "complete", "%", "■" );
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( "elaborating..." );
@@ -318,10 +331,8 @@ int main()
   SET_CURSOR_VIEW( "OFF" );
  
   //Manipulators:
-  //col_sty(); //Color/style.
+  col_sty(); //Color/style.
 
-  cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl << endl;
-  sleep_for( seconds( 2 ) );
   //Progress bars:
   perc_bars(); //Percentage bar.
   load_bars(); //Loading bar.
