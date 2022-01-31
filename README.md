@@ -50,7 +50,8 @@ In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder usef
 - [*Repository structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Repository%20structure.md): contains general information about the files and folders of the repository.
 - [*Code structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md): contains general information about the code structure of the library, therefore details on classes, functions and variables used in it.
 - [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download%20and%20install.md): a guide to download, install and run the library into your system.
-- [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/Contributing.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
+- [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/CONTRIBUTING.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
+- [*Credits*](https://github.com/JustWhit3/osmanip/blob/main/doc/CREDITS.md): contains a list of all the people who contributed to this library.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
 
 ## List of features

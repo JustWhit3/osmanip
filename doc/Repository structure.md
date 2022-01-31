@@ -17,6 +17,8 @@
 osmanip/
 ├── doc/
 │   ├── Code structure.md
+│   ├── Contributing.md
+│   ├── Credits.md
 │   ├── Download and install.md
 │   ├── Repository structure.md
 │   ├── Todo.md
@@ -45,7 +47,6 @@ osmanip/
 │── License
 │── .gitignore
 │── CITATION.cff
-│── CREDITS.md
 │── makefile
 ```
 
