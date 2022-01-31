@@ -9,6 +9,7 @@
   * [reset](#reset)
   * [go_to](#goto)
   * [RGB](#RGB)
+  * [SET_CURSOR_VIEW](#SETCURSORVIEW)
 - [Global variables](#global-variables)
   * [col](#col)
   * [sty](#sty)
@@ -125,6 +126,16 @@ Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/
 Complete definition: `std::string RGB( int r, int g, int b )`.
 
 It takes three integers as arguments which are the correspoing rgb triplets of a color (see [here](http://www.aksiom.net/rgb.html) for the full list of availables colors). It can be used to output a wider variety of colors with respect to the standard availables from the `col` map.
+
+### SET_CURSOR_VIEW
+
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+Complete definition: `void SET_CURSOR_VIEW( std::string onof )`.
+
+It takes a string as argument, which represent the cursor view state in the current program. If `onof = ON` the cursor if visible, else if `onof = OFF` the cursor is hidde.
 
 ## Global variables
 

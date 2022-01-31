@@ -120,6 +120,8 @@ Main proprieties:
 Here you can find some examples about how to use them into your code.
 > If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
 
+> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the `SET_CURSOR_VIEW` function at the beginning and then at the end of the program.
+
 > It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
 
 Initialize and use a percentage progress bar:

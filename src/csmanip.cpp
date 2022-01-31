@@ -232,5 +232,9 @@ namespace osm
      {
       std::cout << feat( tcs, "hcrs" );
      }
+    else
+     {
+      throw runtime_error_func( "Inserted cursor option", onof, "is not supported!" );
+     }
    }
  }
