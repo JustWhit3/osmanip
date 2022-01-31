@@ -4,6 +4,9 @@
 - [Download](#download)
   * [Download the whole repository](#download-the-whole-repository)
   * [Download the latest release](#download-the-latest-release)
+- [Prerequisites](#prerequisites)
+  * [Mandatory](#mandatory)
+  * [Optional](#optional)
 - [Install](#install)
 - [Update](#update)
 - [Uninstall](#uninstall)
@@ -62,11 +65,23 @@ And that's all. You can enter the folder by simply typing:
 cd osmanip
 ```
 
+## Prerequisites
+
+### Mandatory
+
+- C++17 standard for compilation.
+- g++ compiler (g++ 9.3.0 has been tested so far).
+
+
+### Optional
+
+- [doctest](https://github.com/onqtam/doctest) for testing compilation.
+- [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) to correctly use the [update.sh](#update) script.
+- [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) to run the [debug.sh](#debugsh) script.
+
 ## Install
 
 From release [2.1.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.1.0) an installer script, called [install.sh](https://github.com/JustWhit3/osmanip/blob/main/install.sh), has been introduced. This script can be used to properly install the library into your computer, in order to easily use it in your programs.
-
-Installation prerequisites: g++ compiler (g++ 9.3.0 has been tested so far).
 
 Operating systems compatibility: Ubuntu and WSL.
 
@@ -81,8 +96,6 @@ A new library *libosmanip* will be created into the `/usr/local/lib` folder of y
 ## Update
 
 In case you want to update the source code from the latest improvements of the repository, you can use the updater script, called [update.sh](https://github.com/JustWhit3/osmanip/blob/main/update.sh).
-
-Prerequisites: [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) software.
 
 From the repository folder type this command on the shell:
 ```shell
@@ -140,7 +153,6 @@ To compile them I prepared a [makefile](https://github.com/JustWhit3/osmanip/blo
 make
 ```
 This will compile both main and test codes. An extra **obj** folder with object files and a **bin** folder with two executables, *main* and *tests*, are now created.
-> **NOTE**: to correctly compile and run the tests.cpp file you need the [doctest](https://github.com/onqtam/doctest) tool installed into your computer.
 
 You have simply to run the former in order to run the entire example code:
 ```shell
@@ -169,7 +181,6 @@ Other scripts have been provided into the [*scripts*](https://github.com/JustWhi
 ### debug.sh
 
 This script is used to run [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) debugging tools on the whole code.
-> **NOTE**: you need Valgrind and Cppcheck installed before running this script.
 
 You can run Valgrind debugging tools with a specific executable:
 ```shell
