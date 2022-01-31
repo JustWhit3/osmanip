@@ -26,6 +26,7 @@ osmanip/
 │   ├── helper_tools.hpp
 │   ├── osmanip.hpp
 │   ├── progress_bar.hpp
+│   ├── multi_progress_bar.hpp
 ├── src/
 │   ├── csmanip.cpp
 │   ├── helper_tools.cpp
@@ -43,7 +44,6 @@ osmanip/
 │── README.md
 │── License
 │── .gitignore
-│── .valgrindrc
 │── CITATION.cff
 │── CREDITS.md
 │── makefile
@@ -61,6 +61,7 @@ osmanip/
   * [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.hpp): colors/styles manipulation header.
   * [*progress_bar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progress_bar.hpp): progress bar functionalities header.
   * [*helper_tools.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/helper_tools.hpp): helper tools header. It contains tools used in the main code headers.
+  * [*multi_progress_bar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/multi_progress_bar.hpp): It contains source code for the multi progress bars implementation.
 - [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): it contains library implementation and main files:
   * [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): *osmanip.hpp* implementation code.
   * [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp): *helper_tools.hpp* implementation code.

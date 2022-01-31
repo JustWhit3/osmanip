@@ -4,6 +4,7 @@
 - [Namespaces](#namespaces)
 - [Classes](#classes)
   * [ProgressBar](#progressbar)
+  * [MultiProgressBar](#multiprogressbar)
 - [Functions](#functions)
   * [feat](#feat)
   * [reset](#reset)
@@ -27,9 +28,9 @@ A global namespace `osm` is used to contain all the library classes, functions a
 
 This template class is used to create progress bars. Templated type is called `bar_type`.
 
-Header file: [*progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar.hpp)
+Header file: [*progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progress_bar.hpp)
 
-Source code: [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar.cpp)
+Source code: [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp)
 
 Constructors / destructor:
 - `ProgressBar()`: default constructor which set to null values the main attributes.
@@ -74,10 +75,36 @@ Getter methods:
 
 Other methods: 
 - `void update( bar_type iterating_var )`: to update the bar after each loop cycle.
-> **NOTE**: `std::cout` object cannot be used inside a loop within the `update` method.
 - `void print()`: to print on the screen all the progress bar variable values.
 - `void addStyle( std::string type, std::string style )`: to create customized progress bar styles.
 - `bar_type one( bar_type iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
+
+All the attributes are private and used in the above methods, therefore they don't need to be explained here.
+
+### MultiProgressBar
+
+This template class is used to create multi progress bars (real name is `make_MultiProgressBar`). Templated type is a parameter pack and called `... Indicators`.
+
+Header file and source code: [*multi_progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/multi_progress_bar.hpp)
+
+Constructors / destructor:
+
+- `template <class... Inds> make_MultiProgressBar( Inds&&... bars )`: main constructor.
+
+Public methods:
+
+- `template <class Func, class... Args> void for_one( size_t idx, Func&& func, Args&&... args )`: to update a single bar in a thread.
+- `template <class Func, class... Args> void for_each( Func&& func, Args&&... args )`: to update each bar in a thread.
+
+Private methods:
+
+- `template <size_t... Ids, class Func, class... Args> void call_one( size_t idx, indices <Ids...>, Func func, Args&&... args )`: used in the `for_one` method.
+- `template <size_t... Ids, class Func, class... Args> void call_one( indices <Ids...>, Func func, Args&&... args )`: used in the `for_each` method.
+
+Other helper functions defined outside of the class, but in the same header:
+
+- `template <class... Indicators> make_MultiProgressBar <typename std::remove_reference <Indicators>::type...> MultiProgressBar( Indicators&&... inds )`: helper function used for deduction guides.
+- `template <template <class> class PB, class bar_type> auto operator()( PB <bar_type>& pb, typename type_identity <bar_type>::type v ) const`: functor used to call the `ProgressBar` class `update` method.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
 
