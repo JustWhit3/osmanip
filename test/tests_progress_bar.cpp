@@ -4,7 +4,7 @@
 #include <vector>
 #include <thread>
 #include <chrono>
-#include "../include/osmanip.h"
+#include "../include/osmanip.hpp"
 
 using namespace osm;
 using namespace std;

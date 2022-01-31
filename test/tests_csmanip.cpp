@@ -4,7 +4,7 @@
 #include <doctest.h>
 #include <map>
 #include <vector>
-#include "../include/osmanip.h"
+#include "../include/osmanip.hpp"
 
 using namespace osm;
 using namespace std;

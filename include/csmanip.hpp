@@ -1,9 +1,8 @@
-#ifndef CSMANIP_H
-#define CSMANIP_H
+#ifndef CSMANIP_HPP
+#define CSMANIP_HPP
 
 #include <string>
 #include <map>
-#include <utility>
 
 namespace osm
  {

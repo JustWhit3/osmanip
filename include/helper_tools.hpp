@@ -1,5 +1,5 @@
-#ifndef HELPER_TOOLS_H
-#define HELPER_TOOLS_H
+#ifndef HELPER_TOOLS_HPP
+#define HELPER_TOOLS_HPP
 
 #include <string>
 #include <map>

@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include <utility>
-#include "../include/csmanip.h"
-#include "../include/helper_tools.h"
+#include "../include/csmanip.hpp"
+#include "../include/helper_tools.hpp"
 
 namespace osm
  {

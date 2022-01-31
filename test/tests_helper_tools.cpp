@@ -3,8 +3,8 @@
 #include <doctest.h>
 #include <functional>
 #include <string>
-#include "../include/osmanip.h"
-#include "../include/helper_tools.h"
+#include "../include/osmanip.hpp"
+#include "../include/helper_tools.hpp"
 
 using namespace osm;
 using namespace std;

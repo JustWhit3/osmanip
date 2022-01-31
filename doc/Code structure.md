@@ -26,7 +26,7 @@ A global namespace `osm` is used to contain all the library classes, functions a
 
 This template class is used to create progress bars. Templated type is called `bar_type`.
 
-Header file: [*progressbar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar.h)
+Header file: [*progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar.hpp)
 
 Source code: [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar.cpp)
 
@@ -84,7 +84,7 @@ All the attributes are private and used in the above methods, therefore they don
 
 ### feat
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -98,7 +98,7 @@ The overload, with respect to the standard function definition, takes an `std::m
 
 ### reset
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -108,7 +108,7 @@ It takes a `std::string` object (`reset` map key) as argument and returns the in
 
 ### go_to
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -118,7 +118,7 @@ It takes two integers as arguments which are the x and y position of the cursor 
 
 ### RGB
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -130,7 +130,7 @@ It takes three integers as arguments which are the correspoing rgb triplets of a
 
 ### col
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -183,7 +183,7 @@ It is used for the color output stream manipulation and currently supports the f
 
 ### sty
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -203,7 +203,7 @@ It is used for the style output stream manipulation and currently supports the f
   
 ### rst
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -225,7 +225,7 @@ It is used to reset features and currently supports the following list of comman
   
 ### crs
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -240,7 +240,7 @@ It is used for the output stream cursor navigation and currently supports the fo
 
 ### tcs
 
-Header file: [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.cpp)
+Header file: [*csmanippp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 

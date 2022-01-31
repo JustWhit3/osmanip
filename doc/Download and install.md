@@ -108,11 +108,11 @@ From the repository folder type this command on the shell:
 
 Once you have installed the library you can freely use it in one of your C++ projects by adding this line of code at the beginning of a program:
 ```c++
-#include <osmanip.h>
+#include <osmanip.hpp>
 ```
 or equivalently:
 ```c++
-#include "osmanip.h"
+#include "osmanip.hpp"
 ```
 Now you are able to access al the functions and classes of the manipulator.
 

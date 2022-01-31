@@ -1,5 +1,5 @@
-#ifndef PROGRESSBAR_H
-#define PROGRESSBAR_H
+#ifndef PROGRESSBAR_HPP
+#define PROGRESSBAR_HPP
 
 #include <string>
 #include <chrono>

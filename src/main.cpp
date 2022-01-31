@@ -1,9 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <cmath>
-#include <iomanip>
-#include "../include/osmanip.h"
+#include "../include/osmanip.hpp"
 
 using namespace osm;
 using namespace std;

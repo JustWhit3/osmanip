@@ -7,7 +7,7 @@
   * [Code folders](#code-folders-)
   * [Other](#other)
 - [Files](#files)
-  * [Setting files](#setting-files)
+  * [Dotfiles](#setting-files)
   * [Compilation files](#compilation-files-)
   * [Other](#other-)
 
@@ -22,10 +22,10 @@ osmanip/
 │   ├── Todo.md
 ├── img/
 ├── include/
-│   ├── csmanip.h
-│   ├── helper_tools.h
-│   ├── osmanip.h
-│   ├── progress_bar.h
+│   ├── csmanip.hpp
+│   ├── helper_tools.hpp
+│   ├── osmanip.hpp
+│   ├── progress_bar.hpp
 ├── src/
 │   ├── csmanip.cpp
 │   ├── helper_tools.cpp
@@ -43,7 +43,6 @@ osmanip/
 │── README.md
 │── License
 │── .gitignore
-│── .gitattributes
 │── .valgrindrc
 │── CITATION.cff
 │── CREDITS.md
@@ -58,13 +57,13 @@ osmanip/
 
 ### Code folders
 - [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): it contains the library header files:
-  * [*osmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): general header file containing all the others.
-  * [*csmanip.h*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.h): colors/styles manipulation header.
-  * [*progress_bar.h*](https://github.com/JustWhit3/osmanip/blob/main/include/progress_bar.h): progress bar functionalities header.
-  * [*helper_tools.h*](https://github.com/JustWhit3/osmanip/blob/main/include/helper_tools.h): helper tools header. It contains tools used in the main code headers.
+  * [*osmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.hpp): general header file containing all the others.
+  * [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.hpp): colors/styles manipulation header.
+  * [*progress_bar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progress_bar.hpp): progress bar functionalities header.
+  * [*helper_tools.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/helper_tools.hpp): helper tools header. It contains tools used in the main code headers.
 - [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): it contains library implementation and main files:
-  * [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): *osmanip.h* implementation code.
-  * [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp): *helper_tools.h* implementation code.
+  * [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): *osmanip.hpp* implementation code.
+  * [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp): *helper_tools.hpp* implementation code.
   * [*helper_tools.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/helper_tools.cpp): *helper_tools* implementation code.
   * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you examples of the library utilities.
 - [**test**](https://github.com/JustWhit3/osmanip/blob/main/test): it contains testing codes:
@@ -83,9 +82,8 @@ osmanip/
 
 ## Files
 
-### Setting files
+### Dotfiles
 - [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore): it ignores some temporary files you don't have to care about.
-- [*.gitattributes*](https://github.com/JustWhit3/osmanip/blob/main/.gitattributes): it contains repository settings.
 - [*.valgrindrc*](https://github.com/JustWhit3/osmanip/blob/main/.valgrindrc): it contains valgrind tools options.
 
 ### Compilation files
