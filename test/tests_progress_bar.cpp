@@ -14,30 +14,21 @@ using namespace std::chrono;
 //====================================================
 //     GLOBAL MACROS DEFINITION
 //====================================================
-#define style "%"                            \
-
-#define message "message"                    \
-
-#define bracket_open "{"                     \
-
-#define bracket_close "}"                    \
-
-#define color "red"                          \
-
-#define style_p_ ( ( string ) "%" )          \
-
-#define style_l_ ( ( string ) "#" )          \
-
-#define complete_style "Percentage: \"" +    \
-                       style_p_ +            \
-                       "\"\n" +              \
-                       "Loader: \"" +        \
-                       style_l_ +            \
-                       "\"\n"                \
-
-#define counter_ vector <int> {}             \
-
-#define v vector <int> { 1, 2, 3, 4 }        \
+const string style = "%";
+const string message = "message";
+const string bracket_open = "{";
+const string bracket_close = "}";
+const string color = "red";
+const string style_p_ =  "%";
+const string style_l_ = "#";
+const string complete_style = "Percentage: \"" +
+                              style_p_ +
+                              "\"\n" +
+                              "Loader: \"" +
+                              style_l_ +
+                              "\"\n";
+vector <int> counter_ {};
+vector <int> v { 1, 2, 3, 4 };
 
 //====================================================
 //     TESTING "ProgressBar" class METHODS

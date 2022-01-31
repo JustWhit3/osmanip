@@ -10,19 +10,18 @@ using namespace osm;
 using namespace std;
 
 //====================================================
-//     GLOBAL MACROS DEFINITION
+//     GLOBAL VARIABLES DEFINITION
 //====================================================
-#define example "a"                                         \
-
-#define integer 2                                           \
+const string example = "a";
+const int integer = 2;
 
 //====================================================
 //     TESTING THE * REDEFINITION
 //====================================================
 TEST_CASE( "Testing the * redefinition for string multiplication by an integer." )
  {
-  CHECK_EQ( static_cast<string> ( example ) * 3, "aaa" );
-  CHECK_EQ( 3 * static_cast<string> ( example ), "aaa" );
+  CHECK_EQ( example * 3, "aaa" );
+  CHECK_EQ( 3 * example, "aaa" );
  }
 
 //====================================================

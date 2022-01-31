@@ -10,24 +10,21 @@ using namespace osm;
 using namespace std;
 
 //====================================================
-//     GLOBAL MACROS DEFINITION
+//     GLOBAL VARIABLES DEFINITION
 //====================================================
-#define test_string "error" +                                      \
-                    static_cast <std::string>(" \"") +             \
-                    static_cast <std::string>( "not" ) +           \
-                    static_cast <std::string>( "\" " ) +           \
-                    "supported" +                                  \
-                    "\n"                                           \
-
-#define test_string_goto "\u001b[" +                               \
-                         std::to_string( 2 ) +                     \
-                         static_cast <std::string>( ";" ) +        \
-                         std::to_string( 5 ) +                     \
-                         static_cast <std::string>( "H" )          \
-
-#define maps_vector vector <map <string, string>> { col, sty }     \
-
-#define feat_int 100                                               \
+const string test_string = "error" +
+                           static_cast <std::string>(" \"") +
+                           static_cast <std::string>( "not" ) +
+                           static_cast <std::string>( "\" " ) +
+                           "supported" +
+                           "\n";
+const string test_string_goto = "\u001b[" +
+                                std::to_string( 2 ) +
+                                static_cast <std::string>( ";" ) +
+                                std::to_string( 5 ) +
+                                static_cast <std::string>( "H" );
+vector <map <string, string>> maps_vector { col, sty };
+const int feat_int = 100;
 
 //====================================================
 //     TESTING "feat" FUNCTIONS
@@ -76,7 +73,7 @@ TEST_CASE( "Testing the reset function." )
  }
 
 //====================================================
-//     TESTING "go_to" FUNCTIONS
+//     TESTING "go_to" FUNCTION
 //====================================================
 TEST_CASE( "Testing the reset function." )
  {            
