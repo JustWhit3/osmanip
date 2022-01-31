@@ -210,3 +210,74 @@ progress_bar.setStyle( "complete", "|100", ">" );
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar_add.gif" width="550">
+
+To add more progress bar simultaneously using threads:
+
+```c++
+cout << "These are 3 progress bars printed simultaneously: " << endl << endl << endl;
+
+ProgressBar<int> prog_int;
+prog_int.setMin( 0 );
+prog_int.setMax ( 60 );
+prog_int.setStyle( "complete", "%", "#" );
+prog_int.setBrackets( "[", "]" );
+prog_int.setMessage( "Installing..." );
+prog_int.setColor( "red" );
+
+ProgressBar<int> prog_int_2;
+prog_int_2.setMin( 5 );
+prog_int_2.setMax ( 25 );
+prog_int_2.setStyle( "complete", "%", "■" );
+prog_int_2.setBrackets( "{", "}" );
+prog_int_2.setMessage( "Processing..." );
+prog_int_2.setColor( "purple" );
+
+ProgressBar<float> prog_float;
+prog_float.setMin( 0.1f );
+prog_float.setMax ( 5.8f );
+prog_float.setStyle( "complete", "%", "#" );
+prog_float.setBrackets( "[", "]" );
+prog_float.setMessage( "Downloading..." );
+prog_float.setColor( "yellow" );
+
+auto bars = MultiProgressBar( prog_int, prog_int_2, prog_float );
+
+auto job1 = [ &bars, &prog_int ]() 
+ {
+  for( int i = prog_int.getMin(); i < prog_int.getMax(); i++ ) 
+   {
+    bars.for_one( 0, updater{}, i );
+    sleep_for( milliseconds( 100 ) );
+   }
+ };
+
+auto job2 = [ &bars, &prog_int_2 ]() 
+ {
+  for( int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++) 
+   {
+    bars.for_one( 1, updater{}, i );
+    sleep_for( milliseconds( 200 ) );
+   }
+ };
+
+auto job3 = [ &bars, &prog_float ]() 
+ {
+  for( float i = prog_float.getMin(); i < prog_float.getMax(); i += 0.1f ) 
+   {
+    bars.for_one( 2, updater{}, i );
+    sleep_for( milliseconds( 60 ) );
+   }
+ };
+
+thread first_job(job1);
+thread second_job(job2);
+thread third_job(job3);
+
+first_job.join();
+second_job.join();
+third_job.join();
+
+cout << endl << endl << endl;
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/multi_bars.gif" width="550">
