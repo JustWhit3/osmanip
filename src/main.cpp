@@ -294,7 +294,7 @@ void multi_bars()
 
   auto job2 = [ &bars, &prog_int_2 ]() 
    {
-    for(int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++) 
+    for( int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++) 
      {
       bars.for_one( 1, updater{}, i );
       sleep_for( milliseconds( 200 ) );
