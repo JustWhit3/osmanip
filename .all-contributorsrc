@@ -24,6 +24,15 @@
       "contributions": [
         "projectManagement"
       ]
+    },
+    {
+      "login": "MiguelMJ",
+      "name": "MiguelMJ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37369782?v=4",
+      "profile": "https://miguelmj.github.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "projectName": "osmanip",
