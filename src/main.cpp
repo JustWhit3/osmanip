@@ -322,6 +322,48 @@ void multi_bars()
  }
 
 //====================================================
+//     PROGRESS SPINNER
+//====================================================
+void progress_spinner()
+ {
+  cout << endl << "======================================================" << endl
+       << "     PROGRESS SPINNER                                    " << endl
+       << "======================================================" << endl << endl;
+  
+  //Integer progress spinner.
+  ProgressBar <int> spinner;
+  spinner.setMin( 2 );
+  spinner.setMax ( 33 );
+  spinner.setStyle( "spinner", "/-\\|" );
+
+  cout << "This is a progress spinner: " << endl;
+  for ( int i = spinner.getMin(); i < spinner.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    spinner.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;
+
+  //Float progress spinner.
+  ProgressBar <float> spinner_float;
+  spinner_float.setMin( 2.3f );
+  spinner_float.setMax ( 6.2f );
+  spinner_float.setColor( "blue" );
+  spinner_float.addStyle( "spinner", "|/_\\" );
+  spinner_float.setStyle( "spinner", "|/_\\" );
+
+  cout << "This is another progress spinner: " << endl;
+  for ( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
+   {
+    sleep_for( milliseconds( 100 ) );
+    spinner_float.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;
+ }
+
+//====================================================
 //     MAIN
 //====================================================
 int main()
@@ -329,13 +371,14 @@ int main()
   SET_CURSOR_VIEW( "OFF" );
  
   //Manipulators:
-  col_sty(); //Color/style.
+  /*col_sty(); //Color/style.
 
   //Progress bars:
   perc_bars(); //Percentage bar.
   load_bars(); //Loading bar.
   mixed_bars(); //Mixed bar.
-  multi_bars(); //Multi progress bars.
+  multi_bars(); //Multi progress bars.*/
+  progress_spinner(); //Progress spinner.
 
   SET_CURSOR_VIEW( "ON" );
  }

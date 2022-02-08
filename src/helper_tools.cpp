@@ -92,7 +92,6 @@ namespace osm
   template double check_condition <double, double> 
   ( std::function <bool()> condition, double return_it, double return_false );
 
-
   //====================================================
   //     FUNCTION TO CHECK IF EXPRESSION TYPE IS
   //     FLOATING POINT

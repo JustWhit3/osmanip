@@ -94,6 +94,7 @@ namespace osm
      bar_type max_, 
               min_, 
               iterating_var_, 
+              iterating_var_spin_,
               width_;
      std::string style_, 
                  style_p_,
