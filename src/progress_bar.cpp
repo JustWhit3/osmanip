@@ -316,7 +316,7 @@ namespace osm
   //     DEFINITION OF THE "update_output" METHOD
   //====================================================
   template <typename bar_type>
-  void ProgressBar <bar_type>::update_output( bar_type iterating_var, std::string output )
+  void ProgressBar <bar_type>::update_output( std::string output )
    {
     std::cout << output
               << getColor()
@@ -345,7 +345,7 @@ namespace osm
                 reset( "color" ) + 
                 getStyle();
 
-      update_output( iterating_var, output_ );
+      update_output( output_ );
      }
 
     //Update of the loader indicator only:
@@ -359,7 +359,7 @@ namespace osm
                 reset( "color" ) + 
                 getBrackets_close();  
                      
-      update_output( iterating_var, output_ );
+      update_output( output_ );
      }
 
     //Update of the whole progress bar:
@@ -379,7 +379,7 @@ namespace osm
                reset( "color" ) + 
                style_p_; 
 
-      update_output( iterating_var, output_ );
+      update_output( output_ );
      }
      
     else

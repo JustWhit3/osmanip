@@ -74,7 +74,7 @@ namespace osm
      void print() const;
      void addStyle( std::string type, std::string style );
      bar_type one( bar_type iterating_var );
-     void update_output( bar_type iterating_var, std::string output );
+     void update_output( std::string output );
   
     private:
 
