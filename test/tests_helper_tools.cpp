@@ -62,3 +62,17 @@ TEST_CASE_TEMPLATE( "Testing the runtime_error_func function.", T, string )
   CHECK_THROWS_AS( throw( runtime_error_func( "first", var, "second" ) ), runtime_error );
   CHECK_THROWS_MESSAGE( throw( runtime_error_func( "first", var, "second" ) ), test_string_hp );
  }
+
+//====================================================
+//     TESTING THE "roundoff" FUNCTION
+//==================================================== 
+TEST_CASE_TEMPLATE( "Testing the roundoff function.", T, double )
+ {
+  T var = 3.34;
+  T var_2 = 3.456;
+  T var_3 = 345.56;
+
+  CHECK_EQ( roundoff( var, 1 ), 3.3 );
+  CHECK_EQ( roundoff( var_2, 2 ), 3.46 );
+  CHECK_EQ( roundoff( var_3, 1 ), 345.6 );
+ }
