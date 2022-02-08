@@ -5,5 +5,6 @@
 #include "csmanip.hpp"
 #include "progress_bar.hpp"
 #include "multi_progress_bar.hpp"
+#include "canvas.hpp"
 
 #endif
