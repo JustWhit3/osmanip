@@ -372,8 +372,9 @@ void canvas_2d()
        << "     CANVAS                                    " << endl
        << "======================================================" << endl << endl;
   
-  //Integer progress spinner.
-  Canvas canvas(10,10);
+    cout << "Display an animation in a canvas" << endl;
+    Canvas canvas(10,10);
+    canvas.setBackground('.', feat(col, "bg white") + feat(col, "black"));
     for(uint i=0; i < 10; i++){
         canvas.clear();
         canvas.put(0,2,'x');
@@ -383,7 +384,40 @@ void canvas_2d()
         canvas.refresh();
         this_thread::sleep_for(chrono::milliseconds(100));
     }
-  cout << endl << endl;
+    
+    cout << endl << "Canvas with an ASCII frame" << endl;
+    
+    Canvas ascii_framed_canvas(15, 10);
+    ascii_framed_canvas.enableFrame(true);
+    ascii_framed_canvas.setFrame(FrameStyle::ASCII, feat(col, "bg white") + feat(col, "black"));
+    ascii_framed_canvas.clear();
+    ascii_framed_canvas.put(3,4,'H');
+    ascii_framed_canvas.put(4,4,'e');
+    ascii_framed_canvas.put(5,4,'l');
+    ascii_framed_canvas.put(6,4,'l');
+    ascii_framed_canvas.put(7,4,'o');
+    ascii_framed_canvas.refresh();
+    
+    sleep_for( seconds( 2 ) );
+    
+    cout << endl << "Canvas with a BOX frame" << endl;
+    
+    Canvas box_framed_canvas(20, 8);
+    box_framed_canvas.enableFrame(true);
+    box_framed_canvas.setFrame(FrameStyle::BOX);
+    box_framed_canvas.clear();
+    box_framed_canvas.put(3,4,'H');
+    box_framed_canvas.put(4,4,'e');
+    box_framed_canvas.put(5,4,'l');
+    box_framed_canvas.put(6,4,'l');
+    box_framed_canvas.put(7,4,'o');
+    box_framed_canvas.refresh();
+    
+    sleep_for( seconds( 2 ) );
+    
+    
+    
+    cout << endl << endl;
  }
 
 //====================================================
@@ -394,14 +428,14 @@ int main()
   SET_CURSOR_VIEW( "OFF" );
  
   //Manipulators:
-  col_sty(); //Color/style.
+//   col_sty(); //Color/style.
 
   //Progress bars:
-  perc_bars(); //Percentage bar.
-  load_bars(); //Loading bar.
-  mixed_bars(); //Mixed bar.
-  multi_bars(); //Multi progress bars.
-  progress_spinner(); //Progress spinner.
+//   perc_bars(); //Percentage bar.
+//   load_bars(); //Loading bar.
+//   mixed_bars(); //Mixed bar.
+//   multi_bars(); //Multi progress bars.
+//   progress_spinner(); //Progress spinner.
   canvas_2d();
 
   //Canvas
