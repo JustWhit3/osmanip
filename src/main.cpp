@@ -371,13 +371,13 @@ int main()
   SET_CURSOR_VIEW( "OFF" );
  
   //Manipulators:
-  /*col_sty(); //Color/style.
+  col_sty(); //Color/style.
 
   //Progress bars:
   perc_bars(); //Percentage bar.
   load_bars(); //Loading bar.
   mixed_bars(); //Mixed bar.
-  multi_bars(); //Multi progress bars.*/
+  multi_bars(); //Multi progress bars.
   progress_spinner(); //Progress spinner.
 
   SET_CURSOR_VIEW( "ON" );
