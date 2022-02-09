@@ -37,19 +37,24 @@ Constructors / destructor:
 - `~ProgressBar()`: standard destructor. It doesn't do anything.
 
 Setter methods: 
+
 - `void setMax( bar_type max )`: to set max value of the bar.
 - `void setMin( bar_type min )`: to set min value of the bar.
 - `void setStyle( std::string type, std::string style )`: to set the bar style.
 - `void setStyle( std::string type, std::string style_p, std::string style_l )`: to set the bar style in case of a complete bar.
-> Standard available types are `indicator` and `loader` and `complete` (with both `indicator` and `loader`).
 
-> Standard available styles are: `%` and `/100` for indicator and `#` for loader.
+> Standard available types are `indicator` and `loader`, `complete` (with both `indicator` and `loader`) and `spinner`.
+
+> Standard available styles are: `%` and `/100` for indicator, `■` and `#` for loader and `/-\\|` for spinner.
+
 - `void setMessage( std::string message )`: to set optional message of the bar.
 - `void setBegin()`: to set begin time for the CPU time counting.
 - `void setEnd()`: to set end time for the CPU time counting.
 - `void setBrackets()`: to set brackets style.
 - `void setColor( std::string color )`: to set progress bar color.
+
 > Color name has to be set with corresponding name of a `crs` map element.
+
 - `void resetAll()`: to reset all the main attributes.
 - `void resetMax()`: to reset max value of the bar.
 - `void resetMin()`: to reset min value of the bar.
@@ -58,9 +63,11 @@ Setter methods:
 - `void resetTime()`: to reset CPU time count.
 - `void resetBrackets()`: to reset brackets style.
 - `void resetColor()`: to reset progress bar color.
+
 > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment, in the sense that a few precision in lost when using them into loops.
 
 Getter methods:
+
 - `bar_type getMax()`: to get max value of the bar.
 - `bar_type getMin()`: to get min value of the bar.
 - `bar_type getTime()`: to get time for the CPU counting of a process.
@@ -74,6 +81,7 @@ Getter methods:
 - `std::string getColor()`: to get the progress bar color.
 
 Other methods: 
+
 - `void update( bar_type iterating_var )`: to update the bar after each loop cycle.
 - `void print()`: to print on the screen all the progress bar variable values.
 - `void addStyle( std::string type, std::string style )`: to create customized progress bar styles.

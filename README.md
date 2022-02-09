@@ -17,10 +17,15 @@
 - [Introduction](#introduction)
 - [Documentation](#documentation)
 - [List of features](#list-of-features)
-  * [Colors and styles manipulation](#colors-and-styles-manipulation)
-  * [Cursor navigation](#cursor-navigation)
-  * [Terminal control sequences](#terminal-control-sequences)
+  * [Output stream manipulators](#output-stream-manipulators)
+    * [Colors and styles manipulation](#colors-and-styles-manipulation)
+    * [Cursor navigation](#cursor-navigation)
+    * [Terminal control sequences](#terminal-control-sequences)
   * [Progress bars](#progress-bars)
+    * [Percentage indicator](#percentage-indicator)
+    * [Loading bar](#loading-bar)
+    * [Full progress bar](#full-progress-bar)
+    * [Progress spinner](#progress-spinner)
 
 ## Introduction
 
@@ -61,7 +66,10 @@ Here you can find examples of all the features supported in the current version 
 > ```c++
 > using namespace osm;
 > ```
-### Colors and styles manipulation
+
+### Output stream manipulators
+
+#### Colors and styles manipulation
 
 List of the supported color / style features (part of the output of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) program):
 
@@ -91,7 +99,7 @@ cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underline
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in order to reset all the output stream color / style.
 > If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
 
-### Cursor navigation
+#### Cursor navigation
 
 You can modify the cursor navigation in all the 4 directions (up, down, right, left) by using the `feat` function within the `crs` map, in this way:
 ```c++
@@ -102,7 +110,7 @@ You can additionally add a third argument to the `feat` function, in order to in
 
 It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp) for more information.
 
-### Terminal control sequences
+#### Terminal control sequences
 
 You can add a terminal control sequency to your output by using the `feat`  function within the `tcs` map, in this way:
 ```c++
@@ -128,6 +136,8 @@ Here you can find some examples about how to use them into your code.
 > **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`SET_CURSOR_VIEW`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=the%20col%20map.-,SET_CURSOR_VIEW,if%20visible%2C%20else%20if%20onof%20%3D%20OFF%20the%20cursor%20is%20hidde.,-Global%20variables) function at the beginning and then at the end of the program.
 
 > It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
+
+#### Percentage indicator
 
 Initialize and use a percentage progress bar:
 ```c++
@@ -176,7 +186,28 @@ cout << endl << "Time needed to complete the previous cycle: " << percentage_bar
 
 It is possible to add also colors and much more.
 
+>**HINT**: To use a progress bar with a standard template data container:
+>
+>```c++
+>vector<int> v = {/* list of integers */};
+>
+>ProgressBar <int> percentage_bar;
+>percentage_bar.setMin( 0 );
+>percentage_bar.setMax ( v.size() );
+>percentage_bar.setStyle( "indicator", "%" );
+>
+>for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); ++i )
+> {
+>  sleep_for( milliseconds( 100 ) );
+>  percentage_bar.update( i );
+>  //Do some operations...
+> }
+>```
+
+#### Loading bar
+
 You can also create a classic loading bar:
+
 ```c++
 ProgressBar <int> loading_bar;
 loading_bar.setMin( 3 );
@@ -197,6 +228,8 @@ for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_loading.gif" width="400">
 
 And customize it with messages and time-consuming info, like the previous percentage.
+
+#### Full progress bar
 
 If using mixed bar styles, for example:
 ```c++
@@ -286,3 +319,35 @@ cout << endl << endl << endl;
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/multi_bars.gif" width="550">
+
+#### Progress spinner
+
+To initialize a progress spinner:
+
+```C++
+ProgressBar <int> spinner;
+spinner.setMin( 2 );
+spinner.setMax ( 33 );
+spinner.setStyle( "spinner", "/-\\|" );
+cout << "This is a progress spinner: " << endl;
+
+for ( int i = spinner.getMin(); i < spinner.getMax(); i++ )
+ {
+  sleep_for( milliseconds( 100 ) );
+  spinner.update( i );
+  //Do some operations...
+ }
+
+cout << endl << endl;
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/spinner.gif" width="550">
+
+If you add a new stile to the spinner:
+
+```C++
+spinner.addStyle( "spinner", "|/_\\" );
+spinner.setStyle( "spinner", "|/_\\" );
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/spinner_2.gif" width="550">

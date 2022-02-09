@@ -39,6 +39,7 @@ namespace osm
    {
     { "indicator", { "%", "/100" } },
     { "loader", { "#", "■" } },
+    { "spinner", { "/-\\|" } },
    };
 
   template <typename bar_type>
@@ -316,7 +317,7 @@ namespace osm
   //     DEFINITION OF THE "update_output" METHOD
   //====================================================
   template <typename bar_type>
-  void ProgressBar <bar_type>::update_output( bar_type iterating_var, std::string output )
+  void ProgressBar <bar_type>::update_output( std::string output )
    {
     std::cout << output
               << getColor()
@@ -333,7 +334,14 @@ namespace osm
    {
     std::lock_guard <std::mutex> lock{ mutex_ };
     
-    iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - one( iterating_var ) );
+    iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - one( iterating_var ) ),
+    iterating_var_spin_ = check_condition
+     (
+      [ = ]{ return isFloatingPoint( iterating_var ); }, 
+      roundoff( iterating_var, 1 ) * 10, 
+      iterating_var 
+     ),
+    
     width_ = ( iterating_var_ + 1 ) / 4;
 
     //Update of the progress indicator only:
@@ -345,7 +353,7 @@ namespace osm
                 reset( "color" ) + 
                 getStyle();
 
-      update_output( iterating_var, output_ );
+      update_output( output_ );
      }
 
     //Update of the loader indicator only:
@@ -359,7 +367,7 @@ namespace osm
                 reset( "color" ) + 
                 getBrackets_close();  
                      
-      update_output( iterating_var, output_ );
+      update_output( output_ );
      }
 
     //Update of the whole progress bar:
@@ -379,7 +387,25 @@ namespace osm
                reset( "color" ) + 
                style_p_; 
 
-      update_output( iterating_var, output_ );
+      update_output( output_ );
+     }
+
+    //Update of the progress spinner:
+    else if( styles_map_.at( "spinner" ).find( style_ ) != styles_map_.at( "spinner" ).end() )
+     {
+      output_ = feat( crs, "left", 100 ) + 
+                getColor() +
+                getStyle()[ static_cast <unsigned long> ( iterating_var_spin_ ) & 3 ] +
+                feat( col, "green" ) +
+                check_condition
+                 (
+                  [ = ]{ return roundoff( iterating_var, 1 ) == roundoff( max_, 1 ) - one( iterating_var ); },
+                  static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ),
+                  static_cast <std::string> ( "" )
+                 ) +
+                reset( "color" );
+
+      update_output( output_ );
      }
      
     else
@@ -398,6 +424,7 @@ namespace osm
                << "Min: " << min_ << std::endl 
                << "Time counter: " << time_count_ << std::endl 
                << "Style: " << style_ << std::endl
+               << "Type: " << type_ << std::endl
                << "Message: " << message_ << std::endl
                << "Brackets style: " << brackets_open_ << brackets_close_<< std::endl
                << "Color: " << color_ << std::endl;
