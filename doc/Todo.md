@@ -6,7 +6,6 @@
 
 ## Improvements
 
-- Extend the ProgressBar class usage to non-standard types also (vectors, maps etc...). Basically update the [`update`](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp#:~:text=void%20ProgressBar%20%3Cbar_type%3E%3A%3Aupdate,Update%20of%20the%20progress) method in order to support also non-standard types as argument.
 - Add remaining time feature to each progress bar.
 - Make the library a cross-platform software, in order to support also other operating systems than Unix ones.
 - Improve the compilation using CMake tools.

@@ -186,9 +186,28 @@ cout << endl << "Time needed to complete the previous cycle: " << percentage_bar
 
 It is possible to add also colors and much more.
 
+>**HINT**: To use a progress bar with a standard template data container:
+>
+>```c++
+>vector<int> v = {/* list of integers */};
+>
+>ProgressBar <int> percentage_bar;
+>percentage_bar.setMin( 0 );
+>percentage_bar.setMax ( v.size() );
+>percentage_bar.setStyle( "indicator", "%" );
+>
+>for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); ++i )
+> {
+>  sleep_for( milliseconds( 100 ) );
+>  percentage_bar.update( i );
+>  //Do some operations...
+> }
+>```
+
 #### Loading bar
 
 You can also create a classic loading bar:
+
 ```c++
 ProgressBar <int> loading_bar;
 loading_bar.setMin( 3 );
