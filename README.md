@@ -327,8 +327,8 @@ cout << endl << endl;
 If you add a new stile to the spinner:
 
 ```C++
-spinner_float.addStyle( "spinner", "|/_\\" );
-spinner_float.setStyle( "spinner", "|/_\\" );
+spinner.addStyle( "spinner", "|/_\\" );
+spinner.setStyle( "spinner", "|/_\\" );
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/spinner_2.gif" width="550">
