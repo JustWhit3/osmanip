@@ -364,6 +364,29 @@ void progress_spinner()
  }
 
 //====================================================
+//     CANVAS
+//====================================================
+void canvas_2d()
+ {
+  cout << endl << "======================================================" << endl
+       << "     CANVAS                                    " << endl
+       << "======================================================" << endl << endl;
+  
+  //Integer progress spinner.
+  Canvas canvas(10,10);
+    for(uint i=0; i < 10; i++){
+        canvas.clear();
+        canvas.put(0,2,'x');
+        canvas.put(i,3,'A', feat(col, "red"));
+        canvas.put(5,0,'B', feat(col, "blue"));
+        canvas.put(7,8,'Z', feat(col, "bg cyan") + feat(col, "black") + feat(sty, "bold"));
+        canvas.refresh();
+        this_thread::sleep_for(chrono::milliseconds(100));
+    }
+  cout << endl << endl;
+ }
+
+//====================================================
 //     MAIN
 //====================================================
 int main()
@@ -379,6 +402,9 @@ int main()
   mixed_bars(); //Mixed bar.
   multi_bars(); //Multi progress bars.
   progress_spinner(); //Progress spinner.
+  canvas_2d();
 
+  //Canvas
+  
   SET_CURSOR_VIEW( "ON" );
  }

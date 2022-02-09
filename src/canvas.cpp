@@ -1,5 +1,5 @@
-#include "canvas.hpp"
-#include "csmanip.hpp"
+#include "../include/canvas.hpp"
+#include "../include/csmanip.hpp"
 
 #include <sstream>
 #include <iostream>
