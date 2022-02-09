@@ -51,11 +51,11 @@ namespace osm
         }
         uint y = 0;
         uint x = 0;
-        const auto& frame = [&](uint fi) -> std::string{
+        const auto& frame = [&](uint fi) -> std::string {
             return frame_feat_ 
                 + frames[frame_style_][fi] 
                 + feat(rst,"all");
-        };
+            };
         std::stringstream ss;
         if(frame_enabled_){
             ss << frame(0);
@@ -93,4 +93,19 @@ namespace osm
         std::cout << ss.str();
         already_drawn_ = true;
     }
+    Plot2DCanvas::Plot2DCanvas(uint w, uint h): Canvas(w, h){
+        offset_x_ = 0;
+        offset_y_ = 0;
+        scale_x_ = 1;
+        scale_y_ = 1;
+    }
+    void Plot2DCanvas::setOffset(float xOff, float yOff){
+        offset_x_ = xOff;
+        offset_y_ = yOff;
+    }
+    void Plot2DCanvas::setScale(float xScale, float yScale){
+        scale_x_ = xScale;
+        scale_y_ = yScale;
+    }
 }
+
