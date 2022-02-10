@@ -29,7 +29,7 @@
 
 ## Introduction
 
-Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to customize your output stream. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own code for that. Thanks to this you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
+Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to customize your output stream. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own code for that. Thanks to this you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. You can also manipulate ANSI escape sequences / codes, with proper functions provided by the library. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
 
 This software has been built for Linux systems (it has been tested with Ubuntu and WSL). Its compatibility has not been tested with Windows or MacOS operating systems.
 
@@ -105,7 +105,7 @@ You can modify the cursor navigation in all the 4 directions (up, down, right, l
 ```c++
 cout << feat( crs, "left" ) << "Moving cursor on the left";
 ```
-You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSII code of the cursor navigation (see [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)).
+You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSI code of the cursor navigation (see [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)).
 > If you want to know all the available commands, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md) page.
 
 It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp) for more information.
@@ -248,6 +248,21 @@ progress_bar.setStyle( "complete", "|100", ">" );
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/mixed_bar_add.gif" width="550">
+
+It is possible to add also time-remaining info for each progress bar type:
+
+```c++
+progress_bar.setRemainingTimeFlag( "on" );
+progress_bar.resetRemainingTime(); //To get more precise time values.
+//Loop initialization...
+```
+>**NOTE**: to get more precise time values, and in particular if you plan to reuse the same progress bar in future loops, it would be better to add this line:
+>```c++
+>progress_bar.resetRemainingTime();
+>```
+>before each loop initialization.
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_remaining.gif" width="550">
 
 To add more progress bar simultaneously using threads:
 

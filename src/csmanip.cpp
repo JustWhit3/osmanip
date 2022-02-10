@@ -128,8 +128,8 @@ namespace osm
     //Control sequence introducer sequences variables:
     { "csc", "\x1b[2J\x1b[1;1H" },      //Clear screen
     { "cln", "\x1b[2K" },               //Clear line
-    { "hcrs", "\x1b[?25l" },            //Hide cursor
-    { "scrs", "\x1b[?25h" }             //Show cursor
+    { "hcrs", "\u001b[?25l" },            //Hide cursor
+    { "scrs", "\u001b[?25h" }             //Show cursor
    };
  
   //====================================================

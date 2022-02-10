@@ -22,10 +22,13 @@ namespace osm
    style_( "" ), 
    type_( "" ),
    message_( "" ), 
-   time_count_( time_type::duration::zero().count() ),
+   time_count_( duration::zero().count() ),
    brackets_open_( "" ), 
    brackets_close_( "" ), 
-   color_( reset( "color" ) ) 
+   begin_timer( time_type::now() ),
+   color_( reset( "color" ) ),
+   ticks_occurred ( 0 ),
+   time_flag_ ( "off" )
    {}
 
   template <typename bar_type>
@@ -154,6 +157,12 @@ namespace osm
     color_ = feat( col, color );
    }
 
+  template <typename bar_type>
+  void ProgressBar <bar_type>::setRemainingTimeFlag( std::string time_flag )
+   { 
+    time_flag_ = time_flag;
+   }
+
   //====================================================
   //     DEFINITION OF THE RESETTERS
   //====================================================
@@ -166,9 +175,12 @@ namespace osm
     type_ = "",
     message_ = "", 
     time_count_ = 0,
+    ticks_occurred = 0,
+    begin_timer = time_type::now(),
     brackets_open_ = "", 
     brackets_close_= "", 
     color_ = reset( "color" ); 
+    time_flag_ = "off";
    }
 
   template <typename bar_type>
@@ -199,7 +211,14 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::resetTime()
    {
-    time_count_ = time_type::duration::zero().count();
+    time_count_ = duration::zero().count();
+   }
+
+  template <typename bar_type>
+  void ProgressBar <bar_type>::resetRemainingTime()
+   {
+    ticks_occurred = 0;
+    begin_timer = time_type::now();
    }
 
   template <typename bar_type>
@@ -292,6 +311,12 @@ namespace osm
     return color_; 
    }
 
+  template <typename bar_type>
+  std::string ProgressBar <bar_type>::getRemainingTimeFlag() const 
+   { 
+    return time_flag_; 
+   }
+
   //====================================================
   //     DEFINITION OF THE "one" METHOD
   //====================================================
@@ -314,16 +339,55 @@ namespace osm
    }
 
   //====================================================
+  //     DEFINITION OF THE "remaining_time" METHOD
+  //====================================================
+  template <typename bar_type>
+  void ProgressBar <bar_type>::remaining_time()
+   {
+    max_spin_ = check_condition
+     (
+      [ this ]{ return isFloatingPoint( max_ ); }, 
+      roundoff( max_ - min_, 1 ) * 10 + 1, 
+      max_ - min_ + 1
+     );
+
+    time_taken = time_type::now() - begin_timer;
+    percentage_done = static_cast <float> ( ticks_occurred ) / ( max_spin_ );
+    time_left = time_taken * ( 1 / percentage_done - 1 );
+    minutes_left = std::chrono::duration_cast <std::chrono::minutes> ( time_left );
+    seconds_left = std::chrono::duration_cast <std::chrono::seconds> ( time_left - minutes_left );
+
+    std::cout << "["
+              << feat( sty, "italics" ) + "Estimated time left: "  + reset( "italics" )
+              << feat( col, "green" ) << minutes_left.count() << reset( "color" ) << "m " 
+              << feat( col, "green" ) << seconds_left.count() << reset( "color" ) << "s" 
+              << "]"
+              << "\u001b[0K";
+   }
+
+  //====================================================
   //     DEFINITION OF THE "update_output" METHOD
   //====================================================
   template <typename bar_type>
   void ProgressBar <bar_type>::update_output( std::string output )
-   {
+   {    
     std::cout << output
               << getColor()
-              << empty_space + message_
-              << reset( "color" )
-              << std::flush;
+              << check_condition
+                  (
+                   [ this ]{ return ( message_ != null_str ); }, 
+                   empty_space + message_ + empty_space, 
+                   empty_space 
+                  )
+              << reset( "color" );
+
+    if( time_flag_ == "on" )
+     {
+      ticks_occurred ++;
+      remaining_time();
+     }
+     
+    std::cout << std::flush;
    }
  
   //====================================================
@@ -333,7 +397,7 @@ namespace osm
   void ProgressBar <bar_type>::update( bar_type iterating_var )
    {
     std::lock_guard <std::mutex> lock{ mutex_ };
-    
+
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - one( iterating_var ) ),
     iterating_var_spin_ = check_condition
      (
@@ -368,6 +432,7 @@ namespace osm
                 getBrackets_close();  
                      
       update_output( output_ );
+
      }
 
     //Update of the whole progress bar:
@@ -427,7 +492,8 @@ namespace osm
                << "Type: " << type_ << std::endl
                << "Message: " << message_ << std::endl
                << "Brackets style: " << brackets_open_ << brackets_close_<< std::endl
-               << "Color: " << color_ << std::endl;
+               << "Color: " << color_ << std::endl
+               << "Show remaining time: " << time_flag_ << std:: endl;
     }
 
   //====================================================

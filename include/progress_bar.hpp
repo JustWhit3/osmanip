@@ -15,6 +15,8 @@ namespace osm
   //====================================================
   using string_set_map = std::map <std::string, std::set<std::string>>;
   using time_type = std::chrono::steady_clock;
+  using time_point = time_type::time_point;
+  using duration = std::chrono::duration<float, time_type::period>;
 
   template <typename bar_type>
   class ProgressBar
@@ -39,6 +41,7 @@ namespace osm
      void setBegin();
      void setEnd();
      void setColor( std::string color );
+     void setRemainingTimeFlag( std::string time_flag );
 
     //====================================================
     //     RESETTERS DECLARATION
@@ -49,6 +52,7 @@ namespace osm
      void resetStyle();
      void resetMessage();
      void resetTime();
+     void resetRemainingTime();
      void resetBrackets();
      void resetColor();
 
@@ -66,15 +70,17 @@ namespace osm
      std::string getBrackets_close() const;
      std::string getColor() const;
      std::string getType() const;
+     std::string getRemainingTimeFlag() const;
 
     //====================================================
     //     OTHER METHODS DECLARATION
     //====================================================
      void update( bar_type iterating_var );
+     void update_output( std::string output );
      void print() const;
      void addStyle( std::string type, std::string style );
+     void remaining_time();
      bar_type one( bar_type iterating_var );
-     void update_output( std::string output );
   
     private:
 
@@ -91,7 +97,10 @@ namespace osm
     //     NON-STATIC ATTRIBUTES DECLARATION
     //====================================================
      long long time_count_;
-     bar_type max_, 
+     float percentage_done;
+     std::uint64_t ticks_occurred;
+     bar_type max_,
+              max_spin_, 
               min_, 
               iterating_var_, 
               iterating_var_spin_,
@@ -105,9 +114,15 @@ namespace osm
                  brackets_open_, 
                  brackets_close_, 
                  output_, 
-                 color_;
-     time_type::time_point begin, 
-                           end;
+                 color_,
+                 time_flag_;
+     time_point begin, 
+                end,
+                begin_timer;
+     duration time_taken,
+              time_left;
+     std::chrono::minutes minutes_left;
+     std::chrono::seconds seconds_left;
    };
  }
       

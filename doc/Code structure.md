@@ -52,6 +52,7 @@ Setter methods:
 - `void setEnd()`: to set end time for the CPU time counting.
 - `void setBrackets()`: to set brackets style.
 - `void setColor( std::string color )`: to set progress bar color.
+- `void setRemainingTimeFlag( std::string time_flag )`: to switch on/off the showing of the remaining-time info.
 
 > Color name has to be set with corresponding name of a `crs` map element.
 
@@ -63,6 +64,7 @@ Setter methods:
 - `void resetTime()`: to reset CPU time count.
 - `void resetBrackets()`: to reset brackets style.
 - `void resetColor()`: to reset progress bar color.
+- `void resetRemainingTime()`: to reset the time start, before showing the time-remaining info of the bar (this helps getting a more precise value of the time-remaining info at each iteration).
 
 > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment, in the sense that a few precision in lost when using them into loops.
 
@@ -79,12 +81,14 @@ Getter methods:
 - `std::string getBrackets_open()`: to get the opening bracket.
 - `std::string getBrackets_close()`: to get the closing bracket.
 - `std::string getColor()`: to get the progress bar color.
+- `std::string getRemainingTimeFlag()`: to get the value of the remaining-time info flag (on or off).
 
 Other methods: 
 
 - `void update( bar_type iterating_var )`: to update the bar after each loop cycle.
 - `void print()`: to print on the screen all the progress bar variable values.
 - `void addStyle( std::string type, std::string style )`: to create customized progress bar styles.
+- `void remaining_time()`: to compute the remaining time for the completion of the progress bar.
 - `bar_type one( bar_type iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
