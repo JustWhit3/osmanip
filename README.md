@@ -262,7 +262,7 @@ progress_bar.resetRemainingTime(); //To get more precise time values.
 >```
 >before each loop initialization.
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_remaining.gif" width="550">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_remaining.gif" width="700">
 
 To add more progress bar simultaneously using threads:
 
