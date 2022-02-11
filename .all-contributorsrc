@@ -17,15 +17,6 @@
   "skipCi": true,
   "contributors": [
     {
-      "login": "JustWhit3",
-      "name": "Gianluca Bianco",
-      "avatar_url": "https://avatars.githubusercontent.com/u/48323961?v=4",
-      "profile": "https://justwhit3.github.io/",
-      "contributions": [
-        "projectManagement"
-      ]
-    },
-    {
       "login": "MiguelMJ",
       "name": "MiguelMJ",
       "avatar_url": "https://avatars.githubusercontent.com/u/37369782?v=4",
