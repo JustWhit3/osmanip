@@ -19,7 +19,7 @@ elif [ -f "/usr/include/doctest/doctest.h" ] ; then
     fi
 else
     echo "Doctest is not installed, cannot compile the test codes!"
-    eco "Compiling only the main code (this is not a problem for the installation)..."
+    echo "Compiling only the main code (this is not a problem for the installation)..."
     if ! make bin/main ; then
         echo "Compilation failed!"
         exit
