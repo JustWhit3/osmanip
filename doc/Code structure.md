@@ -50,7 +50,7 @@ Setter methods:
 - `void setMessage( std::string message )`: to set optional message of the bar.
 - `void setBegin()`: to set begin time for the CPU time counting.
 - `void setEnd()`: to set end time for the CPU time counting.
-- `void setBrackets()`: to set brackets style.
+- `void setBrackets( std::string brackets_open, std::string brackets_close )`: to set brackets style.
 - `void setColor( std::string color )`: to set progress bar color.
 - `void setRemainingTimeFlag( std::string time_flag )`: to switch on/off the showing of the remaining-time info.
 
