@@ -59,23 +59,22 @@ In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder usef
 Here you can find the list of features implemented in the current version of the library:
 
 - **Output stream manipulators** for:
-  - Color and style manipulation
-  - Cursor navigation
-  - Terminal control sequences
+  - [Color and style manipulation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=of%20a%20program.-,Colors%20and%20styles%20manipulation,-List%20of%20the)
+  - [Cursor navigation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=reset%20commands%20here.-,Cursor%20navigation,-You%20can%20modify)
+  - [Terminal control sequences](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=for%20more%20information.-,Terminal%20control%20sequences,-You%20can%20add)
 - **Progress indicators**:
-  - Percentage indicator
-  - Loading bar
-  - Progress bar
-  - Progress spinner
+  - [Percentage indicator](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=to%20restore%20it.-,Percentage%20indicator,-Initialize%20and%20use)
+  - [Loading bar](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=Do%20some%20operations...%0A%7D-,Loading%20bar,-You%20can%20also)
+  - [Progress bar](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=the%20previous%20percentage.-,Full%20progress%20bar,-You%20can%20create)
+  - [Progress spinner](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=endl%20%3C%3C%20endl%20%3C%3C%20endl%3B-,Progress%20spinner,-To%20initialize%20a)
 
 Why choosing this library for progress bars? Some properties:
 
-- Extremely easy to use.
+- Extremely [easy to use](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=ProgressBar%20%3Cint%3E%20percentage_bar,Do%20some%20operations...%0A%20%20%7D).
 - Compatible with positive or negative variable of any standard type (integer, float, double and others).
-- Maximum and minimum values can be set with any value you prefer and the progress bars will be self-built with respect to them.
-- Each progress bar feature can be fully customized (messages, style, color, brackets type, time remaining info etc...) regarding to your requirements. You can also choose to use only a progress indicator or a loading bar instead of a complete progress bar.
-- It is thread-safe, hence you can use also multiple progress bars simultaneously.
-
+- Maximum and minimum values can be set with [any value](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=NOTE%3A%20you%20can%20insert%20each%20min%20and%20max%20value%20you%20prefer%2C%20like%20also%20%2D3%20and%2052%20for%20example%2C%20and%20the%20bar%20will%20work%20perfectly%20too.) you prefer and the progress bars will be self-built with respect to them.
+- Each progress bar [feature](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=Type%3A%20percentage%20indicator,progress%20bars%20simultaneously.) can be fully customized (messages, style, color, brackets type, time remaining info etc...) regarding to your requirements. You can also choose to use only a progress indicator or a loading bar instead of a complete progress bar.
+- It is thread-safe, hence you can use also [multiple progress bars](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=To%20add%20more%20progress%20bar%20simultaneously%20using%20threads%3A) simultaneously.
 
 ## Credits
 

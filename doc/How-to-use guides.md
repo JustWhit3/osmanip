@@ -98,15 +98,15 @@ From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) o
 
 A list of all the customizable [settings](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMax(%20bar_type,std%3A%3Astring%20time_flag%20)) of these progress bars:
 
-- **Type**: percentage indicator, loading bar, full progress bar and progress spinner.
-- **Min** and **max** values (for the loop iteration).
-- **Style** (ex: % or /100 for a percentage indicator, etc...). You can also create and add new ones.
-- **Messages**.
-- **Brackets style** (for the loading and full progress bar).
-- **Color**.
-- **Remaining time flag**.
-- **CPU time-consuming info**.
-- **Run progress bars simultaneously**.
+- [**Type**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setStyle(%20std,std%3A%3Astring%20style_l%20)): percentage indicator, loading bar, full progress bar and progress spinner.
+- [**Min**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMin(%20bar_type%20min%20)) and [**max**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMax(%20bar_type%20max%20)) values (for the loop iteration).
+- [**Style**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setStyle(%20std,std%3A%3Astring%20style_l%20)) (ex: % or /100 for a percentage indicator, etc...). You can also create and add new ones.
+- [**Messages**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMessage(%20std%3A%3Astring%20message%20)).
+- [**Brackets style**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setBrackets(%20std%3A%3Astring%20brackets_open%2C%20std%3A%3Astring%20brackets_close%20)) (for the loading and full progress bar).
+- [**Color**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setColor(%20std%3A%3Astring%20color%20)).
+- [**Remaining time flag**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setRemainingTimeFlag(%20std%3A%3Astring%20time_flag%20)).
+- [**CPU time-consuming info**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setBegin()%3A%20to,void%20setEnd()).
+- [**Run progress bars simultaneously**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=be%20explained%20here.-,MultiProgressBar,template%20%3Cclass...%20Inds%3E%20make_MultiProgressBar(%20Inds%26%26...%20bars%20)%3A%20main%20constructor.,-Public%20methods%3A).
 
 
 Here you can find some examples about how to use them into your code.
