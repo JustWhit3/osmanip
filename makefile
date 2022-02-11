@@ -1,8 +1,8 @@
 #====================================================
 #     VARIABLES
 #====================================================
-TARGET_EXEC := main.exe
-TEST_EXEC := tests.exe
+TARGET_EXEC := main
+TEST_EXEC := tests
 LIB := libosmanip.a
 CC := g++
 
@@ -42,6 +42,15 @@ LDFLAGS := -pthread
 #     ALIASES
 #====================================================
 .PHONY: clean all
+
+#====================================================
+#     OS DETECTION
+#====================================================
+# Windows (Cygwin)
+ifeq ($(OS), Windows_NT)
+	TARGET_EXEC += .exe
+	TEST_EXEC += .exe
+endif
 
 #====================================================
 #     BUILDING
