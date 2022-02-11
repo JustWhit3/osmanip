@@ -6,7 +6,6 @@
 
 ## Improvements
 
-- Add remaining time feature to each progress bar.
 - Make the library a cross-platform software, in order to support also other operating systems than Unix ones.
 - Improve the compilation using CMake tools.
 
