@@ -47,7 +47,7 @@ osmanip/
 │── License
 │── .gitignore
 │── CITATION.cff
-│── makefile
+│── Makefile
 ```
 
 ## Folders
