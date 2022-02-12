@@ -96,6 +96,7 @@ Why choosing this library for progress bars? Some properties:
     <td align="center"><a href="https://miguelmj.github.io/"><img src="https://avatars.githubusercontent.com/u/37369782?v=4" width="100px;" alt=""/><br /><sub><b>MiguelMJ</b></sub></a></td>
     <td align="center"><a href="https://github.com/TedLyngmo"><img src="https://avatars.githubusercontent.com/u/2361158?v=4" width="100px;" alt=""/><br /><sub><b>Ted Lyngmo</b></sub></a></td>
     <td align="center"><a href="https://github.com/myermo"><img src="https://avatars.githubusercontent.com/u/93035284?v=4" width="100px;" alt=""/><br /><sub><b>myermo</b></sub></a></td>
+    <td align="center"><a href="http://nickb.website"><img src="https://avatars.githubusercontent.com/u/25168557?v=4" width="100px;" alt=""/><br /><sub><b>nick-botticelli</b></sub></a></td>
   </tr>
 </table>
 
