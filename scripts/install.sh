@@ -1,5 +1,11 @@
 #!/bin/bash
 
+UNAME=$(uname)
+main="bin/main"
+if [[ "$UNAME" == CYGWIN* || "$UNAME" == MINGW* ]] ; then
+	main="${main}.exe"
+fi
+
 #====================================================
 #     COMPILATION OF THE SOURCE CODE
 #     (check if doctest is installed)
@@ -13,14 +19,14 @@ if [ -f "/usr/include/doctest.h" ] ; then
 elif [ -f "/usr/include/doctest/doctest.h" ] ; then
     echo "Doctest is installed in /usr/include/doctest folder, move it in /usr/include in order to correctly use it for the library tests!"
     echo "Compiling only the main code (this is not a problem for the installation)..."
-    if ! make bin/main ; then
+    if ! make $main ; then
         echo "Compilation failed!"
         exit
     fi
 else
     echo "Doctest is not installed, cannot compile the test codes!"
     echo "Compiling only the main code (this is not a problem for the installation)..."
-    if ! make bin/main ; then
+    if ! make $main ; then
         echo "Compilation failed!"
         exit
     fi
