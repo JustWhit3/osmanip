@@ -46,6 +46,7 @@ LDFLAGS := -pthread
 #====================================================
 #     OS DETECTION
 #====================================================
+
 # Windows (Cygwin)
 ifeq ($(OS), Windows_NT)
 	TARGET_EXEC += .exe
