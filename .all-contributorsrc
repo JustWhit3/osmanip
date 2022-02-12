@@ -45,6 +45,15 @@
         "bug",
         "review"
       ]
+    },
+    {
+      "login": "nick-botticelli",
+      "name": "nick-botticelli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25168557?v=4",
+      "profile": "http://nickb.website",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "projectName": "osmanip",
