@@ -39,11 +39,6 @@ CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP
 LDFLAGS := -pthread 
 
 #====================================================
-#     ALIASES
-#====================================================
-.PHONY: clean all
-
-#====================================================
 #     OS DETECTION
 #====================================================
 
@@ -54,11 +49,18 @@ ifeq ($(OS), Windows_NT)
 endif
 
 #====================================================
+#     ALIASES
+#====================================================
+.PHONY: clean all
+
+#====================================================
 #     BUILDING
 #====================================================
 
 #Building all:
 all: $(BUILD_DIR)/$(TARGET_EXEC) $(BUILD_DIR)/$(TEST_EXEC) $(LIB_DIR)/$(LIB)
+main: $(BUILD_DIR)/$(TARGET_EXEC) $(LIB_DIR)/$(LIB)
+tests: $(BUILD_DIR)/$(TEST_EXEC)
 
 #Building main executable:
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJ)

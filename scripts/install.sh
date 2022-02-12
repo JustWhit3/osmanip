@@ -4,7 +4,7 @@
 #     CHECK IF OS IS WINDOWS OR NOT
 #====================================================
 UNAME=$(uname)
-main="bin/main"
+main="main"
 if [[ "$UNAME" == CYGWIN* || "$UNAME" == MINGW* ]] ; then
 	main="${main}.exe"
 fi

@@ -156,19 +156,19 @@ This will compile both main and test codes. An extra **obj** folder with object 
 
 You have simply to run the former in order to run the entire example code:
 ```shell
-./bin/main.exe
+./bin/main
 ```
 or the latter in order to test the correct functionalities of the library classes methods and functions:
 ```shell
-./bin/tests.exe
+./bin/tests
 ```
 If you want to compile only the main code you can simply enter:
 ```shell
-make bin/main.exe
+make main
 ```
 if instead you want to compile only the tests code you can use the following command:
 ```shell
-make bin/tests.exe
+make tests
 ```
 There is also an option to go back to the pre-compilation state of the code, to do this simply type this command:
 ```shell
