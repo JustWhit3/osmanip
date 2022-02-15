@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+
 #include "../include/osmanip.hpp"
 
 using namespace osm;

@@ -8,16 +8,10 @@
 #include <vector>
 #include <mutex>
 
+#include "aliases.hpp"
+
 namespace osm
  {
-  //====================================================
-  //     TYPE ALIASES DECLARATION
-  //====================================================
-  using string_set_map = std::map <std::string, std::set<std::string>>;
-  using time_type = std::chrono::steady_clock;
-  using time_point = time_type::time_point;
-  using duration = std::chrono::duration<float, time_type::period>;
-
   template <typename bar_type>
   class ProgressBar
    {
@@ -116,7 +110,7 @@ namespace osm
                  output_, 
                  color_,
                  time_flag_;
-     time_point begin, 
+     steady_clock::time_point begin, 
                 end,
                 begin_timer;
      duration time_taken,

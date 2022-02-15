@@ -6,6 +6,7 @@
 #include <type_traits>
 #include <stdexcept>
 #include <cmath>
+
 #include "../include/helper_tools.hpp"
   
 namespace osm

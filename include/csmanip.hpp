@@ -4,14 +4,10 @@
 #include <string>
 #include <map>
 
+#include "aliases.hpp"
+
 namespace osm
  {
-  //====================================================
-  //     TYPE ALIASES DEFINITION
-  //====================================================
-  using string_map = std::map <std::string, std::string>;
-  using string_pair_map = std::map <std::string, std::pair<std::string, std::string>>;
-
   //====================================================
   //     VARIABLES DECLARATION
   //====================================================

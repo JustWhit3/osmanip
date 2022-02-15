@@ -6,6 +6,7 @@
 #include <cmath>
 #include <mutex>
 #include <stdexcept>
+
 #include "../include/helper_tools.hpp"
 #include "../include/csmanip.hpp"
 #include "../include/progress_bar.hpp"
@@ -25,7 +26,7 @@ namespace osm
    time_count_( duration::zero().count() ),
    brackets_open_( "" ), 
    brackets_close_( "" ), 
-   begin_timer( time_type::now() ),
+   begin_timer( steady_clock::now() ),
    color_( reset( "color" ) ),
    ticks_occurred ( 0 ),
    time_flag_ ( "off" )
@@ -134,13 +135,13 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::setBegin() 
    { 
-    begin = time_type::now();
+    begin = steady_clock::now();
    }
 
   template <typename bar_type>
   void ProgressBar <bar_type>::setEnd()
    {
-    end = time_type::now();
+    end = steady_clock::now();
     time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
    }
   
@@ -176,7 +177,7 @@ namespace osm
     message_ = "", 
     time_count_ = 0,
     ticks_occurred = 0,
-    begin_timer = time_type::now(),
+    begin_timer = steady_clock::now(),
     brackets_open_ = "", 
     brackets_close_= "", 
     color_ = reset( "color" ); 
@@ -218,7 +219,7 @@ namespace osm
   void ProgressBar <bar_type>::resetRemainingTime()
    {
     ticks_occurred = 0;
-    begin_timer = time_type::now();
+    begin_timer = steady_clock::now();
    }
 
   template <typename bar_type>
@@ -351,7 +352,7 @@ namespace osm
       max_ - min_ + 1
      );
 
-    time_taken = time_type::now() - begin_timer;
+    time_taken = steady_clock::now() - begin_timer;
     percentage_done = static_cast <float> ( ticks_occurred ) / ( max_spin_ );
     time_left = time_taken * ( 1 / percentage_done - 1 );
     minutes_left = std::chrono::duration_cast <std::chrono::minutes> ( time_left );
