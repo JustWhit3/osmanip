@@ -44,6 +44,11 @@ The software is and will stay **free**, but if you want to support me with a don
 
 <a href="https://www.buymeacoffee.com/JustWhit33" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
+Supported and tested operating systems:
+
+- Ubuntu (and the other Linux OSs).
+- Windows Subsystem for Linux (WSL).
+
 ## Documentation
 
 In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder useful documentation files are stored, in order to help the user learning how to properly use the library:
