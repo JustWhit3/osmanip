@@ -69,14 +69,14 @@ cd osmanip
 
 ### Mandatory
 
-- C++17 standard for compilation.
+- C++17 standard.
 - g++ compiler (g++ 9.3.0 has been tested so far).
 
 
 ### Optional
 
 - [doctest](https://github.com/onqtam/doctest) for testing compilation.
-- [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) to correctly use the [update.sh](#update) script.
+- [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) to correctly run the [update.sh](#update) script.
 - [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) to run the [debug.sh](#debugsh) script.
 
 ## Install
