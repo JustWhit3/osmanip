@@ -21,6 +21,8 @@
 - [Credits](#credits)
   - [Project leaders](#project-leaders)
   - [Other contributors](#other-contributors)
+  - [Other contributors with no GitHub account](#other-contributors-with-no-github-account)
+
 
 ## Introduction
 
@@ -109,3 +111,7 @@ Why choosing this library for progress bars? Some properties:
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+### Other contributors with no GitHub account
+
+- [StoryTeller](https://stackoverflow.com/users/817643/storyteller-unslander-monica)
