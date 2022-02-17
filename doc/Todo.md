@@ -9,14 +9,6 @@
 - Make the library a cross-platform software, in order to support also other operating systems than Unix ones.
 - Improve the compilation using CMake tools.
 - Add time-elapsed info to the progress bar.
-- Update the `tcs` map and modify the clear-screen ANSI sequences in order to return different values for a given `n` for `\u001b[{n}J`:
-  - n=0 clears from cursor until end of screen.
-  - n=1 clears from cursor to beginning of screen.
-  - n=2 clears entire screen.
-- Update the `tcs` map and modify the clear-screen ANSI sequences in order to return different values for a given `n` for `\u001b[{n}K`:
-  - n=0 clears from cursor to end of line.
-  - n=1 clears from cursor to start of line.
-  - n=2 clears entire line.
 
 ## Bugs
 

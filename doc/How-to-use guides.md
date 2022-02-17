@@ -79,12 +79,14 @@ It is not so easy to show a simple example of this feature. Certainly, a very in
 
 ### Terminal control sequences
 
-You can add a terminal control sequency to your output by using the `feat`  function within the `tcs` map, in this way:
+You can add a terminal control sequency to your output by using the `feat`  function within the `tcs` or `tcsc` maps (depends on the task), in this way:
 ```c++
 cout << feat( tcs, "bell" );
 ```
 For example, the previous command will output a bell sound from your computer.
 > If you want to know all the available features, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=error%20/%20Inserted%20terminal,25h%20%3A%20show%20cursor.) page.
+
+If you plan to use the sequences for clearing screen / line, please have a look [here](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=It%20is%20used%20for%20the%20terminal%20control%20sequences%20manipulation%20for%20clear%20line%20/%20screen.%20It%20is%20used%20within%20the%20feat%20function%20overload%20with%203%20arguments%20and%20n%20as%20the%20third%20one.%20It%20currently%20supports%20the%20following%20list%20of%20sequences) to fully understand their usage.
 
 ## Extra functions
 

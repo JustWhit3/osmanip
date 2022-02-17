@@ -308,7 +308,7 @@ It is used for the terminal control sequences manipulation and currently support
   * `hcrs` / `\x1b[?25l` : hide cursor.
   * `scrs` / `\x1b[?25h` : show cursor.
 
-### tcs
+### tcsc
 
 Header file: [*csmanippp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 

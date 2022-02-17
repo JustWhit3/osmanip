@@ -363,7 +363,8 @@ namespace osm
               << feat( col, "green" ) << minutes_left.count() << reset( "color" ) << "m " 
               << feat( col, "green" ) << seconds_left.count() << reset( "color" ) << "s" 
               << "]"
-              << "\u001b[0K";
+              << feat( tcsc, "cln", 0 );
+              
    }
 
   //====================================================

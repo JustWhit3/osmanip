@@ -11,11 +11,8 @@ namespace osm
   //====================================================
   //     VARIABLES DECLARATION
   //====================================================
-  extern string_map col,
-                    sty,
-                    rst,
-                    tcs;
-  extern string_pair_map crs;
+  extern string_map col, sty, rst, tcs;
+  extern string_pair_map crs, tcsc;
 
   //====================================================
   //     FUNCTIONS DECLARATION

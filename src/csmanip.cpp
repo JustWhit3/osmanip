@@ -125,11 +125,22 @@ namespace osm
     { "ffd", "\x0C" },      //Form feed
     { "crt", "\x0D" },      //Carriage return
 
-    //Control sequence introducer sequences variables:
-    { "csc", "\x1b[2J\x1b[1;1H" },      //Clear screen
-    { "cln", "\x1b[2K" },               //Clear line
+    //Control sequences variables:
     { "hcrs", "\u001b[?25l" },            //Hide cursor
     { "scrs", "\u001b[?25h" }             //Show cursor
+   };
+
+  //====================================================
+  //     DEFINITION OF THE "tcsc" MAP
+  //====================================================
+  string_pair_map tcsc
+   {
+    //Error variables:
+    { "error", std::make_pair( "Inserted cursor command", "" ) },
+
+    //Control sequences variables:
+    { "csc", std::make_pair( "\u001b[", "J" ) },  //Clear screen (0,1,2)
+    { "cln", std::make_pair( "\u001b[", "K" ) }  //Clear line (0,1,2)
    };
  
   //====================================================
@@ -138,7 +149,7 @@ namespace osm
   string_pair_map crs
    {
     //Error variables:
-    { "error", std::make_pair( "Inserted cursor command", "" ) },
+    { "error", std::make_pair( "Inserted terminal control sequence", "" ) },
   
     //Cursor variables:
     { "up", std::make_pair( "\u001b[", "A" ) },
@@ -171,7 +182,7 @@ namespace osm
      }
     else
      {
-      if( generic_map == crs )
+      if( generic_map == crs || generic_map == tcsc )
        {
         return generic_map.at( feat_string ).first + 
                std::to_string( feat_int ) + 
