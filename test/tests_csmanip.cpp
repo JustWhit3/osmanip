@@ -75,7 +75,16 @@ TEST_CASE( "Testing the reset function." )
 //====================================================
 //     TESTING "go_to" FUNCTION
 //====================================================
-TEST_CASE( "Testing the reset function." )
+TEST_CASE( "Testing the go_to function." )
  {            
   CHECK_EQ( go_to( 2, 5 ), test_string_goto );
+ }
+
+//====================================================
+//     TESTING "RGB" FUNCTION
+//====================================================
+TEST_CASE( "Testing the RGB function." )
+ {            
+  CHECK_EQ( RGB( 1,5,2 ), "\x1b[38;2;1;5;2m" );
+  CHECK_EQ( RGB( 5,1,8 ), "\x1b[38;2;5;1;8m" );
  }

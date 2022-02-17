@@ -71,6 +71,7 @@ cd osmanip
 
 - C++17 standard.
 - g++ compiler (g++ 9.3.0 has been tested so far).
+- The [Boost](https://www.boost.org/) library.
 
 
 ### Optional
