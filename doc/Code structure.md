@@ -17,6 +17,7 @@
   * [rst](#rst)
   * [crs](#crs)
   * [tcs](#tcs)
+  * [tcsc](#tcsc)
 
 ## Namespaces
 
@@ -304,7 +305,25 @@ It is used for the terminal control sequences manipulation and currently support
   * `lfd` / `\x0A` : line feed.
   * `ffd` / `\x0C` : form feed.
   * `crt` / `\x0D` : carriage return.
-  * `csc` / `\x1b[2J\x1b[1;1H` : clear screen.
-  * `cln` / `\x1b[2K` : clear line.
   * `hcrs` / `\x1b[?25l` : hide cursor.
   * `scrs` / `\x1b[?25h` : show cursor.
+
+### tcs
+
+Header file: [*csmanippp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+Complete definition: `std::map <std::string, std::pair<std::string, std::string>> tcsc`
+
+It is used for the terminal control sequences manipulation for clear line / screen. It is used within the [`feat` function overload](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Overload%3A%20std%3A%3Astring%20feat(%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Apair%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%3E%20%26%20generic_map%2C%20std%3A%3Astring%20feat_string%2C%20int%20feat_int%20).) with 3 arguments and `n` as the third one. It currently supports the following list of sequences (first `std::string`) with the corresponding ASCII code (second `std::pair<std::string, std::string>`) or string value in the case of the `error` feature:
+  * `error` / `Inserted cursor command`
+  * `csc` / `\u001b[` / `J` : clear the screen:
+    * `n=0`: clears from cursor until end of screen.
+    * `n=1`: clears from cursor to beginning of screen.
+    * `n=2`: clears entire screen.
+  * `cln` / `\u001b[` / `K` : clear the line:
+    * `n=0`: clears from cursor to end of line.
+    * `n=1`: clears from cursor to start of line.
+    * `n=2`: clears entire line.
+    
