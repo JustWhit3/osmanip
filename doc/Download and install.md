@@ -67,18 +67,22 @@ cd osmanip
 
 ## Prerequisites
 
+All the prerequisites can be installed during the first step of the automatic installation with [script](https://github.com/JustWhit3/osmanip/blob/main/scripts/install.sh).
+
 ### Mandatory
 
 - C++17 standard.
-- g++ compiler (g++ 9.3.0 has been tested so far).
-- The [Boost](https://www.boost.org/) library.
+- g++ compiler (g++ 9.3.0 has been tested so far) for compilation.
+- [Boost](https://www.boost.org/) library.
+- [GNU make](https://www.opensourceforu.com/2012/06/gnu-make-in-detail-for-beginners/#:~:text=Installing%20GNU%20Make,install%20build%2Dessential.) for compilation.
 
 
 ### Optional
 
 - [doctest](https://github.com/onqtam/doctest) for testing compilation.
 - [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) to correctly run the [update.sh](#update) script.
-- [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) to run the [debug.sh](#debugsh) script.
+- [Valgrind](https://valgrind.org/) to run the [debug.sh](#debugsh) script.
+- [Cppcheck](https://github.com/danmar/cppcheck) to run the [debug.sh](#debugsh) script.
 
 ## Install
 

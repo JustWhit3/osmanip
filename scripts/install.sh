@@ -10,6 +10,22 @@ if [[ "$UNAME" == CYGWIN* || "$UNAME" == MINGW* ]] ; then
 fi
 
 #====================================================
+#     INSTALLING PREREQUISITES
+#====================================================
+echo "Do you want to install mandatory prerequisites? (y/n)"
+read word_m
+if [ $word_m == "y" ] || [ $word_m == "Y" ] ; then
+    sudo apt install build-essential g++ libboost-all-dev
+fi
+echo ""
+echo "Do you want to install optional prerequisites? (y/n)"
+read word_o
+if [ $word_o == "y" ] || [ $word_o == "Y" ] ; then
+    sudo apt install doctest-dev subversion valgrind cppcheck
+fi
+echo ""
+
+#====================================================
 #     COMPILATION OF THE SOURCE CODE
 #     (check if doctest is installed)
 #====================================================

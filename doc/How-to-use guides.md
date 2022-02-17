@@ -16,7 +16,7 @@
 
 ## Introduction
 
-Here you can find examples of all the features supported in the current version of the manipulator and how to use them.
+Here you can find examples of all the features supported in the current version of the library and how to use them.
 > **NOTE**: all the examples are written supposing to use the following directive:
 > ```c++
 > using namespace osm;
