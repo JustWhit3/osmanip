@@ -26,9 +26,7 @@
 
 ## Introduction
 
-Here I want to present you *osmanip*: my personal C++ library containing useful output-stream tools to customize your output stream. Probably there are already some similar libraries in the web that do the same job, but since I personally don't like them at all I preferred writing my own code for that. Thanks to this you can manipulate the output stream of your program with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and CPU-usage monitor objects. You can also manipulate ANSI escape sequences / codes, with proper functions provided by the library. Using this feaures may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
-
-This software has been built for Linux systems (it has been tested with Ubuntu and WSL). Its compatibility has not been tested with Windows or MacOS operating systems.
+Here I want to present you *osmanip*: a C++ library containing useful tools to customize the output stream of your programs. Within this tools you can manipulate an output stream with colors, styles (ex: bold, italics, etc...) and helper tools like progress bars and other stuff incoming. You can also manipulate ANSI escape sequences / codes, with proper functions provided by the library. Using this features may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
 
 If you want to use this software in one of your project, please cite it. You can find the citation template [here](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
 > **NOTE**: all the manipulators of this library are compatible with [iomanip](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/iomanip).

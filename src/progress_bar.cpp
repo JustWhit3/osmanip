@@ -6,10 +6,14 @@
 #include <cmath>
 #include <mutex>
 #include <stdexcept>
+#include <boost/preprocessor/seq/for_each.hpp>
+#include <boost/preprocessor/tuple/to_seq.hpp>
 
 #include "../include/helper_tools.hpp"
 #include "../include/csmanip.hpp"
 #include "../include/progress_bar.hpp"
+
+#define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
 
 namespace osm
  {
@@ -519,14 +523,10 @@ namespace osm
     }
   
   //====================================================
-  //     TEMPLATE SPECIALIZATIONS
+  //     EXPLICIT INSTANTIATIONS
   //====================================================
+  #define PROGRESSBAR( r, data, T ) template \
+  class ProgressBar <T>;
 
-  //Standard types:
-  template class ProgressBar <long long>;
-  template class ProgressBar <long>;
-  template class ProgressBar <int>;
-  template class ProgressBar <double>;
-  template class ProgressBar <long double>;
-  template class ProgressBar <float>;
+  BOOST_PP_SEQ_FOR_EACH( PROGRESSBAR, _, ARGS( int, long, long long, double, long double, float ) );
  }

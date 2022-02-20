@@ -6,6 +6,7 @@
 #include <functional>
 #include <type_traits>
 #include <stdexcept>
+
 namespace osm
  {
   //====================================================
@@ -32,6 +33,6 @@ namespace osm
   extern bool isFloatingPoint( const T & expression );
 
   template <typename T>
-  extern T roundoff( const T value, const unsigned char prec );
+  extern T roundoff( const T& value, const unsigned char prec );
  }
 #endif

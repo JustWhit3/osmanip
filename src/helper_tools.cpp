@@ -105,7 +105,7 @@ namespace osm
   //     DECIMAL PLACES
   //====================================================
   template <typename T>
-  extern T roundoff( const T value, const unsigned char prec )
+  extern T roundoff( const T& value, const unsigned char prec )
    {
     T pow_10 = pow( 10.0f, static_cast <T> ( prec ) );
     return round( value * pow_10 ) / pow_10;
@@ -113,7 +113,7 @@ namespace osm
 
   //Explicit instantiations:
   #define ROUNDOFF( r, data, T ) template \
-  T roundoff <T> ( const T value, const unsigned char prec  );
+  T roundoff <T> ( const T& value, const unsigned char prec );
 
   BOOST_PP_SEQ_FOR_EACH( ROUNDOFF, _, ARGS( int, double, long double, long, long long, float ) );
  }
