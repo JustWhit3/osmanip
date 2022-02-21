@@ -92,7 +92,7 @@ If you plan to use the sequences for clearing screen / line, please have a look 
 
 Some extra functions are provided:
 - [`go_to`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=the%20corresponding%20key.-,go_to,the%20screen%20and%20returns%20the%20interested%20position%20you%20want%20to,-reach.): to put the cursor in a precise (x,y) point of the terminal.
-- [`SET_CURSOR_VIEW`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=the%20col%20map.-,SET_CURSOR_VIEW,if%20visible%2C%20else%20if%20onof%20%3D%20OFF%20the%20cursor%20is%20hidde.,-Global%20variables): to set the cursor view on or off in your program.
+- [`OPTION`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Template%20functions-,OPTION,-Header%20file%3A%20csmanip): to set the cursor view on or off in your program.
 
 ## Progress bars
 
@@ -114,7 +114,7 @@ A list of all the customizable [settings](https://github.com/JustWhit3/osmanip/b
 Here you can find some examples about how to use them into your code.
 > If you want to know more precisely all the available methods of this class, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=This%20template%20class%20is%20used%20to%20create%20progress,Constructors%20/%20destructor%3A) page.
 
-> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`SET_CURSOR_VIEW`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=the%20col%20map.-,SET_CURSOR_VIEW,if%20visible%2C%20else%20if%20onof%20%3D%20OFF%20the%20cursor%20is%20hidde.,-Global%20variables) function at the beginning and then at the end of the program.
+> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`OPTION`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Template%20functions-,OPTION,-Header%20file%3A%20csmanip) function at the beginning and then at the end of the program.
 
 > It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
 

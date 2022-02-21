@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <fstream>
 
 #include "../include/osmanip.hpp"
 
@@ -401,7 +402,7 @@ void progress_spinner()
 //====================================================
 int main()
  {
-  SET_CURSOR_VIEW( "OFF" );
+  OPTION( CURSOR::OFF );
  
   //Manipulators:
   col_sty(); //Color/style.
@@ -413,5 +414,5 @@ int main()
   multi_bars(); //Multi progress bars
   progress_spinner(); //Progress spinner.
 
-  SET_CURSOR_VIEW( "ON" );
+  OPTION( CURSOR::ON);
  }

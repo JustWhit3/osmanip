@@ -10,7 +10,6 @@ namespace osm
   //====================================================
   //     DATA CONTAINERS
   //====================================================
-  using string_map = std::map <std::string, std::string>;
   using string_pair_map = std::map <std::string, std::pair<std::string, std::string>>;
   using string_set_map = std::map <std::string, std::set <std::string> >;
 

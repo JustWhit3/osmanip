@@ -72,6 +72,7 @@ All the prerequisites can be installed during the first step of the automatic in
 ### Mandatory
 
 - C++17 standard.
+- A terminal supporting ANSI escape codes.
 - g++ compiler (g++ 9.3.0 has been tested so far) for compilation.
 - [Boost](https://www.boost.org/) library.
 - [GNU make](https://www.opensourceforu.com/2012/06/gnu-make-in-detail-for-beginners/#:~:text=Installing%20GNU%20Make,install%20build%2Dessential.) for compilation.

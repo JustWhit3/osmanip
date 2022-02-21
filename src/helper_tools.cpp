@@ -59,7 +59,7 @@ namespace osm
   #define RUNTIME_ERROR_FUNC( r, data, T ) template \
   std::runtime_error runtime_error_func <T> ( std::string beg, T variable, std::string end );
 
-  BOOST_PP_SEQ_FOR_EACH( RUNTIME_ERROR_FUNC, _, ARGS( std::string ) );
+  BOOST_PP_SEQ_FOR_EACH( RUNTIME_ERROR_FUNC, _, ARGS( std::string, const char* ) );
 
   //====================================================
   //     FUNCTION TO CHECK IF A CONDITION IS VERIFIED

@@ -1,15 +1,20 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <boost/preprocessor/seq/for_each.hpp>
+#include <boost/preprocessor/tuple/to_seq.hpp>
+
 #include "../include/csmanip.hpp"
 #include "../include/helper_tools.hpp"
+
+#define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
 
 namespace osm
  {
   //====================================================
   //     DEFINITION OF THE "color" MAP
   //====================================================
-  string_map col 
+  std::map <std::string, std::string> col 
    {
     //Error variables:
     { "error", "Inserted color" },
@@ -65,7 +70,7 @@ namespace osm
   //     DEFINITION OF THE "style" MAP
   //====================================================
   //Definition of the "style" map:
-  string_map sty 
+  std::map <std::string, std::string> sty 
    {
     //Error variables:
     { "error", "Inserted style" },
@@ -79,13 +84,13 @@ namespace osm
     { "inverse", "\033[7m" },
     { "invisible", "\033[8m" },
     { "crossed", "\033[9m" },
-    {"d-underlined", "\033[21m" }
+    { "d-underlined", "\033[21m" }
    };
  
   //====================================================
   //     DEFINITION OF THE "reset" MAP
   //====================================================
-  string_map rst 
+  std::map <std::string, std::string> rst 
    {
     //Error variables:
     { "error", "Inserted reset command" },
@@ -112,7 +117,7 @@ namespace osm
   //     DEFINITION OF THE "tcs" MAP
   //     (terminal control sequences)
   //====================================================
-  string_map tcs
+  std::map <std::string, std::string> tcs
    {
     //Error variables:
     { "error", "Inserted terminal control sequence" },
@@ -161,7 +166,7 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "feat" FUNCTION
   //====================================================
-  std::string feat( string_map & generic_map, std::string feat_string )
+  std::string feat( std::map <std::string, std::string> & generic_map, std::string feat_string )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
@@ -231,21 +236,22 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE "SET_CURSOR_VIEW" FUNCTION
+  //     DEFINITION OF THE "OPTION" FUNCTION
   //====================================================
-  void SET_CURSOR_VIEW( const std::string onof )
+  template <typename T>
+  void OPTION( const T opt )
    {
-    if( onof == "on" || onof == "ON" )
-     {
-      std::cout << feat( tcs, "scrs" );
-     }
-    else if( onof == "off" || onof == "OFF" )
-     {
-      std::cout << feat( tcs, "hcrs" );
-     }
+    if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
+    else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
     else
      {
-      throw runtime_error_func( "Inserted cursor option", onof, "is not supported!" );
+      throw runtime_error_func( "Inserted cursor option", "", "is not supported!" );
      }
    }
+
+  //Explicit instantiations:
+  #define OPTION( r, data, T ) template \
+  void OPTION <T> ( const T opt );
+
+  BOOST_PP_SEQ_FOR_EACH( OPTION, _, ARGS( CURSOR ) );
  }
