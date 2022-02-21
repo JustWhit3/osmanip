@@ -10,7 +10,8 @@
   * [reset](#reset)
   * [go_to](#goto)
   * [RGB](#RGB)
-  * [SET_CURSOR_VIEW](#SETCURSORVIEW)
+- [Template functions](#template-functions)
+  * [OPTION](#OPTION)
 - [Global variables](#global-variables)
   * [col](#col)
   * [sty](#sty)
@@ -18,6 +19,8 @@
   * [crs](#crs)
   * [tcs](#tcs)
   * [tcsc](#tcsc)
+- [Enum classes](#enum-classes)
+  * [CURSOR](#CURSOR)
 
 ## Namespaces
 
@@ -167,15 +170,17 @@ Complete definition: `std::string RGB( int r, int g, int b )`.
 
 It takes three integers as arguments which are the correspoing rgb triplets of a color (see [here](http://www.aksiom.net/rgb.html) for the full list of availables colors). It can be used to output a wider variety of colors with respect to the standard availables from the `col` map.
 
-### SET_CURSOR_VIEW
+## Template functions
+
+### OPTION
 
 Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `void SET_CURSOR_VIEW( std::string onof )`.
+Complete definition: `template <typename T> void OPTION( const T opt )`.
 
-It takes a string as argument, which represent the cursor view state in the current program. If `onof = ON` the cursor if visible, else if `onof = OFF` the cursor is hidde.
+It takes an enum class as argument, which represent the cursor view state in the current program. If `opt = CURSOR::ON` the cursor if visible, else if `opt = CURSOR::OFF` the cursor is hidden.
 
 ## Global variables
 
@@ -291,7 +296,7 @@ It is used for the output stream cursor navigation and currently supports the fo
 
 ### tcs
 
-Header file: [*csmanippp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -310,7 +315,7 @@ It is used for the terminal control sequences manipulation and currently support
 
 ### tcsc
 
-Header file: [*csmanippp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -326,4 +331,13 @@ It is used for the terminal control sequences manipulation for clear line / scre
     * `n=0`: clears from cursor to end of line.
     * `n=1`: clears from cursor to start of line.
     * `n=2`: clears entire line.
-    
+
+## Enum classes
+
+### CURSOR
+
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+It is used to store the [`OPTION`][#OPTION] function options for the cursor view. Current options are: `ON` to enable cursor view and `OFF` to disable it.
