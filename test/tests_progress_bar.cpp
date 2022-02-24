@@ -58,6 +58,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T,
     CHECK_EQ( bar.getBrackets_close(), "" );
     CHECK_EQ( bar.getBrackets_open(), "" );
     CHECK_EQ( bar.getColor(), reset( "color" ));
+    CHECK_EQ( bar.getRemainingTimeFlag(), "off" );
    }
 
   bar.setMax( max );
@@ -66,6 +67,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T,
   bar.setMessage( message );
   bar.setBrackets( bracket_open, bracket_close );
   bar.setColor( color );
+  bar.setRemainingTimeFlag( "on" );
 
   //Require values have been correctly initialized.
   REQUIRE( bar.getMax() != static_cast<T> ( NULL ) );
@@ -76,6 +78,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T,
   REQUIRE( bar.getBrackets_close() != "" );
   REQUIRE( bar.getBrackets_open() != "" );
   REQUIRE( bar.getColor() != reset( "color" ) );  
+  REQUIRE( bar.getRemainingTimeFlag() != "off" );
 
   SUBCASE( "Testing setters and getters with initialized values." ) 
    {
@@ -87,6 +90,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T,
     CHECK_EQ( bar.getColor(), feat( col, "red" ) );
     CHECK_EQ( bar.getStyle(), style );
     CHECK_EQ( bar.getType(), type );
+    CHECK_EQ( bar.getRemainingTimeFlag(), "on" );
 
     CHECK_THROWS_AS( bar.setStyle( type, "a" ), runtime_error );
     CHECK_THROWS_AS( bar.setStyle( "a", style ), runtime_error );
@@ -116,6 +120,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T,
     CHECK_EQ( bar.getType(), "" );
     CHECK_EQ( bar.getMessage(), "" );
     CHECK_EQ( bar.getColor(), reset( "color" ) );
+    CHECK_EQ( bar.getRemainingTimeFlag(), "off" );
    }
 
   bar.setMax( max );

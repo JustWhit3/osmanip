@@ -1,6 +1,31 @@
 #!/bin/bash
 
 #====================================================
+#     CHECK IF OS IS WINDOWS OR NOT
+#====================================================
+UNAME=$(uname)
+main="main"
+if [[ "$UNAME" == CYGWIN* || "$UNAME" == MINGW* ]] ; then
+	main="${main}.exe"
+fi
+
+#====================================================
+#     INSTALLING PREREQUISITES
+#====================================================
+echo "Do you want to install mandatory prerequisites? (y/n)"
+read word_m
+if [ $word_m == "y" ] || [ $word_m == "Y" ] ; then
+    sudo apt install build-essential g++ libboost-all-dev
+fi
+echo ""
+echo "Do you want to install optional prerequisites? (y/n)"
+read word_o
+if [ $word_o == "y" ] || [ $word_o == "Y" ] ; then
+    sudo apt install doctest-dev subversion valgrind cppcheck
+fi
+echo ""
+
+#====================================================
 #     COMPILATION OF THE SOURCE CODE
 #     (check if doctest is installed)
 #====================================================
@@ -13,14 +38,14 @@ if [ -f "/usr/include/doctest.h" ] ; then
 elif [ -f "/usr/include/doctest/doctest.h" ] ; then
     echo "Doctest is installed in /usr/include/doctest folder, move it in /usr/include in order to correctly use it for the library tests!"
     echo "Compiling only the main code (this is not a problem for the installation)..."
-    if ! make bin/main ; then
+    if ! make $main ; then
         echo "Compilation failed!"
         exit
     fi
 else
     echo "Doctest is not installed, cannot compile the test codes!"
-    eco "Compiling only the main code (this is not a problem for the installation)..."
-    if ! make bin/main ; then
+    echo "Compiling only the main code (this is not a problem for the installation)..."
+    if ! make $main ; then
         echo "Compilation failed!"
         exit
     fi

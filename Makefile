@@ -1,8 +1,8 @@
 #====================================================
 #     VARIABLES
 #====================================================
-TARGET_EXEC := main.exe
-TEST_EXEC := tests.exe
+TARGET_EXEC := main
+TEST_EXEC := tests
 LIB := libosmanip.a
 CC := g++
 
@@ -39,6 +39,16 @@ CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP
 LDFLAGS := -pthread 
 
 #====================================================
+#     OS DETECTION
+#====================================================
+
+# Windows (Cygwin)
+ifeq ($(OS), Windows_NT)
+	TARGET_EXEC += .exe
+	TEST_EXEC += .exe
+endif
+
+#====================================================
 #     ALIASES
 #====================================================
 .PHONY: clean all
@@ -49,6 +59,8 @@ LDFLAGS := -pthread
 
 #Building all:
 all: $(BUILD_DIR)/$(TARGET_EXEC) $(BUILD_DIR)/$(TEST_EXEC) $(LIB_DIR)/$(LIB)
+main: $(BUILD_DIR)/$(TARGET_EXEC) $(LIB_DIR)/$(LIB)
+tests: $(BUILD_DIR)/$(TEST_EXEC)
 
 #Building main executable:
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJ)

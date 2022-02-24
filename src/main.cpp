@@ -1,6 +1,8 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <fstream>
+
 #include "../include/osmanip.hpp"
 
 using namespace osm;
@@ -104,7 +106,7 @@ void col_sty()
 void perc_bars()
  {
   cout << endl << "======================================================" << endl
-       << "     PROGRESS BARS                                    " << endl
+       << "     PERCENTAGE BARS                                    " << endl
        << "======================================================" << endl << endl;
   
   //Normal percentage bar.
@@ -152,6 +154,20 @@ void perc_bars()
     percentage_bar.setEnd();
    }
   cout << endl << "Time needed to complete the previous loop: " << percentage_bar.getTime() << " ms." << endl << endl;
+
+  //Percentage bar with estimated time left:
+  percentage_bar.setMin( 2 );
+  percentage_bar.setMax ( 121 );
+  percentage_bar.setRemainingTimeFlag( "on" );
+  percentage_bar.resetRemainingTime();
+  cout << "This is a percentage bar with time-remaining info: " << endl;
+  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+   {
+    sleep_for( milliseconds( 100 ) );
+    percentage_bar.update( i );
+    //Do some operations...
+   }
+  cout << endl << endl;
  }
 
 //====================================================
@@ -159,6 +175,10 @@ void perc_bars()
 //====================================================
 void load_bars()
  {
+  cout << endl << "======================================================" << endl
+       << "     LOADING BARS                                    " << endl
+       << "======================================================" << endl << endl;
+
   ProgressBar <int> loading_bar;
   loading_bar.setMin( 3 );
   loading_bar.setMax ( 25 );
@@ -188,19 +208,21 @@ void load_bars()
    }
   cout << endl << endl;
 
-  //Loading bar with time consuming info:
+  //Loading bar with time remaining info:
+  loading_bar.setMin( 3 );
+  loading_bar.setMax ( 101 );
   loading_bar.resetMessage();
+  loading_bar.setRemainingTimeFlag( "on" );
+  loading_bar.resetRemainingTime();
 
-  cout << "This is a loading bar with time consuming info: " << endl;
+  cout << "This is a loading bar with time-remaining info: " << endl;
   for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
-    loading_bar.setBegin();
     sleep_for( milliseconds( 100 ) );
     loading_bar.update( i );
     //Do some operations...
-    loading_bar.setEnd();
    }
-  cout << endl << "Time needed to complete the previous loop: " << loading_bar.getTime() << " ms." << endl << endl;
+  cout << endl << endl;
  }
 
 //====================================================
@@ -208,6 +230,10 @@ void load_bars()
 //====================================================
 void mixed_bars()
  {
+  cout << endl << "======================================================" << endl
+       << "     FULL PROGRESS BARS                                    " << endl
+       << "======================================================" << endl << endl;
+
   ProgressBar <float> mixed_bar;
   mixed_bar.setMin( 0.1f );
   mixed_bar.setMax ( 3.8f );
@@ -225,8 +251,10 @@ void mixed_bars()
   cout << endl << endl;
 
   mixed_bar.setColor( "red" );
+  mixed_bar.setRemainingTimeFlag( "on" );
+  mixed_bar.resetRemainingTime();
 
-  cout << "This is a mixed progress bar with color: " << endl;
+  cout << "This is a mixed progress bar with color and time remaining info: " << endl;
   for ( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
     sleep_for( milliseconds( 100 ) );
@@ -239,6 +267,7 @@ void mixed_bars()
   mixed_bar.addStyle( "indicator", "|100" );
   mixed_bar.addStyle( "loader", ">" );
   mixed_bar.setStyle( "complete", "|100", ">" );
+  mixed_bar.setRemainingTimeFlag( "off" );
 
   cout << "This is a mixed progress bar with two customized styles: " << endl;
   for ( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
@@ -255,6 +284,10 @@ void mixed_bars()
 //====================================================
 void multi_bars()
  {
+  cout << endl << "======================================================" << endl
+       << "     MULTI PROGRESS BARS                                    " << endl
+       << "======================================================" << endl << endl;
+
   cout << "These are 3 progress bars printed simultaneously: " << endl << endl << endl;
 
   ProgressBar<int> prog_int;
@@ -348,10 +381,11 @@ void progress_spinner()
   //Float progress spinner.
   ProgressBar <float> spinner_float;
   spinner_float.setMin( 2.3f );
-  spinner_float.setMax ( 6.2f );
-  spinner_float.setColor( "blue" );
+  spinner_float.setMax ( 6.7f );
+  spinner_float.setColor( "lt blue" );
   spinner_float.addStyle( "spinner", "|/_\\" );
   spinner_float.setStyle( "spinner", "|/_\\" );
+  spinner_float.setMessage( "elaborating data..." );
 
   cout << "This is another progress spinner: " << endl;
   for ( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
@@ -440,20 +474,18 @@ void canvas_2d()
 //====================================================
 int main()
  {
-  SET_CURSOR_VIEW( "OFF" );
+  OPTION( CURSOR::OFF );
  
   //Manipulators:
 //   col_sty(); //Color/style.
 
   //Progress bars:
-//   perc_bars(); //Percentage bar.
-//   load_bars(); //Loading bar.
-//   mixed_bars(); //Mixed bar.
-//   multi_bars(); //Multi progress bars.
-//   progress_spinner(); //Progress spinner.
+  perc_bars(); //Percentage bar.
+  load_bars(); //Loading bar.
+  mixed_bars(); //Mixed bar.
+  multi_bars(); //Multi progress bars
+  progress_spinner(); //Progress spinner.
   canvas_2d();
 
-  //Canvas
-  
-  SET_CURSOR_VIEW( "ON" );
+  OPTION( CURSOR::ON);
  }

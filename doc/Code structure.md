@@ -10,13 +10,17 @@
   * [reset](#reset)
   * [go_to](#goto)
   * [RGB](#RGB)
-  * [SET_CURSOR_VIEW](#SETCURSORVIEW)
+- [Template functions](#template-functions)
+  * [OPTION](#OPTION)
 - [Global variables](#global-variables)
   * [col](#col)
   * [sty](#sty)
   * [rst](#rst)
   * [crs](#crs)
   * [tcs](#tcs)
+  * [tcsc](#tcsc)
+- [Enum classes](#enum-classes)
+  * [CURSOR](#CURSOR)
 
 ## Namespaces
 
@@ -50,8 +54,9 @@ Setter methods:
 - `void setMessage( std::string message )`: to set optional message of the bar.
 - `void setBegin()`: to set begin time for the CPU time counting.
 - `void setEnd()`: to set end time for the CPU time counting.
-- `void setBrackets()`: to set brackets style.
+- `void setBrackets( std::string brackets_open, std::string brackets_close )`: to set brackets style.
 - `void setColor( std::string color )`: to set progress bar color.
+- `void setRemainingTimeFlag( std::string time_flag )`: to switch on/off the showing of the remaining-time info.
 
 > Color name has to be set with corresponding name of a `crs` map element.
 
@@ -63,6 +68,7 @@ Setter methods:
 - `void resetTime()`: to reset CPU time count.
 - `void resetBrackets()`: to reset brackets style.
 - `void resetColor()`: to reset progress bar color.
+- `void resetRemainingTime()`: to reset the time start, before showing the time-remaining info of the bar (this helps getting a more precise value of the time-remaining info at each iteration).
 
 > **NOTE**: progress bar class fully supports all the positive, negative and null *int* variables. *double* and *floats* are supported too even if they don't optimally work for the moment, in the sense that a few precision in lost when using them into loops.
 
@@ -79,12 +85,14 @@ Getter methods:
 - `std::string getBrackets_open()`: to get the opening bracket.
 - `std::string getBrackets_close()`: to get the closing bracket.
 - `std::string getColor()`: to get the progress bar color.
+- `std::string getRemainingTimeFlag()`: to get the value of the remaining-time info flag (on or off).
 
 Other methods: 
 
 - `void update( bar_type iterating_var )`: to update the bar after each loop cycle.
 - `void print()`: to print on the screen all the progress bar variable values.
 - `void addStyle( std::string type, std::string style )`: to create customized progress bar styles.
+- `void remaining_time()`: to compute the remaining time for the completion of the progress bar.
 - `bar_type one( bar_type iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
@@ -162,15 +170,17 @@ Complete definition: `std::string RGB( int r, int g, int b )`.
 
 It takes three integers as arguments which are the correspoing rgb triplets of a color (see [here](http://www.aksiom.net/rgb.html) for the full list of availables colors). It can be used to output a wider variety of colors with respect to the standard availables from the `col` map.
 
-### SET_CURSOR_VIEW
+## Template functions
+
+### OPTION
 
 Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `void SET_CURSOR_VIEW( std::string onof )`.
+Complete definition: `template <typename T> void OPTION( const T opt )`.
 
-It takes a string as argument, which represent the cursor view state in the current program. If `onof = ON` the cursor if visible, else if `onof = OFF` the cursor is hidde.
+It takes an enum class as argument, which represent the cursor view state in the current program. If `opt = CURSOR::ON` the cursor if visible, else if `opt = CURSOR::OFF` the cursor is hidden.
 
 ## Global variables
 
@@ -286,7 +296,7 @@ It is used for the output stream cursor navigation and currently supports the fo
 
 ### tcs
 
-Header file: [*csmanippp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
@@ -300,7 +310,34 @@ It is used for the terminal control sequences manipulation and currently support
   * `lfd` / `\x0A` : line feed.
   * `ffd` / `\x0C` : form feed.
   * `crt` / `\x0D` : carriage return.
-  * `csc` / `\x1b[2J\x1b[1;1H` : clear screen.
-  * `cln` / `\x1b[2K` : clear line.
   * `hcrs` / `\x1b[?25l` : hide cursor.
   * `scrs` / `\x1b[?25h` : show cursor.
+
+### tcsc
+
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+Complete definition: `std::map <std::string, std::pair<std::string, std::string>> tcsc`
+
+It is used for the terminal control sequences manipulation for clear line / screen. It is used within the [`feat` function overload](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Overload%3A%20std%3A%3Astring%20feat(%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Apair%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%3E%20%26%20generic_map%2C%20std%3A%3Astring%20feat_string%2C%20int%20feat_int%20).) with 3 arguments and `n` as the third one. It currently supports the following list of sequences (first `std::string`) with the corresponding ASCII code (second `std::pair<std::string, std::string>`) or string value in the case of the `error` feature:
+  * `error` / `Inserted cursor command`
+  * `csc` / `\u001b[` / `J` : clear the screen:
+    * `n=0`: clears from cursor until end of screen.
+    * `n=1`: clears from cursor to beginning of screen.
+    * `n=2`: clears entire screen.
+  * `cln` / `\u001b[` / `K` : clear the line:
+    * `n=0`: clears from cursor to end of line.
+    * `n=1`: clears from cursor to start of line.
+    * `n=2`: clears entire line.
+
+## Enum classes
+
+### CURSOR
+
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+It is used to store the [`OPTION`][#OPTION] function options for the cursor view. Current options are: `ON` to enable cursor view and `OFF` to disable it.

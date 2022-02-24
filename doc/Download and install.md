@@ -67,17 +67,23 @@ cd osmanip
 
 ## Prerequisites
 
+All the prerequisites can be installed during the first step of the automatic installation with [script](https://github.com/JustWhit3/osmanip/blob/main/scripts/install.sh).
+
 ### Mandatory
 
-- C++17 standard for compilation.
-- g++ compiler (g++ 9.3.0 has been tested so far).
+- C++17 standard.
+- A terminal supporting ANSI escape codes.
+- g++ compiler (g++ 9.3.0 has been tested so far) for compilation.
+- [Boost](https://www.boost.org/) library.
+- [GNU make](https://www.opensourceforu.com/2012/06/gnu-make-in-detail-for-beginners/#:~:text=Installing%20GNU%20Make,install%20build%2Dessential.) for compilation.
 
 
 ### Optional
 
 - [doctest](https://github.com/onqtam/doctest) for testing compilation.
-- [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) to correctly use the [update.sh](#update) script.
-- [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) to run the [debug.sh](#debugsh) script.
+- [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) to correctly run the [update.sh](#update) script.
+- [Valgrind](https://valgrind.org/) to run the [debug.sh](#debugsh) script.
+- [Cppcheck](https://github.com/danmar/cppcheck) to run the [debug.sh](#debugsh) script.
 
 ## Install
 
@@ -156,19 +162,19 @@ This will compile both main and test codes. An extra **obj** folder with object 
 
 You have simply to run the former in order to run the entire example code:
 ```shell
-./bin/main.exe
+./bin/main
 ```
 or the latter in order to test the correct functionalities of the library classes methods and functions:
 ```shell
-./bin/tests.exe
+./bin/tests
 ```
 If you want to compile only the main code you can simply enter:
 ```shell
-make bin/main.exe
+make main
 ```
 if instead you want to compile only the tests code you can use the following command:
 ```shell
-make bin/tests.exe
+make tests
 ```
 There is also an option to go back to the pre-compilation state of the code, to do this simply type this command:
 ```shell

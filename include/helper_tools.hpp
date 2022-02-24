@@ -6,6 +6,7 @@
 #include <functional>
 #include <type_traits>
 #include <stdexcept>
+
 namespace osm
  {
   //====================================================
@@ -25,13 +26,13 @@ namespace osm
   template <typename T>
   extern std::runtime_error runtime_error_func( std::string beg, T variable, std::string end );
 
-  template <typename T, typename R>
-  extern T check_condition( std::function <bool()> condition, T return_it, R return_false );
+  template <typename T>
+  extern T check_condition( std::function <bool()> condition, T return_it, T return_false );
 
   template <typename T>
   extern bool isFloatingPoint( const T & expression );
 
   template <typename T>
-  extern T roundoff( const T value, const unsigned char prec );
+  extern T roundoff( const T& value, const unsigned char prec );
  }
 #endif

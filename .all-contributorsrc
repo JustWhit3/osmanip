@@ -1,6 +1,6 @@
 {
   "files": [
-    "doc/CREDITS.md"
+    "README.md"
   ],
   "imageSize": 100,
   "contributorsPerLine": 7,
@@ -17,15 +17,6 @@
   "skipCi": true,
   "contributors": [
     {
-      "login": "JustWhit3",
-      "name": "Gianluca Bianco",
-      "avatar_url": "https://avatars.githubusercontent.com/u/48323961?v=4",
-      "profile": "https://justwhit3.github.io/",
-      "contributions": [
-        "projectManagement"
-      ]
-    },
-    {
       "login": "MiguelMJ",
       "name": "MiguelMJ",
       "avatar_url": "https://avatars.githubusercontent.com/u/37369782?v=4",
@@ -41,6 +32,27 @@
       "profile": "https://github.com/TedLyngmo",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "myermo",
+      "name": "myermo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/93035284?v=4",
+      "profile": "https://github.com/myermo",
+      "contributions": [
+        "test",
+        "code",
+        "bug",
+        "review"
+      ]
+    },
+    {
+      "login": "nick-botticelli",
+      "name": "nick-botticelli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25168557?v=4",
+      "profile": "http://nickb.website",
+      "contributions": [
+        "bug"
       ]
     }
   ],

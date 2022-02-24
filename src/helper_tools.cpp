@@ -6,7 +6,12 @@
 #include <type_traits>
 #include <stdexcept>
 #include <cmath>
+#include <boost/preprocessor/seq/for_each.hpp>
+#include <boost/preprocessor/tuple/to_seq.hpp>
+
 #include "../include/helper_tools.hpp"
+
+#define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
   
 namespace osm
  {
@@ -49,16 +54,19 @@ namespace osm
             "\n";
     return std::runtime_error( error );
    }
-  
-  template std::runtime_error runtime_error_func <std::string>
-  ( std::string beg, std::string variable, std::string end );
+
+  //Explicit instantiations:
+  #define RUNTIME_ERROR_FUNC( r, data, T ) template \
+  std::runtime_error runtime_error_func <T> ( std::string beg, T variable, std::string end );
+
+  BOOST_PP_SEQ_FOR_EACH( RUNTIME_ERROR_FUNC, _, ARGS( std::string, const char* ) );
 
   //====================================================
   //     FUNCTION TO CHECK IF A CONDITION IS VERIFIED
   //     AND IN POSITIVE CASE RETURN IT
   //====================================================
-  template <typename T, typename R>
-  T check_condition( std::function <bool()> condition, T return_it, R return_false)
+  template <typename T>
+  T check_condition( std::function <bool()> condition, T return_it, T return_false )
    {
     if( condition() )
      {
@@ -71,26 +79,10 @@ namespace osm
    }
   
   //Explicit instantiations:
-  template std::string check_condition <std::string, std::string> 
-  ( std::function <bool()> condition, std::string return_it, std::string return_false );
+  #define CHECK_CONDITION( r, data, T ) template \
+  T check_condition <T> ( std::function <bool()> condition, T return_it, T return_false );
 
-  template int check_condition <int, int> 
-  ( std::function <bool()> condition, int return_it, int return_false );
-
-  template long check_condition <long, long> 
-  ( std::function <bool()> condition, long return_it, long return_false );
-
-  template long long check_condition <long long, long long> 
-  ( std::function <bool()> condition, long long return_it, long long return_false );
-
-  template long double check_condition <long double, long double> 
-  ( std::function <bool()> condition, long double return_it, long double return_false );
-
-  template float check_condition <float, float> 
-  ( std::function <bool()> condition, float return_it, float return_false );
-  
-  template double check_condition <double, double> 
-  ( std::function <bool()> condition, double return_it, double return_false );
+  BOOST_PP_SEQ_FOR_EACH( CHECK_CONDITION, _, ARGS( int, long, long long, long double, float, double, std::string ) );
 
   //====================================================
   //     FUNCTION TO CHECK IF EXPRESSION TYPE IS
@@ -103,29 +95,25 @@ namespace osm
    }
 
   //Explicit instantiations:
-  template bool isFloatingPoint <int> ( const int & expression );
-  template bool isFloatingPoint <long> ( const long & expression );
-  template bool isFloatingPoint <long long> ( const long long & expression );
-  template bool isFloatingPoint <float> ( const float & expression );
-  template bool isFloatingPoint <double> ( const double & expression );
-  template bool isFloatingPoint <long double> ( const long double & expression );
+  #define ISFLOATINGPOINT( r, data, T ) template \
+  bool isFloatingPoint <T> ( const T & expression );
+
+  BOOST_PP_SEQ_FOR_EACH( ISFLOATINGPOINT, _, ARGS( int, long, long long, float, double, long double ) );
 
   //====================================================
   //     FUNCTION TO ROUND A FLOATING POINT TO N 
   //     DECIMAL PLACES
   //====================================================
   template <typename T>
-  extern T roundoff( const T value, const unsigned char prec )
+  extern T roundoff( const T& value, const unsigned char prec )
    {
     T pow_10 = pow( 10.0f, static_cast <T> ( prec ) );
     return round( value * pow_10 ) / pow_10;
    }
 
   //Explicit instantiations:
-  template double roundoff <double> ( const double value, const unsigned char prec );
-  template long double roundoff <long double> ( const long double value, const unsigned char prec );
-  template long roundoff <long> ( const long value, const unsigned char prec );
-  template long long roundoff <long long> ( const long long value, const unsigned char prec );
-  template float roundoff <float> ( const float value, const unsigned char prec );
-  template int roundoff <int> ( const int value, const unsigned char prec );
+  #define ROUNDOFF( r, data, T ) template \
+  T roundoff <T> ( const T& value, const unsigned char prec );
+
+  BOOST_PP_SEQ_FOR_EACH( ROUNDOFF, _, ARGS( int, double, long double, long, long long, float ) );
  }
