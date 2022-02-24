@@ -97,7 +97,7 @@ namespace osm
         throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
        }
      }
-    catch ( std::out_of_range const & exception )
+    catch ( std::out_of_range const& exception )
      {
       throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
      }

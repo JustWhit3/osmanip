@@ -68,14 +68,8 @@ namespace osm
   template <typename T>
   T check_condition( const std::function <bool()>& condition, const T& return_it, const T& return_false )
    {
-    if( condition() )
-     {
-      return return_it;
-     }
-    else
-     {
-      return return_false;
-     }
+    if( condition() ) return return_it;
+    else return return_false;
    }
   
   //Explicit instantiations:

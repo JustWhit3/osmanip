@@ -241,18 +241,9 @@ namespace osm
   template <typename T>
   void OPTION( const T& opt )
    {
-    if( opt == CURSOR::ON )
-     {
-      std::cout << feat( tcs, "scrs" );
-     }
-    else if( opt == CURSOR::OFF )
-     {
-      std::cout << feat( tcs, "hcrs" ); 
-     }
-    else
-     {
-      throw runtime_error_func( "Inserted cursor option", "", "is not supported!" );
-     }
+    if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
+    else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
+    else throw runtime_error_func( "Inserted cursor option", "", "is not supported!" );
    }
 
   //Explicit instantiations:
