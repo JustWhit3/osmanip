@@ -29,8 +29,8 @@ namespace osm
         bool isFrameEnabled() const;
         std::string getFrameFeat() const;
         FrameStyle getFrameStyle() const;
-        void getWidth(uint width) const;
-        void getHeight(uint height) const;
+        void getWidth() const;
+        void getHeight() const;
 
         void clear();
         void put(uint x, uint y, char c, const std::string& feat="");
@@ -44,6 +44,8 @@ namespace osm
         std::vector<char> char_buffer_;
         std::vector<std::string> feat_buffer_;
         bool already_drawn_;
+
+        void resizeCanvas();
     protected:
         uint width_, height_;
     };
