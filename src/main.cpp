@@ -405,14 +405,16 @@ int main()
   OPTION( CURSOR::OFF );
  
   //Manipulators:
-  col_sty(); //Color/style.
+  /*col_sty(); //Color/style.
 
   //Progress bars:
   perc_bars(); //Percentage bar.
   load_bars(); //Loading bar.
   mixed_bars(); //Mixed bar.
   multi_bars(); //Multi progress bars
-  progress_spinner(); //Progress spinner.
+  progress_spinner(); //Progress spinner.*/
 
-  OPTION( CURSOR::ON);
+  printf( cout, "Age: ", 25, ", bye.\n" );
+
+  OPTION( CURSOR::ON );
  }
