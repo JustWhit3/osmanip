@@ -420,15 +420,18 @@ void canvas_2d()
     plot_2d_canvas.setBackground(' ', feat(col, "bg white"));
     plot_2d_canvas.enableFrame(true);
     plot_2d_canvas.setFrame(FrameStyle::BOX, feat(col, "bg white")+feat(col, "black"));
-    plot_2d_canvas.setOffset(3.14,-2);
+    plot_2d_canvas.enableFrame(true);
+    plot_2d_canvas.setFrame(FrameStyle::BOX, feat(col, "bg white")+feat(col, "black"));
     plot_2d_canvas.setScale(1/3.14, 0.2);
-    plot_2d_canvas.clear();
-    plot_2d_canvas.draw(std::function<float(float)>([](float x)->float{return std::cos(x);}), 'X', feat(col, "bg white")+feat(col, "bd red"));
-    plot_2d_canvas.draw(std::function<float(float)>([](float x)->float{return std::sin(x);}), 'X', feat(col, "bg white")+feat(col, "bd blue"));
-    plot_2d_canvas.refresh();
-    
-    sleep_for( seconds( 2 ) );
-    
+    for(float i=0; i < 40; i++){
+        plot_2d_canvas.setOffset(i/3.14,-2);
+        plot_2d_canvas.clear();
+        plot_2d_canvas.draw(std::function<float(float)>([](float x)->float{return std::cos(x);}), 'X', feat(col, "bg white")+feat(col, "bd red"));
+        plot_2d_canvas.draw(std::function<float(float)>([](float x)->float{return std::sin(x);}), 'X', feat(col, "bg white")+feat(col, "bd blue"));
+        plot_2d_canvas.refresh();
+        sleep_for( milliseconds( 100 ) );
+    }
+
     cout << endl << endl;
  }
 
