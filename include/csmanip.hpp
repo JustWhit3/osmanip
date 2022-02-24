@@ -1,10 +1,12 @@
 #ifndef CSMANIP_HPP
 #define CSMANIP_HPP
 
+#include <iostream>
 #include <string>
 #include <map>
 
 #include "aliases.hpp"
+#include "helper_tools.hpp"
 
 namespace osm
  {
@@ -35,13 +37,28 @@ namespace osm
   extern void OPTION( const T& opt );
 
   //====================================================
-  //     TEMPLATE "printf" FUNCTION
+  //     TEMPLATE "printf" FUNCTIONS DEFINITION
   //====================================================
-  template <typename... Args>
-  extern inline void printf( std::ostream& os, const Args&... args )
+  namespace print
    {
-    ( os << ... << args ) << "\n";
+    template <typename... Args>
+    inline void printf( std::ostream& os = null_stream, const Args&... args )
+     {
+      if( &os == &null_stream ) std::cout << "\n";
+      else if( &os == &std::cerr ) os << feat( col, "red" ) << feat( sty, "bold" );
+      else if( &os == &std::clog ) os << feat( col, "lt blue" ) << feat( sty, "bold" );
+  
+      ( os << ... << args ) << "\n";
+  
+      if( &os == &std::cerr || &os == &std::clog || &os == &std::cout ) os << reset( "all" );
+     }
+
+    template <typename... Args>
+    inline void printf( Args&... args )
+     {
+      ( std::cout << ... << args ) << "\n" << reset( "all" );
+     }
    }
  }
-      
+
 #endif

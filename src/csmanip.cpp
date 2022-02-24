@@ -162,7 +162,7 @@ namespace osm
     { "right", std::make_pair( "\u001b[", "C" ) },
     { "left", std::make_pair( "\u001b[", "D" ) }
    };
- 
+
   //====================================================
   //     DEFINITION OF THE "feat" FUNCTION
   //====================================================

@@ -8,6 +8,8 @@
 #include <cmath>
 #include <boost/preprocessor/seq/for_each.hpp>
 #include <boost/preprocessor/tuple/to_seq.hpp>
+#include <boost/iostreams/stream.hpp>
+#include <boost/iostreams/device/null.hpp>
 
 #include "../include/helper_tools.hpp"
 
@@ -20,6 +22,15 @@ namespace osm
   //       (in implementation file)
   //====================================================
   std::string output, error;
+
+  //====================================================
+  //     GLOBAL VARIABLES DEFINITION
+  //====================================================
+  boost::iostreams::stream<boost::iostreams::null_sink> null_stream 
+   {
+    boost::iostreams::null_sink{} 
+   };
+
 
   //====================================================
   //     OPERATOR * REDEFINITIONS
