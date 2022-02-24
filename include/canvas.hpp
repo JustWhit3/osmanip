@@ -13,16 +13,25 @@ namespace osm
         ASCII = 1,
         BOX = 2
     } FrameStyle;
-    
+
     class Canvas{
     public:
         Canvas(uint width, uint height);
-        
-        void setBackground(char c, const std::string& feat="");
-        
+
         void enableFrame(bool frame_enabled);
-        void setFrame(FrameStyle, const std::string feat="");
-        
+        void setFrame(FrameStyle, const std::string& feat="");
+        void setBackground(char c, const std::string& feat="");
+        void setWidth(uint width);
+        void setHeight(uint height);
+
+        char getBackground() const;
+        std::string getBackgroundFeat() const;
+        bool isFrameEnabled() const;
+        std::string getFrameFeat() const;
+        FrameStyle getFrameStyle() const;
+        void getWidth(uint width) const;
+        void getHeight(uint height) const;
+
         void clear();
         void put(uint x, uint y, char c, const std::string& feat="");
         void refresh();
@@ -38,6 +47,7 @@ namespace osm
     protected:
         uint width_, height_;
     };
+
     class Plot2DCanvas: public Canvas{
     public:
         Plot2DCanvas(uint w, uint h);
@@ -52,11 +62,17 @@ namespace osm
                 }
             }
         }
+        
         void setOffset(float xOff, float yOff);
         void setScale(float xScale, float yScale);
+        
+        float getOffsetX() const;
+        float getOffsetY() const;
+        float getScaleX() const;
+        float getScaleY() const;
     private:
         float offset_x_, offset_y_, scale_x_, scale_y_;
     };
 }
-      
+
 #endif

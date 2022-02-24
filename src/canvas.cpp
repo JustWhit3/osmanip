@@ -13,8 +13,7 @@ namespace osm
         bg_char_ = ' ';
         bg_feat_ = "";
         frame_enabled_ = false;
-        char_buffer_.resize(width*height);
-        feat_buffer_.resize(width*height);
+        resizeCanvas();
         clear();    
     }
     void Canvas::setBackground(char c, const std::string& feat){
@@ -28,6 +27,7 @@ namespace osm
         frame_style_ = fs;
         frame_feat_ = feat;
     }
+    
     void Canvas::clear(){
         char_buffer_.assign(width_*height_, bg_char_);
         feat_buffer_.assign(width_*height_, bg_feat_);
@@ -93,6 +93,43 @@ namespace osm
         std::cout << ss.str();
         already_drawn_ = true;
     }
+    
+    void Canvas::setWidth(uint width){
+        width_ = width;
+        resizeCanvas();
+    }
+    void Canvas::setHeight(uint height){
+        height_ = height;
+        resizeCanvas();
+    }
+    void Canvas::getWidth() const{
+        return width_;
+    }
+    void Canvas::getHeight() const{
+        return height_;
+    }
+
+    char Canvas::getBackground() const{
+        return bg_char_;
+    }
+    std::string Canvas::getBackgroundFeat() const{
+        return bg_feat_;
+    }
+    bool Canvas::isFrameEnabled() const{
+        return frame_enabled_;
+    }
+    std::string Canvas::getFrameFeat() const{
+        return frame_feat_;
+    }
+    FrameStyle Canvas::getFrameStyle() const{
+        return frame_style_;
+    }
+    
+    void Canvas::resizeCanvas(){
+        char_buffer_.resize(width_*height_);
+        feat_buffer_.resize(width_*height_);
+    }
+    
     Plot2DCanvas::Plot2DCanvas(uint w, uint h): Canvas(w, h){
         offset_x_ = 0;
         offset_y_ = 0;
@@ -106,6 +143,18 @@ namespace osm
     void Plot2DCanvas::setScale(float xScale, float yScale){
         scale_x_ = xScale;
         scale_y_ = yScale;
+    }
+    float getOffsetX() const{
+        return offset_x_;
+    }
+    float getOffsetY() const{
+        return offset_y_;
+    }
+    float getScaleX() const{
+        return scale_x_;
+    }
+    float getScaleY() const{
+        return scale_y_;
     }
 }
 
