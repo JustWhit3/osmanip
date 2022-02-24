@@ -76,3 +76,14 @@ TEST_CASE_TEMPLATE( "Testing the roundoff function.", T, double )
   CHECK_EQ( roundoff( var_2, 2 ), 3.46 );
   CHECK_EQ( roundoff( var_3, 1 ), 345.6 );
  }
+
+//============================================
+//     TESTING THE "IsInBounds" FUNCTION
+//============================================
+TEST_CASE_TEMPLATE( "Testing the IsInBounds function", T, double )
+ {
+  T var_1 = 3;
+  T var_2 = 0.2;
+  CHECK( IsInBounds( var_1, 2.9, 3.1 ) );
+  CHECK( IsInBounds( var_2, 0.1, 0.21 ) );
+ }

@@ -116,4 +116,20 @@ namespace osm
   T roundoff <T> ( const T& value, const unsigned char prec );
 
   BOOST_PP_SEQ_FOR_EACH( ROUNDOFF, _, ARGS( int, double, long double, long, long long, float ) );
+
+  //====================================================
+  //     FUNCTION TO CHECK IF A NUMBER LIE IN A
+  //     CERTAIN BOUND
+  //====================================================
+  template <typename T>
+  bool IsInBounds( const T& value, const T& low, const T& high )
+   {
+    return !( value < low ) && ( value < high );
+   } 
+
+  //Explicit instantiations:
+  #define ISINBOUNDS( r, data, T ) template \
+  bool IsInBounds <T> ( const T& value, const T& low, const T& high );
+
+  BOOST_PP_SEQ_FOR_EACH( ISINBOUNDS, _, ARGS( int, double, long double, long, long long, float ) );
  }

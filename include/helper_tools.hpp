@@ -34,5 +34,8 @@ namespace osm
 
   template <typename T>
   extern T roundoff( const T& value, const unsigned char prec );
+
+  template <typename T>
+  extern bool IsInBounds( const T& value, const T& low, const T& high );
  }
 #endif
