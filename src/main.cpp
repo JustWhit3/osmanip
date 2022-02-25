@@ -421,6 +421,78 @@ void progress_spinner()
  }
 
 //====================================================
+//     CANVAS
+//====================================================
+void canvas_2d()
+ {
+  cout << endl << "======================================================" << endl
+       << "     CANVAS                                    " << endl
+       << "======================================================" << endl << endl;
+  
+    cout << "Display an animation in a canvas" << endl;
+    Canvas canvas(10,10);
+    canvas.setBackground('.', feat(col, "bg white") + feat(col, "black"));
+    for(uint i=0; i < 10; i++){
+        canvas.clear();
+        canvas.put(0,2,'x');
+        canvas.put(i,3,'A', feat(col, "red"));
+        canvas.put(5,0,'B', feat(col, "blue"));
+        canvas.put(7,8,'Z', feat(col, "bg cyan") + feat(col, "black") + feat(sty, "bold"));
+        canvas.refresh();
+        this_thread::sleep_for(chrono::milliseconds(100));
+    }
+    
+    cout << endl << "Canvas with an ASCII frame" << endl;
+    
+    Canvas ascii_framed_canvas(15, 10);
+    ascii_framed_canvas.enableFrame(true);
+    ascii_framed_canvas.setFrame(FrameStyle::ASCII, feat(col, "bg white") + feat(col, "black"));
+    ascii_framed_canvas.clear();
+    ascii_framed_canvas.put(3,4,'H');
+    ascii_framed_canvas.put(4,4,'e');
+    ascii_framed_canvas.put(5,4,'l');
+    ascii_framed_canvas.put(6,4,'l');
+    ascii_framed_canvas.put(7,4,'o');
+    ascii_framed_canvas.refresh();
+    
+    sleep_for( seconds( 2 ) );
+    
+    cout << endl << "Canvas with a BOX frame" << endl;
+    
+    Canvas box_framed_canvas(20, 8);
+    box_framed_canvas.enableFrame(true);
+    box_framed_canvas.setFrame(FrameStyle::BOX);
+    box_framed_canvas.clear();
+    box_framed_canvas.put(3,4,'H');
+    box_framed_canvas.put(4,4,'e');
+    box_framed_canvas.put(5,4,'l');
+    box_framed_canvas.put(6,4,'l');
+    box_framed_canvas.put(7,4,'o');
+    box_framed_canvas.refresh();
+    
+    sleep_for( seconds( 2 ) );
+    
+    cout << endl << "Plot2DCanvas with sin and cos" << endl;
+    Plot2DCanvas plot_2d_canvas(50, 20);
+    plot_2d_canvas.setBackground(' ', feat(col, "bg white"));
+    plot_2d_canvas.enableFrame(true);
+    plot_2d_canvas.setFrame(FrameStyle::BOX, feat(col, "bg white")+feat(col, "black"));
+    plot_2d_canvas.enableFrame(true);
+    plot_2d_canvas.setFrame(FrameStyle::BOX, feat(col, "bg white")+feat(col, "black"));
+    plot_2d_canvas.setScale(1/3.14, 0.2);
+    for(float i=0; i < 40; i++){
+        plot_2d_canvas.setOffset(i/3.14,-2);
+        plot_2d_canvas.clear();
+        plot_2d_canvas.draw(std::function<float(float)>([](float x)->float{return std::cos(x);}), 'X', feat(col, "bg white")+feat(col, "bd red"));
+        plot_2d_canvas.draw(std::function<float(float)>([](float x)->float{return std::sin(x);}), 'X', feat(col, "bg white")+feat(col, "bd blue"));
+        plot_2d_canvas.refresh();
+        sleep_for( milliseconds( 100 ) );
+    }
+
+    cout << endl << endl;
+ }
+
+//====================================================
 //     MAIN
 //====================================================
 int main()
@@ -437,6 +509,9 @@ int main()
   mixed_bars(); //Mixed bar.
   multi_bars(); //Multi progress bars
   progress_spinner(); //Progress spinner.
+  
+  //Terminal graphics visualization:
+  canvas_2d();
 
   OPTION( CURSOR::ON );
  }
