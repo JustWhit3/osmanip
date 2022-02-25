@@ -5,6 +5,8 @@
 - [Classes](#classes)
   * [ProgressBar](#progressbar)
   * [MultiProgressBar](#multiprogressbar)
+  * [Canvas](#canvas)
+  * [Plot2DCanvas](#plot2dcanvas)
 - [Functions](#functions)
   * [feat](#feat)
   * [reset](#reset)
@@ -123,6 +125,73 @@ Other helper functions defined outside of the class, but in the same header:
 - `template <template <class> class PB, class bar_type> auto operator()( PB <bar_type>& pb, typename type_identity <bar_type>::type v ) const`: functor used to call the `ProgressBar` class `update` method.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
+
+### Canvas
+
+Header file: [*canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/canvas.hpp)
+
+Source code: [*canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/canvas.cpp)
+
+Instances of this class are used to draw in a limited 2D space. All the functions that modify the canvas do it internally; to make the changes effective in the console, you must use the `refresh` method.
+
+Constuctor:
+
+- `Canvas(uint width, uint height)`: the size of the canvas in characters must be specified upon construction.
+
+Setters:
+
+- `void enableFrame(bool frame_enabled)`: flag to frame or not the canvas. The frame doesn't increase the size taken by the canvas. Instead, reduces the 2D space to draw in two columns and two rows (used to print the frame itself).
+- `void setFrame(FrameStyle style, const std::string& feat="")`: Set the [FrameStyle](#framestyle) of the canvas and an optional [feat](#feat).
+- `void setBackground(char c, const std::string& feat)""`: Set the char that fills the background and an optional [feat](#feat).
+- `void setWidth(uint width)`: Set the width of the canvas.
+- `void setHeight(uint height)`: Set the height of the canvas.
+
+Getters:
+
+- `bool isFrameEnabled() const`
+
+- `FrameStyle getFrameStyle() const`
+- `std::string getFrameFeat() const`
+- `char getBackground() const`
+- `std::string getBackgroundFeat() const`
+- `uint getWidth() const`
+- `uint getHeight() const`
+
+Public methods:
+
+- `void clear()`: Fill the canvas with the background.
+- `void put(uint x, uint y, char c, const std::string& feat="")`: Put a character in the canvas, given its coordinates and an optional [feat](#feat). An out-of-boudns exception will be thrown if the coordinates are outside the canvas.
+- `void refresh()`: Display the canvas in the console.
+
+### Plot2DCanvas
+
+Header file: [*canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/canvas.hpp)
+
+Source code: [*canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/canvas.cpp)
+
+This class is used to plot mathematical functions $\R \to \R$. In addition to all the properties of a basic [Canvas](#canvas), this one also has an offset and a scale for the plot. The offset is the first value in x and y to be represented in the canvas and the scale is the difference in x or y that each character represents relative to the previous one.
+
+For example: a canvas of size = (15, 10) with offset = (3,2) and scale = (7, 5) will represent the functions you draw from x=3 to x=3+15\*7=108 and from y=2 to y=2+10\*5=52.
+
+Constructor:
+
+- `Plot2DCanvas (uint width, uint height)`: The same as its parent, the constructor requires the dimensions of the canvas.
+
+Setters:
+
+- `void setOffset(float xOff, float yOff)`: Set the offset of the plot.
+- `void setScale(float xScale, float yScale)`: Set the scale of the plot.
+
+Getters:
+
+- `float getOffsetX() const`
+- `float getOffsetY() const`
+- `float getScaleX() const`
+- `float getScaleY() const`
+
+Public functions:
+
+- `template <typename Y, typename X> void draw(std::function<Y(X)> function, char c, const std::string& feat="")`: Plot a function that receives an argument of a numeric type `X` and returns a numeric value of type `Y`. Represent it with a given char `c` and an optional [feat](#feat).
 
 ## Functions
 
@@ -256,7 +325,7 @@ It is used for the style output stream manipulation and currently supports the f
   * `invisible` / `\033[8m`
   * `crossed` / `\033[9m`
   * `d-underlined` / `\033[21m`
-  
+
 ### rst
 
 Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
@@ -278,7 +347,7 @@ It is used to reset features and currently supports the following list of comman
   * `inverse` / `\033[27m`
   * `invisible` / `\033[28m`
   * `crossed` / `\033[29m`
-  
+
 ### crs
 
 Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
@@ -341,3 +410,15 @@ Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/incl
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
 It is used to store the [`OPTION`][#OPTION] function options for the cursor view. Current options are: `ON` to enable cursor view and `OFF` to disable it.
+
+### FrameStyle
+
+Header file: [*canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/canvas.hpp)
+
+source: [*canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/canvas.cpp)
+
+It is used to represent the sytle of a frame for a [`Canvas`](#canvas) object. Values:
+
+- `ASCII`
+- `BOX`
+- `EMPTY`
