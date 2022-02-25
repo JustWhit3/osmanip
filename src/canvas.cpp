@@ -23,7 +23,7 @@ namespace osm
     void Canvas::enableFrame(bool frame_enabled){
         frame_enabled_ = frame_enabled;
     }
-    void Canvas::setFrame(FrameStyle fs, const std::string feat){
+    void Canvas::setFrame(FrameStyle fs, const std::string& feat){
         frame_style_ = fs;
         frame_feat_ = feat;
     }
@@ -102,10 +102,10 @@ namespace osm
         height_ = height;
         resizeCanvas();
     }
-    void Canvas::getWidth() const{
+    uint Canvas::getWidth() const{
         return width_;
     }
-    void Canvas::getHeight() const{
+    uint Canvas::getHeight() const{
         return height_;
     }
 
@@ -144,16 +144,16 @@ namespace osm
         scale_x_ = xScale;
         scale_y_ = yScale;
     }
-    float getOffsetX() const{
+    float Plot2DCanvas::getOffsetX() const{
         return offset_x_;
     }
-    float getOffsetY() const{
+    float Plot2DCanvas::getOffsetY() const{
         return offset_y_;
     }
-    float getScaleX() const{
+    float Plot2DCanvas::getScaleX() const{
         return scale_x_;
     }
-    float getScaleY() const{
+    float Plot2DCanvas::getScaleY() const{
         return scale_y_;
     }
 }

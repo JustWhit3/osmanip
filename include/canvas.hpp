@@ -29,8 +29,8 @@ namespace osm
         bool isFrameEnabled() const;
         std::string getFrameFeat() const;
         FrameStyle getFrameStyle() const;
-        void getWidth() const;
-        void getHeight() const;
+        uint getWidth() const;
+        uint getHeight() const;
 
         void clear();
         void put(uint x, uint y, char c, const std::string& feat="");
