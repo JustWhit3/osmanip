@@ -54,10 +54,10 @@ namespace osm
   std::vector <bar_type> ProgressBar <bar_type>::counter_ (2);
 
   template <typename bar_type>
-  std::string ProgressBar <bar_type>::null_str = "";
+  const std::string ProgressBar <bar_type>::null_str = "";
   
   template <typename bar_type>
-  std::string ProgressBar <bar_type>::empty_space = " ";
+  const std::string ProgressBar <bar_type>::empty_space = " ";
 
   template <typename bar_type>
   std::mutex ProgressBar <bar_type>::mutex_;
@@ -66,20 +66,20 @@ namespace osm
   //     DEFINITION OF THE SETTERS
   //====================================================
   template <typename bar_type>
-  void ProgressBar <bar_type>::setMax( bar_type max )
+  void ProgressBar <bar_type>::setMax( const bar_type& max )
    { 
     max_ = max; 
    }
 
   template <typename bar_type>
-  void ProgressBar <bar_type>::setMin( bar_type min )
+  void ProgressBar <bar_type>::setMin( const bar_type& min )
    {
     min_ = min; 
    }
 
   //First setStyle overload, to set style of loader or indicator:
   template <typename bar_type>
-  void ProgressBar <bar_type>::setStyle( std::string type, std::string style )
+  void ProgressBar <bar_type>::setStyle( const std::string& type, const std::string& style )
    {
     try
      {
@@ -97,7 +97,7 @@ namespace osm
         throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
        }
      }
-    catch ( std::out_of_range const & exception )
+    catch ( std::out_of_range const& exception )
      {
       throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
      }
@@ -105,7 +105,7 @@ namespace osm
 
   //Second setStyle overload, to set style of complete bar:
   template <typename bar_type>
-  void ProgressBar <bar_type>::setStyle( std::string type, std::string style_p, std::string style_l )
+  void ProgressBar <bar_type>::setStyle( const std::string& type, const std::string& style_p, const std::string& style_l )
    {
     if( styles_map_.at( "indicator" ).find( style_p ) != styles_map_.at( "indicator" ).end() &&
         styles_map_.at( "loader" ).find( style_l ) != styles_map_.at( "loader" ).end() &&
@@ -131,7 +131,7 @@ namespace osm
    }
 
   template <typename bar_type>
-  void ProgressBar <bar_type>::setMessage( std::string message ) 
+  void ProgressBar <bar_type>::setMessage( const std::string& message ) 
    { 
     message_ = message; 
    }
@@ -150,20 +150,20 @@ namespace osm
    }
   
   template <typename bar_type>
-  void ProgressBar <bar_type>::setBrackets( std::string brackets_open, std::string brackets_close )
+  void ProgressBar <bar_type>::setBrackets( const std::string& brackets_open, const std::string& brackets_close )
    { 
     brackets_open_ = brackets_open,
     brackets_close_ = brackets_close;
    }
 
   template <typename bar_type>
-  void ProgressBar <bar_type>::setColor( std::string color )
+  void ProgressBar <bar_type>::setColor( const std::string& color )
    { 
     color_ = feat( col, color );
    }
 
   template <typename bar_type>
-  void ProgressBar <bar_type>::setRemainingTimeFlag( std::string time_flag )
+  void ProgressBar <bar_type>::setRemainingTimeFlag( const std::string& time_flag )
    { 
     time_flag_ = time_flag;
    }
@@ -326,7 +326,7 @@ namespace osm
   //     DEFINITION OF THE "one" METHOD
   //====================================================
   template <typename bar_type>
-  bar_type ProgressBar <bar_type>::one( bar_type iterating_var )
+  bar_type ProgressBar <bar_type>::one( const bar_type& iterating_var )
    {
     if( isFloatingPoint( iterating_var ) )
      {
@@ -351,7 +351,7 @@ namespace osm
    {
     max_spin_ = check_condition
      (
-      [ this ]{ return isFloatingPoint( max_ ); }, 
+      [ &max_ = max_ ]{ return isFloatingPoint( max_ ); }, 
       roundoff( max_ - min_, 1 ) * 10 + 1, 
       max_ - min_ + 1
      );
@@ -375,13 +375,13 @@ namespace osm
   //     DEFINITION OF THE "update_output" METHOD
   //====================================================
   template <typename bar_type>
-  void ProgressBar <bar_type>::update_output( std::string output )
+  void ProgressBar <bar_type>::update_output( const std::string& output )
    {    
     std::cout << output
               << getColor()
               << check_condition
                   (
-                   [ this ]{ return ( message_ != null_str ); }, 
+                   [ &message_ = message_ ]{ return ( message_ != null_str ); }, 
                    empty_space + message_ + empty_space, 
                    empty_space 
                   )
@@ -400,14 +400,14 @@ namespace osm
   //     DEFINITION OF THE "update" METHOD
   //====================================================
   template <typename bar_type>
-  void ProgressBar <bar_type>::update( bar_type iterating_var )
+  void ProgressBar <bar_type>::update( const bar_type& iterating_var )
    {
     std::lock_guard <std::mutex> lock{ mutex_ };
 
     iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - one( iterating_var ) ),
     iterating_var_spin_ = check_condition
      (
-      [ = ]{ return isFloatingPoint( iterating_var ); }, 
+      [ &iterating_var = iterating_var ]{ return isFloatingPoint( iterating_var ); }, 
       roundoff( iterating_var, 1 ) * 10, 
       iterating_var 
      ),
@@ -433,7 +433,8 @@ namespace osm
                 getBrackets_open() + 
                 getColor() + 
                 getStyle() * width_ + 
-                empty_space * ( check_condition( [ = ]{ return isFloatingPoint( iterating_var ); }, 26, 25 ) - width_ ) + 
+                empty_space * ( check_condition( [ &iterating_var = iterating_var ]
+                { return isFloatingPoint( iterating_var ); }, 26, 25 ) - width_ ) + 
                 reset( "color" ) + 
                 getBrackets_close();  
                      
@@ -449,7 +450,8 @@ namespace osm
                getBrackets_open() + 
                getColor() + 
                style_l_ * width_ + 
-               empty_space * ( check_condition( [ = ]{ return isFloatingPoint( iterating_var ); }, 26, 25 ) - width_ ) + 
+               empty_space * ( check_condition( [ &iterating_var = iterating_var ]
+               { return isFloatingPoint( iterating_var ); }, 26, 25 ) - width_ ) + 
                reset( "color" ) +
                getBrackets_close() + 
                getColor() + 
@@ -506,7 +508,7 @@ namespace osm
   //     DEFINITION OF THE "addStyle" METHOD
   //====================================================
    template <typename bar_type>
-   void ProgressBar <bar_type>::addStyle( std::string type, std::string style )
+   void ProgressBar <bar_type>::addStyle( const std::string& type, const std::string& style )
     {
      if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
       {

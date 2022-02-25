@@ -8,6 +8,8 @@
 #include <cmath>
 #include <boost/preprocessor/seq/for_each.hpp>
 #include <boost/preprocessor/tuple/to_seq.hpp>
+#include <boost/iostreams/stream.hpp>
+#include <boost/iostreams/device/null.hpp>
 
 #include "../include/helper_tools.hpp"
 
@@ -20,6 +22,15 @@ namespace osm
   //       (in implementation file)
   //====================================================
   std::string output, error;
+
+  //====================================================
+  //     GLOBAL VARIABLES DEFINITION
+  //====================================================
+  boost::iostreams::stream<boost::iostreams::null_sink> null_stream 
+   {
+    boost::iostreams::null_sink{} 
+   };
+
 
   //====================================================
   //     OPERATOR * REDEFINITIONS
@@ -44,7 +55,7 @@ namespace osm
   //     FUNCTION FOR CUSTOMIZED RUNTIME ERROR
   //====================================================
   template <typename T>
-  std::runtime_error runtime_error_func( std::string beg, T variable, std::string end )
+  std::runtime_error runtime_error_func( const std::string& beg, T variable, const std::string& end )
    {
     error = beg + 
             static_cast <std::string>(" \"") + 
@@ -57,7 +68,7 @@ namespace osm
 
   //Explicit instantiations:
   #define RUNTIME_ERROR_FUNC( r, data, T ) template \
-  std::runtime_error runtime_error_func <T> ( std::string beg, T variable, std::string end );
+  std::runtime_error runtime_error_func <T> ( const std::string& beg, T variable, const std::string& end );
 
   BOOST_PP_SEQ_FOR_EACH( RUNTIME_ERROR_FUNC, _, ARGS( std::string, const char* ) );
 
@@ -66,21 +77,15 @@ namespace osm
   //     AND IN POSITIVE CASE RETURN IT
   //====================================================
   template <typename T>
-  T check_condition( std::function <bool()> condition, T return_it, T return_false )
+  T check_condition( const std::function <bool()>& condition, const T& return_it, const T& return_false )
    {
-    if( condition() )
-     {
-      return return_it;
-     }
-    else
-     {
-      return return_false;
-     }
+    if( condition() ) return return_it;
+    else return return_false;
    }
   
   //Explicit instantiations:
   #define CHECK_CONDITION( r, data, T ) template \
-  T check_condition <T> ( std::function <bool()> condition, T return_it, T return_false );
+  T check_condition <T> ( const std::function <bool()>& condition, const T& return_it, const T& return_false );
 
   BOOST_PP_SEQ_FOR_EACH( CHECK_CONDITION, _, ARGS( int, long, long long, long double, float, double, std::string ) );
 
@@ -89,14 +94,14 @@ namespace osm
   //     FLOATING POINT
   //====================================================
   template <typename T>
-  bool isFloatingPoint( const T & expression )
+  bool isFloatingPoint( const T& expression )
    {
     return std::is_floating_point <T>::value;
    }
 
   //Explicit instantiations:
   #define ISFLOATINGPOINT( r, data, T ) template \
-  bool isFloatingPoint <T> ( const T & expression );
+  bool isFloatingPoint <T> ( const T& expression );
 
   BOOST_PP_SEQ_FOR_EACH( ISFLOATINGPOINT, _, ARGS( int, long, long long, float, double, long double ) );
 
@@ -116,4 +121,20 @@ namespace osm
   T roundoff <T> ( const T& value, const unsigned char prec );
 
   BOOST_PP_SEQ_FOR_EACH( ROUNDOFF, _, ARGS( int, double, long double, long, long long, float ) );
+
+  //====================================================
+  //     FUNCTION TO CHECK IF A NUMBER LIE IN A
+  //     CERTAIN BOUND
+  //====================================================
+  template <typename T>
+  bool IsInBounds( const T& value, const T& low, const T& high )
+   {
+    return !( value < low ) && ( value < high );
+   } 
+
+  //Explicit instantiations:
+  #define ISINBOUNDS( r, data, T ) template \
+  bool IsInBounds <T> ( const T& value, const T& low, const T& high );
+
+  BOOST_PP_SEQ_FOR_EACH( ISINBOUNDS, _, ARGS( int, double, long double, long, long long, float ) );
  }

@@ -14,7 +14,7 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "color" MAP
   //====================================================
-  std::map <std::string, std::string> col 
+  const std::map <std::string, std::string> col 
    {
     //Error variables:
     { "error", "Inserted color" },
@@ -70,7 +70,7 @@ namespace osm
   //     DEFINITION OF THE "style" MAP
   //====================================================
   //Definition of the "style" map:
-  std::map <std::string, std::string> sty 
+  const std::map <std::string, std::string> sty 
    {
     //Error variables:
     { "error", "Inserted style" },
@@ -90,7 +90,7 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "reset" MAP
   //====================================================
-  std::map <std::string, std::string> rst 
+  const std::map <std::string, std::string> rst 
    {
     //Error variables:
     { "error", "Inserted reset command" },
@@ -117,7 +117,7 @@ namespace osm
   //     DEFINITION OF THE "tcs" MAP
   //     (terminal control sequences)
   //====================================================
-  std::map <std::string, std::string> tcs
+  const std::map <std::string, std::string> tcs
    {
     //Error variables:
     { "error", "Inserted terminal control sequence" },
@@ -138,7 +138,7 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "tcsc" MAP
   //====================================================
-  string_pair_map tcsc
+  const string_pair_map tcsc
    {
     //Error variables:
     { "error", std::make_pair( "Inserted cursor command", "" ) },
@@ -151,7 +151,7 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "cursor" MAP
   //====================================================
-  string_pair_map crs
+  const string_pair_map crs
    {
     //Error variables:
     { "error", std::make_pair( "Inserted terminal control sequence", "" ) },
@@ -162,11 +162,11 @@ namespace osm
     { "right", std::make_pair( "\u001b[", "C" ) },
     { "left", std::make_pair( "\u001b[", "D" ) }
    };
- 
+
   //====================================================
   //     DEFINITION OF THE "feat" FUNCTION
   //====================================================
-  std::string feat( std::map <std::string, std::string> & generic_map, std::string feat_string )
+  std::string feat( const std::map <std::string, std::string>& generic_map, const std::string& feat_string )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
@@ -179,7 +179,7 @@ namespace osm
   //     DEFINITION OF THE "feat" FUNCTION OVERLOAD
   //     (for the crs map)
   //====================================================
-  std::string feat( string_pair_map & generic_map, std::string feat_string, int feat_int )
+  std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
@@ -200,7 +200,7 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "reset" FUNCTION
   //====================================================
-  std::string reset( std::string reset_string )
+  std::string reset( const std::string& reset_string )
    {
     if( rst.find( reset_string ) == rst.end() ) 
      {
@@ -212,7 +212,7 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "go_to" FUNCTION
   //====================================================
-  std::string go_to( int x, int y )
+  std::string go_to( const int& x, const int& y )
    {
     return "\u001b[" + 
            std::to_string( x ) + 
@@ -224,7 +224,7 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "RGB" FUNCTION
   //====================================================
-  std::string RGB( int r, int g, int b )
+  std::string RGB( const int& r, const int& g, const int& b )
    {
     return "\x1b[38;2;" +
             std::to_string( r ) + 
@@ -239,25 +239,16 @@ namespace osm
   //     DEFINITION OF THE "OPTION" FUNCTION
   //====================================================
   template <typename T>
-  void OPTION( const T opt )
+  void OPTION( const T& opt )
    {
-    if( opt == CURSOR::ON )
-     {
-      std::cout << feat( tcs, "scrs" );
-     }
-    else if( opt == CURSOR::OFF )
-     {
-      std::cout << feat( tcs, "hcrs" ); 
-     }
-    else
-     {
-      throw runtime_error_func( "Inserted cursor option", "", "is not supported!" );
-     }
+    if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
+    else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
+    else throw runtime_error_func( "Inserted cursor option", "", "is not supported!" );
    }
 
   //Explicit instantiations:
   #define OPTION( r, data, T ) template \
-  void OPTION <T> ( const T opt );
+  void OPTION <T> ( const T& opt );
 
   BOOST_PP_SEQ_FOR_EACH( OPTION, _, ARGS( CURSOR ) );
  }

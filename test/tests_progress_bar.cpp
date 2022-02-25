@@ -165,7 +165,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T,
       }
     bar.setEnd();
 
-    CHECK_EQ( bar.getTime(), 500 );
+    CHECK( IsInBounds( static_cast <int>( bar.getTime() ), 499, 502 ) );
 
     bar.resetTime();
 

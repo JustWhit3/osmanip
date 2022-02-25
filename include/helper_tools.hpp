@@ -6,6 +6,8 @@
 #include <functional>
 #include <type_traits>
 #include <stdexcept>
+#include <boost/iostreams/stream.hpp>
+#include <boost/iostreams/device/null.hpp>
 
 namespace osm
  {
@@ -13,6 +15,11 @@ namespace osm
   //     GLOBAL HELPER VARIABLES
   //====================================================
   extern std::string output, error;
+
+  //====================================================
+  //     GLOBAL OBJECTS
+  //====================================================
+  extern boost::iostreams::stream<boost::iostreams::null_sink> null_stream;
 
   //====================================================
   //     OPERATORS REDEFINITION
@@ -24,15 +31,18 @@ namespace osm
   //     TEMPLATE FUNCTIONS DEFINITION
   //====================================================
   template <typename T>
-  extern std::runtime_error runtime_error_func( std::string beg, T variable, std::string end );
+  extern std::runtime_error runtime_error_func( const std::string& beg, T variable, const std::string& end );
 
   template <typename T>
-  extern T check_condition( std::function <bool()> condition, T return_it, T return_false );
+  extern T check_condition( const std::function <bool()>& condition, const T& return_it, const T& return_false );
 
   template <typename T>
-  extern bool isFloatingPoint( const T & expression );
+  extern bool isFloatingPoint( const T& expression );
 
   template <typename T>
   extern T roundoff( const T& value, const unsigned char prec );
+
+  template <typename T>
+  extern bool IsInBounds( const T& value, const T& low, const T& high );
  }
 #endif

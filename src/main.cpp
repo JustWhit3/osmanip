@@ -100,6 +100,29 @@ void col_sty()
          sleep_for( seconds( 2 ) );
  }
 
+void printer()
+ {
+  //====================================================
+  //     PRINTING FUNCTIONS FEATURES
+  //====================================================
+  cout << endl << "======================================================" << endl
+       << "     PRINTING FUNCTIONS                                           " << endl
+       << "======================================================" << endl;
+
+  //Normal examples:
+  print::printf( cout, "This is the ", "\"printf\" ", "function for the normal output stream! ", 100, "% working!" );
+  print::printf( cerr, "This is the printf function for the stderr stream! ", "Managing errors is always important!" );
+  print::printf( clog, "Also writing in stdlog is important! ", feat( sty, "underlined" ), "Very important", reset( "underlined" ), "!" );
+  print::printf();
+
+  //Writing on a file:
+  ofstream file_stream;
+  file_stream.open( "file.txt", ios::trunc );
+  print::printf( file_stream, "You can also write in a file! ", 1, 2, 3, 4.5, 7 );
+  file_stream.close();
+  print::printf( "Text has been wrote to ", "file.txt ", "file!" );
+ }
+
 //====================================================
 //     PERCENTAGE BAR
 //====================================================
@@ -477,7 +500,8 @@ int main()
   OPTION( CURSOR::OFF );
  
   //Manipulators:
-//   col_sty(); //Color/style.
+  col_sty(); //Color/style.
+  printer(); //For printing functions.
 
   //Progress bars:
   perc_bars(); //Percentage bar.
@@ -485,7 +509,9 @@ int main()
   mixed_bars(); //Mixed bar.
   multi_bars(); //Multi progress bars
   progress_spinner(); //Progress spinner.
+  
+  //Terminal graphics visualization:
   canvas_2d();
 
-  OPTION( CURSOR::ON);
+  OPTION( CURSOR::ON );
  }
