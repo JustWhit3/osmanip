@@ -24,16 +24,20 @@ osmanip/
 │   ├── How-to-use guides.md
 ├── img/
 ├── include/
+│   ├── canvas.hpp
 │   ├── csmanip.hpp
 │   ├── helper_tools.hpp
 │   ├── aliases.hpp
 │   ├── osmanip.hpp
+│   ├── plot_2D_canvas.hpp
 │   ├── progress_bar.hpp
 │   ├── multi_progress_bar.hpp
 ├── src/
+│   ├── canvas.cpp
 │   ├── csmanip.cpp
 │   ├── helper_tools.cpp
 │   ├── main.cpp
+│   ├── plot_2D_canvas.cpp
 │   ├── progress_bar.cpp
 ├── scripts/
 │   ├── debug.sh
@@ -47,6 +51,7 @@ osmanip/
 │── README.md
 │── License
 │── .gitignore
+│── .clang-format
 │── CITATION.cff
 │── Makefile
 ```
@@ -60,14 +65,18 @@ osmanip/
 ### Code folders
 - [**include**](https://github.com/JustWhit3/osmanip/tree/main/include): it contains the library header files:
   * [*osmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.hpp): general header file containing all the others.
+  * [*canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/canvas.hpp): canvas creation header.
   * [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/osmanip.hpp): colors/styles manipulation header.
   * [*progress_bar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progress_bar.hpp): progress bar functionalities header.
+  * [*plot_2D_canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/plot_2D_canvas.hpp): header for 2D terminal-graphics.
   * [*helper_tools.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/helper_tools.hpp): helper tools header. It contains tools used in the main code headers.
   * [*aliases.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/aliases.hpp): header with all the type aliases definition.
   * [*multi_progress_bar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/multi_progress_bar.hpp): It contains source code for the multi progress bars implementation.
 - [**src**](https://github.com/JustWhit3/osmanip/tree/main/src): it contains library implementation and main files:
-  * [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/osmanip.cpp): *osmanip.hpp* implementation code.
+  * [*canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/canvas.cpp): *canvas.hpp* implementation code.
+  * [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp): *csmanip.hpp* implementation code.
   * [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp): *helper_tools.hpp* implementation code.
+  * [*plot_2D_canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/plot_2D_canvas.cpp): *plot_2D_canvas.hpp* implementation code.
   * [*helper_tools.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/helper_tools.cpp): *helper_tools* implementation code.
   * [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp): which shows you examples of the library utilities.
 - [**test**](https://github.com/JustWhit3/osmanip/blob/main/test): it contains testing codes:
@@ -89,6 +98,7 @@ osmanip/
 ### Dotfiles
 - [*.gitignore*](https://github.com/JustWhit3/osmanip/blob/main/.gitignore): it ignores some temporary files you don't have to care about.
 - [*.valgrindrc*](https://github.com/JustWhit3/osmanip/blob/main/.valgrindrc): it contains valgrind tools options.
+- [*.clang-format*](https://github.com/JustWhit3/osmanip/blob/main/.clang-format): it contains formatting instructions.
 
 ### Compilation files
 - [*makefile*](https://github.com/JustWhit3/osmanip/blob/main/makefile): for main and tests codes compilation.

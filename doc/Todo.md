@@ -2,7 +2,7 @@
 
 ## New features
 
-- Add an extra feature for **3D images visualization** on the terminal (not GUI), like [this example](https://www.a1k0n.net/2021/01/13/optimizing-donut.html), but extended to other kind of forms.
+- Extend the 2D terminal-graphics to 3D.
 
 ## Improvements
 

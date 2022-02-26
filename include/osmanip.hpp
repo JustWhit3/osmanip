@@ -7,5 +7,6 @@
 #include "progress_bar.hpp"
 #include "multi_progress_bar.hpp"
 #include "canvas.hpp"
+#include "plot_2D_canvas.hpp"
 
 #endif

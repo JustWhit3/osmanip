@@ -23,6 +23,7 @@
   * [tcsc](#tcsc)
 - [Enum classes](#enum-classes)
   * [CURSOR](#CURSOR)
+  * [FrameStyle](#framestyle)
 
 ## Namespaces
 
@@ -136,15 +137,15 @@ Instances of this class are used to draw in a limited 2D space. All the function
 
 Constuctor:
 
-- `Canvas(uint width, uint height)`: the size of the canvas in characters must be specified upon construction.
+- `Canvas( uint width, uint height )`: the size of the canvas in characters must be specified upon construction.
 
 Setters:
 
-- `void enableFrame(bool frame_enabled)`: flag to frame or not the canvas. The frame doesn't increase the size taken by the canvas. Instead, reduces the 2D space to draw in two columns and two rows (used to print the frame itself).
-- `void setFrame(FrameStyle style, const std::string& feat="")`: Set the [FrameStyle](#framestyle) of the canvas and an optional [feat](#feat).
-- `void setBackground(char c, const std::string& feat)""`: Set the char that fills the background and an optional [feat](#feat).
-- `void setWidth(uint width)`: Set the width of the canvas.
-- `void setHeight(uint height)`: Set the height of the canvas.
+- `void enableFrame( bool frame_enabled )`: flag to frame or not the canvas. The frame doesn't increase the size taken by the canvas. Instead, reduces the 2D space to draw in two columns and two rows (used to print the frame itself).
+- `void setFrame( FrameStyle style, const std::string& feat = "" )`: Set the [FrameStyle](#framestyle) of the canvas and an optional [feat](#feat).
+- `void setBackground( char c, const std::string& feat = "" )`: Set the char that fills the background and an optional [feat](#feat).
+- `void setWidth( uint width )`: Set the width of the canvas.
+- `void setHeight( uint height )`: Set the height of the canvas.
 
 Getters:
 
@@ -160,14 +161,14 @@ Getters:
 Public methods:
 
 - `void clear()`: Fill the canvas with the background.
-- `void put(uint x, uint y, char c, const std::string& feat="")`: Put a character in the canvas, given its coordinates and an optional [feat](#feat). An out-of-boudns exception will be thrown if the coordinates are outside the canvas.
+- `void put( uint x, uint y, char c, const std::string& feat = "" )`: Put a character in the canvas, given its coordinates and an optional [feat](#feat). An out-of-boudns exception will be thrown if the coordinates are outside the canvas.
 - `void refresh()`: Display the canvas in the console.
 
 ### Plot2DCanvas
 
-Header file: [*canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/canvas.hpp)
+Header file: [*plot_2D_canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/plot_2D_canvas.hpp)
 
-Source code: [*canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/canvas.cpp)
+Source code: [*plot_2D_canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/src/plot_2D_canvas.cpp)
 
 This class is used to plot mathematical functions $\R \to \R$. In addition to all the properties of a basic [Canvas](#canvas), this one also has an offset and a scale for the plot. The offset is the first value in x and y to be represented in the canvas and the scale is the difference in x or y that each character represents relative to the previous one.
 
@@ -175,12 +176,12 @@ For example: a canvas of size = (15, 10) with offset = (3,2) and scale = (7, 5) 
 
 Constructor:
 
-- `Plot2DCanvas (uint width, uint height)`: The same as its parent, the constructor requires the dimensions of the canvas.
+- `Plot2DCanvas( uint width, uint height )`: The same as its parent, the constructor requires the dimensions of the canvas.
 
 Setters:
 
-- `void setOffset(float xOff, float yOff)`: Set the offset of the plot.
-- `void setScale(float xScale, float yScale)`: Set the scale of the plot.
+- `void setOffset( float xOff, float yOff )`: Set the offset of the plot.
+- `void setScale( float xScale, float yScale )`: Set the scale of the plot.
 
 Getters:
 
@@ -191,7 +192,7 @@ Getters:
 
 Public functions:
 
-- `template <typename Y, typename X> void draw(std::function<Y(X)> function, char c, const std::string& feat="")`: Plot a function that receives an argument of a numeric type `X` and returns a numeric value of type `Y`. Represent it with a given char `c` and an optional [feat](#feat).
+- `template <typename Y, typename X> void draw( std::function<Y( X )> function, char c, const std::string& feat = "" )`: Plot a function that receives an argument of a numeric type `X` and returns a numeric value of type `Y`. Represent it with a given char `c` and an optional [feat](#feat).
 
 ## Functions
 

@@ -13,6 +13,9 @@
 
 namespace osm
  {
+  //====================================================
+  //     PROGRESSBAR CLASS
+  //====================================================
   template <typename bar_type>
   class ProgressBar
    {
