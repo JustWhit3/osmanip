@@ -35,10 +35,17 @@ If you want to use this software in one of your project, please cite it. You can
 
 Example output of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) program demo:
 
-<p float="left">
-  <img src="https://github.com/JustWhit3/osmanip/blob/main/img/csmanip_intro.gif"  width = "360">
-  <img src="https://github.com/JustWhit3/osmanip/blob/main/img/progressbars_intro.gif" width = "450"> 
-</p>
+Colors and styles manipulators
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/csmanip_intro.gif"  width = "450">
+
+Progress bars
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/progressbars_intro.gif" width = "450"> 
+
+2D terminal-graphics
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/2Dgraphics_intro.gif" width = "450">
 
 The software is and will stay **free**, but if you want to support me with a donation it would be really appreciated!
 
