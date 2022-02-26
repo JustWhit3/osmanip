@@ -489,9 +489,9 @@ void canvas_2d()
       plot_2d_canvas.setOffset( i/3.14, -2 );
       plot_2d_canvas.clear();
       plot_2d_canvas.draw( std::function <float( float )>( []( float x ) -> 
-                           float{ return std::cos( x );} ), 'X', feat( col, "bg white" ) + feat( col, "bd red" ) );
+                           float{ return std::cos( x ); } ), 'X', feat( col, "bg white" ) + feat( col, "bd red" ) );
       plot_2d_canvas.draw( std::function <float( float )>( []( float x ) -> 
-                           float{ return std::sin( x );} ), 'X', feat( col, "bg white" ) + feat( col, "bd blue" ) );
+                           float{ return std::sin( x ); } ), 'X', feat( col, "bg white" ) + feat( col, "bd blue" ) );
       plot_2d_canvas.refresh();
       sleep_for( milliseconds( 100 ) );
      }
@@ -507,7 +507,7 @@ int main()
   OPTION( CURSOR::OFF );
  
   //Manipulators:
-  /*col_sty(); //Color/style.
+  col_sty(); //Color/style.
   printer(); //For printing functions.
 
   //Progress bars:
@@ -515,7 +515,7 @@ int main()
   load_bars(); //Loading bar.
   mixed_bars(); //Mixed bar.
   multi_bars(); //Multi progress bars
-  progress_spinner(); //Progress spinner.*/
+  progress_spinner(); //Progress spinner.
   
   //Terminal graphics visualization:
   canvas_2d();
