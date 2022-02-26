@@ -1,6 +1,10 @@
 #ifndef PROGRESSBAR_HPP
 #define PROGRESSBAR_HPP
 
+//My headers
+#include "aliases.hpp"
+
+//STD headers
 #include <string>
 #include <chrono>
 #include <set>
@@ -8,8 +12,6 @@
 #include <vector>
 #include <mutex>
 #include <cstdint>
-
-#include "aliases.hpp"
 
 namespace osm
  {

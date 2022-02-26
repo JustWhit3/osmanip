@@ -1,13 +1,16 @@
 #ifndef MULTIPROGRESSBAR_HPP
 #define MULTIPROGRESSBAR_HPP
 
+//My headers
+#include "../include/csmanip.hpp"
+
+//STD headers
 #include <iostream>
 #include <type_traits>
 #include <tuple>
 #include <functional>
 #include <mutex>
 #include <utility>
-#include "../include/csmanip.hpp"
 
 namespace osm
  {

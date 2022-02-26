@@ -1,11 +1,15 @@
-#include <iostream>
-#include <string>
-#include <map>
+//My headers
+#include "../include/csmanip.hpp"
+#include "../include/helper_tools.hpp"
+
+//Extra headers
 #include <boost/preprocessor/seq/for_each.hpp>
 #include <boost/preprocessor/tuple/to_seq.hpp>
 
-#include "../include/csmanip.hpp"
-#include "../include/helper_tools.hpp"
+//STD headers
+#include <iostream>
+#include <string>
+#include <map>
 
 #define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
 

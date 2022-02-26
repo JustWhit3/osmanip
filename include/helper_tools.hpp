@@ -1,13 +1,16 @@
 #ifndef HELPER_TOOLS_HPP
 #define HELPER_TOOLS_HPP
 
+//Extra headers
+#include <boost/iostreams/stream.hpp>
+#include <boost/iostreams/device/null.hpp>
+
+//STD headers
 #include <string>
 #include <map>
 #include <functional>
 #include <type_traits>
 #include <stdexcept>
-#include <boost/iostreams/stream.hpp>
-#include <boost/iostreams/device/null.hpp>
 
 namespace osm
  {

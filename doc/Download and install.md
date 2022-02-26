@@ -84,6 +84,7 @@ All the prerequisites can be installed during the first step of the automatic in
 - [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) to correctly run the [update.sh](#update) script.
 - [Valgrind](https://valgrind.org/) to run the [debug.sh](#debugsh) script.
 - [Cppcheck](https://github.com/danmar/cppcheck) to run the [debug.sh](#debugsh) script.
+- [Clang formatter](https://stackoverflow.com/questions/20756924/how-can-i-install-clang-format-in-ubuntu#:~:text=16.04%2C%20simply%20do%3A-,sudo%20apt%20install%20clang%2Dformat,-Share) to format the code for pull requests.
 
 ## Install
 

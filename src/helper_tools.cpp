@@ -1,3 +1,13 @@
+//My headers
+#include "../include/helper_tools.hpp"
+
+//Extra headers
+#include <boost/preprocessor/seq/for_each.hpp>
+#include <boost/preprocessor/tuple/to_seq.hpp>
+#include <boost/iostreams/stream.hpp>
+#include <boost/iostreams/device/null.hpp>
+
+//STD headers
 #include <iostream>
 #include <string>
 #include <map>
@@ -6,12 +16,6 @@
 #include <type_traits>
 #include <stdexcept>
 #include <cmath>
-#include <boost/preprocessor/seq/for_each.hpp>
-#include <boost/preprocessor/tuple/to_seq.hpp>
-#include <boost/iostreams/stream.hpp>
-#include <boost/iostreams/device/null.hpp>
-
-#include "../include/helper_tools.hpp"
 
 #define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
   

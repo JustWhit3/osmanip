@@ -1,11 +1,17 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
 
-#include <doctest.h>
-#include <map>
-#include <vector>
+//My headers
 #include "../include/osmanip.hpp"
 
+//Extra headers
+#include <doctest.h>
+
+//STD headers
+#include <map>
+#include <vector>
+
+//Using namespaces
 using namespace osm;
 using namespace std;
 

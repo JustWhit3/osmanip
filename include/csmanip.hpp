@@ -1,12 +1,14 @@
 #ifndef CSMANIP_HPP
 #define CSMANIP_HPP
 
+//My headers
+#include "aliases.hpp"
+#include "helper_tools.hpp"
+
+//STD headers
 #include <iostream>
 #include <string>
 #include <map>
-
-#include "aliases.hpp"
-#include "helper_tools.hpp"
 
 namespace osm
  {

@@ -1,11 +1,17 @@
 #define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
 
-#include <doctest.h>
-#include <functional>
-#include <string>
+//My headers
 #include "../include/osmanip.hpp"
 #include "../include/helper_tools.hpp"
 
+//Extra headers
+#include <doctest.h>
+
+//STD headers
+#include <functional>
+#include <string>
+
+//Using namespaces
 using namespace osm;
 using namespace std;
 

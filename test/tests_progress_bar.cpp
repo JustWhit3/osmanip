@@ -1,11 +1,17 @@
 #define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
 
+//My headers
+#include "../include/osmanip.hpp"
+
+//Extra headers
 #include <doctest.h>
+
+//STD headers
 #include <vector>
 #include <thread>
 #include <chrono>
-#include "../include/osmanip.hpp"
 
+//Using namespaces
 using namespace osm;
 using namespace std;
 using namespace std::this_thread;

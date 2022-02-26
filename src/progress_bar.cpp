@@ -1,3 +1,13 @@
+//My headers
+#include "../include/helper_tools.hpp"
+#include "../include/csmanip.hpp"
+#include "../include/progress_bar.hpp"
+
+//Extra headers
+#include <boost/preprocessor/seq/for_each.hpp>
+#include <boost/preprocessor/tuple/to_seq.hpp>
+
+//STD headers
 #include <iostream>
 #include <string>
 #include <chrono>
@@ -6,12 +16,6 @@
 #include <cmath>
 #include <mutex>
 #include <stdexcept>
-#include <boost/preprocessor/seq/for_each.hpp>
-#include <boost/preprocessor/tuple/to_seq.hpp>
-
-#include "../include/helper_tools.hpp"
-#include "../include/csmanip.hpp"
-#include "../include/progress_bar.hpp"
 
 #define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
 

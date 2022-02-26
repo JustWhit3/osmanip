@@ -21,7 +21,7 @@ echo ""
 echo "Do you want to install optional prerequisites? (y/n)"
 read word_o
 if [ $word_o == "y" ] || [ $word_o == "Y" ] ; then
-    sudo apt install doctest-dev subversion valgrind cppcheck
+    sudo apt install doctest-dev subversion valgrind cppcheck clang-format
 fi
 echo ""
 
