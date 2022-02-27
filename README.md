@@ -79,6 +79,10 @@ Here you can find the list of features implemented in the current version of the
   - [Loading bar](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=Do%20some%20operations...%0A%7D-,Loading%20bar,-You%20can%20also)
   - [Progress bar](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=the%20previous%20percentage.-,Full%20progress%20bar,-You%20can%20create)
   - [Progress spinner](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=endl%20%3C%3C%20endl%20%3C%3C%20endl%3B-,Progress%20spinner,-To%20initialize%20a)
+- **Terminal graphics**:
+  - [2D graphics](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=to%20restore%20it.-,2D%20graphics,-To%20display%20an).
+  
+
 
 Why choosing this library for progress bars? Some properties:
 
