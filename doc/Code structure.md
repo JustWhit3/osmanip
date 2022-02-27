@@ -14,6 +14,7 @@
   * [RGB](#RGB)
 - [Template functions](#template-functions)
   * [OPTION](#OPTION)
+  * [print](#print)
 - [Global variables](#global-variables)
   * [col](#col)
   * [sty](#sty)
@@ -250,7 +251,15 @@ Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/
 
 Complete definition: `template <typename T> void OPTION( const T opt )`.
 
-It takes an enum class as argument, which represent the cursor view state in the current program. If `opt = CURSOR::ON` the cursor if visible, else if `opt = CURSOR::OFF` the cursor is hidden.
+It takes an enum class as argument, which represent the cursor view state in the current program. If `opt = CURSOR::ON` the cursor is visible, else if `opt = CURSOR::OFF` the cursor is hidden.
+
+### print
+
+Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+
+Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+
+Complete definition: ``.
 
 ## Global variables
 

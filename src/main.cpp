@@ -113,17 +113,17 @@ void printer()
        << "======================================================" << endl;
 
   //Normal examples:
-  print::printf( cout, "This is the ", "\"printf\" ", "function for the normal output stream! ", 100, "% working!" );
-  print::printf( cerr, "This is the printf function for the stderr stream! ", "Managing errors is always important!" );
-  print::printf( clog, "Also writing in stdlog is important! ", feat( sty, "underlined" ), "Very important", reset( "underlined" ), "!" );
-  print::printf();
+  print( cout, "This is the ", "\"printf\" ", "function for the normal output stream! ", 100, "% working!" );
+  print( cerr, "This is the printf function for the stderr stream! ", "Managing errors is always important!" );
+  print( clog, "Also writing in stdlog is important! ", feat( sty, "underlined" ), "Very important", reset( "underlined" ), "!" );
+  print();
 
   //Writing on a file:
   ofstream file_stream;
   file_stream.open( "file.txt", ios::trunc );
-  print::printf( file_stream, "You can also write in a file! ", 1, 2, 3, 4.5, 7 );
+  print( file_stream, "You can also write in a file! ", 1, 2, 3, 4.5, 7 );
   file_stream.close();
-  print::printf( "Text has been wrote to ", "file.txt ", "file!" );
+  print( "Text has been wrote to ", "file.txt ", "file!" );
  }
 
 //====================================================

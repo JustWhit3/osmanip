@@ -62,7 +62,7 @@ In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder usef
 - [*Repository structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Repository%20structure.md): contains general information about the files and folders of the repository.
 - [*Code structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md): contains general information about the code structure of the library, therefore details on classes, functions and variables used in it.
 - [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download%20and%20install.md): a guide to download, install and run the library into your system.
-- [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/CONTRIBUTING.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
+- [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/Contributing.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
 - [*How-to-use guides*](https://github.com/JustWhit3/Ostream-manipulator/blob/main/doc/How-to-use%20guides.md): contains a set of guides about how to use the library tools.
 
@@ -81,9 +81,12 @@ Here you can find the list of features implemented in the current version of the
   - [Progress spinner](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=endl%20%3C%3C%20endl%20%3C%3C%20endl%3B-,Progress%20spinner,-To%20initialize%20a)
 - **Terminal graphics**:
   - [2D graphics](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=to%20restore%20it.-,2D%20graphics,-To%20display%20an).
+
+Why choosing this library for color / styles / escape sequences manipulation:
+
+- All the functions used to manipulate these sequences are [very easy to use](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp#:~:text=void%20col_sty(),%7D) and don't require complex code signatures.
+- All the most common ANSI sequences can be manipulated.
   
-
-
 Why choosing this library for progress bars? Some properties:
 
 - Extremely [easy to use](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=ProgressBar%20%3Cint%3E%20percentage_bar,Do%20some%20operations...%0A%20%20%7D).
@@ -91,6 +94,12 @@ Why choosing this library for progress bars? Some properties:
 - Maximum and minimum values can be set with [any value](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=NOTE%3A%20you%20can%20insert%20each%20min%20and%20max%20value%20you%20prefer%2C%20like%20also%20%2D3%20and%2052%20for%20example%2C%20and%20the%20bar%20will%20work%20perfectly%20too.) you prefer and the progress bars will be self-built with respect to them.
 - Each progress bar [feature](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=Type%3A%20percentage%20indicator,progress%20bars%20simultaneously.) can be fully customized (messages, style, color, brackets type, time remaining info etc...) regarding to your requirements. You can also choose to use only a progress indicator or a loading bar instead of a complete progress bar.
 - It is thread-safe, hence you can use also [multiple progress bars](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=To%20add%20more%20progress%20bar%20simultaneously%20using%20threads%3A) simultaneously.
+
+Why choosing this library for terminal graphics:
+
+- There are very few C++ libraries doing this job, and this is one of them.
+- High level of customizability.
+- A faster and most comfortable alternative to [plot simple functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=To%20plot%202D%20canvas%20with%20sin%20and%20cos%20functions%3A) without the needing of GUI.
 
 ## Credits
 

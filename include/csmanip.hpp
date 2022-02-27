@@ -41,25 +41,22 @@ namespace osm
   //====================================================
   //     TEMPLATE "printf" FUNCTIONS DEFINITION
   //====================================================
-  namespace print
+  template <typename... Args>
+  inline void print( std::ostream& os = null_stream, const Args&... args )
    {
-    template <typename... Args>
-    inline void printf( std::ostream& os = null_stream, const Args&... args )
-     {
-      if( &os == &null_stream ) std::cout << "\n";
-      else if( &os == &std::cerr ) os << feat( col, "red" ) << feat( sty, "bold" );
-      else if( &os == &std::clog ) os << feat( col, "lt blue" ) << feat( sty, "bold" );
-  
-      ( os << ... << args ) << "\n";
-  
-      if( &os == &std::cerr || &os == &std::clog || &os == &std::cout ) os << reset( "all" );
-     }
+    if( &os == &null_stream ) std::cout << "\n";
+    else if( &os == &std::cerr ) os << feat( col, "red" ) << feat( sty, "bold" );
+    else if( &os == &std::clog ) os << feat( col, "lt blue" ) << feat( sty, "bold" );
 
-    template <typename... Args>
-    inline void printf( Args&... args )
-     {
-      ( std::cout << ... << args ) << "\n" << reset( "all" );
-     }
+    ( os << ... << args ) << "\n";
+
+    if( &os == &std::cerr || &os == &std::clog || &os == &std::cout ) os << reset( "all" );
+   }
+   
+  template <typename... Args>
+  inline void print( Args&... args )
+   {
+    ( std::cout << ... << args ) << "\n" << reset( "all" );
    }
  }
 
