@@ -7,7 +7,7 @@
   - [Colors and styles manipulation](#colors-and-styles-manipulation)
   - [Cursor navigation](#cursor-navigation)
   - [Terminal control sequences](#terminal-control-sequences)
-  - [Extra functions](#extra-functions)
+  - [Extra functions (print and others)](#extra-functions-print-and-others)
 - [Progress bars](#progress-bars)
   - [Percentage indicator](#percentage-indicator)
   - [Loading bar](#loading-bar)
@@ -90,11 +90,12 @@ For example, the previous command will output a bell sound from your computer.
 
 If you plan to use the sequences for clearing screen / line, please have a look [here](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=It%20is%20used%20for%20the%20terminal%20control%20sequences%20manipulation%20for%20clear%20line%20/%20screen.%20It%20is%20used%20within%20the%20feat%20function%20overload%20with%203%20arguments%20and%20n%20as%20the%20third%20one.%20It%20currently%20supports%20the%20following%20list%20of%20sequences) to fully understand their usage.
 
-## Extra functions
+## Extra functions (print and others)
 
 Some extra functions are provided:
 - [`go_to`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=the%20corresponding%20key.-,go_to,the%20screen%20and%20returns%20the%20interested%20position%20you%20want%20to,-reach.): to put the cursor in a precise (x,y) point of the terminal.
 - [`OPTION`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Template%20functions-,OPTION,-Header%20file%3A%20csmanip): to set the cursor view on or off in your program.
+- [`print`]
 
 ## Progress bars
 

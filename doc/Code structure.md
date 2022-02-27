@@ -259,7 +259,11 @@ Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/incl
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: ``.
+Complete definition: `template <typename... Args> inline void print( std::ostream& os = null_stream, const Args&... args )`.
+
+It takes an `ostream` object as first argument and an indeterminate number of any-type objects as second argument. It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified `std::cout` will be used as default. The building of this function has been inspired by the Python `print` function.
+
+An extra overload: `template <typename... Args> inline void print( Args&... args )` is provided to deal with the case of 0 arguments provided. In this case, the `std::cout` object has been defined as the default stream.
 
 ## Global variables
 
