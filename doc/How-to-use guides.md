@@ -13,6 +13,8 @@
   - [Loading bar](#loading-bar)
   - [Full progress bar](#full-progress-bar)
   - [Progress spinner](#progress-spinner)
+- [Terminal graphics](#terminal-graphics)
+  - [2D graphics](#2D-graphics)
 
 ## Introduction
 
@@ -352,3 +354,103 @@ spinner.setStyle( "spinner", "|/_\\" );
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/spinner_2.gif" width="550">
+
+## Terminal graphics
+
+From release [3.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v3.0.0) of the library, also terminal graphics have been introduced. For the moment, only 2D graphics is available, but probably, in the future, also 3D will be.
+
+A list of all the customizable [settings](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=be%20explained%20here.-,Canvas,it%20internally%3B%20to%20make%20the%20changes%20effective%20in%20the%20console,-%2C%20you%20must%20use) of this feature:
+
+- [**Size of the graphic canvas**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Canvas(%20uint%20width%2C%20uint%20height%20)%3A%20the): to set the canvas dimensions.
+- [**Enable or disable the canvas frame**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setFrame(%20FrameStyle%20style%2C%20const%20std%3A%3Astring%26%20feat%20%3D%20%22%22%20)%3A%20Set%20the%20FrameStyle): to flag to frame or not the canvas.
+- [**Set the canvas background**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setBackground(%20char%20c%2C%20const%20std%3A%3Astring%26%20feat%20%3D%20%22%22%20)%3A%20Set%20the): to set the canvas background color
+- [**Put a character in the canvas**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20put(%20uint%20x%2C%20uint%20y%2C%20char%20c%2C%20const%20std%3A%3Astring%26%20feat%20%3D%20%22%22%20)%3A%20Put%20a%20character%20in%20the): to put a character inside the canvas.
+- [**Plot 2D objects**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=in%20the%20console.-,Plot2DCanvas,used%20to%20plot%20mathematical%20functions%20%24%5CR%20%5Cto%20%5CR%24.%20In%20addition,-to%20all%20the): to plot 2D mathematical functions.
+
+Here you can find some examples about how to use terminal graphics in your code.
+> If you want to know more precisely all the available methods of this class, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=be%20explained%20here.-,Canvas,-Header%20file%3A%20canvas) page.
+
+> **TIP**: when using this feature in a main program, you can hide the cursor by calling the [`OPTION`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Template%20functions-,OPTION,-Header%20file%3A%20csmanip) function at the beginning and then at the end of the program.
+
+> It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
+
+### 2D graphics
+
+To display an animation in a canvas:
+
+```C++
+Canvas canvas(10,10);
+canvas.setBackground( '.', feat( col, "bg white" ) + feat( col, "black" ) );
+for( uint i = 0; i < 10; i++ )
+ {
+  canvas.clear();
+  canvas.put( 0, 2, 'x' );
+  canvas.put( i, 3, 'A', feat( col, "red" ) );
+  canvas.put( 5, 0, 'B', feat( col, "blue" ) );
+  canvas.put( 7, 8, 'Z', feat( col, "bg cyan" ) + feat( col, "black" ) + feat( sty, "bold" ) );
+  canvas.refresh();
+  this_thread::sleep_for( chrono::milliseconds( 100 ) );
+ }
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_animation.gif" width="550">
+
+To display a canvas with an ASCII frame:
+
+```C++
+Canvas ascii_framed_canvas( 15, 10 );
+ascii_framed_canvas.enableFrame( true );
+ascii_framed_canvas.setFrame( FrameStyle::ASCII, feat( col, "bg white" ) + feat( col, "black" ) );
+ascii_framed_canvas.clear();
+ascii_framed_canvas.put( 3, 4, 'H' );
+ascii_framed_canvas.put( 4, 4, 'e' );
+ascii_framed_canvas.put( 5, 4, 'l' );
+ascii_framed_canvas.put( 6, 4, 'l' );
+ascii_framed_canvas.put( 7, 4, 'o' );
+ascii_framed_canvas.refresh();
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_ascii_frame.gif" width="550">
+
+To draw a canvas with a box frame:
+
+```C++
+Canvas box_framed_canvas( 20, 8 );
+box_framed_canvas.enableFrame( true );
+box_framed_canvas.setFrame( FrameStyle::BOX );
+box_framed_canvas.clear();
+box_framed_canvas.put( 3, 4, 'H' );
+box_framed_canvas.put( 4, 4, 'e' );
+box_framed_canvas.put( 5, 4, 'l' );
+box_framed_canvas.put( 6, 4, 'l' );
+box_framed_canvas.put( 7, 4, 'o' );
+box_framed_canvas.refresh();
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_box_frame.gif" width="550">
+
+To plot 2D canvas with sin and cos functions:
+
+```C++
+cout << endl << "Plot2DCanvas with sin and cos" << endl;
+Plot2DCanvas plot_2d_canvas( 50, 20 );
+plot_2d_canvas.setBackground( ' ', feat( col, "bg white" ) );
+plot_2d_canvas.enableFrame( true );
+plot_2d_canvas.setFrame( FrameStyle::BOX, feat( col, "bg white" ) + feat( col, "black" ) );
+plot_2d_canvas.enableFrame( true );
+plot_2d_canvas.setFrame( FrameStyle::BOX, feat( col, "bg white" ) + feat( col, "black" ) );
+plot_2d_canvas.setScale( 1/3.14, 0.2) ;
+for( float i = 0; i < 40; i++ )
+ {
+  plot_2d_canvas.setOffset( i/3.14, -2 );
+  plot_2d_canvas.clear();
+  plot_2d_canvas.draw( std::function <float( float )>( []( float x ) -> 
+                       float{ return std::cos( x ); } ), 'X', feat( col, "bg white" ) + feat( col, "bd red" ) );
+  plot_2d_canvas.draw( std::function <float( float )>( []( float x ) -> 
+                       float{ return std::sin( x ); } ), 'X', feat( col, "bg white" ) + feat( col, "bd blue" ) );
+  plot_2d_canvas.refresh();
+  sleep_for( milliseconds( 100 ) );
+ }
+```
+
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_sincos.gif" width="550">
