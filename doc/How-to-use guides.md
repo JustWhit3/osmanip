@@ -410,7 +410,7 @@ ascii_framed_canvas.put( 7, 4, 'o' );
 ascii_framed_canvas.refresh();
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_ascii_frame.gif" width="400">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_ascii_frame.png" width="400">
 
 To draw a canvas with a box frame:
 
@@ -427,7 +427,7 @@ box_framed_canvas.put( 7, 4, 'o' );
 box_framed_canvas.refresh();
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_box_frame.gif" width="400">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_box_frame.png" width="400">
 
 To plot 2D canvas with sin and cos functions:
 
