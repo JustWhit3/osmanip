@@ -95,7 +95,7 @@ If you plan to use the sequences for clearing screen / line, please have a look 
 Some extra functions are provided:
 - [`go_to`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=the%20corresponding%20key.-,go_to,the%20screen%20and%20returns%20the%20interested%20position%20you%20want%20to,-reach.): to put the cursor in a precise (x,y) point of the terminal.
 - [`OPTION`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Template%20functions-,OPTION,-Header%20file%3A%20csmanip): to set the cursor view on or off in your program.
-- [`print`]
+- [`print`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=cursor%20is%20hidden.-,print,-Header%20file%3A%20csmanip): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
 
 ## Progress bars
 

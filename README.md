@@ -74,6 +74,7 @@ Here you can find the list of features implemented in the current version of the
   - [Color and style manipulation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=of%20a%20program.-,Colors%20and%20styles%20manipulation,-List%20of%20the)
   - [Cursor navigation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=reset%20commands%20here.-,Cursor%20navigation,-You%20can%20modify)
   - [Terminal control sequences](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=for%20more%20information.-,Terminal%20control%20sequences,-You%20can%20add)
+  - [Additional functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=understand%20their%20usage.-,Extra%20functions%20(print%20and%20others),-Some%20extra%20functions) (like an own version of the Python print one).
 - **Progress indicators**:
   - [Percentage indicator](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=to%20restore%20it.-,Percentage%20indicator,-Initialize%20and%20use)
   - [Loading bar](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=Do%20some%20operations...%0A%7D-,Loading%20bar,-You%20can%20also)

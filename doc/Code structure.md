@@ -46,21 +46,21 @@ Constructors / destructor:
 
 Setter methods: 
 
-- `void setMax( bar_type max )`: to set max value of the bar.
-- `void setMin( bar_type min )`: to set min value of the bar.
-- `void setStyle( std::string type, std::string style )`: to set the bar style.
-- `void setStyle( std::string type, std::string style_p, std::string style_l )`: to set the bar style in case of a complete bar.
+- `void setMax( const bar_type& max )`: to set max value of the bar.
+- `void setMin( const bar_type& min )`: to set min value of the bar.
+- `void setStyle( const std::string& type, const std::string& style )`: to set the bar style.
+- `void setStyle( const std::string& type, const std::string& style_p, const std::string& style_l )`: to set the bar style in case of a complete bar.
 
 > Standard available types are `indicator` and `loader`, `complete` (with both `indicator` and `loader`) and `spinner`.
 
 > Standard available styles are: `%` and `/100` for indicator, `■` and `#` for loader and `/-\\|` for spinner.
 
-- `void setMessage( std::string message )`: to set optional message of the bar.
+- `void setMessage( const std::string& message )`: to set optional message of the bar.
 - `void setBegin()`: to set begin time for the CPU time counting.
 - `void setEnd()`: to set end time for the CPU time counting.
-- `void setBrackets( std::string brackets_open, std::string brackets_close )`: to set brackets style.
-- `void setColor( std::string color )`: to set progress bar color.
-- `void setRemainingTimeFlag( std::string time_flag )`: to switch on/off the showing of the remaining-time info.
+- `void setBrackets( const std::string& brackets_open, const std::string& brackets_close )`: to set brackets style.
+- `void setColor( const std::string& color )`: to set progress bar color.
+- `void setRemainingTimeFlag( const std::string& time_flag )`: to switch on/off the showing of the remaining-time info.
 
 > Color name has to be set with corresponding name of a `crs` map element.
 
@@ -93,11 +93,11 @@ Getter methods:
 
 Other methods: 
 
-- `void update( bar_type iterating_var )`: to update the bar after each loop cycle.
+- `void update( const bar_type& iterating_var )`: to update the bar after each loop cycle.
 - `void print()`: to print on the screen all the progress bar variable values.
-- `void addStyle( std::string type, std::string style )`: to create customized progress bar styles.
+- `void addStyle( const std::string type&, const std::string& style )`: to create customized progress bar styles.
 - `void remaining_time()`: to compute the remaining time for the completion of the progress bar.
-- `bar_type one( bar_type iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
+- `bar_type one( const bar_type& iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
 
@@ -203,11 +203,11 @@ Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/incl
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `std::string feat ( std::map <std::string, std::string> & generic_map, std::string feat_string )`.
+Complete definition: `std::string feat ( const std::map <std::string, std::string>& generic_map, const std::string& feat_string )`.
 
 It takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
 
-Overload: `std::string feat( std::map <std::string, std::pair<std::string, std::string>> & generic_map, std::string feat_string, int feat_int )`.
+Overload: `std::string feat( const std::map <std::string, std::pair<std::string, std::string>>& generic_map, const std::string& feat_string, const int& feat_int )`.
 
 The overload, with respect to the standard function definition, takes an `std::map` object as the first argument, but with an `std::pair` as second type and additionally takes an extra integer argument to correctly set the parameter of the [`crs`](#crs) map.
 
@@ -217,7 +217,7 @@ Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/incl
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `std::string reset ( std::string reset_string )`
+Complete definition: `std::string reset ( const std::string& reset_string )`
 
 It takes a `std::string` object (`reset` map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
 
@@ -227,7 +227,7 @@ Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/incl
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `std::string go_to( int x, int y )`.
+Complete definition: `std::string go_to( const int& x, const int& y )`.
 
 It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
 
@@ -237,7 +237,7 @@ Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/incl
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `std::string RGB( int r, int g, int b )`.
+Complete definition: `std::string RGB( const int& r, const int& g, const int& b )`.
 
 It takes three integers as arguments which are the correspoing rgb triplets of a color (see [here](http://www.aksiom.net/rgb.html) for the full list of availables colors). It can be used to output a wider variety of colors with respect to the standard availables from the `col` map.
 
@@ -249,7 +249,7 @@ Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/incl
 
 Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
 
-Complete definition: `template <typename T> void OPTION( const T opt )`.
+Complete definition: `template <typename T> void OPTION( const T& opt )`.
 
 It takes an enum class as argument, which represent the cursor view state in the current program. If `opt = CURSOR::ON` the cursor is visible, else if `opt = CURSOR::OFF` the cursor is hidden.
 
