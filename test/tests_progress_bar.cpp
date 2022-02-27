@@ -18,7 +18,7 @@ using namespace std::this_thread;
 using namespace std::chrono;
 
 //====================================================
-//     GLOBAL MACROS DEFINITION
+//     GLOBAL VARIABLES DEFINITION
 //====================================================
 const string style = "%";
 const string message = "message";
@@ -37,10 +37,9 @@ vector <int> counter_ {};
 vector <int> v { 1, 2, 3, 4 };
 
 //====================================================
-//     TESTING "ProgressBar" class METHODS
+//     TESTING "ProgressBar" CLASS METHODS
 //====================================================
-TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, 
-                    int, long, long long, double, long double, float )
+TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long long, double, long double, float )
  {
   ProgressBar <T> bar; 
   T max = 10.,

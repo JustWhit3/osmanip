@@ -17,6 +17,7 @@
 
 - [Introduction](#introduction)
 - [Documentation](#documentation)
+- [News from the last version](#news-from-the-last-version)
 - [List of features](#list-of-features)
 - [Credits](#credits)
   - [Project leaders](#project-leaders)
@@ -65,6 +66,15 @@ In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder usef
 - [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/Contributing.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
 - [*How-to-use guides*](https://github.com/JustWhit3/Ostream-manipulator/blob/main/doc/How-to-use%20guides.md): contains a set of guides about how to use the library tools.
+
+## News from the last version
+
+Most recent relevant news from the last version:
+
+- A new feature to plot 2D graphics and functions in the terminal has been added. See [here](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=setStyle(%20%22spinner%22%2C%20%22%7C/_%5C%5C%22%20)%3B-,Terminal%20graphics,-From%20release%203.0.0).
+- Progress spinner has been added to the `ProgressBar` class.
+- New features have been added to the progress bar: time-reamining info.
+- Added a [new map](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=25h%20%3A%20show%20cursor.-,tcsc,-Header%20file%3A%20csmanip) for the `feat` function to deal with clear screen / line commands.
 
 ## List of features
 

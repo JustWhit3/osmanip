@@ -135,7 +135,7 @@ namespace osm
     uint y = 0;
     uint x = 0;
 
-    const auto & frame = [ & ]( uint fi ) -> std::string 
+    const auto& frame = [ & ]( uint fi ) -> std::string 
      {
       return frame_feat_ + frames[ frame_style_ ][ fi ] + feat( rst, "all" );
      };
