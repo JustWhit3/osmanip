@@ -64,6 +64,7 @@ if [ $word == "y" ] || [ $word == "Y" ] ; then
     if ! ( sudo cp -r include/* /usr/local/include/osmanip ) ; then
         echo "Cannot install the header file into /usr/local/include position of the system!"
     fi
+    sudo rm -rf /usr/local/include/osmanip/utils
     echo "Installing osmanip lib into /usr/local/lib folder..."
     if ! ( sudo cp lib/* /usr/local/lib ) ; then
         echo "Cannot install the library into /usr/local/lib position of the system!"

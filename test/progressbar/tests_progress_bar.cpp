@@ -3,6 +3,7 @@
 //My headers
 #include "../include/manipulators/csmanip.hpp"
 #include "../include/progressbar/progress_bar.hpp"
+#include "../include/utils/helper_tools.hpp"
 
 //Extra headers
 #include <doctest.h>
@@ -170,7 +171,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
        sleep_for( milliseconds( 100 ) );
       }
     bar.setEnd();
-
+    
     CHECK( IsInBounds( static_cast <int>( bar.getTime() ), 499, 502 ) );
 
     bar.resetTime();

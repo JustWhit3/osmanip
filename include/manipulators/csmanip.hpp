@@ -1,8 +1,9 @@
 #ifndef CSMANIP_HPP
 #define CSMANIP_HPP
 
-//My headers
-#include "../utils/helper_tools.hpp"
+//Extra headers
+#include <boost/iostreams/stream.hpp>
+#include <boost/iostreams/device/null.hpp>
 
 //STD headers
 #include <iostream>
@@ -22,6 +23,11 @@ namespace osm
   //     ENUM CLASSES
   //====================================================
   enum class CURSOR { ON, OFF };
+
+  //====================================================
+  //     GLOBAL OBJECTS
+  //====================================================
+  extern boost::iostreams::stream<boost::iostreams::null_sink> null_stream;
 
   //====================================================
   //     VARIABLES DECLARATION

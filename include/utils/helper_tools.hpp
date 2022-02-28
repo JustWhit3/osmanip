@@ -1,10 +1,6 @@
 #ifndef HELPER_TOOLS_HPP
 #define HELPER_TOOLS_HPP
 
-//Extra headers
-#include <boost/iostreams/stream.hpp>
-#include <boost/iostreams/device/null.hpp>
-
 //STD headers
 #include <string>
 #include <map>
@@ -18,11 +14,6 @@ namespace osm
   //     GLOBAL HELPER VARIABLES
   //====================================================
   extern std::string output, error;
-
-  //====================================================
-  //     GLOBAL OBJECTS
-  //====================================================
-  extern boost::iostreams::stream<boost::iostreams::null_sink> null_stream;
 
   //====================================================
   //     OPERATORS REDEFINITION

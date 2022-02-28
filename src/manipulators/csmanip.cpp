@@ -5,6 +5,8 @@
 //Extra headers
 #include <boost/preprocessor/seq/for_each.hpp>
 #include <boost/preprocessor/tuple/to_seq.hpp>
+#include <boost/iostreams/stream.hpp>
+#include <boost/iostreams/device/null.hpp>
 
 //STD headers
 #include <iostream>
@@ -165,6 +167,14 @@ namespace osm
     { "down", std::make_pair( "\u001b[", "B" ) }, 
     { "right", std::make_pair( "\u001b[", "C" ) },
     { "left", std::make_pair( "\u001b[", "D" ) }
+   };
+
+  //====================================================
+  //     GLOBAL OBJECTS DEFINITION
+  //====================================================
+  boost::iostreams::stream<boost::iostreams::null_sink> null_stream 
+   {
+    boost::iostreams::null_sink{} 
    };
 
   //====================================================
