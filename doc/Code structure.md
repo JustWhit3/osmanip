@@ -36,9 +36,9 @@ A global namespace `osm` is used to contain all the library classes, functions a
 
 This template class is used to create progress bars. Templated type is called `bar_type`.
 
-Header file: [*progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progress_bar.hpp)
+Header file: [*osmanip/progressbar/progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/progress_bar.hpp)
 
-Source code: [*progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp)
+Source code: [*osmanip/progressbar/progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar/progress_bar.cpp)
 
 Constructors / destructor:
 - `ProgressBar()`: default constructor which set to null values the main attributes.
@@ -105,7 +105,7 @@ All the attributes are private and used in the above methods, therefore they don
 
 This template class is used to create multi progress bars (real name is `make_MultiProgressBar`). Templated type is a parameter pack and called `... Indicators`.
 
-Header file and source code: [*multi_progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/multi_progress_bar.hpp)
+Header file and source code: [*osmanip/progressbar/multi_progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp)
 
 Constructors / destructor:
 
@@ -130,9 +130,9 @@ All the attributes are private and used in the above methods, therefore they don
 
 ### Canvas
 
-Header file: [*canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/canvas.hpp)
+Header file: [*osmanip/graphics/canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/canvas.hpp)
 
-Source code: [*canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/canvas.cpp)
+Source code: [*osmanip/graphics/canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/canvas.cpp)
 
 Instances of this class are used to draw in a limited 2D space. All the functions that modify the canvas do it internally; to make the changes effective in the console, you must use the `refresh` method.
 
@@ -167,9 +167,9 @@ Public methods:
 
 ### Plot2DCanvas
 
-Header file: [*plot_2D_canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/plot_2D_canvas.hpp)
+Header file: [*osmanip/graphics/plot_2D.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/plot_2D.hpp)
 
-Source code: [*plot_2D_canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/src/plot_2D_canvas.cpp)
+Source code: [*osmanip/graphics/plot_2D.hpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/plot_2D.cpp)
 
 This class is used to plot mathematical functions $\R \to \R$. In addition to all the properties of a basic [Canvas](#canvas), this one also has an offset and a scale for the plot. The offset is the first value in x and y to be represented in the canvas and the scale is the difference in x or y that each character represents relative to the previous one.
 
@@ -199,9 +199,9 @@ Public functions:
 
 ### feat
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::string feat ( const std::map <std::string, std::string>& generic_map, const std::string& feat_string )`.
 
@@ -213,9 +213,9 @@ The overload, with respect to the standard function definition, takes an `std::m
 
 ### reset
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::string reset ( const std::string& reset_string )`
 
@@ -223,9 +223,9 @@ It takes a `std::string` object (`reset` map key) as argument and returns the in
 
 ### go_to
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::string go_to( const int& x, const int& y )`.
 
@@ -233,9 +233,9 @@ It takes two integers as arguments which are the x and y position of the cursor 
 
 ### RGB
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::string RGB( const int& r, const int& g, const int& b )`.
 
@@ -245,9 +245,9 @@ It takes three integers as arguments which are the correspoing rgb triplets of a
 
 ### OPTION
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `template <typename T> void OPTION( const T& opt )`.
 
@@ -255,9 +255,9 @@ It takes an enum class as argument, which represent the cursor view state in the
 
 ### print
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `template <typename... Args> inline void print( std::ostream& os = null_stream, const Args&... args )`.
 
@@ -269,9 +269,9 @@ An extra overload: `template <typename... Args> inline void print( Args&... args
 
 ### col
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::string> col`
 
@@ -322,9 +322,9 @@ It is used for the color output stream manipulation and currently supports the f
 
 ### sty
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::string> sty`
 
@@ -342,9 +342,9 @@ It is used for the style output stream manipulation and currently supports the f
 
 ### rst
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::string> rst`
 
@@ -364,9 +364,9 @@ It is used to reset features and currently supports the following list of comman
 
 ### crs
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::pair<std::string, std::string>> crs`
 
@@ -379,9 +379,9 @@ It is used for the output stream cursor navigation and currently supports the fo
 
 ### tcs
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::string> tcs`
 
@@ -398,9 +398,9 @@ It is used for the terminal control sequences manipulation and currently support
 
 ### tcsc
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
 Complete definition: `std::map <std::string, std::pair<std::string, std::string>> tcsc`
 
@@ -419,17 +419,17 @@ It is used for the terminal control sequences manipulation for clear line / scre
 
 ### CURSOR
 
-Header file: [*csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/csmanip.hpp)
+Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/csmanip.hpp)
 
-Source code: [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)
+Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/csmanip.cpp)
 
 It is used to store the [`OPTION`][#OPTION] function options for the cursor view. Current options are: `ON` to enable cursor view and `OFF` to disable it.
 
 ### FrameStyle
 
-Header file: [*canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/canvas.hpp)
+Header file: [*osmanip/graphics/canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/canvas.hpp)
 
-source: [*canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/canvas.cpp)
+source: [*osmanip/graphics/canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/canvas.cpp)
 
 It is used to represent the sytle of a frame for a [`Canvas`](#canvas) object. Values:
 
