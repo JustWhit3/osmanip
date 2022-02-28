@@ -1,7 +1,7 @@
 //My headers
-#include "../include/helper_tools.hpp"
-#include "../include/csmanip.hpp"
-#include "../include/progress_bar.hpp"
+#include "../include/utils/helper_tools.hpp"
+#include "../include/manipulators/csmanip.hpp"
+#include "../include/progressbar/progress_bar.hpp"
 
 //Extra headers
 #include <boost/preprocessor/seq/for_each.hpp>

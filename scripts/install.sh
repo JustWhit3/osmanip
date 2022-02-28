@@ -12,14 +12,12 @@ fi
 #====================================================
 #     INSTALLING PREREQUISITES
 #====================================================
-echo "Do you want to install mandatory prerequisites? (y/n)"
-read word_m
+read -p "Do you want to install mandatory prerequisites (y/n)? " word_m
 if [ $word_m == "y" ] || [ $word_m == "Y" ] ; then
     sudo apt install build-essential g++ libboost-all-dev
 fi
 echo ""
-echo "Do you want to install optional prerequisites? (y/n)"
-read word_o
+read -p "Do you want to install optional prerequisites (y/n)? " word_o
 if [ $word_o == "y" ] || [ $word_o == "Y" ] ; then
     sudo apt install doctest-dev subversion valgrind cppcheck clang-format
 fi
@@ -58,12 +56,12 @@ echo ""
 include_var=$(stat -c%s "include")
 lib_var=$(stat -c%s "lib")
 var=$(expr $include_var + $lib_var)
-echo "Installation will take up $var bytes of disk space. Would you like to continue? (y/n)"
-read word
+read -p "Installation will take up $var bytes of disk space. Would you like to continue (y/n)? " word
 if [ $word == "y" ] || [ $word == "Y" ] ; then
     echo "Enter your password for the last installation step:"
     sudo echo "Installing osmanip header files into /usr/local/include folder..."
-    if ! ( sudo cp include/* /usr/local/include ) ; then
+    sudo mkdir -p /usr/local/include/osmanip
+    if ! ( sudo cp -r include/* /usr/local/include/osmanip ) ; then
         echo "Cannot install the header file into /usr/local/include position of the system!"
     fi
     echo "Installing osmanip lib into /usr/local/lib folder..."
@@ -81,8 +79,13 @@ echo ""
 #====================================================
 echo "Osmanip has been succesfully installed!"
 echo ""
-echo "To compile any C++ program with this library use:"
+echo "To compile any C++ program with this library, use:"
 echo ""
 echo "           g++ program.cpp -losmanip"
 echo ""
+echo "If you use a library component which uses threads:"
+echo ""
+echo "           g++ program.cpp -losmanip -pthread"
+echo ""
 echo "Enjoy! :)"
+echo ""

@@ -1,6 +1,6 @@
 //My headers
-#include "../include/csmanip.hpp"
-#include "../include/helper_tools.hpp"
+#include "../include/manipulators/csmanip.hpp"
+#include "../include/utils/helper_tools.hpp"
 
 //Extra headers
 #include <boost/preprocessor/seq/for_each.hpp>

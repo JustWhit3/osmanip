@@ -2,7 +2,7 @@
 #define PROGRESSBAR_HPP
 
 //My headers
-#include "aliases.hpp"
+#include "../utils/aliases.hpp"
 
 //STD headers
 #include <string>

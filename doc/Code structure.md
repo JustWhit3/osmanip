@@ -106,6 +106,7 @@ All the attributes are private and used in the above methods, therefore they don
 This template class is used to create multi progress bars (real name is `make_MultiProgressBar`). Templated type is a parameter pack and called `... Indicators`.
 
 Header file and source code: [*osmanip/progressbar/multi_progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp)
+> **NOTE**: to compile this class use the `-pthread` option.
 
 Constructors / destructor:
 

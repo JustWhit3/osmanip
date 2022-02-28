@@ -1,5 +1,9 @@
 //My headers
-#include "../include/osmanip.hpp"
+#include "../include/manipulators/csmanip.hpp"
+#include "../include/progressbar/progress_bar.hpp"
+#include "../include/progressbar/multi_progress_bar.hpp"
+#include "../include/graphics/canvas.hpp"
+#include "../include/graphics/plot_2D.hpp"
 
 //STD headers
 #include <iostream>

@@ -1,5 +1,5 @@
 //My headers
-#include "../include/plot_2D_canvas.hpp"
+#include "../include/graphics/plot_2D.hpp"
 
 namespace osm
  {

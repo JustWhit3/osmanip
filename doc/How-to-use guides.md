@@ -23,8 +23,15 @@ Here you can find examples of all the features supported in the current version 
 > ```c++
 > using namespace osm;
 > ```
+> just to imptove readability.
 
 ## Output stream manipulators
+
+Can be accessed by including:
+```c++
+#include <osmanip/manipulators/csmanip.hpp>
+using namespace osm //to improve examples readability (avoid if possible).
+```
 
 This manipulators are used to modify and manipulate the output stream of a program.
 
@@ -69,7 +76,7 @@ You can modify the cursor navigation in all the 4 directions (up, down, right, l
 cout << feat( crs, "left" ) << "Moving cursor on the left";
 ```
 
-You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSI code of the cursor navigation (see [*csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/csmanip.cpp)):
+You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSI code of the cursor navigation (see [*manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)):
 
 ```c++
 cout << feat( crs, "left", "10" ) << "Moving cursor on the left";
@@ -77,7 +84,7 @@ cout << feat( crs, "left", "10" ) << "Moving cursor on the left";
 
 > If you want to know all the available features, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=is%20used%20for%20the%20output,error%20/%20Inserted%20cursor%20command) page.
 
-It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progress_bar.cpp#:~:text=output_%20%3D%20feat(%20crs,getStyle()%3B)) for more information.
+It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*progressbar/progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar/progress_bar.cpp#:~:text=output_%20%3D%20feat(%20crs,getStyle()%3B)) for more information.
 
 ### Terminal control sequences
 
@@ -100,6 +107,12 @@ Some extra functions are provided:
 ## Progress bars
 
 From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) of the library, also progress bars have been introduced.
+
+Can be accessed by including:
+```c++
+#include <osmanip/progressbar/progressbar.hpp>
+using namespace osm //to improve examples readability (avoid if possible).
+```
 
 A list of all the customizable [settings](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMax(%20bar_type,std%3A%3Astring%20time_flag%20)) of these progress bars:
 
@@ -255,6 +268,11 @@ progress_bar.resetRemainingTime(); //To get more precise time values.
 
 To add more progress bar simultaneously using threads:
 
+additionally include:
+```c++
+#include <osmanip/progressbar/multi_progress_bar.hpp>
+```
+and then:
 ```c++
 cout << "These are 3 progress bars printed simultaneously: " << endl << endl << endl;
 
@@ -376,6 +394,13 @@ Here you can find some examples about how to use terminal graphics in your code.
 > It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
 
 ### 2D graphics
+
+To include canvas objects:
+```c++
+#include <osmanip/graphics/canvas.hpp>
+#include <osmanip/graphics/plot_2D.hpp>
+using namespace osm //to improve examples readability (avoid if possible).
+```
 
 To display an animation in a canvas:
 

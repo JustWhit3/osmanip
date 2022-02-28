@@ -1,6 +1,6 @@
 //My headers
-#include "../include/canvas.hpp"
-#include "../include/csmanip.hpp"
+#include "../include/graphics/canvas.hpp"
+#include "../include/manipulators/csmanip.hpp"
 
 //STD headers
 #include <sstream>

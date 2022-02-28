@@ -126,13 +126,13 @@ From the repository folder type this command on the shell:
 
 ### Use in your device
 
-Once you have installed the library you can freely use it in one of your C++ projects by adding this line of code at the beginning of a program:
+Once you have installed the library you can freely use it in one of your C++ projects by including one or more of the modules:
 ```c++
-#include <osmanip.hpp>
+#include <osmanip/module_folder/module_name.hpp>
 ```
-or equivalently:
+for example:
 ```c++
-#include "osmanip.hpp"
+#include <osmanip/manipulators/csmanip.hpp>
 ```
 Now you are able to access al the functions and classes of the manipulator.
 
@@ -153,9 +153,9 @@ and then you can run the code with:
 
 ### Compile the source code example and testing
 
-The source code contains also an example code [*src/main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) to show the user a simple usage of all the features supported by the library and a test code [*test/tests.cpp*](https://github.com/JustWhit3/osmanip/blob/main/test/tests.cpp) to test the correct functionality of the library functions and methods.
+The source code contains also an example code [*src/main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) to show the user a simple usage of all the features supported by the library and test codes in the [*test*](https://github.com/JustWhit3/osmanip/blob/main/test) folder to test the correct functionality of the library functions and methods.
 
-To compile them I prepared a [makefile](https://github.com/JustWhit3/osmanip/blob/main/makefile). The source code is already compiled when you install the library, but in case you don't want to install the package and explore only the library features through this examples, you can run this command on the shell:
+To compile them I prepared a [Makefile](https://github.com/JustWhit3/osmanip/blob/main/Makefile). The source code is already compiled when you install the library, but in case you don't want to install the package and explore only the library features through this examples, you can run this command on the shell:
 ```shell
 make
 ```

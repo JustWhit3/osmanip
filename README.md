@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
 
-<h3 align="center">Library with output stream tools like: colors and styles manipulators and progress bars</h3>
+<h3 align="center">Library with useful output stream tools like: color and style manipulators, progress bars and terminal graphics</h3>
 <p align="center">
     <img title="v2.5" alt="v2.5" src="https://img.shields.io/badge/version-v2.5-informational?style=flat-square"
     <a href="LICENSE">
@@ -74,7 +74,7 @@ Most recent relevant news from the last version:
 - A new feature to plot 2D graphics and functions in the terminal has been added. See [here](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=setStyle(%20%22spinner%22%2C%20%22%7C/_%5C%5C%22%20)%3B-,Terminal%20graphics,-From%20release%203.0.0).
 - Progress spinner has been added to the `ProgressBar` class.
 - New features have been added to the progress bar: time-reamining info.
-- Added a [new map](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=25h%20%3A%20show%20cursor.-,tcsc,-Header%20file%3A%20csmanip) for the `feat` function to deal with clear screen / line commands.
+- Added a [new map](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=25h%20%3A%20show%20cursor.-,tcsc,-Header%20file%3A%20osmanip) for the `feat` function to deal with clear screen / line commands.
 
 ## List of features
 
@@ -91,7 +91,7 @@ Here you can find the list of features implemented in the current version of the
   - [Progress bar](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=the%20previous%20percentage.-,Full%20progress%20bar,-You%20can%20create)
   - [Progress spinner](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=endl%20%3C%3C%20endl%20%3C%3C%20endl%3B-,Progress%20spinner,-To%20initialize%20a)
 - **Terminal graphics**:
-  - [2D graphics](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=to%20restore%20it.-,2D%20graphics,-To%20display%20an).
+  - [2D graphics](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=to%20restore%20it.-,2D%20graphics,-To%20display%20an)
 
 Why choosing this library for color / styles / escape sequences manipulation:
 

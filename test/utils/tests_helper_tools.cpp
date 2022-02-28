@@ -1,8 +1,7 @@
 #define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
 
 //My headers
-#include "../include/osmanip.hpp"
-#include "../include/helper_tools.hpp"
+#include "../include/utils/helper_tools.hpp"
 
 //Extra headers
 #include <doctest.h>

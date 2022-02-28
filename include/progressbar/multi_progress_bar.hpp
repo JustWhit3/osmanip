@@ -2,7 +2,7 @@
 #define MULTIPROGRESSBAR_HPP
 
 //My headers
-#include "../include/csmanip.hpp"
+#include "../manipulators/csmanip.hpp"
 
 //STD headers
 #include <iostream>

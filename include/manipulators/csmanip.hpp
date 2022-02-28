@@ -2,8 +2,8 @@
 #define CSMANIP_HPP
 
 //My headers
-#include "aliases.hpp"
-#include "helper_tools.hpp"
+#include "../utils/aliases.hpp"
+#include "../utils/helper_tools.hpp"
 
 //STD headers
 #include <iostream>
