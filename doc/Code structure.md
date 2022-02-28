@@ -170,7 +170,7 @@ Public methods:
 
 Header file: [*osmanip/graphics/plot_2D.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/plot_2D.hpp)
 
-Source code: [*osmanip/graphics/plot_2D.hpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/plot_2D.cpp)
+Source code: [*osmanip/graphics/plot_2D.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/plot_2D.cpp)
 
 This class is used to plot mathematical functions $\R \to \R$. In addition to all the properties of a basic [Canvas](#canvas), this one also has an offset and a scale for the plot. The offset is the first value in x and y to be represented in the canvas and the scale is the difference in x or y that each character represents relative to the previous one.
 
@@ -256,9 +256,7 @@ It takes an enum class as argument, which represent the cursor view state in the
 
 ### print
 
-Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
-
-Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
+Header file and source code: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
 Complete definition: `template <typename... Args> inline void print( std::ostream& os = null_stream, const Args&... args )`.
 
@@ -422,15 +420,11 @@ It is used for the terminal control sequences manipulation for clear line / scre
 
 Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/csmanip.hpp)
 
-Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/csmanip.cpp)
-
 It is used to store the [`OPTION`][#OPTION] function options for the cursor view. Current options are: `ON` to enable cursor view and `OFF` to disable it.
 
 ### FrameStyle
 
 Header file: [*osmanip/graphics/canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/canvas.hpp)
-
-source: [*osmanip/graphics/canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/canvas.cpp)
 
 It is used to represent the sytle of a frame for a [`Canvas`](#canvas) object. Values:
 

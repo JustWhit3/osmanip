@@ -145,6 +145,7 @@ Supposing you are using the library in a program called *program.cpp*, to compil
 ```shell
 g++ program.cpp -losmanip
 ```
+> **NOTE**: remember to add `-pthread` flag if you want to use some thread-dependent libraries like [**progressbar/multi_progress_bar.hpp**](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp).
 and then you can run the code with:
 ```shell
 ./a.out
@@ -153,7 +154,7 @@ and then you can run the code with:
 
 ### Compile the source code example and testing
 
-The source code contains also an example code [*src/main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) to show the user a simple usage of all the features supported by the library and test codes in the [*test*](https://github.com/JustWhit3/osmanip/blob/main/test) folder to test the correct functionality of the library functions and methods.
+The source code contains also an example code [*src/main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) to show the user a simple usage of all the features supported by the library and test codes in the [**test**](https://github.com/JustWhit3/osmanip/blob/main/test) folder to test the correct functionality of the library functions and methods.
 
 To compile them I prepared a [Makefile](https://github.com/JustWhit3/osmanip/blob/main/Makefile). The source code is already compiled when you install the library, but in case you don't want to install the package and explore only the library features through this examples, you can run this command on the shell:
 ```shell
@@ -183,7 +184,7 @@ make clean
 ```
 ## Other scripts
 
-Other scripts have been provided into the [*scripts*](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder. After compiling the source code, they can be run from the repository home directory.
+Other scripts have been provided into the [**scripts**](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder. After compiling the source code, they can be run from the repository home directory.
 
 ### debug.sh
 
