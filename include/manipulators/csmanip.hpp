@@ -2,16 +2,22 @@
 #define CSMANIP_HPP
 
 //My headers
-#include "../utils/aliases.hpp"
 #include "../utils/helper_tools.hpp"
 
 //STD headers
 #include <iostream>
 #include <string>
 #include <map>
+#include <set>
 
 namespace osm
  {
+  //====================================================
+  //     USING ALIASES
+  //====================================================
+  using string_pair_map = std::map <std::string, std::pair<std::string, std::string>>;
+  using string_set_map = std::map <std::string, std::set <std::string> >;
+
   //====================================================
   //     ENUM CLASSES
   //====================================================

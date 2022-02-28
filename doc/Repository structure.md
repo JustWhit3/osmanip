@@ -33,7 +33,6 @@ osmanip/
 │   │   ├── progress_bar.hpp
 │   │   ├── multi_progress_bar.hpp
 │   ├── utils/
-│   │   ├── aliases.hpp
 │   │   ├── helper_tools.hpp
 ├── src/
 │   ├── graphics/

@@ -1,9 +1,6 @@
 #ifndef PROGRESSBAR_HPP
 #define PROGRESSBAR_HPP
 
-//My headers
-#include "../utils/aliases.hpp"
-
 //STD headers
 #include <string>
 #include <chrono>
@@ -22,6 +19,13 @@ namespace osm
   class ProgressBar
    {
     public:
+
+    //====================================================
+    //     USING ALIASES
+    //====================================================
+    using steady_clock = std::chrono::steady_clock;
+    using duration = std::chrono::duration <float, steady_clock::period>;
+    using string_set_map = std::map <std::string, std::set <std::string> >;
 
     //====================================================
     //     CONSTRUCTORS AND DESTRUCTOR DECLARATION
