@@ -40,6 +40,8 @@ Header file: [*osmanip/progressbar/progressbar.hpp*](https://github.com/JustWhit
 
 Source code: [*osmanip/progressbar/progressbar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar/progress_bar.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 Constructors / destructor:
 - `ProgressBar()`: default constructor which set to null values the main attributes.
 - `~ProgressBar()`: standard destructor. It doesn't do anything.
@@ -106,6 +108,8 @@ All the attributes are private and used in the above methods, therefore they don
 This template class is used to create multi progress bars (real name is `make_MultiProgressBar`). Templated type is a parameter pack and called `... Indicators`.
 
 Header file and source code: [*osmanip/progressbar/multi_progressbar.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp)
+
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 > **NOTE**: to compile this class use the `-pthread` option.
 
 Constructors / destructor:
@@ -134,6 +138,8 @@ All the attributes are private and used in the above methods, therefore they don
 Header file: [*osmanip/graphics/canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/canvas.hpp)
 
 Source code: [*osmanip/graphics/canvas.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/canvas.cpp)
+
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
 Instances of this class are used to draw in a limited 2D space. All the functions that modify the canvas do it internally; to make the changes effective in the console, you must use the `refresh` method.
 
@@ -172,6 +178,8 @@ Header file: [*osmanip/graphics/plot_2D.hpp*](https://github.com/JustWhit3/osman
 
 Source code: [*osmanip/graphics/plot_2D.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/graphics/plot_2D.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 This class is used to plot mathematical functions $\R \to \R$. In addition to all the properties of a basic [Canvas](#canvas), this one also has an offset and a scale for the plot. The offset is the first value in x and y to be represented in the canvas and the scale is the difference in x or y that each character represents relative to the previous one.
 
 For example: a canvas of size = (15, 10) with offset = (3,2) and scale = (7, 5) will represent the functions you draw from x=3 to x=3+15\*7=108 and from y=2 to y=2+10\*5=52.
@@ -204,6 +212,8 @@ Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/o
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 Complete definition: `std::string feat ( const std::map <std::string, std::string>& generic_map, const std::string& feat_string )`.
 
 It takes an `std::map` object as the first argument and an `std::string` object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
@@ -218,6 +228,8 @@ Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/o
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 Complete definition: `std::string reset ( const std::string& reset_string )`
 
 It takes a `std::string` object (`reset` map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
@@ -228,6 +240,8 @@ Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/o
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 Complete definition: `std::string go_to( const int& x, const int& y )`.
 
 It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
@@ -237,6 +251,8 @@ It takes two integers as arguments which are the x and y position of the cursor 
 Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
+
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
 Complete definition: `std::string RGB( const int& r, const int& g, const int& b )`.
 
@@ -250,6 +266,8 @@ Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/o
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 Complete definition: `template <typename T> void OPTION( const T& opt )`.
 
 It takes an enum class as argument, which represent the cursor view state in the current program. If `opt = CURSOR::ON` the cursor is visible, else if `opt = CURSOR::OFF` the cursor is hidden.
@@ -257,6 +275,8 @@ It takes an enum class as argument, which represent the cursor view state in the
 ### print
 
 Header file and source code: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
+
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
 Complete definition: `template <typename... Args> inline void print( std::ostream& os = null_stream, const Args&... args )`.
 
@@ -271,6 +291,8 @@ An extra overload: `template <typename... Args> inline void print( Args&... args
 Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
+
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
 Complete definition: `std::map <std::string, std::string> col`
 
@@ -325,6 +347,8 @@ Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/o
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 Complete definition: `std::map <std::string, std::string> sty`
 
 It is used for the style output stream manipulation and currently supports the following list of styles (first `std::string`) with the corresponding ASCII code (second `std::string`) or string value in the case of the `error` feature: 
@@ -344,6 +368,8 @@ It is used for the style output stream manipulation and currently supports the f
 Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
+
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
 Complete definition: `std::map <std::string, std::string> rst`
 
@@ -367,6 +393,8 @@ Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/o
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 Complete definition: `std::map <std::string, std::pair<std::string, std::string>> crs`
 
 It is used for the output stream cursor navigation and currently supports the following list of commands (first `std::string`) with the corresponding ASCII code (second `std::pair<std::string, std::string>`) or string value in the case of the `error` feature:
@@ -381,6 +409,8 @@ It is used for the output stream cursor navigation and currently supports the fo
 Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
+
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
 Complete definition: `std::map <std::string, std::string> tcs`
 
@@ -401,6 +431,8 @@ Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/o
 
 Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 Complete definition: `std::map <std::string, std::pair<std::string, std::string>> tcsc`
 
 It is used for the terminal control sequences manipulation for clear line / screen. It is used within the [`feat` function overload](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Overload%3A%20std%3A%3Astring%20feat(%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Apair%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%3E%20%26%20generic_map%2C%20std%3A%3Astring%20feat_string%2C%20int%20feat_int%20).) with 3 arguments and `n` as the third one. It currently supports the following list of sequences (first `std::string`) with the corresponding ASCII code (second `std::pair<std::string, std::string>`) or string value in the case of the `error` feature:
@@ -420,11 +452,15 @@ It is used for the terminal control sequences manipulation for clear line / scre
 
 Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/csmanip.hpp)
 
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
+
 It is used to store the [`OPTION`][#OPTION] function options for the cursor view. Current options are: `ON` to enable cursor view and `OFF` to disable it.
 
 ### FrameStyle
 
 Header file: [*osmanip/graphics/canvas.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/graphics/canvas.hpp)
+
+Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
 It is used to represent the sytle of a frame for a [`Canvas`](#canvas) object. Values:
 
