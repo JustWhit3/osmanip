@@ -43,7 +43,7 @@ namespace osm
   //     TEMPLATE "option" FUNCTIONS DEFINITION
   //====================================================
   template <typename T>
-  extern inline void OPTION( const T& opt )
+  inline void OPTION( const T& opt )
    {
     if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
     else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
@@ -54,7 +54,7 @@ namespace osm
   //     TEMPLATE "printf" FUNCTIONS DEFINITION
   //====================================================
   template <typename... Args>
-  extern inline void print( std::ostream& os = agr::null_stream, const Args&... args )
+  inline void print( std::ostream& os = agr::null_stream, const Args&... args )
    {
     if( &os == &agr::null_stream ) std::cout << "\n";
     else if( &os == &std::cerr ) os << feat( col, "red" ) << feat( sty, "bold" );

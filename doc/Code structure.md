@@ -266,7 +266,7 @@ Header file and source code: [*osmanip/manipulators/csmanip.hpp*](https://github
 
 Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
-Complete definition: `template <typename T> void OPTION( const T& opt )`.
+Complete definition: `template <typename T> inline void OPTION( const T& opt )`.
 
 It takes an enum class as argument, which represent the cursor view state in the current program. If `opt = CURSOR::ON` the cursor is visible, else if `opt = CURSOR::OFF` the cursor is hidden.
 
