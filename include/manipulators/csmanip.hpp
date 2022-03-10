@@ -3,7 +3,6 @@
 
 //Extra headers
 #include <arsenalgear/stream.hpp>
-#include <arsenalgear/utils.hpp>
 
 //STD headers
 #include <iostream>
@@ -47,7 +46,7 @@ namespace osm
    {
     if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
     else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
-    else throw agr::runtime_error_func( "Inserted cursor option", " ", "is not supported!" );
+    else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!" << "\n";
    }
 
   //====================================================
