@@ -46,7 +46,7 @@ namespace osm
    {
     if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
     else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
-    else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!" << "\n";
+    else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!"  << reset( "all" ) << "\n";
    }
 
   //====================================================
