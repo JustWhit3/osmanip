@@ -84,7 +84,6 @@ namespace osm
      void print() const;
      void addStyle( const std::string& type, const std::string& style );
      void remaining_time();
-     bar_type one( const bar_type& iterating_var );
   
     private:
 
@@ -92,7 +91,6 @@ namespace osm
     //     STATIC ATTRIBUTES DECLARATION
     //====================================================
      static string_set_map styles_map_;
-     static const std::string null_str, empty_space;
      static std::vector <bar_type> counter_;
      static std::mutex mutex_;
      

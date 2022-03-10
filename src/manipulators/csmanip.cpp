@@ -1,19 +1,13 @@
 //My headers
 #include "../include/manipulators/csmanip.hpp"
-#include "../include/utils/helper_tools.hpp"
 
 //Extra headers
-#include <boost/preprocessor/seq/for_each.hpp>
-#include <boost/preprocessor/tuple/to_seq.hpp>
-#include <boost/iostreams/stream.hpp>
-#include <boost/iostreams/device/null.hpp>
+#include <arsenalgear/utils.hpp>
 
 //STD headers
 #include <iostream>
 #include <string>
 #include <map>
-
-#define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
 
 namespace osm
  {
@@ -170,21 +164,13 @@ namespace osm
    };
 
   //====================================================
-  //     GLOBAL OBJECTS DEFINITION
-  //====================================================
-  boost::iostreams::stream<boost::iostreams::null_sink> null_stream 
-   {
-    boost::iostreams::null_sink{} 
-   };
-
-  //====================================================
   //     DEFINITION OF THE "feat" FUNCTION
   //====================================================
   std::string feat( const std::map <std::string, std::string>& generic_map, const std::string& feat_string )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
-      throw runtime_error_func( generic_map.at( "error" ), feat_string, "is not supported!" );
+      throw agr::runtime_error_func( generic_map.at( "error" ), feat_string, "is not supported!" );
      }
     return generic_map.at( feat_string );
    }
@@ -197,7 +183,7 @@ namespace osm
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
-      throw runtime_error_func( generic_map.at( "error" ).first, feat_string, "is not supported!" );
+      throw agr::runtime_error_func( generic_map.at( "error" ).first, feat_string, "is not supported!" );
      }
     else
      {
@@ -218,7 +204,7 @@ namespace osm
    {
     if( rst.find( reset_string ) == rst.end() ) 
      {
-      throw runtime_error_func( rst.at( "error" ), reset_string, "is not supported!" );
+      throw agr::runtime_error_func( rst.at( "error" ), reset_string, "is not supported!" );
      } 
     return rst.at( reset_string );
    }
@@ -248,21 +234,4 @@ namespace osm
             std::to_string( b ) +
             static_cast <std::string>( "m" );
    }
-
-  //====================================================
-  //     DEFINITION OF THE "OPTION" FUNCTION
-  //====================================================
-  template <typename T>
-  void OPTION( const T& opt )
-   {
-    if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
-    else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
-    else throw runtime_error_func( "Inserted cursor option", "", "is not supported!" );
-   }
-
-  //Explicit instantiations:
-  #define OPTION( r, data, T ) template \
-  void OPTION <T> ( const T& opt );
-
-  BOOST_PP_SEQ_FOR_EACH( OPTION, _, ARGS( CURSOR ) );
  }

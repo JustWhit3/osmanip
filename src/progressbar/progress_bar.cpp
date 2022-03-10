@@ -1,11 +1,14 @@
 //My headers
-#include "../include/utils/helper_tools.hpp"
 #include "../include/manipulators/csmanip.hpp"
 #include "../include/progressbar/progress_bar.hpp"
 
 //Extra headers
 #include <boost/preprocessor/seq/for_each.hpp>
 #include <boost/preprocessor/tuple/to_seq.hpp>
+#include <arsenalgear/constants.hpp>
+#include <arsenalgear/utils.hpp>
+#include <arsenalgear/math.hpp>
+#include <arsenalgear/operators.hpp>
 
 //STD headers
 #include <iostream>
@@ -58,12 +61,6 @@ namespace osm
   std::vector <bar_type> ProgressBar <bar_type>::counter_ (2);
 
   template <typename bar_type>
-  const std::string ProgressBar <bar_type>::null_str = "";
-  
-  template <typename bar_type>
-  const std::string ProgressBar <bar_type>::empty_space = " ";
-
-  template <typename bar_type>
   std::mutex ProgressBar <bar_type>::mutex_;
   
   //====================================================
@@ -94,16 +91,16 @@ namespace osm
        }
       else if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
        {
-        throw runtime_error_func( "Inserted ProgressBar style", style, "is not supported for this type!" );
+        throw agr::runtime_error_func( "Inserted ProgressBar style", style, "is not supported for this type!" );
        }
       else
        {
-        throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
+        throw agr::runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
        }
      }
     catch ( std::out_of_range const& exception )
      {
-      throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
+      throw agr::runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
      }
    }
 
@@ -122,15 +119,15 @@ namespace osm
      }
     else if( styles_map_.at( "indicator" ).find( style_p ) == styles_map_.at( "indicator" ).end() )
      {
-      throw runtime_error_func( "Inserted indicator style", style_p, "is not supported for this type!" );
+      throw agr::runtime_error_func( "Inserted indicator style", style_p, "is not supported for this type!" );
      }
     else if( styles_map_.at( "loader" ).find( style_l ) == styles_map_.at( "loader" ).end() )
      {
-      throw runtime_error_func( "Inserted loader style", style_l, "is not supported for this type!" );
+      throw agr::runtime_error_func( "Inserted loader style", style_l, "is not supported for this type!" );
      }
     else
      {
-      throw runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
+      throw agr::runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
      }
    }
 
@@ -327,38 +324,14 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE "one" METHOD
-  //====================================================
-  template <typename bar_type>
-  bar_type ProgressBar <bar_type>::one( const bar_type& iterating_var )
-   {
-    if( isFloatingPoint( iterating_var ) )
-     {
-      if( counter_.size() < 2 )
-       {
-        counter_.push_back( iterating_var );
-       }
-      if( counter_.size() == 2 )
-       {
-        return abs( abs( counter_.front() ) - abs( counter_.back() ) );
-       }
-      return static_cast <bar_type> ( NULL );
-     }
-    return 1;
-   }
-
-  //====================================================
   //     DEFINITION OF THE "remaining_time" METHOD
   //====================================================
   template <typename bar_type>
   void ProgressBar <bar_type>::remaining_time()
    {
-    max_spin_ = check_condition
-     (
-      [ &max_ = max_ ]{ return isFloatingPoint( max_ ); }, 
-      roundoff( max_ - min_, 1 ) * 10 + 1, 
-      max_ - min_ + 1
-     );
+    max_spin_ = agr::isFloatingPoint( max_ ) ?
+                ( agr::roundoff( max_ - min_, 1 ) * 10 + 1 ) :
+                ( max_ - min_ + 1 );
 
     time_taken = steady_clock::now() - begin_timer;
     percentage_done = static_cast <float> ( ticks_occurred ) / ( max_spin_ );
@@ -383,12 +356,9 @@ namespace osm
    {    
     std::cout << output
               << getColor()
-              << check_condition
-                  (
-                   [ &message_ = message_ ]{ return ( message_ != null_str ); }, 
-                   empty_space + message_ + empty_space, 
-                   empty_space 
-                  )
+              << ( ( message_ != agr::null_str<std::string> ) ?
+                 ( agr::empty_space<std::string> + message_ + agr::empty_space<std::string> ) :
+                 agr::empty_space<std::string> )
               << reset( "color" );
 
     if( time_flag_ == "on" )
@@ -408,14 +378,10 @@ namespace osm
    {
     std::lock_guard <std::mutex> lock{ mutex_ };
 
-    iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - one( iterating_var ) ),
-    iterating_var_spin_ = check_condition
-     (
-      [ &iterating_var = iterating_var ]{ return isFloatingPoint( iterating_var ); }, 
-      roundoff( iterating_var, 1 ) * 10, 
-      iterating_var 
-     ),
-    
+    iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - agr::one( iterating_var ) ),
+    iterating_var_spin_ = agr::isFloatingPoint( iterating_var ) ?
+                          ( agr::roundoff( iterating_var, 1 ) * 10 ) :
+                          iterating_var,
     width_ = ( iterating_var_ + 1 ) / 4;
 
     //Update of the progress indicator only:
@@ -437,8 +403,7 @@ namespace osm
                 getBrackets_open() + 
                 getColor() + 
                 getStyle() * width_ + 
-                empty_space * ( check_condition( [ &iterating_var = iterating_var ]
-                { return isFloatingPoint( iterating_var ); }, 26, 25 ) - width_ ) + 
+                agr::empty_space<std::string> * ( ( agr::isFloatingPoint( iterating_var ) ? 26 : 25 ) - width_ ) + 
                 reset( "color" ) + 
                 getBrackets_close();  
                      
@@ -454,12 +419,11 @@ namespace osm
                getBrackets_open() + 
                getColor() + 
                style_l_ * width_ + 
-               empty_space * ( check_condition( [ &iterating_var = iterating_var ]
-               { return isFloatingPoint( iterating_var ); }, 26, 25 ) - width_ ) + 
+               agr::empty_space<std::string> * ( ( agr::isFloatingPoint( iterating_var ) ? 26 : 25 ) - width_ ) + 
                reset( "color" ) +
                getBrackets_close() + 
                getColor() + 
-               empty_space + 
+               agr::empty_space<std::string> + 
                std::to_string( static_cast <int> ( round( iterating_var_ ++ ) ) ) + 
                reset( "color" ) + 
                style_p_; 
@@ -474,11 +438,9 @@ namespace osm
                 getColor() +
                 getStyle()[ static_cast <unsigned long> ( iterating_var_spin_ ) & 3 ] +
                 feat( col, "green" ) +
-                check_condition
-                 (
-                  [ = ]{ return roundoff( iterating_var, 1 ) == roundoff( max_, 1 ) - one( iterating_var ); },
-                  static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ),
-                  static_cast <std::string> ( "" )
+                 ( ( agr::roundoff( iterating_var, 1 ) == agr::roundoff( max_, 1 ) - agr::one( iterating_var ) ) ?
+                   ( static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ) ) :
+                   ( static_cast <std::string> ( "" ) )
                  ) +
                 reset( "color" );
 
@@ -520,11 +482,11 @@ namespace osm
       }
      else if( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )
       {
-       throw runtime_error_func( "Inserted ProgressBar style", style, "is already available!" ); 
+       throw agr::runtime_error_func( "Inserted ProgressBar style", style, "is already available!" ); 
       }
      else
       {
-       throw runtime_error_func( "Inserted ProgressBar type", type, "is already available!" );
+       throw agr::runtime_error_func( "Inserted ProgressBar type", type, "is already available!" );
       }
     }
   

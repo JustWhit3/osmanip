@@ -3,10 +3,11 @@
 //My headers
 #include "../include/manipulators/csmanip.hpp"
 #include "../include/progressbar/progress_bar.hpp"
-#include "../include/utils/helper_tools.hpp"
 
 //Extra headers
 #include <doctest.h>
+#include <arsenalgear/math.hpp>
+#include <arsenalgear/utils.hpp>
 
 //STD headers
 #include <vector>
@@ -172,7 +173,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
       }
     bar.setEnd();
     
-    CHECK( IsInBounds( static_cast <int>( bar.getTime() ), 499, 502 ) );
+    CHECK( agr::IsInBounds( static_cast <int>( bar.getTime() ), 499, 502 ) );
 
     bar.resetTime();
 
@@ -193,7 +194,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     for ( T i = bar.getMax(); i < bar.getMin(); i++ )
      {
       bar.update( i );
-      CHECK_EQ( bar.getIteratingVar(), 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - bar.one( i ) ) + 1 );
+      CHECK_EQ( bar.getIteratingVar(), 100 * ( i - bar.getMin() ) / ( bar.getMax() - bar.getMin() - agr::one( i ) ) + 1 );
      }
    }
 
@@ -214,23 +215,6 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_THROWS_AS( bar.addStyle( "indicator", "%" ), runtime_error );
     CHECK_THROWS_AS( bar.addStyle( "loader", "#" ), runtime_error );
     CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), out_of_range );
-   }
-
-  //====================================================
-  //     TESTING THE "one" METHOD
-  //====================================================
-  SUBCASE( "Testing the one method." )
-   {
-    ProgressBar <T> progress;
-
-    for( const auto & element: v )
-     {
-      if( counter_.size() == 2 )
-       {
-        CHECK_EQ( progress.one( element ), abs( abs( counter_.front() ) - abs( counter_.back() ) ) );
-       }
-      counter_.push_back( element );
-     }
    }
    
   TEST_SUITE_END();

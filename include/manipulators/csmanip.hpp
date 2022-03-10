@@ -2,8 +2,8 @@
 #define CSMANIP_HPP
 
 //Extra headers
-#include <boost/iostreams/stream.hpp>
-#include <boost/iostreams/device/null.hpp>
+#include <arsenalgear/stream.hpp>
+#include <arsenalgear/utils.hpp>
 
 //STD headers
 #include <iostream>
@@ -25,11 +25,6 @@ namespace osm
   enum class CURSOR { ON, OFF };
 
   //====================================================
-  //     GLOBAL OBJECTS
-  //====================================================
-  extern boost::iostreams::stream<boost::iostreams::null_sink> null_stream;
-
-  //====================================================
   //     VARIABLES DECLARATION
   //====================================================
   extern const std::map <std::string, std::string> col, sty, rst, tcs;
@@ -45,18 +40,23 @@ namespace osm
   extern std::string RGB( const int& r, const int& g, const int& b );
 
   //====================================================
-  //     TEMPLATE FUNCTIONS DECLARATION
+  //     TEMPLATE "option" FUNCTIONS DEFINITION
   //====================================================
   template <typename T>
-  extern void OPTION( const T& opt );
+  extern inline void OPTION( const T& opt )
+   {
+    if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
+    else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
+    else throw agr::runtime_error_func( "Inserted cursor option", "", "is not supported!" );
+   }
 
   //====================================================
   //     TEMPLATE "printf" FUNCTIONS DEFINITION
   //====================================================
   template <typename... Args>
-  inline void print( std::ostream& os = null_stream, const Args&... args )
+  extern inline void print( std::ostream& os = agr::null_stream, const Args&... args )
    {
-    if( &os == &null_stream ) std::cout << "\n";
+    if( &os == &agr::null_stream ) std::cout << "\n";
     else if( &os == &std::cerr ) os << feat( col, "red" ) << feat( sty, "bold" );
     else if( &os == &std::clog ) os << feat( col, "lt blue" ) << feat( sty, "bold" );
 

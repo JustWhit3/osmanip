@@ -10,7 +10,7 @@
 
 Thank you very much for being here! First of all, I want to let you know that contributions are more than welcome and really appreciated.
 
-In case you want to contribute, even with a small bug fix, you will be featured into the [credits](https://github.com/JustWhit3/osmanip/blob/main/doc/CREDITS.md) file.
+In case you want to contribute, even with a small bug fix, you will be featured into the credits list.
 
 [Here](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md) you can find a list of todo features / updates that are planned and that you can implement to consistently contribute.
 

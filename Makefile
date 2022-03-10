@@ -35,8 +35,8 @@ TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 DEPS := $(OBJ:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
-CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP
-LDFLAGS := -pthread 
+CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
+LDFLAGS := -pthread -L/usr/local/lib -larsenalgear
 
 #====================================================
 #     OS DETECTION

@@ -43,6 +43,7 @@ Source code: [*osmanip/progressbar/progressbar.cpp*](https://github.com/JustWhit
 Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 
 Constructors / destructor:
+
 - `ProgressBar()`: default constructor which set to null values the main attributes.
 - `~ProgressBar()`: standard destructor. It doesn't do anything.
 
@@ -93,13 +94,12 @@ Getter methods:
 - `std::string getColor()`: to get the progress bar color.
 - `std::string getRemainingTimeFlag()`: to get the value of the remaining-time info flag (on or off).
 
-Other methods: 
+Other methods:
 
 - `void update( const bar_type& iterating_var )`: to update the bar after each loop cycle.
 - `void print()`: to print on the screen all the progress bar variable values.
 - `void addStyle( const std::string type&, const std::string& style )`: to create customized progress bar styles.
 - `void remaining_time()`: to compute the remaining time for the completion of the progress bar.
-- `bar_type one( const bar_type& iterating_var )`: to get the unit used to calculate the real iterating variable of the `update` method.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
 
@@ -143,7 +143,7 @@ Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20str
 
 Instances of this class are used to draw in a limited 2D space. All the functions that modify the canvas do it internally; to make the changes effective in the console, you must use the `refresh` method.
 
-Constuctor:
+Constructor:
 
 - `Canvas( uint width, uint height )`: the size of the canvas in characters must be specified upon construction.
 
@@ -262,9 +262,7 @@ It takes three integers as arguments which are the correspoing rgb triplets of a
 
 ### OPTION
 
-Header file: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
-
-Source code: [*osmanip/manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)
+Header file and source code: [*osmanip/manipulators/csmanip.hpp*](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/csmanip.hpp)
 
 Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=FrameStyle-,Namespaces,-A%20global%20namespace)
 

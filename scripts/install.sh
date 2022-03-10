@@ -12,12 +12,18 @@ fi
 #====================================================
 #     INSTALLING PREREQUISITES
 #====================================================
-read -p "Do you want to install mandatory prerequisites (y/n)? " word_m
-if [ $word_m == "y" ] || [ $word_m == "Y" ] ; then
-    sudo apt install build-essential g++ libboost-all-dev
-fi
+sudo apt install build-essential g++ libboost-all-dev wget unzip
 echo ""
-read -p "Do you want to install optional prerequisites (y/n)? " word_o
+echo "Installing arsenalgear library..."
+wget https://github.com/JustWhit3/arsenalgear/archive/main.zip
+mv main.zip arsenalgear-main.zip
+unzip arsenalgear-main.zip
+cd arsenalgear-main || exit
+./scripts/install_cpp.sh
+cd ..
+rm -rf arsenalgear-*
+echo ""
+read -p "Do you want to install optional prerequisites for osmanip (y/n)? " word_o
 if [ $word_o == "y" ] || [ $word_o == "Y" ] ; then
     sudo apt install doctest-dev subversion valgrind cppcheck clang-format
 fi
@@ -28,21 +34,21 @@ echo ""
 #     (check if doctest is installed)
 #====================================================
 if [ -f "/usr/include/doctest.h" ] ; then
-    echo "Compiling the whole code..."
+    echo "Compiling the whole osmanip code..."
     if ! make ; then
         echo "Compilation failed!"
         exit
     fi
 elif [ -f "/usr/include/doctest/doctest.h" ] ; then
     echo "Doctest is installed in /usr/include/doctest folder, move it in /usr/include in order to correctly use it for the library tests!"
-    echo "Compiling only the main code (this is not a problem for the installation)..."
+    echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
     if ! make $main ; then
         echo "Compilation failed!"
         exit
     fi
 else
     echo "Doctest is not installed, cannot compile the test codes!"
-    echo "Compiling only the main code (this is not a problem for the installation)..."
+    echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
     if ! make $main ; then
         echo "Compilation failed!"
         exit
@@ -58,7 +64,6 @@ lib_var=$(stat -c%s "lib")
 var=$(expr $include_var + $lib_var)
 read -p "Installation will take up $var bytes of disk space. Would you like to continue (y/n)? " word
 if [ $word == "y" ] || [ $word == "Y" ] ; then
-    echo "Enter your password for the last installation step:"
     sudo echo "Installing osmanip header files into /usr/local/include folder..."
     sudo mkdir -p /usr/local/include/osmanip
     if ! ( sudo cp -r include/* /usr/local/include/osmanip ) ; then

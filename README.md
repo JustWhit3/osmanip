@@ -17,6 +17,7 @@
 
 - [Introduction](#introduction)
 - [Documentation](#documentation)
+- [Repository structure](#repository-structure)
 - [News from the last version](#news-from-the-last-version)
 - [List of features](#list-of-features)
 - [Credits](#credits)
@@ -60,12 +61,66 @@ Supported and tested operating systems:
 ## Documentation
 
 In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder useful documentation files are stored, in order to help the user learning how to properly use the library:
-- [*Repository structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Repository%20structure.md): contains general information about the files and folders of the repository.
 - [*Code structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md): contains general information about the code structure of the library, therefore details on classes, functions and variables used in it.
 - [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download%20and%20install.md): a guide to download, install and run the library into your system.
 - [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/Contributing.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
 - [*How-to-use guides*](https://github.com/JustWhit3/Ostream-manipulator/blob/main/doc/How-to-use%20guides.md): contains a set of guides about how to use the library tools.
+
+## Repository structure
+
+```
+osmanip/
+├── img/
+├── doc/
+│   ├── Code structure.md
+│   ├── Contributing.md
+│   ├── Download and install.md
+│   ├── Todo.md
+│   ├── How-to-use guides.md
+├── include/
+│   ├── graphics/
+│   │   ├── canvas.hpp
+│   │   ├── plot_2D.hpp
+│   ├── manipulators/
+│   │   ├── csmanip.hpp
+│   ├── progressbar/
+│   │   ├── progress_bar.hpp
+│   │   ├── multi_progress_bar.hpp
+├── src/
+│   ├── graphics/
+│   │   ├── canvas.cpp
+│   │   ├── plot_2D.cpp
+│   ├── manipulators/
+│   │   ├── csmanip.cpp
+│   ├── progressbar/
+│   │   ├── progress_bar.cpp
+│   │   ├── multi_progress_bar.cpp
+│   ├── main.cpp
+├── scripts/
+│   ├── debug.sh
+│   ├── install.sh
+│   ├── uninstall.sh
+│   ├── update.sh
+├── test/
+│   ├── graphics/
+│   │   ├── tests_canvas.cpp
+│   │   ├── tests_plot_2D.cpp
+│   ├── manipulators/
+│   │   ├── tests_csmanip.cpp
+│   ├── progressbar/
+│   │   ├── tests_progress_bar.cpp
+│   │   ├── tests_multi_progress_bar.cpp
+│── README.md
+│── License
+│── CITATION.cff
+│── Makefile
+│── .gitignore
+│── .clang-format
+│── .valgrindrc
+│── .gitignore
+│── .all-contributorsrc
+```
 
 ## News from the last version
 
@@ -75,6 +130,7 @@ Most recent relevant news from the last version:
 - Progress spinner has been added to the `ProgressBar` class.
 - New features have been added to the progress bar: time-reamining info.
 - Added a [new map](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=25h%20%3A%20show%20cursor.-,tcsc,-Header%20file%3A%20osmanip) for the `feat` function to deal with clear screen / line commands.
+- Added a new [`print`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=cursor%20is%20hidden.-,print,-Header%20file%20and) function inspired by the Python one.
 
 ## List of features
 
