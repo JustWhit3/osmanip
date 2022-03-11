@@ -77,10 +77,8 @@ Tools:
 - A terminal supporting ANSI escape codes.
 - g++ compiler (g++ 9.3.0 has been tested so far) for compilation.
 - [GNU make](https://www.opensourceforu.com/2012/06/gnu-make-in-detail-for-beginners/#:~:text=Installing%20GNU%20Make,install%20build%2Dessential.) for compilation.
-- [wget](https://www.techwalla.com/articles/how-to-install-wget-in-ubuntu) to download extra dependencies repositories.
-- [unzip](https://www.mysoftkey.com/linux/how-to-do-zip-and-unzip-file-in-ubuntu-linux/) to unzip zipped directories during download and installation.
 
-Libraries / frameworks:
+Libraries and frameworks:
 
 - [Boost](https://www.boost.org/) library.
 - [arsenalgear](https://github.com/JustWhit3/arsenalgear) library.
@@ -89,14 +87,15 @@ Libraries / frameworks:
 
 Tools:
 
-- [subversion](https://linuxtechlab.com/simple-guide-to-install-svn-on-linux-apache-subversion/) to correctly run the [update.sh](#update) script.
 - [Valgrind](https://valgrind.org/) to run the [debug.sh](#debugsh) script.
 - [Cppcheck](https://github.com/danmar/cppcheck) to run the [debug.sh](#debugsh) script.
 - [Clang formatter](https://stackoverflow.com/questions/20756924/how-can-i-install-clang-format-in-ubuntu#:~:text=16.04%2C%20simply%20do%3A-,sudo%20apt%20install%20clang%2Dformat,-Share) to format the code for pull requests.
+- [wget](https://www.techwalla.com/articles/how-to-install-wget-in-ubuntu) to download extra dependencies repositories.
+- [unzip](https://www.mysoftkey.com/linux/how-to-do-zip-and-unzip-file-in-ubuntu-linux/) to unzip zipped directories during download and installation.
 
-Libraries / frameworks:
+Libraries and frameworks:
 
-- [doctest](https://github.com/onqtam/doctest) for testing compilation.
+- [doctest](https://github.com/onqtam/doctest) for testing.
 
 ## Install
 
