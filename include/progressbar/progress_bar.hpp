@@ -81,12 +81,16 @@ namespace osm
     //     OTHER METHODS DECLARATION
     //====================================================
      void update( const bar_type& iterating_var );
-     void update_output( const std::string& output );
      void print() const;
      void addStyle( const std::string& type, const std::string& style );
-     void remaining_time();
   
     private:
+
+    //====================================================
+    //     PRIVATE METHODS
+    //====================================================
+     void update_output( const std::string& output );
+     void remaining_time();
 
     //====================================================
     //     STATIC ATTRIBUTES DECLARATION

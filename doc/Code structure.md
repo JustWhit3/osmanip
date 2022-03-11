@@ -97,9 +97,12 @@ Getter methods:
 
 Other methods:
 
-- `void update( const bar_type& iterating_var )`: to update the bar after each loop cycle.
 - `void print()`: to print on the screen all the progress bar variable values.
 - `void addStyle( const std::string type&, const std::string& style )`: to create customized progress bar styles.
+
+Private methods:
+
+- `void update( const bar_type& iterating_var )`: to update the bar after each loop cycle.
 - `void remaining_time()`: to compute the remaining time for the completion of the progress bar.
 
 All the attributes are private and used in the above methods, therefore they don't need to be explained here.
