@@ -44,6 +44,22 @@ namespace osm
    {}
 
   template <typename bar_type>
+  ProgressBar <bar_type>::ProgressBar( const bar_type& min, const bar_type& max ): 
+   max_( max ), 
+   min_( min ), 
+   style_( "" ), 
+   type_( "" ),
+   message_( "" ), 
+   time_count_( duration::zero().count() ),
+   brackets_open_( "" ), 
+   brackets_close_( "" ), 
+   begin_timer( steady_clock::now() ),
+   color_( reset( "color" ) ),
+   ticks_occurred ( 0 ),
+   time_flag_ ( "off" )
+   {}
+
+  template <typename bar_type>
   ProgressBar <bar_type>::~ProgressBar() {}
 
   //====================================================

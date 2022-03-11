@@ -206,4 +206,14 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
    }
    
   TEST_SUITE_END();
+
+  //====================================================
+  //     TESTING THE CONSTRUCTOR OVERLOAD
+  //====================================================
+  SUBCASE( "Testing constructor(min,max)." )
+   {
+    osm::ProgressBar mm_bar( 0, 20 );
+    CHECK_EQ( mm_bar.getMin(), 0 );
+    CHECK_EQ( mm_bar.getMax(), 20 );
+   }  
  }

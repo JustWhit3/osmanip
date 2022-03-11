@@ -31,6 +31,7 @@ namespace osm
     //     CONSTRUCTORS AND DESTRUCTOR DECLARATION
     //====================================================
      ProgressBar();
+     ProgressBar( const bar_type& min, const bar_type& max );
      ~ProgressBar();
 
     //====================================================

@@ -45,6 +45,7 @@ Namespace: [`osm`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20str
 Constructors / destructor:
 
 - `ProgressBar()`: default constructor which set to null values the main attributes.
+- `ProgressBar( const bar_type& min, const bar_type& max )`: default constructor which set to null values the main attributes except `max_` and `min` which will be initialized respectively with `max` and `min`.
 - `~ProgressBar()`: standard destructor. It doesn't do anything.
 
 Setter methods: 

@@ -204,9 +204,7 @@ void perc_bars()
   std::cout << std::endl << std::endl;
             
   //Percentage bar with message and different style:
-  osm::ProgressBar <float> percentage_bar_2;
-  percentage_bar_2.setMin( 1.2f );
-  percentage_bar_2.setMax ( 4.4f );
+  osm::ProgressBar <float> percentage_bar_2( 1.2f, 4.4f );
   percentage_bar_2.setMessage( "processing..." );
   percentage_bar_2.setStyle( "indicator", "/100" );
 
@@ -315,9 +313,7 @@ void mixed_bars()
             << "     FULL PROGRESS BARS                                    " << std::endl
             << "======================================================" << std::endl << std::endl;
 
-  osm::ProgressBar <float> mixed_bar;
-  mixed_bar.setMin( 0.1f );
-  mixed_bar.setMax ( 3.8f );
+  osm::ProgressBar <float> mixed_bar( 0.1f, 3.8f );
   mixed_bar.setStyle( "complete", "%", "■" );
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( "elaborating..." );
@@ -379,9 +375,7 @@ void multi_bars()
   prog_int.setMessage( "Installing..." );
   prog_int.setColor( "red" );
 
-  osm::ProgressBar<int> prog_int_2;
-  prog_int_2.setMin( 5 );
-  prog_int_2.setMax ( 25 );
+  osm::ProgressBar<int> prog_int_2( 5, 25 );
   prog_int_2.setStyle( "complete", "%", "■" );
   prog_int_2.setBrackets( "{", "}" );
   prog_int_2.setMessage( "Processing..." );

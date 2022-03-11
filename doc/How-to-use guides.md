@@ -210,9 +210,7 @@ It is possible to add also [colors](https://github.com/JustWhit3/osmanip/blob/ma
 You can also create a classic loading bar:
 
 ```c++
-ProgressBar <int> loading_bar;
-loading_bar.setMin( 3 );
-loading_bar.setMax ( 25 );
+ProgressBar <int> loading_bar( 3, 25 );
 loading_bar.setStyle( "loader", "#" );
 loading_bar.setBrackets( "{", "}" );
 loading_bar.setMessage( "processing..." );
@@ -284,9 +282,7 @@ prog_int.setBrackets( "[", "]" );
 prog_int.setMessage( "Installing..." );
 prog_int.setColor( "red" );
 
-ProgressBar<int> prog_int_2;
-prog_int_2.setMin( 5 );
-prog_int_2.setMax ( 25 );
+ProgressBar<int> prog_int_2( 5, 25 );
 prog_int_2.setStyle( "complete", "%", "■" );
 prog_int_2.setBrackets( "{", "}" );
 prog_int_2.setMessage( "Processing..." );
