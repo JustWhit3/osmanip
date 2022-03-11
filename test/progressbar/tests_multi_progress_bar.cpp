@@ -17,7 +17,6 @@ osm::ProgressBar <int> bar1;
 osm::ProgressBar <double> bar2;
 osm::ProgressBar <float> bar3;
 auto bars = osm::MultiProgressBar( bar1, bar2, bar3 );
-std::stringstream ss_multi, ss_normal;
 
 //====================================================
 //     TESTING "size" METHOD
@@ -35,6 +34,8 @@ TEST_CASE( "Testing the operator() redefinition in the updater struct" )
   bar1.setMin( 0 );
   bar1.setMax ( 60 );
   bar1.setStyle( "indicator", "%" );
+
+  static std::stringstream ss_multi, ss_normal;
 
   for( int i = bar1.getMin(); i < bar1.getMax(); i++ ) 
    {

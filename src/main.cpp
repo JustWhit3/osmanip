@@ -161,7 +161,7 @@ void printer()
   //====================================================
   std::cout << std::endl << "======================================================" << std::endl
             << "     PRINTING FUNCTIONS                                           " << std::endl
-            << "======================================================" << std::endl;
+            << "======================================================" << std::endl << std::endl;
 
   //Normal examples:
   osm::print( std::cout, "This is the ", "\"printf\" ", "function for the normal output stream! ", 100, "% working!" );

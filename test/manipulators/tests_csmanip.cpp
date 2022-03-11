@@ -20,13 +20,6 @@ const std::string test_string = "error" +
                            static_cast <std::string>( "\" " ) +
                            "supported" +
                            "\n";
-const std::string test_string_goto = "\u001b[" +
-                                std::to_string( 2 ) +
-                                static_cast <std::string>( ";" ) +
-                                std::to_string( 5 ) +
-                                static_cast <std::string>( "H" );
-std::vector <std::map <std::string, std::string>> maps_vector { osm::col, osm::sty };
-const int feat_int = 100;
 
 //====================================================
 //     TESTING "feat" FUNCTIONS
@@ -34,6 +27,8 @@ const int feat_int = 100;
 //First overload:
 TEST_CASE( "Testing the feat function." )
  {
+  static std::vector <std::map <std::string, std::string>> maps_vector { osm::col, osm::sty };
+
   for( auto & element_v: maps_vector )
    {
     for( auto & element_m: element_v )
@@ -53,6 +48,8 @@ TEST_CASE( "Testing the feat function overload for the crs map." )
  {  
   for( auto & element_m: osm::crs )
    {
+    static const int feat_int = 100;
+
     CHECK_EQ( osm::feat( osm::crs, element_m.first, feat_int ), ( osm::crs.at( element_m.first ).first + std::to_string( feat_int ) + osm::crs.at( element_m.first ).second ) );
    }
 
@@ -78,7 +75,13 @@ TEST_CASE( "Testing the reset function." )
 //     TESTING "go_to" FUNCTION
 //====================================================
 TEST_CASE( "Testing the go_to function." )
- {            
+ {           
+  static const std::string test_string_goto = "\u001b[" +
+                                              std::to_string( 2 ) +
+                                              static_cast <std::string>( ";" ) +
+                                              std::to_string( 5 ) +
+                                              static_cast <std::string>( "H" );
+
   CHECK_EQ( osm::go_to( 2, 5 ), test_string_goto );
  }
 

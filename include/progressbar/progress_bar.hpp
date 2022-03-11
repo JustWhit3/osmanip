@@ -98,15 +98,11 @@ namespace osm
     //     NON-STATIC ATTRIBUTES DECLARATION
     //====================================================
      long long time_count_;
-     float percentage_done;
      std::uint64_t ticks_occurred;
      bar_type max_, max_spin_, min_, iterating_var_, iterating_var_spin_, width_;
      std::string style_, style_p_, style_l_, type_, conct_, message_, brackets_open_, brackets_close_, 
                  output_, color_, time_flag_;
      steady_clock::time_point begin, end, begin_timer;
-     duration time_taken, time_left;
-     std::chrono::minutes minutes_left;
-     std::chrono::seconds seconds_left;
    };
  }
       

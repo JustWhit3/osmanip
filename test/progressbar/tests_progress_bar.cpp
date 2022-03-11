@@ -24,14 +24,6 @@ const std::string bracket_close = "}";
 const std::string color = "red";
 const std::string style_p_ =  "%";
 const std::string style_l_ = "#";
-const std::string complete_style = "Percentage: \"" +
-                              style_p_ +
-                              "\"\n" +
-                              "Loader: \"" +
-                              style_l_ +
-                              "\"\n";
-std::vector <int> counter_ {};
-std::vector <int> v { 1, 2, 3, 4 };
 
 //====================================================
 //     TESTING "ProgressBar" CLASS METHODS
@@ -99,6 +91,8 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
 
     //Extra test for getStyle:
     bar.setStyle( "complete", style_p_, style_l_ );
+
+    static const std::string complete_style = "Percentage: \"" + style_p_ + "\"\n" + "Loader: \"" + style_l_ + "\"\n";
 
     CHECK_EQ( bar.getStyleComplete(), complete_style );
 

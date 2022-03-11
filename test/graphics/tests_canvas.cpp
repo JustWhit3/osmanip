@@ -7,11 +7,6 @@
 #include <doctest.h>
 
 //====================================================
-//     GBLOBAL VARIABLES DEFINITION
-//====================================================
-const std::string str = "str";
-
-//====================================================
 //     TESTING "Canvas" CLASS METHODS
 //====================================================
 TEST_CASE( "Testing the Canvas class methods." )
@@ -34,6 +29,8 @@ TEST_CASE( "Testing the Canvas class methods." )
 
   SUBCASE( "Testing getters and setters." ) 
    {
+    static const std::string str = "str";
+
     canvas.setBackground( 'c', "str" );
     CHECK_EQ( canvas.getBackground(), 'c' );
     CHECK_EQ( canvas.getBackgroundFeat(), str);

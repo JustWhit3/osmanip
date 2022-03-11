@@ -278,8 +278,7 @@ namespace osm
    { 
     if( type_ == "complete" )
      {
-      return "Percentage: \"" + style_p_ + "\"\n" + 
-             "Loader: \"" + style_l_ + "\"\n"; 
+      return "Percentage: \"" + style_p_ + "\"\n" + "Loader: \"" + style_l_ + "\"\n"; 
      }
     else
      {
@@ -333,11 +332,11 @@ namespace osm
                 ( agr::roundoff( max_ - min_, 1 ) * 10 + 1 ) :
                 ( max_ - min_ + 1 );
 
-    time_taken = steady_clock::now() - begin_timer;
-    percentage_done = static_cast <float> ( ticks_occurred ) / ( max_spin_ );
-    time_left = time_taken * ( 1 / percentage_done - 1 );
-    minutes_left = std::chrono::duration_cast <std::chrono::minutes> ( time_left );
-    seconds_left = std::chrono::duration_cast <std::chrono::seconds> ( time_left - minutes_left );
+    static duration time_taken = steady_clock::now() - begin_timer;
+    static float percentage_done = static_cast <float> ( ticks_occurred ) / ( max_spin_ );
+    static duration time_left = time_taken * ( 1 / percentage_done - 1 );
+    static std::chrono::minutes minutes_left = std::chrono::duration_cast <std::chrono::minutes> ( time_left );
+    static std::chrono::seconds seconds_left = std::chrono::duration_cast <std::chrono::seconds> ( time_left - minutes_left );
 
     std::cout << "["
               << feat( sty, "italics" ) + "Estimated time left: "  + reset( "italics" )
