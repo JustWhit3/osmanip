@@ -560,7 +560,7 @@ int main()
   osm::OPTION( osm::CURSOR::OFF );
  
   //Manipulators:
-  /*col_sty(); //Color/style.
+  col_sty(); //Color/style.
   printer(); //For printing functions.
 
   //Progress bars:
@@ -571,11 +571,7 @@ int main()
   progress_spinner(); //Progress spinner.
   
   //Terminal graphics visualization:
-  canvas_2d();*/
-
-  osm::ProgressBar<int> pb;
-  pb.setColor( "red" );
-  std::cout << pb;
+  canvas_2d();
 
   osm::OPTION( osm::CURSOR::ON );
  }
