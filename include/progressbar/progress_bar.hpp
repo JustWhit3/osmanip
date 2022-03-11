@@ -2,6 +2,7 @@
 #define PROGRESSBAR_HPP
 
 //STD headers
+#include <iostream>
 #include <string>
 #include <chrono>
 #include <set>
