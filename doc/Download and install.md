@@ -113,7 +113,7 @@ A new library *libosmanip* will be created into the `/usr/local/lib` folder of y
 
 ## Update
 
-In case you want to update the source code from the latest improvements of the repository, you can use the updater script, called [update.sh](https://github.com/JustWhit3/osmanip/blob/main/update.sh).
+In case you want to update the source code from the latest improvements of the repository, you can use the updater script, called [update.sh](https://github.com/JustWhit3/osmanip/blob/main/scripts/update.sh).
 
 From the repository folder type this command on the shell:
 ```shell
