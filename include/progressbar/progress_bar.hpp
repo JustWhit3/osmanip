@@ -115,7 +115,7 @@ namespace osm
   //     OPERATOR << REDEFINITION
   //====================================================
   template <typename bar_type>
-  std::ostream& operator << (std::ostream& os, ProgressBar<bar_type> &pb)
+  std::ostream& operator << ( std::ostream& os, const ProgressBar<bar_type> &pb )
    {
     os << "Max: " << pb.getMax() << std::endl 
        << "Min: " << pb.getMin() << std::endl 
