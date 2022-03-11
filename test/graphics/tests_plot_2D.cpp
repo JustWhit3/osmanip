@@ -6,21 +6,12 @@
 //Extra headers
 #include <doctest.h>
 
-//Using namespaces
-using namespace std;
-using namespace osm;
-
-//====================================================
-//     GBLOBAL VARIABLES DEFINITION
-//====================================================
-
-
 //====================================================
 //     TESTING "Canvas" CLASS METHODS
 //====================================================
 TEST_CASE( "Testing the Canvas class methods." )
  {
-  Plot2DCanvas cv( 5,7 );
+  osm::Plot2DCanvas cv( 5,7 );
 
   //====================================================
   //     TESTING GETTERS, SETTERS AND CONSTRUCTORS

@@ -14,41 +14,35 @@
 #include <thread>
 #include <chrono>
 
-//Using namespaces
-using namespace osm;
-using namespace std;
-using namespace std::this_thread;
-using namespace std::chrono;
-
 //====================================================
 //     GLOBAL VARIABLES DEFINITION
 //====================================================
-const string style = "%";
-const string message = "message";
-const string bracket_open = "{";
-const string bracket_close = "}";
-const string color = "red";
-const string style_p_ =  "%";
-const string style_l_ = "#";
-const string complete_style = "Percentage: \"" +
+const std::string style = "%";
+const std::string message = "message";
+const std::string bracket_open = "{";
+const std::string bracket_close = "}";
+const std::string color = "red";
+const std::string style_p_ =  "%";
+const std::string style_l_ = "#";
+const std::string complete_style = "Percentage: \"" +
                               style_p_ +
                               "\"\n" +
                               "Loader: \"" +
                               style_l_ +
                               "\"\n";
-vector <int> counter_ {};
-vector <int> v { 1, 2, 3, 4 };
+std::vector <int> counter_ {};
+std::vector <int> v { 1, 2, 3, 4 };
 
 //====================================================
 //     TESTING "ProgressBar" CLASS METHODS
 //====================================================
 TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long long, double, long double, float )
  {
-  ProgressBar <T> bar; 
+  osm::ProgressBar <T> bar; 
   T max = 10.,
     min = 5.,
     time = 34.;
-  string type = "indicator";
+  std::string type = "indicator";
 
   //====================================================
   //     TESTING GETTERS, SETTERS AND CONSTRUCTORS
@@ -65,7 +59,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( bar.getMessage(), "" );
     CHECK_EQ( bar.getBrackets_close(), "" );
     CHECK_EQ( bar.getBrackets_open(), "" );
-    CHECK_EQ( bar.getColor(), reset( "color" ));
+    CHECK_EQ( bar.getColor(), osm::reset( "color" ));
     CHECK_EQ( bar.getRemainingTimeFlag(), "off" );
    }
 
@@ -85,7 +79,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   REQUIRE( bar.getMessage() != "" );
   REQUIRE( bar.getBrackets_close() != "" );
   REQUIRE( bar.getBrackets_open() != "" );
-  REQUIRE( bar.getColor() != reset( "color" ) );  
+  REQUIRE( bar.getColor() != osm::reset( "color" ) );  
   REQUIRE( bar.getRemainingTimeFlag() != "off" );
 
   SUBCASE( "Testing setters and getters with initialized values." ) 
@@ -95,13 +89,13 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( bar.getMessage(), message );
     CHECK_EQ( bar.getBrackets_open(), bracket_open );
     CHECK_EQ( bar.getBrackets_close(), bracket_close );
-    CHECK_EQ( bar.getColor(), feat( col, "red" ) );
+    CHECK_EQ( bar.getColor(), osm::feat( osm::col, "red" ) );
     CHECK_EQ( bar.getStyle(), style );
     CHECK_EQ( bar.getType(), type );
     CHECK_EQ( bar.getRemainingTimeFlag(), "on" );
 
-    CHECK_THROWS_AS( bar.setStyle( type, "a" ), runtime_error );
-    CHECK_THROWS_AS( bar.setStyle( "a", style ), runtime_error );
+    CHECK_THROWS_AS( bar.setStyle( type, "a" ), std::runtime_error );
+    CHECK_THROWS_AS( bar.setStyle( "a", style ), std::runtime_error );
 
     //Extra test for getStyle:
     bar.setStyle( "complete", style_p_, style_l_ );
@@ -127,7 +121,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( bar.getStyle(), "" );
     CHECK_EQ( bar.getType(), "" );
     CHECK_EQ( bar.getMessage(), "" );
-    CHECK_EQ( bar.getColor(), reset( "color" ) );
+    CHECK_EQ( bar.getColor(), osm::reset( "color" ) );
     CHECK_EQ( bar.getRemainingTimeFlag(), "off" );
    }
 
@@ -154,7 +148,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( bar.getMessage(), "" );
     CHECK_EQ( bar.getBrackets_open(), "" );
     CHECK_EQ( bar.getBrackets_close(), "" );
-    CHECK_EQ( bar.getColor(), reset( "color" ) );
+    CHECK_EQ( bar.getColor(), osm::reset( "color" ) );
    }
 
   TEST_SUITE_END();
@@ -169,7 +163,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     bar.setBegin();
      for ( int i = 0; i < 5; i++ )
       {
-       sleep_for( milliseconds( 100 ) );
+       std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
       }
     bar.setEnd();
     
@@ -212,9 +206,9 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     bar.setStyle( "complete", "|100", ">" );
 
     CHECK_EQ( bar.getStyle(), "|100>" );
-    CHECK_THROWS_AS( bar.addStyle( "indicator", "%" ), runtime_error );
-    CHECK_THROWS_AS( bar.addStyle( "loader", "#" ), runtime_error );
-    CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), out_of_range );
+    CHECK_THROWS_AS( bar.addStyle( "indicator", "%" ), std::runtime_error );
+    CHECK_THROWS_AS( bar.addStyle( "loader", "#" ), std::runtime_error );
+    CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), std::out_of_range );
    }
    
   TEST_SUITE_END();

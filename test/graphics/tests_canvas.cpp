@@ -6,10 +6,6 @@
 //Extra headers
 #include <doctest.h>
 
-//Using namespaces
-using namespace std;
-using namespace osm;
-
 //====================================================
 //     GBLOBAL VARIABLES DEFINITION
 //====================================================
@@ -20,7 +16,7 @@ const std::string str = "str";
 //====================================================
 TEST_CASE( "Testing the Canvas class methods." )
  {
-  Canvas canvas( 5, 6 );
+  osm::Canvas canvas( 5, 6 );
 
   //====================================================
   //     TESTING GETTERS, SETTERS AND CONSTRUCTORS
@@ -45,8 +41,8 @@ TEST_CASE( "Testing the Canvas class methods." )
     canvas.enableFrame( true );
     CHECK_EQ( canvas.isFrameEnabled(), true );
 
-    canvas.setFrame( FrameStyle::ASCII, str );
-    CHECK_EQ( canvas.getFrameStyle(), FrameStyle::ASCII );
+    canvas.setFrame( osm::FrameStyle::ASCII, str );
+    CHECK_EQ( canvas.getFrameStyle(), osm::FrameStyle::ASCII );
     CHECK_EQ( canvas.getFrameFeat(), str );
 
     canvas.setWidth( 67 );
