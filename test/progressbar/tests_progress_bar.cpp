@@ -52,6 +52,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( bar.getBrackets_close(), "" );
     CHECK_EQ( bar.getBrackets_open(), "" );
     CHECK_EQ( bar.getColor(), osm::reset( "color" ));
+    CHECK_EQ( bar.getColorName(), "" );
     CHECK_EQ( bar.getRemainingTimeFlag(), "off" );
    }
 
@@ -72,6 +73,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   REQUIRE( bar.getBrackets_close() != "" );
   REQUIRE( bar.getBrackets_open() != "" );
   REQUIRE( bar.getColor() != osm::reset( "color" ) );  
+  REQUIRE( bar.getColorName() != "" );
   REQUIRE( bar.getRemainingTimeFlag() != "off" );
 
   SUBCASE( "Testing setters and getters with initialized values." ) 
@@ -82,6 +84,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( bar.getBrackets_open(), bracket_open );
     CHECK_EQ( bar.getBrackets_close(), bracket_close );
     CHECK_EQ( bar.getColor(), osm::feat( osm::col, "red" ) );
+    CHECK_EQ( bar.getColorName(), color );
     CHECK_EQ( bar.getStyle(), style );
     CHECK_EQ( bar.getType(), type );
     CHECK_EQ( bar.getRemainingTimeFlag(), "on" );
@@ -116,6 +119,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( bar.getType(), "" );
     CHECK_EQ( bar.getMessage(), "" );
     CHECK_EQ( bar.getColor(), osm::reset( "color" ) );
+    CHECK_EQ( bar.getColorName(), "" );
     CHECK_EQ( bar.getRemainingTimeFlag(), "off" );
    }
 
@@ -143,6 +147,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( bar.getBrackets_open(), "" );
     CHECK_EQ( bar.getBrackets_close(), "" );
     CHECK_EQ( bar.getColor(), osm::reset( "color" ) );
+    CHECK_EQ( bar.getColorName(), "" );
    }
 
   TEST_SUITE_END();

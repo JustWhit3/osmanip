@@ -74,6 +74,7 @@ namespace osm
      std::string getBrackets_open() const;
      std::string getBrackets_close() const;
      std::string getColor() const;
+     std::string getColorName() const;
      std::string getType() const;
      std::string getRemainingTimeFlag() const;
 
@@ -106,9 +107,28 @@ namespace osm
      std::uint64_t ticks_occurred;
      bar_type max_, max_spin_, min_, iterating_var_, iterating_var_spin_, width_;
      std::string style_, style_p_, style_l_, type_, conct_, message_, brackets_open_, brackets_close_, 
-                 output_, color_, time_flag_;
+                 output_, color_, time_flag_, color_name_;
      steady_clock::time_point begin, end, begin_timer;
    };
+
+  //====================================================
+  //     OPERATOR << REDEFINITION
+  //====================================================
+  template <typename bar_type>
+  std::ostream& operator << (std::ostream& os, ProgressBar<bar_type> &pb)
+   {
+    os << "Max: " << pb.getMax() << std::endl 
+       << "Min: " << pb.getMin() << std::endl 
+       << "Time counter: " << pb.getTime() << std::endl 
+       << "Style: " << pb.getStyle() << std::endl
+       << "Type: " << pb.getType() << std::endl
+       << "Message: " << pb.getMessage() << std::endl
+       << "Brackets style: " << pb.getBrackets_open() << pb.getBrackets_close()<< std::endl
+       << "Color: " << pb.getColorName() << std::endl
+       << "Show remaining time: " << pb.getRemainingTimeFlag() << std:: endl;
+
+    return os;
+   }
  }
       
 #endif

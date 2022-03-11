@@ -39,6 +39,7 @@ namespace osm
    brackets_close_( "" ), 
    begin_timer( steady_clock::now() ),
    color_( reset( "color" ) ),
+   color_name_( "" ),
    ticks_occurred ( 0 ),
    time_flag_ ( "off" )
    {}
@@ -55,6 +56,7 @@ namespace osm
    brackets_close_( "" ), 
    begin_timer( steady_clock::now() ),
    color_( reset( "color" ) ),
+   color_name_( "" ),
    ticks_occurred ( 0 ),
    time_flag_ ( "off" )
    {}
@@ -177,6 +179,7 @@ namespace osm
   void ProgressBar <bar_type>::setColor( const std::string& color )
    { 
     color_ = feat( col, color );
+    color_name_ = color;
    }
 
   template <typename bar_type>
@@ -202,6 +205,7 @@ namespace osm
     brackets_open_ = "", 
     brackets_close_= "", 
     color_ = reset( "color" ); 
+    color_name_ = "";
     time_flag_ = "off";
    }
 
@@ -254,6 +258,7 @@ namespace osm
   void ProgressBar <bar_type>::resetColor() 
    { 
     color_ = reset( "color" ); 
+    color_name_ = "";
    }
 
   //====================================================
@@ -330,6 +335,12 @@ namespace osm
   std::string ProgressBar <bar_type>::getColor() const 
    { 
     return color_; 
+   }
+
+  template <typename bar_type>
+  std::string ProgressBar <bar_type>::getColorName() const 
+   { 
+    return color_name_; 
    }
 
   template <typename bar_type>
@@ -481,7 +492,7 @@ namespace osm
                << "Type: " << type_ << std::endl
                << "Message: " << message_ << std::endl
                << "Brackets style: " << brackets_open_ << brackets_close_<< std::endl
-               << "Color: " << color_ << std::endl
+               << "Color: " << color_name_ << std::endl
                << "Show remaining time: " << time_flag_ << std:: endl;
     }
 

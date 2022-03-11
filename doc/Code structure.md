@@ -93,6 +93,7 @@ Getter methods:
 - `std::string getBrackets_open()`: to get the opening bracket.
 - `std::string getBrackets_close()`: to get the closing bracket.
 - `std::string getColor()`: to get the progress bar color.
+- `std::string getColorName()`: to get the progress bar color full string name.
 - `std::string getRemainingTimeFlag()`: to get the value of the remaining-time info flag (on or off).
 
 Other methods:
