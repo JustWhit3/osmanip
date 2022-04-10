@@ -16,140 +16,140 @@ void col_sty()
   //====================================================
   //     CSMANIP FEATURES
   //====================================================
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     COLORS                                           " << std::endl
-            << "======================================================" << std::endl
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     COLORS                                           " << "\n"
+            << "======================================================" << "\n"
   
             << osm::feat( osm::col, "black" ) << "This is a black string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "red" ) << "This is a red string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "green" ) << "This is a green string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "orange" ) << "This is an orange string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "blue" ) << "This is a blue string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "purple" ) << "This is a purple string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "cyan" ) << "This is a cyan string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "gray" ) << "This is a gray string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "dk gray" ) << "This is a dark gray string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "lt red" ) << "This is a light red string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "lt green" ) << "This is a light green string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "yellow" ) << "This is a yellow string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "lt blue" ) << "This is a light blue string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "lt purple" ) << "This is a light purple string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "lt cyan" ) << "This is a light cyan string." 
-            << osm::reset( "color" ) << std::endl
+            << osm::reset( "color" ) << "\n"
             << osm::feat( osm::col, "white" ) << "This is a white string." 
-            << osm::reset( "color" ) << std::endl;
+            << osm::reset( "color" ) << "\n";
 
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
        
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     BOLD COLORS                                      " << std::endl
-            << "======================================================" << std::endl << std::endl
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     BOLD COLORS                                      " << "\n"
+            << "======================================================" << "\n\n"
             
             << osm::feat( osm::col, "bd black" ) << "This is a bold black string." 
-            << osm::reset( "bd color" ) << std::endl
+            << osm::reset( "bd color" ) << "\n"
             << osm::feat( osm::col, "bd red" ) << "This is a bold red string." 
-            << osm::reset( "bd color" ) << std::endl
+            << osm::reset( "bd color" ) << "\n"
             << osm::feat( osm::col, "bd green" ) << "This is a bold green string." 
-            << osm::reset( "bd color" ) << std::endl
+            << osm::reset( "bd color" ) << "\n"
             << osm::feat( osm::col, "bd orange" ) << "This is a bold orange string." 
-            << osm::reset( "bd color" ) << std::endl
+            << osm::reset( "bd color" ) << "\n"
             << osm::feat( osm::col, "bd blue" ) << "This is a bold blue string." 
-            << osm::reset( "bd color" ) << std::endl
+            << osm::reset( "bd color" ) << "\n"
             << osm::feat( osm::col, "bd purple" ) << "This is a bold purple string." 
-            << osm::reset( "bd color" ) << std::endl
+            << osm::reset( "bd color" ) << "\n"
             << osm::feat( osm::col, "bd cyan" ) << "This is a bold cyan string." 
-            << osm::reset( "bd color" ) << std::endl
+            << osm::reset( "bd color" ) << "\n"
             << osm::feat( osm::col, "bd gray" ) << "This is a bold gray string." 
-            << osm::reset( "bd color" ) << std::endl;
+            << osm::reset( "bd color" ) << "\n";
 
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
        
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     BACKGROUND COLORS                                " << std::endl
-            << "======================================================" << std::endl << std::endl
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     BACKGROUND COLORS                                " << "\n"
+            << "======================================================" << "\n\n"
             
             << osm::feat( osm::col, "bg black" ) << "This is a background black string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg red" ) << "This is a background red string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg green" ) << "This is a background green string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg orange" ) << "This is a background orange string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg blue" ) << "This is a background blue string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg purple" ) << "This is a background purple string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg cyan" ) << "This is a background cyan string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg gray" ) << "This is a background gray string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg dk gray" ) << "This is a background dark gray string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg lt red" ) << "This is a background light red string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg lt green" ) << "This is a background light green string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg yellow" ) << "This is a background yellow string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg lt blue" ) << "This is a background light blue string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg lt purple" ) << "This is a background light purple string."
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg lt cyan" ) << "This is a background light cyan string." 
-            << osm::reset( "bg color" ) << std::endl
+            << osm::reset( "bg color" ) << "\n"
             << osm::feat( osm::col, "bg white" ) << "This is a background white string." 
-            << osm::reset( "bg color" ) << " <-(white)" << std::endl;
+            << osm::reset( "bg color" ) << " <-(white)" << "\n";
 
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
        
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     STYLES                                           " << std::endl
-            << "======================================================" << std::endl << std::endl
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     STYLES                                           " << "\n"
+            << "======================================================" << "\n\n"
             
             << osm::feat( osm::sty, "bold" ) << "This is a bold string." 
-            << osm::reset( "bd/ft" ) << std::endl
+            << osm::reset( "bd/ft" ) << "\n"
             << osm::feat( osm::sty, "faint" ) << "This is a faint string." 
-            << osm::reset( "bd/ft" ) << std::endl
+            << osm::reset( "bd/ft" ) << "\n"
             << osm::feat( osm::sty, "italics" ) << "This is an italics string." 
-            << osm::reset( "italics" ) << std::endl
+            << osm::reset( "italics" ) << "\n"
             << osm::feat( osm::sty, "underlined" ) << "This is an underlined string." 
-            << osm::reset( "underlined" ) << std::endl
+            << osm::reset( "underlined" ) << "\n"
             << osm::feat( osm::sty, "d-underlined" ) << "This is a doubly underlined string." 
-            << osm::reset( "underlined" ) << std::endl
+            << osm::reset( "underlined" ) << "\n"
             << osm::feat( osm::sty, "inverse" ) << "This is an inverse string." 
-            << osm::reset( "inverse" ) << std::endl
+            << osm::reset( "inverse" ) << "\n"
             << osm::feat( osm::sty, "invisible" ) << "This is an invisible string." 
-            << osm::reset( "invisible" ) << "It was an invisible string." << std::endl
+            << osm::reset( "invisible" ) << "It was an invisible string." << "\n"
             << osm::feat( osm::sty, "crossed" ) << "This is a crossed-out string." 
-            << osm::reset( "crossed" ) << std::endl
+            << osm::reset( "crossed" ) << "\n"
             << osm::feat( osm::sty, "blink" ) << "This is a blink string." 
-            << osm::reset( "blink" ) << std::endl;
+            << osm::reset( "blink" ) << "\n";
        
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     MIXED                                           " << std::endl
-            << "======================================================" << std::endl << std::endl
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     MIXED                                           " << "\n"
+            << "======================================================" << "\n\n"
             
             << osm::feat( osm::sty, "underlined" ) << osm::feat( osm::col, "red" ) << "This is an underlined red string." 
-            << osm::reset( "all" ) << std::endl
+            << osm::reset( "all" ) << "\n"
             << osm::feat( osm::sty, "italics" ) << osm::feat( osm::col, "blue" ) << "This is an italics blue string." 
-            << osm::reset( "all" ) << std::endl
+            << osm::reset( "all" ) << "\n"
             << osm::feat( osm::sty, "faint" ) << osm::feat( osm::col, "orange" ) << "This is a faint orange string." 
-            << osm::reset( "all" ) << std::endl;
+            << osm::reset( "all" ) << "\n";
 
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
  }
@@ -159,9 +159,9 @@ void printer()
   //====================================================
   //     PRINTING FUNCTIONS FEATURES
   //====================================================
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     PRINTING FUNCTIONS                                           " << std::endl
-            << "======================================================" << std::endl << std::endl;
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     PRINTING FUNCTIONS                                           " << "\n"
+            << "======================================================" << "\n\n";
 
   //Normal examples:
   osm::print( std::cout, "This is the ", "\"printf\" ", "function for the normal output stream! ", 100, "% working!" );
@@ -184,9 +184,9 @@ void printer()
 //====================================================
 void perc_bars()
  {
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     PERCENTAGE BARS                                    " << std::endl
-            << "======================================================" << std::endl << std::endl;
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     PERCENTAGE BARS                                    " << "\n"
+            << "======================================================" << "\n\n";
   
   //Normal percentage bar.
   osm::ProgressBar <int> percentage_bar;
@@ -194,34 +194,34 @@ void perc_bars()
   percentage_bar.setMax ( 46 );
   percentage_bar.setStyle( "indicator", "%" );
 
-  std::cout << "This is a normal percentage bar: " << std::endl;
+  std::cout << "This is a normal percentage bar: " << "\n";
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
             
   //Percentage bar with message and different style:
   osm::ProgressBar <float> percentage_bar_2( 1.2f, 4.4f );
   percentage_bar_2.setMessage( "processing..." );
   percentage_bar_2.setStyle( "indicator", "/100" );
 
-  std::cout << "This is a percentage bar with message and the /100 style: " << std::endl;
+  std::cout << "This is a percentage bar with message and the /100 style: " << "\n";
   for ( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar_2.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
 
   //Percentage bar with time consuming info:
   percentage_bar.resetMessage();
   percentage_bar.setStyle( "indicator", "%" );
 
-  std::cout << "This is a percentage bar with time consuming info: " << std::endl;
+  std::cout << "This is a percentage bar with time consuming info: " << "\n";
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
     percentage_bar.setBegin();
@@ -230,8 +230,8 @@ void perc_bars()
     //Do some operations...
     percentage_bar.setEnd();
    }
-  std::cout << std::endl << "Time needed to complete the previous loop: " 
-            << percentage_bar.getTime() << " ms." << std::endl << std::endl;
+  std::cout << "\n" << "Time needed to complete the previous loop: " 
+            << percentage_bar.getTime() << " ms." << "\n\n";
 
   //Percentage bar with estimated time left:
   percentage_bar.setMin( 2 );
@@ -239,14 +239,14 @@ void perc_bars()
   percentage_bar.setRemainingTimeFlag( "on" );
   percentage_bar.resetRemainingTime();
 
-  std::cout << "This is a percentage bar with time-remaining info: " << std::endl;
+  std::cout << "This is a percentage bar with time-remaining info: " << "\n";
   for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
  }
 
 //====================================================
@@ -254,9 +254,9 @@ void perc_bars()
 //====================================================
 void load_bars()
  {
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     LOADING BARS                                    " << std::endl
-            << "======================================================" << std::endl << std::endl;
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     LOADING BARS                                    " << "\n"
+            << "======================================================" << "\n\n";
 
   osm::ProgressBar <int> loading_bar;
   loading_bar.setMin( 3 );
@@ -264,28 +264,28 @@ void load_bars()
   loading_bar.setStyle( "loader", "#" );
   loading_bar.setBrackets( "[", "]" );
  
-  std::cout << "This is a normal loading bar: " << std::endl;
+  std::cout << "This is a normal loading bar: " << "\n";
   for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
 
   //Loading bar with message:
   loading_bar.resetBrackets();
   loading_bar.setMessage( "processing..." );
   loading_bar.setBrackets( "{", "}" );
 
-  std::cout << "This is a loading bar with message: " << std::endl;
+  std::cout << "This is a loading bar with message: " << "\n";
   for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
 
   //Loading bar with time remaining info:
   loading_bar.setMin( 3 );
@@ -294,14 +294,14 @@ void load_bars()
   loading_bar.setRemainingTimeFlag( "on" );
   loading_bar.resetRemainingTime();
 
-  std::cout << "This is a loading bar with time-remaining info: " << std::endl;
+  std::cout << "This is a loading bar with time-remaining info: " << "\n";
   for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
  }
 
 //====================================================
@@ -309,36 +309,36 @@ void load_bars()
 //====================================================
 void mixed_bars()
  {
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     FULL PROGRESS BARS                                    " << std::endl
-            << "======================================================" << std::endl << std::endl;
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     FULL PROGRESS BARS                                    " << "\n"
+            << "======================================================" << "\n\n";
 
   osm::ProgressBar <float> mixed_bar( 0.1f, 3.8f );
   mixed_bar.setStyle( "complete", "%", "■" );
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( "elaborating..." );
  
-  std::cout << "This is a mixed progress bar: " << std::endl;
+  std::cout << "This is a mixed progress bar: " << "\n";
   for ( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
 
   mixed_bar.setColor( "red" );
   mixed_bar.setRemainingTimeFlag( "on" );
   mixed_bar.resetRemainingTime();
 
-  std::cout << "This is a mixed progress bar with color and time remaining info: " << std::endl;
+  std::cout << "This is a mixed progress bar with color and time remaining info: " << "\n";
   for ( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
 
   mixed_bar.resetColor();
   mixed_bar.addStyle( "indicator", "|100" );
@@ -346,14 +346,14 @@ void mixed_bars()
   mixed_bar.setStyle( "complete", "|100", ">" );
   mixed_bar.setRemainingTimeFlag( "off" );
 
-  std::cout << "This is a mixed progress bar with two customized styles: " << std::endl;
+  std::cout << "This is a mixed progress bar with two customized styles: " << "\n";
   for ( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
  }
 
 //====================================================
@@ -361,11 +361,11 @@ void mixed_bars()
 //====================================================
 void multi_bars()
  {
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     MULTI PROGRESS BARS                                    " << std::endl
-            << "======================================================" << std::endl << std::endl;
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     MULTI PROGRESS BARS                                    " << "\n"
+            << "======================================================" << "\n\n";
 
-  std::cout << "These are 3 progress bars printed simultaneously: " << std::endl << std::endl << std::endl;
+  std::cout << "These are 3 progress bars printed simultaneously: " << "\n\n\n";
 
   osm::ProgressBar<int> prog_int;
   prog_int.setMin( 0 );
@@ -426,7 +426,7 @@ void multi_bars()
   second_job.join();
   third_job.join();
 
-  std::cout << std::endl << std::endl << std::endl;
+  std::cout << "\n\n\n";
  }
 
 //====================================================
@@ -434,9 +434,9 @@ void multi_bars()
 //====================================================
 void progress_spinner()
  {
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     PROGRESS SPINNER                                    " << std::endl
-            << "======================================================" << std::endl << std::endl;
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     PROGRESS SPINNER                                    " << "\n"
+            << "======================================================" << "\n\n";
   
   //Integer progress spinner.
   osm::ProgressBar <int> spinner;
@@ -444,14 +444,14 @@ void progress_spinner()
   spinner.setMax ( 33 );
   spinner.setStyle( "spinner", "/-\\|" );
 
-  std::cout << "This is a progress spinner: " << std::endl;
+  std::cout << "This is a progress spinner: " << "\n";
   for ( int i = spinner.getMin(); i < spinner.getMax(); i++ )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     spinner.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
 
   //Float progress spinner.
   osm::ProgressBar <float> spinner_float;
@@ -462,14 +462,14 @@ void progress_spinner()
   spinner_float.setStyle( "spinner", "|/_\\" );
   spinner_float.setMessage( "elaborating data..." );
 
-  std::cout << "This is another progress spinner: " << std::endl;
+  std::cout << "This is another progress spinner: " << "\n";
   for ( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
    {
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     spinner_float.update( i );
     //Do some operations...
    }
-  std::cout << std::endl << std::endl;
+  std::cout << "\n\n";
  }
 
 //====================================================
@@ -477,11 +477,11 @@ void progress_spinner()
 //====================================================
 void canvas_2d()
  {
-  std::cout << std::endl << "======================================================" << std::endl
-            << "     CANVAS                                    " << std::endl
-            << "======================================================" << std::endl << std::endl;
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     CANVAS                                    " << "\n"
+            << "======================================================" << "\n\n";
   
-    std::cout << "Display an animation in a canvas" << std::endl;
+    std::cout << "Display an animation in a canvas" << "\n";
 
     osm::Canvas canvas(10,10);
     canvas.setBackground( '.', osm::feat( osm::col, "bg white" ) + osm::feat( osm::col, "black" ) );
@@ -496,7 +496,7 @@ void canvas_2d()
       std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
      }
     
-    std::cout << std::endl << "Canvas with an ASCII frame" << std::endl;
+    std::cout << "\n" << "Canvas with an ASCII frame" << "\n";
     
     osm::Canvas ascii_framed_canvas( 15, 10 );
     ascii_framed_canvas.enableFrame( true );
@@ -511,7 +511,7 @@ void canvas_2d()
     
     std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
     
-    std::cout << std::endl << "Canvas with a BOX frame" << std::endl;
+    std::cout << "\n" << "Canvas with a BOX frame" << "\n";
     
     osm::Canvas box_framed_canvas( 20, 8 );
     box_framed_canvas.enableFrame( true );
@@ -526,7 +526,7 @@ void canvas_2d()
     
     std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
     
-    std::cout << std::endl << "Plot2DCanvas with sin and cos" << std::endl;
+    std::cout << "\n" << "Plot2DCanvas with sin and cos" << "\n";
 
     osm::Plot2DCanvas plot_2d_canvas( 50, 20 );
     plot_2d_canvas.setBackground( ' ', osm::feat( osm::col, "bg white" ) );
@@ -549,7 +549,7 @@ void canvas_2d()
       std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
      }
 
-    std::cout << std::endl << std::endl;
+    std::cout << "\n\n";
  }
 
 //====================================================

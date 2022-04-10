@@ -118,15 +118,15 @@ namespace osm
   template <typename bar_type>
   std::ostream& operator << ( std::ostream& os, const ProgressBar<bar_type> &pb )
    {
-    os << "Max: " << pb.getMax() << std::endl 
-       << "Min: " << pb.getMin() << std::endl 
-       << "Time counter: " << pb.getTime() << std::endl 
-       << "Style: " << pb.getStyle() << std::endl
-       << "Type: " << pb.getType() << std::endl
-       << "Message: " << pb.getMessage() << std::endl
-       << "Brackets style: " << pb.getBrackets_open() << pb.getBrackets_close()<< std::endl
-       << "Color: " << pb.getColorName() << std::endl
-       << "Show remaining time: " << pb.getRemainingTimeFlag() << std:: endl;
+    os << "Max: " << pb.getMax() << "\n"
+       << "Min: " << pb.getMin() << "\n"
+       << "Time counter: " << pb.getTime() << "\n" 
+       << "Style: " << pb.getStyle() << "\n"
+       << "Type: " << pb.getType() << "\n"
+       << "Message: " << pb.getMessage() << "\n"
+       << "Brackets style: " << pb.getBrackets_open() << pb.getBrackets_close()<< "\n"
+       << "Color: " << pb.getColorName() << "\n"
+       << "Show remaining time: " << pb.getRemainingTimeFlag() << "\n";
 
     return os;
    }

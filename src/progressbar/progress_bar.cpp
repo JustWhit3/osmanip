@@ -486,15 +486,15 @@ namespace osm
    template <typename bar_type>
    void ProgressBar <bar_type>::print() const
     {
-     std::cout << "Max: " << max_ << std::endl 
-               << "Min: " << min_ << std::endl 
-               << "Time counter: " << time_count_ << std::endl 
-               << "Style: " << style_ << std::endl
-               << "Type: " << type_ << std::endl
-               << "Message: " << message_ << std::endl
-               << "Brackets style: " << brackets_open_ << brackets_close_<< std::endl
-               << "Color: " << color_name_ << std::endl
-               << "Show remaining time: " << time_flag_ << std:: endl;
+     std::cout << "Max: " << max_ << "\n"
+               << "Min: " << min_ << "\n" 
+               << "Time counter: " << time_count_ << "\n"
+               << "Style: " << style_ << "\n"
+               << "Type: " << type_ << "\n"
+               << "Message: " << message_ << "\n"
+               << "Brackets style: " << brackets_open_ << brackets_close_<< "\n"
+               << "Color: " << color_name_ << "\n"
+               << "Show remaining time: " << time_flag_ << "\n";
     }
 
   //====================================================
