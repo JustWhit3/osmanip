@@ -12,6 +12,7 @@ fi
 #====================================================
 #     INSTALLING PREREQUISITES
 #====================================================
+echo "Updating and upgrading the system..."
 sudo apt install build-essential g++ libboost-all-dev wget unzip
 echo ""
 echo "Installing arsenalgear library..."
@@ -59,8 +60,7 @@ echo ""
 #====================================================
 #     SAVING FILES INTO THE SYSTEM
 #====================================================
-echo "Installation will take up this number of bytes:"
-du -sbh lib include
+./scripts/size_of_dir.py --paths="include lib" --message="on"
 echo ""
 read -p "Would you like to continue (y/n)? " word
 if [ $word == "y" ] || [ $word == "Y" ] ; then
