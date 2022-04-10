@@ -9,6 +9,8 @@
 #include <string>
 #include <map>
 
+using namespace std::string_literals;
+
 namespace osm
  {
   //====================================================
@@ -215,10 +217,8 @@ namespace osm
   std::string go_to( const int& x, const int& y )
    {
     return "\u001b[" + 
-           std::to_string( x ) + 
-           static_cast <std::string>( ";" ) +
-           std::to_string( y ) +
-           static_cast <std::string>( "H" );
+           std::to_string( x ) + ";"s +
+           std::to_string( y ) + "H"s;
    }
 
   //====================================================
@@ -227,11 +227,8 @@ namespace osm
   std::string RGB( const int& r, const int& g, const int& b )
    {
     return "\x1b[38;2;" +
-            std::to_string( r ) + 
-            static_cast <std::string>( ";" ) +
-            std::to_string( g ) +
-            static_cast <std::string>( ";" ) +
-            std::to_string( b ) +
-            static_cast <std::string>( "m" );
+            std::to_string( r ) + ";"s +
+            std::to_string( g ) + ";"s +
+            std::to_string( b ) + "m"s;
    }
  }

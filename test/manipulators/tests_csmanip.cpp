@@ -11,15 +11,12 @@
 #include <map>
 #include <vector>
 
+using namespace std::string_literals;
+
 //====================================================
 //     GLOBAL VARIABLES DEFINITION
 //====================================================
-const std::string test_string = "error" +
-                           static_cast <std::string>(" \"") +
-                           static_cast <std::string>( "not" ) +
-                           static_cast <std::string>( "\" " ) +
-                           "supported" +
-                           "\n";
+const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
 
 //====================================================
 //     TESTING "feat" FUNCTIONS
@@ -77,10 +74,8 @@ TEST_CASE( "Testing the reset function." )
 TEST_CASE( "Testing the go_to function." )
  {           
   static const std::string test_string_goto = "\u001b[" +
-                                              std::to_string( 2 ) +
-                                              static_cast <std::string>( ";" ) +
-                                              std::to_string( 5 ) +
-                                              static_cast <std::string>( "H" );
+                                              std::to_string( 2 ) + ";"s +
+                                              std::to_string( 5 ) + "H"s;
 
   CHECK_EQ( osm::go_to( 2, 5 ), test_string_goto );
  }

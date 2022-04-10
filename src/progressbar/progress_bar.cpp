@@ -22,6 +22,8 @@
 
 #define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
 
+using namespace std::string_literals;
+
 namespace osm
  {
   //====================================================
@@ -359,11 +361,11 @@ namespace osm
                 ( agr::roundoff( max_ - min_, 1 ) * 10 + 1 ) :
                 ( max_ - min_ + 1 );
 
-    static duration time_taken = steady_clock::now() - begin_timer;
-    static float percentage_done = static_cast <float> ( ticks_occurred ) / ( max_spin_ );
-    static duration time_left = time_taken * ( 1 / percentage_done - 1 );
-    static std::chrono::minutes minutes_left = std::chrono::duration_cast <std::chrono::minutes> ( time_left );
-    static std::chrono::seconds seconds_left = std::chrono::duration_cast <std::chrono::seconds> ( time_left - minutes_left );
+    duration time_taken = steady_clock::now() - begin_timer;
+    float percentage_done = static_cast <float> ( ticks_occurred ) / ( max_spin_ );
+    duration time_left = time_taken * ( 1 / percentage_done - 1 );
+    std::chrono::minutes minutes_left = std::chrono::duration_cast <std::chrono::minutes> ( time_left );
+    std::chrono::seconds seconds_left = std::chrono::duration_cast <std::chrono::seconds> ( time_left - minutes_left );
 
     std::cout << "["
               << feat( sty, "italics" ) + "Estimated time left: "  + reset( "italics" )
@@ -465,8 +467,7 @@ namespace osm
                 getStyle()[ static_cast <unsigned long> ( iterating_var_spin_ ) & 3 ] +
                 feat( col, "green" ) +
                  ( ( agr::roundoff( iterating_var, 1 ) == agr::roundoff( max_, 1 ) - agr::one( iterating_var ) ) ?
-                   ( static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ) ) :
-                   ( static_cast <std::string> ( "" ) )
+                   ( static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ) ) : ""s
                  ) +
                 reset( "color" );
 
