@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: doc-files
-          path: docs
+          path: doc
           retention-days: 1
 
   copy:
