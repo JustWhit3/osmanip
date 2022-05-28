@@ -11,12 +11,12 @@ steps:
 uses: mattnotmitt/doxygen-action@v1.3.1
 with:
 working-directory: '.'
-doxyfile-path: '.'
+doxyfile-path: 'doc/Doxyfile'
 - name: Doxygen Action C++
 uses: mattnotmitt/doxygen-action@v1.3.1
 with:
 working-directory: '.'
-doxyfile-path: '.'
+doxyfile-path: 'doc/Doxyfile'
 - name: Set up JDK 8
 uses: actions/setup-java@v2
 with:
