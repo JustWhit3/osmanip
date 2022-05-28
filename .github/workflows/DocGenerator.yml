@@ -47,7 +47,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: doc-files
-          path: docDir
+          path: docs
           
       # add, commit and push to gh-pages
       - name: Commit changes
@@ -57,4 +57,4 @@ jobs:
           author_email: timmer@jlab.org
           message: 'Update docs'
           branch: gh-pages
-          add: '["docDir/doxygen/html/*"]'
+          add: '["docs/doxygen/html/*"]'
