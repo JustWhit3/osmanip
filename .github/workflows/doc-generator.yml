@@ -1,5 +1,3 @@
-# Automatic generation of doxygen and javadoc files for C, C++, and Java code
-# in myBranch which will be copied and checked into the gh-pages branch.
 name: Documentation generation CI
 on:
 push:
