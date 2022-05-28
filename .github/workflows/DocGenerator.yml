@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: doc-files
-          path: doc
+          path: docs
           retention-days: 1
 
   copy:
@@ -47,7 +47,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: doc-files
-          path: doc
+          path: docs
           
       # add, commit and push to gh-pages
       - name: Commit changes
@@ -57,4 +57,4 @@ jobs:
           author_email: timmer@jlab.org
           message: 'Update docs'
           branch: gh-pages
-          add: '["docDir/doxygen/C/html/*", "docDir/doxygen/CC/html/*", "docDir/javadoc/", "docDir/users_guide/Users_Guide.pdf"]'
+          add: '["docs/doxygen/html/*"]'
