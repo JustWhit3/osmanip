@@ -71,6 +71,9 @@ In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder usef
 
 ```
 osmanip/
+├── .github/
+│   ├── workflows/
+│   │   ├── DocGenerator.yml
 ├── img/
 ├── doc/
 │   ├── Code structure.md
@@ -116,6 +119,7 @@ osmanip/
 │── License
 │── CITATION.cff
 │── Makefile
+│── Doxyfile
 │── .gitignore
 │── .clang-format
 │── .valgrindrc
