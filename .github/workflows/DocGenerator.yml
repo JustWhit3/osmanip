@@ -26,8 +26,8 @@ jobs:
       - name: Upload Output Directory
         uses: actions/upload-artifact@v2
         with:
-          name: docs
-          path: docs
+          name: doc-files
+          path: doc
           retention-days: 1
 
   copy:
@@ -46,8 +46,8 @@ jobs:
       - name: Download Output Directory
         uses: actions/download-artifact@v2
         with:
-          name: docs
-          path: docs
+          name: doc-files
+          path: docDir
           
       # add, commit and push to gh-pages
       - name: Commit changes
@@ -57,4 +57,4 @@ jobs:
           author_email: timmer@jlab.org
           message: 'Update docs'
           branch: gh-pages
-          add: '["docs/doxygen/html/*"]'
+          add: '["docDir/doxygen/html/*"]'
