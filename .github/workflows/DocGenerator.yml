@@ -26,8 +26,8 @@ jobs:
       - name: Upload Output Directory
         uses: actions/upload-artifact@v2
         with:
-          name: docs
-          path: .
+          name: doc-files
+          path: docs
           retention-days: 1
 
   copy:
@@ -46,8 +46,8 @@ jobs:
       - name: Download Output Directory
         uses: actions/download-artifact@v2
         with:
-          name: docs
-          path: .
+          name: doc-files
+          path: docs
           
       # add, commit and push to gh-pages
       - name: Commit changes
