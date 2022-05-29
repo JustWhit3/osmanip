@@ -1,7 +1,7 @@
-<p style="text-align: center;"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
+<p align="center"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
 
-<h3 style="text-align: center;">Library with useful output stream tools like: color and style manipulators, progress bars and terminal graphics</h3>
-<p style="text-align: center;">
+<h3 align="center">Library with useful output stream tools like: color and style manipulators, progress bars and terminal graphics</h3>
+<p align="center">
   <img title="v3.0" alt="v3.0" src="https://img.shields.io/badge/version-v3.0-informational?style=flat-square">
   <img title="MIT License" alt="license" src="https://img.shields.io/badge/license-MIT-informational?style=flat-square">
 	<img title="C++17" alt="C++17" src="https://img.shields.io/badge/c++-17-informational?style=flat-square">
