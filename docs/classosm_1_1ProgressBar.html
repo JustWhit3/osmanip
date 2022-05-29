@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>osm</b></li><li class="navelem"><a class="el" href="classosm_1_1ProgressBar.html">ProgressBar</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceosm.html">osm</a></li><li class="navelem"><a class="el" href="classosm_1_1ProgressBar.html">ProgressBar</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -75,133 +75,859 @@ $(function() {
 <div class="title">osm::ProgressBar&lt; bar_type &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="progress__bar_8hpp_source.html">progress_bar.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a1ba185bd5ab68fa6836aa27f613c8b59"><td class="memItemLeft" align="right" valign="top"><a id="a1ba185bd5ab68fa6836aa27f613c8b59"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>steady_clock</b> = std::chrono::steady_clock</td></tr>
+<tr class="memitem:a1ba185bd5ab68fa6836aa27f613c8b59"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a1ba185bd5ab68fa6836aa27f613c8b59">steady_clock</a> = std::chrono::steady_clock</td></tr>
 <tr class="separator:a1ba185bd5ab68fa6836aa27f613c8b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50d4fcdfcb42db79e1e4320d8f9081cb"><td class="memItemLeft" align="right" valign="top"><a id="a50d4fcdfcb42db79e1e4320d8f9081cb"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>duration</b> = std::chrono::duration&lt; float, steady_clock::period &gt;</td></tr>
+<tr class="memitem:a50d4fcdfcb42db79e1e4320d8f9081cb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a50d4fcdfcb42db79e1e4320d8f9081cb">duration</a> = std::chrono::duration&lt; float, steady_clock::period &gt;</td></tr>
 <tr class="separator:a50d4fcdfcb42db79e1e4320d8f9081cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1ed91e579b5e43d1d2c499ba1be10a7"><td class="memItemLeft" align="right" valign="top"><a id="ab1ed91e579b5e43d1d2c499ba1be10a7"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>string_set_map</b> = std::map&lt; std::string, std::set&lt; std::string &gt; &gt;</td></tr>
+<tr class="memitem:ab1ed91e579b5e43d1d2c499ba1be10a7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ab1ed91e579b5e43d1d2c499ba1be10a7">string_set_map</a> = std::map&lt; std::string, std::set&lt; std::string &gt; &gt;</td></tr>
 <tr class="separator:ab1ed91e579b5e43d1d2c499ba1be10a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a641b705a1f3d5c3ba8307dbd148f9e02"><td class="memItemLeft" align="right" valign="top"><a id="a641b705a1f3d5c3ba8307dbd148f9e02"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ProgressBar</b> (const bar_type &amp;min, const bar_type &amp;max)</td></tr>
+<tr class="memitem:a4d28b5b65467fefeb782e74a91a2a2e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6">ProgressBar</a> ()</td></tr>
+<tr class="separator:a4d28b5b65467fefeb782e74a91a2a2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a641b705a1f3d5c3ba8307dbd148f9e02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a641b705a1f3d5c3ba8307dbd148f9e02">ProgressBar</a> (const bar_type &amp;min, const bar_type &amp;max)</td></tr>
 <tr class="separator:a641b705a1f3d5c3ba8307dbd148f9e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cda9f9aa2f3b49aefa39d7edb7a7dce"><td class="memItemLeft" align="right" valign="top"><a id="a1cda9f9aa2f3b49aefa39d7edb7a7dce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMax</b> (const bar_type &amp;max)</td></tr>
+<tr class="memitem:a302c6949c938833acfddd576c42317bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a302c6949c938833acfddd576c42317bf">~ProgressBar</a> ()</td></tr>
+<tr class="separator:a302c6949c938833acfddd576c42317bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cda9f9aa2f3b49aefa39d7edb7a7dce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a1cda9f9aa2f3b49aefa39d7edb7a7dce">setMax</a> (const bar_type &amp;max)</td></tr>
 <tr class="separator:a1cda9f9aa2f3b49aefa39d7edb7a7dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2bb14015acd7b4f24df753c510d17e5"><td class="memItemLeft" align="right" valign="top"><a id="ab2bb14015acd7b4f24df753c510d17e5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMin</b> (const bar_type &amp;min)</td></tr>
+<tr class="memitem:ab2bb14015acd7b4f24df753c510d17e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ab2bb14015acd7b4f24df753c510d17e5">setMin</a> (const bar_type &amp;min)</td></tr>
 <tr class="separator:ab2bb14015acd7b4f24df753c510d17e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7396965b85300e79639d151264baf26"><td class="memItemLeft" align="right" valign="top"><a id="ae7396965b85300e79639d151264baf26"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setStyle</b> (const std::string &amp;type, const std::string &amp;style)</td></tr>
+<tr class="memitem:ae7396965b85300e79639d151264baf26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">setStyle</a> (const std::string &amp;type, const std::string &amp;style)</td></tr>
 <tr class="separator:ae7396965b85300e79639d151264baf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af16bdec724cd65d3d47b013213d79334"><td class="memItemLeft" align="right" valign="top"><a id="af16bdec724cd65d3d47b013213d79334"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setStyle</b> (const std::string &amp;type, const std::string &amp;style_p, const std::string &amp;style_l)</td></tr>
+<tr class="memitem:af16bdec724cd65d3d47b013213d79334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#af16bdec724cd65d3d47b013213d79334">setStyle</a> (const std::string &amp;type, const std::string &amp;style_p, const std::string &amp;style_l)</td></tr>
 <tr class="separator:af16bdec724cd65d3d47b013213d79334"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad205e192d5169f6af906616f9ee285fe"><td class="memItemLeft" align="right" valign="top"><a id="ad205e192d5169f6af906616f9ee285fe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessage</b> (const std::string &amp;message)</td></tr>
+<tr class="memitem:ad205e192d5169f6af906616f9ee285fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe">setMessage</a> (const std::string &amp;message)</td></tr>
 <tr class="separator:ad205e192d5169f6af906616f9ee285fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a2b9ac444ba6554c890858437d71c17"><td class="memItemLeft" align="right" valign="top"><a id="a2a2b9ac444ba6554c890858437d71c17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBrackets</b> (const std::string &amp;brackets_open, const std::string &amp;brackets_close)</td></tr>
+<tr class="memitem:a2a2b9ac444ba6554c890858437d71c17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a2a2b9ac444ba6554c890858437d71c17">setBrackets</a> (const std::string &amp;brackets_open, const std::string &amp;brackets_close)</td></tr>
 <tr class="separator:a2a2b9ac444ba6554c890858437d71c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a811e5501381f56cab0bb1f40be9d1250"><td class="memItemLeft" align="right" valign="top"><a id="a811e5501381f56cab0bb1f40be9d1250"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBegin</b> ()</td></tr>
+<tr class="memitem:a811e5501381f56cab0bb1f40be9d1250"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a811e5501381f56cab0bb1f40be9d1250">setBegin</a> ()</td></tr>
 <tr class="separator:a811e5501381f56cab0bb1f40be9d1250"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb6fe0c970315dc9cf40ed8f366cefc4"><td class="memItemLeft" align="right" valign="top"><a id="abb6fe0c970315dc9cf40ed8f366cefc4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnd</b> ()</td></tr>
+<tr class="memitem:abb6fe0c970315dc9cf40ed8f366cefc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#abb6fe0c970315dc9cf40ed8f366cefc4">setEnd</a> ()</td></tr>
 <tr class="separator:abb6fe0c970315dc9cf40ed8f366cefc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5d8c7b8bad15eefe06e6b3d6e8ffce3"><td class="memItemLeft" align="right" valign="top"><a id="ac5d8c7b8bad15eefe06e6b3d6e8ffce3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (const std::string &amp;color)</td></tr>
+<tr class="memitem:ac5d8c7b8bad15eefe06e6b3d6e8ffce3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ac5d8c7b8bad15eefe06e6b3d6e8ffce3">setColor</a> (const std::string &amp;color)</td></tr>
 <tr class="separator:ac5d8c7b8bad15eefe06e6b3d6e8ffce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91d84b261ed3dc11676dad6f4eedd0f9"><td class="memItemLeft" align="right" valign="top"><a id="a91d84b261ed3dc11676dad6f4eedd0f9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRemainingTimeFlag</b> (const std::string &amp;time_flag)</td></tr>
+<tr class="memitem:a91d84b261ed3dc11676dad6f4eedd0f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a91d84b261ed3dc11676dad6f4eedd0f9">setRemainingTimeFlag</a> (const std::string &amp;time_flag)</td></tr>
 <tr class="separator:a91d84b261ed3dc11676dad6f4eedd0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a131bf2a58e787bb3556ae57781f70de2"><td class="memItemLeft" align="right" valign="top"><a id="a131bf2a58e787bb3556ae57781f70de2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetAll</b> ()</td></tr>
+<tr class="memitem:a131bf2a58e787bb3556ae57781f70de2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2">resetAll</a> ()</td></tr>
 <tr class="separator:a131bf2a58e787bb3556ae57781f70de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd43e6063ab9c24abb24e776f32cc34d"><td class="memItemLeft" align="right" valign="top"><a id="afd43e6063ab9c24abb24e776f32cc34d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetMax</b> ()</td></tr>
+<tr class="memitem:afd43e6063ab9c24abb24e776f32cc34d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d">resetMax</a> ()</td></tr>
 <tr class="separator:afd43e6063ab9c24abb24e776f32cc34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a968c89302c97005f349f4eb56b4f69d2"><td class="memItemLeft" align="right" valign="top"><a id="a968c89302c97005f349f4eb56b4f69d2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetMin</b> ()</td></tr>
+<tr class="memitem:a968c89302c97005f349f4eb56b4f69d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2">resetMin</a> ()</td></tr>
 <tr class="separator:a968c89302c97005f349f4eb56b4f69d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30e43da878d156f1ce7a14f0e8b24023"><td class="memItemLeft" align="right" valign="top"><a id="a30e43da878d156f1ce7a14f0e8b24023"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetStyle</b> ()</td></tr>
+<tr class="memitem:a30e43da878d156f1ce7a14f0e8b24023"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023">resetStyle</a> ()</td></tr>
 <tr class="separator:a30e43da878d156f1ce7a14f0e8b24023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8f3d55a9ff711442756d11c4153b045"><td class="memItemLeft" align="right" valign="top"><a id="ad8f3d55a9ff711442756d11c4153b045"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetMessage</b> ()</td></tr>
+<tr class="memitem:ad8f3d55a9ff711442756d11c4153b045"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ad8f3d55a9ff711442756d11c4153b045">resetMessage</a> ()</td></tr>
 <tr class="separator:ad8f3d55a9ff711442756d11c4153b045"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a019e2ecfdfdd229a856bbb60e367b80e"><td class="memItemLeft" align="right" valign="top"><a id="a019e2ecfdfdd229a856bbb60e367b80e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetTime</b> ()</td></tr>
+<tr class="memitem:a019e2ecfdfdd229a856bbb60e367b80e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e">resetTime</a> ()</td></tr>
 <tr class="separator:a019e2ecfdfdd229a856bbb60e367b80e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd438b7c7622a459c9a2462bc085361e"><td class="memItemLeft" align="right" valign="top"><a id="acd438b7c7622a459c9a2462bc085361e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetRemainingTime</b> ()</td></tr>
+<tr class="memitem:acd438b7c7622a459c9a2462bc085361e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e">resetRemainingTime</a> ()</td></tr>
 <tr class="separator:acd438b7c7622a459c9a2462bc085361e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a661ab077b857cf7bf5f21a30fb02ffea"><td class="memItemLeft" align="right" valign="top"><a id="a661ab077b857cf7bf5f21a30fb02ffea"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetBrackets</b> ()</td></tr>
+<tr class="memitem:a661ab077b857cf7bf5f21a30fb02ffea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a661ab077b857cf7bf5f21a30fb02ffea">resetBrackets</a> ()</td></tr>
 <tr class="separator:a661ab077b857cf7bf5f21a30fb02ffea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a112340d2942ca29a38b9c3e69d8bfcaf"><td class="memItemLeft" align="right" valign="top"><a id="a112340d2942ca29a38b9c3e69d8bfcaf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetColor</b> ()</td></tr>
+<tr class="memitem:a112340d2942ca29a38b9c3e69d8bfcaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a112340d2942ca29a38b9c3e69d8bfcaf">resetColor</a> ()</td></tr>
 <tr class="separator:a112340d2942ca29a38b9c3e69d8bfcaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78a690d90ecaa2e9ba5ee3d224741901"><td class="memItemLeft" align="right" valign="top"><a id="a78a690d90ecaa2e9ba5ee3d224741901"></a>
-long long&#160;</td><td class="memItemRight" valign="bottom"><b>getTime</b> () const</td></tr>
+<tr class="memitem:a78a690d90ecaa2e9ba5ee3d224741901"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901">getTime</a> () const</td></tr>
 <tr class="separator:a78a690d90ecaa2e9ba5ee3d224741901"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4d6027f18f3855ec9e60ba6ea86aa01"><td class="memItemLeft" align="right" valign="top"><a id="ae4d6027f18f3855ec9e60ba6ea86aa01"></a>
-bar_type&#160;</td><td class="memItemRight" valign="bottom"><b>getMax</b> () const</td></tr>
+<tr class="memitem:ae4d6027f18f3855ec9e60ba6ea86aa01"><td class="memItemLeft" align="right" valign="top">bar_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01">getMax</a> () const</td></tr>
 <tr class="separator:ae4d6027f18f3855ec9e60ba6ea86aa01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa343c3d8e622bb4f649a97c5e1da9e6a"><td class="memItemLeft" align="right" valign="top"><a id="aa343c3d8e622bb4f649a97c5e1da9e6a"></a>
-bar_type&#160;</td><td class="memItemRight" valign="bottom"><b>getMin</b> () const</td></tr>
+<tr class="memitem:aa343c3d8e622bb4f649a97c5e1da9e6a"><td class="memItemLeft" align="right" valign="top">bar_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#aa343c3d8e622bb4f649a97c5e1da9e6a">getMin</a> () const</td></tr>
 <tr class="separator:aa343c3d8e622bb4f649a97c5e1da9e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b841a6a825cbc0d16f639dbfda3f83a"><td class="memItemLeft" align="right" valign="top"><a id="a0b841a6a825cbc0d16f639dbfda3f83a"></a>
-bar_type&#160;</td><td class="memItemRight" valign="bottom"><b>getIteratingVar</b> () const</td></tr>
+<tr class="memitem:a0b841a6a825cbc0d16f639dbfda3f83a"><td class="memItemLeft" align="right" valign="top">bar_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a0b841a6a825cbc0d16f639dbfda3f83a">getIteratingVar</a> () const</td></tr>
 <tr class="separator:a0b841a6a825cbc0d16f639dbfda3f83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f0e4ef76662284087319652d4dd1b1a"><td class="memItemLeft" align="right" valign="top"><a id="a5f0e4ef76662284087319652d4dd1b1a"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getStyle</b> () const</td></tr>
+<tr class="memitem:a5f0e4ef76662284087319652d4dd1b1a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a5f0e4ef76662284087319652d4dd1b1a">getStyle</a> () const</td></tr>
 <tr class="separator:a5f0e4ef76662284087319652d4dd1b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa21653921a5395048f1e0de51d38d8d9"><td class="memItemLeft" align="right" valign="top"><a id="aa21653921a5395048f1e0de51d38d8d9"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getStyleComplete</b> () const</td></tr>
+<tr class="memitem:aa21653921a5395048f1e0de51d38d8d9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#aa21653921a5395048f1e0de51d38d8d9">getStyleComplete</a> () const</td></tr>
 <tr class="separator:aa21653921a5395048f1e0de51d38d8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18e398b562df8cb0fdebff9497d6369e"><td class="memItemLeft" align="right" valign="top"><a id="a18e398b562df8cb0fdebff9497d6369e"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getMessage</b> () const</td></tr>
+<tr class="memitem:a18e398b562df8cb0fdebff9497d6369e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e">getMessage</a> () const</td></tr>
 <tr class="separator:a18e398b562df8cb0fdebff9497d6369e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f48cb1bc81f63d508e10f5e464f41e9"><td class="memItemLeft" align="right" valign="top"><a id="a3f48cb1bc81f63d508e10f5e464f41e9"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getBrackets_open</b> () const</td></tr>
+<tr class="memitem:a3f48cb1bc81f63d508e10f5e464f41e9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a3f48cb1bc81f63d508e10f5e464f41e9">getBrackets_open</a> () const</td></tr>
 <tr class="separator:a3f48cb1bc81f63d508e10f5e464f41e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d49c0777f1bfcdce65e143bf66b028a"><td class="memItemLeft" align="right" valign="top"><a id="a8d49c0777f1bfcdce65e143bf66b028a"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getBrackets_close</b> () const</td></tr>
+<tr class="memitem:a8d49c0777f1bfcdce65e143bf66b028a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a">getBrackets_close</a> () const</td></tr>
 <tr class="separator:a8d49c0777f1bfcdce65e143bf66b028a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af56b979a3e98ade5c590eff50920bdbe"><td class="memItemLeft" align="right" valign="top"><a id="af56b979a3e98ade5c590eff50920bdbe"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getColor</b> () const</td></tr>
+<tr class="memitem:af56b979a3e98ade5c590eff50920bdbe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#af56b979a3e98ade5c590eff50920bdbe">getColor</a> () const</td></tr>
 <tr class="separator:af56b979a3e98ade5c590eff50920bdbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17c514f0f5f1d0f5f44e8cefdc57b0cb"><td class="memItemLeft" align="right" valign="top"><a id="a17c514f0f5f1d0f5f44e8cefdc57b0cb"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getColorName</b> () const</td></tr>
+<tr class="memitem:a17c514f0f5f1d0f5f44e8cefdc57b0cb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb">getColorName</a> () const</td></tr>
 <tr class="separator:a17c514f0f5f1d0f5f44e8cefdc57b0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3636d329268d9c3e205b10e8fbcded8"><td class="memItemLeft" align="right" valign="top"><a id="ac3636d329268d9c3e205b10e8fbcded8"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> () const</td></tr>
+<tr class="memitem:ac3636d329268d9c3e205b10e8fbcded8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8">getType</a> () const</td></tr>
 <tr class="separator:ac3636d329268d9c3e205b10e8fbcded8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a140d44c2b24739925baae5019caaa91b"><td class="memItemLeft" align="right" valign="top"><a id="a140d44c2b24739925baae5019caaa91b"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getRemainingTimeFlag</b> () const</td></tr>
+<tr class="memitem:a140d44c2b24739925baae5019caaa91b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a140d44c2b24739925baae5019caaa91b">getRemainingTimeFlag</a> () const</td></tr>
 <tr class="separator:a140d44c2b24739925baae5019caaa91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eae57dd999e0720ade7a568d83a89d6"><td class="memItemLeft" align="right" valign="top"><a id="a5eae57dd999e0720ade7a568d83a89d6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const bar_type &amp;iterating_var)</td></tr>
+<tr class="memitem:a5eae57dd999e0720ade7a568d83a89d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a5eae57dd999e0720ade7a568d83a89d6">update</a> (const bar_type &amp;iterating_var)</td></tr>
 <tr class="separator:a5eae57dd999e0720ade7a568d83a89d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37a91eb88d83ec6bc1e182b7d8abcf00"><td class="memItemLeft" align="right" valign="top"><a id="a37a91eb88d83ec6bc1e182b7d8abcf00"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const</td></tr>
+<tr class="memitem:a37a91eb88d83ec6bc1e182b7d8abcf00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a37a91eb88d83ec6bc1e182b7d8abcf00">print</a> () const</td></tr>
 <tr class="separator:a37a91eb88d83ec6bc1e182b7d8abcf00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95e629fd78b99a9c4f38b532a06e22d7"><td class="memItemLeft" align="right" valign="top"><a id="a95e629fd78b99a9c4f38b532a06e22d7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addStyle</b> (const std::string &amp;type, const std::string &amp;style)</td></tr>
+<tr class="memitem:a95e629fd78b99a9c4f38b532a06e22d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#a95e629fd78b99a9c4f38b532a06e22d7">addStyle</a> (const std::string &amp;type, const std::string &amp;style)</td></tr>
 <tr class="separator:a95e629fd78b99a9c4f38b532a06e22d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a50d4fcdfcb42db79e1e4320d8f9081cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50d4fcdfcb42db79e1e4320d8f9081cb">&#9670;&nbsp;</a></span>duration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::<a class="el" href="classosm_1_1ProgressBar.html#a50d4fcdfcb42db79e1e4320d8f9081cb">duration</a> =  std::chrono::duration &lt;float, steady_clock::period&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ba185bd5ab68fa6836aa27f613c8b59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ba185bd5ab68fa6836aa27f613c8b59">&#9670;&nbsp;</a></span>steady_clock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::<a class="el" href="classosm_1_1ProgressBar.html#a1ba185bd5ab68fa6836aa27f613c8b59">steady_clock</a> =  std::chrono::steady_clock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1ed91e579b5e43d1d2c499ba1be10a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1ed91e579b5e43d1d2c499ba1be10a7">&#9670;&nbsp;</a></span>string_set_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::<a class="el" href="classosm_1_1ProgressBar.html#ab1ed91e579b5e43d1d2c499ba1be10a7">string_set_map</a> =  std::map &lt;std::string, std::set &lt;std::string&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4d28b5b65467fefeb782e74a91a2a2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d28b5b65467fefeb782e74a91a2a2e6">&#9670;&nbsp;</a></span>ProgressBar() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::<a class="el" href="classosm_1_1ProgressBar.html">ProgressBar</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a641b705a1f3d5c3ba8307dbd148f9e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a641b705a1f3d5c3ba8307dbd148f9e02">&#9670;&nbsp;</a></span>ProgressBar() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::<a class="el" href="classosm_1_1ProgressBar.html">ProgressBar</a> </td>
+          <td>(</td>
+          <td class="paramtype">const bar_type &amp;&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bar_type &amp;&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a302c6949c938833acfddd576c42317bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a302c6949c938833acfddd576c42317bf">&#9670;&nbsp;</a></span>~ProgressBar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::~<a class="el" href="classosm_1_1ProgressBar.html">ProgressBar</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a95e629fd78b99a9c4f38b532a06e22d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e629fd78b99a9c4f38b532a06e22d7">&#9670;&nbsp;</a></span>addStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::addStyle </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>style</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d49c0777f1bfcdce65e143bf66b028a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d49c0777f1bfcdce65e143bf66b028a">&#9670;&nbsp;</a></span>getBrackets_close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getBrackets_close</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f48cb1bc81f63d508e10f5e464f41e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f48cb1bc81f63d508e10f5e464f41e9">&#9670;&nbsp;</a></span>getBrackets_open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getBrackets_open</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af56b979a3e98ade5c590eff50920bdbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af56b979a3e98ade5c590eff50920bdbe">&#9670;&nbsp;</a></span>getColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getColor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17c514f0f5f1d0f5f44e8cefdc57b0cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17c514f0f5f1d0f5f44e8cefdc57b0cb">&#9670;&nbsp;</a></span>getColorName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getColorName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b841a6a825cbc0d16f639dbfda3f83a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b841a6a825cbc0d16f639dbfda3f83a">&#9670;&nbsp;</a></span>getIteratingVar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bar_type <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getIteratingVar</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4d6027f18f3855ec9e60ba6ea86aa01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4d6027f18f3855ec9e60ba6ea86aa01">&#9670;&nbsp;</a></span>getMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bar_type <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getMax</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18e398b562df8cb0fdebff9497d6369e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e398b562df8cb0fdebff9497d6369e">&#9670;&nbsp;</a></span>getMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getMessage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa343c3d8e622bb4f649a97c5e1da9e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa343c3d8e622bb4f649a97c5e1da9e6a">&#9670;&nbsp;</a></span>getMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bar_type <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getMin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a140d44c2b24739925baae5019caaa91b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a140d44c2b24739925baae5019caaa91b">&#9670;&nbsp;</a></span>getRemainingTimeFlag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getRemainingTimeFlag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f0e4ef76662284087319652d4dd1b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f0e4ef76662284087319652d4dd1b1a">&#9670;&nbsp;</a></span>getStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getStyle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa21653921a5395048f1e0de51d38d8d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa21653921a5395048f1e0de51d38d8d9">&#9670;&nbsp;</a></span>getStyleComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getStyleComplete</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78a690d90ecaa2e9ba5ee3d224741901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78a690d90ecaa2e9ba5ee3d224741901">&#9670;&nbsp;</a></span>getTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">long long <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3636d329268d9c3e205b10e8fbcded8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3636d329268d9c3e205b10e8fbcded8">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::getType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37a91eb88d83ec6bc1e182b7d8abcf00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37a91eb88d83ec6bc1e182b7d8abcf00">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::print</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a131bf2a58e787bb3556ae57781f70de2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a131bf2a58e787bb3556ae57781f70de2">&#9670;&nbsp;</a></span>resetAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetAll</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a661ab077b857cf7bf5f21a30fb02ffea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a661ab077b857cf7bf5f21a30fb02ffea">&#9670;&nbsp;</a></span>resetBrackets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetBrackets</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a112340d2942ca29a38b9c3e69d8bfcaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a112340d2942ca29a38b9c3e69d8bfcaf">&#9670;&nbsp;</a></span>resetColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetColor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd43e6063ab9c24abb24e776f32cc34d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd43e6063ab9c24abb24e776f32cc34d">&#9670;&nbsp;</a></span>resetMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetMax</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8f3d55a9ff711442756d11c4153b045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f3d55a9ff711442756d11c4153b045">&#9670;&nbsp;</a></span>resetMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetMessage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a968c89302c97005f349f4eb56b4f69d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a968c89302c97005f349f4eb56b4f69d2">&#9670;&nbsp;</a></span>resetMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetMin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd438b7c7622a459c9a2462bc085361e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd438b7c7622a459c9a2462bc085361e">&#9670;&nbsp;</a></span>resetRemainingTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetRemainingTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30e43da878d156f1ce7a14f0e8b24023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30e43da878d156f1ce7a14f0e8b24023">&#9670;&nbsp;</a></span>resetStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetStyle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a019e2ecfdfdd229a856bbb60e367b80e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019e2ecfdfdd229a856bbb60e367b80e">&#9670;&nbsp;</a></span>resetTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::resetTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a811e5501381f56cab0bb1f40be9d1250"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a811e5501381f56cab0bb1f40be9d1250">&#9670;&nbsp;</a></span>setBegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setBegin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a2b9ac444ba6554c890858437d71c17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a2b9ac444ba6554c890858437d71c17">&#9670;&nbsp;</a></span>setBrackets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setBrackets </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>brackets_open</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>brackets_close</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5d8c7b8bad15eefe06e6b3d6e8ffce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d8c7b8bad15eefe06e6b3d6e8ffce3">&#9670;&nbsp;</a></span>setColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setColor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb6fe0c970315dc9cf40ed8f366cefc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb6fe0c970315dc9cf40ed8f366cefc4">&#9670;&nbsp;</a></span>setEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setEnd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1cda9f9aa2f3b49aefa39d7edb7a7dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cda9f9aa2f3b49aefa39d7edb7a7dce">&#9670;&nbsp;</a></span>setMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setMax </td>
+          <td>(</td>
+          <td class="paramtype">const bar_type &amp;&#160;</td>
+          <td class="paramname"><em>max</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad205e192d5169f6af906616f9ee285fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad205e192d5169f6af906616f9ee285fe">&#9670;&nbsp;</a></span>setMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setMessage </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2bb14015acd7b4f24df753c510d17e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2bb14015acd7b4f24df753c510d17e5">&#9670;&nbsp;</a></span>setMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setMin </td>
+          <td>(</td>
+          <td class="paramtype">const bar_type &amp;&#160;</td>
+          <td class="paramname"><em>min</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91d84b261ed3dc11676dad6f4eedd0f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91d84b261ed3dc11676dad6f4eedd0f9">&#9670;&nbsp;</a></span>setRemainingTimeFlag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setRemainingTimeFlag </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>time_flag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7396965b85300e79639d151264baf26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7396965b85300e79639d151264baf26">&#9670;&nbsp;</a></span>setStyle() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setStyle </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>style</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af16bdec724cd65d3d47b013213d79334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af16bdec724cd65d3d47b013213d79334">&#9670;&nbsp;</a></span>setStyle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::setStyle </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>style_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>style_l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5eae57dd999e0720ade7a568d83a89d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eae57dd999e0720ade7a568d83a89d6">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename bar_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classosm_1_1ProgressBar.html">osm::ProgressBar</a>&lt; bar_type &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">const bar_type &amp;&#160;</td>
+          <td class="paramname"><em>iterating_var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/progressbar/<a class="el" href="progress__bar_8hpp_source.html">progress_bar.hpp</a></li>
-<li>src/progressbar/progress_bar.cpp</li>
+<li>src/progressbar/<a class="el" href="progress__bar_8cpp.html">progress_bar.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
