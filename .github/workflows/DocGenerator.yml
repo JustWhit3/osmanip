@@ -72,13 +72,4 @@ jobs:
           author_email: timmer@jlab.org
           message: 'Update docs'
           branch: gh-pages
-          add: '["docs/*", 
-                 "docs/include/graphics/*", 
-                 "docs/include/manipulators/*",
-                 "docs/include/progressbar/*",
-                 "docs/src/graphics/*", 
-                 "docs/src/manipulators/*",
-                 "docs/src/progressbar/*",
-                 "docs/README.md", 
-                 "docs/doc/*", 
-                 "docs/img/*"]'
+          add: '["docs/*"]'
