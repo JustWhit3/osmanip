@@ -1,0 +1,82 @@
+# Automatic generation of doxygen and javadoc files for C, C++, and Java code
+# in myBranch which will be copied and checked into the gh-pages branch.
+name: Documentation generation CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # checkout myBranch
+      - uses: actions/checkout@v2
+
+      # generate the C++ doxygen files
+      - name: Doxygen Action C++
+        uses: mattnotmitt/doxygen-action@v1.3.1
+        with:
+          working-directory: '.'
+          doxyfile-path: 'Doxyfile'
+
+      # store the doc files
+      - name: Upload Output Directory
+        uses: actions/upload-artifact@v2
+        with:
+          name: doc-files
+          path: docs
+          retention-days: 1
+
+      - name: Upload Output Directory
+        uses: actions/upload-artifact@v2
+        with:
+          name: root
+          path: .
+          retention-days: 1
+
+  copy:
+
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+
+      # checkout the gh-pages branch
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+
+      # download the doc files, most of which are generated above
+      - name: Download Output Directory
+        uses: actions/download-artifact@v2
+        with:
+          name: doc-files
+          path: docs
+
+      - name: Download Output Directory
+        uses: actions/download-artifact@v2
+        with:
+          name: root
+          path: docs
+          
+      # add, commit and push to gh-pages
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: Carl Timmer
+          author_email: timmer@jlab.org
+          message: 'Update docs'
+          branch: gh-pages
+          add: '["docs/*", 
+                 "include/graphics/*", 
+                 "include/manipulators/*",
+                 "include/progressbar/*",
+                 "src/graphics/*", 
+                 "src/manipulators/*",
+                 "src/progressbar/*",
+                 "README.md", 
+                 "doc/*", 
+                 "img/*"]'

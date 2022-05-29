@@ -1,0 +1,5 @@
+--memcheck:leak-check=full
+--memcheck:show-leak-kinds=all
+--memcheck:gen-suppressions=yes
+--memcheck:track-origins=yes
+--callgrind:show-perc=yes
