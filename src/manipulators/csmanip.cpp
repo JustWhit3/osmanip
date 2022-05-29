@@ -168,6 +168,13 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "feat" FUNCTION
   //====================================================
+  /**
+   * @brief try
+   * 
+   * @param generic_map a
+   * @param feat_string a
+   * @return std::string a
+   */
   std::string feat( const std::map <std::string, std::string>& generic_map, const std::string& feat_string )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
