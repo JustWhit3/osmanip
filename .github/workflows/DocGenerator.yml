@@ -30,6 +30,7 @@ jobs:
           path: docs
           retention-days: 1
 
+      # store the root project files
       - name: Upload Output Directory
         uses: actions/upload-artifact@v2
         with:
@@ -56,6 +57,7 @@ jobs:
           name: doc-files
           path: docs
 
+      # download the root project files , most of which are generated above
       - name: Download Output Directory
         uses: actions/download-artifact@v2
         with:
@@ -71,12 +73,12 @@ jobs:
           message: 'Update docs'
           branch: gh-pages
           add: '["docs/*", 
-                 "include/graphics/*", 
-                 "include/manipulators/*",
-                 "include/progressbar/*",
-                 "src/graphics/*", 
-                 "src/manipulators/*",
-                 "src/progressbar/*",
-                 "README.md", 
-                 "doc/*", 
-                 "img/*"]'
+                 "docs/include/graphics/*", 
+                 "docs/include/manipulators/*",
+                 "docs/include/progressbar/*",
+                 "docs/src/graphics/*", 
+                 "docs/src/manipulators/*",
+                 "docs/src/progressbar/*",
+                 "docs/README.md", 
+                 "docs/doc/*", 
+                 "docs/img/*"]'
