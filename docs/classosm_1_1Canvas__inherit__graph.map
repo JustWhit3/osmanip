@@ -1,0 +1,4 @@
+<map id="osm::Canvas" name="osm::Canvas">
+<area shape="rect" id="node1" title=" " alt="" coords="25,5,122,32"/>
+<area shape="rect" id="node2" href="$classosm_1_1Plot2DCanvas.html" title=" " alt="" coords="5,80,141,107"/>
+</map>
