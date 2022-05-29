@@ -30,6 +30,13 @@ jobs:
           path: docs
           retention-days: 1
 
+      - name: Upload Output Directory
+        uses: actions/upload-artifact@v2
+        with:
+          name: src
+          path: .
+          retention-days: 1
+
   copy:
 
     runs-on: ubuntu-latest
@@ -48,6 +55,12 @@ jobs:
         with:
           name: doc-files
           path: docs
+
+      - name: Download Output Directory
+        uses: actions/download-artifact@v2
+        with:
+          name: src
+          path: .
           
       # add, commit and push to gh-pages
       - name: Commit changes
@@ -65,5 +78,5 @@ jobs:
                  "src/manipulators/*",
                  "src/progressbar/*",
                  "README.md", 
-                 "doc/", 
+                 "doc/*", 
                  "img/*"]'
