@@ -57,4 +57,4 @@ jobs:
           author_email: timmer@jlab.org
           message: 'Update docs'
           branch: gh-pages
-          add: '["docs/*", "include/*", "src/*", "README.md", "doc/*", "img/*"]'
+          add: '["docs/*", "include/", "src/", "README.md", "doc/", "img/"]'
