@@ -11,6 +11,12 @@ namespace osm
   //====================================================
   //     CONSTRUCTORS AND DESTRUCTORS DEFINITION
   //====================================================
+  /**
+   * @brief Construct a new Canvas:: Canvas object. The size of the canvas in characters must be specified upon construction.
+   * 
+   * @param width Width of the canvas.
+   * @param height Height of the canvas.
+   */
   Canvas::Canvas( uint width, uint height )
    {
     already_drawn_ = false;
@@ -26,29 +32,56 @@ namespace osm
   //====================================================
   //     SETTERS DEFINITION
   //====================================================
+  /**
+   * @brief Set the char that fills the background and an optional feat.
+   * 
+   * @param c The char that fills the background.
+   * @param feat The optional feat.
+   */
   void Canvas::setBackground( char c, const std::string & feat )
    {
     bg_char_ = c;
     bg_feat_ = feat;
    }
 
+  /**
+   * @brief Flag to frame or not the canvas. The frame doesn't increase the size taken by the canvas. Instead, reduces the 2D space to draw in two columns and two rows (used to print the frame itself).
+   * 
+   * @param frame_enabled Set to True to enable the frame. Otherwise set to False.
+   */
   void Canvas::enableFrame( bool frame_enabled )
    {
     frame_enabled_ = frame_enabled;
    }
 
+  /**
+   * @brief Set the FrameStyle of the canvas and an optional feat.
+   * 
+   * @param fs The FrameStyle of the canvas.
+   * @param feat The optional feature.
+   */
   void Canvas::setFrame( FrameStyle fs, const std::string & feat )
    {
     frame_style_ = fs;
     frame_feat_ = feat;
    }
 
+  /**
+   * @brief Set the width of the canvas.
+   * 
+   * @param width The canvas width to set.
+   */
   void Canvas::setWidth( uint width )
    {
     width_ = width;
     resizeCanvas();
    }
 
+  /**
+   * @brief Set the height of the canvas.
+   * 
+   * @param height The canvas height to set.
+   */
   void Canvas::setHeight( uint height )
    {
     height_ = height;
@@ -58,36 +91,71 @@ namespace osm
   //====================================================
   //     GETTERS DEFINITION
   //====================================================
+  /**
+   * @brief Get the width of the canvas.
+   * 
+   * @return uint The width of the canvas.
+   */
   uint Canvas::getWidth() const
    {
     return width_;
    }
 
+  /**
+   * @brief Get the height of the canvas.
+   * 
+   * @return uint The height of the canvas.
+   */
   uint Canvas::getHeight() const
    {
     return height_;
    }
 
+  /**
+   * @brief Get the char that fills the background.
+   * 
+   * @return char The char that fills the background.
+   */
   char Canvas::getBackground() const
    {
     return bg_char_;
    }
 
+  /** 
+   * @brief Get the optional feat of the background.
+   * 
+   * @return const std::string& The optional feat of the background.
+   */
   std::string Canvas::getBackgroundFeat() const
    {
     return bg_feat_;
    }
-
+ 
+  /**
+   * @brief Return True if the frame is enabled. Otherwise return False.
+   * 
+   * @return bool The frame enabled flag.
+   */
   bool Canvas::isFrameEnabled() const
    {
     return frame_enabled_;
    }
 
+  /**
+   * @brief Get the frame feature (if set).
+   * 
+   * @return std::string The frame feature.
+   */
   std::string Canvas::getFrameFeat() const
    {
     return frame_feat_;
    }
 
+  /**
+   * @brief Get the frame style.
+   * 
+   * @return FrameStyle The frame style.
+   */
   FrameStyle Canvas::getFrameStyle() const
    {
     return frame_style_;
@@ -96,6 +164,9 @@ namespace osm
   //====================================================
   //     CLEAR METHOD DEFINITION
   //====================================================
+  /**
+   * @brief Fill the canvas with the background.
+   */
   void Canvas::clear()
    {
     char_buffer_.assign( width_ * height_, bg_char_ );
@@ -105,6 +176,14 @@ namespace osm
   //====================================================
   //     PUT METHOD DEFINITION
   //====================================================
+  /** 
+   * @brief Put a character in the canvas, given its coordinates and an optional feat. An out-of-bounds exception will be thrown if the coordinates are outside the canvas.
+   * 
+   * @param c The char to put.
+   * @param x The x position.
+   * @param y The y position.
+   * @param feat The optional feature.
+   */
   void Canvas::put( uint x, uint y, char c, const std::string & feat )
    {
     char_buffer_.at( y * width_ + x ) = c;
@@ -114,6 +193,9 @@ namespace osm
   //====================================================
   //     REFRESH METHOD DEFINITION
   //====================================================
+  /** 
+   * @brief Display the canvas in the console.
+   */
   void Canvas::refresh()
    {
     static const std::vector<std::vector<std::string>> frames = 
@@ -199,6 +281,9 @@ namespace osm
   //====================================================
   //     RESIZECANVAS METHOD DEFINITION
   //====================================================
+  /** 
+   * @brief Resize the canvas.
+   */
   void Canvas::resizeCanvas()
    {
     char_buffer_.resize( width_ * height_ );

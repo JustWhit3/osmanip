@@ -29,6 +29,11 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE CONSTRUCTORS AND DESTRUCTOR
   //====================================================
+  /**
+   * @brief Construct a new ProgressBar <bar_type>::ProgressBar object. Default constructor which set to null values the main attributes.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   ProgressBar <bar_type>::ProgressBar(): 
    max_( 0 ), 
@@ -46,6 +51,13 @@ namespace osm
    time_flag_ ( "off" )
    {}
 
+  /**
+   * @brief Construct a new ProgressBar <bar_type>::ProgressBar object. Parametric constructor which set to null values the main attributes except max_ and min which will be initialized respectively with max and min.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param min The minimum value of the ProgressBar.
+   * @param max The maximum value of the ProgressBar.
+   */
   template <typename bar_type>
   ProgressBar <bar_type>::ProgressBar( const bar_type& min, const bar_type& max ): 
    max_( max ), 
@@ -63,6 +75,11 @@ namespace osm
    time_flag_ ( "off" )
    {}
 
+  /**
+   * @brief Destroy the ProgressBar <bar_type>::ProgressBar object. Standard destructor: it doesn't do anything.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   ProgressBar <bar_type>::~ProgressBar() {}
 
@@ -86,19 +103,37 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE SETTERS
   //====================================================
+  /**
+   * @brief Set the maximum value of the ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param max The maximum value of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setMax( const bar_type& max )
    { 
     max_ = max; 
    }
 
+  /** 
+   * @brief Set the minimum value of the ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param min The minimum value of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setMin( const bar_type& min )
    {
     min_ = min; 
    }
 
-  //First setStyle overload, to set style of loader or indicator:
+  /** 
+   * @brief Set the style of the ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param type The type (flavor) of the ProgressBar.
+   * @param style The style of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setStyle( const std::string& type, const std::string& style )
    {
@@ -124,7 +159,15 @@ namespace osm
      }
    }
 
-  //Second setStyle overload, to set style of complete bar:
+  
+  /** 
+   * @brief Set the style of the complete ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param type The type (flavor) of the ProgressBar.
+   * @param style_p The style of the percentage part of the progress bar.
+   * @param style_l The style of the bar part of the progress bar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setStyle( const std::string& type, const std::string& style_p, const std::string& style_l )
    {
@@ -151,18 +194,34 @@ namespace osm
      }
    }
 
+  /** 
+   * @brief Set the message of the ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param message The message of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setMessage( const std::string& message ) 
    { 
     message_ = message; 
    }
 
+  /**
+   * @brief Set begin time count.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setBegin() 
    { 
     begin = steady_clock::now();
    }
 
+  /**
+   * @brief Set end time count.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setEnd()
    {
@@ -170,6 +229,13 @@ namespace osm
     time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
    }
   
+  /**
+   * @brief Set brackets of the ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param brackets_open Open bracket.
+   * @param brackets_close Close bracket.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setBrackets( const std::string& brackets_open, const std::string& brackets_close )
    { 
@@ -177,6 +243,12 @@ namespace osm
     brackets_close_ = brackets_close;
    }
 
+  /**
+   * @brief Set the color of the ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param color The color of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setColor( const std::string& color )
    { 
@@ -184,6 +256,12 @@ namespace osm
     color_name_ = color;
    }
 
+  /**
+   * @brief Set the remaining time of the ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param time_flag The flag of the remaining time.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::setRemainingTimeFlag( const std::string& time_flag )
    { 
@@ -193,6 +271,11 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE RESETTERS
   //====================================================
+  /** 
+   * @brief Reset the ProgressBar variables.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetAll() 
    { 
@@ -211,18 +294,33 @@ namespace osm
     time_flag_ = "off";
    }
 
+  /** 
+   * @brief Reset the ProgressBar Max variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetMax()
    { 
     max_ = static_cast<bar_type> ( NULL );
    }
 
+  /** 
+   * @brief Reset the ProgressBar Min variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetMin()
    {
     min_ = static_cast<bar_type> ( NULL );
    }
 
+  /** 
+   * @brief Reset the ProgressBar Style variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetStyle()
    {
@@ -230,18 +328,33 @@ namespace osm
     type_.clear();
    } 
 
+  /** 
+   * @brief Reset the ProgressBar Message variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetMessage()
    {
     message_.clear();
    } 
 
+  /** 
+   * @brief Reset the ProgressBar time count.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetTime()
    {
     time_count_ = duration::zero().count();
    }
 
+  /** 
+   * @brief Reset the ProgressBar time remaining count.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetRemainingTime()
    {
@@ -249,6 +362,11 @@ namespace osm
     begin_timer = steady_clock::now();
    }
 
+  /** 
+   * @brief Reset the ProgressBar brackets.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetBrackets() 
    {
@@ -256,6 +374,11 @@ namespace osm
     brackets_close_.clear(); 
    }
 
+  /** 
+   * @brief Reset the ProgressBar color.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::resetColor() 
    { 
@@ -266,36 +389,72 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE GETTERS
   //====================================================
+  /** 
+   * @brief Get the ProgressBar Max variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar Max variable.
+   */
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::getMax() const 
    { 
     return max_; 
    }
 
+  /** 
+   * @brief Get the ProgressBar Min variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar Min variable.
+   */
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::getMin() const 
    { 
     return min_;
    } 
 
+  /** 
+   * @brief Get the ProgressBar current time value.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar current time value.
+   */
   template <typename bar_type>
   long long ProgressBar <bar_type>::getTime() const 
    {
     return time_count_;
    }
 
+  /** 
+   * @brief Get the ProgressBar iterating variable value.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar iterating variable value.
+   */
   template <typename bar_type>
   bar_type ProgressBar <bar_type>::getIteratingVar() const 
    { 
     return iterating_var_; 
    }
 
+  /** 
+   * @brief Get the ProgressBar Style variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar Style variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getStyle() const 
    { 
     return style_; 
    }
 
+  /** 
+   * @brief Get the ProgressBar Style variable for "complete" variable type.
+   * 
+   * @tparam bar_type The style of the ProgressBar.
+   * @return The ProgressBar Type variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getStyleComplete() const 
    { 
@@ -309,42 +468,84 @@ namespace osm
      }
    }
 
+  /** 
+   * @brief Get the ProgressBar Type variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar Type variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getType() const 
    { 
     return type_; 
    }
 
+  /** 
+   * @brief Get the ProgressBar Message variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar Message variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getMessage() const 
    { 
     return message_; 
    }
 
+  /** 
+   * @brief Get the ProgressBar brackets_open variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar brackets_open variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getBrackets_open() const 
    {
     return brackets_open_; 
    }
 
+  /** 
+   * @brief Get the ProgressBar brackets_close variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar brackets_close variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getBrackets_close() const 
    { 
     return brackets_close_; 
    }
 
+  /** 
+   * @brief Get the ProgressBar color variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar color variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getColor() const 
    { 
     return color_; 
    }
-
+ 
+  /** 
+   * @brief Get the ProgressBar color name variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar color name variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getColorName() const 
    { 
     return color_name_; 
    }
 
+  /** 
+   * @brief Get the ProgressBar time remaining variable.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar time remaining variable.
+   */
   template <typename bar_type>
   std::string ProgressBar <bar_type>::getRemainingTimeFlag() const 
    { 
@@ -354,6 +555,12 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "remaining_time" METHOD
   //====================================================
+  /** 
+   * @brief Compute the remaining time for the completion of the progress bar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @return The ProgressBar remaining time.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::remaining_time()
    {
@@ -379,6 +586,12 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "update_output" METHOD
   //====================================================
+  /** 
+   * @brief Update the output of the progress bar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param output The output of the progress bar.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::update_output( const std::string& output )
    {    
@@ -401,6 +614,12 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "update" METHOD
   //====================================================
+  /** 
+   * @brief Update the progress bar indicator.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param value The value of the progress bar indicator.
+   */
   template <typename bar_type>
   void ProgressBar <bar_type>::update( const bar_type& iterating_var )
    {
@@ -483,6 +702,11 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "print" METHOD
   //====================================================
+  /**
+   * @brief Prints on the screen the progress bar variable values.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   */
    template <typename bar_type>
    void ProgressBar <bar_type>::print() const
     {
@@ -500,6 +724,13 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "addStyle" METHOD
   //====================================================
+  /**
+   * @brief Add customized styles to the ProgressBar.
+   * 
+   * @tparam bar_type The type of the ProgressBar.
+   * @param type The type of the ProgressBar.
+   * @param style The style of the ProgressBar.
+   */
    template <typename bar_type>
    void ProgressBar <bar_type>::addStyle( const std::string& type, const std::string& style )
     {

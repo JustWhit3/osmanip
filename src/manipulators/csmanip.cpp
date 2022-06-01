@@ -16,6 +16,10 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "color" MAP
   //====================================================
+  /**
+   * @brief It is used to store the colors. Note: "bg" is the prefix of the background color features and "bd" is the one of the bold color features.
+   * 
+   */
   const std::map <std::string, std::string> col 
    {
     //Error variables:
@@ -71,7 +75,10 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "style" MAP
   //====================================================
-  //Definition of the "style" map:
+  /**
+   * @brief It is used to store the styles.
+   * 
+   */
   const std::map <std::string, std::string> sty 
    {
     //Error variables:
@@ -92,6 +99,10 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "reset" MAP
   //====================================================
+  /**
+   * @brief It is used to store the reset features commands.
+   * 
+   */
   const std::map <std::string, std::string> rst 
    {
     //Error variables:
@@ -119,6 +130,10 @@ namespace osm
   //     DEFINITION OF THE "tcs" MAP
   //     (terminal control sequences)
   //====================================================
+  /**
+   * @brief It is used to store the terminal control sequences.
+   * 
+   */
   const std::map <std::string, std::string> tcs
    {
     //Error variables:
@@ -140,6 +155,10 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "tcsc" MAP
   //====================================================
+  /**
+   * @brief It is used to store the terminal control sequences for clear line / screen.
+   * 
+   */
   const string_pair_map tcsc
    {
     //Error variables:
@@ -153,6 +172,10 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "cursor" MAP
   //====================================================
+  /**
+   * @brief It is used to store the cursor commands.
+   * 
+   */
   const string_pair_map crs
    {
     //Error variables:
@@ -169,11 +192,11 @@ namespace osm
   //     DEFINITION OF THE "feat" FUNCTION
   //====================================================
   /**
-   * @brief try
+   * @brief It takes an std::map object as the first argument and an std::string object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
    * 
-   * @param generic_map a
-   * @param feat_string a
-   * @return std::string a
+   * @param generic_map The feature map.
+   * @param feat_string The feature name.
+   * @return std::string The output feature.
    */
   std::string feat( const std::map <std::string, std::string>& generic_map, const std::string& feat_string )
    {
@@ -188,6 +211,14 @@ namespace osm
   //     DEFINITION OF THE "feat" FUNCTION OVERLOAD
   //     (for the crs map)
   //====================================================
+  /**
+   * @brief This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.
+   * 
+   * @param generic_map The feature map.
+   * @param feat_string The feature name.
+   * @param feat_int Extra integer argument to correctly set the parameter of the crs map.
+   * @return std::string The output feature.
+   */
   std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int )
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
@@ -209,6 +240,12 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "reset" FUNCTION
   //====================================================
+  /**
+   * @brief It takes a std::string object (reset map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
+   * 
+   * @param reset_string The reset feature name.
+   * @return std::string The output reset feature.
+   */
   std::string reset( const std::string& reset_string )
    {
     if( rst.find( reset_string ) == rst.end() ) 
@@ -221,6 +258,13 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "go_to" FUNCTION
   //====================================================
+  /**
+   * @brief It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
+   * 
+   * @param x The x position of the cursor in the screen.
+   * @param y The y position of the cursor in the screen
+   * @return std::string The (x,y) position of the cursor in the screen.
+   */
   std::string go_to( const int& x, const int& y )
    {
     return "\u001b[" + 
@@ -231,6 +275,14 @@ namespace osm
   //====================================================
   //     DEFINITION OF THE "RGB" FUNCTION
   //====================================================
+  /**
+   * @brief It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors http://www.aksiom.net/rgb.html). It can be used to output a wider variety of colors with respect to the standard available from the col map.
+   * 
+   * @param r The r singlet of the tripled.
+   * @param g The g singlet of the tripled.
+   * @param b The b singlet of the tripled.
+   * @return std::string The rgb triplet of the color.
+   */
   std::string RGB( const int& r, const int& g, const int& b )
    {
     return "\x1b[38;2;" +
