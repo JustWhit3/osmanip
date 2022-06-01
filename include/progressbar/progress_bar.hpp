@@ -16,6 +16,11 @@ namespace osm
   //====================================================
   //     PROGRESSBAR CLASS
   //====================================================
+  /**
+   * @brief Template class used to create customized progress bars.
+   * 
+   * @tparam bar_type It is the type of the progress bar.
+   */
   template <typename bar_type>
   class ProgressBar
    {
@@ -115,6 +120,14 @@ namespace osm
   //====================================================
   //     OPERATOR << REDEFINITION
   //====================================================
+  /**
+   * @brief Operator << used to print the progress bar properties.
+   * 
+   * @tparam bar_type It is the type of the progress bar.
+   * @param os It is the output stream used to print the progress bar.
+   * @param pb It is the progress bar object.
+   * @return std::ostream& It is the output stream with the given progress bar properties printed out.
+   */
   template <typename bar_type>
   std::ostream& operator << ( std::ostream& os, const ProgressBar<bar_type> &pb )
    {

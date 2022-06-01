@@ -20,6 +20,10 @@ namespace osm
   //====================================================
   //     CANVAS CLASS
   //====================================================
+  /**
+   * @brief Instances of this class are used to draw in a limited 2D space. All the functions that modify the canvas do it internally; to make the changes effective in the console, you must use the refresh method.
+   * 
+   */
   class Canvas
    {
     public:

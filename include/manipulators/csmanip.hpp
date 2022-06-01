@@ -21,6 +21,10 @@ namespace osm
   //====================================================
   //     ENUM CLASSES
   //====================================================
+  /**
+   * @brief It is used to store the OPTION function options for the cursor view. Current options are: ON to enable cursor view and OFF to disable it.
+   * 
+   */
   enum class CURSOR { ON, OFF };
 
   //====================================================
@@ -41,6 +45,13 @@ namespace osm
   //====================================================
   //     TEMPLATE "option" FUNCTIONS DEFINITION
   //====================================================
+  /**
+   * @brief It is used to set the cursor view.
+   * 
+   * @tparam T The type of the given option.
+   * @param option The option to set.
+   * @return std::string The string (option) to be printed.
+   */
   template <typename T>
   inline void OPTION( const T& opt )
    {
@@ -52,6 +63,13 @@ namespace osm
   //====================================================
   //     TEMPLATE "printf" FUNCTIONS DEFINITION
   //====================================================
+  /**
+   * @brief It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the general case.
+   * 
+   * @tparam Args The parameter pack of the various types.
+   * @param os The output stream.
+   * @param args One or more objects to be printed.
+   */
   template <typename... Args>
   inline void print( std::ostream& os = agr::null_stream, const Args&... args )
    {
@@ -63,7 +81,13 @@ namespace osm
 
     if( &os == &std::cerr || &os == &std::clog || &os == &std::cout ) os << reset( "all" );
    }
-   
+  
+  /**
+   * @brief It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the 0-arguments case.
+   * 
+   * @tparam Args The parameter pack of the various types.
+   * @param args One or more objects to be printed.
+   */
   template <typename... Args>
   inline void print( Args&... args )
    {
