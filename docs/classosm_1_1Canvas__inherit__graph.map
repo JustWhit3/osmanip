@@ -1,4 +1,4 @@
 <map id="osm::Canvas" name="osm::Canvas">
-<area shape="rect" id="node1" title=" " alt="" coords="25,5,122,32"/>
-<area shape="rect" id="node2" href="$classosm_1_1Plot2DCanvas.html" title=" " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node1" title="Instances of this class are used to draw in a limited 2D space. All the functions that modify the can..." alt="" coords="25,5,122,32"/>
+<area shape="rect" id="node2" href="$classosm_1_1Plot2DCanvas.html" title="This class is used to plot mathematical functions R &#45;&gt; R. In addition to all the properties of a basi..." alt="" coords="5,80,141,107"/>
 </map>

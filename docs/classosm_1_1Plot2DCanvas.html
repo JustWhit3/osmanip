@@ -75,14 +75,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>This class is used to plot mathematical functions R -&gt; R. In addition to all the properties of a basic <a class="el" href="classosm_1_1Canvas.html" title="Instances of this class are used to draw in a limited 2D space. All the functions that modify the can...">Canvas</a>, this one also has an offset and a scale for the plot. The offset is the first value in x and y to be represented in the canvas and the scale is the difference in x or y that each character represents relative to the previous one. For example: a canvas of size = (15, 10) with offset = (3,2) and scale = (7, 5) will represent the functions you draw from x=3 to x=3+15*7=108 and from y=2 to y=2+10*5=52.  
+ <a href="classosm_1_1Plot2DCanvas.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="plot__2D_8hpp_source.html">plot_2D.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for osm::Plot2DCanvas:</div>
 <div class="dyncontent">
 <div class="center"><img src="classosm_1_1Plot2DCanvas__inherit__graph.png" border="0" usemap="#aosm_1_1Plot2DCanvas_inherit__map" alt="Inheritance graph"/></div>
 <map name="aosm_1_1Plot2DCanvas_inherit__map" id="aosm_1_1Plot2DCanvas_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,141,107"/>
-<area shape="rect" href="classosm_1_1Canvas.html" title=" " alt="" coords="25,5,122,32"/>
+<area shape="rect" title="This class is used to plot mathematical functions R &#45;&gt; R. In addition to all the properties of a basi..." alt="" coords="5,80,141,107"/>
+<area shape="rect" href="classosm_1_1Canvas.html" title="Instances of this class are used to draw in a limited 2D space. All the functions that modify the can..." alt="" coords="25,5,122,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -90,8 +93,8 @@ Collaboration diagram for osm::Plot2DCanvas:</div>
 <div class="dyncontent">
 <div class="center"><img src="classosm_1_1Plot2DCanvas__coll__graph.png" border="0" usemap="#aosm_1_1Plot2DCanvas_coll__map" alt="Collaboration graph"/></div>
 <map name="aosm_1_1Plot2DCanvas_coll__map" id="aosm_1_1Plot2DCanvas_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,141,107"/>
-<area shape="rect" href="classosm_1_1Canvas.html" title=" " alt="" coords="25,5,122,32"/>
+<area shape="rect" title="This class is used to plot mathematical functions R &#45;&gt; R. In addition to all the properties of a basi..." alt="" coords="5,80,141,107"/>
+<area shape="rect" href="classosm_1_1Canvas.html" title="Instances of this class are used to draw in a limited 2D space. All the functions that modify the can..." alt="" coords="25,5,122,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -113,6 +116,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a91ab38da42ca4c0736bee709ba307df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5fbf005d04fcd46f20533bffe8ae7ab"><td class="memTemplParams" colspan="2">template&lt;typename Y , typename X &gt; </td></tr>
 <tr class="memitem:af5fbf005d04fcd46f20533bffe8ae7ab"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classosm_1_1Plot2DCanvas.html#af5fbf005d04fcd46f20533bffe8ae7ab">draw</a> (std::function&lt; Y(X)&gt; function, char c, const std::string &amp;<a class="el" href="namespaceosm.html#abcc750efa890afcbe8495f276e029ee0">feat</a>=&quot;&quot;)</td></tr>
+<tr class="memdesc:af5fbf005d04fcd46f20533bffe8ae7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a function that receives an argument of a numeric type X and returns a numeric value of type Y. Represent it with a given char c and an optional feat.  <a href="classosm_1_1Plot2DCanvas.html#af5fbf005d04fcd46f20533bffe8ae7ab">More...</a><br /></td></tr>
 <tr class="separator:af5fbf005d04fcd46f20533bffe8ae7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classosm_1_1Canvas"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classosm_1_1Canvas')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classosm_1_1Canvas.html">osm::Canvas</a></td></tr>
 <tr class="memitem:afc78adb6b473bbf6783bff7cf58776d8 inherit pub_methods_classosm_1_1Canvas"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1Canvas.html#afc78adb6b473bbf6783bff7cf58776d8">Canvas</a> (uint width, uint height)</td></tr>
@@ -156,7 +160,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a433b97408a0166cb6902a0f1d91617e3 inherit pro_attribs_classosm_1_1Canvas"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1Canvas.html#a433b97408a0166cb6902a0f1d91617e3">height_</a></td></tr>
 <tr class="separator:a433b97408a0166cb6902a0f1d91617e3 inherit pro_attribs_classosm_1_1Canvas"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is used to plot mathematical functions R -&gt; R. In addition to all the properties of a basic <a class="el" href="classosm_1_1Canvas.html" title="Instances of this class are used to draw in a limited 2D space. All the functions that modify the can...">Canvas</a>, this one also has an offset and a scale for the plot. The offset is the first value in x and y to be represented in the canvas and the scale is the difference in x or y that each character represents relative to the previous one. For example: a canvas of size = (15, 10) with offset = (3,2) and scale = (7, 5) will represent the functions you draw from x=3 to x=3+15*7=108 and from y=2 to y=2+10*5=52. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5e7558ab6b7b44e6d600e55659328bfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e7558ab6b7b44e6d600e55659328bfc">&#9670;&nbsp;</a></span>Plot2DCanvas()</h2>
 
@@ -227,6 +233,23 @@ template&lt;typename Y , typename X &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Plot a function that receives an argument of a numeric type X and returns a numeric value of type Y. Represent it with a given char c and an optional feat. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>Type-argument of the given function. </td></tr>
+    <tr><td class="paramname">X</td><td>Type-return of the given function. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function</td><td>The input function. </td></tr>
+    <tr><td class="paramname">c</td><td>The char to represent a function. </td></tr>
+    <tr><td class="paramname">feat</td><td>The optional feature. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
