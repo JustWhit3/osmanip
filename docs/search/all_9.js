@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['list_20of_20future_20implementations_58',['List of future implementations',['../md_doc_Todo.html',1,'']]]
+  ['make_5fmultiprogressbar_52',['make_MultiProgressBar',['../classosm_1_1make__MultiProgressBar.html#a82fc7fab185e835fcf4c29f4d5438323',1,'osm::make_MultiProgressBar::make_MultiProgressBar()'],['../classosm_1_1make__MultiProgressBar.html',1,'osm::make_MultiProgressBar&lt; Indicators &gt;']]],
+  ['multi_5fprogress_5fbar_2ehpp_53',['multi_progress_bar.hpp',['../multi__progress__bar_8hpp.html',1,'']]],
+  ['multiprogressbar_54',['MultiProgressBar',['../namespaceosm.html#a075383a0e8d513f82c078daee8eee31e',1,'osm']]]
 ];

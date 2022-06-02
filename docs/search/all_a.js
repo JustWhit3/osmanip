@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['make_5fmultiprogressbar_59',['make_MultiProgressBar',['../classosm_1_1make__MultiProgressBar.html#a82fc7fab185e835fcf4c29f4d5438323',1,'osm::make_MultiProgressBar::make_MultiProgressBar()'],['../classosm_1_1make__MultiProgressBar.html',1,'osm::make_MultiProgressBar&lt; Indicators &gt;']]],
-  ['multi_5fprogress_5fbar_2ehpp_60',['multi_progress_bar.hpp',['../multi__progress__bar_8hpp.html',1,'']]],
-  ['multiprogressbar_61',['MultiProgressBar',['../namespaceosm.html#a075383a0e8d513f82c078daee8eee31e',1,'osm']]]
+  ['off_55',['OFF',['../namespaceosm.html#a793613c2bce496156326ba85a53b6d13a88559a0cfd8250c9d65970cc145c92d4',1,'osm']]],
+  ['on_56',['ON',['../namespaceosm.html#a793613c2bce496156326ba85a53b6d13a90651ebea9a35ec4e018c8157492e17c',1,'osm']]],
+  ['operator_28_29_57',['operator()',['../structosm_1_1updater.html#ae923dcfd5f29ccc59c843adfe8f18361',1,'osm::updater']]],
+  ['operator_3c_3c_58',['operator&lt;&lt;',['../namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920',1,'osm']]],
+  ['option_59',['OPTION',['../namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26',1,'osm']]],
+  ['osm_60',['osm',['../namespaceosm.html',1,'']]]
 ];
