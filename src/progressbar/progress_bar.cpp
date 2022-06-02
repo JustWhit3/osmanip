@@ -20,8 +20,7 @@
 #include <mutex>
 #include <stdexcept>
 
-#define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
-
+//Using namespaces
 using namespace std::string_literals;
 
 namespace osm
@@ -140,11 +139,11 @@ namespace osm
   //     setStyle (first overload)
   //====================================================
   /** 
-   * @brief Set the style of the ProgressBar.
+   * @brief Set the type and style of the ProgressBar. Available: "indicator" ("%", "/100"), "loader" ("#", "■"), "spinner" ("/-\\|").
    * 
    * @tparam bar_type The type of the ProgressBar.
    * @param type The type (flavor) of the ProgressBar.
-   * @param style The style of the ProgressBar.
+   * @param style The style of the ProgressBar. Available: 
    */
   template <typename bar_type>
   void ProgressBar <bar_type>::setStyle( const std::string& type, const std::string& style )
@@ -175,7 +174,7 @@ namespace osm
   //     setStyle (second overload)
   //====================================================
   /** 
-   * @brief Set the style of the complete ProgressBar.
+   * @brief Set the style of the complete ProgressBar. Available: "indicator" ("%", "/100"), "loader" ("#", "■"), "spinner" ("/-\\|") and "complete" with both indicator first and loader second.
    * 
    * @tparam bar_type The type of the ProgressBar.
    * @param type The type (flavor) of the ProgressBar.
@@ -838,10 +837,30 @@ namespace osm
     }
   
   //====================================================
-  //     Explicit instantiations
+  //     ARGS
   //====================================================
+  /**
+   * @brief Macro used to define the arguments of the ProgressBar for explicit instantiation.
+   * 
+   */
+  #define ARGS( ... ) BOOST_PP_TUPLE_TO_SEQ( ( __VA_ARGS__ ) )
+
+  //====================================================
+  //     PROGRESSBAR
+  //====================================================ù
+  /**
+   * @brief Macro used to define the ProgressBar for explicit instantiation.
+   * 
+   */
   #define PROGRESSBAR( r, data, T ) template \
   class ProgressBar <T>;
 
+  //====================================================
+  //     BOOST_PP_SEQ_FOR_EACH
+  //====================================================
+  /**
+   * @brief Explicit instantiation of the ProgressBar objects.
+   * 
+   */
   BOOST_PP_SEQ_FOR_EACH( PROGRESSBAR, _, ARGS( int, long, long long, double, long double, float ) );
  }

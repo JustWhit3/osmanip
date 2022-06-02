@@ -27,7 +27,7 @@
 
 ## Introduction
 
-Here I want to present you *osmanip*: a C++ library containing useful tools to customize the output stream of your programs. Within this tools you can manipulate an output stream with colors, styles (ex: bold, italics, etc...) and manage other tools like progress bars and terminal graphics. You can also manipulate ANSI escape sequences / codes, with proper functions provided by the library. Using this features may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
+*osmanip* is a C++ library containing useful tools to customize the output stream of your programs. Within this tools you can manipulate an output stream with colors, styles (ex: bold, italics, etc...) and manage other tools like progress bars and terminal graphics. You can also manipulate ANSI escape sequences / codes, with proper functions provided by the library. Using this features may be very useful to better read error messages or special information you want to be sure other users see when they run your code, or to adorn your general output stream log.
 
 If you want to use this software in one of your project, please cite it. You can find the citation template [here](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
 > **NOTE**: all the manipulators of this library are compatible with [iomanip](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/iomanip).
@@ -60,11 +60,12 @@ Supported and tested operating systems:
 ## Documentation
 
 In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder useful documentation files are stored, in order to help the user learning how to properly use the library:
-- [*Code structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md): contains general information about the code structure of the library, therefore details on classes, functions and variables used in it.
 - [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download%20and%20install.md): a guide to download, install and run the library into your system.
 - [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/Contributing.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
 - [*How-to-use guides*](https://github.com/JustWhit3/Ostream-manipulator/blob/main/doc/How-to-use%20guides.md): contains a set of guides about how to use the library tools.
+
+**Code documentation** is generated using [*Doxygen*](https://www.doxygen.nl/manual/starting.html) and can be accessed [here](https://justwhit3.github.io/osmanip/).
 
 ## Repository structure
 
@@ -75,7 +76,6 @@ osmanip/
 │   │   ├── DocGenerator.yml
 ├── img/
 ├── doc/
-│   ├── Code structure.md
 │   ├── Contributing.md
 │   ├── Download and install.md
 │   ├── Todo.md
@@ -130,11 +130,11 @@ osmanip/
 
 Most recent relevant news from the last version:
 
-- A new feature to plot 2D graphics and functions in the terminal has been added. See [here](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=setStyle(%20%22spinner%22%2C%20%22%7C/_%5C%5C%22%20)%3B-,Terminal%20graphics,-From%20release%203.0.0).
+- A new feature to plot 2D graphics and functions in the terminal has been added.
 - Progress spinner has been added to the `ProgressBar` class.
 - New features have been added to the progress bar: time-reamining info.
-- Added a [new map](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=25h%20%3A%20show%20cursor.-,tcsc,-Header%20file%3A%20osmanip) for the `feat` function to deal with clear screen / line commands.
-- Added a new [`print`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=cursor%20is%20hidden.-,print,-Header%20file%20and) function inspired by the Python one.
+- Added a new map for the `feat` function to deal with clear screen / line commands.
+- Added a new `print` function inspired by the Python one.
 
 ## List of features
 

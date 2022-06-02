@@ -64,9 +64,9 @@ cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underline
 ```
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in order to reset all the output stream color / style.
 
-List of available colors [here](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=error%20/%20Inserted%20color,gray%20/%20%5C033%5B1%3B37m).
-List of available styles [here](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=It%20is%20used%20for%20the%20style,italics%20/%20%5C033%5B3m).
-List of the reset commands [here](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=error%20/%20Inserted%20reset,crossed%20/%20%5C033%5B29m).
+List of available colors [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20col,%7D%3B).
+List of available styles [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20sty,%7D%3B).
+List of the reset commands [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20rst,%7D%3B).
 
 ### Cursor navigation
 
@@ -76,13 +76,13 @@ You can modify the cursor navigation in all the 4 directions (up, down, right, l
 cout << feat( crs, "left" ) << "Moving cursor on the left";
 ```
 
-You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSI code of the cursor navigation (see [*manipulators/csmanip.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp)):
+You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSI code of the cursor navigation (see [*manipulators/csmanip.cpp*](https://justwhit3.github.io/osmanip/csmanip_8cpp.html):
 
 ```c++
 cout << feat( crs, "left", "10" ) << "Moving cursor on the left";
 ```
 
-> If you want to know all the available features, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=is%20used%20for%20the%20output,error%20/%20Inserted%20cursor%20command) page.
+> If you want to know all the available features, visit the [code structure](https://justwhit3.github.io/osmanip/csmanip_8cpp.html) page.
 
 It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*progressbar/progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar/progress_bar.cpp#:~:text=output_%20%3D%20feat(%20crs,getStyle()%3B)) for more information.
 
@@ -93,16 +93,16 @@ You can add a terminal control sequency to your output by using the `feat`  func
 cout << feat( tcs, "bell" );
 ```
 For example, the previous command will output a bell sound from your computer.
-> If you want to know all the available features, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=error%20/%20Inserted%20terminal,25h%20%3A%20show%20cursor.) page.
+> If you want to know all the available features, visit the [code structure](https://justwhit3.github.io/osmanip/csmanip_8cpp.html) page.
 
-If you plan to use the sequences for clearing screen / line, please have a look [here](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=It%20is%20used%20for%20the%20terminal%20control%20sequences%20manipulation%20for%20clear%20line%20/%20screen.%20It%20is%20used%20within%20the%20feat%20function%20overload%20with%203%20arguments%20and%20n%20as%20the%20third%20one.%20It%20currently%20supports%20the%20following%20list%20of%20sequences) to fully understand their usage.
+If you plan to use the sequences for clearing screen / line, please have a look [here](https://justwhit3.github.io/osmanip/namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369) to fully understand their usage.
 
 ## Extra functions (print and others)
 
 Some extra functions are provided:
-- [`go_to`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=the%20corresponding%20key.-,go_to,the%20screen%20and%20returns%20the%20interested%20position%20you%20want%20to,-reach.): to put the cursor in a precise (x,y) point of the terminal.
-- [`OPTION`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Template%20functions-,OPTION,-Header%20file%3A%20osmanip): to set the cursor view on or off in your program.
-- [`print`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=cursor%20is%20hidden.-,print,-Header%20file%3A%20osmanip): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
+- [`go_to`](https://justwhit3.github.io/osmanip/namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd): to put the cursor in a precise (x,y) point of the terminal.
+- [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26): to set the cursor view on or off in your program.
+- [`print`](https://justwhit3.github.io/osmanip/namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
 
 ## Progress bars
 
@@ -116,21 +116,20 @@ using namespace osm //to improve examples readability (avoid if possible).
 
 A list of all the customizable [settings](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMax(%20bar_type,std%3A%3Astring%20time_flag%20)) of these progress bars:
 
-- [**Type**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setStyle(%20const%20std%3A%3Astring%26%20type%2C%20const%20std%3A%3Astring%26%20style%20)%3A%20to%20set%20the%20bar%20style.): percentage indicator, loading bar, full progress bar and progress spinner.
-- [**Min**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMin(%20const%20bar_type%26%20min%20)%3A%20to%20set%20min%20value%20of%20the%20bar.) and [**max**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMax(%20const%20bar_type%26%20max%20)%3A%20to%20set%20max%20value%20of%20the%20bar.) values (for the loop iteration).
-- [**Style**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setStyle(%20const%20std%3A%3Astring%26%20type%2C%20const%20std%3A%3Astring%26%20style%20)%3A%20to%20set%20the%20bar%20style.) (ex: % or /100 for a percentage indicator, etc...). You can also create and add new ones.
-- [**Messages**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setMessage(%20const%20std%3A%3Astring%26%20message%20)%3A%20to%20set%20optional%20message%20of%20the%20bar.).
-- [**Brackets style**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setBrackets(%20const%20std%3A%3Astring%26%20brackets_open%2C%20const%20std%3A%3Astring%26%20brackets_close%20)%3A%20to%20set%20brackets%20style.) (for the loading and full progress bar).
-- [**Color**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setColor(%20const%20std%3A%3Astring%26%20color%20)%3A%20to%20set%20progress%20bar%20color.).
-- [**Remaining time flag**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setRemainingTimeFlag(%20const%20std%3A%3Astring%26%20time_flag%20)%3A%20to%20switch%20on/off%20the%20showing%20of%20the%20remaining%2Dtime%20info.).
-- [**CPU time-consuming info**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setBegin()%3A%20to,void%20setEnd()).
-- [**Run progress bars simultaneously**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=be%20explained%20here.-,MultiProgressBar,template%20%3Cclass...%20Inds%3E%20make_MultiProgressBar(%20Inds%26%26...%20bars%20)%3A%20main%20constructor.,-Public%20methods%3A).
-
+- [**Type**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html): percentage indicator, loading bar, full progress bar and progress spinner.
+- [**Min**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html): and [**max**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html): values (for the loop iteration).
+- [**Style**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html): (ex: % or /100 for a percentage indicator, etc...). You can also create and add new ones.
+- [**Messages**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html).
+- [**Brackets style**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html) (for the loading and full progress bar).
+- [**Color**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html).
+- [**Remaining time flag**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html).
+- [**CPU time-consuming info**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html).
+- [**Run progress bars simultaneously**](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html).
 
 Here you can find some examples about how to use them into your code.
-> If you want to know more precisely all the available methods of this class, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=This%20template%20class%20is%20used%20to%20create%20progress,Constructors%20/%20destructor%3A) page.
+> If you want to know more precisely all the available methods of this class, visit the [code structure](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html) page.
 
-> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`OPTION`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Template%20functions-,OPTION,-Header%20file%3A%20osmanip) function at the beginning and then at the end of the program.
+> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26) function at the beginning and then at the end of the program.
 
 > It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
 
@@ -185,7 +184,7 @@ cout << endl << "Time needed to complete the previous cycle: " << percentage_bar
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="500">
 
-It is possible to add also [colors](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setColor(%20const%20std%3A%3Astring%26%20color%20)%3A%20to%20set%20progress%20bar%20color.) and much more.
+It is possible to add also colors and much more.
 
 >**HINT**: To use a progress bar with a standard template data container:
 >
@@ -376,16 +375,16 @@ From release [3.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v3.0.0) o
 
 A list of all the customizable [settings](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=be%20explained%20here.-,Canvas,it%20internally%3B%20to%20make%20the%20changes%20effective%20in%20the%20console,-%2C%20you%20must%20use) of this feature:
 
-- [**Size of the graphic canvas**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Canvas(%20uint%20width%2C%20uint%20height%20)%3A%20the): to set the canvas dimensions.
-- [**Enable or disable the canvas frame**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setFrame(%20FrameStyle%20style%2C%20const%20std%3A%3Astring%26%20feat%20%3D%20%22%22%20)%3A%20Set%20the%20FrameStyle): to flag to frame or not the canvas.
-- [**Set the canvas background**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20setBackground(%20char%20c%2C%20const%20std%3A%3Astring%26%20feat%20%3D%20%22%22%20)%3A%20Set%20the): to set the canvas background color
-- [**Put a character in the canvas**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=void%20put(%20uint%20x%2C%20uint%20y%2C%20char%20c%2C%20const%20std%3A%3Astring%26%20feat%20%3D%20%22%22%20)%3A%20Put%20a%20character%20in%20the): to put a character inside the canvas.
-- [**Plot 2D objects**](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=in%20the%20console.-,Plot2DCanvas,used%20to%20plot%20mathematical%20functions%20%24%5CR%20%5Cto%20%5CR%24.%20In%20addition,-to%20all%20the): to plot 2D mathematical functions.
+- [**Size of the graphic canvas**](https://justwhit3.github.io/osmanip/classosm_1_1Canvas.html): to set the canvas dimensions.
+- [**Enable or disable the canvas frame**](https://justwhit3.github.io/osmanip/classosm_1_1Canvas.html): to flag to frame or not the canvas.
+- [**Set the canvas background**](https://justwhit3.github.io/osmanip/classosm_1_1Canvas.html): to set the canvas background color
+- [**Put a character in the canvas**](https://justwhit3.github.io/osmanip/classosm_1_1Canvas.html): to put a character inside the canvas.
+- [**Plot 2D objects**](https://justwhit3.github.io/osmanip/classosm_1_1Plot2DCanvas.html): to plot 2D mathematical functions.
 
 Here you can find some examples about how to use terminal graphics in your code.
-> If you want to know more precisely all the available methods of this class, visit the [code structure](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=be%20explained%20here.-,Canvas,-Header%20file%3A%20canvas) page.
+> If you want to know more precisely all the available methods of this class, visit the [code structure](https://justwhit3.github.io/osmanip/index.html) page.
 
-> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`OPTION`](https://github.com/JustWhit3/osmanip/blob/main/doc/Code%20structure.md#:~:text=Template%20functions-,OPTION,-Header%20file%3A%20osmanip) function at the beginning and then at the end of the program.
+> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26) function at the beginning and then at the end of the program.
 
 > It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
 

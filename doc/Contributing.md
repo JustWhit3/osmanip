@@ -27,8 +27,8 @@ To add your contribution, please follow these guidelines:
 .clang-format -i /path/to/file
 ```
 
-5) Optional, but really appreciated: update the [documentation](https://github.com/JustWhit3/osmanip/blob/main/doc) or the main [README](https://github.com/JustWhit3/osmanip/blob/main/README.md) with the new features you added.
-6) Finally, make the pull request.
+5) Optional, but really appreciated: update the [documentation](https://justwhit3.github.io/osmanip/) (directly while writing the code) and the main [README](https://github.com/JustWhit3/osmanip/blob/main/README.md) with the new features you added.
+6) Finally, make the pull request. The Doxygen page will be updated automatically.
 
 Once your pull request will be submitted, I will carefully review it and, if it will be considered as an improvement, I will confirm it.
 
