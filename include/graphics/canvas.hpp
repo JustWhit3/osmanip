@@ -8,8 +8,11 @@
 namespace osm
  {
   //====================================================
-  //     FRAMESTYLE ENUM CLASS
+  //     FrameStyle
   //====================================================
+  /** 
+   * @brief Enum class used to define the frame style.
+   */
   typedef enum 
    {
     EMPTY = 0,
@@ -18,7 +21,7 @@ namespace osm
    } FrameStyle;
 
   //====================================================
-  //     CANVAS CLASS
+  //     Canvas
   //====================================================
   /**
    * @brief Instances of this class are used to draw in a limited 2D space. All the functions that modify the canvas do it internally; to make the changes effective in the console, you must use the refresh method.
@@ -29,12 +32,12 @@ namespace osm
     public:
 
      //====================================================
-     //     CONSTRUCTORS AND DESTRUCTORS DECLARATION
+     //     Constructors
      //====================================================
      Canvas( uint width, uint height );
 
      //====================================================
-     //     SETTERS DECLARATION
+     //     Setters
      //====================================================
      void enableFrame( bool frame_enabled );
      void setFrame( FrameStyle, const std::string& feat = "" );
@@ -43,7 +46,7 @@ namespace osm
      void setHeight( uint height );
 
      //====================================================
-     //     GETTERS DECLARATION
+     //     Getters
      //====================================================
      char getBackground() const;
      std::string getBackgroundFeat() const;
@@ -54,7 +57,7 @@ namespace osm
      uint getHeight() const;
 
      //====================================================
-     //     OTHER METHODS DECLARATION
+     //     Other methods
      //====================================================
      void clear();
      void put( uint x, uint y, char c, const std::string& feat = "" );
@@ -63,7 +66,7 @@ namespace osm
     private:
 
      //====================================================
-     //     PRIVATE ATTRIBUTES DECLARATION
+     //     Private attributes
      //====================================================
      bool frame_enabled_;
      FrameStyle frame_style_;
@@ -75,14 +78,14 @@ namespace osm
      bool already_drawn_;
 
      //====================================================
-     //     PRIVATE METHODS DECLARATION
+     //     Private methods
      //====================================================
      void resizeCanvas();
 
     protected:
 
      //====================================================
-     //     PROTECTED ATTRIBUTES DECLARATION
+     //     Protected attributes
      //====================================================
      uint width_, height_;
     };

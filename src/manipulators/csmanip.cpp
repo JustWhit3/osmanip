@@ -14,7 +14,7 @@ using namespace std::string_literals;
 namespace osm
  {
   //====================================================
-  //     DEFINITION OF THE "color" MAP
+  //     col
   //====================================================
   /**
    * @brief It is used to store the colors. Note: "bg" is the prefix of the background color features and "bd" is the one of the bold color features.
@@ -73,7 +73,7 @@ namespace osm
    };
 
   //====================================================
-  //     DEFINITION OF THE "style" MAP
+  //     sty
   //====================================================
   /**
    * @brief It is used to store the styles.
@@ -97,7 +97,7 @@ namespace osm
    };
  
   //====================================================
-  //     DEFINITION OF THE "reset" MAP
+  //     rst
   //====================================================
   /**
    * @brief It is used to store the reset features commands.
@@ -127,8 +127,7 @@ namespace osm
    };
   
   //====================================================
-  //     DEFINITION OF THE "tcs" MAP
-  //     (terminal control sequences)
+  //     tcs
   //====================================================
   /**
    * @brief It is used to store the terminal control sequences.
@@ -153,7 +152,7 @@ namespace osm
    };
 
   //====================================================
-  //     DEFINITION OF THE "tcsc" MAP
+  //     tcsc
   //====================================================
   /**
    * @brief It is used to store the terminal control sequences for clear line / screen.
@@ -170,7 +169,7 @@ namespace osm
    };
  
   //====================================================
-  //     DEFINITION OF THE "cursor" MAP
+  //     crs
   //====================================================
   /**
    * @brief It is used to store the cursor commands.
@@ -189,7 +188,7 @@ namespace osm
    };
 
   //====================================================
-  //     DEFINITION OF THE "feat" FUNCTION
+  //     feat (first overload)
   //====================================================
   /**
    * @brief It takes an std::map object as the first argument and an std::string object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
@@ -208,8 +207,7 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE "feat" FUNCTION OVERLOAD
-  //     (for the crs map)
+  //     feat (second overload)
   //====================================================
   /**
    * @brief This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.
@@ -238,7 +236,7 @@ namespace osm
    }
  
   //====================================================
-  //     DEFINITION OF THE "reset" FUNCTION
+  //     reset
   //====================================================
   /**
    * @brief It takes a std::string object (reset map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
@@ -256,7 +254,7 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE "go_to" FUNCTION
+  //     go_to
   //====================================================
   /**
    * @brief It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
@@ -273,7 +271,7 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE "RGB" FUNCTION
+  //     RGB
   //====================================================
   /**
    * @brief It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors http://www.aksiom.net/rgb.html). It can be used to output a wider variety of colors with respect to the standard available from the col map.

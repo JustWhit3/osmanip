@@ -15,7 +15,7 @@
 #include <chrono>
 
 //====================================================
-//     GLOBAL VARIABLES DEFINITION
+//     Global variables
 //====================================================
 const std::string style = "%";
 const std::string message = "message";
@@ -26,7 +26,7 @@ const std::string style_p_ =  "%";
 const std::string style_l_ = "#";
 
 //====================================================
-//     TESTING "ProgressBar" CLASS METHODS
+//     Testing ProgressBar
 //====================================================
 TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long long, double, long double, float )
  {
@@ -37,7 +37,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   std::string type = "indicator";
 
   //====================================================
-  //     TESTING GETTERS, SETTERS AND CONSTRUCTORS
+  //     Testing getters, setters and constructor
   //====================================================
   TEST_SUITE_BEGIN( "Setters, getters and constructors." );
 
@@ -105,7 +105,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   TEST_SUITE_END();
 
   //====================================================
-  //     TESTING RESETTERS
+  //     Testing resetters
   //====================================================
   TEST_SUITE_BEGIN( "Resetters." );
 
@@ -155,7 +155,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   TEST_SUITE_BEGIN( "Other methods." );
 
   //====================================================
-  //     TESTING THE "time" METHODS
+  //     Testing "time" method
   //====================================================
   SUBCASE( "Testing time methods." )
    {
@@ -174,7 +174,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
    }
 
   //====================================================
-  //     TESTING THE "update" METHOD
+  //     Testing "update" method
   //====================================================
   SUBCASE( "Testing update method." )
    {
@@ -192,7 +192,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
    }
 
   //====================================================
-  //     TESTING THE "addStyle" METHOD
+  //     Testing "addStyle" method
   //====================================================
   SUBCASE( "Testing addStyle method." )
    {
@@ -213,7 +213,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   TEST_SUITE_END();
 
   //====================================================
-  //     TESTING THE CONSTRUCTOR OVERLOAD
+  //     Testing the constructor overload
   //====================================================
   SUBCASE( "Testing constructor(min,max)." )
    {

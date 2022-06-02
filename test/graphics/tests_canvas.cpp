@@ -7,14 +7,14 @@
 #include <doctest.h>
 
 //====================================================
-//     TESTING "Canvas" CLASS METHODS
+//     Testing "Canvas" class
 //====================================================
 TEST_CASE( "Testing the Canvas class methods." )
  {
   osm::Canvas canvas( 5, 6 );
 
   //====================================================
-  //     TESTING GETTERS, SETTERS AND CONSTRUCTORS
+  //     Testing getters, setters and constructor
   //====================================================
   TEST_SUITE_BEGIN( "Setters, getters and constructors." );
 

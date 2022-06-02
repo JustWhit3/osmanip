@@ -1,5 +1,5 @@
 #====================================================
-#     VARIABLES
+#     Variables
 #====================================================
 TARGET_EXEC := main
 TEST_EXEC := tests
@@ -7,7 +7,7 @@ LIB := libosmanip.a
 CC := g++
 
 #====================================================
-#     FOLDERS
+#     Folders
 #====================================================
 BUILD_DIR := bin
 SRC_DIR := src
@@ -16,21 +16,21 @@ TEST_DIR := test
 LIB_DIR := lib
 
 #====================================================
-#     SOURCE FILES
+#     Source files
 #====================================================
 SRC := $(shell find $(SRC_DIR) -name '*.cpp')
 SRC_LIB := $(shell find $(SRC_DIR) -type f | grep -v 'main.cpp')
 TEST := $(shell find $(SRC_DIR) -type f | grep -v 'main.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
 
 #====================================================
-#     SOURCE OBJECTS
+#     Source objects
 #====================================================
 OBJ := $(SRC:%=$(OBJ_DIR)/%.o)
 OBJ_LIB := $(SRC_LIB:%=$(OBJ_DIR)/%.o)
 TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 
 #====================================================
-#     DEPENDENCIES AND FLAGS
+#     Dependencies and flags
 #====================================================
 DEPS := $(OBJ:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
@@ -39,7 +39,7 @@ CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
 LDFLAGS := -pthread -L/usr/local/lib -larsenalgear
 
 #====================================================
-#     OS DETECTION
+#     Operating system detection
 #====================================================
 
 # Windows (Cygwin)
@@ -49,12 +49,12 @@ ifeq ($(OS), Windows_NT)
 endif
 
 #====================================================
-#     ALIASES
+#     Aliases
 #====================================================
 .PHONY: clean all
 
 #====================================================
-#     BUILDING
+#     Building
 #====================================================
 
 #Building all:
@@ -83,12 +83,12 @@ $(LIB_DIR)/$(LIB): $(OBJ_LIB)
 	ar rcs $(LIB_DIR)/$(LIB) $(OBJ_LIB)
 
 #====================================================
-#     CLEAN
+#     Clean
 #====================================================
 clean:
 	rm -r $(OBJ_DIR) $(BUILD_DIR) $(LIB_DIR)
 
 #====================================================
-#     INCLUDE
+#     Include
 #====================================================
 -include $(DEPS)

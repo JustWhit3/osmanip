@@ -9,7 +9,7 @@
 namespace osm
  {
   //====================================================
-  //     CONSTRUCTORS AND DESTRUCTORS DEFINITION
+  //     Parametric constructor
   //====================================================
   /**
    * @brief Construct a new Canvas:: Canvas object. The size of the canvas in characters must be specified upon construction.
@@ -30,7 +30,7 @@ namespace osm
    }
 
   //====================================================
-  //     SETTERS DEFINITION
+  //     setBackground
   //====================================================
   /**
    * @brief Set the char that fills the background and an optional feat.
@@ -44,6 +44,9 @@ namespace osm
     bg_feat_ = feat;
    }
 
+  //====================================================
+  //     enableFrame
+  //====================================================
   /**
    * @brief Flag to frame or not the canvas. The frame doesn't increase the size taken by the canvas. Instead, reduces the 2D space to draw in two columns and two rows (used to print the frame itself).
    * 
@@ -54,6 +57,9 @@ namespace osm
     frame_enabled_ = frame_enabled;
    }
 
+  //====================================================
+  //     setFrame
+  //====================================================
   /**
    * @brief Set the FrameStyle of the canvas and an optional feat.
    * 
@@ -66,6 +72,9 @@ namespace osm
     frame_feat_ = feat;
    }
 
+  //====================================================
+  //     setWidth
+  //====================================================
   /**
    * @brief Set the width of the canvas.
    * 
@@ -77,6 +86,9 @@ namespace osm
     resizeCanvas();
    }
 
+  //====================================================
+  //     setHeight
+  //====================================================
   /**
    * @brief Set the height of the canvas.
    * 
@@ -89,7 +101,7 @@ namespace osm
    }
 
   //====================================================
-  //     GETTERS DEFINITION
+  //     getWidth
   //====================================================
   /**
    * @brief Get the width of the canvas.
@@ -101,6 +113,9 @@ namespace osm
     return width_;
    }
 
+  //====================================================
+  //     getHeight
+  //====================================================
   /**
    * @brief Get the height of the canvas.
    * 
@@ -111,6 +126,9 @@ namespace osm
     return height_;
    }
 
+  //====================================================
+  //     getBackground
+  //====================================================
   /**
    * @brief Get the char that fills the background.
    * 
@@ -121,6 +139,9 @@ namespace osm
     return bg_char_;
    }
 
+  //====================================================
+  //     getBackgroundFeat
+  //====================================================
   /** 
    * @brief Get the optional feat of the background.
    * 
@@ -131,6 +152,9 @@ namespace osm
     return bg_feat_;
    }
  
+  //====================================================
+  //     isFrameEnabled
+  //====================================================
   /**
    * @brief Return True if the frame is enabled. Otherwise return False.
    * 
@@ -141,6 +165,9 @@ namespace osm
     return frame_enabled_;
    }
 
+  //====================================================
+  //     getFrameFeat
+  //====================================================
   /**
    * @brief Get the frame feature (if set).
    * 
@@ -151,6 +178,9 @@ namespace osm
     return frame_feat_;
    }
 
+  //====================================================
+  //     getFrameStyle
+  //====================================================
   /**
    * @brief Get the frame style.
    * 
@@ -162,7 +192,7 @@ namespace osm
    }
 
   //====================================================
-  //     CLEAR METHOD DEFINITION
+  //     clear
   //====================================================
   /**
    * @brief Fill the canvas with the background.
@@ -174,7 +204,7 @@ namespace osm
    }
 
   //====================================================
-  //     PUT METHOD DEFINITION
+  //     put
   //====================================================
   /** 
    * @brief Put a character in the canvas, given its coordinates and an optional feat. An out-of-bounds exception will be thrown if the coordinates are outside the canvas.
@@ -191,7 +221,7 @@ namespace osm
    }
 
   //====================================================
-  //     REFRESH METHOD DEFINITION
+  //     refresh
   //====================================================
   /** 
    * @brief Display the canvas in the console.
@@ -279,7 +309,7 @@ namespace osm
    }
 
   //====================================================
-  //     RESIZECANVAS METHOD DEFINITION
+  //     resizeCanvas
   //====================================================
   /** 
    * @brief Resize the canvas.

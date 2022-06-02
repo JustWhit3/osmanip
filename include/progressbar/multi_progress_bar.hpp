@@ -15,7 +15,7 @@
 namespace osm
  {
   //====================================================
-  //     TYPE TO GENERATE INDICES FOR PARAMETER PACKS
+  //     indices
   //====================================================
   /**
    * @brief Type to generate indices for parameter packs.
@@ -25,6 +25,9 @@ namespace osm
   template <size_t... Is>
   struct indices {};
   
+  //====================================================
+  //     gen_indices
+  //====================================================
   /**
    * @brief Type to generate indices for parameter packs.
    * 
@@ -34,6 +37,9 @@ namespace osm
   template <size_t N, size_t... Is>
   struct gen_indices: gen_indices <N - 1, N - 1, Is...> {};
   
+  //====================================================
+  //     gen_indices
+  //====================================================
   /**
    * @brief Type to generate indices for parameter packs.
    * 
@@ -44,7 +50,7 @@ namespace osm
   struct gen_indices <0, Is...>: indices<Is...> {};
   
   //====================================================
-  //     MAKE_MULTIPROGRESSBAR TEMPLATE CLASS
+  //     make_MultiProgressBar
   //====================================================
   /**
    * @brief Template class used to create multi progress bars.
@@ -57,7 +63,7 @@ namespace osm
     public:
   
      //====================================================
-     //     CONSTRUCTORS
+     //     Constructors
      //====================================================
      /**
       * @brief Construct a new make MultiProgressBar object.
@@ -69,7 +75,7 @@ namespace osm
      make_MultiProgressBar( Inds&&... bars ): bars_{ std::forward <Inds> ( bars )... }, last_updated_index( 0 ) {}
   
      //====================================================
-     //     OTHER PUBLIC METHODS
+     //     size
      //====================================================
      /**
       * @brief Return the number of the indicators.
@@ -78,6 +84,9 @@ namespace osm
       */
      static size_t size() { return sizeof...( Indicators ); }
 
+     //====================================================
+     //     for_one
+     //====================================================
      /**
       * @brief Method used to update the progress bar for one progress bar only.
       * 
@@ -93,6 +102,9 @@ namespace osm
        call_one( idx, gen_indices <sizeof...( Indicators )> (), std::forward <Func> ( func ), std::forward <Args> ( args )... );
       }
   
+     //====================================================
+     //     for_each
+     //====================================================
      /**
       * @brief Method used to update progress bars simultaneously.
       * 
@@ -110,7 +122,7 @@ namespace osm
     private:
   
      //====================================================
-     //     OTHER PRIVATE METHODS
+     //     call_one
      //====================================================
      /**
       * @brief Method used to call only one progress bar for update.
@@ -151,7 +163,10 @@ namespace osm
               std::forward <Args> ( args )... ), false ) )...
         );   
       }
-  
+
+     //====================================================
+     //     call_all
+     //====================================================
      /**
       * @brief Method used to call all progress bars for update.
       * 
@@ -170,7 +185,7 @@ namespace osm
       } 
   
      //====================================================
-     //     PRIVATE ATTRIBUTES
+     //     Private attributes
      //====================================================
      std::tuple <Indicators&...> bars_;
      std::mutex mutex_;
@@ -178,7 +193,7 @@ namespace osm
    };
   
   //====================================================
-  //     HELPER FUNCTION FOR DEDUCTION GUIDES
+  //     MultiProgressBar
   //====================================================
   /**
    * @brief Helper function used for deduction guides.
@@ -195,7 +210,7 @@ namespace osm
    }
   
   //====================================================
-  //     FUNCTOR
+  //     type_identity
   //====================================================
   /**
    * @brief Struct used to to typedef the functor.
@@ -208,6 +223,9 @@ namespace osm
     using type = T;
    };
   
+  //====================================================
+  //     updater
+  //====================================================
   /**
    * @brief Functor used to call the ProgressBar class update method.
    * 

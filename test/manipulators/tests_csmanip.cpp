@@ -14,13 +14,14 @@
 using namespace std::string_literals;
 
 //====================================================
-//     GLOBAL VARIABLES DEFINITION
+//     Global variables
 //====================================================
 const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
 
 //====================================================
-//     TESTING "feat" FUNCTIONS
+//     Testing "feat" function
 //====================================================
+
 //First overload:
 TEST_CASE( "Testing the feat function." )
  {
@@ -55,7 +56,7 @@ TEST_CASE( "Testing the feat function overload for the crs map." )
  }
 
 //====================================================
-//     TESTING "reset" FUNCTION
+//     Testing "reset" function
 //====================================================
 TEST_CASE( "Testing the reset function." )
  {
@@ -69,7 +70,7 @@ TEST_CASE( "Testing the reset function." )
  }
 
 //====================================================
-//     TESTING "go_to" FUNCTION
+//     Testing "go_to" function
 //====================================================
 TEST_CASE( "Testing the go_to function." )
  {           
@@ -81,7 +82,7 @@ TEST_CASE( "Testing the go_to function." )
  }
 
 //====================================================
-//     TESTING "RGB" FUNCTION
+//     Testing "RGB" function
 //====================================================
 TEST_CASE( "Testing the RGB function." )
  {            

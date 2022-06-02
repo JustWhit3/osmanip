@@ -27,7 +27,7 @@ using namespace std::string_literals;
 namespace osm
  {
   //====================================================
-  //     DEFINITION OF THE CONSTRUCTORS AND DESTRUCTOR
+  //     Default constructor
   //====================================================
   /**
    * @brief Construct a new ProgressBar <bar_type>::ProgressBar object. Default constructor which set to null values the main attributes.
@@ -51,6 +51,9 @@ namespace osm
    time_flag_ ( "off" )
    {}
 
+  //====================================================
+  //     Parametric constructor
+  //====================================================
   /**
    * @brief Construct a new ProgressBar <bar_type>::ProgressBar object. Parametric constructor which set to null values the main attributes except max_ and min which will be initialized respectively with max and min.
    * 
@@ -75,6 +78,9 @@ namespace osm
    time_flag_ ( "off" )
    {}
 
+  //====================================================
+  //     Destructor
+  //====================================================
   /**
    * @brief Destroy the ProgressBar <bar_type>::ProgressBar object. Standard destructor: it doesn't do anything.
    * 
@@ -84,7 +90,7 @@ namespace osm
   ProgressBar <bar_type>::~ProgressBar() {}
 
   //====================================================
-  //     DEFINITION OF THE STATIC ATTRIBUTES
+  //     Static attributes
   //====================================================
   template <typename bar_type>
   string_set_map ProgressBar <bar_type>::styles_map_
@@ -101,7 +107,7 @@ namespace osm
   std::mutex ProgressBar <bar_type>::mutex_;
   
   //====================================================
-  //     DEFINITION OF THE SETTERS
+  //     setMax
   //====================================================
   /**
    * @brief Set the maximum value of the ProgressBar.
@@ -115,6 +121,9 @@ namespace osm
     max_ = max; 
    }
 
+  //====================================================
+  //     setMin
+  //====================================================
   /** 
    * @brief Set the minimum value of the ProgressBar.
    * 
@@ -127,6 +136,9 @@ namespace osm
     min_ = min; 
    }
 
+  //====================================================
+  //     setStyle (first overload)
+  //====================================================
   /** 
    * @brief Set the style of the ProgressBar.
    * 
@@ -159,7 +171,9 @@ namespace osm
      }
    }
 
-  
+  //====================================================
+  //     setStyle (second overload)
+  //====================================================
   /** 
    * @brief Set the style of the complete ProgressBar.
    * 
@@ -194,6 +208,9 @@ namespace osm
      }
    }
 
+  //====================================================
+  //     setMessage
+  //====================================================
   /** 
    * @brief Set the message of the ProgressBar.
    * 
@@ -206,6 +223,9 @@ namespace osm
     message_ = message; 
    }
 
+  //====================================================
+  //     setBegin
+  //====================================================
   /**
    * @brief Set begin time count.
    * 
@@ -217,6 +237,9 @@ namespace osm
     begin = steady_clock::now();
    }
 
+  //====================================================
+  //     setEnd
+  //====================================================
   /**
    * @brief Set end time count.
    * 
@@ -229,6 +252,9 @@ namespace osm
     time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
    }
   
+  //====================================================
+  //     setBrackets
+  //====================================================
   /**
    * @brief Set brackets of the ProgressBar.
    * 
@@ -243,6 +269,9 @@ namespace osm
     brackets_close_ = brackets_close;
    }
 
+  //====================================================
+  //     setColor
+  //====================================================
   /**
    * @brief Set the color of the ProgressBar.
    * 
@@ -256,6 +285,9 @@ namespace osm
     color_name_ = color;
    }
 
+  //====================================================
+  //     setRemainingTimeFlag
+  //====================================================
   /**
    * @brief Set the remaining time of the ProgressBar.
    * 
@@ -269,7 +301,7 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE RESETTERS
+  //     resetAll
   //====================================================
   /** 
    * @brief Reset the ProgressBar variables.
@@ -294,6 +326,9 @@ namespace osm
     time_flag_ = "off";
    }
 
+  //====================================================
+  //     resetMax
+  //====================================================
   /** 
    * @brief Reset the ProgressBar Max variable.
    * 
@@ -305,6 +340,9 @@ namespace osm
     max_ = static_cast<bar_type> ( NULL );
    }
 
+  //====================================================
+  //     resetMin
+  //====================================================
   /** 
    * @brief Reset the ProgressBar Min variable.
    * 
@@ -328,6 +366,9 @@ namespace osm
     type_.clear();
    } 
 
+  //====================================================
+  //     resetMessage
+  //====================================================
   /** 
    * @brief Reset the ProgressBar Message variable.
    * 
@@ -339,6 +380,9 @@ namespace osm
     message_.clear();
    } 
 
+  //====================================================
+  //     resetTime
+  //====================================================
   /** 
    * @brief Reset the ProgressBar time count.
    * 
@@ -350,6 +394,9 @@ namespace osm
     time_count_ = duration::zero().count();
    }
 
+  //====================================================
+  //     resetRemainingTimeFlag
+  //====================================================
   /** 
    * @brief Reset the ProgressBar time remaining count.
    * 
@@ -362,6 +409,9 @@ namespace osm
     begin_timer = steady_clock::now();
    }
 
+  //====================================================
+  //     resetBrackets
+  //====================================================
   /** 
    * @brief Reset the ProgressBar brackets.
    * 
@@ -374,6 +424,9 @@ namespace osm
     brackets_close_.clear(); 
    }
 
+  //====================================================
+  //     resetColor
+  //====================================================
   /** 
    * @brief Reset the ProgressBar color.
    * 
@@ -387,7 +440,7 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE GETTERS
+  //     getMax
   //====================================================
   /** 
    * @brief Get the ProgressBar Max variable.
@@ -401,6 +454,9 @@ namespace osm
     return max_; 
    }
 
+  //====================================================
+  //     getMin
+  //====================================================
   /** 
    * @brief Get the ProgressBar Min variable.
    * 
@@ -413,6 +469,9 @@ namespace osm
     return min_;
    } 
 
+  //====================================================
+  //     getTime
+  //====================================================
   /** 
    * @brief Get the ProgressBar current time value.
    * 
@@ -425,6 +484,9 @@ namespace osm
     return time_count_;
    }
 
+  //====================================================
+  //     getIteratingVar
+  //====================================================
   /** 
    * @brief Get the ProgressBar iterating variable value.
    * 
@@ -437,6 +499,9 @@ namespace osm
     return iterating_var_; 
    }
 
+  //====================================================
+  //     getStyle
+  //====================================================
   /** 
    * @brief Get the ProgressBar Style variable.
    * 
@@ -449,6 +514,9 @@ namespace osm
     return style_; 
    }
 
+  //====================================================
+  //     getStyleComplete
+  //====================================================
   /** 
    * @brief Get the ProgressBar Style variable for "complete" variable type.
    * 
@@ -468,6 +536,9 @@ namespace osm
      }
    }
 
+  //====================================================
+  //     getType
+  //====================================================
   /** 
    * @brief Get the ProgressBar Type variable.
    * 
@@ -480,6 +551,9 @@ namespace osm
     return type_; 
    }
 
+  //====================================================
+  //     getMessage
+  //====================================================
   /** 
    * @brief Get the ProgressBar Message variable.
    * 
@@ -492,6 +566,9 @@ namespace osm
     return message_; 
    }
 
+  //====================================================
+  //     getBrackets_open
+  //====================================================
   /** 
    * @brief Get the ProgressBar brackets_open variable.
    * 
@@ -504,6 +581,9 @@ namespace osm
     return brackets_open_; 
    }
 
+  //====================================================
+  //     getBrackets_close
+  //====================================================
   /** 
    * @brief Get the ProgressBar brackets_close variable.
    * 
@@ -516,6 +596,9 @@ namespace osm
     return brackets_close_; 
    }
 
+  //====================================================
+  //     getColor
+  //====================================================
   /** 
    * @brief Get the ProgressBar color variable.
    * 
@@ -528,6 +611,9 @@ namespace osm
     return color_; 
    }
  
+  //====================================================
+  //     getColorName
+  //====================================================
   /** 
    * @brief Get the ProgressBar color name variable.
    * 
@@ -540,6 +626,9 @@ namespace osm
     return color_name_; 
    }
 
+  //====================================================
+  //     getRemainingTimeFlag
+  //====================================================
   /** 
    * @brief Get the ProgressBar time remaining variable.
    * 
@@ -553,7 +642,7 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE "remaining_time" METHOD
+  //     remaining_time
   //====================================================
   /** 
    * @brief Compute the remaining time for the completion of the progress bar.
@@ -584,7 +673,7 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE "update_output" METHOD
+  //     update_output
   //====================================================
   /** 
    * @brief Update the output of the progress bar.
@@ -612,7 +701,7 @@ namespace osm
    }
  
   //====================================================
-  //     DEFINITION OF THE "update" METHOD
+  //     update
   //====================================================
   /** 
    * @brief Update the progress bar indicator.
@@ -700,7 +789,7 @@ namespace osm
    }
 
   //====================================================
-  //     DEFINITION OF THE "print" METHOD
+  //     print
   //====================================================
   /**
    * @brief Prints on the screen the progress bar variable values.
@@ -722,7 +811,7 @@ namespace osm
     }
 
   //====================================================
-  //     DEFINITION OF THE "addStyle" METHOD
+  //     addStyle
   //====================================================
   /**
    * @brief Add customized styles to the ProgressBar.
@@ -749,7 +838,7 @@ namespace osm
     }
   
   //====================================================
-  //     EXPLICIT INSTANTIATIONS
+  //     Explicit instantiations
   //====================================================
   #define PROGRESSBAR( r, data, T ) template \
   class ProgressBar <T>;

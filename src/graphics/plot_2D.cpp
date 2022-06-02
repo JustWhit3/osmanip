@@ -4,7 +4,7 @@
 namespace osm
  {
   //====================================================
-  //     CONSTRUCTORS AND DESTRUCTORS DEFINITION
+  //     Parametric constructor
   //====================================================
   /**
    * @brief Construct a new Plot2D:: Plot2D object. The same as its parent, the constructor requires the dimensions of the canvas.
@@ -22,7 +22,7 @@ namespace osm
     }
 
   //====================================================
-  //     SETTERS DEFINITION
+  //     setOffset
   //====================================================
   /**
    * @brief Set the offset_x and offset_y of the canvas.
@@ -36,6 +36,9 @@ namespace osm
     offset_y_ = yOff;
    }
 
+  //====================================================
+  //     setScale
+  //====================================================
   /** 
    * @brief Set the scale_x and scale_y of the canvas.
    * 
@@ -49,7 +52,7 @@ namespace osm
    }
 
   //====================================================
-  //     GETTERS DEFINITION
+  //     getOffsetX
   //====================================================
   /**
    * @brief Get the offset_x of the canvas.
@@ -61,6 +64,9 @@ namespace osm
     return offset_x_;
    }
 
+  //====================================================
+  //     getOffsetY
+  //====================================================
   /** 
    * @brief Get the offset_y of the canvas.
    * 
@@ -71,6 +77,9 @@ namespace osm
     return offset_y_;
    }
 
+  //====================================================
+  //     getScaleX
+  //====================================================
   /** 
    * @brief Get the scale_x of the canvas.
    * 
@@ -81,6 +90,9 @@ namespace osm
     return scale_x_;
    }
 
+  //====================================================
+  //     getScaleY
+  //====================================================
   /** 
    * @brief Get the scale_y of the canvas.
    * 

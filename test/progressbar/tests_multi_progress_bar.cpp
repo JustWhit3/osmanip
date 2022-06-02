@@ -11,7 +11,7 @@
 #include <sstream>
 
 //====================================================
-//     GLOBAL VARIABLES DEFINITION
+//     Global variables
 //====================================================
 osm::ProgressBar <int> bar1;
 osm::ProgressBar <double> bar2;
@@ -19,7 +19,7 @@ osm::ProgressBar <float> bar3;
 auto bars = osm::MultiProgressBar( bar1, bar2, bar3 );
 
 //====================================================
-//     TESTING "size" METHOD
+//     Testing "size" method
 //====================================================
 TEST_CASE( "Testing the size method" )
  {
@@ -27,7 +27,7 @@ TEST_CASE( "Testing the size method" )
  }
 
 //====================================================
-//     TESTING "operator()" REDEFINITION IN UPDATER
+//     Testing "operator()" redefinition
 //====================================================
 TEST_CASE( "Testing the operator() redefinition in the updater struct" )
  {

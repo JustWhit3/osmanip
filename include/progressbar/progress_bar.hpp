@@ -14,7 +14,7 @@
 namespace osm
  {
   //====================================================
-  //     PROGRESSBAR CLASS
+  //     ProgressBar class
   //====================================================
   /**
    * @brief Template class used to create customized progress bars.
@@ -27,21 +27,21 @@ namespace osm
     public:
 
     //====================================================
-    //     USING ALIASES
+    //     Aliases
     //====================================================
     using steady_clock = std::chrono::steady_clock;
     using duration = std::chrono::duration <float, steady_clock::period>;
     using string_set_map = std::map <std::string, std::set <std::string> >;
 
     //====================================================
-    //     CONSTRUCTORS AND DESTRUCTOR DECLARATION
+    //     Constructors and destructors
     //====================================================
      ProgressBar();
      ProgressBar( const bar_type& min, const bar_type& max );
      ~ProgressBar();
 
     //====================================================
-    //     SETTERS DECLARATION
+    //     Setters
     //====================================================
      void setMax( const bar_type& max );
      void setMin( const bar_type& min );
@@ -55,7 +55,7 @@ namespace osm
      void setRemainingTimeFlag( const std::string& time_flag );
 
     //====================================================
-    //     RESETTERS DECLARATION
+    //     Resetters
     //====================================================
      void resetAll();
      void resetMax();
@@ -68,7 +68,7 @@ namespace osm
      void resetColor();
 
     //====================================================
-    //     GETTERS DECLARATION
+    //     Getters
     //====================================================
      long long getTime() const;
      bar_type getMax() const;
@@ -85,7 +85,7 @@ namespace osm
      std::string getRemainingTimeFlag() const;
 
     //====================================================
-    //     OTHER METHODS DECLARATION
+    //     Other methods
     //====================================================
      void update( const bar_type& iterating_var );
      void print() const;
@@ -94,20 +94,20 @@ namespace osm
     private:
 
     //====================================================
-    //     PRIVATE METHODS
+    //     Private methods
     //====================================================
      void update_output( const std::string& output );
      void remaining_time();
 
     //====================================================
-    //     STATIC ATTRIBUTES DECLARATION
+    //     Static attributes
     //====================================================
      static string_set_map styles_map_;
      static std::vector <bar_type> counter_;
      static std::mutex mutex_;
      
     //====================================================
-    //     NON-STATIC ATTRIBUTES DECLARATION
+    //     Non-static attributes
     //====================================================
      long long time_count_;
      std::uint64_t ticks_occurred;
@@ -118,7 +118,7 @@ namespace osm
    };
 
   //====================================================
-  //     OPERATOR << REDEFINITION
+  //     Operator << redefinition
   //====================================================
   /**
    * @brief Operator << used to print the progress bar properties.
