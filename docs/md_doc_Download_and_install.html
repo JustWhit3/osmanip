@@ -67,7 +67,7 @@ $(function() {
 <div class="title">Download and install </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md42"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md16"></a>
 Table of contents</h1>
 <ul>
 <li><a href="#download">Download</a><ul>
@@ -93,10 +93,10 @@ Table of contents</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md43"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Download</h1>
 <p>To download the library you can proceed in two independent ways.</p>
-<h2><a class="anchor" id="autotoc_md44"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Download the whole repository</h2>
 <p>First of all, you need to download the code: go to the <a href="https://github.com/JustWhit3/osmanip">main page</a> of the repository and click on the upper right green button called <code>Code</code>. Than click on <code>Download ZIP</code> and wait the download to be completed.</p>
 <p>Then open a fresh shell and move the downloaded zipped file to your home directory (or to any other place you prefer): </p><div class="fragment"><div class="line">mv Downloads/osmanip-main.zip $HOME</div>
@@ -105,7 +105,7 @@ Download the whole repository</h2>
 <div class="line">unzip osmanip-main.zip</div>
 <div class="line">mv osmanip-main osmanip</div>
 </div><!-- fragment --><p> And that's all. You can enter the folder by simply typing: </p><div class="fragment"><div class="line">cd osmanip</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md45"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
 Download the latest release</h2>
 <p>Alternatively you can download the latest version of the repository from the <code>Releases</code> button on the right of the repository main page by clicking on the source code link. In this case the procedure is similar:</p>
 <p>Open a fresh shell and move the downloaded zipped file to your home directory (or to any other place you prefer): </p><div class="fragment"><div class="line">mv Downloads/osmanip-x.y.z.zip $HOME</div>
@@ -117,10 +117,10 @@ Download the latest release</h2>
 <p>If you prefer to download the tar.gz format of the release you have to run the <code>gunzip</code> command followed by the <code>tar -xvf</code> command on the zipped release folder and than proceed with <code>mv</code>. </p>
 </blockquote>
 <p>And that's all. You can enter the folder by simply typing: </p><div class="fragment"><div class="line">cd osmanip</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md46"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md20"></a>
 Prerequisites</h1>
 <p>All the prerequisites can be installed during the first step of the automatic installation with <a href="https://github.com/JustWhit3/osmanip/blob/main/scripts/install.sh">script</a>.</p>
-<h2><a class="anchor" id="autotoc_md47"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Mandatory</h2>
 <p>Tools:</p>
 <ul>
@@ -134,7 +134,7 @@ Mandatory</h2>
 <li><a href="https://www.boost.org/">Boost</a> library.</li>
 <li><a href="https://github.com/JustWhit3/arsenalgear">arsenalgear</a> library.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md48"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Optional</h2>
 <p>Tools:</p>
 <ul>
@@ -143,12 +143,13 @@ Optional</h2>
 <li><a href="https://stackoverflow.com/questions/20756924/how-can-i-install-clang-format-in-ubuntu#:~:text=16.04%2C%20simply%20do%3A-,sudo%20apt%20install%20clang%2Dformat,-Share">Clang formatter</a> to format the code for pull requests.</li>
 <li><a href="https://www.techwalla.com/articles/how-to-install-wget-in-ubuntu">wget</a> to download extra dependencies repositories.</li>
 <li><a href="https://www.mysoftkey.com/linux/how-to-do-zip-and-unzip-file-in-ubuntu-linux/">unzip</a> to unzip zipped directories during download and installation.</li>
+<li><a href="https://www.doxygen.nl/manual/starting.html">Doxygen</a> for documentation generation while developing.</li>
 </ul>
 <p>Libraries and frameworks:</p>
 <ul>
 <li><a href="https://github.com/onqtam/doctest">doctest</a> for testing.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md49"></a>
+<h1><a class="anchor" id="autotoc_md23"></a>
 Install</h1>
 <p>From release <a href="https://github.com/JustWhit3/osmanip/releases/tag/v2.1.0">2.1.0</a> an installer script, called <a href="https://github.com/JustWhit3/osmanip/blob/main/install.sh">install.sh</a>, has been introduced. This script can be used to properly install the library into your computer, in order to easily use it in your programs.</p>
 <p>Operating systems compatibility: Ubuntu and WSL.</p>
@@ -157,18 +158,18 @@ Install</h1>
 <p><b>NOTE</b>: scripts have to be run directly from the repository home directory. </p>
 </blockquote>
 <p>A new library <em>libosmanip</em> will be created into the <code>/usr/local/lib</code> folder of your computer and the <a href="https://github.com/JustWhit3/osmanip/blob/main/include"><em>header</em></a> files will be installed into <code>/usr/local/include</code>.</p>
-<h1><a class="anchor" id="autotoc_md50"></a>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Update</h1>
 <p>In case you want to update the source code from the latest improvements of the repository, you can use the updater script, called <a href="https://github.com/JustWhit3/osmanip/blob/main/scripts/update.sh">update.sh</a>.</p>
 <p>From the repository folder type this command on the shell: </p><div class="fragment"><div class="line">./scripts/update.sh</div>
 </div><!-- fragment --><p> Then, you can reinstall the repository: </p><div class="fragment"><div class="line">./scripts/install.sh</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md51"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
 Uninstall</h1>
 <p>In case you want to uninstall the software from your computer, you can use the uninstaller script, called <a href="https://github.com/JustWhit3/osmanip/blob/main/uninstall.sh">uninstall.sh</a>.</p>
 <p>From the repository folder type this command on the shell: </p><div class="fragment"><div class="line">./scripts/uninstall.sh</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md52"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md26"></a>
 Compile and run</h1>
-<h2><a class="anchor" id="autotoc_md53"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Use in your device</h2>
 <p>Once you have installed the library you can freely use it in one of your C++ projects by including one or more of the modules: </p><div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;osmanip/module_folder/module_name.hpp&gt;</div>
@@ -185,7 +186,7 @@ Use in your device</h2>
 </div><!-- fragment --> <blockquote class="doxtable">
 <p><b>NOTE</b>: at least c++17 standard is required to successfully access al the library features. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md54"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Compile the source code example and testing</h2>
 <p>The source code contains also an example code <a href="https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp"><em>src/main.cpp</em></a> to show the user a simple usage of all the features supported by the library and test codes in the <a href="https://github.com/JustWhit3/osmanip/blob/main/test"><b>test</b></a> folder to test the correct functionality of the library functions and methods.</p>
 <p>To compile them I prepared a <a href="https://github.com/JustWhit3/osmanip/blob/main/Makefile">Makefile</a>. The source code is already compiled when you install the library, but in case you don't want to install the package and explore only the library features through this examples, you can run this command on the shell: </p><div class="fragment"><div class="line">make</div>
@@ -195,10 +196,10 @@ Compile the source code example and testing</h2>
 </div><!-- fragment --><p> If you want to compile only the main code you can simply enter: </p><div class="fragment"><div class="line">make main</div>
 </div><!-- fragment --><p> if instead you want to compile only the tests code you can use the following command: </p><div class="fragment"><div class="line">make tests</div>
 </div><!-- fragment --><p> There is also an option to go back to the pre-compilation state of the code, to do this simply type this command: </p><div class="fragment"><div class="line">make clean</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md55"></a>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md29"></a>
 Other scripts</h1>
 <p>Other scripts have been provided into the <a href="https://github.com/JustWhit3/osmanip/blob/main/scripts"><b>scripts</b></a> folder. After compiling the source code, they can be run from the repository home directory.</p>
-<h2><a class="anchor" id="autotoc_md56"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 debug.sh</h2>
 <p>This script is used to run <a href="https://valgrind.org/">Valgrind</a> and <a href="https://github.com/danmar/cppcheck">Cppcheck</a> debugging tools on the whole code.</p>
 <p>You can run Valgrind debugging tools with a specific executable: </p><div class="fragment"><div class="line">./scripts/debug.sh [valgrind-tool-name] [executable-name]</div>

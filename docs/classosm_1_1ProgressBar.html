@@ -108,10 +108,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab2bb14015acd7b4f24df753c510d17e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the minimum value of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>.  <a href="classosm_1_1ProgressBar.html#ab2bb14015acd7b4f24df753c510d17e5">More...</a><br /></td></tr>
 <tr class="separator:ab2bb14015acd7b4f24df753c510d17e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7396965b85300e79639d151264baf26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">setStyle</a> (const std::string &amp;type, const std::string &amp;style)</td></tr>
-<tr class="memdesc:ae7396965b85300e79639d151264baf26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the style of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>.  <a href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">More...</a><br /></td></tr>
+<tr class="memdesc:ae7396965b85300e79639d151264baf26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the type and style of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. Available: "indicator" ("%", "/100"), "loader" ("#", "■"), "spinner" ("/-\\|").  <a href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">More...</a><br /></td></tr>
 <tr class="separator:ae7396965b85300e79639d151264baf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af16bdec724cd65d3d47b013213d79334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#af16bdec724cd65d3d47b013213d79334">setStyle</a> (const std::string &amp;type, const std::string &amp;style_p, const std::string &amp;style_l)</td></tr>
-<tr class="memdesc:af16bdec724cd65d3d47b013213d79334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the style of the complete <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>.  <a href="classosm_1_1ProgressBar.html#af16bdec724cd65d3d47b013213d79334">More...</a><br /></td></tr>
+<tr class="memdesc:af16bdec724cd65d3d47b013213d79334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the style of the complete <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. Available: "indicator" ("%", "/100"), "loader" ("#", "■"), "spinner" ("/-\\|") and "complete" with both indicator first and loader second.  <a href="classosm_1_1ProgressBar.html#af16bdec724cd65d3d47b013213d79334">More...</a><br /></td></tr>
 <tr class="separator:af16bdec724cd65d3d47b013213d79334"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad205e192d5169f6af906616f9ee285fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe">setMessage</a> (const std::string &amp;message)</td></tr>
 <tr class="memdesc:ad205e192d5169f6af906616f9ee285fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the message of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>.  <a href="classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe">More...</a><br /></td></tr>
@@ -1263,7 +1263,7 @@ template&lt;typename bar_type &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Set the style of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. </p>
+<p>Set the type and style of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. Available: "indicator" ("%", "/100"), "loader" ("#", "■"), "spinner" ("/-\\|"). </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">bar_type</td><td>The type of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. </td></tr>
@@ -1273,7 +1273,7 @@ template&lt;typename bar_type &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>The type (flavor) of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. </td></tr>
-    <tr><td class="paramname">style</td><td>The style of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. </td></tr>
+    <tr><td class="paramname">style</td><td>The style of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. Available: </td></tr>
   </table>
   </dd>
 </dl>
@@ -1314,7 +1314,7 @@ template&lt;typename bar_type &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Set the style of the complete <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. </p>
+<p>Set the style of the complete <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. Available: "indicator" ("%", "/100"), "loader" ("#", "■"), "spinner" ("/-\\|") and "complete" with both indicator first and loader second. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">bar_type</td><td>The type of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a>. </td></tr>

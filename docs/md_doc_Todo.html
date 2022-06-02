@@ -67,19 +67,21 @@ $(function() {
 <div class="title">List of future implementations </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md73"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md47"></a>
 New features</h1>
 <ul>
 <li>Extend the 2D terminal-graphics to 3D.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md74"></a>
+<h1><a class="anchor" id="autotoc_md48"></a>
 Improvements</h1>
 <ul>
 <li>Make the library a cross-platform software, in order to support also other operating systems than Unix ones.</li>
 <li>Improve the compilation using CMake tools.</li>
 <li>Add time-elapsed info to the progress bar.</li>
+<li>Add the library to the official <code>apt</code> package manager.</li>
+<li>Split the <a href="https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp">example</a> code into sub-examples for each library.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md75"></a>
+<h1><a class="anchor" id="autotoc_md49"></a>
 Bugs</h1>
 <ul>
 <li>Correct a small bug for which, for the <code>ProgressBar&lt;float&gt;</code> and <code>ProgresBar&lt;double&gt;</code> istances, the <code>update</code> method, when using a high difference between the value of <code>setMin</code> and <code>setMax</code> (for example <code>setMin( 1.1f )</code> and <code>setMax( 13.4f )</code> in an iterating loop variable of <code>i += 0.1f</code>), show the progress indicator sometimes not precise (see the <code>width</code> variable definition inside the <code>update</code> method, maybe is this one the problem).</li>
