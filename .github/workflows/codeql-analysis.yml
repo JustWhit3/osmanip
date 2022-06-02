@@ -57,6 +57,7 @@ jobs:
     #    uses a compiled language
 
     - run: |
+       ./scripts/install.sh
        make
 
     - name: Perform CodeQL Analysis
