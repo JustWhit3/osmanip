@@ -34,7 +34,7 @@ If you want to use this software in one of your project, please cite it. You can
 
 > **NOTE 2**: this library doesn't make use of any GUI.
 
-Example output of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) program demo:
+Example output of the [*examples*](https://github.com/JustWhit3/osmanip/blob/main/examples) folder programs:
 
 Colors and styles manipulators
 
@@ -98,7 +98,10 @@ osmanip/
 │   ├── progressbar/
 │   │   ├── progress_bar.cpp
 │   │   ├── multi_progress_bar.cpp
-│   ├── main.cpp
+├── examples/
+│   ├── manipulators.cpp
+│   ├── progressbar.cpp
+│   ├── graphics.cpp
 ├── scripts/
 │   ├── debug.sh
 │   ├── install.sh
@@ -155,12 +158,12 @@ Here you can find the list of features implemented in the current version of the
 
 Why choosing this library for color / styles / escape sequences manipulation:
 
-- All the functions used to manipulate these sequences are [very easy to use](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp#:~:text=void%20col_sty(),%7D) and don't require complex code signatures.
+- All the functions used to manipulate these sequences are [very easy to use](https://github.com/JustWhit3/osmanip/blob/main/examples/manipulators.cpp) and don't require complex code signatures.
 - All the most common ANSI sequences can be manipulated.
   
 Why choosing this library for progress bars? Some properties:
 
-- Extremely [easy to use](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=ProgressBar%20%3Cint%3E%20percentage_bar,Do%20some%20operations...%0A%20%20%7D).
+- Extremely [easy to use](https://github.com/JustWhit3/osmanip/blob/main/examples/manipulators.cpp).
 - Compatible with positive or negative variable of any standard type (integer, float, double and others).
 - Maximum and minimum values can be set with [any value](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=NOTE%3A%20you%20can%20insert%20each%20min%20and%20max%20value%20you%20prefer%2C%20like%20also%20%2D3%20and%2052%20for%20example%2C%20and%20the%20bar%20will%20work%20perfectly%20too.) you prefer and the progress bars will be self-built with respect to them.
 - Each progress bar [feature](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=Type%3A%20percentage%20indicator,progress%20bars%20simultaneously.) can be fully customized (messages, style, color, brackets type, time remaining info etc...) regarding to your requirements. You can also choose to use only a progress indicator or a loading bar instead of a complete progress bar.

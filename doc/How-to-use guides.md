@@ -37,7 +37,7 @@ This manipulators are used to modify and manipulate the output stream of a progr
 
 ### Colors and styles manipulation
 
-List of the supported color / style features (part of the output of the [*main.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/main.cpp) program):
+List of the supported color / style features (part of the output of the [*examples/manipulators.cpp*](https://github.com/JustWhit3/osmanip/blob/main/examples/manipulators.cpp) program):
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/output.png">
 

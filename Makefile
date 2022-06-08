@@ -1,38 +1,61 @@
 #====================================================
 #     Variables
 #====================================================
-TARGET_EXEC := main
+
+# Executabls
+EX_MANIP_EXEC := manipulators
+EX_PB_EXEC := progressbar
+EX_GRAPH_EXEC := graphics
 TEST_EXEC := tests
+
+# Other
 LIB := libosmanip.a
 CC := g++
 
 #====================================================
 #     Folders
 #====================================================
+
+# Binary folders
 BUILD_DIR := bin
-SRC_DIR := src
 OBJ_DIR := obj
-TEST_DIR := test
 LIB_DIR := lib
+
+# Source folders
+SRC_DIR := src
+EX_DIR := examples
+TEST_DIR := test
 
 #====================================================
 #     Source files
 #====================================================
-SRC := $(shell find $(SRC_DIR) -name '*.cpp')
-SRC_LIB := $(shell find $(SRC_DIR) -type f | grep -v 'main.cpp')
-TEST := $(shell find $(SRC_DIR) -type f | grep -v 'main.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
+
+# Source files fo examples
+SRC_MANIP := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'manipulators.cpp')
+SRC_PB := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'progressbar.cpp')
+SRC_GRAPH := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'graphics.cpp')
+
+# Other source files
+SRC_LIB := $(shell find $(SRC_DIR) -name '*.cpp')
+TEST := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
 
 #====================================================
 #     Source objects
 #====================================================
-OBJ := $(SRC:%=$(OBJ_DIR)/%.o)
+
+# Source objects fo examples
+OBJ_MANIP := $(SRC_MANIP:%=$(OBJ_DIR)/%.o)
+OBJ_PB := $(SRC_PB:%=$(OBJ_DIR)/%.o)
+OBJ_GRAPH := $(SRC_GRAPH:%=$(OBJ_DIR)/%.o)
+
+# Other source objects
 OBJ_LIB := $(SRC_LIB:%=$(OBJ_DIR)/%.o)
 TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 
 #====================================================
 #     Dependencies and flags
 #====================================================
-DEPS := $(OBJ:.o=.d)
+DEPS := $(OBJ_MANIP:.o=.d) $(OBJ_PB:.o=.d) $(OBJ_GRAPH:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
@@ -53,31 +76,46 @@ endif
 #====================================================
 .PHONY: clean all
 
-#====================================================
-#     Building
-#====================================================
-
-#Building all:
-all: $(BUILD_DIR)/$(TARGET_EXEC) $(BUILD_DIR)/$(TEST_EXEC) $(LIB_DIR)/$(LIB)
-main: $(BUILD_DIR)/$(TARGET_EXEC) $(LIB_DIR)/$(LIB)
+all: $(BUILD_DIR)/$(EX_MANIP_EXEC) $(BUILD_DIR)/$(EX_PB_EXEC) $(BUILD_DIR)/$(EX_GRAPH_EXEC) $(BUILD_DIR)/$(TEST_EXEC) $(LIB_DIR)/$(LIB)
+main: $(BUILD_DIR)/$(EX_MANIP_EXEC) $(BUILD_DIR)/$(EX_PB_EXEC) $(BUILD_DIR)/$(EX_GRAPH_EXEC) $(LIB_DIR)/$(LIB)
 tests: $(BUILD_DIR)/$(TEST_EXEC)
 
-#Building main executable:
-$(BUILD_DIR)/$(TARGET_EXEC): $(OBJ)
-	@ mkdir -p $(dir $@)
-	$(CC) $(OBJ) -o $@ $(LDFLAGS)
+#====================================================
+#     Building examples
+#====================================================
 
-#Building test executable:
+# Manipulators
+$(BUILD_DIR)/$(EX_MANIP_EXEC): $(OBJ_MANIP)
+	@ mkdir -p $(dir $@)
+	$(CC) $(OBJ_MANIP) -o $@ $(LDFLAGS)
+
+# Progress bar
+$(BUILD_DIR)/$(EX_PB_EXEC): $(OBJ_PB)
+	@ mkdir -p $(dir $@)
+	$(CC) $(OBJ_PB) -o $@ $(LDFLAGS)
+
+# Graphics
+$(BUILD_DIR)/$(EX_GRAPH_EXEC): $(OBJ_GRAPH)
+	@ mkdir -p $(dir $@)
+	$(CC) $(OBJ_GRAPH) -o $@ $(LDFLAGS)
+
+#====================================================
+#     Building tests
+#====================================================
 $(BUILD_DIR)/$(TEST_EXEC): $(TEST_OBJ)
 	@ mkdir -p $(dir $@)
 	$(CC) $(TEST_OBJ) -o $@ $(LDFLAGS)
 
-#Put object files into the object dir:
+#====================================================
+#     Reordering objects
+#====================================================
 $(OBJ_DIR)/%.cpp.o: %.cpp
 	@ mkdir -p $(dir $@)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-#Create a static library from object files and put it in the library dir:
+#====================================================
+#     Static library creation
+#====================================================
 $(LIB_DIR)/$(LIB): $(OBJ_LIB)
 	@ mkdir -p $(dir $@)
 	ar rcs $(LIB_DIR)/$(LIB) $(OBJ_LIB)

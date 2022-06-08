@@ -172,13 +172,15 @@ To compile them I prepared a [Makefile](https://github.com/JustWhit3/osmanip/blo
 ```shell
 make
 ```
-This will compile both main and test codes. An extra **obj** folder with object files and a **bin** folder with two executables, *main* and *tests*, are now created.
+This will compile both main and test codes. An extra **obj** folder with object files and a **bin** folder with some executables for examples and testing, are now created.
 
-You have simply to run the former in order to run the entire example code:
+To run all the examples (or only one if you prefer):
 ```shell
-./bin/main
+./bin/manipulators
+./bin/progressbar
+./bin/graphics
 ```
-or the latter in order to test the correct functionalities of the library classes methods and functions:
+To run tests:
 ```shell
 ./bin/tests
 ```
