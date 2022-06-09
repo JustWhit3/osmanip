@@ -30,14 +30,10 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
-
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
     
     - name: Installing packages
       run: |
-       sudo apt install build-essential g++ libboost-all-dev wget unzip
-       sudo apt install doctest-dev valgrind cppcheck clang-format doxygen
+       sudo apt install build-essential g++ libboost-all-dev wget unzip doctest-dev valgrind cppcheck clang-format doxygen
 
     - name: Installing Python modules
       run: |
