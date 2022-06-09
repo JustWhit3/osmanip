@@ -31,7 +31,7 @@ jobs:
       with:
         languages: ${{ matrix.language }}
     
-    - name: Installing extra dependencies
+    - name: Installing extra dependencies and compiling
       run: |
        sudo apt install build-essential g++ libboost-all-dev wget unzip doctest-dev valgrind cppcheck clang-format doxygen
        pip install hurry termcolor
@@ -42,9 +42,6 @@ jobs:
        ./scripts/install.sh
        cd ..
        rm -rf arsenalgear-*
-
-    - name: Compiling
-      run: |
        make
 
     - name: Perform CodeQL Analysis
