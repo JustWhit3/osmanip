@@ -36,13 +36,25 @@ jobs:
        sudo apt install build-essential g++ libboost-all-dev wget unzip doctest-dev valgrind cppcheck clang-format doxygen
        sudo mv /usr/include/doctest/* /usr/include
        pip install hurry.filesize termcolor
+
+       exprtk_sha1=ca5c577917646ddba3f71ce6d5dd7d01f351ee80
+       wget https://github.com/ArashPartow/exprtk/archive/$exprtk_sha1.zip
+       mv $exprtk_sha1.zip exprtk-$exprtk_sha1.zip
+       unzip exprtk-$exprtk_sha1.zip
+       sudo cp exprtk-$exprtk_sha1/exprtk.hpp /usr/include/
+       rm -rf exprtk-*
+
        wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
        mv main.zip arsenalgear-cpp-main.zip
        unzip arsenalgear-cpp-main.zip
        cd arsenalgear-cpp-main || exit
-       ./scripts/install.sh
+       make
+       sudo mkdir -p /usr/local/include/arsenalgear
+       sudo cp -r include/* /usr/local/include/arsenalgear
+       sudo cp lib/* /usr/local/lib
        cd ..
        rm -rf arsenalgear-*
+       
        make
 
     - name: Perform CodeQL Analysis
