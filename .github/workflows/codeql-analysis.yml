@@ -31,23 +31,17 @@ jobs:
       with:
         languages: ${{ matrix.language }}
     
-    - name: Installing packages
-      run: |
-       sudo apt install build-essential g++ libboost-all-dev wget unzip doctest-dev valgrind cppcheck clang-format doxygen
-
-    - name: Installing Python modules
-      run: |
-       pip install hurry termcolor
-
     - name: Installing extra dependencies
       run: |
+       sudo apt install build-essential g++ libboost-all-dev wget unzip doctest-dev valgrind cppcheck clang-format doxygen
+       pip install hurry termcolor
        wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
        mv main.zip arsenalgear-cpp-main.zip
        unzip arsenalgear-cpp-main.zip
        cd arsenalgear-cpp-main || exit
        ./scripts/install.sh
        cd ..
-       arsenalgear-*
+       rm -rf arsenalgear-*
 
     - name: Compiling
       run: |
