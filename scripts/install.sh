@@ -16,11 +16,11 @@ echo "Updating and upgrading the system..."
 sudo apt install build-essential g++ libboost-all-dev wget unzip
 echo ""
 echo "Installing arsenalgear library..."
-wget https://github.com/JustWhit3/arsenalgear/archive/main.zip
-mv main.zip arsenalgear-main.zip
-unzip arsenalgear-main.zip
-cd arsenalgear-main || exit
-./scripts/install_cpp.sh
+wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
+mv main.zip arsenalgear-cpp-main.zip
+unzip arsenalgear-cpp-main.zip
+cd arsenalgear-cpp-main || exit
+./scripts/install.sh
 cd ..
 rm -rf arsenalgear-*
 echo ""

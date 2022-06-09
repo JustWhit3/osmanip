@@ -1,6 +1,7 @@
 # Download and install
 
 ## Table of contents
+
 - [Download](#download)
   * [Download the whole repository](#download-the-whole-repository)
   * [Download the latest release](#download-the-latest-release)
@@ -81,7 +82,7 @@ Tools:
 Libraries and frameworks:
 
 - [Boost](https://www.boost.org/) library.
-- [arsenalgear](https://github.com/JustWhit3/arsenalgear) library.
+- [arsenalgear](https://github.com/JustWhit3/arsenalgear-cpp) library.
 
 ### Optional
 
