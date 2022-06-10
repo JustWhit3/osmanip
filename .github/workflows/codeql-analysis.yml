@@ -10,8 +10,8 @@ on:
 
 jobs:
   analyze:
-    name: Analyze on Ubuntu
-    runs-on: [ ubuntu-latest, macos-latest ]
+    name: Analyze
+    runs-on: [ ubuntu-latest, macos-11 ]
     permissions:
       actions: read
       contents: read
