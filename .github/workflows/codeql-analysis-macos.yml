@@ -33,7 +33,8 @@ jobs:
     
     - name: Installing extra dependencies and compiling
       run: |
-       brew install boost make doctest cppcheck gcc
+       brew install boost make doctest cppcheck
+       brew reinstall gcc
        pip install hurry.filesize termcolor
 
        PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
