@@ -33,8 +33,7 @@ jobs:
     
     - name: Installing extra dependencies and compiling
       run: |
-       brew install boost make doctest wget cppcheck doxygen
-       sudo mv /usr/include/doctest/* /usr/include
+       brew install boost make doctest cppcheck
        pip install hurry.filesize termcolor
 
        PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
