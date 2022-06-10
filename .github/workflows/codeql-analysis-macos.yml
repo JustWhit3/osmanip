@@ -33,11 +33,11 @@ jobs:
     
     - name: Installing extra dependencies and compiling
       run: |
-       brew install boost make gcc
-       PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
-       sudo port install doctest wget cppcheck doxygen
+       brew install boost make doctest wget cppcheck doxygen
        sudo mv /usr/include/doctest/* /usr/include
        pip install hurry.filesize termcolor
+
+       PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
        exprtk_sha1=ca5c577917646ddba3f71ce6d5dd7d01f351ee80
        wget https://github.com/ArashPartow/exprtk/archive/$exprtk_sha1.zip
