@@ -33,7 +33,7 @@ jobs:
     
     - name: Installing extra dependencies and compiling
       run: |
-       xcode-select --install
+       softwareupdate --install -a
        brew install boost make doctest cppcheck
        pip install hurry.filesize termcolor
 
