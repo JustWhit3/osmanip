@@ -33,7 +33,6 @@ jobs:
     
     - name: Installing extra dependencies and compiling
       run: |
-       softwareupdate --install -a
        brew install boost make doctest cppcheck
        pip install hurry.filesize termcolor
 
@@ -50,7 +49,7 @@ jobs:
        mv main.zip arsenalgear-cpp-main.zip
        unzip arsenalgear-cpp-main.zip
        cd arsenalgear-cpp-main || exit
-       make
+       gmake
        sudo mkdir -p /Library/Developer/CommandLineTools/usr/include/arsenalgear
        sudo cp -r include/* /Library/Developer/CommandLineTools/usr/include/arsenalgear
        sudo cp lib/* /Library/Developer/CommandLineTools/usr/lib

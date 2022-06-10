@@ -98,6 +98,8 @@ Tools:
 Libraries and frameworks:
 
 - [doctest](https://github.com/onqtam/doctest) for testing.
+- [hurry.filesize](https://pypi.org/project/hurry.filesize/) for `size_of_dir.py` script.
+- [termcolor](https://pypi.org/project/termcolor/) for `size_of_dir.py` script.
 
 ## Install
 
