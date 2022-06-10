@@ -42,7 +42,7 @@ jobs:
        wget https://github.com/ArashPartow/exprtk/archive/$exprtk_sha1.zip
        mv $exprtk_sha1.zip exprtk-$exprtk_sha1.zip
        unzip exprtk-$exprtk_sha1.zip
-       sudo cp exprtk-$exprtk_sha1/exprtk.hpp /usr/include/
+       sudo cp exprtk-$exprtk_sha1/exprtk.hpp /Library/Developer/CommandLineTools/usr/include
        rm -rf exprtk-*
 
        wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
