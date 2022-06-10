@@ -33,8 +33,12 @@ jobs:
     
     - name: Installing extra dependencies and compiling
       run: |
+       gcc --version
+       make --version
        brew install boost make doctest cppcheck
        pip install hurry.filesize termcolor
+       gcc --version
+       make --version
 
        PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
@@ -49,7 +53,7 @@ jobs:
        mv main.zip arsenalgear-cpp-main.zip
        unzip arsenalgear-cpp-main.zip
        cd arsenalgear-cpp-main || exit
-       gmake
+       make
        sudo mkdir -p /Library/Developer/CommandLineTools/usr/include/arsenalgear
        sudo cp -r include/* /Library/Developer/CommandLineTools/usr/include/arsenalgear
        sudo cp lib/* /Library/Developer/CommandLineTools/usr/lib
