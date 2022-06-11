@@ -10,7 +10,11 @@ TEST_EXEC := tests
 
 # Other
 LIB := libosmanip.a
-CC := g++
+ifeq ($(UNAME_S),Darwin)
+	CC := clang++
+else
+	CC := g++
+endif
 
 #====================================================
 #     Folders
