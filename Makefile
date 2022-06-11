@@ -10,6 +10,7 @@ TEST_EXEC := tests
 
 # Other
 LIB := libosmanip.a
+UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 	CC := clang++
 else
