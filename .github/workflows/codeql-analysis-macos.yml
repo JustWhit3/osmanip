@@ -33,11 +33,9 @@ jobs:
     
     - name: Installing extra dependencies and compiling
       run: |
-       g++ --version
+       bre reinstall gcc --HEAD
        brew install boost doctest
        pip install hurry.filesize termcolor
-       bre install gcc --HEAD
-       g++ --version
 
        PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
