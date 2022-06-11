@@ -33,7 +33,7 @@ jobs:
     
     - name: Installing extra dependencies and compiling
       run: |
-       bre reinstall gcc --HEAD
+       brew reinstall gcc --HEAD
        brew install boost doctest
        pip install hurry.filesize termcolor
 
