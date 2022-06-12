@@ -21,7 +21,7 @@
 #include <stdexcept>
 
 //Using namespaces
-using namespace std::string_literals;
+using namespace std::literals::string_literals;
 
 namespace osm
  {
