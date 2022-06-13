@@ -74,6 +74,8 @@ osmanip/
 ├── .github/
 │   ├── workflows/
 │   │   ├── DocGenerator.yml
+│   │   ├── codeql-analysis-ubuntu.yml
+│   │   ├── codeql-analysis-macos.yml
 ├── img/
 ├── doc/
 │   ├── Contributing.md
