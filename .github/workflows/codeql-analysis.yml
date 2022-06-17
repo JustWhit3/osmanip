@@ -75,8 +75,9 @@ jobs:
        cd arsenalgear-cpp-main || exit
        make
        sudo mkdir -p ${INCLUDE:2}/arsenalgear
-       sudo cp -r include/* ${INCLUDE:2}/arsenalgear
-       sudo cp lib/* ${LIB:2}
+       sudo cp include/* ${INCLUDE:2}/arsenalgear
+       LIF_FIN=${LIB:2}
+       sudo cp lib/* ${LIF_FIN::-7}
        cd ..
        rm -rf arsenalgear-*
 
