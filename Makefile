@@ -95,17 +95,19 @@ ifeq ($(O_SYSTEM),Linux)
 	INC_DIR := $(shell find $(SRC_DIR) -type d)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR))
 	LIB_PATH := -L/usr/lib
+	LDFLAGS := -pthread $(LIB_PATH) -larsenalgear
 else ifeq ($(O_SYSTEM),MacOS)
 	INC_DIR := $(shell find $(SRC_DIR) -type d)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR)) `pcre-config --cflags`
 	LIB_PATH := `pcre-config --libs`
+	LDFLAGS := -pthread $(LIB_PATH) libarsenalgear.a
 else
 	INC_DIR := $(SRC_DIR)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR)) $(addprefix -I,$(WIN_INCLUDE)) $(addprefix -I,$(WIN_BOOST))
 	LIB_PATH := -L$(WIN_LIB)
+	LDFLAGS := -pthread $(LIB_PATH) libarsenalgear.lib
 endif
 CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
-LDFLAGS := -pthread $(LIB_PATH) -larsenalgear
 
 #====================================================
 #     Aliases
