@@ -1,8 +1,9 @@
 <map id="include/graphics/plot_2D.hpp" name="include/graphics/plot_2D.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="162,5,303,47"/>
-<area shape="rect" id="node2" href="$canvas_8hpp.html" title=" " alt="" coords="5,95,156,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="151,169,205,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="232,95,311,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="335,95,394,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="51,169,110,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="177,5,319,47"/>
+<area shape="rect" id="node2" href="$canvas_8hpp.html" title=" " alt="" coords="59,95,210,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,169,67,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="205,169,259,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="286,95,365,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="389,95,448,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="105,169,164,196"/>
 </map>
