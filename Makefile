@@ -100,7 +100,7 @@ else ifeq ($(O_SYSTEM),MacOS)
 	INC_DIR := $(shell find $(SRC_DIR) -type d)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR)) $(addprefix -I,/usr/local/include)
 	LIB_PATH := -L/usr/local/lib
-	LDFLAGS := -pthread $(LIB_PATH) -larsenalgear
+	LDFLAGS := -pthread $(LIB_PATH) libarsenalgear.a
 else
 	INC_DIR := $(SRC_DIR)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR)) $(addprefix -I,$(WIN_INCLUDE)) $(addprefix -I,$(WIN_BOOST))
