@@ -4,7 +4,7 @@
 #include "../include/graphics/plot_2D.hpp"
 
 //Extra headers
-#include <doctest.h>
+#include <doctest/doctest.h>
 
 //====================================================
 //     Testing "Plot2DCanvas" class

@@ -5,7 +5,7 @@
 #include "../include/progressbar/multi_progress_bar.hpp"
 
 //Extra headers
-#include <doctest.h>
+#include <doctest/doctest.h>
 
 //STD headers
 #include <sstream>

@@ -5,7 +5,7 @@
 #include "../include/manipulators/csmanip.hpp"
 
 //Extra headers
-#include <doctest.h>
+#include <doctest/doctest.h>
 
 //STD headers
 #include <map>

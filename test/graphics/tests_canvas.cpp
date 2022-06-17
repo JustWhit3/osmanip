@@ -4,7 +4,7 @@
 #include "../include/graphics/canvas.hpp"
 
 //Extra headers
-#include <doctest.h>
+#include <doctest/doctest.h>
 
 //====================================================
 //     Testing "Canvas" class

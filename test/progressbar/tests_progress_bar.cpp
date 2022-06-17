@@ -5,7 +5,7 @@
 #include "../include/progressbar/progress_bar.hpp"
 
 //Extra headers
-#include <doctest.h>
+#include <doctest/doctest.h>
 #include <arsenalgear/math.hpp>
 #include <arsenalgear/utils.hpp>
 
