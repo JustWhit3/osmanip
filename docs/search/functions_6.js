@@ -8,7 +8,7 @@ var searchData=
   ['getcolorname_145',['getColorName',['../classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb',1,'osm::ProgressBar']]],
   ['getframefeat_146',['getFrameFeat',['../classosm_1_1Canvas.html#a480b5c831444690c33c431e49b8c5f7b',1,'osm::Canvas']]],
   ['getframestyle_147',['getFrameStyle',['../classosm_1_1Canvas.html#aac79ef1ec3e0b734cd8119d261073bfb',1,'osm::Canvas']]],
-  ['getheight_148',['getHeight',['../classosm_1_1Canvas.html#a2296a07dd383876fbdf4de1bfbf56752',1,'osm::Canvas']]],
+  ['getheight_148',['getHeight',['../classosm_1_1Canvas.html#a74a7d22b68e900010b2c5cdc530351b8',1,'osm::Canvas']]],
   ['getiteratingvar_149',['getIteratingVar',['../classosm_1_1ProgressBar.html#a0b841a6a825cbc0d16f639dbfda3f83a',1,'osm::ProgressBar']]],
   ['getmax_150',['getMax',['../classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01',1,'osm::ProgressBar']]],
   ['getmessage_151',['getMessage',['../classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e',1,'osm::ProgressBar']]],
@@ -22,6 +22,6 @@ var searchData=
   ['getstylecomplete_159',['getStyleComplete',['../classosm_1_1ProgressBar.html#aa21653921a5395048f1e0de51d38d8d9',1,'osm::ProgressBar']]],
   ['gettime_160',['getTime',['../classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901',1,'osm::ProgressBar']]],
   ['gettype_161',['getType',['../classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8',1,'osm::ProgressBar']]],
-  ['getwidth_162',['getWidth',['../classosm_1_1Canvas.html#ada0034ad4df898694826f5d193aa5fdb',1,'osm::Canvas']]],
+  ['getwidth_162',['getWidth',['../classosm_1_1Canvas.html#a160b7ab568f9d747342fbc3665693328',1,'osm::Canvas']]],
   ['go_5fto_163',['go_to',['../namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd',1,'osm']]]
 ];

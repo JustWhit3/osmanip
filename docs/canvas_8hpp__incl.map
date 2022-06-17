@@ -1,6 +1,5 @@
 <map id="include/graphics/canvas.hpp" name="include/graphics/canvas.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="27,5,213,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="91,80,149,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="174,80,229,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,192,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="29,80,88,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="113,80,167,107"/>
 </map>

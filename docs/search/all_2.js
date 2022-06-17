@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['canvas_5',['Canvas',['../classosm_1_1Canvas.html#afc78adb6b473bbf6783bff7cf58776d8',1,'osm::Canvas::Canvas()'],['../classosm_1_1Canvas.html',1,'osm::Canvas']]],
+  ['canvas_5',['Canvas',['../classosm_1_1Canvas.html#abce191d8ced93b66b6c419fa25e1ba0c',1,'osm::Canvas::Canvas()'],['../classosm_1_1Canvas.html',1,'osm::Canvas']]],
   ['canvas_2ecpp_6',['canvas.cpp',['../canvas_8cpp.html',1,'']]],
   ['canvas_2ehpp_7',['canvas.hpp',['../canvas_8hpp.html',1,'']]],
   ['clear_8',['clear',['../classosm_1_1Canvas.html#a1505bf52113de81e87ba3f69d5c2a188',1,'osm::Canvas']]],
