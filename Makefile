@@ -94,18 +94,15 @@ DEPS := $(OBJ_MANIP:.o=.d) $(OBJ_PB:.o=.d) $(OBJ_GRAPH:.o=.d)
 ifeq ($(O_SYSTEM),Linux)
 	INC_DIR := $(shell find $(SRC_DIR) -type d)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR))
-	LIB_PATH := -L/usr/lib
-	LDFLAGS := -pthread $(LIB_PATH) -larsenalgear
+	LDFLAGS := -pthread -L/usr/lib -larsenalgear
 else ifeq ($(O_SYSTEM),MacOS)
 	INC_DIR := $(shell find $(SRC_DIR) -type d)
-	INC_FLAGS := $(addprefix -I,$(INC_DIR)) $(addprefix -I,/usr/local/include)
-	LIB_PATH := -L/usr/local/lib
+	INC_FLAGS := $(addprefix -I,$(INC_DIR))
 	LDFLAGS := -pthread -larsenalgear
 else
 	INC_DIR := $(SRC_DIR)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR)) $(addprefix -I,$(WIN_INCLUDE)) $(addprefix -I,$(WIN_BOOST))
-	LIB_PATH := -L$(WIN_LIB)
-	LDFLAGS := -pthread $(LIB_PATH) -llibarsenalgear.lib
+	LDFLAGS := -pthread -L$(WIN_LIB) -llibarsenalgear.lib
 endif
 CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
 
