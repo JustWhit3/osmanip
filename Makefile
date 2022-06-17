@@ -100,12 +100,12 @@ else ifeq ($(O_SYSTEM),MacOS)
 	INC_DIR := $(shell find $(SRC_DIR) -type d)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR)) `pcre-config --cflags`
 	LIB_PATH := `pcre-config --libs`
-	LDFLAGS := -pthread $(LIB_PATH)
+	LDFLAGS := -pthread -L/usr/local/Cellar/pcre/8.45/lib -larsenalgear
 else
 	INC_DIR := $(SRC_DIR)
 	INC_FLAGS := $(addprefix -I,$(INC_DIR)) $(addprefix -I,$(WIN_INCLUDE)) $(addprefix -I,$(WIN_BOOST))
 	LIB_PATH := -L$(WIN_LIB)
-	LDFLAGS := -pthread $(LIB_PATH) libarsenalgear.lib
+	LDFLAGS := -pthread $(LIB_PATH) -llibarsenalgear.lib
 endif
 CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
 
