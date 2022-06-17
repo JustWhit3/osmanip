@@ -59,6 +59,7 @@ jobs:
     - name: Installing extra dependencies and compiling (MacOS)
       if: matrix.os == 'macos-latest'
       run: |
+       g++ -v
        brew install boost doctest
        
        exprtk_sha1=ca5c577917646ddba3f71ce6d5dd7d01f351ee80
