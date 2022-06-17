@@ -76,8 +76,8 @@ jobs:
        make
        sudo mkdir -p ${INCLUDE:2}/arsenalgear
        sudo cp include/* ${INCLUDE:2}/arsenalgear
-       LIF_FIN=${LIB:2}
-       sudo cp lib/* ${LIF_FIN::-7}
+       LIB_FIN=${LIB:2}
+       sudo cp lib/* ${LIB_FIN::-7}
        cd ..
        rm -rf arsenalgear-*
 

@@ -7,6 +7,7 @@
 #include "../include/manipulators/csmanip.hpp"
 
 //STD headers
+#include <cstdint>
 #include <sstream>
 #include <iostream>
 

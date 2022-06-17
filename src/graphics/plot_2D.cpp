@@ -5,6 +5,9 @@
 //My headers
 #include "../include/graphics/plot_2D.hpp"
 
+// STD headers
+#include <cstdint>
+
 namespace osm
  {
   //====================================================

@@ -9,6 +9,7 @@
 //====================================================
 
 //STD headers
+#include <cstdint>
 #include <vector>
 #include <string>
 

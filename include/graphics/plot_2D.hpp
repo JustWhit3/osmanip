@@ -12,6 +12,7 @@
 #include "../graphics/canvas.hpp"
 
 //STD headers
+#include <cstdint>
 #include <functional>
 #include <cmath>
 #include <string>
