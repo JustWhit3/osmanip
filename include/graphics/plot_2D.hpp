@@ -12,7 +12,6 @@
 #include "../graphics/canvas.hpp"
 
 //STD headers
-#include <cstdint>
 #include <functional>
 #include <cmath>
 #include <string>
@@ -33,7 +32,7 @@ namespace osm
      //====================================================
      //     Constructors
      //====================================================
-     Plot2DCanvas( uint w, uint h ); 
+     Plot2DCanvas( unsigned int w, unsigned int h ); 
       
      //====================================================
      //     Setters
@@ -68,7 +67,7 @@ namespace osm
         {
          float real_x = offset_x_ + x * scale_x_;
          Y real_y = function( real_x );
-         uint y = std::round( ( real_y - offset_y_ )  /scale_y_ );
+         unsigned int y = std::round( ( real_y - offset_y_ )  /scale_y_ );
          if( y >= 0 && y < height_ ) put( x, y, c, feat );
         }
       }

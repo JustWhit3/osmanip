@@ -5,9 +5,6 @@
 //My headers
 #include "../include/graphics/plot_2D.hpp"
 
-// STD headers
-#include <cstdint>
-
 namespace osm
  {
   //====================================================
@@ -19,7 +16,7 @@ namespace osm
    * @param width Width of the canvas.
    * @param height Height of the canvas.
    */
-  Plot2DCanvas::Plot2DCanvas( uint w, uint h ):
+  Plot2DCanvas::Plot2DCanvas( unsigned int w, unsigned int h ):
    Canvas( w, h )
     {
      offset_x_ = 0;

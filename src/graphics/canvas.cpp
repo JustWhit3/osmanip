@@ -7,7 +7,6 @@
 #include "../include/manipulators/csmanip.hpp"
 
 //STD headers
-#include <cstdint>
 #include <sstream>
 #include <iostream>
 
@@ -22,7 +21,7 @@ namespace osm
    * @param width Width of the canvas.
    * @param height Height of the canvas.
    */
-  Canvas::Canvas( uint width, uint height )
+  Canvas::Canvas( unsigned int width, unsigned int height )
    {
     already_drawn_ = false;
     width_ = width;
@@ -85,7 +84,7 @@ namespace osm
    * 
    * @param width The canvas width to set.
    */
-  void Canvas::setWidth( uint width )
+  void Canvas::setWidth( unsigned int width )
    {
     width_ = width;
     resizeCanvas();
@@ -99,7 +98,7 @@ namespace osm
    * 
    * @param height The canvas height to set.
    */
-  void Canvas::setHeight( uint height )
+  void Canvas::setHeight( unsigned int height )
    {
     height_ = height;
     resizeCanvas();
@@ -111,9 +110,9 @@ namespace osm
   /**
    * @brief Get the width of the canvas.
    * 
-   * @return uint The width of the canvas.
+   * @return unsigned int The width of the canvas.
    */
-  uint Canvas::getWidth() const
+  unsigned int Canvas::getWidth() const
    {
     return width_;
    }
@@ -124,9 +123,9 @@ namespace osm
   /**
    * @brief Get the height of the canvas.
    * 
-   * @return uint The height of the canvas.
+   * @return unsigned int The height of the canvas.
    */
-  uint Canvas::getHeight() const
+  unsigned int Canvas::getHeight() const
    {
     return height_;
    }
@@ -219,7 +218,7 @@ namespace osm
    * @param y The y position.
    * @param feat The optional feature.
    */
-  void Canvas::put( uint x, uint y, char c, const std::string & feat )
+  void Canvas::put( unsigned int x, unsigned int y, char c, const std::string & feat )
    {
     char_buffer_.at( y * width_ + x ) = c;
     feat_buffer_.at( y * width_ + x ) = feat;
@@ -243,16 +242,16 @@ namespace osm
 
     if( already_drawn_ )
      {
-      for( uint i = 0; i < height_; i++ )
+      for( unsigned int i = 0; i < height_; i++ )
       {
         std::cout << feat( crs, "up", 1 );
       }
      }
 
-    uint y = 0;
-    uint x = 0;
+    unsigned int y = 0;
+    unsigned int x = 0;
 
-    const auto& frame = [ & ]( uint fi ) -> std::string 
+    const auto& frame = [ & ]( unsigned int fi ) -> std::string 
      {
       return frame_feat_ + frames[ frame_style_ ][ fi ] + feat( rst, "all" );
      };
@@ -263,7 +262,7 @@ namespace osm
      {
       ss << frame( 0 );
 
-      for( uint i = 2; i < width_; i++ )
+      for( unsigned int i = 2; i < width_; i++ )
        {
         ss << frame( 1 );
        }
@@ -278,7 +277,7 @@ namespace osm
       {
         ss << frame( 5 );
 
-        for( uint i = 2; i < width_; i++ )
+        for( unsigned int i = 2; i < width_; i++ )
          {
           ss << frame( 6 );
          }
@@ -287,7 +286,7 @@ namespace osm
         continue;
       }
 
-      for( uint x = 0; x < width_; x++ )
+      for( unsigned int x = 0; x < width_; x++ )
        {
         if( x == 0 && frame_enabled_ )
          {
@@ -301,7 +300,7 @@ namespace osm
           continue;
          }
 
-        uint p = y * width_ + x;
+        unsigned int p = y * width_ + x;
 
         ss << feat_buffer_[ p ]
            << char_buffer_[ p ]
