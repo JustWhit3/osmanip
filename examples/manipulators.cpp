@@ -163,7 +163,7 @@ void printer()
   osm::print( std::cout, "This is the ", "\"printf\" ", "function for the normal output stream! ", 100, "% working!" );
   osm::print( std::cerr, "This is the printf function for the stderr stream! ", "Managing errors is always important!" );
   osm::print( std::clog, "Also writing in stdlog is important! ", osm::feat( osm::sty, "underlined" ), "Very important", osm::reset( "underlined" ), "!" );
-  osm::print();
+  osm::print( "" );
 
   //Writing on a file:
   std::ofstream file_stream;
