@@ -59,28 +59,22 @@ jobs:
     - name: Installing extra dependencies and compiling (MacOS)
       if: matrix.os == 'macos-latest'
       run: |
-       cd /usr
-       ls
-       cd /include
        brew install boost doctest
        
        exprtk_sha1=ca5c577917646ddba3f71ce6d5dd7d01f351ee80
        wget https://github.com/ArashPartow/exprtk/archive/$exprtk_sha1.zip
        mv $exprtk_sha1.zip exprtk-$exprtk_sha1.zip
        unzip exprtk-$exprtk_sha1.zip
-       INCLUDE=$(pcre-config --cflags)
-       LIB=$(pcre-config --libs)
-       sudo cp exprtk-$exprtk_sha1/exprtk.hpp ${INCLUDE:2}
+       sudo cp exprtk-$exprtk_sha1/exprtk.hpp /usr/local/include
 
        wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
        mv main.zip arsenalgear-cpp-main.zip
        unzip arsenalgear-cpp-main.zip
        cd arsenalgear-cpp-main || exit
        make
-       sudo mkdir -p ${INCLUDE:2}/arsenalgear
-       sudo cp include/* ${INCLUDE:2}/arsenalgear
-       LIB_FIN=${LIB:2}
-       sudo cp lib/* ${LIB_FIN::-7}
+       sudo mkdir -p /usr/local/include/arsenalgear
+       sudo cp include/* /usr/local/include/arsenalgear
+       sudo cp lib/* /usr/local/lib
        cd ..
        rm -rf arsenalgear-*
 
