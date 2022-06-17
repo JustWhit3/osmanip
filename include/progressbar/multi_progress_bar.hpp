@@ -1,5 +1,12 @@
+//====================================================
+//     Preprocessor settings
+//====================================================
 #ifndef MULTIPROGRESSBAR_HPP
 #define MULTIPROGRESSBAR_HPP
+
+//====================================================
+//     Headers
+//====================================================
 
 //My headers
 #include "../manipulators/csmanip.hpp"

@@ -1,3 +1,7 @@
+//====================================================
+//     Headers
+//====================================================
+
 //My headers
 #include "../include/manipulators/csmanip.hpp"
 
@@ -9,6 +13,9 @@
 #include <string>
 #include <map>
 
+//====================================================
+//     Namespaces
+//====================================================
 using namespace std::literals::string_literals;
 
 namespace osm

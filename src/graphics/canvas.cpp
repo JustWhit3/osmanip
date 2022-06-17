@@ -1,3 +1,7 @@
+//====================================================
+//     Headers
+//====================================================
+
 //My headers
 #include "../include/graphics/canvas.hpp"
 #include "../include/manipulators/csmanip.hpp"

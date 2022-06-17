@@ -1,3 +1,7 @@
+//====================================================
+//     Headers
+//====================================================
+
 //My headers
 #include "../include/manipulators/csmanip.hpp"
 #include "../include/progressbar/progress_bar.hpp"
@@ -20,7 +24,9 @@
 #include <mutex>
 #include <stdexcept>
 
-//Using namespaces
+//====================================================
+//     Namespaces
+//====================================================
 using namespace std::literals::string_literals;
 
 namespace osm
