@@ -1,43 +1,78 @@
 #====================================================
+#     OS detection
+#====================================================
+ifeq ($(OS),Windows_NT)
+	O_SYSTEM = Windows
+else
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		O_SYSTEM = Linux
+	else ifeq ($(UNAME_S),Darwin)
+		O_SYSTEM = MacOS
+	endif
+endif
+
+#====================================================
 #     Variables
 #====================================================
-
-# Executabls
-EX_MANIP_EXEC := manipulators
-EX_PB_EXEC := progressbar
-EX_GRAPH_EXEC := graphics
-TEST_EXEC := tests
-
-# Other
-LIB := libosmanip.a
+ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))  
+	EX_MANIP_EXEC := manipulators
+	EX_PB_EXEC := progressbar
+	EX_GRAPH_EXEC := graphics
+	TEST_EXEC := tests
+	LIB := libarsenalgear.a
+else
+	EX_MANIP_EXEC := manipulators.exe
+	EX_PB_EXEC := progressbar.exe
+	EX_GRAPH_EXEC := graphics.exe
+	TEST_EXEC := tests.exe
+	LIB := libarsenalgear.lib
+endif
 CC := g++
 
 #====================================================
-#     Folders
+#     Directories
 #====================================================
 
-# Binary folders
+# Binary directories
 BUILD_DIR := bin
 OBJ_DIR := obj
 LIB_DIR := lib
 
-# Source folders
+# Source directories
 SRC_DIR := src
 EX_DIR := examples
 TEST_DIR := test
 
+# Othere dirs
+ifeq ($(O_SYSTEM),Windows)
+	WIN_INCLUDE := C:\include
+	WIN_LIB := C:\lib
+	WIN_BOOST := C:\boost\include\boost-1_79
+endif
+
 #====================================================
 #     Source files
 #====================================================
+ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
+	# Source files fo examples
+	SRC_MANIP := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'manipulators.cpp')
+	SRC_PB := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'progressbar.cpp')
+	SRC_GRAPH := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'graphics.cpp')
 
-# Source files fo examples
-SRC_MANIP := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'manipulators.cpp')
-SRC_PB := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'progressbar.cpp')
-SRC_GRAPH := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'graphics.cpp')
+	# Other source files
+	SRC_LIB := $(shell find $(SRC_DIR) -name '*.cpp')
+	TEST := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
+else
+	# Source files fo examples
+	SRC_MANIP := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/manipulators.cpp)
+	SRC_PB := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/progressbar.cpp)
+	SRC_GRAPH := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/graphics.cpp)
 
-# Other source files
-SRC_LIB := $(shell find $(SRC_DIR) -name '*.cpp')
-TEST := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
+	# Other source files
+	SRC_LIB := $(wildcard $(SRC_DIR)/*.cpp) 
+	TEST :=$(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(TEST_DIR)/*.cpp) 
+endif
 
 #====================================================
 #     Source objects
@@ -56,20 +91,21 @@ TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 #     Dependencies and flags
 #====================================================
 DEPS := $(OBJ_MANIP:.o=.d) $(OBJ_PB:.o=.d) $(OBJ_GRAPH:.o=.d)
-INC_DIR := $(shell find $(SRC_DIR) -type d)
-INC_FLAGS := $(addprefix -I,$(INC_DIR))
-CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
-LDFLAGS := -pthread -L/usr/local/lib -larsenalgear
-
-#====================================================
-#     Operating system detection
-#====================================================
-
-# Windows (Cygwin)
-ifeq ($(OS), Windows_NT)
-	TARGET_EXEC += .exe
-	TEST_EXEC += .exe
+ifeq ($(O_SYSTEM),Linux)
+	INC_DIR := $(shell find $(SRC_DIR) -type d)
+	INC_FLAGS := $(addprefix -I,$(INC_DIR))
+	LIB_PATH := -L/usr/lib
+else ifeq ($(O_SYSTEM),MacOS)
+	INC_DIR := $(shell find $(SRC_DIR) -type d)
+	INC_FLAGS := $(addprefix -I,$(INC_DIR)) `pcre-config --cflags`
+	LIB_PATH := `pcre-config --libs`
+else
+	INC_DIR := $(SRC_DIR)
+	INC_FLAGS := $(addprefix -I,$(INC_DIR)) $(addprefix -I,$(WIN_INCLUDE)) $(addprefix -I,$(WIN_BOOST))
+	LIB_PATH := -L$(WIN_LIB)
 endif
+CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
+LDFLAGS := -pthread $(LIB_PATH) -larsenalgear
 
 #====================================================
 #     Aliases
