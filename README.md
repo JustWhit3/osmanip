@@ -7,7 +7,8 @@
 	<img title="C++17" alt="C++17" src="https://img.shields.io/badge/c++-17-informational?style=flat-square"><br/>
 	<img title="Code size" alt="code size" src="https://img.shields.io/github/languages/code-size/JustWhit3/osmanip?color=red">
 	<img title="Repo size" alt="repo size" src="https://img.shields.io/github/repo-size/JustWhit3/osmanip?color=red">
-	<img title="Lines of code" alt="total lines" src="https://img.shields.io/tokei/lines/github/JustWhit3/osmanip?color=red">
+	<img title="Lines of code" alt="total lines" src="https://img.shields.io/tokei/lines/github/JustWhit3/osmanip?color=red"></br>
+  <img title="codeq" alt="codeq" src="https://github.com/JustWhit3/arsenalgear-cpp/actions/workflows/codeql-analysis.yml/badge.svg">
 </p>
 
 ***
@@ -15,6 +16,7 @@
 ## Table of contents
 
 - [Introduction](#introduction)
+- [Supported operating systems](#supported-operating-systems)
 - [Documentation](#documentation)
 - [Repository structure](#repository-structure)
 - [News from the last version](#news-from-the-last-version)
@@ -52,10 +54,16 @@ The software is and will stay **free**, but if you want to support me with a don
 
 <a href="https://www.buymeacoffee.com/JustWhit33" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-Supported and tested operating systems:
+## Supported operating systems
 
-- Ubuntu (and the other Linux OSs).
-- Windows Subsystem for Linux (WSL).
+- **Linux**
+  - *Ubuntu* (tested)
+- **Windows**
+  - *Cygwin64* (tested)
+  - *MSYS2* (tested)
+  - *MinGW* (tested)
+  - *WSL* (tested)
+- **MacOS**
 
 ## Documentation
 
@@ -74,8 +82,7 @@ osmanip/
 ├── .github/
 │   ├── workflows/
 │   │   ├── DocGenerator.yml
-│   │   ├── codeql-analysis-ubuntu.yml
-│   │   ├── codeql-analysis-macos.yml
+│   │   ├── codeql-analysis.yml
 ├── img/
 ├── doc/
 │   ├── Contributing.md
