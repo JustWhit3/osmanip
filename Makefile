@@ -44,13 +44,6 @@ SRC_DIR := src
 EX_DIR := examples
 TEST_DIR := test
 
-# Othere dirs
-ifeq ($(O_SYSTEM),Windows)
-	WIN_INCLUDE := C:\include
-	WIN_LIB := C:\lib
-	WIN_BOOST := C:\boost\include\boost-1_79
-endif
-
 #====================================================
 #     Source files
 #====================================================
@@ -91,19 +84,13 @@ TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 #     Dependencies and flags
 #====================================================
 DEPS := $(OBJ_MANIP:.o=.d) $(OBJ_PB:.o=.d) $(OBJ_GRAPH:.o=.d)
-ifeq ($(O_SYSTEM),Linux)
+ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
 	INC_DIR := $(shell find $(SRC_DIR) -type d)
-	INC_FLAGS := $(addprefix -I,$(INC_DIR))
-	LDFLAGS := -pthread -L/usr/lib -larsenalgear
-else ifeq ($(O_SYSTEM),MacOS)
-	INC_DIR := $(shell find $(SRC_DIR) -type d)
-	INC_FLAGS := $(addprefix -I,$(INC_DIR))
-	LDFLAGS := -pthread -larsenalgear
 else
 	INC_DIR := $(SRC_DIR)
-	INC_FLAGS := $(addprefix -I,$(INC_DIR)) $(addprefix -I,$(WIN_INCLUDE)) $(addprefix -I,$(WIN_BOOST))
-	LDFLAGS := -pthread -L$(WIN_LIB) -llibarsenalgear.lib
 endif
+INC_FLAGS := $(addprefix -I,$(INC_DIR))
+LDFLAGS := -pthread
 CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
 
 #====================================================

@@ -84,29 +84,29 @@ jobs:
       run: |
        choco install unzip wget
 
-       mkdir C:\install
-       cd C:\install
+       mkdir C:/install
+       cd C:/install
        wget https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.zip | Out-Null
        unzip boost_1_79_0.zip | Out-Null
        rm boost_1_79_0.zip
-       mkdir C:\boost-build
-       mkdir C:\install\boost_1_79_0\boost-build
-       mkdir C:\boost
+       mkdir C:/boost-build
+       mkdir C:/install/boost_1_79_0/boost-build
+       mkdir C:/boost
        cd -
-       cd C:\install\boost_1_79_0\tools\build
-       .\bootstrap.bat gcc
-       .\b2 --prefix="C:\boost-build" install
-       $Env:PATH += ";C:\boost-build\bin"
+       cd C:/install/boost_1_79_0/tools/build
+       ./bootstrap.bat gcc
+       ./b2 --prefix="C:/boost-build" install
+       $Env:PATH+=";C:/boost-build/bin"
        cd -
-       cd C:\install\boost_1_79_0
-       b2 --build-dir="C:\install\boost_1_79_0\build" --build-type=complete --prefix="C:\boost" toolset=gcc install
+       cd C:/install/boost_1_79_0
+       b2 --build-dir="C:/install/boost_1_79_0/build" --build-type=complete --prefix="C:/boost" toolset=gcc install
        cd -
 
        wget https://github.com/doctest/doctest/archive/refs/heads/master.zip | Out-Null
        unzip master.zip | Out-Null
        rm master.zip
-       mkdir C:\include\doctest
-       cp doctest-master\doctest\doctest.h C:\include\doctest
+       mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/doctest
+       cp doctest-master/doctest/doctest.h C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/doctest
        rd -r doctest-master
 
        wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
@@ -114,13 +114,14 @@ jobs:
        unzip arsenalgear-cpp-main.zip
        cd arsenalgear-cpp-main || exit
        make
-       sudo mkdir -p C:\include\arsenalgear
-       sudo mkdir -p C:\lib
-       sudo cp -r include/* C:\include\arsenalgear
-       sudo cp lib/* C:\lib
+       mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
+       sudo cp -r include/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
+       cp lib/* C:/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib
        cd ..
        rm -rf arsenalgear-*
 
        make
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
+
+      
