@@ -90,8 +90,8 @@ else
 	INC_DIR := $(SRC_DIR)
 endif
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
-LDFLAGS := -pthread
-CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
+LDFLAGS := -pthread -larsenalgear
+CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP
 
 #====================================================
 #     Aliases
