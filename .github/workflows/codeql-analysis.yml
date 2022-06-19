@@ -101,8 +101,8 @@ jobs:
        cd C:/install/boost_1_79_0
        b2 --build-dir="C:/install/boost_1_79_0/build" --build-type=complete --prefix="C:/boost" toolset=gcc install
        cd -
-       cp -r C:/install/boost_1_79_0/boost C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++
-       cp C:/install/boost_1_79_0/libs/* C:/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib
+       cp -r C:/boost/include/boost-1_79/boost C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++
+       cp C:/boost/lib/* C:/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib
 
        wget https://github.com/doctest/doctest/archive/refs/heads/master.zip | Out-Null
        unzip master.zip | Out-Null
