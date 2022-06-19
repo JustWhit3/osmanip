@@ -117,7 +117,7 @@ jobs:
        cd arsenalgear-cpp-main || exit
        make
        mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
-       sudo cp -r include/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
+       cp -r include/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
        cp lib/* C:/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib
        cd ..
        rm -rf arsenalgear-*
