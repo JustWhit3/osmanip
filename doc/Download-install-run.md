@@ -116,8 +116,6 @@ g++ program.cpp -losmanip
 > **NOTE**: remember to add `-pthread` flag if you want to use some thread-dependent libraries like [**progressbar/multi_progress_bar.hpp**](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp).
 and then you can run the code with:
 
-> **NOTE**: if you are on **Windows** and didn't install the headers and libraries in a system standard path you probably need to add also the `-I\path\to\include` and `-L\path\to\lib` flags.
-
 ```shell
 ./a.out
 ```

@@ -9,6 +9,7 @@
 	<img title="Repo size" alt="repo size" src="https://img.shields.io/github/repo-size/JustWhit3/osmanip?color=red">
 	<img title="Lines of code" alt="total lines" src="https://img.shields.io/tokei/lines/github/JustWhit3/osmanip?color=red"></br>
   <img title="codeq" alt="codeq" src="https://github.com/JustWhit3/arsenalgear-cpp/actions/workflows/codeql-analysis.yml/badge.svg">
+  <img title="codeq" alt="codeq" src="https://github.com/JustWhit3/arsenalgear-cpp/actions/workflows/DocGenerator.yml/badge.svg">
 </p>
 
 ***
@@ -68,10 +69,10 @@ The software is and will stay **free**, but if you want to support me with a don
 ## Documentation
 
 In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder useful documentation files are stored, in order to help the user learning how to properly use the library:
-- [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download%20and%20install.md): a guide to download, install and run the library into your system.
+- [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download-install-run.md): a guide to download, install and run the library into your system.
 - [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/Contributing.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
-- [*How-to-use guides*](https://github.com/JustWhit3/Ostream-manipulator/blob/main/doc/How-to-use%20guides.md): contains a set of guides about how to use the library tools.
+- [*How-to-use guides*](https://github.com/JustWhit3/Ostream-manipulator/blob/main/doc/How-to-use.md): contains a set of guides about how to use the library tools.
 
 **Code documentation** is generated using [*Doxygen*](https://www.doxygen.nl/manual/starting.html) and can be accessed [here](https://justwhit3.github.io/osmanip/).
 
@@ -86,9 +87,9 @@ osmanip/
 ├── img/
 ├── doc/
 │   ├── Contributing.md
-│   ├── Download and install.md
+│   ├── Download-install-run.md
 │   ├── Todo.md
-│   ├── How-to-use guides.md
+│   ├── How-to-use.md
 ├── include/
 │   ├── graphics/
 │   │   ├── canvas.hpp
@@ -142,18 +143,16 @@ osmanip/
 
 Most recent relevant news from the last version:
 
-- A new feature to plot 2D graphics and functions in the terminal has been added.
-- Progress spinner has been added to the `ProgressBar` class.
-- New features have been added to the progress bar: time-reamining info.
-- Added a new map for the `feat` function to deal with clear screen / line commands.
-- Added a new `print` function inspired by the Python one.
+- Added full support to **Windows** operating system.
+- Added full support to **MacOS** operating system.
+- Added *Doxygen* documentation.
 
 ## List of features
 
 Here you can find the list of features implemented in the current version of the library:
 
 - **Output stream manipulators** for:
-  - [Color and style manipulation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=of%20a%20program.-,Colors%20and%20styles%20manipulation,-List%20of%20the)
+  - [Color and style manipulation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=of%20a%20program.-,Colors%20and%20styles%20manipulation,-List%20of%20the)
   - [Cursor navigation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=reset%20commands%20here.-,Cursor%20navigation,-You%20can%20modify)
   - [Terminal control sequences](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=for%20more%20information.-,Terminal%20control%20sequences,-You%20can%20add)
   - [Additional functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use%20guides.md#:~:text=understand%20their%20usage.-,Extra%20functions%20(print%20and%20others),-Some%20extra%20functions) (like an own version of the Python print one).
