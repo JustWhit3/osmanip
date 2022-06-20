@@ -57,6 +57,7 @@ Libraries and frameworks:
 From release [2.1.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.1.0) an installer script, called [install.sh](https://github.com/JustWhit3/osmanip/blob/main/install.sh), has been introduced. This script can be used to properly install the library into your computer, in order to easily use it in your programs.
 
 Once the source code has been downloaded you can simply run this script. Enter the osmanip folder and type this command on the shell:
+
 ```shell
 ./scripts/install.sh
 ```
@@ -73,10 +74,13 @@ A new library *libosmanip.a* (or *libosmanip.lib* in the Windows case) will be c
 In case you want to update the source code from the latest improvements of the repository, you can use the updater script, called [update.sh](https://github.com/JustWhit3/osmanip/blob/main/scripts/update.sh).
 
 From the repository folder type this command on the shell:
+
 ```shell
 ./scripts/update.sh
 ```
+
 Then, you can reinstall the repository:
+
 ```shell
 ./scripts/install.sh
 ```
@@ -86,6 +90,7 @@ Then, you can reinstall the repository:
 In case you want to uninstall the software from your computer, you can use the uninstaller script, called [uninstall.sh](https://github.com/JustWhit3/osmanip/blob/main/uninstall.sh).
 
 From the repository folder type this command on the shell:
+
 ```shell
 ./scripts/uninstall.sh
 ```

@@ -1,19 +1,86 @@
 #!/bin/bash
 
 #====================================================
-#     CHECK IF OS IS WINDOWS OR NOT
+#     Install Boost.org for Windows
+#====================================================
+install_windows_boost() {
+
+    # Downloading the package
+    echo "Downloading the source code..."
+    mkdir C:/install
+    cd C:/install || exit
+    wget https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.zip
+    unzip boost_1_79_0.zip
+    rm boost_1_79_0.zip
+    cd - || exit
+    mkdir C:/boost-build
+    mkdir C:/install/boost_1_79_0/boost-build
+    mkdir C:/boost
+    echo ""
+
+    # Installing the package
+    echo "Installing the package..."
+    cd C:/install/boost_1_79_0/tools/build || exit
+    ./bootstrap.sh gcc
+    ./b2 --prefix=C:/boost-build install
+    if ! PATH=$PATH:C:/boost-build/bin ; then
+        $Env:PATH+=";C:/boost-build/bin"
+    fi
+    cd - || exit
+    cd C:/install/boost_1_79_0 || exit
+    b2 --build-dir=C:/install/boost_1_79_0/build --build-type=complete --prefix=C:/boost toolset=gcc install
+    cd - || exit
+    cp -r C:/boost/include/boost-1_79/boost "$1"
+    cp C:/boost/lib/* "$2"
+}
+
+#====================================================
+#     OS-SPECIFIC INFORMATION
 #====================================================
 UNAME=$(uname)
-main="main"
-if [[ "$UNAME" == CYGWIN* || "$UNAME" == MINGW* ]] ; then
-	main="${main}.exe"
+main="examples"
+if [[ "$UNAME" == Darwin* ]] ; then
+    INCL=/usr/local/include
+    LIB=/usr/local/lib
+elif [[ "$UNAME" == Linux* ]] ; then
+    INCL=/usr/include
+    LIB=/usr/lib
+else
+    read -p "Insert the system include path in which you want to install headers: " word_include
+        mkdir -p ${word_include}
+        INCL=${word_include}
+    read -p "Insert the system lib path in which you want to install static libraries: " word_lib
+        mkdir -p ${word_lib}
+        LIB=${word_lib}
 fi
 
 #====================================================
 #     INSTALLING PREREQUISITES
 #====================================================
+
+# Installing prerequisite packages
 echo "Updating and upgrading the system..."
-sudo apt install build-essential g++ libboost-all-dev wget unzip
+if [[ "$UNAME" == Darwin* ]] ; then
+    brew install boost wget unzip gcc make
+elif [[ "$UNAME" == Linux* ]] ; then
+    sudo apt install build-essential g++ libboost-all-dev wget unzip
+else
+    read -p "Which package-manager do you want to use? (pacman/chocolately) " word_pkg
+    if [ "$word_pkg" == "pacman" ] || [ "$word_pkg" == "Pacman" ] ; then
+        pacman -S wget unzip make
+    elif [ "$word_pkg" == "chocolately" ] || [ "$word_pkg" == "Chocolately" ] || [ "$word_pkg" == "choco" ] ; then
+        choco install wget unzip make
+    else
+        echo "Inserted package-manager $word_pkg is not supported!"
+        exit
+    fi
+    read -p "Do you want to install and build Boost.org? (y/n) " word_boost
+    if [ "$word_boost" == "y" ] || [ "$word_boost" == "Y" ] ; then
+        install_windows_boost "${INCL}" "${LIB}"
+    fi
+fi
+
+# Installing arsenalgear-cpp
 echo ""
 echo "Installing arsenalgear library..."
 wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
@@ -24,10 +91,25 @@ cd arsenalgear-cpp-main || exit
 cd ..
 rm -rf arsenalgear-*
 echo ""
-read -p "Do you want to install optional prerequisites for osmanip (y/n)? " word_o
-if [ $word_o == "y" ] || [ $word_o == "Y" ] ; then
-    sudo apt install doctest-dev valgrind cppcheck clang-format doxygen
-    pip install hurry.filesize termcolor
+
+# Installing optional packages
+read -p "Do you want to install optional arsenalgear prerequisites (y/n)? " word_o
+if [ "$word_o" == "y" ] || [ "$word_o" == "Y" ] ; then
+    if [[ "$UNAME" == Darwin* ]] ; then
+        brew install doctest cppcheck clang-format valgrind
+    elif [[ "$UNAME" == Linux* ]] ; then
+        sudo apt install doctest-dev valgrind cppcheck clang-format
+    else
+        wget https://github.com/doctest/doctest/archive/refs/heads/master.zip
+        unzip master.zip
+        rm master.zip
+        mkdir -p "${INCL}/doctest"
+        cp "doctest-master/doctest/doctest.h" "${INCL}/doctest"
+        rm -rf doctest-master
+    fi
+    if ! pip install hurry.filesize termcolor ; then
+        echo "\"pip\" is not installed. Not a problem, it is used for very optional libraries."
+    fi
 fi
 echo ""
 
@@ -35,22 +117,15 @@ echo ""
 #     COMPILATION OF THE SOURCE CODE
 #     (check if doctest is installed)
 #====================================================
-if [ -f "/usr/include/doctest.h" ] ; then
-    echo "Compiling the whole osmanip code..."
+if [ -f "${INCL}/doctest/doctest.h" ] || [ -f "/usr/local/Cellar/doctest/doctest.h" ] || [ -f "${INCL}/doctest/doctest.h" ] ; then
+    echo "Compiling the whole arsenalgear code..."
     if ! make ; then
-        echo "Compilation failed!"
-        exit
-    fi
-elif [ -f "/usr/include/doctest/doctest.h" ] ; then
-    echo "Doctest is installed in /usr/include/doctest folder, move it in /usr/include in order to correctly use it for the library tests!"
-    echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
-    if ! make $main ; then
         echo "Compilation failed!"
         exit
     fi
 else
     echo "Doctest is not installed, cannot compile the test codes!"
-    echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
+    echo "Compiling only the main code of arsenalgear (this is not a problem for the installation)..."
     if ! make $main ; then
         echo "Compilation failed!"
         exit
@@ -61,19 +136,33 @@ echo ""
 #====================================================
 #     SAVING FILES INTO THE SYSTEM
 #====================================================
-./scripts/size_of_dir.py --paths="include lib" --message="on"
+if ! ./scripts/size_of_dir.py --paths="include lib" --message="on" ; then
+    echo "\"pip\" is not installed. Not a problem, it is used for very optional libraries."
+fi
 echo ""
 read -p "Would you like to continue (y/n)? " word
-if [ $word == "y" ] || [ $word == "Y" ] ; then
-    sudo echo "Installing osmanip header files into /usr/local/include folder..."
-    sudo mkdir -p /usr/local/include/osmanip
-    if ! ( sudo cp -r include/* /usr/local/include/osmanip ) ; then
-        echo "Cannot install the header file into /usr/local/include position of the system!"
-    fi
-    sudo rm -rf /usr/local/include/osmanip/utils
-    echo "Installing osmanip lib into /usr/local/lib folder..."
-    if ! ( sudo cp lib/* /usr/local/lib ) ; then
-        echo "Cannot install the library into /usr/local/lib position of the system!"
+if [ "$word" == "y" ] || [ "$word" == "Y" ] ; then
+    if [[ "$UNAME" == Darwin* || "$UNAME" == Linux* ]] ; then
+        sudo echo "Installing osmanip header files into ${INCL} folder..."
+        sudo mkdir -p "${INCL}"/osmanip
+        if ! ( sudo cp -r include/* "${INCL}"/osmanip ) ; then
+            echo "Cannot install the header file into ${INCL} position of the system!"
+        fi
+        echo "Installing osmanip lib into ${LIB} folder..."
+        if ! ( sudo cp lib/* "${LIB}" ) ; then
+            echo "Cannot install the library into ${LIB} position of the system!"
+        fi
+    else
+        echo "Installing osmanip header files into ${INCL}..."
+        mkdir -p "${INCL}/osmanip"
+        if ! ( cp -r include/* "${INCL}/osmanip" ) ; then
+            echo "Cannot install the header file into ${INCL} position of the system!"
+        fi
+        echo "Installing osmanip lib into ${LIB} folder..."
+        mkdir -p "${LIB}"
+        if ! ( cp -r lib/* "${LIB}" ) ; then
+            echo "Cannot install the library into ${LIB} position of the system!"
+        fi
     fi
 else
     echo "Installation has been canceled!"
