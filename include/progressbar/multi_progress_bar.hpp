@@ -196,7 +196,7 @@ namespace osm
      //====================================================
      std::tuple <Indicators&...> bars_;
      std::mutex mutex_;
-     unsinged int last_updated_index;
+     unsigned int last_updated_index;
    };
   
   //====================================================
