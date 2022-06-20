@@ -93,7 +93,7 @@ rm -rf arsenalgear-*
 echo ""
 
 # Installing optional packages
-read -p "Do you want to install optional arsenalgear prerequisites (y/n)? " word_o
+read -p "Do you want to install optional osmanip prerequisites (y/n)? " word_o
 if [ "$word_o" == "y" ] || [ "$word_o" == "Y" ] ; then
     if [[ "$UNAME" == Darwin* ]] ; then
         brew install doctest cppcheck clang-format valgrind

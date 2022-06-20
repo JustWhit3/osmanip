@@ -99,7 +99,7 @@ CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP
 .PHONY: clean all
 
 all: $(BUILD_DIR)/$(EX_MANIP_EXEC) $(BUILD_DIR)/$(EX_PB_EXEC) $(BUILD_DIR)/$(EX_GRAPH_EXEC) $(BUILD_DIR)/$(TEST_EXEC) $(LIB_DIR)/$(LIB)
-main: $(BUILD_DIR)/$(EX_MANIP_EXEC) $(BUILD_DIR)/$(EX_PB_EXEC) $(BUILD_DIR)/$(EX_GRAPH_EXEC) $(LIB_DIR)/$(LIB)
+examples: $(BUILD_DIR)/$(EX_MANIP_EXEC) $(BUILD_DIR)/$(EX_PB_EXEC) $(BUILD_DIR)/$(EX_GRAPH_EXEC) $(LIB_DIR)/$(LIB)
 tests: $(BUILD_DIR)/$(TEST_EXEC)
 
 #====================================================
