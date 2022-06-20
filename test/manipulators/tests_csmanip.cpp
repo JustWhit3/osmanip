@@ -94,6 +94,6 @@ TEST_CASE( "Testing the go_to function." )
 //====================================================
 TEST_CASE( "Testing the RGB function." )
  {            
-  //CHECK_EQ( osm::RGB( 1,5,2 ), "\x1b[38;2;1;5;2m" );
-  //CHECK_EQ( osm::RGB( 5,1,8 ), "\x1b[38;2;5;1;8m" );
+  CHECK( osm::RGB( 1,5,2 ) == "\x1b[38;2;1;5;2m" );
+  CHECK( osm::RGB( 5,1,8 ) == "\x1b[38;2;5;1;8m" );
  }
