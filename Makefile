@@ -20,13 +20,13 @@ ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
 	EX_PB_EXEC := progressbar
 	EX_GRAPH_EXEC := graphics
 	TEST_EXEC := tests
-	LIB := libarsenalgear.a
+	LIB := libosmanip.a
 else
 	EX_MANIP_EXEC := manipulators.exe
 	EX_PB_EXEC := progressbar.exe
 	EX_GRAPH_EXEC := graphics.exe
 	TEST_EXEC := tests.exe
-	LIB := libarsenalgear.lib
+	LIB := libosmanip.lib
 endif
 CC := g++
 
