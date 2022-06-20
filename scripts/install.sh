@@ -89,7 +89,7 @@ unzip arsenalgear-cpp-main.zip
 cd arsenalgear-cpp-main || exit
 make $main
 mkdir -p /usr/include/arsenalgear
-cp include/* /usr/include/arsenalgear
+cp -r include/* /usr/include/arsenalgear
 cp lib/* /usr/lib
 cd ..
 rm -rf arsenalgear-*
