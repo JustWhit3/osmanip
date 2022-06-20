@@ -117,19 +117,10 @@ echo ""
 #     COMPILATION OF THE SOURCE CODE
 #     (check if doctest is installed)
 #====================================================
-if [ -f "${INCL}/doctest/doctest.h" ] || [ -f "/usr/local/Cellar/doctest/doctest.h" ] || [ -f "${INCL}/doctest/doctest.h" ] ; then
-    echo "Compiling the whole arsenalgear code..."
-    if ! make ; then
-        echo "Compilation failed!"
-        exit
-    fi
-else
-    echo "Doctest is not installed, cannot compile the test codes!"
-    echo "Compiling only the main code of arsenalgear (this is not a problem for the installation)..."
-    if ! make $main ; then
-        echo "Compilation failed!"
-        exit
-    fi
+echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
+if ! make $main ; then
+    echo "Compilation failed!"
+    exit
 fi
 echo ""
 
