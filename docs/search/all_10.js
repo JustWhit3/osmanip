@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['width_5f_109',['width_',['../classosm_1_1Canvas.html#ad8f6fc9357a937cba09c8be48007e220',1,'osm::Canvas']]]
+  ['update_108',['update',['../classosm_1_1ProgressBar.html#a5eae57dd999e0720ade7a568d83a89d6',1,'osm::ProgressBar']]],
+  ['updater_109',['updater',['../structosm_1_1updater.html',1,'osm']]]
 ];

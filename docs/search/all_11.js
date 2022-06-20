@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eprogressbar_110',['~ProgressBar',['../classosm_1_1ProgressBar.html#a302c6949c938833acfddd576c42317bf',1,'osm::ProgressBar']]]
+  ['width_5f_110',['width_',['../classosm_1_1Canvas.html#ad8f6fc9357a937cba09c8be48007e220',1,'osm::Canvas']]]
 ];

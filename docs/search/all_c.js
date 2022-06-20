@@ -1,16 +1,12 @@
 var searchData=
 [
-  ['refresh_70',['refresh',['../classosm_1_1Canvas.html#ad4691efdc35f471f6b540b9b82ff8a47',1,'osm::Canvas']]],
-  ['reset_71',['reset',['../namespaceosm.html#ab12382d9f28c354e6f6a8113d8d0a335',1,'osm']]],
-  ['resetall_72',['resetAll',['../classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2',1,'osm::ProgressBar']]],
-  ['resetbrackets_73',['resetBrackets',['../classosm_1_1ProgressBar.html#a661ab077b857cf7bf5f21a30fb02ffea',1,'osm::ProgressBar']]],
-  ['resetcolor_74',['resetColor',['../classosm_1_1ProgressBar.html#a112340d2942ca29a38b9c3e69d8bfcaf',1,'osm::ProgressBar']]],
-  ['resetmax_75',['resetMax',['../classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d',1,'osm::ProgressBar']]],
-  ['resetmessage_76',['resetMessage',['../classosm_1_1ProgressBar.html#ad8f3d55a9ff711442756d11c4153b045',1,'osm::ProgressBar']]],
-  ['resetmin_77',['resetMin',['../classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2',1,'osm::ProgressBar']]],
-  ['resetremainingtime_78',['resetRemainingTime',['../classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e',1,'osm::ProgressBar']]],
-  ['resetstyle_79',['resetStyle',['../classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023',1,'osm::ProgressBar']]],
-  ['resettime_80',['resetTime',['../classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e',1,'osm::ProgressBar']]],
-  ['rgb_81',['RGB',['../namespaceosm.html#a4ba79e32855ee7f13095509656e59668',1,'osm']]],
-  ['rst_82',['rst',['../namespaceosm.html#a8f14a098d30adf5894b195e72361238b',1,'osm']]]
+  ['plot2dcanvas_62',['Plot2DCanvas',['../classosm_1_1Plot2DCanvas.html',1,'osm::Plot2DCanvas'],['../classosm_1_1Plot2DCanvas.html#a87ad63e2d6d11dd5437df33aedbf2c98',1,'osm::Plot2DCanvas::Plot2DCanvas()']]],
+  ['plot_5f2d_2ecpp_63',['plot_2D.cpp',['../plot__2D_8cpp.html',1,'']]],
+  ['plot_5f2d_2ehpp_64',['plot_2D.hpp',['../plot__2D_8hpp.html',1,'']]],
+  ['print_65',['print',['../classosm_1_1ProgressBar.html#a37a91eb88d83ec6bc1e182b7d8abcf00',1,'osm::ProgressBar::print()'],['../namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695',1,'osm::print(std::ostream &amp;os=agr::null_stream, const Args &amp;... args)'],['../namespaceosm.html#a9c5ff292df49692cd6f52fe784086354',1,'osm::print(Args &amp;... args)']]],
+  ['progress_5fbar_2ecpp_66',['progress_bar.cpp',['../progress__bar_8cpp.html',1,'']]],
+  ['progress_5fbar_2ehpp_67',['progress_bar.hpp',['../progress__bar_8hpp.html',1,'']]],
+  ['progressbar_68',['ProgressBar',['../classosm_1_1ProgressBar.html',1,'osm::ProgressBar&lt; bar_type &gt;'],['../classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6',1,'osm::ProgressBar::ProgressBar()'],['../classosm_1_1ProgressBar.html#a641b705a1f3d5c3ba8307dbd148f9e02',1,'osm::ProgressBar::ProgressBar(const bar_type &amp;min, const bar_type &amp;max)']]],
+  ['progressbar_69',['PROGRESSBAR',['../progress__bar_8cpp.html#a3b6be5d37265f4171b93e0a112d31c31',1,'progress_bar.cpp']]],
+  ['put_70',['put',['../classosm_1_1Canvas.html#a490058618fdbfae70ad9ccdbe714ed2d',1,'osm::Canvas']]]
 ];
