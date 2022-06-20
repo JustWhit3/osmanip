@@ -1,5 +1,3 @@
-#define _GLIBCXX_USE_CXX11_ABI 0
-
 //My headers
 #include "../include/manipulators/csmanip.hpp"
 
