@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['height_5f_49',['height_',['../classosm_1_1Canvas.html#a913ed31d4d9273929d5c743c708a655f',1,'osm::Canvas']]]
+  ['indices_49',['indices',['../structosm_1_1indices.html',1,'osm']]],
+  ['indices_3c_20is_2e_2e_2e_20_3e_50',['indices&lt; Is... &gt;',['../structosm_1_1indices.html',1,'osm']]],
+  ['isframeenabled_51',['isFrameEnabled',['../classosm_1_1Canvas.html#a7bd6a767d15497e639e9c768a0a5fe23',1,'osm::Canvas']]]
 ];

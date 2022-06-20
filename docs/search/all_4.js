@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['draw_15',['draw',['../classosm_1_1Plot2DCanvas.html#af5fbf005d04fcd46f20533bffe8ae7ab',1,'osm::Plot2DCanvas']]],
-  ['duration_16',['duration',['../classosm_1_1ProgressBar.html#a50d4fcdfcb42db79e1e4320d8f9081cb',1,'osm::ProgressBar']]]
+  ['empty_16',['EMPTY',['../namespaceosm.html#a8764c3774efea820941d8dc1fed23e39ab9dcdd42eb8789ebcd94e7e083d08f9c',1,'osm']]],
+  ['enableframe_17',['enableFrame',['../classosm_1_1Canvas.html#a95044b9f98d159e46b37d337ec05ae1d',1,'osm::Canvas']]]
 ];

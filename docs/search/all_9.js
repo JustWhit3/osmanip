@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['indices_50',['indices',['../structosm_1_1indices.html',1,'osm']]],
-  ['indices_3c_20is_2e_2e_2e_20_3e_51',['indices&lt; Is... &gt;',['../structosm_1_1indices.html',1,'osm']]],
-  ['isframeenabled_52',['isFrameEnabled',['../classosm_1_1Canvas.html#a7bd6a767d15497e639e9c768a0a5fe23',1,'osm::Canvas']]]
+  ['make_5fmultiprogressbar_52',['make_MultiProgressBar',['../classosm_1_1make__MultiProgressBar.html#a82fc7fab185e835fcf4c29f4d5438323',1,'osm::make_MultiProgressBar::make_MultiProgressBar()'],['../classosm_1_1make__MultiProgressBar.html',1,'osm::make_MultiProgressBar&lt; Indicators &gt;']]],
+  ['multi_5fprogress_5fbar_2ehpp_53',['multi_progress_bar.hpp',['../multi__progress__bar_8hpp.html',1,'']]],
+  ['multiprogressbar_54',['MultiProgressBar',['../namespaceosm.html#a075383a0e8d513f82c078daee8eee31e',1,'osm']]]
 ];
