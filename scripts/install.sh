@@ -88,9 +88,9 @@ mv main.zip arsenalgear-cpp-main.zip
 unzip arsenalgear-cpp-main.zip
 cd arsenalgear-cpp-main || exit
 make $main
-mkdir -p /usr/include/arsenalgear
-cp -r include/* /usr/include/arsenalgear
-cp lib/* /usr/lib
+sudo mkdir -p /usr/include/arsenalgear
+sudo cp -r include/* /usr/include/arsenalgear
+sudo cp lib/* /usr/lib
 cd ..
 rm -rf arsenalgear-*
 echo ""
@@ -121,6 +121,7 @@ echo ""
 #     (check if doctest is installed)
 #====================================================
 echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
+make clean
 if ! make $main ; then
     echo "Compilation failed!"
     exit
