@@ -213,6 +213,34 @@ namespace osm
     return generic_map.at( feat_string );
    }
 
+  //====================================================
+  //     feat (second overload)
+  //====================================================
+  /**
+   * @brief This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.
+   * 
+   * @param generic_map The feature map.
+   * @param feat_string The feature name.
+   * @param feat_int Extra integer argument to correctly set the parameter of the crs map.
+   * @return std::string The output feature.
+   */
+  std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int )
+   {
+    if( generic_map.find( feat_string ) == generic_map.end() ) 
+     {
+      throw agr::runtime_error_func( generic_map.at( "error" ).first, feat_string, "is not supported!" );
+     }
+    else
+     {
+      if( generic_map == crs || generic_map == tcsc )
+       {
+        return generic_map.at( feat_string ).first + 
+               std::to_string( feat_int ) + 
+               generic_map.at( feat_string ).second;
+       }
+      return generic_map.at( feat_string ).first;
+     }
+   }
  
   //====================================================
   //     reset
