@@ -91,7 +91,7 @@ else
 endif
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 LDFLAGS := -pthread -larsenalgear
-CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP -D_GLIBCXX_USE_CXX11_ABI=0
+CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP -D_GLIBCXX_USE_CXX11_ABI=0 -lstdc++
 
 #====================================================
 #     Aliases
