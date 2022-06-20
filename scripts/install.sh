@@ -87,7 +87,10 @@ wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
 mv main.zip arsenalgear-cpp-main.zip
 unzip arsenalgear-cpp-main.zip
 cd arsenalgear-cpp-main || exit
-./scripts/install.sh
+make $main
+mkdir -p /usr/include/arsenalgear
+cp include/* /usr/include/arsenalgear
+cp lib/* /usr/lib
 cd ..
 rm -rf arsenalgear-*
 echo ""
