@@ -21,7 +21,7 @@ void canvas_2d()
 
     osm::Canvas canvas(10,10);
     canvas.setBackground( '.', osm::feat( osm::col, "bg white" ) + osm::feat( osm::col, "black" ) );
-    for( uint i = 0; i < 10; i++ )
+    for( unsigned int i = 0; i < 10; i++ )
      {
       canvas.clear();
       canvas.put( 0, 2, 'x' );
