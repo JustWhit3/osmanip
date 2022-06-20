@@ -121,8 +121,7 @@ echo ""
 #     (check if doctest is installed)
 #====================================================
 echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
-make clean
-if ! make $main ; then
+if ! make ; then
     echo "Compilation failed!"
     exit
 fi
