@@ -58,9 +58,9 @@ ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
 	TEST := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
 else
 	# Source files fo examples
-	SRC_MANIP := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/manipulators.cpp)
-	SRC_PB := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/progressbar.cpp)
-	SRC_GRAPH := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/graphics.cpp)
+	SRC_MANIP := $(wildcard $(SRC_DIR)/*.cpp) $(EX_DIR)/manipulators.cpp
+	SRC_PB := $(wildcard $(SRC_DIR)/*.cpp) $(EX_DIR)/progressbar.cpp
+	SRC_GRAPH := $(wildcard $(SRC_DIR)/*.cpp) $(EX_DIR)/graphics.cpp
 
 	# Other source files
 	SRC_LIB := $(wildcard $(SRC_DIR)/*.cpp) 
