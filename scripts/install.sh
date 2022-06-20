@@ -46,10 +46,10 @@ elif [[ "$UNAME" == Linux* ]] ; then
     INCL=/usr/include
     LIB=/usr/lib
 else
-    read -p "Insert the system include path in which you want to install headers: " word_include
+    read -p "Insert the system include path in which you want to install osmanip and its dependencies headers: " word_include
         mkdir -p ${word_include}
         INCL=${word_include}
-    read -p "Insert the system lib path in which you want to install static libraries: " word_lib
+    read -p "Insert the system lib path in which you want to install osmanip and its dependencies static libraries: " word_lib
         mkdir -p ${word_lib}
         LIB=${word_lib}
 fi
