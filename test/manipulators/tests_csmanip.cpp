@@ -35,7 +35,7 @@ const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported"
 //====================================================
 //     Testing "feat" function
 //====================================================
-/*
+
 //First overload:
 TEST_CASE( "Testing the feat function." )
  {
@@ -105,7 +105,7 @@ TEST_CASE( "Testing the reset function." )
   #ifdef _WIN32
   osm::disableANSI();
   #endif
- }*/
+ }
 
 //====================================================
 //     Testing "go_to" function
