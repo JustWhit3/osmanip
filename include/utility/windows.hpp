@@ -9,8 +9,8 @@ namespace osm
   //====================================================
   //     Functions
   //====================================================
-  extern void setupConsole();
-  extern void restoreConsole();
+  extern void enableANSI();
+  extern void disableANSI();
  }
 
 #endif

@@ -2,7 +2,7 @@
 #include "../include/manipulators/csmanip.hpp"
 #include "../include/graphics/canvas.hpp"
 #include "../include/graphics/plot_2D.hpp"
-#if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
+#ifdef _WIN32
 #include "../include/utility/windows.hpp"
 #endif
 
@@ -96,7 +96,7 @@ void canvas_2d()
 //====================================================
 int main()
  {
-  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
+  #ifdef _WIN32
   osm::enableANSI();
   #endif
 
@@ -106,7 +106,7 @@ int main()
 
   osm::OPTION( osm::CURSOR::ON );
 
-  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
+  #ifdef _WIN32
   osm::disableANSI();
   #endif
  }

@@ -3,7 +3,7 @@
 //====================================================
 
 // Windows headers
-#if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
+#ifdef _WIN32
 #include <windows.h>
 #endif
 
@@ -19,7 +19,7 @@ namespace osm
   //====================================================
   //     Macros
   //====================================================
-  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
+  #ifdef _WIN32
   #ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
   #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
   #endif
