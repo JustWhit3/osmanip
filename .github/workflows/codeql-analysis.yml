@@ -82,6 +82,8 @@ jobs:
     - name: Installing extra dependencies and compiling (Windows)
       if: matrix.os == 'windows-latest'
       run: |
+       echo "int main(){}" >> prove.cpp
+       g++ -v prove.cpp
        choco install unzip wget
 
        mkdir C:/install
