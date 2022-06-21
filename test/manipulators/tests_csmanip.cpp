@@ -21,6 +21,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <stdexcept>
 
 //====================================================
 //     Using namespaces
@@ -39,42 +40,58 @@ const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported"
 //First overload:
 TEST_CASE( "Testing the feat function." )
  {
+  #ifdef _WIN32
   osm::enableANSI();
+  #endif
 
   static std::vector <std::map <std::string, std::string>> maps_vector { osm::col, osm::sty };
 
-  for( auto & element_v: maps_vector )
+  try
    {
-    for( auto & element_m: element_v )
-    {
-     CHECK_EQ( osm::feat( element_v, element_m.first ), element_v.at( element_m.first ) );
-    }
+    for( auto & element_v: maps_vector )
+     {
+      for( auto & element_m: element_v )
+      {
+       CHECK_EQ( osm::feat( element_v, element_m.first ), element_v.at( element_m.first ) );
+      }
+     }
    }
+  catch( std::out_of_range& err ){}
 
   CHECK_THROWS_AS( osm::feat( osm::col, "not" ), std::runtime_error );
   CHECK_THROWS_MESSAGE( osm::feat( osm::col, "not" ), test_string );
   CHECK_THROWS_AS( osm::feat( osm::sty, "not" ), std::runtime_error );
   CHECK_THROWS_MESSAGE( osm::feat( osm::sty, "not" ), test_string );
 
+  #ifdef _WIN32
   osm::disableANSI();
+  #endif
  }
 
 //Testing the "feat" function overload for the crs map:
 TEST_CASE( "Testing the feat function overload for the crs map." )
  {  
+  #ifdef _WIN32
   osm::enableANSI();
+  #endif
 
-  for( auto & element_m: osm::crs )
+  try
    {
-    static const int feat_int = 100;
-
-    CHECK_EQ( osm::feat( osm::crs, element_m.first, feat_int ), ( osm::crs.at( element_m.first ).first + std::to_string( feat_int ) + osm::crs.at( element_m.first ).second ) );
+    for( auto & element_m: osm::crs )
+     {
+      static const int feat_int = 100;
+  
+      CHECK_EQ( osm::feat( osm::crs, element_m.first, feat_int ), ( osm::crs.at( element_m.first ).first + std::to_string( feat_int ) + osm::crs.at( element_m.first ).second ) );
+     }
    }
+  catch( std::out_of_range& err ){}
 
   CHECK_THROWS_AS( osm::feat( osm::crs, "not", 32 ), std::runtime_error );
   CHECK_THROWS_MESSAGE( osm::feat( osm::crs, "not", 32 ), test_string );
 
+  #ifdef _WIN32
   osm::disableANSI();
+  #endif
  }
 
 //====================================================
@@ -82,17 +99,25 @@ TEST_CASE( "Testing the feat function overload for the crs map." )
 //====================================================
 TEST_CASE( "Testing the reset function." )
  {
+  #ifdef _WIN32
   osm::enableANSI();
+  #endif
 
-  for( auto & element_m: osm::rst )
+  try
    {
-    CHECK_EQ( osm::reset( element_m.first ), osm::rst.at( element_m.first ) );
+    for( auto & element_m: osm::rst )
+     {
+      CHECK_EQ( osm::reset( element_m.first ), osm::rst.at( element_m.first ) );
+     }
    }
+  catch( std::out_of_range& err ){}
 
   CHECK_THROWS_AS( osm::reset( "not" ), std::runtime_error );
   CHECK_THROWS_MESSAGE( osm::reset( "not" ), test_string );
 
+  #ifdef _WIN32
   osm::disableANSI();
+  #endif
  }
 
 //====================================================
@@ -104,11 +129,16 @@ TEST_CASE( "Testing the go_to function." )
   osm::enableANSI();
   #endif
 
+
   static const std::string test_string_goto = "\u001b[" +
                                               std::to_string( 2 ) + ";"s +
                                               std::to_string( 5 ) + "H"s;
-
+  try
+   {
   CHECK_EQ( osm::go_to( 2, 5 ), test_string_goto );
+
+   }
+  catch( std::out_of_range& err ){}
 
   #ifdef _WIN32
   osm::disableANSI();
