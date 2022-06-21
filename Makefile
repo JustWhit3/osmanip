@@ -65,7 +65,7 @@ else
 
 	# Other source files
 	SRC_LIB := $(ALL_SOURCES)
-	ALL_TESTS := $(wildcard $(TEST_DIR)/*.cpp) $(wildcard $(TEST_DIR)/*/*.cpp)
+	ALL_TESTS := $(wildcard $(TEST_DIR)/*.cpp) $(TEST_DIR)/progressbar/progressbar.cpp $(TEST_DIR)/progressbar/multi_progressbar.cpp
 	TEST := $(ALL_SOURCES) $(ALL_TESTS)
 endif
 
