@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['enableframe_136',['enableFrame',['../classosm_1_1Canvas.html#a95044b9f98d159e46b37d337ec05ae1d',1,'osm::Canvas']]]
+  ['enableansi_145',['enableANSI',['../namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59',1,'osm']]],
+  ['enableframe_146',['enableFrame',['../classosm_1_1Canvas.html#a95044b9f98d159e46b37d337ec05ae1d',1,'osm::Canvas']]]
 ];
