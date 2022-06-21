@@ -39,9 +39,7 @@ const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported"
 //First overload:
 TEST_CASE( "Testing the feat function." )
  {
-  #ifdef _WIN32
   osm::enableANSI();
-  #endif
 
   static std::vector <std::map <std::string, std::string>> maps_vector { osm::col, osm::sty };
 
@@ -58,17 +56,13 @@ TEST_CASE( "Testing the feat function." )
   CHECK_THROWS_AS( osm::feat( osm::sty, "not" ), std::runtime_error );
   CHECK_THROWS_MESSAGE( osm::feat( osm::sty, "not" ), test_string );
 
-  #ifdef _WIN32
   osm::disableANSI();
-  #endif
  }
 
 //Testing the "feat" function overload for the crs map:
 TEST_CASE( "Testing the feat function overload for the crs map." )
  {  
-  #ifdef _WIN32
   osm::enableANSI();
-  #endif
 
   for( auto & element_m: osm::crs )
    {
@@ -80,9 +74,7 @@ TEST_CASE( "Testing the feat function overload for the crs map." )
   CHECK_THROWS_AS( osm::feat( osm::crs, "not", 32 ), std::runtime_error );
   CHECK_THROWS_MESSAGE( osm::feat( osm::crs, "not", 32 ), test_string );
 
-  #ifdef _WIN32
   osm::disableANSI();
-  #endif
  }
 
 //====================================================
@@ -90,9 +82,7 @@ TEST_CASE( "Testing the feat function overload for the crs map." )
 //====================================================
 TEST_CASE( "Testing the reset function." )
  {
-  #ifdef _WIN32
   osm::enableANSI();
-  #endif
 
   for( auto & element_m: osm::rst )
    {
@@ -102,9 +92,7 @@ TEST_CASE( "Testing the reset function." )
   CHECK_THROWS_AS( osm::reset( "not" ), std::runtime_error );
   CHECK_THROWS_MESSAGE( osm::reset( "not" ), test_string );
 
-  #ifdef _WIN32
   osm::disableANSI();
-  #endif
  }
 
 //====================================================
