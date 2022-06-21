@@ -20,6 +20,10 @@
 //STD headers
 #include <sstream>
 
+#ifdef _WIN32
+void __attribute__((constructor)) osm::enableANSI();
+#endif
+
 //====================================================
 //     Global variables
 //====================================================
@@ -33,15 +37,7 @@ auto bars = osm::MultiProgressBar( bar1, bar2, bar3 );
 //====================================================
 TEST_CASE( "Testing the size method" )
  {
-  #ifdef _WIN32
-  osm::enableANSI();
-  #endif
-
   CHECK_EQ( bars.size(), 3 );
-
-  #ifdef _WIN32
-  osm::disableANSI();
-  #endif
  }
 
 //====================================================
@@ -49,10 +45,6 @@ TEST_CASE( "Testing the size method" )
 //====================================================
 TEST_CASE( "Testing the operator() redefinition in the updater struct" )
  {
-  #ifdef _WIN32
-  osm::enableANSI();
-  #endif
-
   bar1.setMin( 0 );
   bar1.setMax ( 60 );
   bar1.setStyle( "indicator", "%" );
@@ -105,8 +97,8 @@ TEST_CASE( "Testing the operator() redefinition in the updater struct" )
 
     CHECK_EQ( ss_multi.str(), ss_normal.str() );
    }
-
-  #ifdef _WIN32
-  osm::disableANSI();
-  #endif
  }
+
+#ifdef _WIN32
+void __attribute__((constructor)) osm::disableANSI();
+#endif
