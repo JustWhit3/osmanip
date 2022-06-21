@@ -117,7 +117,7 @@ osmanip/
 │   ├── install.sh
 │   ├── uninstall.sh
 │   ├── update.sh
-│   ├── size_of_dir.sh
+│   ├── size_of_dir.py
 ├── test/
 │   ├── graphics/
 │   │   ├── tests_canvas.cpp

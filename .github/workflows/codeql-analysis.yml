@@ -122,7 +122,8 @@ jobs:
        make
        mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
        cp -r include/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
-       cp lib/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/
+       cp lib/libarsenalgear.lib C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/
+       $Env:LIBRARY_PATH+=";C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/"
        cd ..
        rd -r arsenalgear-cpp-main
 
