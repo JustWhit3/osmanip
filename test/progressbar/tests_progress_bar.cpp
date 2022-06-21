@@ -10,6 +10,9 @@
 //My headers
 #include "../include/manipulators/csmanip.hpp"
 #include "../include/progressbar/progress_bar.hpp"
+#ifdef _WIN32
+#include "../include/utility/windows.hpp"
+#endif
 
 //Extra headers
 #include <doctest/doctest.h>
@@ -20,6 +23,13 @@
 #include <vector>
 #include <thread>
 #include <chrono>
+
+//====================================================
+//     OS settings
+//====================================================
+#ifdef _WIN32
+osm::enableANSI();
+#endif
 
 //====================================================
 //     Global variables
@@ -229,3 +239,10 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( mm_bar.getMax(), 20 );
    }  
  }
+
+//====================================================
+//     OS settings
+//====================================================
+#ifdef _WIN32
+osm::disableANSI();
+#endif

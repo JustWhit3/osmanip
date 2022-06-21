@@ -10,12 +10,22 @@
 //My headers
 #include "../include/progressbar/progress_bar.hpp"
 #include "../include/progressbar/multi_progress_bar.hpp"
+#ifdef _WIN32
+#include "../include/utility/windows.hpp"
+#endif
 
 //Extra headers
 #include <doctest/doctest.h>
 
 //STD headers
 #include <sstream>
+
+//====================================================
+//     OS settings
+//====================================================
+#ifdef _WIN32
+osm::enableANSI();
+#endif
 
 //====================================================
 //     Global variables
@@ -91,3 +101,10 @@ TEST_CASE( "Testing the operator() redefinition in the updater struct" )
     CHECK_EQ( ss_multi.str(), ss_normal.str() );
    }
  }
+
+//====================================================
+//     OS settings
+//====================================================
+#ifdef _WIN32
+osm::disableANSI();
+#endif

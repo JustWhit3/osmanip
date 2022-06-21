@@ -10,6 +10,9 @@
 
 //My headers
 #include "../include/manipulators/csmanip.hpp"
+#ifdef _WIN32
+#include "../include/utility/windows.hpp"
+#endif
 
 //Extra headers
 #include <doctest/doctest.h>
@@ -19,7 +22,17 @@
 #include <vector>
 #include <string>
 
+//====================================================
+//     Using namespaces
+//====================================================
 using namespace std::literals::string_literals;
+
+//====================================================
+//     OS settings
+//====================================================
+#ifdef _WIN32
+osm::enableANSI();
+#endif
 
 //====================================================
 //     Global variables
@@ -98,4 +111,11 @@ TEST_CASE( "Testing the RGB function." )
   CHECK_EQ( osm::RGB( 1,5,2 ), "\x1b[38;2;1;5;2m" );
   CHECK_EQ( osm::RGB( 5,1,8 ), "\x1b[38;2;5;1;8m" );
  }
+#endif
+
+//====================================================
+//     OS settings
+//====================================================
+#ifdef _WIN32
+osm::disableANSI();
 #endif

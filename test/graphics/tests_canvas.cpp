@@ -9,9 +9,19 @@
 
 //My headers
 #include "../include/graphics/canvas.hpp"
+#ifdef _WIN32
+#include "../include/utility/windows.hpp"
+#endif
 
 //Extra headers
 #include <doctest/doctest.h>
+
+//====================================================
+//     OS settings
+//====================================================
+#ifdef _WIN32
+osm::enableANSI();
+#endif
 
 //====================================================
 //     Testing "Canvas" class
@@ -58,3 +68,10 @@ TEST_CASE( "Testing the Canvas class methods." )
 
   TEST_SUITE_END();
  }
+
+//====================================================
+//     OS settings
+//====================================================
+#ifdef _WIN32
+osm::disableANSI();
+#endif
