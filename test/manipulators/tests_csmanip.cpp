@@ -10,9 +10,7 @@
 
 //My headers
 #include "../include/manipulators/csmanip.hpp"
-#ifdef _WIN32
 #include "../include/utility/windows.hpp"
-#endif
 
 //Extra headers
 #include <doctest/doctest.h>
@@ -25,9 +23,7 @@
 
 int main( int argc, char** argv )
  {
-  #ifdef _WIN32
   osm::enableANSI();
-  #endif
 
   doctest::Context context;
 
@@ -46,8 +42,6 @@ int main( int argc, char** argv )
   
   return res + client_stuff_return_code; // the result from doctest is propagated here as well
  }
-
-
 
 //====================================================
 //     Using namespaces
