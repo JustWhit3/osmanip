@@ -25,7 +25,14 @@
 
 int main( int argc, char** argv )
  {
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
+
   doctest::Context context;
+
+  context.setOption("abort-after", 5); 
+  context.setOption("order-by", "name"); 
 
   context.applyCommandLine(argc, argv);
 
@@ -40,9 +47,7 @@ int main( int argc, char** argv )
   return res + client_stuff_return_code; // the result from doctest is propagated here as well
  }
 
-#ifdef _WIN32
-void __attribute__((constructor)) osm::enableANSI();
-#endif
+
 
 //====================================================
 //     Using namespaces
@@ -126,8 +131,4 @@ TEST_CASE( "Testing the RGB function." )
   CHECK_EQ( osm::RGB( 1,5,2 ), "\x1b[38;2;1;5;2m" );
   CHECK_EQ( osm::RGB( 5,1,8 ), "\x1b[38;2;5;1;8m" );
  }
-#endif
-
-#ifdef _WIN32
-void __attribute__((constructor)) osm::disableANSI();
 #endif
