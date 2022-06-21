@@ -11,7 +11,6 @@ var searchData=
   ['resetremainingtime_80',['resetRemainingTime',['../classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e',1,'osm::ProgressBar']]],
   ['resetstyle_81',['resetStyle',['../classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023',1,'osm::ProgressBar']]],
   ['resettime_82',['resetTime',['../classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e',1,'osm::ProgressBar']]],
-  ['restoreconsole_83',['restoreConsole',['../namespaceosm.html#aa7df364eef5f8135bb28ee251cced5a0',1,'osm']]],
-  ['rgb_84',['RGB',['../namespaceosm.html#a4ba79e32855ee7f13095509656e59668',1,'osm']]],
-  ['rst_85',['rst',['../namespaceosm.html#a8f14a098d30adf5894b195e72361238b',1,'osm']]]
+  ['rgb_83',['RGB',['../namespaceosm.html#a4ba79e32855ee7f13095509656e59668',1,'osm']]],
+  ['rst_84',['rst',['../namespaceosm.html#a8f14a098d30adf5894b195e72361238b',1,'osm']]]
 ];
