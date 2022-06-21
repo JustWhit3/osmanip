@@ -17,17 +17,14 @@
 #include <doctest/doctest.h>
 
 //====================================================
-//     OS settings
-//====================================================
-#ifdef _WIN32
-osm::enableANSI();
-#endif
-
-//====================================================
 //     Testing "Plot2DCanvas" class
 //====================================================
 TEST_CASE( "Testing the Canvas class methods." )
  {
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
+
   osm::Plot2DCanvas cv( 5,7 );
 
   //====================================================
@@ -55,11 +52,8 @@ TEST_CASE( "Testing the Canvas class methods." )
    }
 
   TEST_SUITE_END();
- }
 
-//====================================================
-//     OS settings
-//====================================================
-#ifdef _WIN32
-osm::disableANSI();
-#endif
+  #ifdef _WIN32
+  osm::disableANSI();
+  #endif
+ }

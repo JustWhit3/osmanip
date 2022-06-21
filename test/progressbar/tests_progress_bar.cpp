@@ -25,13 +25,6 @@
 #include <chrono>
 
 //====================================================
-//     OS settings
-//====================================================
-#ifdef _WIN32
-osm::enableANSI();
-#endif
-
-//====================================================
 //     Global variables
 //====================================================
 const std::string style = "%";
@@ -47,6 +40,10 @@ const std::string style_l_ = "#";
 //====================================================
 TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long long, double, long double, float )
  {
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
+
   osm::ProgressBar <T> bar; 
   T max = 10.,
     min = 5.,
@@ -238,11 +235,8 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     CHECK_EQ( mm_bar.getMin(), 0 );
     CHECK_EQ( mm_bar.getMax(), 20 );
    }  
+  
+  #ifdef _WIN32
+  osm::disableANSI();
+  #endif
  }
-
-//====================================================
-//     OS settings
-//====================================================
-#ifdef _WIN32
-osm::disableANSI();
-#endif

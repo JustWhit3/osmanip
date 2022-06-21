@@ -17,17 +17,14 @@
 #include <doctest/doctest.h>
 
 //====================================================
-//     OS settings
-//====================================================
-#ifdef _WIN32
-osm::enableANSI();
-#endif
-
-//====================================================
 //     Testing "Canvas" class
 //====================================================
 TEST_CASE( "Testing the Canvas class methods." )
  {
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
+  
   osm::Canvas canvas( 5, 6 );
 
   //====================================================
@@ -67,11 +64,8 @@ TEST_CASE( "Testing the Canvas class methods." )
    }
 
   TEST_SUITE_END();
- }
 
-//====================================================
-//     OS settings
-//====================================================
-#ifdef _WIN32
-osm::disableANSI();
-#endif
+  #ifdef _WIN32
+  osm::disableANSI();
+  #endif
+ }
