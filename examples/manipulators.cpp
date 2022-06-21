@@ -183,9 +183,9 @@ void printer()
 //====================================================
 int main()
  {
-  //#ifdef _WIN32
-  //osm::enableANSI();
-  //#endif
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
 
   osm::OPTION( osm::CURSOR::OFF );
  
@@ -194,7 +194,7 @@ int main()
 
   osm::OPTION( osm::CURSOR::ON );
   
-  //#ifdef _WIN32
-  //osm::disableANSI();
-  //#endif
+  #ifdef _WIN32
+  osm::disableANSI();
+  #endif
  }
