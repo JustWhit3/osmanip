@@ -66,6 +66,7 @@ jobs:
        mv $exprtk_sha1.zip exprtk-$exprtk_sha1.zip
        unzip exprtk-$exprtk_sha1.zip
        sudo cp exprtk-$exprtk_sha1/exprtk.hpp /usr/local/include
+       rm -rf exprtk-*
 
        wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
        mv main.zip arsenalgear-cpp-main.zip
@@ -90,6 +91,7 @@ jobs:
        cd C:/install
        wget https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.zip | Out-Null
        unzip boost_1_79_0.zip | Out-Null
+       rm boost_1_79_0.zip
        mkdir C:/boost-build
        mkdir C:/install/boost_1_79_0/boost-build
        mkdir C:/boost
@@ -104,20 +106,27 @@ jobs:
        cd -
        cp -r C:/boost/include/boost-1_79/boost C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++
        cp C:/boost/lib/* C:/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib
+       rd -r C:/install
+       rd -r C:/boost-build
 
        wget https://github.com/doctest/doctest/archive/refs/heads/master.zip | Out-Null
        unzip master.zip | Out-Null
+       rm master.zip
        mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/doctest
        cp doctest-master/doctest/doctest.h C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/doctest
+       rd -r doctest-master
 
        wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
        mv main.zip arsenalgear-cpp-main.zip
        unzip arsenalgear-cpp-main.zip
+       rm arsenalgear-cpp-main.zip
        cd arsenalgear-cpp-main || exit
        make
        mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
        cp -r include/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
        cp lib/* C:/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib
+       cd ..
+       rd -r arsenalgear-cpp-main
 
        make
     - name: Perform CodeQL Analysis

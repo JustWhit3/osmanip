@@ -46,10 +46,10 @@ elif [[ "$UNAME" == Linux* ]] ; then
     INCL=/usr/include
     LIB=/usr/lib
 else
-    read -p "Insert the system include path in which you want to install headers: " word_include
+    read -p "Insert the system include path in which you want to install osmanip and its dependencies headers: " word_include
         mkdir -p ${word_include}
         INCL=${word_include}
-    read -p "Insert the system lib path in which you want to install static libraries: " word_lib
+    read -p "Insert the system lib path in which you want to install osmanip and its dependencies static libraries: " word_lib
         mkdir -p ${word_lib}
         LIB=${word_lib}
 fi
@@ -93,7 +93,7 @@ rm -rf arsenalgear-*
 echo ""
 
 # Installing optional packages
-read -p "Do you want to install optional arsenalgear prerequisites (y/n)? " word_o
+read -p "Do you want to install optional osmanip prerequisites (y/n)? " word_o
 if [ "$word_o" == "y" ] || [ "$word_o" == "Y" ] ; then
     if [[ "$UNAME" == Darwin* ]] ; then
         brew install doctest cppcheck clang-format valgrind
@@ -117,19 +117,10 @@ echo ""
 #     COMPILATION OF THE SOURCE CODE
 #     (check if doctest is installed)
 #====================================================
-if [ -f "${INCL}/doctest/doctest.h" ] || [ -f "/usr/local/Cellar/doctest/doctest.h" ] || [ -f "${INCL}/doctest/doctest.h" ] ; then
-    echo "Compiling the whole arsenalgear code..."
-    if ! make ; then
-        echo "Compilation failed!"
-        exit
-    fi
-else
-    echo "Doctest is not installed, cannot compile the test codes!"
-    echo "Compiling only the main code of arsenalgear (this is not a problem for the installation)..."
-    if ! make $main ; then
-        echo "Compilation failed!"
-        exit
-    fi
+echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
+if ! make ; then
+    echo "Compilation failed!"
+    exit
 fi
 echo ""
 

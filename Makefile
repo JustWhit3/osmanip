@@ -20,13 +20,13 @@ ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
 	EX_PB_EXEC := progressbar
 	EX_GRAPH_EXEC := graphics
 	TEST_EXEC := tests
-	LIB := libarsenalgear.a
+	LIB := libosmanip.a
 else
 	EX_MANIP_EXEC := manipulators.exe
 	EX_PB_EXEC := progressbar.exe
 	EX_GRAPH_EXEC := graphics.exe
 	TEST_EXEC := tests.exe
-	LIB := libarsenalgear.lib
+	LIB := libosmanip.lib
 endif
 CC := g++
 
@@ -58,13 +58,15 @@ ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
 	TEST := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
 else
 	# Source files fo examples
-	SRC_MANIP := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/manipulators.cpp)
-	SRC_PB := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/progressbar.cpp)
-	SRC_GRAPH := $(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(EX_DIR)/graphics.cpp)
+	ALL_SOURCES := $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/*/*.cpp)
+	SRC_MANIP := $(ALL_SOURCES) $(wildcard $(EX_DIR)/manipulators.cpp)
+	SRC_PB := $(ALL_SOURCES) $(wildcard $(EX_DIR)/progressbar.cpp)
+	SRC_GRAPH := $(ALL_SOURCES) $(wildcard $(EX_DIR)/graphics.cpp)
 
 	# Other source files
-	SRC_LIB := $(wildcard $(SRC_DIR)/*.cpp) 
-	TEST :=$(wildcard $(SRC_DIR)/*.cpp)  $(wildcard $(TEST_DIR)/*.cpp) 
+	SRC_LIB := $(ALL_SOURCES)
+	ALL_TESTS := $(wildcard $(TEST_DIR)/*.cpp) $(wildcard $(TEST_DIR)/*/*.cpp)
+	TEST := $(ALL_SOURCES) $(ALL_TESTS)
 endif
 
 #====================================================
@@ -91,7 +93,7 @@ else
 endif
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 LDFLAGS := -pthread -larsenalgear
-CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP
+CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP -D_GLIBCXX_USE_CXX11_ABI=0
 
 #====================================================
 #     Aliases
@@ -99,7 +101,7 @@ CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP
 .PHONY: clean all
 
 all: $(BUILD_DIR)/$(EX_MANIP_EXEC) $(BUILD_DIR)/$(EX_PB_EXEC) $(BUILD_DIR)/$(EX_GRAPH_EXEC) $(BUILD_DIR)/$(TEST_EXEC) $(LIB_DIR)/$(LIB)
-main: $(BUILD_DIR)/$(EX_MANIP_EXEC) $(BUILD_DIR)/$(EX_PB_EXEC) $(BUILD_DIR)/$(EX_GRAPH_EXEC) $(LIB_DIR)/$(LIB)
+examples: $(BUILD_DIR)/$(EX_MANIP_EXEC) $(BUILD_DIR)/$(EX_PB_EXEC) $(BUILD_DIR)/$(EX_GRAPH_EXEC) $(LIB_DIR)/$(LIB)
 tests: $(BUILD_DIR)/$(TEST_EXEC)
 
 #====================================================
