@@ -10,7 +10,9 @@
 
 //My headers
 #include "../include/manipulators/csmanip.hpp"
+#ifdef _WIN32
 #include "../include/utility/windows.hpp"
+#endif
 
 //Extra headers
 #include <doctest/doctest.h>
@@ -23,12 +25,15 @@
 
 int main( int argc, char** argv )
  {
-  osm::enableANSI();
+  //#ifdef _WIN32
+  //osm::enableANSI();
+  //#endif
 
   doctest::Context context;
 
   context.setOption("abort-after", 5); 
   context.setOption("order-by", "name"); 
+  context.setOption("force-colors", true); 
 
   context.applyCommandLine(argc, argv);
 
