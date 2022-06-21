@@ -1,6 +1,9 @@
 //My headers
 #include "../include/progressbar/progress_bar.hpp"
 #include "../include/progressbar/multi_progress_bar.hpp"
+#ifdef _WIN32
+#include "../include/utility/windows.hpp"
+#endif
 
 //STD headers
 #include <iostream>
@@ -305,6 +308,10 @@ void progress_spinner()
 //====================================================
 int main()
  {
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
+
   osm::OPTION( osm::CURSOR::OFF );
  
   perc_bars(); //Percentage bar.
@@ -314,4 +321,8 @@ int main()
   progress_spinner(); //Progress spinner.
 
   osm::OPTION( osm::CURSOR::ON );
+
+  #ifdef _WIN32
+  osm::disableANSI();
+  #endif
  }

@@ -99,6 +99,8 @@ osmanip/
 │   ├── progressbar/
 │   │   ├── progress_bar.hpp
 │   │   ├── multi_progress_bar.hpp
+│   ├── utility/
+│   │   ├── windows.hpp
 ├── src/
 │   ├── graphics/
 │   │   ├── canvas.cpp
@@ -108,6 +110,8 @@ osmanip/
 │   ├── progressbar/
 │   │   ├── progress_bar.cpp
 │   │   ├── multi_progress_bar.cpp
+│   ├── utility/
+│   │   ├── windows.cpp
 ├── examples/
 │   ├── manipulators.cpp
 │   ├── progressbar.cpp
@@ -127,6 +131,8 @@ osmanip/
 │   ├── progressbar/
 │   │   ├── tests_progress_bar.cpp
 │   │   ├── tests_multi_progress_bar.cpp
+│   ├── utility/
+│   │   ├── test_windows.cpp
 │── README.md
 │── License
 │── CITATION.cff

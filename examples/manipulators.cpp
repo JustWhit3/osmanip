@@ -1,5 +1,8 @@
 //My headers
 #include "../include/manipulators/csmanip.hpp"
+#ifdef _WIN32
+#include "../include/utility/windows.hpp"
+#endif
 
 //STD headers
 #include <iostream>
@@ -180,10 +183,18 @@ void printer()
 //====================================================
 int main()
  {
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
+
   osm::OPTION( osm::CURSOR::OFF );
  
   col_sty(); //Color/style.
   printer(); //For printing functions.
 
   osm::OPTION( osm::CURSOR::ON );
+  
+  #ifdef _WIN32
+  osm::disableANSI();
+  #endif
  }

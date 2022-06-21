@@ -2,6 +2,9 @@
 #include "../include/manipulators/csmanip.hpp"
 #include "../include/graphics/canvas.hpp"
 #include "../include/graphics/plot_2D.hpp"
+#ifdef _WIN32
+#include "../include/utility/windows.hpp"
+#endif
 
 //STD headers
 #include <iostream>
@@ -93,9 +96,17 @@ void canvas_2d()
 //====================================================
 int main()
  {
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
+
   osm::OPTION( osm::CURSOR::OFF );
  
   canvas_2d();
 
   osm::OPTION( osm::CURSOR::ON );
+
+  #ifdef _WIN32
+  osm::disableANSI();
+  #endif
  }
