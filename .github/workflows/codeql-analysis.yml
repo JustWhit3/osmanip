@@ -83,8 +83,6 @@ jobs:
     - name: Installing extra dependencies and compiling (Windows)
       if: matrix.os == 'windows-latest'
       run: |
-       echo "int main(){}" >> prove.cpp
-       g++ -v prove.cpp
        choco install unzip wget
 
        mkdir C:/install
@@ -105,7 +103,7 @@ jobs:
        b2 --build-dir="C:/install/boost_1_79_0/build" --build-type=complete --prefix="C:/boost" toolset=gcc install
        cd -
        cp -r C:/boost/include/boost-1_79/boost C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++
-       cp C:/boost/lib/* C:/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib
+       cp C:/boost/lib/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/
        rd -r C:/install
        rd -r C:/boost-build
 
@@ -124,7 +122,7 @@ jobs:
        make
        mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
        cp -r include/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
-       cp lib/* C:/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib
+       cp lib/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/
        cd ..
        rd -r arsenalgear-cpp-main
 
