@@ -1,7 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#define DOCTEST_CONFIG_IMPLEMENT
 #define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
 
 //====================================================
@@ -22,6 +22,23 @@
 #include <vector>
 #include <string>
 #include <stdexcept>
+
+int main( int argc, char** argv )
+ {
+  doctest::Context context;
+
+  context.applyCommandLine(argc, argv);
+
+  int res = context.run();
+
+  if(context.shouldExit()) // important - query flags (and --exit) rely on the user doing this
+      return res;          // propagate the result of the tests
+  
+  int client_stuff_return_code = 0;
+  // your program - if the testing framework is integrated in your production code
+  
+  return res + client_stuff_return_code; // the result from doctest is propagated here as well
+ }
 
 #ifdef _WIN32
 void __attribute__((constructor)) osm::enableANSI();
