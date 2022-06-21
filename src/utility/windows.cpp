@@ -50,12 +50,12 @@ namespace osm
     
     if( stdoutHandle == INVALID_HANDLE_VALUE )
      {
-      throw std::runtime_error( GetLastError() );
+      exit( GetLastError() );
      }
     
     if( ! GetConsoleMode( stdoutHandle, &outMode ) )
      {
-      throw std::runtime_error( GetLastError() );
+      exit( GetLastError() );
      }
     
     outModeInit = outMode;
@@ -65,7 +65,7 @@ namespace osm
     
     if( ! SetConsoleMode( stdoutHandle, outMode ) )
      {
-      throw std::runtime_error( GetLastError() );
+      exit( GetLastError() );
      }
   
     #endif
