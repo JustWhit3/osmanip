@@ -25,9 +25,9 @@
 
 int main( int argc, char** argv )
  {
-  //#ifdef _WIN32
-  //osm::enableANSI();
-  //#endif
+  #ifdef _WIN32
+  osm::enableANSI();
+  #endif
 
   doctest::Context context;
 
