@@ -1,7 +1,7 @@
 //My headers
 #include "../include/progressbar/progress_bar.hpp"
 #include "../include/progressbar/multi_progress_bar.hpp"
-#ifdef _WIN32
+#if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
 #include "../include/utility/windows.hpp"
 #endif
 
@@ -308,7 +308,7 @@ void progress_spinner()
 //====================================================
 int main()
  {
-  #ifdef _WIN32
+  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
   osm::enableANSI();
   #endif
 
@@ -322,7 +322,7 @@ int main()
 
   osm::OPTION( osm::CURSOR::ON );
 
-  #ifdef _WIN32
+  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
   osm::disableANSI();
   #endif
  }

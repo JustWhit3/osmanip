@@ -3,7 +3,7 @@
 //====================================================
 
 // Windows headers
-#ifdef _WIN32
+#if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
 #include <windows.h>
 #endif
 
@@ -19,7 +19,7 @@ namespace osm
   //====================================================
   //     Macros
   //====================================================
-  #ifdef _WIN32
+  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
   #ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
   #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
   #endif
@@ -28,7 +28,7 @@ namespace osm
   //====================================================
   //     Variables
   //====================================================
-  #ifdef _WIN32
+  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
   static HANDLE stdoutHandle;
   static DWORD outModeInit;
   #endif
@@ -43,7 +43,7 @@ namespace osm
   void enableANSI()
    {
     // Settings for Windows mode
-    #ifdef _WIN32
+    #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
   
     DWORD outMode = 0;
     stdoutHandle = GetStdHandle( STD_OUTPUT_HANDLE );
@@ -84,7 +84,7 @@ namespace osm
     std::cout << "\033[0m";
   
     // Settings for Windows mode
-    #ifdef _WIN32
+    #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
   
     // Reset console mode
     if( ! SetConsoleMode( stdoutHandle, outModeInit ) )

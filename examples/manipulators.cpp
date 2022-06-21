@@ -1,6 +1,6 @@
 //My headers
 #include "../include/manipulators/csmanip.hpp"
-#ifdef _WIN32
+#if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
 #include "../include/utility/windows.hpp"
 #endif
 
@@ -183,7 +183,7 @@ void printer()
 //====================================================
 int main()
  {
-  #ifdef _WIN32
+  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
   osm::enableANSI();
   #endif
 
@@ -194,7 +194,7 @@ int main()
 
   osm::OPTION( osm::CURSOR::ON );
   
-  #ifdef _WIN32
+  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
   osm::disableANSI();
   #endif
  }
