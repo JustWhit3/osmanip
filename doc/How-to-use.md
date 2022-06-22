@@ -25,6 +25,14 @@ Here you can find examples of all the features supported in the current version 
 > ```
 > just to imptove readability.
 
+If you are on Windows you need to manually enable ANSI escape sequences in your program, in order to correctly use all the features of the library. To do this you can use the [enableANSI](https://justwhit3.github.io/osmanip/namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59) function at the beginning of the program and the [enableANSI](https://justwhit3.github.io/osmanip/namespaceosm.html#af472191a970f5e5f16b3eb1f8dbe95db) one at the end, to come back to the previous settings:
+
+```c++
+enableANSI();
+// doing some stuff...
+disableANSI();
+```
+
 ## Output stream manipulators
 
 Can be accessed by including:

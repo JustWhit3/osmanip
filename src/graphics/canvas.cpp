@@ -203,8 +203,8 @@ namespace osm
    */
   void Canvas::clear()
    {
-    char_buffer_.assign( width_ * height_, bg_char_ );
-    feat_buffer_.assign( width_ * height_, bg_feat_ );
+    char_buffer_.assign( static_cast<long> ( width_ ) * height_, bg_char_ );
+    feat_buffer_.assign( static_cast<long> ( width_ ) * height_, bg_feat_ );
    }
 
   //====================================================
@@ -320,7 +320,7 @@ namespace osm
    */
   void Canvas::resizeCanvas()
    {
-    char_buffer_.resize( width_ * height_ );
-    feat_buffer_.resize( width_ * height_ );
+    char_buffer_.resize( static_cast<long> ( width_ ) * height_ );
+    feat_buffer_.resize( static_cast<long> ( width_ ) * height_ );
    }
  }

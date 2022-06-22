@@ -3,9 +3,13 @@
 ## New features
 
 - Extend the 2D terminal-graphics to 3D.
+- Add an `elapsedTime()` method to show elapsed progress bar time and substitute it to the already existing  `getTime()` method.
 
 ## Improvements
 
-- Improve the compilation using CMake tools.
+- Improve the compilation using CMake.
 - Add time-elapsed info to the progress bar.
-- Add the library to the official `apt` package manager.
+
+## Improvements
+
+- Benchmarking and other studies with respect to similar libraries.
