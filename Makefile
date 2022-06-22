@@ -92,7 +92,11 @@ else
 	INC_DIR := $(SRC_DIR)
 endif
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
-LDFLAGS := -pthread -larsenalgear
+ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
+	LDFLAGS := -pthread -larsenalgear
+else
+	LDFLAGS := -pthread -llibarsenalgear.lib
+endif
 CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP -D_GLIBCXX_USE_CXX11_ABI=0
 
 #====================================================

@@ -37,7 +37,7 @@ namespace osm
   //     enableANSI
   //====================================================
   /**
-   * @brief Function used to enable ANSI escape sequences on Windows.
+   * @brief Function used to enable ANSI escape sequences on Windows (used for Windows only). 
    * 
    */
   void enableANSI()
@@ -76,7 +76,7 @@ namespace osm
   //====================================================
   void disableANSI()
   /**
-   * @brief Function used to disable ANSI escape sequences.
+   * @brief Function used to disable ANSI escape sequences (used for Windows only).
    * 
    */
    {

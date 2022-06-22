@@ -24,6 +24,16 @@
 #include <stdexcept>
 
 //====================================================
+//     Using namespaces
+//====================================================
+using namespace std::literals::string_literals;
+
+//====================================================
+//     Global variables
+//====================================================
+const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
+
+//====================================================
 //     Main
 //====================================================
 int main( int argc, char** argv )
@@ -34,33 +44,22 @@ int main( int argc, char** argv )
 
   doctest::Context context;
 
-  context.setOption("abort-after", 5); 
-  context.setOption("order-by", "name"); 
-  context.setOption("force-colors", true); 
+  context.setOption( "abort-after", 5 ); 
+  context.setOption( "order-by", "name" ); 
 
-  context.applyCommandLine(argc, argv);
+  context.applyCommandLine( argc, argv );
 
   int res = context.run();
+
+  #ifdef _WIN32
+  osm::disableANSI();
+  #endif
 
   if( context.shouldExit() )
    {
     return res;         
    } 
-
-  #ifdef _WIN32
-  osm::disableANSI();
-  #endif
  }
-
-//====================================================
-//     Using namespaces
-//====================================================
-using namespace std::literals::string_literals;
-
-//====================================================
-//     Global variables
-//====================================================
-const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
 
 //====================================================
 //     Testing "feat" function
