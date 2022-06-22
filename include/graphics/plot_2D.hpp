@@ -68,7 +68,7 @@ namespace osm
          float real_x = offset_x_ + x * scale_x_;
          Y real_y = function( real_x );
          unsigned int y = std::round( ( real_y - offset_y_ )  /scale_y_ );
-         if( y >= 0 && y < height_ ) put( x, y, c, feat );
+         if( y > 0 && y < height_ ) put( x, y, c, feat );
         }
       }
 
