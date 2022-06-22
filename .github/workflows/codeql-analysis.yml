@@ -85,7 +85,7 @@ jobs:
       run: |
        choco install unzip wget
        choco install pacman
-       pacman -S pacman -S mingw-w64-x86_64-boost mingw-w64-x86_64-doctest
+       pacman -S mingw-w64-x86_64-boost mingw-w64-x86_64-doctest
 
        wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
        mv main.zip arsenalgear-cpp-main.zip
