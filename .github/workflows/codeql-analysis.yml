@@ -83,51 +83,51 @@ jobs:
     - name: Installing extra dependencies and compiling (Windows)
       if: matrix.os == 'windows-latest'
       run: |
-       # choco install unzip wget
+       choco install unzip wget
 
-       # mkdir C:/install
-       # cd C:/install
-       # wget https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.zip | Out-Null
-       # unzip boost_1_79_0.zip | Out-Null
-       # rm boost_1_79_0.zip
-       # mkdir C:/boost-build
-       # mkdir C:/install/boost_1_79_0/boost-build
-       # mkdir C:/boost
-       # cd -
-       # cd C:/install/boost_1_79_0/tools/build
-       # ./bootstrap.bat gcc
-       # ./b2 --prefix="C:/boost-build" install
-       # $Env:PATH+=";C:/boost-build/bin"
-       # cd -
-       # cd C:/install/boost_1_79_0
-       # b2 --build-dir="C:/install/boost_1_79_0/build" --build-type=complete --prefix="C:/boost" toolset=gcc install
-       # cd -
-       # cp -r C:/boost/include/boost-1_79/boost C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++
-       # cp C:/boost/lib/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/
-       # rd -r C:/install
-       # rd -r C:/boost-build
+       mkdir C:/install
+       cd C:/install
+       wget https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.zip | Out-Null
+       unzip boost_1_79_0.zip | Out-Null
+       rm boost_1_79_0.zip
+       mkdir C:/boost-build
+       mkdir C:/install/boost_1_79_0/boost-build
+       mkdir C:/boost
+       cd -
+       cd C:/install/boost_1_79_0/tools/build
+       ./bootstrap.bat gcc
+       ./b2 --prefix="C:/boost-build" install
+       $Env:PATH+=";C:/boost-build/bin"
+       cd -
+       cd C:/install/boost_1_79_0
+       b2 --build-dir="C:/install/boost_1_79_0/build" --build-type=complete --prefix="C:/boost" toolset=gcc install
+       cd -
+       cp -r C:/boost/include/boost-1_79/boost C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++
+       cp C:/boost/lib/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/
+       rd -r C:/install
+       rd -r C:/boost-build
 
-       # wget https://github.com/doctest/doctest/archive/refs/heads/master.zip | Out-Null
-       # unzip master.zip | Out-Null
-       # rm master.zip
-       # mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/doctest
-       # cp doctest-master/doctest/doctest.h C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/doctest
-       # rd -r doctest-master
+       wget https://github.com/doctest/doctest/archive/refs/heads/master.zip | Out-Null
+       unzip master.zip | Out-Null
+       rm master.zip
+       mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/doctest
+       cp doctest-master/doctest/doctest.h C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/doctest
+       rd -r doctest-master
 
-       # wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
-       # mv main.zip arsenalgear-cpp-main.zip
-       # unzip arsenalgear-cpp-main.zip
-       # rm arsenalgear-cpp-main.zip
-       # cd arsenalgear-cpp-main || exit
-       # make
-       # mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
-       # cp -r include/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
-       # cp lib/libarsenalgear.lib C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/
-       # $Env:LIBRARY_PATH+=";C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/"
-       # cd ..
-       # rd -r arsenalgear-cpp-main
+       wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
+       mv main.zip arsenalgear-cpp-main.zip
+       unzip arsenalgear-cpp-main.zip
+       rm arsenalgear-cpp-main.zip
+       cd arsenalgear-cpp-main || exit
+       make
+       mkdir C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
+       cp -r include/* C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/arsenalgear
+       cp lib/libarsenalgear.lib C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/
+       $Env:LIBRARY_PATH+=";C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/../lib/gcc/"
+       cd ..
+       rd -r arsenalgear-cpp-main
 
-       # make
+       make
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
