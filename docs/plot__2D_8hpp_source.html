@@ -128,7 +128,7 @@ $(function() {
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;         <span class="keywordtype">float</span> real_x = offset_x_ + x * scale_x_;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;         Y real_y = <span class="keyword">function</span>( real_x );</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y = std::round( ( real_y - offset_y_ )  /scale_y_ );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;         <span class="keywordflow">if</span>( y &gt;= 0 &amp;&amp; y &lt; <a class="code" href="classosm_1_1Canvas.html#a913ed31d4d9273929d5c743c708a655f">height_</a> ) <a class="code" href="classosm_1_1Canvas.html#a490058618fdbfae70ad9ccdbe714ed2d">put</a>( x, y, c, <a class="code" href="namespaceosm.html#abcc750efa890afcbe8495f276e029ee0">feat</a> );</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;         <span class="keywordflow">if</span>( y &gt; 0 &amp;&amp; y &lt; <a class="code" href="classosm_1_1Canvas.html#a913ed31d4d9273929d5c743c708a655f">height_</a> ) <a class="code" href="classosm_1_1Canvas.html#a490058618fdbfae70ad9ccdbe714ed2d">put</a>( x, y, c, <a class="code" href="namespaceosm.html#abcc750efa890afcbe8495f276e029ee0">feat</a> );</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
