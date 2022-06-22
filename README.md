@@ -131,8 +131,6 @@ osmanip/
 │   ├── progressbar/
 │   │   ├── tests_progress_bar.cpp
 │   │   ├── tests_multi_progress_bar.cpp
-│   ├── utility/
-│   │   ├── test_windows.cpp
 │── README.md
 │── License
 │── CITATION.cff
