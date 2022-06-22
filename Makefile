@@ -20,14 +20,13 @@ ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
 	EX_PB_EXEC := progressbar
 	EX_GRAPH_EXEC := graphics
 	TEST_EXEC := tests
-	LIB := libosmanip.a
 else
 	EX_MANIP_EXEC := manipulators.exe
 	EX_PB_EXEC := progressbar.exe
 	EX_GRAPH_EXEC := graphics.exe
 	TEST_EXEC := tests.exe
-	LIB := libosmanip.lib
 endif
+LIB := libosmanip.a
 CC := g++
 
 #====================================================
@@ -92,11 +91,7 @@ else
 	INC_DIR := $(SRC_DIR)
 endif
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
-ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
-	LDFLAGS := -pthread -larsenalgear
-else
-	LDFLAGS := -pthread -llibarsenalgear
-endif
+LDFLAGS := -pthread -larsenalgear
 CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP -D_GLIBCXX_USE_CXX11_ABI=0
 
 #====================================================
