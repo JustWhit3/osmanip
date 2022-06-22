@@ -28,7 +28,7 @@ namespace osm
   //====================================================
   //     Variables
   //====================================================
-  #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
+  #ifdef _WIN32
   static HANDLE stdoutHandle;
   static DWORD outModeInit;
   #endif
@@ -43,8 +43,8 @@ namespace osm
   void enableANSI()
    {
     // Settings for Windows mode
-    #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
-  
+    #ifdef _WIN32
+
     DWORD outMode = 0;
     stdoutHandle = GetStdHandle( STD_OUTPUT_HANDLE );
     
@@ -84,7 +84,7 @@ namespace osm
     std::cout << "\033[0m";
   
     // Settings for Windows mode
-    #if defined _WIN32 || defined _WIN64 || defined __MINGW32__ || defined __CYGWIN__
+    #ifdef _WIN32
   
     // Reset console mode
     if( ! SetConsoleMode( stdoutHandle, outModeInit ) )
