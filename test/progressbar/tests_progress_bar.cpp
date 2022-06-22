@@ -173,7 +173,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
       }
     bar.setEnd();
     
-    CHECK( agr::IsInBounds( static_cast <int>( bar.getTime() ), 499, 502 ) );
+    CHECK( agr::IsInBounds( static_cast <int>( bar.getTime() ), 490, 510 ) );
 
     bar.resetTime();
 
