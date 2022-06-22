@@ -46,8 +46,8 @@ TEST_CASE( "Testing the operator() redefinition in the updater struct" )
 
   for( int i = bar1.getMin(); i < bar1.getMax(); i++ ) 
    {
-    auto first_output_multi = [ &i ]( std::ostream& cout ){ bars.for_one( 0, osm::updater{}, i ); };
-    auto first_output_normal = [ &i ]( std::ostream& cout ){ bar1.update( i ); };
+    auto first_output_multi = [ &i ]( std::ostream& ){ bars.for_one( 0, osm::updater{}, i ); };
+    auto first_output_normal = [ &i ]( std::ostream& ){ bar1.update( i ); };
 
     auto old_buffer = std::cout.rdbuf(nullptr);
     first_output_multi( ss_multi );
@@ -63,8 +63,8 @@ TEST_CASE( "Testing the operator() redefinition in the updater struct" )
 
   for( double i = bar2.getMin(); i < bar2.getMax(); i += 0.1 ) 
    {
-    auto first_output_multi = [ &i ]( std::ostream& cout ){ bars.for_one( 1, osm::updater{}, i ); };
-    auto first_output_normal = [ &i ]( std::ostream& cout ){ bar2.update( i ); };
+    auto first_output_multi = [ &i ]( std::ostream& ){ bars.for_one( 1, osm::updater{}, i ); };
+    auto first_output_normal = [ &i ]( std::ostream& ){ bar2.update( i ); };
 
     auto old_buffer = std::cout.rdbuf(nullptr);
     first_output_multi( ss_multi );
@@ -80,8 +80,8 @@ TEST_CASE( "Testing the operator() redefinition in the updater struct" )
 
   for( float i = bar3.getMin(); i < bar3.getMax(); i += 0.1f ) 
    {
-    auto first_output_multi = [ &i ]( std::ostream& cout ){ bars.for_one( 2, osm::updater{}, i ); };
-    auto first_output_normal = [ &i ]( std::ostream& cout ){ bar3.update( i ); };
+    auto first_output_multi = [ &i ]( std::ostream& ){ bars.for_one( 2, osm::updater{}, i ); };
+    auto first_output_normal = [ &i ]( std::ostream& ){ bar3.update( i ); };
 
     auto old_buffer = std::cout.rdbuf(nullptr);
     first_output_multi( ss_multi );

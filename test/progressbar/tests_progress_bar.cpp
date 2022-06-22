@@ -20,6 +20,7 @@
 #include <vector>
 #include <thread>
 #include <chrono>
+#include <stdexcept>
 
 //====================================================
 //     Global variables
@@ -39,8 +40,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
  {
   osm::ProgressBar <T> bar; 
   T max = 10.,
-    min = 5.,
-    time = 34.;
+    min = 5.;
   std::string type = "indicator";
 
   //====================================================
