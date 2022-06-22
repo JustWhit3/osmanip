@@ -26,7 +26,7 @@ else
 	EX_PB_EXEC := progressbar.exe
 	EX_GRAPH_EXEC := graphics.exe
 	TEST_EXEC := tests.exe
-	LIB := libosmanip.lib
+	LIB := libosmanip.a
 endif
 CC := g++
 
