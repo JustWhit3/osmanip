@@ -67,6 +67,9 @@ namespace osm
      {
       exit( GetLastError() );
      }
+
+    // Enabling also Unicode characters used in Graphics headers folder
+    system( "chcp 65001" );
   
     #endif
    }
