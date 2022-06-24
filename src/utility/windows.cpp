@@ -117,7 +117,7 @@ namespace osm
     std::string old_chcp_pre = agr::getCommandOut( "chcp" );
     old_chcp = agr::split_string( old_chcp_pre, " " ).back();
 
-    system( "chcp 65001" );
+    system( "chcp 65001 > nul" );
 
     #endif
    }
@@ -135,7 +135,7 @@ namespace osm
     #ifdef _WIN32
 
     std::ostringstream oss;
-    oss << "chcp " << old_chcp;
+    oss << "chcp " << old_chcp << " > nul";
     std::string return_chcp = oss.str();
 
     system( return_chcp.c_str() );

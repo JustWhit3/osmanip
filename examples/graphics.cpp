@@ -98,6 +98,7 @@ int main()
  {
   #ifdef _WIN32
   osm::enableANSI();
+  osm::enableUNICODE();
   #endif
 
   osm::OPTION( osm::CURSOR::OFF );
@@ -107,6 +108,7 @@ int main()
   osm::OPTION( osm::CURSOR::ON );
 
   #ifdef _WIN32
+  osm::disableUNICODE();
   osm::disableANSI();
   #endif
  }
