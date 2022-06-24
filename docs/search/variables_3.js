@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sty_220',['sty',['../namespaceosm.html#a4efb84dbcb1e2c5de27e0f55908bd085',1,'osm']]]
+  ['rst_221',['rst',['../namespaceosm.html#a8f14a098d30adf5894b195e72361238b',1,'osm']]]
 ];
