@@ -38,6 +38,7 @@ namespace osm
   static HANDLE stdoutHandle;
   static DWORD outModeInit;
   #endif
+  std::string old_chcp;
   
   //====================================================
   //     enableANSI
