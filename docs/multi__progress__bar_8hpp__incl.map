@@ -1,14 +1,15 @@
 <map id="include/progressbar/multi_progress_bar.hpp" name="include/progressbar/multi_progress_bar.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="413,5,573,47"/>
-<area shape="rect" id="node2" href="$csmanip_8hpp.html" title=" " alt="" coords="154,95,337,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,169,77,196"/>
-<area shape="rect" id="node8" title=" " alt="" coords="361,95,444,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="468,95,519,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="543,95,622,121"/>
-<area shape="rect" id="node11" title=" " alt="" coords="646,95,703,121"/>
-<area shape="rect" id="node12" title=" " alt="" coords="727,95,779,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="101,169,259,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="283,169,338,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="362,169,409,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="433,169,473,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="655,5,815,47"/>
+<area shape="rect" id="node2" href="$csmanip_8hpp.html" title=" " alt="" coords="335,95,518,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="539,169,611,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="603,95,685,121"/>
+<area shape="rect" id="node10" title=" " alt="" coords="709,95,760,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="785,95,863,121"/>
+<area shape="rect" id="node12" title=" " alt="" coords="887,95,945,121"/>
+<area shape="rect" id="node13" title=" " alt="" coords="969,95,1021,121"/>
+<area shape="rect" id="node3" href="$windows_8hpp.html" title=" " alt="" coords="5,169,147,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="102,244,157,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="221,169,379,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="403,169,450,196"/>
+<area shape="rect" id="node8" title=" " alt="" coords="475,169,515,196"/>
 </map>

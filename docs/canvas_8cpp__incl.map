@@ -1,12 +1,13 @@
 <map id="src/graphics/canvas.cpp" name="src/graphics/canvas.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="348,5,511,32"/>
-<area shape="rect" id="node2" href="$canvas_8hpp.html" title=" " alt="" coords="53,80,179,121"/>
-<area shape="rect" id="node5" href="$csmanip_8hpp.html" title=" " alt="" coords="298,80,449,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="485,169,557,196"/>
-<area shape="rect" id="node10" title=" " alt="" coords="524,87,593,114"/>
+<area shape="rect" id="node1" title=" " alt="" coords="471,5,633,32"/>
+<area shape="rect" id="node2" href="$canvas_8hpp.html" title=" " alt="" coords="38,80,165,121"/>
+<area shape="rect" id="node5" href="$csmanip_8hpp.html" title=" " alt="" coords="421,80,571,121"/>
+<area shape="rect" id="node8" title=" " alt="" coords="672,169,744,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="647,87,716,114"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,169,64,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="89,169,143,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="168,169,325,196"/>
-<area shape="rect" id="node8" title=" " alt="" coords="350,169,397,196"/>
-<area shape="rect" id="node9" title=" " alt="" coords="421,169,461,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="125,244,179,271"/>
+<area shape="rect" id="node6" href="$windows_8hpp.html" title=" " alt="" coords="189,169,331,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="355,169,512,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="537,169,583,196"/>
+<area shape="rect" id="node10" title=" " alt="" coords="608,169,648,196"/>
 </map>

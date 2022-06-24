@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['framestyle_232',['FrameStyle',['../namespaceosm.html#a8764c3774efea820941d8dc1fed23e39',1,'osm']]]
+  ['cursor_234',['CURSOR',['../namespaceosm.html#a793613c2bce496156326ba85a53b6d13',1,'osm']]]
 ];

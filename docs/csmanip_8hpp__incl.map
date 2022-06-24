@@ -1,8 +1,9 @@
 <map id="include/manipulators/csmanip.hpp" name="include/manipulators/csmanip.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="240,5,381,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,163,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="187,95,259,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="283,95,338,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="362,95,409,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="433,95,473,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="299,5,440,47"/>
+<area shape="rect" id="node2" href="$windows_8hpp.html" title=" " alt="" coords="5,95,147,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="102,169,157,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="221,95,379,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="403,95,475,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="499,95,546,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="571,95,611,121"/>
 </map>
