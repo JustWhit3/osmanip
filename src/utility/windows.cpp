@@ -114,7 +114,7 @@ namespace osm
     #ifdef _WIN32
 
     std::string old_chcp_pre = agr::getCommandOut( "chcp" );
-    static std::string old_chcp = agr::split_string( old_chcp_pre, " " ).back();
+    old_chcp = agr::split_string( old_chcp_pre, " " ).back();
 
     system( "chcp 65001" );
 
