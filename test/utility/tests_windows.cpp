@@ -29,7 +29,7 @@ TEST_CASE( "Testing the " )
   std::string old_chcp = agr::split_string( old_chcp_pre, " " ).back();
 
   osm::enableUNICODE();
-  CHECK_EQ( agr::getCommandOut( "chcp" ), 65001 );
+  CHECK_EQ( agr::getCommandOut( "chcp" ), "65001" );
 
   osm::disableUNICODE();
   CHECK_EQ( agr::getCommandOut( "chcp" ), old_chcp_pre );
