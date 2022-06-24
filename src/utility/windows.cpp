@@ -10,9 +10,15 @@
 // My headers
 #include "../../include/utility/windows.hpp"
 
+//Extra headers
+#include <arsenalgear/system.hpp>
+#include <arsenalgear/utils.hpp>
+
 // STD headers
 #include <iostream>
 #include <stdexcept>
+#include <string>
+#include <sstream>
 
 namespace osm
  {
@@ -67,9 +73,6 @@ namespace osm
      {
       exit( GetLastError() );
      }
-
-    // Enabling also Unicode characters used in Graphics headers folder
-    system( "chcp 65001" );
   
     #endif
    }
@@ -95,6 +98,47 @@ namespace osm
       exit( GetLastError() );
      }
   
+    #endif
+   }
+
+  //====================================================
+  //     enableUNICODE
+  //====================================================
+  /**
+   * @brief Function used to enable UNICODE characters (used for Windows only).
+   * 
+   */
+  void enableUNICODE()
+   {
+    // Settings for Windows mode
+    #ifdef _WIN32
+
+    std::string old_chcp_pre = agr::getCommandOut( "chcp" );
+    static std::string old_chcp = agr::split_string( old_chcp_pre, " " ).back();
+
+    system( "chcp 65001" );
+
+    #endif
+   }
+
+  //====================================================
+  //     disableUNICODE
+  //====================================================
+  /**
+   * @brief Function used to disable UNICODE characters (used for Windows only).
+   * 
+   */
+  void disableUNICODE()
+   {
+    // Settings for Windows mode
+    #ifdef _WIN32
+
+    std::ostringstream oss;
+    oss << "chcp " << old_chcp;
+    const char* return_chcp = oss.str();
+
+    system( return_chcp );
+
     #endif
    }
  }

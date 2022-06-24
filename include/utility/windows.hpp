@@ -11,6 +11,8 @@ namespace osm
   //====================================================
   extern void enableANSI();
   extern void disableANSI();
+  extern void enableUNICODE();
+  extern void disableUNICODE();
  }
 
 #endif
