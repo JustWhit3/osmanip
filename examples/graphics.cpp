@@ -97,8 +97,8 @@ void canvas_2d()
 int main()
  {
   #ifdef _WIN32
-  osm::enableANSI();
-  osm::enableUNICODE();
+  osm::OPTION( osm::ANSI::ON );
+  osm::OPTION( osm::UNICODECH::ON );
   #endif
 
   osm::OPTION( osm::CURSOR::OFF );
@@ -108,7 +108,7 @@ int main()
   osm::OPTION( osm::CURSOR::ON );
 
   #ifdef _WIN32
-  osm::disableUNICODE();
-  osm::disableANSI();
+  osm::OPTION( osm::ANSI::OFF );
+  osm::OPTION( osm::UNICODECH::OFF );
   #endif
  }

@@ -56,14 +56,27 @@ namespace osm
    * @brief It is used to set the cursor view.
    * 
    * @tparam T The type of the given option.
-   * @param option The option to set.
+   * @param opt The option to set.
    * @return std::string The string (option) to be printed.
    */
   template <typename T>
-  inline void OPTION( const T& opt )
+  inline void OPTION(T opt) 
    {
-    if( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
-    else if( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
+    if constexpr ( std::is_same_v<T, CURSOR> ) 
+     {
+        if ( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
+        else if ( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
+     } 
+    else if constexpr ( std::is_same_v<T, ANSI> ) 
+     {
+        if ( opt == ANSI::ON ) enableANSI();
+        else if ( opt == ANSI::OFF ) disableANSI();
+     }
+    else if constexpr ( std::is_same_v<T, UNICODECH> ) 
+     {
+        if ( opt == UNICODECH::ON ) enableUNICODE();
+        else if ( opt == UNICODECH::OFF ) disableUNICODE();
+     }
     else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!"  << reset( "all" ) << "\n";
    }
 
