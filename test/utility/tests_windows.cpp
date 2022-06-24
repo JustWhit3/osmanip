@@ -29,10 +29,14 @@ TEST_CASE( "Testing the " )
   std::string old_chcp = agr::split_string( old_chcp_pre, " " ).back();
 
   osm::enableUNICODE();
-  CHECK_EQ( agr::getCommandOut( "chcp" ), "65001" );
+  const std::string old_chcp_pre_UNICODE = agr::getCommandOut( "chcp" );
+  std::string old_chcp_UNICODE = agr::split_string( old_chcp_pre_UNICODE, " " ).back();
+  CHECK_EQ( old_chcp_UNICODE, "65001" );
 
   osm::disableUNICODE();
-  CHECK_EQ( agr::getCommandOut( "chcp" ), old_chcp_pre );
+  const std::string old_chcp_pre_UNICODE_off = agr::getCommandOut( "chcp" );
+  std::string old_chcp_UNICODE_off = agr::split_string( old_chcp_pre_UNICODE_off, " " ).back();
+  CHECK_EQ( old_chcp_UNICODE_off, old_chcp );
  }
 
 #endif
