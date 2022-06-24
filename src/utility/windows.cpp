@@ -135,9 +135,9 @@ namespace osm
 
     std::ostringstream oss;
     oss << "chcp " << old_chcp;
-    const char* return_chcp = oss.str();
+    std::string return_chcp = oss.str();
 
-    system( return_chcp );
+    system( return_chcp.c_str() );
 
     #endif
    }
