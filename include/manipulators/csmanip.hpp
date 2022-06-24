@@ -8,6 +8,9 @@
 //     Headers
 //====================================================
 
+//My headers
+#include "../utility/windows.hpp"
+
 //Extra headers
 #include <arsenalgear/stream.hpp>
 
@@ -33,6 +36,24 @@ namespace osm
    * 
    */
   enum class CURSOR { ON, OFF };
+
+  //====================================================
+  //     ANSI
+  //====================================================
+  /**
+   * @brief It is used to store the OPTION function options for the ANSI escape sequences enabling. Current options are: ON to enableand OFF to disable.
+   * 
+   */
+  enum class ANSI { ON, OFF };
+
+  //====================================================
+  //     UNICODECH
+  //====================================================
+  /**
+   * @brief It is used to store the OPTION function options for the UNICODE characters enabling. Current options are: ON to enable and OFF to disable.
+   * 
+   */
+  enum class UNICODECH { ON, OFF };
 
   //====================================================
   //     Variables
