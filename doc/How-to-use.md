@@ -63,6 +63,9 @@ OPTION( CURSOR::OFF );
 OPTION( CURSOR::ON );
 ```
 
+
+> It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
+
 ## Output stream manipulators
 
 ### Colors and styles manipulation
@@ -101,9 +104,9 @@ cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underline
 ```
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in order to reset all the output stream color / style.
 
-List of available colors [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20col,%7D%3B).
-List of available styles [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20sty,%7D%3B).
-List of the reset commands [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/csmanip.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20rst,%7D%3B).
+List of available colors [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/colsty.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20col).
+List of available styles [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/colsty.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20sty).
+List of the reset commands [here](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/colsty.cpp#:~:text=const%20std%3A%3Amap%20%3Cstd%3A%3Astring%2C%20std%3A%3Astring%3E%20rst).
 
 ### Cursor navigation
 
@@ -114,19 +117,13 @@ Can be accessed with:
 using namespace osm //to improve examples readability (avoid if possible).
 ```
 
-You can modify the cursor navigation in all the 4 directions (up, down, right, left) by using the `feat` function within the `crs` map, in this way:
-
-```c++
-cout << feat( crs, "left" ) << "Moving cursor on the left";
-```
-
-You can additionally add a third argument to the `feat` function, in order to increase the parameter of the ANSI code of the cursor navigation (see [*manipulators/csmanip.cpp*](https://justwhit3.github.io/osmanip/csmanip_8cpp.html):
+You can modify the cursor navigation in all the 4 directions (up, down, right, left) by using the `feat` function within the `crs` map and add a third argument to the function itself, in order to increase the parameter of the ANSI code of the cursor navigation (see [*manipulators/cursor.cpp*](https://justwhit3.github.io/osmanip/namespaceosm.html#abcc750efa890afcbe8495f276e029ee0:~:text=%E2%97%86-,feat()%20%5B2/2%5D,-std%3A%3Astring%20osm), for example:
 
 ```c++
 cout << feat( crs, "left", "10" ) << "Moving cursor on the left";
 ```
 
-> If you want to know all the available features, visit the [code structure](https://justwhit3.github.io/osmanip/csmanip_8cpp.html) page.
+> If you want to know all the available features, visit the [code structure](https://justwhit3.github.io/osmanip/cursor_8cpp.html) page.
 
 It is not so easy to show a simple example of this feature. Certainly, a very intuitive application is for progress bars creation, explained in the next section. See the progress bar update method definition in [*progressbar/progress_bar.cpp*](https://github.com/JustWhit3/osmanip/blob/main/src/progressbar/progress_bar.cpp#:~:text=output_%20%3D%20feat(%20crs,getStyle()%3B)) for more information.
 
@@ -144,7 +141,7 @@ You can add a terminal control sequency to your output by using the `feat`  func
 cout << feat( tcs, "bell" );
 ```
 For example, the previous command will output a bell sound from your computer.
-> If you want to know all the available features, visit the [code structure](https://justwhit3.github.io/osmanip/csmanip_8cpp.html) page.
+> If you want to know all the available features, visit the [code structure](https://justwhit3.github.io/osmanip/cursor_8cpp.html) page.
 
 If you plan to use the sequences for clearing screen / line, please have a look [here](https://justwhit3.github.io/osmanip/namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369) to fully understand their usage.
 
@@ -152,7 +149,7 @@ If you plan to use the sequences for clearing screen / line, please have a look 
 
 Some extra functions are provided:
 - [`go_to`](https://justwhit3.github.io/osmanip/namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd): to put the cursor in a precise (x,y) point of the terminal.
-- [`print`](https://justwhit3.github.io/osmanip/namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
+- [`print`](https://justwhit3.github.io/osmanip/colsty_8hpp.html#:~:text=void-,osm%3A%3Aprint,-(std%3A%3Aostream%20%26os): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
 
 ## Progress bars
 
@@ -179,10 +176,6 @@ A list of all the customizable [settings](https://github.com/JustWhit3/osmanip/b
 
 Here you can find some examples about how to use them into your code.
 > If you want to know more precisely all the available methods of this class, visit the [code structure](https://justwhit3.github.io/osmanip/classosm_1_1ProgressBar.html) page.
-
-> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26) function at the beginning and then at the end of the program.
-
-> It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
 
 ### Percentage indicator
 
@@ -434,10 +427,6 @@ A list of all the customizable [settings](https://github.com/JustWhit3/osmanip/b
 
 Here you can find some examples about how to use terminal graphics in your code.
 > If you want to know more precisely all the available methods of this class, visit the [code structure](https://justwhit3.github.io/osmanip/index.html) page.
-
-> **TIP**: when using a progress bar in a main program, you can hide the cursor by calling the [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26) function at the beginning and then at the end of the program.
-
-> It may happens that cursor disappears if stopping a program in which a progress bar is running. In this case you have to simply close the terminal and open a new one to restore it.
 
 ### 2D graphics
 
