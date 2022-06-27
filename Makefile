@@ -92,7 +92,7 @@ else
 endif
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 WFLAGS := -Wall -Wextra -Wno-reorder
-CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP -D_GLIBCXX_USE_CXX11_ABI=0 $(WFLAGS)
+CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP $(WFLAGS)
 LDFLAGS := -pthread -larsenalgear
 
 #====================================================
