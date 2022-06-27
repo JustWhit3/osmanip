@@ -3,6 +3,10 @@
 ## Table of contents
 
 - [Introduction](#introduction)
+- [Options](#options)
+  - [Enabling ANSI escape sequences (Windows)](#enabling-ansi-escape-sequences-windows)
+  - [Enabling UNICODE characters (Windows)](#enabling-unicode-characters-windows)
+  - [Hide cursor](hide-cursor)
 - [Output stream manipulators](#output-stream-manipulators)
   - [Colors and styles manipulation](#colors-and-styles-manipulation)
   - [Cursor navigation](#cursor-navigation)
@@ -25,12 +29,38 @@ Here you can find examples of all the features supported in the current version 
 > ```
 > just to imptove readability.
 
-If you are on Windows you need to manually enable ANSI escape sequences in your program, in order to correctly use all the features of the library. To do this you can use the [enableANSI](https://justwhit3.github.io/osmanip/namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59) function at the beginning of the program and the [enableANSI](https://justwhit3.github.io/osmanip/namespaceosm.html#af472191a970f5e5f16b3eb1f8dbe95db) one at the end, to come back to the previous settings:
+## Options
+
+To set specific options you can use the [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26) function, within the corresponding `enum`.
+
+### Enabling ANSI escape sequences (Windows)
+
+In some Windows operating systems you may need to manually enable ANSI escape sequences, in order to correctly use all the features of the library. To do this you can use the [enableANSI](https://justwhit3.github.io/osmanip/namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59) function at the beginning of the program and the [enableANSI](https://justwhit3.github.io/osmanip/namespaceosm.html#af472191a970f5e5f16b3eb1f8dbe95db) one at the end, to come back to the previous settings. An easy way is to call them withing the `OPTION` function:
 
 ```c++
-enableANSI();
+OPTION( ANSI::ON );
 // doing some stuff...
-disableANSI();
+OPTION( ANSI::ON );
+```
+
+### Enabling UNICODE characters (Windows)
+
+What is written in previous paragraph holds also for UNICODE characters. They can be enable in this way:
+
+```c++
+OPTION( UNICODECH::ON );
+// doing some stuff...
+OPTION( UNICODECH::ON );
+```
+
+### Hide cursor
+
+To hide the cursor in a certain program and then re-enabling it:
+
+```c++
+OPTION( CURSOR::OFF );
+// doing some stuff...
+OPTION( CURSOR::ON );
 ```
 
 ## Output stream manipulators
@@ -109,7 +139,6 @@ If you plan to use the sequences for clearing screen / line, please have a look 
 
 Some extra functions are provided:
 - [`go_to`](https://justwhit3.github.io/osmanip/namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd): to put the cursor in a precise (x,y) point of the terminal.
-- [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26): to set the cursor view on or off in your program.
 - [`print`](https://justwhit3.github.io/osmanip/namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
 
 ## Progress bars

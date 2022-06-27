@@ -1,0 +1,79 @@
+//====================================================
+//     Preprocessor settings
+//====================================================
+#ifndef OPTIONS_HPP
+#define OPTIONS_HPP
+
+//====================================================
+//     Headers
+//====================================================
+
+//My headers
+#include "../utility/windows.hpp"
+
+//STD headers
+#include <iostream>
+#include <type_traits>
+
+namespace osm
+ {
+  //====================================================
+  //     CURSOR
+  //====================================================
+  /**
+   * @brief It is used to store the OPTION function options for the cursor view. Current options are: ON to enable cursor view and OFF to disable it.
+   * 
+   */
+  enum class CURSOR { ON, OFF };
+
+  //====================================================
+  //     ANSI
+  //====================================================
+  /**
+   * @brief It is used to store the OPTION function options for the ANSI escape sequences enabling. Current options are: ON to enable and OFF to disable.
+   * 
+   */
+  enum class ANSI { ON, OFF };
+
+  //====================================================
+  //     UNICODECH
+  //====================================================
+  /**
+   * @brief It is used to store the OPTION function options for the UNICODE characters enabling. Current options are: ON to enable and OFF to disable.
+   * 
+   */
+  enum class UNICODECH { ON, OFF };
+
+  //====================================================
+  //     OPTION
+  //====================================================
+  /**
+   * @brief It is used to set the cursor view.
+   * 
+   * @tparam T The type of the given option.
+   * @param opt The option to be set.
+   * @return void Set the chosen option.
+   */
+  template <typename T>
+  inline void OPTION( T opt ) 
+   {
+    if constexpr ( std::is_same_v<T, CURSOR> ) 
+     {
+        if ( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
+        else if ( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
+     } 
+    else if constexpr ( std::is_same_v<T, ANSI> ) 
+     {
+        if ( opt == ANSI::ON ) enableANSI();
+        else if ( opt == ANSI::OFF ) disableANSI();
+     }
+    else if constexpr ( std::is_same_v<T, UNICODECH> ) 
+     {
+        if ( opt == UNICODECH::ON ) enableUNICODE();
+        else if ( opt == UNICODECH::OFF ) disableUNICODE();
+     }
+    else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!"  << reset( "all" ) << "\n";
+   }
+ }
+
+#endif

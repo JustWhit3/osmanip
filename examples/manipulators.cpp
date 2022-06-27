@@ -3,6 +3,7 @@
 #ifdef _WIN32
 #include "../include/utility/windows.hpp"
 #endif
+#include "../include/utility/options.hpp"
 
 //STD headers
 #include <iostream>

@@ -29,33 +29,6 @@ namespace osm
   using string_set_map = std::map <std::string, std::set <std::string> >;
 
   //====================================================
-  //     CURSOR
-  //====================================================
-  /**
-   * @brief It is used to store the OPTION function options for the cursor view. Current options are: ON to enable cursor view and OFF to disable it.
-   * 
-   */
-  enum class CURSOR { ON, OFF };
-
-  //====================================================
-  //     ANSI
-  //====================================================
-  /**
-   * @brief It is used to store the OPTION function options for the ANSI escape sequences enabling. Current options are: ON to enableand OFF to disable.
-   * 
-   */
-  enum class ANSI { ON, OFF };
-
-  //====================================================
-  //     UNICODECH
-  //====================================================
-  /**
-   * @brief It is used to store the OPTION function options for the UNICODE characters enabling. Current options are: ON to enable and OFF to disable.
-   * 
-   */
-  enum class UNICODECH { ON, OFF };
-
-  //====================================================
   //     Variables
   //====================================================
   extern const std::map <std::string, std::string> col, sty, rst, tcs;
@@ -69,37 +42,6 @@ namespace osm
   extern std::string reset( const std::string& reset_string );
   extern std::string go_to( const int& x, const int& y );
   extern std::string RGB( const int& r, const int& g, const int& b );
-
-  //====================================================
-  //     OPTION
-  //====================================================
-  /**
-   * @brief It is used to set the cursor view.
-   * 
-   * @tparam T The type of the given option.
-   * @param opt The option to set.
-   * @return std::string The string (option) to be printed.
-   */
-  template <typename T>
-  inline void OPTION(T opt) 
-   {
-    if constexpr ( std::is_same_v<T, CURSOR> ) 
-     {
-        if ( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
-        else if ( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
-     } 
-    else if constexpr ( std::is_same_v<T, ANSI> ) 
-     {
-        if ( opt == ANSI::ON ) enableANSI();
-        else if ( opt == ANSI::OFF ) disableANSI();
-     }
-    else if constexpr ( std::is_same_v<T, UNICODECH> ) 
-     {
-        if ( opt == UNICODECH::ON ) enableUNICODE();
-        else if ( opt == UNICODECH::OFF ) disableUNICODE();
-     }
-    else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!"  << reset( "all" ) << "\n";
-   }
 
   //====================================================
   //     print

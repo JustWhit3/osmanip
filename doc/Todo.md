@@ -9,7 +9,4 @@
 
 - Improve the compilation using CMake.
 - Add time-elapsed info to the progress bar.
-
-## Improvements
-
 - Benchmarking and other studies with respect to similar libraries.

@@ -101,6 +101,7 @@ osmanip/
 │   │   ├── multi_progress_bar.hpp
 │   ├── utility/
 │   │   ├── windows.hpp
+│   │   ├── options.hpp
 ├── src/
 │   ├── graphics/
 │   │   ├── canvas.cpp
@@ -167,6 +168,8 @@ Here you can find the list of features implemented in the current version of the
   - [Progress spinner](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=endl%20%3C%3C%20endl%20%3C%3C%20endl%3B-,Progress%20spinner,-To%20initialize%20a)
 - **Terminal graphics**:
   - [2D graphics](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=to%20restore%20it.-,2D%20graphics,-To%20include%20canvas)
+- **Extra support for other platforms**:
+  - [Windows](https://github.com/JustWhit3/osmanip/blob/main/src/utility/windows.cpp)
 
 Why choosing this library for color / styles / escape sequences manipulation:
 
