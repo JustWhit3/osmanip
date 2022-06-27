@@ -21,6 +21,13 @@
 namespace osm
  {
   //====================================================
+  //     Aliases
+  //====================================================
+  using string_set_map = std::map <std::string, std::set <std::string> >;
+  using steady_clock = std::chrono::steady_clock;
+  using duration = std::chrono::duration <float, steady_clock::period>;
+
+  //====================================================
   //     ProgressBar class
   //====================================================
   /**
@@ -32,13 +39,6 @@ namespace osm
   class ProgressBar
    {
     public:
-
-    //====================================================
-    //     Aliases
-    //====================================================
-    using steady_clock = std::chrono::steady_clock;
-    using duration = std::chrono::duration <float, steady_clock::period>;
-    using string_set_map = std::map <std::string, std::set <std::string> >;
 
     //====================================================
     //     Constructors and destructors

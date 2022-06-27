@@ -1,5 +1,5 @@
 //My headers
-#include "../include/manipulators/csmanip.hpp"
+#include "../include/manipulators/colsty.hpp"
 #ifdef _WIN32
 #include "../include/utility/windows.hpp"
 #endif

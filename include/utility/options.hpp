@@ -10,6 +10,8 @@
 
 //My headers
 #include "../utility/windows.hpp"
+#include "../manipulators/cursor.hpp"
+#include "../manipulators/colsty.hpp"
 
 //STD headers
 #include <iostream>
@@ -48,7 +50,7 @@ namespace osm
   //     OPTION
   //====================================================
   /**
-   * @brief It is used to set the cursor view.
+   * @brief It is used to set a specific option.
    * 
    * @tparam T The type of the given option.
    * @param opt The option to be set.

@@ -9,7 +9,7 @@
 //====================================================
 
 //My headers
-#include "../manipulators/csmanip.hpp"
+#include "../manipulators/cursor.hpp"
 
 //STD headers
 #include <iostream>

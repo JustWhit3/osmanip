@@ -8,7 +8,7 @@
 //====================================================
 
 //My headers
-#include "../include/manipulators/csmanip.hpp"
+#include "../include/manipulators/colsty.hpp"
 #include "../include/progressbar/progress_bar.hpp"
 
 //Extra headers

@@ -4,7 +4,8 @@
 
 //My headers
 #include "../include/graphics/canvas.hpp"
-#include "../include/manipulators/csmanip.hpp"
+#include "../include/manipulators/cursor.hpp"
+#include "../include/manipulators/colsty.hpp"
 
 //STD headers
 #include <sstream>

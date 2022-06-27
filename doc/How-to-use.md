@@ -31,7 +31,7 @@ Here you can find examples of all the features supported in the current version 
 
 ## Options
 
-To set specific options you can use the [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#a5b99231c2369e9c5ddda206ec220fb26) function, within the corresponding `enum`.
+To set specific options you can use the [`OPTION`](https://justwhit3.github.io/osmanip/namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29:~:text=%E2%97%86-,OPTION(),-template%3Ctypename%20T) function, within the corresponding `enum`.
 
 ### Enabling ANSI escape sequences (Windows)
 
@@ -65,15 +65,14 @@ OPTION( CURSOR::ON );
 
 ## Output stream manipulators
 
-Can be accessed by including:
+### Colors and styles manipulation
+
+Can be accessed with:
+
 ```c++
-#include <osmanip/manipulators/csmanip.hpp>
+#include <osmanip/manipulators/colsty.hpp>
 using namespace osm //to improve examples readability (avoid if possible).
 ```
-
-This manipulators are used to modify and manipulate the output stream of a program.
-
-### Colors and styles manipulation
 
 List of the supported color / style features (part of the output of the [*examples/manipulators.cpp*](https://github.com/JustWhit3/osmanip/blob/main/examples/manipulators.cpp) program):
 
@@ -108,6 +107,13 @@ List of the reset commands [here](https://github.com/JustWhit3/osmanip/blob/main
 
 ### Cursor navigation
 
+Can be accessed with:
+
+```c++
+#include <osmanip/manipulators/cursor.hpp>
+using namespace osm //to improve examples readability (avoid if possible).
+```
+
 You can modify the cursor navigation in all the 4 directions (up, down, right, left) by using the `feat` function within the `crs` map, in this way:
 
 ```c++
@@ -126,6 +132,13 @@ It is not so easy to show a simple example of this feature. Certainly, a very in
 
 ### Terminal control sequences
 
+Can be accessed with:
+
+```c++
+#include <osmanip/manipulators/cursor.hpp>
+using namespace osm //to improve examples readability (avoid if possible).
+```
+
 You can add a terminal control sequency to your output by using the `feat`  function within the `tcs` or `tcsc` maps (depends on the task), in this way:
 ```c++
 cout << feat( tcs, "bell" );
@@ -142,6 +155,7 @@ Some extra functions are provided:
 - [`print`](https://justwhit3.github.io/osmanip/namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
 
 ## Progress bars
+
 
 From release [2.0.0](https://github.com/JustWhit3/osmanip/releases/tag/v2.0.0) of the library, also progress bars have been introduced.
 

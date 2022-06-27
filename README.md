@@ -19,7 +19,6 @@
 - [Introduction](#introduction)
 - [Supported operating systems](#supported-operating-systems)
 - [Documentation](#documentation)
-- [Repository structure](#repository-structure)
 - [News from the last version](#news-from-the-last-version)
 - [List of features](#list-of-features)
 - [Credits](#credits)
@@ -69,80 +68,14 @@ The software is and will stay **free**, but if you want to support me with a don
 ## Documentation
 
 In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder useful documentation files are stored, in order to help the user learning how to properly use the library:
+
+- [*Repository structure*](https://github.com/JustWhit3/osmanip/blob/main/doc/Repository-structure.md): a complete repository structure diagram to better navigate into the repository.
 - [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download-install-run.md): a guide to download, install and run the library into your system.
 - [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/Contributing.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
 - [*How-to-use guides*](https://github.com/JustWhit3/Ostream-manipulator/blob/main/doc/How-to-use.md): contains a set of guides about how to use the library tools.
 
 **Code documentation** is generated using [*Doxygen*](https://www.doxygen.nl/manual/starting.html) and can be accessed [here](https://justwhit3.github.io/osmanip/).
-
-## Repository structure
-
-```
-osmanip/
-├── .github/
-│   ├── workflows/
-│   │   ├── DocGenerator.yml
-│   │   ├── codeql-analysis.yml
-├── img/
-├── doc/
-│   ├── Contributing.md
-│   ├── Download-install-run.md
-│   ├── Todo.md
-│   ├── How-to-use.md
-├── include/
-│   ├── graphics/
-│   │   ├── canvas.hpp
-│   │   ├── plot_2D.hpp
-│   ├── manipulators/
-│   │   ├── csmanip.hpp
-│   ├── progressbar/
-│   │   ├── progress_bar.hpp
-│   │   ├── multi_progress_bar.hpp
-│   ├── utility/
-│   │   ├── windows.hpp
-│   │   ├── options.hpp
-├── src/
-│   ├── graphics/
-│   │   ├── canvas.cpp
-│   │   ├── plot_2D.cpp
-│   ├── manipulators/
-│   │   ├── csmanip.cpp
-│   ├── progressbar/
-│   │   ├── progress_bar.cpp
-│   │   ├── multi_progress_bar.cpp
-│   ├── utility/
-│   │   ├── windows.cpp
-├── examples/
-│   ├── manipulators.cpp
-│   ├── progressbar.cpp
-│   ├── graphics.cpp
-├── scripts/
-│   ├── debug.sh
-│   ├── install.sh
-│   ├── uninstall.sh
-│   ├── update.sh
-│   ├── size_of_dir.py
-├── test/
-│   ├── graphics/
-│   │   ├── tests_canvas.cpp
-│   │   ├── tests_plot_2D.cpp
-│   ├── manipulators/
-│   │   ├── tests_csmanip.cpp
-│   ├── progressbar/
-│   │   ├── tests_progress_bar.cpp
-│   │   ├── tests_multi_progress_bar.cpp
-│── README.md
-│── License
-│── CITATION.cff
-│── Makefile
-│── Doxyfile
-│── .gitignore
-│── .clang-format
-│── .valgrindrc
-│── .gitignore
-│── .all-contributorsrc
-```
 
 ## News from the last version
 
@@ -169,7 +102,7 @@ Here you can find the list of features implemented in the current version of the
 - **Terminal graphics**:
   - [2D graphics](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=to%20restore%20it.-,2D%20graphics,-To%20include%20canvas)
 - **Extra support for other platforms**:
-  - [Windows](https://github.com/JustWhit3/osmanip/blob/main/src/utility/windows.cpp)
+  - [Windows](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#options:~:text=to%20imptove%20readability.-,Options,-To%20set%20specific)
 
 Why choosing this library for color / styles / escape sequences manipulation:
 
@@ -178,7 +111,7 @@ Why choosing this library for color / styles / escape sequences manipulation:
   
 Why choosing this library for progress bars? Some properties:
 
-- Extremely [easy to use](https://github.com/JustWhit3/osmanip/blob/main/examples/manipulators.cpp).
+- Extremely [easy to use](https://github.com/JustWhit3/osmanip/blob/main/examples/progressbar.cpp).
 - Compatible with positive or negative variable of any standard type (integer, float, double and others).
 - Maximum and minimum values can be set with [any value](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=NOTE%3A%20you%20can%20insert%20each%20min%20and%20max%20value%20you%20prefer%2C%20like%20also%20%2D3%20and%2052%20for%20example%2C%20and%20the%20bar%20will%20work%20perfectly%20too.) you prefer and the progress bars will be self-built with respect to them.
 - Each progress bar [feature](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=Type%3A%20percentage%20indicator,progress%20bars%20simultaneously.) can be fully customized (messages, style, color, brackets type, time remaining info etc...) regarding to your requirements. You can also choose to use only a progress indicator or a loading bar instead of a complete progress bar.

@@ -1,5 +1,5 @@
 //My headers
-#include "../include/manipulators/csmanip.hpp"
+#include "../include/manipulators/colsty.hpp"
 #include "../include/graphics/canvas.hpp"
 #include "../include/graphics/plot_2D.hpp"
 #ifdef _WIN32

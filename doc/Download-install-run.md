@@ -105,7 +105,7 @@ Once you have installed the library you can freely use it in one of your C++ pro
 ```
 for example:
 ```c++
-#include <osmanip/manipulators/csmanip.hpp>
+#include <osmanip/manipulators/cursor.hpp>
 ```
 Now you are able to access al the functions and classes of the manipulator.
 

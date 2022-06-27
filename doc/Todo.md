@@ -4,6 +4,7 @@
 
 - Extend the 2D terminal-graphics to 3D.
 - Add an `elapsedTime()` method to show elapsed progress bar time and substitute it to the already existing  `getTime()` method.
+- Add UNICODE characters manipulators.
 
 ## Improvements
 
