@@ -87,7 +87,7 @@ Blink string feature:
 
 If you want to change for example the output stream color into red you have to call the `feat` function and give it the `col` map as a first argument and the color name as the second one. See the following example:
 ```c++
-cout << feat( col, "red" ) << "This stream is red!" << reset( "color" );
+std::cout << feat( col, "red" ) << "This stream is red!" << reset( "color" );
 ```
 This will color the output stream in red until the `reset( "color" )` function is met again, in order to reset the output stream color.
 
@@ -95,12 +95,12 @@ It is possible to access a wider variety of colors by directly using the `RGB( i
 ```c++
 std::string DeepPink = RGB( 255, 20, 147 );
 
-cout << DeepPink << "This stream is deep pink!" << reset( "color" );
+std::cout << DeepPink << "This stream is deep pink!" << reset( "color" );
 ```
 
 You can also print mixed color and style strings:
 ```c++
-cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
+std::cout << feat( sty, "underlined" ) << feat( col, "red" ) << "This is an underlined red string." << reset( "all" );
 ```
 This will underline and color the output stream in red until the `reset( "all" )` function is met again, in order to reset all the output stream color / style.
 
@@ -120,7 +120,7 @@ using namespace osm //to improve examples readability (avoid if possible).
 You can modify the cursor navigation in all the 4 directions (up, down, right, left) by using the `feat` function within the `crs` map and add a third argument to the function itself, in order to increase the parameter of the ANSI code of the cursor navigation (see [*manipulators/cursor.cpp*](https://justwhit3.github.io/osmanip/namespaceosm.html#abcc750efa890afcbe8495f276e029ee0:~:text=%E2%97%86-,feat()%20%5B2/2%5D,-std%3A%3Astring%20osm), for example:
 
 ```c++
-cout << feat( crs, "left", "10" ) << "Moving cursor on the left";
+std::cout << feat( crs, "left", "10" ) << "Moving cursor on the left";
 ```
 
 > If you want to know all the available features, visit the [code structure](https://justwhit3.github.io/osmanip/cursor_8cpp.html) page.
@@ -138,7 +138,7 @@ using namespace osm //to improve examples readability (avoid if possible).
 
 You can add a terminal control sequency to your output by using the `feat`  function within the `tcs` or `tcsc` maps (depends on the task), in this way:
 ```c++
-cout << feat( tcs, "bell" );
+std::cout << feat( tcs, "bell" );
 ```
 For example, the previous command will output a bell sound from your computer.
 > If you want to know all the available features, visit the [code structure](https://justwhit3.github.io/osmanip/cursor_8cpp.html) page.
@@ -187,7 +187,7 @@ percentage_bar.setMin( 5 );
 percentage_bar.setMax ( 46 );
 percentage_bar.setStyle( "indicator", "%" );
 
-cout << "This is a normal percentage bar: " << endl;
+std::cout << "This is a normal percentage bar: " << "\n";
  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
   {
    sleep_for( milliseconds( 100 ) );
@@ -212,7 +212,7 @@ percentage_bar.setStyle( "indicator", "/100" );
 
 Add CPU time consuming info when using a progress bar in loops:
 ```c++
-cout << "This is a percentage bar with time consuming info: " << endl;
+std::cout << "This is a percentage bar with time consuming info: " << "\n";
 
  for ( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
   {
@@ -223,7 +223,7 @@ cout << "This is a percentage bar with time consuming info: " << endl;
    percentage_bar.setEnd();
   }
 
-cout << endl << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << endl;
+std::cout << "\n" << "Time needed to complete the previous cycle: " << percentage_bar.getTime() << " ms." << "\n";
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_percentage.gif" width="500">
@@ -258,7 +258,7 @@ loading_bar.setStyle( "loader", "#" );
 loading_bar.setBrackets( "{", "}" );
 loading_bar.setMessage( "processing..." );
 
-cout << "This is a normal loading bar: " << endl;
+std::cout << "This is a normal loading bar: " << "\n";
 for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
  {
   sleep_for( milliseconds( 100 ) );
@@ -315,7 +315,7 @@ additionally include:
 ```
 and then:
 ```c++
-cout << "These are 3 progress bars printed simultaneously: " << endl << endl << endl;
+std::cout << "These are 3 progress bars printed simultaneously: " << "\n" << "\n" << "\n";
 
 ProgressBar<int> prog_int;
 prog_int.setMin( 0 );
@@ -376,7 +376,7 @@ first_job.join();
 second_job.join();
 third_job.join();
 
-cout << endl << endl << endl;
+std::cout << "\n" << "\n" << "\n";
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/multi_bars.gif" width="550">
@@ -390,7 +390,7 @@ ProgressBar <int> spinner;
 spinner.setMin( 2 );
 spinner.setMax ( 33 );
 spinner.setStyle( "spinner", "/-\\|" );
-cout << "This is a progress spinner: " << endl;
+std::cout << "This is a progress spinner: " << "\n";
 
 for ( int i = spinner.getMin(); i < spinner.getMax(); i++ )
  {
@@ -399,7 +399,7 @@ for ( int i = spinner.getMin(); i < spinner.getMax(); i++ )
   //Do some operations...
  }
 
-cout << endl << endl;
+std::cout << "\n" << "\n";
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/spinner.gif" width="550">
@@ -493,7 +493,7 @@ box_framed_canvas.refresh();
 To plot 2D canvas with sin and cos functions:
 
 ```C++
-cout << endl << "Plot2DCanvas with sin and cos" << endl;
+std::cout << "\n" << "Plot2DCanvas with sin and cos" << "\n";
 Plot2DCanvas plot_2d_canvas( 50, 20 );
 plot_2d_canvas.setBackground( ' ', feat( col, "bg white" ) );
 plot_2d_canvas.enableFrame( true );
