@@ -127,7 +127,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:ade3455d913245d597d1ba27b3e429f3a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ade3455d913245d597d1ba27b3e429f3a">ANSI</a> { <a class="el" href="namespaceosm.html#ade3455d913245d597d1ba27b3e429f3aa90651ebea9a35ec4e018c8157492e17c">ON</a>
 , <a class="el" href="namespaceosm.html#ade3455d913245d597d1ba27b3e429f3aa88559a0cfd8250c9d65970cc145c92d4">OFF</a>
  }</td></tr>
-<tr class="memdesc:ade3455d913245d597d1ba27b3e429f3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the OPTION function options for the ANSI escape sequences enabling. Current options are: ON to enableand OFF to disable.  <a href="namespaceosm.html#ade3455d913245d597d1ba27b3e429f3a">More...</a><br /></td></tr>
+<tr class="memdesc:ade3455d913245d597d1ba27b3e429f3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the OPTION function options for the ANSI escape sequences enabling. Current options are: ON to enable and OFF to disable.  <a href="namespaceosm.html#ade3455d913245d597d1ba27b3e429f3a">More...</a><br /></td></tr>
 <tr class="separator:ade3455d913245d597d1ba27b3e429f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5f551a47bc9ce728d6e7b1f7d06df59"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab5f551a47bc9ce728d6e7b1f7d06df59">UNICODECH</a> { <a class="el" href="namespaceosm.html#ab5f551a47bc9ce728d6e7b1f7d06df59a90651ebea9a35ec4e018c8157492e17c">ON</a>
 , <a class="el" href="namespaceosm.html#ab5f551a47bc9ce728d6e7b1f7d06df59a88559a0cfd8250c9d65970cc145c92d4">OFF</a>
@@ -167,10 +167,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a0825eb925269f7eabcf04c85af12c144"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0825eb925269f7eabcf04c85af12c144">disableUNICODE</a> ()</td></tr>
 <tr class="memdesc:a0825eb925269f7eabcf04c85af12c144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to disable UNICODE characters (used for Windows only).  <a href="namespaceosm.html#a0825eb925269f7eabcf04c85af12c144">More...</a><br /></td></tr>
 <tr class="separator:a0825eb925269f7eabcf04c85af12c144"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">OPTION</a> (T opt)</td></tr>
-<tr class="memdesc:ab97e4347ae4e25d091a0b79b118e2a29"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to set the cursor view.  <a href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">More...</a><br /></td></tr>
-<tr class="separator:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6e217b3090afddfe1acaaeecdf27695"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:aa6e217b3090afddfe1acaaeecdf27695"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695">print</a> (std::ostream &amp;os=agr::null_stream, const Args &amp;... args)</td></tr>
 <tr class="memdesc:aa6e217b3090afddfe1acaaeecdf27695"><td class="mdescLeft">&#160;</td><td class="mdescRight">It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the general case.  <a href="namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695">More...</a><br /></td></tr>
@@ -187,6 +183,10 @@ Functions</h2></td></tr>
 <tr class="memitem:af39d33e13c1d113bf8519fa8d316a920"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classosm_1_1ProgressBar.html">ProgressBar</a>&lt; bar_type &gt; &amp;pb)</td></tr>
 <tr class="memdesc:af39d33e13c1d113bf8519fa8d316a920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator &lt;&lt; used to print the progress bar properties.  <a href="namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920">More...</a><br /></td></tr>
 <tr class="separator:af39d33e13c1d113bf8519fa8d316a920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">OPTION</a> (T opt)</td></tr>
+<tr class="memdesc:ab97e4347ae4e25d091a0b79b118e2a29"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to set the cursor view.  <a href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">More...</a><br /></td></tr>
+<tr class="separator:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -261,7 +261,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>It is used to store the OPTION function options for the ANSI escape sequences enabling. Current options are: ON to enableand OFF to disable. </p>
+<p>It is used to store the OPTION function options for the ANSI escape sequences enabling. Current options are: ON to enable and OFF to disable. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ade3455d913245d597d1ba27b3e429f3aa90651ebea9a35ec4e018c8157492e17c"></a>ON&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ade3455d913245d597d1ba27b3e429f3aa88559a0cfd8250c9d65970cc145c92d4"></a>OFF&#160;</td><td class="fielddoc"></td></tr>
@@ -696,11 +696,11 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">opt</td><td>The option to set. </td></tr>
+    <tr><td class="paramname">opt</td><td>The option to be set. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string The string (option) to be printed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void Set the chosen option. </dd></dl>
 
 </div>
 </div>
