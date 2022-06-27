@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['duration_230',['duration',['../classosm_1_1ProgressBar.html#a50d4fcdfcb42db79e1e4320d8f9081cb',1,'osm::ProgressBar']]]
+  ['duration_238',['duration',['../namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8',1,'osm']]]
 ];

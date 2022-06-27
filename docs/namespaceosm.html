@@ -110,6 +110,10 @@ Typedefs</h2></td></tr>
 <tr class="separator:a75b397cc3feb990d7f642f440f10547e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49063a838e8e377ea7e870bc4c5ef131"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a49063a838e8e377ea7e870bc4c5ef131">string_set_map</a> = std::map&lt; std::string, std::set&lt; std::string &gt; &gt;</td></tr>
 <tr class="separator:a49063a838e8e377ea7e870bc4c5ef131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12c9bec9ac0ae5f9182aa7a0d3cce897"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">steady_clock</a> = std::chrono::steady_clock</td></tr>
+<tr class="separator:a12c9bec9ac0ae5f9182aa7a0d3cce897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a574177f2495c425a3a7e6246daefa8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">duration</a> = std::chrono::duration&lt; float, steady_clock::period &gt;</td></tr>
+<tr class="separator:a8a574177f2495c425a3a7e6246daefa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -137,29 +141,29 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ab12382d9f28c354e6f6a8113d8d0a335"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab12382d9f28c354e6f6a8113d8d0a335">reset</a> (const std::string &amp;reset_string)</td></tr>
+<tr class="memdesc:ab12382d9f28c354e6f6a8113d8d0a335"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes a std::string object (reset map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.  <a href="namespaceosm.html#ab12382d9f28c354e6f6a8113d8d0a335">More...</a><br /></td></tr>
+<tr class="separator:ab12382d9f28c354e6f6a8113d8d0a335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba79e32855ee7f13095509656e59668"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">RGB</a> (const int &amp;r, const int &amp;g, const int &amp;b)</td></tr>
+<tr class="memdesc:a4ba79e32855ee7f13095509656e59668"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors <a href="http://www.aksiom.net/rgb.html">http://www.aksiom.net/rgb.html</a>). It can be used to output a wider variety of colors with respect to the standard available from the col map.  <a href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">More...</a><br /></td></tr>
+<tr class="separator:a4ba79e32855ee7f13095509656e59668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcc750efa890afcbe8495f276e029ee0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#abcc750efa890afcbe8495f276e029ee0">feat</a> (const std::map&lt; std::string, std::string &gt; &amp;generic_map, const std::string &amp;feat_string)</td></tr>
 <tr class="memdesc:abcc750efa890afcbe8495f276e029ee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes an std::map object as the first argument and an std::string object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.  <a href="namespaceosm.html#abcc750efa890afcbe8495f276e029ee0">More...</a><br /></td></tr>
 <tr class="separator:abcc750efa890afcbe8495f276e029ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89eb04b3457ccd8ddf2d0baf76840961"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a89eb04b3457ccd8ddf2d0baf76840961">feat</a> (const <a class="el" href="namespaceosm.html#a75b397cc3feb990d7f642f440f10547e">string_pair_map</a> &amp;generic_map, const std::string &amp;feat_string, const int &amp;feat_int)</td></tr>
 <tr class="memdesc:a89eb04b3457ccd8ddf2d0baf76840961"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#a89eb04b3457ccd8ddf2d0baf76840961">More...</a><br /></td></tr>
 <tr class="separator:a89eb04b3457ccd8ddf2d0baf76840961"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12382d9f28c354e6f6a8113d8d0a335"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab12382d9f28c354e6f6a8113d8d0a335">reset</a> (const std::string &amp;reset_string)</td></tr>
-<tr class="memdesc:ab12382d9f28c354e6f6a8113d8d0a335"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes a std::string object (reset map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.  <a href="namespaceosm.html#ab12382d9f28c354e6f6a8113d8d0a335">More...</a><br /></td></tr>
-<tr class="separator:ab12382d9f28c354e6f6a8113d8d0a335"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0ec07fe2d7e4b3f5780598f654170fd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd">go_to</a> (const int &amp;x, const int &amp;y)</td></tr>
 <tr class="memdesc:ad0ec07fe2d7e4b3f5780598f654170fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd">More...</a><br /></td></tr>
 <tr class="separator:ad0ec07fe2d7e4b3f5780598f654170fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ba79e32855ee7f13095509656e59668"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">RGB</a> (const int &amp;r, const int &amp;g, const int &amp;b)</td></tr>
-<tr class="memdesc:a4ba79e32855ee7f13095509656e59668"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors <a href="http://www.aksiom.net/rgb.html">http://www.aksiom.net/rgb.html</a>). It can be used to output a wider variety of colors with respect to the standard available from the col map.  <a href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">More...</a><br /></td></tr>
-<tr class="separator:a4ba79e32855ee7f13095509656e59668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbaaec24c76f4c983dd6493bc274261d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#adbaaec24c76f4c983dd6493bc274261d">BOOST_PP_SEQ_FOR_EACH</a> (<a class="el" href="progress__bar_8cpp.html#a3b6be5d37265f4171b93e0a112d31c31">PROGRESSBAR</a>, _, <a class="el" href="progress__bar_8cpp.html#aebcb0ebc8914c2b7139d80db18960c44">ARGS</a>(int, long, long long, double, long double, float))</td></tr>
 <tr class="memdesc:adbaaec24c76f4c983dd6493bc274261d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit instantiation of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a> objects.  <a href="namespaceosm.html#adbaaec24c76f4c983dd6493bc274261d">More...</a><br /></td></tr>
 <tr class="separator:adbaaec24c76f4c983dd6493bc274261d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f45bbea2f7a0b9c6229c797dc4f7c59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59">enableANSI</a> ()</td></tr>
-<tr class="memdesc:a0f45bbea2f7a0b9c6229c797dc4f7c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to enable ANSI escape sequences on Windows (used for Windows only).  <a href="namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59">More...</a><br /></td></tr>
+<tr class="memdesc:a0f45bbea2f7a0b9c6229c797dc4f7c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to enable ANSI escape sequences on Windows.  <a href="namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59">More...</a><br /></td></tr>
 <tr class="separator:a0f45bbea2f7a0b9c6229c797dc4f7c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af472191a970f5e5f16b3eb1f8dbe95db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#af472191a970f5e5f16b3eb1f8dbe95db">disableANSI</a> ()</td></tr>
-<tr class="memdesc:af472191a970f5e5f16b3eb1f8dbe95db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to disable ANSI escape sequences (used for Windows only).  <a href="namespaceosm.html#af472191a970f5e5f16b3eb1f8dbe95db">More...</a><br /></td></tr>
+<tr class="memdesc:af472191a970f5e5f16b3eb1f8dbe95db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to disable ANSI escape sequences on Windows.  <a href="namespaceosm.html#af472191a970f5e5f16b3eb1f8dbe95db">More...</a><br /></td></tr>
 <tr class="separator:af472191a970f5e5f16b3eb1f8dbe95db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6d031c3a72211bf1058c3a26ad52b99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab6d031c3a72211bf1058c3a26ad52b99">enableUNICODE</a> ()</td></tr>
 <tr class="memdesc:ab6d031c3a72211bf1058c3a26ad52b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to enable UNICODE characters (used for Windows only).  <a href="namespaceosm.html#ab6d031c3a72211bf1058c3a26ad52b99">More...</a><br /></td></tr>
@@ -185,7 +189,7 @@ Functions</h2></td></tr>
 <tr class="separator:af39d33e13c1d113bf8519fa8d316a920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">OPTION</a> (T opt)</td></tr>
-<tr class="memdesc:ab97e4347ae4e25d091a0b79b118e2a29"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to set the cursor view.  <a href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">More...</a><br /></td></tr>
+<tr class="memdesc:ab97e4347ae4e25d091a0b79b118e2a29"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to set a specific option.  <a href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">More...</a><br /></td></tr>
 <tr class="separator:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -199,19 +203,47 @@ Variables</h2></td></tr>
 <tr class="memitem:a8f14a098d30adf5894b195e72361238b"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f14a098d30adf5894b195e72361238b">rst</a></td></tr>
 <tr class="memdesc:a8f14a098d30adf5894b195e72361238b"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the reset features commands.  <a href="namespaceosm.html#a8f14a098d30adf5894b195e72361238b">More...</a><br /></td></tr>
 <tr class="separator:a8f14a098d30adf5894b195e72361238b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbcc39535554329cee231dc3dd33ffd3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceosm.html#a75b397cc3feb990d7f642f440f10547e">string_pair_map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a></td></tr>
+<tr class="memdesc:adbcc39535554329cee231dc3dd33ffd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the cursor commands.  <a href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">More...</a><br /></td></tr>
+<tr class="separator:adbcc39535554329cee231dc3dd33ffd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c3369b64dd142badfbab1c1c1efd534"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a7c3369b64dd142badfbab1c1c1efd534">tcs</a></td></tr>
 <tr class="memdesc:a7c3369b64dd142badfbab1c1c1efd534"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the terminal control sequences.  <a href="namespaceosm.html#a7c3369b64dd142badfbab1c1c1efd534">More...</a><br /></td></tr>
 <tr class="separator:a7c3369b64dd142badfbab1c1c1efd534"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7e18d52b63a1c96c42a1a0bb009d369"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceosm.html#a75b397cc3feb990d7f642f440f10547e">string_pair_map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">tcsc</a></td></tr>
 <tr class="memdesc:ac7e18d52b63a1c96c42a1a0bb009d369"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the terminal control sequences for clear line / screen.  <a href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">More...</a><br /></td></tr>
 <tr class="separator:ac7e18d52b63a1c96c42a1a0bb009d369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbcc39535554329cee231dc3dd33ffd3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceosm.html#a75b397cc3feb990d7f642f440f10547e">string_pair_map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a></td></tr>
-<tr class="memdesc:adbcc39535554329cee231dc3dd33ffd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the cursor commands.  <a href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">More...</a><br /></td></tr>
-<tr class="separator:adbcc39535554329cee231dc3dd33ffd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f5f91647fa15a927b2ea4846d659c6d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f5f91647fa15a927b2ea4846d659c6d">old_chcp</a></td></tr>
 <tr class="separator:a8f5f91647fa15a927b2ea4846d659c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="a8a574177f2495c425a3a7e6246daefa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a574177f2495c425a3a7e6246daefa8">&#9670;&nbsp;</a></span>duration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">osm::duration</a> = typedef std::chrono::duration &lt;float, steady_clock::period&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12c9bec9ac0ae5f9182aa7a0d3cce897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12c9bec9ac0ae5f9182aa7a0d3cce897">&#9670;&nbsp;</a></span>steady_clock</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">osm::steady_clock</a> = typedef std::chrono::steady_clock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a75b397cc3feb990d7f642f440f10547e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a75b397cc3feb990d7f642f440f10547e">&#9670;&nbsp;</a></span>string_pair_map</h2>
 
@@ -398,7 +430,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function used to disable ANSI escape sequences (used for Windows only). </p>
+<p>Function used to disable ANSI escape sequences on Windows. </p>
 
 </div>
 </div>
@@ -436,7 +468,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function used to enable ANSI escape sequences on Windows (used for Windows only). </p>
+<p>Function used to enable ANSI escape sequences on Windows. </p>
 
 </div>
 </div>
@@ -687,7 +719,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>It is used to set the cursor view. </p>
+<p>It is used to set a specific option. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The type of the given option. </td></tr>
@@ -901,7 +933,7 @@ template&lt;typename... Args&gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">    </div>
-<div class="line">    { <span class="stringliteral">&quot;error&quot;</span>, std::make_pair( <span class="stringliteral">&quot;Inserted terminal control sequence&quot;</span>, <span class="stringliteral">&quot;&quot;</span> ) },</div>
+<div class="line">    { <span class="stringliteral">&quot;error&quot;</span>, std::make_pair( <span class="stringliteral">&quot;Inserted cursor command&quot;</span>, <span class="stringliteral">&quot;&quot;</span> ) },</div>
 <div class="line">  </div>
 <div class="line">    </div>
 <div class="line">    { <span class="stringliteral">&quot;up&quot;</span>, std::make_pair( <span class="stringliteral">&quot;\u001b[&quot;</span>, <span class="stringliteral">&quot;A&quot;</span> ) },</div>
@@ -1041,7 +1073,7 @@ template&lt;typename... Args&gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">    </div>
-<div class="line">    { <span class="stringliteral">&quot;error&quot;</span>, std::make_pair( <span class="stringliteral">&quot;Inserted cursor command&quot;</span>, <span class="stringliteral">&quot;&quot;</span> ) },</div>
+<div class="line">    { <span class="stringliteral">&quot;error&quot;</span>, std::make_pair( <span class="stringliteral">&quot;Inserted terminal control sequence&quot;</span>, <span class="stringliteral">&quot;&quot;</span> ) },</div>
 <div class="line"> </div>
 <div class="line">    </div>
 <div class="line">    { <span class="stringliteral">&quot;csc&quot;</span>, std::make_pair( <span class="stringliteral">&quot;\u001b[&quot;</span>, <span class="stringliteral">&quot;J&quot;</span> ) },  </div>

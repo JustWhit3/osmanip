@@ -5,8 +5,12 @@ var searchData=
   ['canvas_2ehpp_8',['canvas.hpp',['../canvas_8hpp.html',1,'']]],
   ['clear_9',['clear',['../classosm_1_1Canvas.html#a1505bf52113de81e87ba3f69d5c2a188',1,'osm::Canvas']]],
   ['col_10',['col',['../namespaceosm.html#ac12950f03a1db3df2ed9200770464b7e',1,'osm']]],
-  ['crs_11',['crs',['../namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3',1,'osm']]],
-  ['csmanip_2ecpp_12',['csmanip.cpp',['../csmanip_8cpp.html',1,'']]],
-  ['csmanip_2ehpp_13',['csmanip.hpp',['../csmanip_8hpp.html',1,'']]],
-  ['cursor_14',['CURSOR',['../namespaceosm.html#a793613c2bce496156326ba85a53b6d13',1,'osm']]]
+  ['colsty_2ecpp_11',['colsty.cpp',['../colsty_8cpp.html',1,'']]],
+  ['colsty_2ehpp_12',['colsty.hpp',['../colsty_8hpp.html',1,'']]],
+  ['common_2ecpp_13',['common.cpp',['../common_8cpp.html',1,'']]],
+  ['common_2ehpp_14',['common.hpp',['../common_8hpp.html',1,'']]],
+  ['crs_15',['crs',['../namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3',1,'osm']]],
+  ['cursor_16',['CURSOR',['../namespaceosm.html#a793613c2bce496156326ba85a53b6d13',1,'osm']]],
+  ['cursor_2ecpp_17',['cursor.cpp',['../cursor_8cpp.html',1,'']]],
+  ['cursor_2ehpp_18',['cursor.hpp',['../cursor_8hpp.html',1,'']]]
 ];
