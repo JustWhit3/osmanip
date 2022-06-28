@@ -12,6 +12,7 @@
   - [Cursor navigation](#cursor-navigation)
   - [Terminal control sequences](#terminal-control-sequences)
   - [Extra functions (print and others)](#extra-functions-print-and-others)
+  - [OS_Decorator class](OS-decorator-class)
 - [Progress bars](#progress-bars)
   - [Percentage indicator](#percentage-indicator)
   - [Loading bar](#loading-bar)
@@ -149,7 +150,58 @@ If you plan to use the sequences for clearing screen / line, please have a look 
 
 Some extra functions are provided:
 - [`go_to`](https://justwhit3.github.io/osmanip/namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd): to put the cursor in a precise (x,y) point of the terminal.
-- [`print`](https://justwhit3.github.io/osmanip/colsty_8hpp.html#:~:text=void-,osm%3A%3Aprint,-(std%3A%3Aostream%20%26os): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
+
+```c++
+#include <osmanip/manipulators/cursor.hpp>
+using namespace osm;
+
+go_to( 3, 4 ); // Move to coordinate (3,4) the cursor.
+```
+
+- [`print`](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=template%20%3Ctypename,bold%22%20): it is used to print one or more strings (or other type of objects) in the output stream, specifying also the stream you want to write to. It is inspired by the Python `print` function.
+
+```c++
+#include <osmanip/manipulators/printer.hpp>
+using namespace osm;
+
+print( std::cout, "This is the ", "\"print\" ", "function for the normal output stream! ", 100, "% working!" );
+```
+
+## OS_Decorator class
+
+This class is used to set the style of a given stream. It can be used at the beginning of a program and changes will remain static until the destructor is met or a [reset](https://justwhit3.github.io/osmanip/classosm_1_1OS__Decorator.html#:~:text=style%20of%20a%20stream.%20More...-,void%C2%A0,resetStyle%20(const%20std%3A%3Astring%20%26style_type%2C%20std%3A%3Aostream%20%26os%3Dstd%3A%3Acout),-Method%20used%20to%20reset%20the) function is called. Full documentation is [here](https://justwhit3.github.io/osmanip/classosm_1_1OS__Decorator.html).
+
+Can be accessed by including:
+
+```c++
+#include <osmanip/manipulators/printer.hpp>
+using namespace osm //to improve examples readability (avoid if possible).
+```
+
+Example usage:
+
+```c++
+OS_Decorator my_shell;
+
+// Change std::cout predefined style
+my_shell.setColor( "green", std::cout );
+my_shell.setStyle( "underlined", std::cout );
+
+std::cout << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
+
+// Change std::cerr predefined style
+my_shell.setColor( "red", std::cerr );
+my_shell.setStyle( "bold", std::cerr );
+
+std::cerr << "The stderr stream has been changed using the OS_Decorator class!" << "\n";
+```
+
+Changes can be reset when you want:
+
+```c++
+// doing something...
+my_shell.resetColor( "color", std::cout )
+```
 
 ## Progress bars
 

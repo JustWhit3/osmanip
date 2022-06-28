@@ -79,7 +79,7 @@ In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder usef
 
 ## News from the latest releases
 
-- Added a [OS_Decorator](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/printer.cpp) class to efficiently manage the output stream style of a program.
+- Added a [OS_Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20OS_Decorator,-%7B) class to efficiently manage the output stream style of a program.
 - Added full support to **Windows** operating system.
 - Added full support to **MacOS** operating system.
 
@@ -92,7 +92,8 @@ Here you can find the list of features implemented in the current version of the
   - [Cursor navigation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=reset%20commands%20here.-,Cursor%20navigation,-You%20can%20modify)
   - [Terminal control sequences](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=for%20more%20information.-,Terminal%20control%20sequences,-You%20can%20add)
   - [Additional functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=understand%20their%20usage.-,Extra%20functions%20(print%20and%20others),-Some%20extra%20functions) (like an own version of the *Python print one*).
-  
+  - [Class to manage output stream style of a program](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20OS_Decorator,-%7B)
+
 - **Progress indicators**:
   - [Percentage indicator](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=to%20restore%20it.-,Percentage%20indicator,-Initialize%20and%20use)
   - [Loading bar](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=Do%20some%20operations...%0A%7D-,Loading%20bar,-You%20can%20also)
@@ -107,6 +108,7 @@ Why choosing this library for color / styles / escape sequences manipulation:
 
 - All the functions used to manipulate these sequences are [very easy to use](https://github.com/JustWhit3/osmanip/blob/main/examples/manipulators.cpp) and don't require complex code signatures.
 - All the most common ANSI sequences can be manipulated.
+- Using the [OS_Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20OS_Decorator,-%7B) class you can set the style of an output stream at the beginning of your program and keep it unchanged until the end.
   
 Why choosing this library for progress bars? Some properties:
 
