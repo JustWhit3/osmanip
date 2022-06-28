@@ -73,17 +73,15 @@ In the [**doc**](https://github.com/JustWhit3/osmanip/blob/main/doc) folder usef
 - [*Download and install*](https://github.com/JustWhit3/osmanip/blob/main/doc/Download-install-run.md): a guide to download, install and run the library into your system.
 - [*Contributing*](https://github.com/JustWhit3/osmanip/blob/main/doc/Contributing.md): if you want to contribute to the development of this library or you want to raise an issue, please carefully read this document before.
 - [*Todo*](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md): contains a list of future implementations of the library.
-- [*How-to-use guides*](https://github.com/JustWhit3/Ostream-manipulator/blob/main/doc/How-to-use.md): contains a set of guides about how to use the library tools.
+- [*How-to-use guides*](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md): contains a set of guides about how to use the library tools.
 
 **Code documentation** is generated using [*Doxygen*](https://www.doxygen.nl/manual/starting.html) and can be accessed [here](https://justwhit3.github.io/osmanip/).
 
-## News from the last version
+## News from the latest releases
 
-Most recent relevant news from the last version:
-
+- Added a [OS_Decorator](https://github.com/JustWhit3/osmanip/blob/main/src/manipulators/printer.cpp) class to efficiently manage the output stream style of a program.
 - Added full support to **Windows** operating system.
 - Added full support to **MacOS** operating system.
-- Added *Doxygen* documentation.
 
 ## List of features
 
@@ -93,7 +91,8 @@ Here you can find the list of features implemented in the current version of the
   - [Color and style manipulation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=of%20a%20program.-,Colors%20and%20styles%20manipulation,-List%20of%20the)
   - [Cursor navigation](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=reset%20commands%20here.-,Cursor%20navigation,-You%20can%20modify)
   - [Terminal control sequences](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=for%20more%20information.-,Terminal%20control%20sequences,-You%20can%20add)
-  - [Additional functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=understand%20their%20usage.-,Extra%20functions%20(print%20and%20others),-Some%20extra%20functions) (like an own version of the Python print one).
+  - [Additional functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=understand%20their%20usage.-,Extra%20functions%20(print%20and%20others),-Some%20extra%20functions) (like an own version of the *Python print one*).
+  
 - **Progress indicators**:
   - [Percentage indicator](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=to%20restore%20it.-,Percentage%20indicator,-Initialize%20and%20use)
   - [Loading bar](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=Do%20some%20operations...%0A%7D-,Loading%20bar,-You%20can%20also)

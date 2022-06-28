@@ -20,6 +20,7 @@ osmanip/
 │   │   ├── colsty.hpp
 │   │   ├── cursor.hpp
 │   │   ├── common.hpp
+│   │   ├── printer.hpp
 │   ├── progressbar/
 │   │   ├── progress_bar.hpp
 │   │   ├── multi_progress_bar.hpp
@@ -34,6 +35,7 @@ osmanip/
 │   │   ├── colsty.cpp
 │   │   ├── cursor.cpp
 │   │   ├── common.cpp
+│   │   ├── printer.hpp
 │   ├── progressbar/
 │   │   ├── progress_bar.cpp
 │   │   ├── multi_progress_bar.cpp
@@ -57,6 +59,7 @@ osmanip/
 │   │   ├── tests_common.cpp
 │   │   ├── tests_colsty.cpp
 │   │   ├── tests_cursor.cpp
+│   │   ├── tests_printer.cpp
 │   ├── progressbar/
 │   │   ├── tests_progress_bar.cpp
 │   │   ├── tests_multi_progress_bar.cpp

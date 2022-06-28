@@ -1,5 +1,6 @@
 //My headers
 #include "../include/manipulators/colsty.hpp"
+#include "../include/manipulators/printer.hpp"
 #ifdef _WIN32
 #include "../include/utility/windows.hpp"
 #endif
@@ -11,7 +12,7 @@
 #include <chrono>
 #include <fstream>
 
-void col_sty()
+void colsty()
  {
   //====================================================
   //     csmanip
@@ -177,6 +178,27 @@ void printer()
   osm::print( "Text has been wrote to ", "file.txt ", "file!" );
 
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
+  
+  std::cout << "\n" << "======================================================" << "\n"
+            << "     OS_DECORATOR                                        " << "\n"
+            << "======================================================" << "\n\n";
+
+  osm::OS_Decorator my_shell;
+
+  // std::cout 
+  my_shell.setColor( "green", std::cout );
+  my_shell.setStyle( "underlined", std::cout );
+  std::cout << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
+
+  // std::cerr 
+  my_shell.setColor( "red", std::cerr );
+  my_shell.setStyle( "bold", std::cerr );
+  std::cerr << "The stderr stream has been changed using the OS_Decorator class!" << "\n";
+
+  // std::clog 
+  my_shell.setColor( "lt blue", std::cout );
+  my_shell.setStyle( "italics", std::cout );
+  std::cerr << "The stdlog stream has been changed using the OS_Decorator class!" << "\n";
  }
 
 //====================================================
@@ -190,7 +212,7 @@ int main()
 
   osm::OPTION( osm::CURSOR::OFF );
  
-  col_sty(); //Color/style.
+  colsty(); //Color/style.
   printer(); //For printing functions.
 
   osm::OPTION( osm::CURSOR::ON );
