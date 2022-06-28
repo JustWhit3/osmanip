@@ -107,7 +107,6 @@ jobs:
        cd -
        cd C:/install/boost_1_79_0
        b2 --build-dir="C:/install/boost_1_79_0/build" --build-type=complete --prefix="C:/boost" toolset=gcc install
-       cd -
     - name: Installing osmanip for Windows and the remaining dependencies
       if: matrix.os == 'windows-latest'
       run: |

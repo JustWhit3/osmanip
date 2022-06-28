@@ -36,7 +36,7 @@ namespace osm
   //     print (first overload)
   //====================================================
   /**
-   * @brief It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the general case.
+   * @brief It can be used to print messages and strings to the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the general case.
    * 
    * @tparam Args The parameter pack of the various types.
    * @param os The output stream.
