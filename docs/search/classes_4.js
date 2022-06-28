@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['plot2dcanvas_131',['Plot2DCanvas',['../classosm_1_1Plot2DCanvas.html',1,'osm']]],
-  ['progressbar_132',['ProgressBar',['../classosm_1_1ProgressBar.html',1,'osm']]]
+  ['os_5fdecorator_138',['OS_Decorator',['../classosm_1_1OS__Decorator.html',1,'osm']]]
 ];

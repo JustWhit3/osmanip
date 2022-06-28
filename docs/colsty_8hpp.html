@@ -75,8 +75,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="common_8hpp_source.html">common.hpp</a>&quot;</code><br />
-<code>#include &lt;arsenalgear/stream.hpp&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -84,12 +82,10 @@ Include dependency graph for colsty.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="colsty_8hpp__incl.png" border="0" usemap="#ainclude_2manipulators_2colsty_8hpp" alt=""/></div>
 <map name="ainclude_2manipulators_2colsty_8hpp" id="ainclude_2manipulators_2colsty_8hpp">
-<area shape="rect" title=" " alt="" coords="127,5,269,47"/>
+<area shape="rect" title=" " alt="" coords="42,5,183,47"/>
 <area shape="rect" href="common_8hpp.html" title=" " alt="" coords="65,95,161,121"/>
 <area shape="rect" title=" " alt="" coords="5,169,60,196"/>
 <area shape="rect" title=" " alt="" coords="132,169,179,196"/>
-<area shape="rect" title=" " alt="" coords="235,95,393,121"/>
-<area shape="rect" title=" " alt="" coords="417,95,489,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -97,11 +93,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="colsty_8hpp__dep__incl.png" border="0" usemap="#ainclude_2manipulators_2colsty_8hppdep" alt=""/></div>
 <map name="ainclude_2manipulators_2colsty_8hppdep" id="ainclude_2manipulators_2colsty_8hppdep">
-<area shape="rect" title=" " alt="" coords="311,5,452,47"/>
+<area shape="rect" title=" " alt="" coords="400,5,541,47"/>
 <area shape="rect" href="canvas_8cpp.html" title=" " alt="" coords="5,102,168,129"/>
 <area shape="rect" href="colsty_8cpp.html" title=" " alt="" coords="193,102,373,129"/>
-<area shape="rect" href="progress__bar_8cpp.html" title=" " alt="" coords="397,95,563,136"/>
-<area shape="rect" href="options_8hpp.html" title=" " alt="" coords="587,102,754,129"/>
+<area shape="rect" href="printer_8cpp.html" title=" " alt="" coords="469,184,651,211"/>
+<area shape="rect" href="progress__bar_8cpp.html" title=" " alt="" coords="449,95,615,136"/>
+<area shape="rect" href="printer_8hpp.html" title=" " alt="" coords="640,95,781,136"/>
+<area shape="rect" href="options_8hpp.html" title=" " alt="" coords="806,102,973,129"/>
 </map>
 </div>
 </div>
@@ -120,14 +118,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a4ba79e32855ee7f13095509656e59668"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">osm::RGB</a> (const int &amp;r, const int &amp;g, const int &amp;b)</td></tr>
 <tr class="memdesc:a4ba79e32855ee7f13095509656e59668"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors <a href="http://www.aksiom.net/rgb.html">http://www.aksiom.net/rgb.html</a>). It can be used to output a wider variety of colors with respect to the standard available from the col map.  <a href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">More...</a><br /></td></tr>
 <tr class="separator:a4ba79e32855ee7f13095509656e59668"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6e217b3090afddfe1acaaeecdf27695"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:aa6e217b3090afddfe1acaaeecdf27695"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695">osm::print</a> (std::ostream &amp;os=agr::null_stream, const Args &amp;... args)</td></tr>
-<tr class="memdesc:aa6e217b3090afddfe1acaaeecdf27695"><td class="mdescLeft">&#160;</td><td class="mdescRight">It can be used to print messages and strings to the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the general case.  <a href="namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695">More...</a><br /></td></tr>
-<tr class="separator:aa6e217b3090afddfe1acaaeecdf27695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c5ff292df49692cd6f52fe784086354"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a9c5ff292df49692cd6f52fe784086354"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a9c5ff292df49692cd6f52fe784086354">osm::print</a> (Args &amp;... args)</td></tr>
-<tr class="memdesc:a9c5ff292df49692cd6f52fe784086354"><td class="mdescLeft">&#160;</td><td class="mdescRight">It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the 0-arguments case.  <a href="namespaceosm.html#a9c5ff292df49692cd6f52fe784086354">More...</a><br /></td></tr>
-<tr class="separator:a9c5ff292df49692cd6f52fe784086354"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
