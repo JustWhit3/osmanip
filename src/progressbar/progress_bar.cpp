@@ -164,16 +164,16 @@ namespace osm
        }
       else if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
        {
-        throw agr::runtime_error_func( "Inserted ProgressBar style", style, "is not supported for this type!" );
+        throw agr::except_error_func( "Inserted ProgressBar style", style, "is not supported for this type!" );
        }
       else
        {
-        throw agr::runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
+        throw agr::except_error_func( "Inserted ProgressBar type", type, "is not supported!" );
        }
      }
     catch ( std::out_of_range const& exception )
      {
-      throw agr::runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
+      throw agr::except_error_func( "Inserted ProgressBar type", type, "is not supported!" );
      }
    }
 
@@ -202,15 +202,15 @@ namespace osm
      }
     else if( styles_map_.at( "indicator" ).find( style_p ) == styles_map_.at( "indicator" ).end() )
      {
-      throw agr::runtime_error_func( "Inserted indicator style", style_p, "is not supported for this type!" );
+      throw agr::except_error_func( "Inserted indicator style", style_p, "is not supported for this type!" );
      }
     else if( styles_map_.at( "loader" ).find( style_l ) == styles_map_.at( "loader" ).end() )
      {
-      throw agr::runtime_error_func( "Inserted loader style", style_l, "is not supported for this type!" );
+      throw agr::except_error_func( "Inserted loader style", style_l, "is not supported for this type!" );
      }
     else
      {
-      throw agr::runtime_error_func( "Inserted ProgressBar type", type, "is not supported!" );
+      throw agr::except_error_func( "Inserted ProgressBar type", type, "is not supported!" );
      }
    }
 
@@ -835,11 +835,11 @@ namespace osm
       }
      else if( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )
       {
-       throw agr::runtime_error_func( "Inserted ProgressBar style", style, "is already available!" ); 
+       throw agr::except_error_func( "Inserted ProgressBar style", style, "is already available!" ); 
       }
      else
       {
-       throw agr::runtime_error_func( "Inserted ProgressBar type", type, "is already available!" );
+       throw agr::except_error_func( "Inserted ProgressBar type", type, "is already available!" );
       }
     }
   

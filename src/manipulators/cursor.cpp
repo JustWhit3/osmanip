@@ -96,7 +96,7 @@ namespace osm
    {
     if( generic_map.find( feat_string ) == generic_map.end() ) 
      {
-      throw agr::runtime_error_func( generic_map.at( "error" ).first, feat_string, "is not supported!" );
+      throw agr::except_error_func( generic_map.at( "error" ).first, feat_string, "is not supported!" );
      }
     else
      {

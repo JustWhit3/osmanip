@@ -146,7 +146,7 @@ namespace osm
    {
     if( rst.find( reset_string ) == rst.end() ) 
      {
-      throw agr::runtime_error_func( rst.at( "error" ), reset_string, "is not supported!" );
+      throw agr::except_error_func( rst.at( "error" ), reset_string, "is not supported!" );
      } 
     return rst.at( reset_string );
    }

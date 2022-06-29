@@ -89,7 +89,7 @@ namespace osm
 
     if ( ! std::count( colors_container.begin(), colors_container.end(), color_type ) )
      {
-      throw agr::runtime_error_func( rst.at( "error" ), color_type, "is not supported!" );
+      throw agr::except_error_func( rst.at( "error" ), color_type, "is not supported!" );
      }
 
     colors.erase( colors.find( &os ) );
@@ -111,7 +111,7 @@ namespace osm
 
     if ( ! std::count( styles_container.begin(), styles_container.end(), style_type ) )
      {
-      throw agr::runtime_error_func( rst.at( "error" ), style_type, "is not supported!" );
+      throw agr::except_error_func( rst.at( "error" ), style_type, "is not supported!" );
      }
 
     styles.erase( &os );
