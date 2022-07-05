@@ -12,7 +12,7 @@ Thank you very much for being here! First of all, I want to let you know that co
 
 In case you want to contribute, even with a small bug fix, you will be featured into the credits list.
 
-[Here](https://github.com/JustWhit3/osmanip/blob/main/doc/Todo.md) you can find a list of todo features / updates that are planned and that you can implement to consistently contribute.
+[Here](https://github.com/JustWhit3/osmanip/blob/main/TODO.md) you can find a list of todo features / updates that are planned and that you can implement to consistently contribute.
 
 ## How to contribute
 
@@ -36,7 +36,7 @@ Once your pull request will be submitted, I will carefully review it and, if it 
 
 If you find any bug or something you think doesn't work correctly in the code, you are free to open an issue, but before carefully read this passages:
 
-1) If this issue is due to download, compilation or installation of the library, be sure to have read [this](https://github.com/JustWhit3/osmanip/blob/main/doc/Download-install-run.md) document, in which all the passages are explained in detail.
-2) If this issue is due to a code feature, be sure to have run the main and the tests executables before, in order to see if your machine has all the necessary [prerequisites](https://github.com/JustWhit3/osmanip/blob/main/doc/Download-install-run.md#:~:text=cd%20osmanip-,Prerequisites,-Mandatory) installed.
+1) If this issue is due to download, compilation or installation of the library, be sure to have read the installation part in the main README in which all the passages are explained in detail.
+2) If this issue is due to a code feature, be sure to have run the main and the tests executables before, in order to see if your machine has all the necessary prerequisites installed.
 
 Once the issue is received, I will analyze it and once is solved I will respond asking confirmation about my fixing. In this case, if any answer is received in 7 days, the issue will be automatically closed.
