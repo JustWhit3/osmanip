@@ -106,7 +106,7 @@ std::cout << osm::feat( osm::sty, "red" ) << "This string is bold!" << osm::rese
 std::cout << osm::feat( osm::crs, "right", 2 ) << "Cursor moved!";
 ```
 
-- [Terminal control sequences](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences) (List of all the available terminal control sequences [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences))
+- [Terminal control sequences](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences) (list of all the available terminal control sequences [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences))
 
 ```c++
 #include <iostream>
@@ -359,11 +359,11 @@ More examples and how-to guides can be found [here](https://github.com/JustWhit3
 
 Steps to be reproduced:
 
-**1)** Download one of the [releases](https://github.com/JustWhit3/osmanip/releases) of the repository.
+**1)** Download one of the [releases](https://github.com/JustWhit3/osmanip/releases) of the repository
 
-**2)** Unzip and enter the downloaded repository directory.
+**2)** Unzip and enter the downloaded repository directory
 
-**3)** Install and compile the library and its dependencies with the installer script:
+**3)** Install and compile the library and its dependencies with the installer script
 
 ```bash
 ./script/install.sh
@@ -396,14 +396,14 @@ Mandatory prerequisites (automatically installed with the script):
 - [hurry.filesize](https://pypi.org/project/hurry.filesize/) for `size_of_dir.py` script.
 - [termcolor](https://pypi.org/project/termcolor/) for `size_of_dir.py` script.
 
-4) **EXTRA**: to update the repository after some time:
+4) **EXTRA**: to update the repository after some time
 
 ```shell
 ./scripts/update.sh
 ./scripts/install.sh
 ```
 
-5) **EXTRA**: to uninstall the repository from the system:
+5) **EXTRA**: to uninstall the repository from the system
 
 ```shell
 ./scripts/uninstall.sh
