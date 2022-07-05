@@ -241,6 +241,8 @@ for ( int i = progress_bar.getMin(); i < progress_bar.getMax(); i++ )
 osm::OPTION( osm::CURSOR::ON );
 ```
 
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_remaining.gif" width="700">
+
 You can also add [multi-progress bars](https://github.com/JustWhit3/osmanip/wiki/Progress-bars#multi-progress-bars).
 
 - [Progress spinner](https://github.com/JustWhit3/osmanip/wiki/Progress-bars#progress-spinner)
