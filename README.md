@@ -83,9 +83,7 @@ Supported operating systems
 
 ### ANSI escape sequences manipulators
 
-List of features:
-
-- [Color and style manipulation](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#colors-and-styles-manipulators)
+- [Color and style manipulation](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#colors-and-styles-manipulators) (list of all available colors and styles [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#colors-and-styles-manipulators))
 
 ```c++
 #include <iostream>
@@ -98,8 +96,6 @@ std::cout << osm::feat( osm::col, "red" ) << "This string is red!" << osm::reset
 std::cout << osm::feat( osm::sty, "red" ) << "This string is bold!" << osm::reset( "bd/ft" );
 ```
 
-List of all available colors and styles [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#colors-and-styles-manipulators).
-
 - [Cursor manipulators](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#cursor-manipulators)
 
 ```c++
@@ -110,7 +106,7 @@ List of all available colors and styles [here](https://github.com/JustWhit3/osma
 std::cout << osm::feat( osm::crs, "right", 2 ) << "Cursor moved!";
 ```
 
-- [Terminal control sequences](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences)
+- [Terminal control sequences](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences) (List of all the available terminal control sequences [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences))
 
 ```c++
 #include <iostream>
@@ -119,8 +115,6 @@ std::cout << osm::feat( osm::crs, "right", 2 ) << "Cursor moved!";
 // Output a bell sound
 std::cout << osm::feat( osm::tcs, "bell" );
 ```
-
-List of all the available terminal control sequences [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences).
 
 - [Additional functions](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#the-osmprint-function)
 
@@ -162,8 +156,6 @@ Why choosing this library for ANSI escape sequences manipulation:
 - Using the [OS_Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20OS_Decorator,-%7B) class you can set the style of an output stream at the beginning of your program and keep it unchanged until the end.
 
 ### Progress bars
-
-List of features:
 
 - [Percentage indicator](https://github.com/JustWhit3/osmanip/wiki/Progress-bars#percentage-indicator)
 
@@ -243,8 +235,6 @@ osm::OPTION( osm::CURSOR::ON );
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/time_remaining.gif" width="700">
 
-You can also add [multi-progress bars](https://github.com/JustWhit3/osmanip/wiki/Progress-bars#multi-progress-bars).
-
 - [Progress spinner](https://github.com/JustWhit3/osmanip/wiki/Progress-bars#progress-spinner)
 
 ```C++
@@ -282,8 +272,6 @@ Why choosing this library for progress bars? Some properties:
 
 ### Terminal graphics
 
-List of features:
-
 - [Create animations](https://github.com/JustWhit3/osmanip/wiki/Terminal-graphics#canvases)
 
 ```C++
@@ -305,7 +293,7 @@ for( uint i = 0; i < 10; i++ )
  }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_animation.gif" width="400">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_animation.gif" width="370">
 
 - [2D graphics plots](https://github.com/JustWhit3/osmanip/wiki/Terminal-graphics#2D-graphics)
 
@@ -337,7 +325,7 @@ for( float i = 0; i < 40; i++ )
  }
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_sincos.gif" width="400">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_sincos.gif" width="370">
 
 More examples and how-to guides can be found [here](https://github.com/JustWhit3/osmanip/wiki/Terminal-graphics).
 
@@ -348,8 +336,6 @@ Why choosing this library for terminal graphics:
 - A faster and most comfortable alternative to [plot simple functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=To%20plot%202D%20canvas%20with%20sin%20and%20cos%20functions%3A) without the needing of GUI.
 
 ### Extra support for UNICODE and ANSI on Windows
-
-- [Windows](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#options:~:text=to%20imptove%20readability.-,Options,-To%20set%20specific)
 
 ```c++
 // Enable ANSI escape sequences
