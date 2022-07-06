@@ -100,6 +100,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ca47cac7a3a3b0891ca63d3b58c8e00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OS__Decorator.html#a6ca47cac7a3a3b0891ca63d3b58c8e00">resetStyle</a> (std::ostream &amp;os=std::cout)</td></tr>
 <tr class="memdesc:a6ca47cac7a3a3b0891ca63d3b58c8e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method used to reset the style or of a stream.  <a href="classosm_1_1OS__Decorator.html#a6ca47cac7a3a3b0891ca63d3b58c8e00">More...</a><br /></td></tr>
 <tr class="separator:a6ca47cac7a3a3b0891ca63d3b58c8e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad02ac98285c742b5101746c2b48a0747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OS__Decorator.html#ad02ac98285c742b5101746c2b48a0747">removeStyle</a> (const std::string &amp;style, std::ostream &amp;os=std::cout)</td></tr>
+<tr class="memdesc:ad02ac98285c742b5101746c2b48a0747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method used to remove one of the set styles (useful in case they are more than one).  <a href="classosm_1_1OS__Decorator.html#ad02ac98285c742b5101746c2b48a0747">More...</a><br /></td></tr>
+<tr class="separator:ad02ac98285c742b5101746c2b48a0747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89f8025e922dab580cfff5dd2ddf4300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OS__Decorator.html#a89f8025e922dab580cfff5dd2ddf4300">resetFeatures</a> (std::ostream &amp;os=std::cout)</td></tr>
 <tr class="memdesc:a89f8025e922dab580cfff5dd2ddf4300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method used to reset all the features of a stream.  <a href="classosm_1_1OS__Decorator.html#a89f8025e922dab580cfff5dd2ddf4300">More...</a><br /></td></tr>
 <tr class="separator:a89f8025e922dab580cfff5dd2ddf4300"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -302,6 +305,43 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>const <a class="el" href="classosm_1_1OS__Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">OS_Decorator</a>&amp; The class pointer. </dd></dl>
+
+</div>
+</div>
+<a id="ad02ac98285c742b5101746c2b48a0747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad02ac98285c742b5101746c2b48a0747">&#9670;&nbsp;</a></span>removeStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osm::OS_Decorator::removeStyle </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>style</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em> = <code>std::cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method used to remove one of the set styles (useful in case they are more than one). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>The style to be reset for the stream. </td></tr>
+    <tr><td class="paramname">os</td><td>The stream to be modified. Default is std::cout. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

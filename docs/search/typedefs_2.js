@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_259',['type',['../structosm_1_1type__identity.html#a296c5a8ef6fe1710c55806546c67e6fe',1,'osm::type_identity']]]
+  ['type_261',['type',['../structosm_1_1type__identity.html#a296c5a8ef6fe1710c55806546c67e6fe',1,'osm::type_identity']]]
 ];
