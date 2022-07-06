@@ -98,6 +98,27 @@ namespace osm
    }
 
   //====================================================
+  //     removeStyle
+  //====================================================
+  /**
+   * @brief Method used to remove one of the set styles (useful in case they are more than one).
+   * 
+   * @param color The style to be reset for the stream.
+   * @param os The stream to be modified. Default is std::cout.
+   */
+  void OS_Decorator::removeStyle( const std::string& style, std::ostream& os )
+   {
+    std::string str_mod = styles.at( &os );
+    std::string::size_type sub_str = str_mod.find( style );
+
+    styles.at( &os ) = str_mod.erase( sub_str, style.length() );
+
+    if ( getStyleList()[ &os ][0] == ' ' ) styles.at( &os ).erase( 0, 1 );
+    else if ( getStyleList()[ &os ].back() == ' ' ) styles.at( &os ).pop_back();
+
+   }
+
+  //====================================================
   //     resetFeatures
   //====================================================
   /**

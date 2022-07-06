@@ -88,6 +88,7 @@ namespace osm
      //====================================================
      void resetColor( std::ostream& os = std::cout );
      void resetStyle( std::ostream& os = std::cout );
+     void removeStyle( const std::string& style, std::ostream& os = std::cout );
      void resetFeatures( std::ostream& os = std::cout );
  
      //====================================================
@@ -133,7 +134,7 @@ namespace osm
      }
     if ( my_shell.getStyle( my_shell.getCurrentStream() ) != "" )
      {
-      std::vector <std::string> list_of_styles = agr::split_string( my_shell.getStyle( my_shell.getCurrentStream() ), " " );
+      std::vector<std::string> list_of_styles = agr::split_string( my_shell.getStyle( my_shell.getCurrentStream() ), " " );
       for ( auto elem: list_of_styles )
        {
         my_shell.getCurrentStream() << feat( sty, elem );

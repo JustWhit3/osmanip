@@ -84,6 +84,11 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     deco.setStyle( "italics underlined", std::cerr );
     CHECK( deco.getStyleList()[ &std::cerr ] == "italics underlined" );
     CHECK( deco.getStyleList().find( &std::cerr ) != deco.getStyleList().end() );
+    deco.removeStyle( "italics", std::cerr );
+    CHECK( deco.getStyleList()[ &std::cerr ] == "underlined" );
+    deco.setStyle( "italics underlined", std::cerr );
+    deco.removeStyle( "underlined", std::cerr );
+    CHECK( deco.getStyleList()[ &std::cerr ] == "italics" );
     deco.resetStyle( std::cerr );
 
     // More complex testing
