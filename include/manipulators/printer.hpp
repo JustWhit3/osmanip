@@ -85,8 +85,8 @@ namespace osm
      //====================================================
      //     Resetters
      //====================================================
-     void resetColor( const std::string& color_type, std::ostream& os = std::cout );
-     void resetStyle( const std::string& style_type, std::ostream& os = std::cout );
+     void resetColor( std::ostream& os = std::cout );
+     void resetStyle( std::ostream& os = std::cout );
      void resetFeatures( std::ostream& os = std::cout );
  
      //====================================================
@@ -96,6 +96,12 @@ namespace osm
      std::string getStyle( std::ostream& os = std::cout );
      std::map <std::ostream*, std::string> getColorList();
      std::map <std::ostream*, std::string> getStyleList();
+     std::ostream& getCurrentStream();
+
+     //====================================================
+     //     Operators
+     //====================================================
+     const OS_Decorator& operator () ( std::ostream& os = std::cout );
 
     private:
 
@@ -103,7 +109,35 @@ namespace osm
      //     Attributes
      //====================================================
      std::map <std::ostream*, std::string> colors, styles;
+     std::ostream* current_stream;
    };
+
+  //====================================================
+  //     Operator << 
+  //====================================================
+  /**
+   * @brief Operator overload to output a modified ostream object which properties are set thanks to the OS_Decorator class.
+   * 
+   * @tparam T The template parameter of the object sent into the output stream.
+   * @param my_shell The OS_Decorator object.
+   * @param elem The element sent into the output stream.
+   * @return std::ostream& The modified output stream.
+   */
+  template <typename T>
+  std::ostream& operator << ( OS_Decorator my_shell, const T& elem )
+   {
+    if ( my_shell.getColor( my_shell.getCurrentStream() ) != "" )
+     {
+      my_shell.getCurrentStream() << feat( col, my_shell.getColor( my_shell.getCurrentStream() ) );
+     }
+    if ( my_shell.getStyle( my_shell.getCurrentStream() ) != "" )
+     {
+      my_shell.getCurrentStream() << feat( sty, my_shell.getStyle( my_shell.getCurrentStream() ) );
+     }
+    my_shell.getCurrentStream() << elem << reset( "all" );
+    
+    return my_shell.getCurrentStream();
+   }
  }
 
 #endif

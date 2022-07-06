@@ -188,17 +188,17 @@ void printer()
   // std::cout 
   my_shell.setColor( "green", std::cout );
   my_shell.setStyle( "underlined", std::cout );
-  std::cout << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
+  my_shell( std::cout ) << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
 
   // std::cerr 
   my_shell.setColor( "red", std::cerr );
   my_shell.setStyle( "bold", std::cerr );
-  std::cerr << "The stderr stream has been changed using the OS_Decorator class!" << "\n";
+  my_shell( std::cerr ) << "The stderr stream has been changed using the OS_Decorator class!" << "\n";
 
   // std::clog 
-  my_shell.setColor( "lt blue", std::cout );
-  my_shell.setStyle( "italics", std::cout );
-  std::cerr << "The stdlog stream has been changed using the OS_Decorator class!" << "\n";
+  my_shell.setColor( "lt blue", std::clog );
+  my_shell.setStyle( "italics", std::clog );
+  my_shell( std::clog ) << "The stdlog stream has been changed using the OS_Decorator class!" << "\n";
  }
 
 //====================================================

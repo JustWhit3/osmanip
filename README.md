@@ -138,13 +138,13 @@ osm::OS_Decorator my_shell;
 my_shell.setColor( "green", std::cout );
 my_shell.setStyle( "underlined", std::cout );
 
-std::cout << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
+my_shell( std::cout ) << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
 
 // Change std::cerr predefined style
 my_shell.setColor( "red", std::cerr );
 my_shell.setStyle( "bold", std::cerr );
 
-std::cerr << "The stderr stream has been changed using the OS_Decorator class!" << "\n";
+my_shell( std::cerr ) << "The stderr stream has been changed using the OS_Decorator class!" << "\n";
 ```
 
 More examples and how-to guides can be found [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators).
@@ -169,7 +169,6 @@ osm::ProgressBar<int> percentage_bar;
 percentage_bar.setMin( 5 );
 percentage_bar.setMax ( 46 );
 percentage_bar.setStyle( "indicator", "%" );
-percentage_bar.setMessage( " processing..." );
 
 std::cout << "This is a normal percentage bar: " << "\n";
 osm::OPTION( osm::CURSOR::OFF ); // Hide cursor for better output rendering
@@ -181,7 +180,7 @@ osm::OPTION( osm::CURSOR::OFF ); // Hide cursor for better output rendering
 osm::OPTION( osm::CURSOR::ON );
 ```
 
-<img src="https://github.com/JustWhit3/osmanip/blob/main/img/message_percentage.gif" width="550">
+<img src="https://github.com/JustWhit3/osmanip/blob/main/img/normal_percentage.gif" width="400">
 
 - [Loading bar](https://github.com/JustWhit3/osmanip/wiki/Progress-bars#loading-bar)
 
@@ -281,6 +280,7 @@ Why choosing this library for progress bars? Some properties:
 osm::Canvas canvas(10,10);
 
 canvas.setBackground( '.', osm::feat( osm::col, "bg white" ) + osm::feat( osm::col, "black" ) );
+std::cout << "Display an animation in a canvas\n";
 
 for( uint i = 0; i < 10; i++ )
  {

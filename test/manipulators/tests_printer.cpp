@@ -12,23 +12,26 @@
 
 //Extra headers
 #include <doctest/doctest.h>
+#include <arsenalgear/stream.hpp>
 
 //STD headers
 #include <iostream>
+#include <streambuf>
+#include <sstream>
 
 //====================================================
 //     Testing OS_Decorator
 //====================================================
 TEST_CASE( "Testing the OS_Decorator class methods." )
  {
-  osm::OS_Decorator deco;
-
   //====================================================
   //     Testing setters, resetters and getters
   //====================================================
   TEST_SUITE_BEGIN( "Testing setters, resetters and getters." );
 
-  SUBCASE( "Testing the color methods" )
+  osm::OS_Decorator deco;
+
+  SUBCASE( "Testing the color methods." )
    {
     // Testing the default stream
     CHECK( deco.getColorList().empty() );
@@ -36,7 +39,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     CHECK_EQ( deco.getColor(), "red" );
     CHECK( ! deco.getColorList().empty() );
     CHECK( deco.getColorList().find( &std::cout ) != deco.getColorList().end() );
-    deco.resetColor( "color" );
+    deco.resetColor();
     CHECK( deco.getColorList().empty() );
 
     // Testing another stream
@@ -45,7 +48,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     deco.setColor( "green", std::cerr );
     CHECK( deco.getColorList()[ &std::cerr ] == "green" );
     CHECK( deco.getColorList().find( &std::cerr ) != deco.getColorList().end() );
-    deco.resetColor( "color", std::cerr );
+    deco.resetColor( std::cerr );
 
     // More complex testing
     deco.setColor( "red", std::cerr );
@@ -54,16 +57,17 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     CHECK_EQ( deco.getColor( std::cerr ), "red" );
     CHECK( deco.getColorList().find( &std::cerr ) != deco.getColorList().end() );
     CHECK( deco.getColorList().find( &std::clog ) != deco.getColorList().end() );
-    deco.resetColor( "color", std::cerr );
-    deco.resetColor( "bd color", std::clog );
+    deco.resetColor( std::cerr );
+    deco.resetColor( std::clog );
     CHECK( deco.getColorList().empty() );
 
     // Testing exceptions
-    CHECK_THROWS_AS( deco.setColor( "ciccio" ), std::runtime_error );
-    CHECK_THROWS_AS( deco.resetColor( "ciccio" ), std::runtime_error );
+    deco.setColor( "ciccio" );
+    CHECK_THROWS_AS( deco( std::cout ) << "Test", std::runtime_error );
+    deco.resetColor();
    }
 
-  SUBCASE( "Testing the style methods" )
+  SUBCASE( "Testing the style methods." )
    {
     // Testing the default stream
     CHECK( deco.getStyleList().empty() );
@@ -71,7 +75,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     CHECK_EQ( deco.getStyle(), "bold" );
     CHECK( ! deco.getStyleList().empty() );
     CHECK( deco.getStyleList().find( &std::cout ) != deco.getStyleList().end() );
-    deco.resetStyle( "bd/ft" );
+    deco.resetStyle();
     CHECK( deco.getStyleList().empty() );
 
     // Testing another stream
@@ -80,7 +84,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     deco.setStyle( "italics", std::cerr );
     CHECK( deco.getStyleList()[ &std::cerr ] == "italics" );
     CHECK( deco.getStyleList().find( &std::cerr ) != deco.getStyleList().end() );
-    deco.resetStyle( "italics", std::cerr );
+    deco.resetStyle( std::cerr );
 
     // More complex testing
     deco.setStyle( "bold", std::cerr );
@@ -89,13 +93,59 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     CHECK_EQ( deco.getStyle( std::cerr ), "bold" );
     CHECK( deco.getStyleList().find( &std::cerr ) != deco.getStyleList().end() );
     CHECK( deco.getStyleList().find( &std::clog ) != deco.getStyleList().end() );
-    deco.resetStyle( "bd/ft", std::cerr );
-    deco.resetStyle( "italics", std::clog );
+    deco.resetStyle( std::cerr );
+    deco.resetStyle( std::clog );
     CHECK( deco.getStyleList().empty() );
 
     // Testing exceptions
-    CHECK_THROWS_AS( deco.setStyle( "ciccio" ), std::runtime_error );
-    CHECK_THROWS_AS( deco.resetStyle( "ciccio" ), std::runtime_error );
+    deco.setStyle( "ciccio" );
+    CHECK_THROWS_AS( deco( std::cout ) << "Test", std::runtime_error );
+    deco.resetStyle();
+   }
+
+  TEST_SUITE_END();
+
+  //====================================================
+  //     Testing the operators overload
+  //====================================================
+  TEST_SUITE_BEGIN( "Testing the operators overload." );
+
+  osm::OS_Decorator my_shell;
+
+  SUBCASE( "Testing the operator () overload" )
+   {
+    my_shell( std::cout );
+    CHECK_EQ( &my_shell.getCurrentStream(), &std::cout );
+
+    my_shell( std::cerr );
+    CHECK_EQ( &my_shell.getCurrentStream(), &std::cerr );
+
+    my_shell( std::clog );
+    CHECK_EQ( &my_shell.getCurrentStream(), &std::clog );
+   }
+
+  SUBCASE( "Testing the operator << overload." )
+   {
+    std::stringstream buffer;
+    my_shell.setColor( "red", buffer );
+    my_shell.setStyle( "bold", buffer );
+
+    my_shell( buffer ) << "Test";
+    CHECK_EQ( buffer.str(), "\033[31m\033[1mTest\033[0m" );
+    buffer.str( "" );
+    buffer.clear();
+
+    my_shell.resetColor( buffer );
+    my_shell( buffer ) << "Test";
+    CHECK_EQ( buffer.str(), "\033[1mTest\033[0m" );
+    buffer.str( "" );
+    buffer.clear();
+
+    my_shell.resetStyle( buffer );
+    my_shell( buffer ) << "Test";
+    CHECK_EQ( buffer.str(), "Test\033[0m" );
+    buffer.str( "" );
+    buffer.clear();
    }
 
   TEST_SUITE_END();

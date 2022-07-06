@@ -36,8 +36,7 @@ namespace osm
    */
   OS_Decorator::~OS_Decorator()
    {
-    for ( const auto& elem_col: colors ) *elem_col.first << reset( "all" );
-    for ( const auto& elem_sty: styles ) *elem_sty.first << reset( "all" );
+    std::cout << reset( "all" );
    }
 
   //====================================================
@@ -53,8 +52,6 @@ namespace osm
    {
     if( colors.count( &os ) == 1 ) colors[ &os ] = color;
     else colors.insert( { &os, color } );
-
-    os << feat( col, colors[ &os ] );
    }
 
   //====================================================
@@ -70,8 +67,6 @@ namespace osm
    {
     if( styles.count( &os ) == 1 ) styles[ &os ] = style;
     else styles.insert( { &os, style } );
-
-    os << feat( sty, styles[ &os ] );
    }
 
   //====================================================
@@ -83,17 +78,9 @@ namespace osm
    * @param color The color to be reset for the stream.
    * @param os The stream to be modified. Default is std::cout.
    */
-  void OS_Decorator::resetColor( const std::string& color_type, std::ostream& os )
+  void OS_Decorator::resetColor( std::ostream& os )
    {
-    std::vector <std::string> colors_container { "color", "bg color", "bd color" };
-
-    if ( ! std::count( colors_container.begin(), colors_container.end(), color_type ) )
-     {
-      throw agr::except_error_func( rst.at( "error" ), color_type, "is not supported!" );
-     }
-
-    colors.erase( colors.find( &os ) );
-    os << reset( color_type );
+    colors.erase( &os );
    }
 
   //====================================================
@@ -105,17 +92,9 @@ namespace osm
    * @param color The style to be reset for the stream.
    * @param os The stream to be modified. Default is std::cout.
    */
-  void OS_Decorator::resetStyle( const std::string& style_type, std::ostream& os )
+  void OS_Decorator::resetStyle( std::ostream& os )
    {
-    std::vector <std::string> styles_container { "bd/ft", "italics", "underlined", "blink", "inverse", "invisible", "crossed" };
-
-    if ( ! std::count( styles_container.begin(), styles_container.end(), style_type ) )
-     {
-      throw agr::except_error_func( rst.at( "error" ), style_type, "is not supported!" );
-     }
-
     styles.erase( &os );
-    os << reset( style_type );
    }
 
   //====================================================
@@ -187,5 +166,33 @@ namespace osm
   std::map <std::ostream*, std::string> OS_Decorator::getStyleList()
    {
     return styles;
+   }
+
+  //====================================================
+  //     getCurrentStream
+  //====================================================
+  /**
+   * @brief Method used to return the stream that is used to output stuff.
+   * 
+   * @return std::ostream& The used stream to output stuff.
+   */
+  std::ostream& OS_Decorator::getCurrentStream()
+   {
+    return *current_stream;
+   }
+
+  //====================================================
+  //     operator ()
+  //====================================================
+  /**
+   * @brief Operator overload to assign the value into parentheses to the "current_stream" variable.
+   * 
+   * @param os Input value, i.e. the stream put into parentheses.
+   * @return const OS_Decorator& The class pointer.
+   */
+  const OS_Decorator& OS_Decorator::operator () ( std::ostream& os )
+   {
+    current_stream = &os;
+    return *this;
    }
  }
