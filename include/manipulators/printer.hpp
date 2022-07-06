@@ -14,6 +14,7 @@
 
 //Extra headers
 #include <arsenalgear/stream.hpp>
+#include <arsenalgear/utils.hpp>
 
 //STD headers
 #include <iostream>
@@ -132,7 +133,11 @@ namespace osm
      }
     if ( my_shell.getStyle( my_shell.getCurrentStream() ) != "" )
      {
-      my_shell.getCurrentStream() << feat( sty, my_shell.getStyle( my_shell.getCurrentStream() ) );
+      std::vector <std::string> list_of_styles = agr::split_string( my_shell.getStyle( my_shell.getCurrentStream() ), " " );
+      for ( auto elem: list_of_styles )
+       {
+        my_shell.getCurrentStream() << feat( sty, elem );
+       }
      }
     my_shell.getCurrentStream() << elem << reset( "all" );
     

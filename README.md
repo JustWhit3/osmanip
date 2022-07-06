@@ -140,9 +140,9 @@ my_shell.setStyle( "underlined", std::cout );
 
 my_shell( std::cout ) << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
 
-// Change std::cerr predefined style
+// Change std::cerr predefined style and color
 my_shell.setColor( "red", std::cerr );
-my_shell.setStyle( "bold", std::cerr );
+my_shell.setStyle( "bold italics", std::cerr ); // NOTE: added 2 styles
 
 my_shell( std::cerr ) << "The stderr stream has been changed using the OS_Decorator class!" << "\n";
 ```

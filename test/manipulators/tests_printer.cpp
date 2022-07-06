@@ -81,8 +81,8 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     // Testing another stream
     deco.setStyle( "underlined", std::cerr );
     CHECK_EQ( deco.getStyle( std::cerr ), "underlined" );
-    deco.setStyle( "italics", std::cerr );
-    CHECK( deco.getStyleList()[ &std::cerr ] == "italics" );
+    deco.setStyle( "italics underlined", std::cerr );
+    CHECK( deco.getStyleList()[ &std::cerr ] == "italics underlined" );
     CHECK( deco.getStyleList().find( &std::cerr ) != deco.getStyleList().end() );
     deco.resetStyle( std::cerr );
 

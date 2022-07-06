@@ -197,7 +197,7 @@ void printer()
 
   // std::clog 
   my_shell.setColor( "lt blue", std::clog );
-  my_shell.setStyle( "italics", std::clog );
+  my_shell.setStyle( "italics underlined", std::clog );
   my_shell( std::clog ) << "The stdlog stream has been changed using the OS_Decorator class!" << "\n";
  }
 
