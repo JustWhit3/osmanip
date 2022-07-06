@@ -182,6 +182,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a9c5ff292df49692cd6f52fe784086354"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a9c5ff292df49692cd6f52fe784086354">print</a> (Args &amp;... args)</td></tr>
 <tr class="memdesc:a9c5ff292df49692cd6f52fe784086354"><td class="mdescLeft">&#160;</td><td class="mdescRight">It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the 0-arguments case.  <a href="namespaceosm.html#a9c5ff292df49692cd6f52fe784086354">More...</a><br /></td></tr>
 <tr class="separator:a9c5ff292df49692cd6f52fe784086354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f2177f70d3a9497df6e670a01cf0de9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6f2177f70d3a9497df6e670a01cf0de9"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a6f2177f70d3a9497df6e670a01cf0de9">operator&lt;&lt;</a> (<a class="el" href="classosm_1_1OS__Decorator.html">OS_Decorator</a> my_shell, const T &amp;elem)</td></tr>
+<tr class="memdesc:a6f2177f70d3a9497df6e670a01cf0de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator overload to output a modified ostream object which properties are set thanks to the <a class="el" href="classosm_1_1OS__Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">OS_Decorator</a> class.  <a href="namespaceosm.html#a6f2177f70d3a9497df6e670a01cf0de9">More...</a><br /></td></tr>
+<tr class="separator:a6f2177f70d3a9497df6e670a01cf0de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a075383a0e8d513f82c078daee8eee31e"><td class="memTemplParams" colspan="2">template&lt;class... Indicators&gt; </td></tr>
 <tr class="memitem:a075383a0e8d513f82c078daee8eee31e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classosm_1_1make__MultiProgressBar.html">make_MultiProgressBar</a>&lt; typename std::remove_reference&lt; Indicators &gt;::type... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a075383a0e8d513f82c078daee8eee31e">MultiProgressBar</a> (Indicators &amp;&amp;... inds)</td></tr>
 <tr class="memdesc:a075383a0e8d513f82c078daee8eee31e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function used for deduction guides.  <a href="namespaceosm.html#a075383a0e8d513f82c078daee8eee31e">More...</a><br /></td></tr>
@@ -650,8 +654,54 @@ template&lt;class... Indicators&gt; </div>
 
 </div>
 </div>
+<a id="a6f2177f70d3a9497df6e670a01cf0de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f2177f70d3a9497df6e670a01cf0de9">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; osm::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classosm_1_1OS__Decorator.html">OS_Decorator</a>&#160;</td>
+          <td class="paramname"><em>my_shell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>elem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Operator overload to output a modified ostream object which properties are set thanks to the <a class="el" href="classosm_1_1OS__Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">OS_Decorator</a> class. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The template parameter of the object sent into the output stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">my_shell</td><td>The <a class="el" href="classosm_1_1OS__Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">OS_Decorator</a> object. </td></tr>
+    <tr><td class="paramname">elem</td><td>The element sent into the output stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream&amp; The modified output stream. </dd></dl>
+
+</div>
+</div>
 <a id="af39d33e13c1d113bf8519fa8d316a920"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af39d33e13c1d113bf8519fa8d316a920">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af39d33e13c1d113bf8519fa8d316a920">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
