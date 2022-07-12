@@ -79,7 +79,7 @@ $(function() {
 <code>#include &lt;arsenalgear/utils.hpp&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for colsty.cpp:</div>
 <div class="dyncontent">
@@ -88,7 +88,7 @@ Include dependency graph for colsty.cpp:</div>
 <area shape="rect" title=" " alt="" coords="164,5,344,32"/>
 <area shape="rect" href="colsty_8hpp.html" title=" " alt="" coords="55,80,205,121"/>
 <area shape="rect" title=" " alt="" coords="5,244,60,271"/>
-<area shape="rect" title=" " alt="" coords="180,244,227,271"/>
+<area shape="rect" title=" " alt="" coords="148,244,259,271"/>
 <area shape="rect" title=" " alt="" coords="291,87,433,114"/>
 <area shape="rect" title=" " alt="" coords="457,87,529,114"/>
 <area shape="rect" href="common_8hpp.html" title=" " alt="" coords="70,169,166,196"/>
@@ -102,24 +102,21 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab12382d9f28c354e6f6a8113d8d0a335"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab12382d9f28c354e6f6a8113d8d0a335">osm::reset</a> (const std::string &amp;reset_string)</td></tr>
-<tr class="memdesc:ab12382d9f28c354e6f6a8113d8d0a335"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes a std::string object (reset map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.  <a href="namespaceosm.html#ab12382d9f28c354e6f6a8113d8d0a335">More...</a><br /></td></tr>
-<tr class="separator:ab12382d9f28c354e6f6a8113d8d0a335"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ba79e32855ee7f13095509656e59668"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">osm::RGB</a> (const int &amp;r, const int &amp;g, const int &amp;b)</td></tr>
 <tr class="memdesc:a4ba79e32855ee7f13095509656e59668"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors <a href="http://www.aksiom.net/rgb.html">http://www.aksiom.net/rgb.html</a>). It can be used to output a wider variety of colors with respect to the standard available from the col map.  <a href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">More...</a><br /></td></tr>
 <tr class="separator:a4ba79e32855ee7f13095509656e59668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac12950f03a1db3df2ed9200770464b7e"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ac12950f03a1db3df2ed9200770464b7e">osm::col</a></td></tr>
-<tr class="memdesc:ac12950f03a1db3df2ed9200770464b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the colors. Note: "bg" is the prefix of the background color features and "bd" is the one of the bold color features.  <a href="namespaceosm.html#ac12950f03a1db3df2ed9200770464b7e">More...</a><br /></td></tr>
-<tr class="separator:ac12950f03a1db3df2ed9200770464b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4efb84dbcb1e2c5de27e0f55908bd085"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a4efb84dbcb1e2c5de27e0f55908bd085">osm::sty</a></td></tr>
-<tr class="memdesc:a4efb84dbcb1e2c5de27e0f55908bd085"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the styles.  <a href="namespaceosm.html#a4efb84dbcb1e2c5de27e0f55908bd085">More...</a><br /></td></tr>
-<tr class="separator:a4efb84dbcb1e2c5de27e0f55908bd085"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f14a098d30adf5894b195e72361238b"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f14a098d30adf5894b195e72361238b">osm::rst</a></td></tr>
-<tr class="memdesc:a8f14a098d30adf5894b195e72361238b"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the reset features commands.  <a href="namespaceosm.html#a8f14a098d30adf5894b195e72361238b">More...</a><br /></td></tr>
-<tr class="separator:a8f14a098d30adf5894b195e72361238b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd60a9e70771e9ba62cd5e2860695ff"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a9cd60a9e70771e9ba62cd5e2860695ff">osm::col</a></td></tr>
+<tr class="memdesc:a9cd60a9e70771e9ba62cd5e2860695ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the colors. Note: "bg" is the prefix of the background color features and "bd" is the one of the bold color features.  <a href="namespaceosm.html#a9cd60a9e70771e9ba62cd5e2860695ff">More...</a><br /></td></tr>
+<tr class="separator:a9cd60a9e70771e9ba62cd5e2860695ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c3de8caf875adb236937ea7f60f74b0"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a5c3de8caf875adb236937ea7f60f74b0">osm::sty</a></td></tr>
+<tr class="memdesc:a5c3de8caf875adb236937ea7f60f74b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the styles.  <a href="namespaceosm.html#a5c3de8caf875adb236937ea7f60f74b0">More...</a><br /></td></tr>
+<tr class="separator:a5c3de8caf875adb236937ea7f60f74b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cefaf71da9e5b1e2746189dee3cd24c"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">osm::rst</a></td></tr>
+<tr class="memdesc:a4cefaf71da9e5b1e2746189dee3cd24c"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the reset features commands.  <a href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">More...</a><br /></td></tr>
+<tr class="separator:a4cefaf71da9e5b1e2746189dee3cd24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

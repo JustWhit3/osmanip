@@ -1,11 +1,11 @@
 <map id="include/progressbar/progress_bar.hpp" name="include/progressbar/progress_bar.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="253,5,387,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="269,5,403,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,95,77,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="102,95,157,121"/>
 <area shape="rect" id="node4" title=" " alt="" coords="181,95,243,121"/>
 <area shape="rect" id="node5" title=" " alt="" coords="267,95,307,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="331,95,378,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="403,95,461,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="486,95,543,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="568,95,629,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="331,95,442,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="467,95,525,121"/>
+<area shape="rect" id="node8" title=" " alt="" coords="550,95,607,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="632,95,693,121"/>
 </map>

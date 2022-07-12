@@ -4,7 +4,7 @@ var searchData=
   ['canvas_2ecpp_7',['canvas.cpp',['../canvas_8cpp.html',1,'']]],
   ['canvas_2ehpp_8',['canvas.hpp',['../canvas_8hpp.html',1,'']]],
   ['clear_9',['clear',['../classosm_1_1Canvas.html#a1505bf52113de81e87ba3f69d5c2a188',1,'osm::Canvas']]],
-  ['col_10',['col',['../namespaceosm.html#ac12950f03a1db3df2ed9200770464b7e',1,'osm']]],
+  ['col_10',['col',['../namespaceosm.html#a9cd60a9e70771e9ba62cd5e2860695ff',1,'osm']]],
   ['colsty_2ecpp_11',['colsty.cpp',['../colsty_8cpp.html',1,'']]],
   ['colsty_2ehpp_12',['colsty.hpp',['../colsty_8hpp.html',1,'']]],
   ['common_2ecpp_13',['common.cpp',['../common_8cpp.html',1,'']]],
