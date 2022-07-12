@@ -10,14 +10,14 @@
 
 //STD headers
 #include <string>
-#include <map>
+#include <unordered_map>
 
 namespace osm
  {  
   //====================================================
   //     Functions
   //====================================================
-  extern std::string feat( const std::map <std::string, std::string>& generic_map, const std::string& feat_string );
+  extern const std::string& feat( const std::unordered_map <std::string, std::string>& generic_map, const std::string& feat_string );
  }
 
 #endif

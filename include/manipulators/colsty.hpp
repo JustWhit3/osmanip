@@ -13,19 +13,18 @@
 
 //STD headers
 #include <string>
-#include <map>
+#include <unordered_map>
 
 namespace osm
  {
   //====================================================
   //     Variables
   //====================================================
-  extern const std::map <std::string, std::string> col, sty, rst;
+  extern const std::unordered_map <std::string, std::string> col, sty, rst;
 
   //====================================================
   //     Functions
   //====================================================
-  extern std::string reset( const std::string& reset_string );
   extern std::string RGB( const int& r, const int& g, const int& b );
  }
 

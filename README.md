@@ -90,10 +90,10 @@ Supported operating systems
 #include <osmanip/manipulators/colsty.hpp>
 
 // Print a red string
-std::cout << osm::feat( osm::col, "red" ) << "This string is red!" << osm::reset( "color" );
+std::cout << osm::feat( osm::col, "red" ) << "This string is red!" << osm::feat( osm::rst, "color" );
 
 // Print a bold string
-std::cout << osm::feat( osm::sty, "red" ) << "This string is bold!" << osm::reset( "bd/ft" );
+std::cout << osm::feat( osm::sty, "red" ) << "This string is bold!" << osm::feat( osm::rst, "bd/ft" );
 ```
 
 - [Cursor manipulators](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#cursor-manipulators)

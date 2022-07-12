@@ -10,7 +10,7 @@
 
 //STD headers
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <set>
 
 //====================================================
@@ -46,7 +46,7 @@ namespace osm
    * @brief It is used to store the terminal control sequences.
    * 
    */
-  const std::map <std::string, std::string> tcs
+  const std::unordered_map <std::string, std::string> tcs
    {
     //Error variables:
     { "error", "Inserted terminal control sequence" },

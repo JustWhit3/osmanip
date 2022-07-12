@@ -20,6 +20,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 namespace osm
  {
@@ -42,7 +43,7 @@ namespace osm
 
     ( os << ... << args ) << "\n";
 
-    if( &os == &std::cerr || &os == &std::clog || &os == &std::cout ) os << reset( "all" );
+    if( &os == &std::cerr || &os == &std::clog || &os == &std::cout ) os << feat( rst, "all" );
    }
   
   //====================================================
@@ -57,7 +58,7 @@ namespace osm
   template <typename... Args>
   inline void print( Args&... args )
    {
-    ( std::cout << ... << args ) << "\n" << reset( "all" );
+    ( std::cout << ... << args ) << "\n" << feat( rst, "all" );
    }
 
   //====================================================
@@ -96,8 +97,8 @@ namespace osm
      //====================================================
      std::string getColor( std::ostream& os = std::cout );
      std::string getStyle( std::ostream& os = std::cout );
-     std::map <std::ostream*, std::string> getColorList();
-     std::map <std::ostream*, std::string> getStyleList();
+     std::unordered_map <std::ostream*, std::string> getColorList();
+     std::unordered_map <std::ostream*, std::string> getStyleList();
      std::ostream& getCurrentStream();
 
      //====================================================
@@ -110,7 +111,7 @@ namespace osm
      //====================================================
      //     Attributes
      //====================================================
-     std::map <std::ostream*, std::string> colors, styles;
+     std::unordered_map <std::ostream*, std::string> colors, styles;
      std::ostream* current_stream;
    };
 
@@ -140,7 +141,7 @@ namespace osm
         my_shell.getCurrentStream() << feat( sty, elem );
        }
      }
-    my_shell.getCurrentStream() << elem << reset( "all" );
+    my_shell.getCurrentStream() << elem << feat( rst, "all" );
     
     return my_shell.getCurrentStream();
    }

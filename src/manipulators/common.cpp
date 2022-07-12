@@ -9,8 +9,9 @@
 #include <arsenalgear/utils.hpp>
 
 //STD headers
+#include <iostream>
 #include <string>
-#include <map>
+#include <unordered_map>
 
 namespace osm
  {
@@ -22,14 +23,17 @@ namespace osm
    * 
    * @param generic_map The feature map.
    * @param feat_string The feature name.
-   * @return std::string The output feature.
+   * @return const std::string& The output feature.
    */
-  std::string feat( const std::map <std::string, std::string>& generic_map, const std::string& feat_string )
+  const std::string& feat( const std::unordered_map <std::string, std::string>& generic_map, const std::string& feat_string )
    {
-    if( generic_map.find( feat_string ) == generic_map.end() ) 
+    try
+     {
+      return generic_map.at( feat_string );
+     }
+    catch( const std::exception& except )
      {
       throw agr::except_error_func( generic_map.at( "error" ), feat_string, "is not supported!" );
      }
-    return generic_map.at( feat_string );
    }
  }

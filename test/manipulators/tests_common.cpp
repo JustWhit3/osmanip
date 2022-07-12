@@ -19,7 +19,7 @@
 #include <doctest/doctest.h>
 
 //STD headers
-#include <map>
+#include <unordered_map>
 #include <vector>
 #include <string>
 #include <stdexcept>
@@ -64,7 +64,7 @@ int main( int argc, char** argv )
 //First overload:
 TEST_CASE( "Testing the feat function." )
  {
-  static std::vector <std::map <std::string, std::string>> maps_vector { osm::col, osm::sty };
+  static std::vector <std::unordered_map <std::string, std::string>> maps_vector { osm::col, osm::sty, osm::rst };
   const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
 
   for( auto & element_v: maps_vector )

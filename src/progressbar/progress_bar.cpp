@@ -20,7 +20,6 @@
 #include <string>
 #include <chrono>
 #include <set>
-#include <map>
 #include <cmath>
 #include <mutex>
 #include <stdexcept>
@@ -51,7 +50,7 @@ namespace osm
    brackets_open_( "" ), 
    brackets_close_( "" ), 
    begin_timer( steady_clock::now() ),
-   color_( reset( "color" ) ),
+   color_( feat( rst, "color" ) ),
    color_name_( "" ),
    ticks_occurred ( 0 ),
    time_flag_ ( "off" )
@@ -78,7 +77,7 @@ namespace osm
    brackets_open_( "" ), 
    brackets_close_( "" ), 
    begin_timer( steady_clock::now() ),
-   color_( reset( "color" ) ),
+   color_( feat( rst, "color" ) ),
    color_name_( "" ),
    ticks_occurred ( 0 ),
    time_flag_ ( "off" )
@@ -327,7 +326,7 @@ namespace osm
     begin_timer = steady_clock::now(),
     brackets_open_ = "", 
     brackets_close_= "", 
-    color_ = reset( "color" ); 
+    color_ = feat( rst, "color" ); 
     color_name_ = "";
     time_flag_ = "off";
    }
@@ -441,7 +440,7 @@ namespace osm
   template <typename bar_type>
   void ProgressBar <bar_type>::resetColor() 
    { 
-    color_ = reset( "color" ); 
+    color_ = feat( rst, "color" ); 
     color_name_ = "";
    }
 
@@ -670,9 +669,9 @@ namespace osm
     std::chrono::seconds seconds_left = std::chrono::duration_cast <std::chrono::seconds> ( time_left - minutes_left );
 
     std::cout << "["
-              << feat( sty, "italics" ) + "Estimated time left: "  + reset( "italics" )
-              << feat( col, "green" ) << minutes_left.count() << reset( "color" ) << "m " 
-              << feat( col, "green" ) << seconds_left.count() << reset( "color" ) << "s" 
+              << feat( sty, "italics" ) + "Estimated time left: "  + feat( rst, "italics" )
+              << feat( col, "green" ) << minutes_left.count() << feat( rst, "color" ) << "m " 
+              << feat( col, "green" ) << seconds_left.count() << feat( rst, "color" ) << "s" 
               << "]"
               << feat( tcsc, "cln", 0 );
               
@@ -695,7 +694,7 @@ namespace osm
               << ( ( message_ != agr::null_str<std::string> ) ?
                  ( agr::empty_space<std::string> + message_ + agr::empty_space<std::string> ) :
                  agr::empty_space<std::string> )
-              << reset( "color" );
+              << feat( rst, "color" );
 
     if( time_flag_ == "on" )
      {
@@ -732,7 +731,7 @@ namespace osm
       output_ = feat( crs, "left", 100 ) + 
                 getColor() +
                 std::to_string( static_cast <int> ( round( iterating_var_ ++ ) ) ) +
-                reset( "color" ) + 
+                feat( rst, "color" ) + 
                 getStyle();
 
       update_output( output_ );
@@ -746,7 +745,7 @@ namespace osm
                 getColor() + 
                 getStyle() * width_ + 
                 agr::empty_space<std::string> * ( ( agr::isFloatingPoint( iterating_var ) ? 26 : 25 ) - width_ ) + 
-                reset( "color" ) + 
+                feat( rst, "color" ) + 
                 getBrackets_close();  
                      
       update_output( output_ );
@@ -762,12 +761,12 @@ namespace osm
                getColor() + 
                style_l_ * width_ + 
                agr::empty_space<std::string> * ( ( agr::isFloatingPoint( iterating_var ) ? 26 : 25 ) - width_ ) + 
-               reset( "color" ) +
+               feat( rst, "color" ) +
                getBrackets_close() + 
                getColor() + 
                agr::empty_space<std::string> + 
                std::to_string( static_cast <int> ( round( iterating_var_ ++ ) ) ) + 
-               reset( "color" ) + 
+               feat( rst, "color" ) + 
                style_p_; 
 
       update_output( output_ );
@@ -783,7 +782,7 @@ namespace osm
                  ( ( agr::roundoff( iterating_var, 1 ) == agr::roundoff( max_, 1 ) - agr::one( iterating_var ) ) ?
                    ( static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ) ) : ""s
                  ) +
-                reset( "color" );
+                feat( rst, "color" );
 
       update_output( output_ );
      }

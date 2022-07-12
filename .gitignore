@@ -5,6 +5,8 @@ obj
 lib
 bin
 a.out
+**/*.o
+studies/benchmarking/manipulators
 
 #====================================================
 #     PERSONAL FILES
@@ -12,6 +14,7 @@ a.out
 .vscode
 !.github/
 guides
+**/deps
 
 #====================================================
 #     OTHER FILES

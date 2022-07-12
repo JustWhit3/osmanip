@@ -11,7 +11,7 @@
 //STD headers
 #include <iostream>
 #include <string>
-#include <map>
+#include <unordered_map>
 
 //====================================================
 //     Namespaces
@@ -27,7 +27,7 @@ namespace osm
    * @brief It is used to store the colors. Note: "bg" is the prefix of the background color features and "bd" is the one of the bold color features.
    * 
    */
-  const std::map <std::string, std::string> col 
+  const std::unordered_map <std::string, std::string> col 
    {
     //Error variables:
     { "error", "Inserted color" },
@@ -86,7 +86,7 @@ namespace osm
    * @brief It is used to store the styles.
    * 
    */
-  const std::map <std::string, std::string> sty 
+  const std::unordered_map <std::string, std::string> sty 
    {
     //Error variables:
     { "error", "Inserted style" },
@@ -110,7 +110,7 @@ namespace osm
    * @brief It is used to store the reset features commands.
    * 
    */
-  const std::map <std::string, std::string> rst 
+  const std::unordered_map <std::string, std::string> rst 
    {
     //Error variables:
     { "error", "Inserted reset command" },
@@ -132,24 +132,6 @@ namespace osm
     { "invisible", "\033[28m" },
     { "crossed", "\033[29m" },
    };
- 
-  //====================================================
-  //     reset
-  //====================================================
-  /**
-   * @brief It takes a std::string object (reset map key) as argument and returns the interested color / style reset string by returning the map value from the corresponding key.
-   * 
-   * @param reset_string The reset feature name.
-   * @return std::string The output reset feature.
-   */
-  std::string reset( const std::string& reset_string )
-   {
-    if( rst.find( reset_string ) == rst.end() ) 
-     {
-      throw agr::except_error_func( rst.at( "error" ), reset_string, "is not supported!" );
-     } 
-    return rst.at( reset_string );
-   }
 
   //====================================================
   //     RGB

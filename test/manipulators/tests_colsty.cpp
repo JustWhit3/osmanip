@@ -27,22 +27,6 @@
 using namespace std::literals::string_literals;
 
 //====================================================
-//     Testing "reset" function
-//====================================================
-TEST_CASE( "Testing the reset function." )
- {
-  const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
-
-  for( auto & element_m: osm::rst )
-   {
-    CHECK_EQ( osm::reset( element_m.first ), osm::rst.at( element_m.first ) );
-   }
-
-  CHECK_THROWS_AS( osm::reset( "not" ), std::runtime_error );
-  CHECK_THROWS_MESSAGE( osm::reset( "not" ), test_string );
- }
-
-//====================================================
 //     Testing "RGB" function
 //====================================================
 #if defined( __linux__ ) || defined( __APPLE__ )

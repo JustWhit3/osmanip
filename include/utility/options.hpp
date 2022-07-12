@@ -74,7 +74,7 @@ namespace osm
         if ( opt == UNICODECH::ON ) enableUNICODE();
         else if ( opt == UNICODECH::OFF ) disableUNICODE();
      }
-    else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!"  << reset( "all" ) << "\n";
+    else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!"  << feat( rst, "all" ) << "\n";
    }
  }
 

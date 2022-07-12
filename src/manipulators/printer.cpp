@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <map>
+#include <unordered_map>
 
 namespace osm
  {
@@ -36,7 +36,7 @@ namespace osm
    */
   OS_Decorator::~OS_Decorator()
    {
-    std::cout << reset( "all" );
+    std::cout << feat( rst, "all" );
    }
 
   //====================================================
@@ -130,7 +130,7 @@ namespace osm
    {
     colors.erase( &os );
     styles.erase( &os );
-    os << reset( "all" );
+    os << feat( rst, "all" );
    }
 
   //====================================================
@@ -171,7 +171,7 @@ namespace osm
    * 
    * @return std::map <std::ostream*, std::string> The stream-color map.
    */
-  std::map <std::ostream*, std::string> OS_Decorator::getColorList()
+  std::unordered_map <std::ostream*, std::string> OS_Decorator::getColorList()
    {
     return colors;
    }
@@ -184,7 +184,7 @@ namespace osm
    * 
    * @return std::map <std::ostream*, std::string> The stream-color map.
    */
-  std::map <std::ostream*, std::string> OS_Decorator::getStyleList()
+  std::unordered_map <std::ostream*, std::string> OS_Decorator::getStyleList()
    {
     return styles;
    }

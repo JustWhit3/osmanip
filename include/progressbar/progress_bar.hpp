@@ -13,7 +13,7 @@
 #include <string>
 #include <chrono>
 #include <set>
-#include <map>
+#include <unordered_map>
 #include <vector>
 #include <mutex>
 #include <cstdint>
@@ -23,7 +23,7 @@ namespace osm
   //====================================================
   //     Aliases
   //====================================================
-  using string_set_map = std::map <std::string, std::set <std::string> >;
+  using string_set_map = std::unordered_map <std::string, std::set <std::string> >;
   using steady_clock = std::chrono::steady_clock;
   using duration = std::chrono::duration <float, steady_clock::period>;
 

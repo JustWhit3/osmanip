@@ -13,7 +13,7 @@
 
 //STD headers
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <set>
 
 namespace osm
@@ -21,12 +21,12 @@ namespace osm
   //====================================================
   //     Aliases
   //====================================================
-  using string_pair_map = std::map <std::string, std::pair<std::string, std::string>>;
+  using string_pair_map = std::unordered_map <std::string, std::pair<std::string, std::string>>;
 
   //====================================================
   //     Variables
   //====================================================
-  extern const std::map <std::string, std::string> tcs;
+  extern const std::unordered_map <std::string, std::string> tcs;
   extern const string_pair_map crs, tcsc;
 
   //====================================================

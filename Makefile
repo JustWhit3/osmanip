@@ -47,22 +47,18 @@ TEST_DIR := test
 #     Source files
 #====================================================
 ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
-	# Source files fo examples
 	SRC_MANIP := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'manipulators.cpp')
 	SRC_PB := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'progressbar.cpp')
 	SRC_GRAPH := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(EX_DIR) -name 'graphics.cpp')
 
-	# Other source files
 	SRC_LIB := $(shell find $(SRC_DIR) -name '*.cpp')
 	TEST := $(shell find $(SRC_DIR) -name '*.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
 else
-	# Source files fo examples
 	ALL_SOURCES := $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/*/*.cpp)
 	SRC_MANIP := $(ALL_SOURCES) $(wildcard $(EX_DIR)/manipulators.cpp)
 	SRC_PB := $(ALL_SOURCES) $(wildcard $(EX_DIR)/progressbar.cpp)
 	SRC_GRAPH := $(ALL_SOURCES) $(wildcard $(EX_DIR)/graphics.cpp)
 
-	# Other source files
 	SRC_LIB := $(ALL_SOURCES)
 	ALL_TESTS := $(wildcard $(TEST_DIR)/*.cpp) $(wildcard $(TEST_DIR)/*/*.cpp)
 	TEST := $(ALL_SOURCES) $(ALL_TESTS)
