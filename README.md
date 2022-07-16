@@ -37,7 +37,7 @@
 
 ## Introduction
 
-*osmanip* is a C++ library containing useful tools to manipulate [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) and customize the output stream of your programs. Within this tools you can add [colors and styles](ANSI escape sequences manipulators) to the printed strings, [change cursor location]((ANSI escape sequences manipulators)) on the terminal and manage other tools like [progress bars](#progress-bars) and [terminal graphics](#terminal-graphics). Using this features may be very useful to adorn your general output stream log or to perform cursor operations.
+*osmanip* is a C++ library containing useful tools to manipulate [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) and customize the output stream of your programs. Within this tools you can add [colors and styles](ANSI-escape-sequences-manipulators) to the printed strings, [change cursor location](ANSI-escape-sequences-manipulators) on the terminal and manage other tools like [progress bars](#progress-bars) and [terminal graphics](#terminal-graphics). Using this features may be very useful to adorn your general output stream log or to perform cursor operations.
 
 If you want to mention this software in one of your project / articles, please [cite it](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
 
