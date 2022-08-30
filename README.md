@@ -8,8 +8,8 @@
 	<img title="Code size" alt="code size" src="https://img.shields.io/github/languages/code-size/JustWhit3/osmanip?color=red">
 	<img title="Repo size" alt="repo size" src="https://img.shields.io/github/repo-size/JustWhit3/osmanip?color=red">
 	<img title="Lines of code" alt="total lines" src="https://img.shields.io/tokei/lines/github/JustWhit3/osmanip?color=red"></br>
-  <img title="codeq" alt="codeq" src="https://github.com/JustWhit3/arsenalgear-cpp/actions/workflows/codeql-analysis.yml/badge.svg">
-  <img title="doc" alt="doc" src="https://github.com/JustWhit3/arsenalgear-cpp/actions/workflows/DocGenerator.yml/badge.svg">
+  <img title="codeq" alt="codeq" src="https://github.com/JustWhit3/osmanip/actions/workflows/codeql-analysis.yml/badge.svg">
+  <img title="doc" alt="doc" src="https://github.com/JustWhit3/osmanip/actions/workflows/DocGenerator.yml/badge.svg">
 </p>
 
 ***
@@ -74,7 +74,7 @@ Supported operating systems
 
 ## News from the latest releases
 
-- Added a [OS_Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20OS_Decorator,-%7B) class to efficiently manage the output stream style of a program.
+- Added a [Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B) class to efficiently manage the output stream style of a program.
 - Added the [Wiki](https://github.com/JustWhit3/osmanip/wiki) of the library.
 - Added full support to **Windows** operating system.
 - Added full support to **MacOS** operating system.
@@ -116,35 +116,25 @@ std::cout << osm::feat( osm::crs, "right", 2 ) << "Cursor moved!";
 std::cout << osm::feat( osm::tcs, "bell" );
 ```
 
-- [Additional functions](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#the-osmprint-function)
+- [Class to manage output stream style of a program](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#the-osmprint-function:~:text=osm%3A%3ADecorator%20class-,Can%20be%20accessed%20with%3A,-%23include%20%3C)
 
 ```c++
 #include <iostream>
 #include <osmanip/manipulators/printer.hpp>
 
-// Similar to the Python "print" function
-osm::print( std::cout, "This is the ", "\"print\" ", "function for the normal output stream! ", 100, "% working!" );
-```
-
-- [Class to manage output stream style of a program](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#the-osmprint-function:~:text=osm%3A%3AOS_Decorator%20class-,Can%20be%20accessed%20with%3A,-%23include%20%3C)
-
-```c++
-#include <iostream>
-#include <osmanip/manipulators/printer.hpp>
-
-osm::OS_Decorator my_shell;
+osm::Decorator my_shell;
 
 // Change std::cout predefined style and color
 my_shell.setColor( "green", std::cout );
 my_shell.setStyle( "underlined", std::cout );
 
-my_shell( std::cout ) << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
+my_shell( std::cout ) << "The stdout stream has been changed using the Decorator class!" << "\n";
 
 // Change std::cerr predefined style and color
 my_shell.setColor( "red", std::cerr );
 my_shell.setStyle( "bold italics", std::cerr ); // NOTE: added 2 styles
 
-my_shell( std::cerr ) << "The stderr stream has been changed using the OS_Decorator class!" << "\n";
+my_shell( std::cerr ) << "The stderr stream has been changed using the Decorator class!" << "\n";
 ```
 
 More examples and how-to guides can be found [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators).
@@ -153,7 +143,7 @@ Why choosing this library for ANSI escape sequences manipulation:
 
 - All the functions used to manipulate these sequences are very easy to use and don't require complex code signatures.
 - All the most common ANSI sequences can be manipulated.
-- Using the [OS_Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20OS_Decorator,-%7B) class you can set the style of an output stream at the beginning of your program and keep it unchanged until the end.
+- Using the [Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B) class you can set the style of an output stream at the beginning of your program and keep it unchanged until the end.
 
 ### Progress bars
 
@@ -341,14 +331,14 @@ Why choosing this library for terminal graphics:
 // Enable ANSI escape sequences
 osm::OPTION( osm::ANSI::ON );
 // doing some stuff...
-osm::OPTION( osm::ANSI::ON );
+osm::OPTION( osm::ANSI::OFF );
 ```
 
 ```c++
 // Enable unicode characters
 osm::OPTION( osm::UNICODECH::ON );
 // doing some stuff...
-osm::OPTION( osm::UNICODECH::ON );
+osm::OPTION( osm::UNICODECH::OFF );
 ```
 
 More examples and how-to guides can be found [here](https://github.com/JustWhit3/osmanip/wiki/Options).
@@ -488,7 +478,7 @@ osmanip/
 │   │   ├── colsty.hpp
 │   │   ├── cursor.hpp
 │   │   ├── common.hpp
-│   │   ├── printer.hpp
+│   │   ├── decorator.hpp
 │   ├── progressbar/
 │   │   ├── progress_bar.hpp
 │   │   ├── multi_progress_bar.hpp
@@ -503,7 +493,7 @@ osmanip/
 │   │   ├── colsty.cpp
 │   │   ├── cursor.cpp
 │   │   ├── common.cpp
-│   │   ├── printer.hpp
+│   │   ├── decorator.hpp
 │   ├── progressbar/
 │   │   ├── progress_bar.cpp
 │   │   ├── multi_progress_bar.cpp
@@ -527,10 +517,15 @@ osmanip/
 │   │   ├── tests_common.cpp
 │   │   ├── tests_colsty.cpp
 │   │   ├── tests_cursor.cpp
-│   │   ├── tests_printer.cpp
+│   │   ├── tests_decorator.cpp
 │   ├── progressbar/
 │   │   ├── tests_progress_bar.cpp
 │   │   ├── tests_multi_progress_bar.cpp
+├── studies/
+│   ├── benchmarking/
+│   │   ├── src
+│   │   │   ├── manipulators.cpp
+│   │   ├── Makefile
 │── README.md
 │── CONTRIBUTING.md
 │── LICENSE
@@ -549,7 +544,7 @@ osmanip/
 **ANSI escape sequences manipulators**
 
 - Add UNICODE characters manipulators.
-- Add new methods to the [`OS_decorator`](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20OS_Decorator,-%7B) class.
+- Add new methods to the [`decorator`](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B) class.
 - Implement file redirection when manipulating the output.
 
 **Progress bars**
