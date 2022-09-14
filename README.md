@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
 
-<h3 align="center">A library used to manipulate the output stream of a program using ANSI escape sequences. </h3>
+<h3 align="center">A library used to manipulate the output stream of a program using ANSI escape sequences. Features: colors and styles manipulators, progress bars and terminal graphics. </h3>
 <p align="center">
   <img title="v4.1" alt="v4.1" src="https://img.shields.io/badge/version-v4.1-informational?style=flat-square">
   <img title="MIT License" alt="license" src="https://img.shields.io/badge/license-MIT-informational?style=flat-square">
@@ -36,7 +36,7 @@
 
 ## Introduction
 
-*osmanip* is a C++ library containing useful tools to manipulate [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) and customize the output stream of your programs. Within this tools you can add [colors and styles](ANSI escape sequences manipulators) to the printed strings, [change cursor location]((ANSI escape sequences manipulators)) on the terminal and manage other tools like [progress bars](#progress-bars) and [terminal graphics](#terminal-graphics). Using this features may be very useful to adorn your general output stream log or to perform cursor operations.
+*osmanip* is a C++ library containing useful tools to manipulate [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) and customize the output stream of your programs. Within this tools you can add [colors and styles](ANSI-escape-sequences-manipulators) to the printed strings, [change cursor location](ANSI-escape-sequences-manipulators) on the terminal and manage other tools like [progress bars](#progress-bars) and [terminal graphics](#terminal-graphics). Using this features may be very useful to adorn your general output stream log or to perform cursor operations.
 
 If you want to mention this software in one of your project / articles, please [cite it](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
 
