@@ -1,40 +1,6 @@
 #!/bin/bash
 
 #====================================================
-#     Install Boost.org for Windows
-#====================================================
-install_windows_boost() {
-
-    # Downloading the package
-    echo "Downloading the source code..."
-    mkdir C:/install
-    cd C:/install || exit
-    wget https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.zip
-    unzip boost_1_79_0.zip
-    rm boost_1_79_0.zip
-    cd - || exit
-    mkdir C:/boost-build
-    mkdir C:/install/boost_1_79_0/boost-build
-    mkdir C:/boost
-    echo ""
-
-    # Installing the package
-    echo "Installing the package..."
-    cd C:/install/boost_1_79_0/tools/build || exit
-    ./bootstrap.sh gcc
-    ./b2 --prefix=C:/boost-build install
-    if ! PATH=$PATH:C:/boost-build/bin ; then
-        $Env:PATH+=";C:/boost-build/bin"
-    fi
-    cd - || exit
-    cd C:/install/boost_1_79_0 || exit
-    b2 --build-dir=C:/install/boost_1_79_0/build --build-type=complete --prefix=C:/boost toolset=gcc install
-    cd - || exit
-    cp -r C:/boost/include/boost-1_79/boost "$1"
-    cp C:/boost/lib/* "$2"
-}
-
-#====================================================
 #     OS-SPECIFIC INFORMATION
 #====================================================
 UNAME=$(uname)
@@ -61,9 +27,9 @@ fi
 # Installing prerequisite packages
 echo "Updating and upgrading the system..."
 if [[ "$UNAME" == Darwin* ]] ; then
-    brew install boost wget unzip gcc make
+    brew install wget unzip gcc make
 elif [[ "$UNAME" == Linux* ]] ; then
-    sudo apt install build-essential g++ libboost-all-dev wget unzip
+    sudo apt install build-essential g++ wget unzip
 else
     read -p "Which package-manager do you want to use? (pacman/chocolately) " word_pkg
     if [ "$word_pkg" == "pacman" ] || [ "$word_pkg" == "Pacman" ] ; then
@@ -73,10 +39,6 @@ else
     else
         echo "Inserted package-manager $word_pkg is not supported!"
         exit
-    fi
-    read -p "Do you want to install and build Boost.org? (y/n) " word_boost
-    if [ "$word_boost" == "y" ] || [ "$word_boost" == "Y" ] ; then
-        install_windows_boost "${INCL}" "${LIB}"
     fi
 fi
 
