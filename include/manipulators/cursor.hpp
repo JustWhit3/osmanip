@@ -32,8 +32,8 @@ namespace osm
   //====================================================
   //     Functions
   //====================================================
-  extern std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int );
-  extern std::string go_to( const int& x, const int& y );
+  extern const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int );
+  extern const std::string go_to( const int& x, const int& y );
  }
 
 #endif

@@ -1,8 +1,8 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
-#ifndef PRINTER_HPP
-#define PRINTER_HPP
+#ifndef DECORATOR_HPP
+#define DECORATOR_HPP
 
 //====================================================
 //     Headers
@@ -25,58 +25,21 @@
 namespace osm
  {
   //====================================================
-  //     print (first overload)
-  //====================================================
-  /**
-   * @brief It can be used to print messages and strings to the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the general case.
-   * 
-   * @tparam Args The parameter pack of the various types.
-   * @param os The output stream.
-   * @param args One or more objects to be printed.
-   */
-  template <typename... Args>
-  inline void print( std::ostream& os = agr::null_stream, const Args&... args )
-   {
-    if( &os == &agr::null_stream ) std::cout << "\n";
-    else if( &os == &std::cerr ) os << feat( col, "red" ) << feat( sty, "bold" );
-    else if( &os == &std::clog ) os << feat( col, "lt blue" ) << feat( sty, "bold" );
-
-    ( os << ... << args ) << "\n";
-
-    if( &os == &std::cerr || &os == &std::clog || &os == &std::cout ) os << feat( rst, "all" );
-   }
-  
-  //====================================================
-  //     print (second overload)
-  //====================================================
-  /**
-   * @brief It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the 0-arguments case.
-   * 
-   * @tparam Args The parameter pack of the various types.
-   * @param args One or more objects to be printed.
-   */
-  template <typename... Args>
-  inline void print( Args&... args )
-   {
-    ( std::cout << ... << args ) << "\n" << feat( rst, "all" );
-   }
-
-  //====================================================
-  //     OS_Decorator class
+  //     Decorator class
   //====================================================
   /**
    * @brief Class used to decorate an output stream. Each setting is set permanently on the chosen output stream until the destructor is met or one of the reset functions is called.
    * 
    */
-  class OS_Decorator
+  class Decorator
    {
     public:
 
      //====================================================
      //     Constructors and destructors
      //====================================================
-     OS_Decorator();
-     ~OS_Decorator();
+     Decorator();
+     ~Decorator();
  
      //====================================================
      //     Setters
@@ -104,7 +67,7 @@ namespace osm
      //====================================================
      //     Operators
      //====================================================
-     const OS_Decorator& operator () ( std::ostream& os = std::cout );
+     const Decorator& operator () ( std::ostream& os = std::cout );
 
     private:
 
@@ -119,15 +82,15 @@ namespace osm
   //     Operator << 
   //====================================================
   /**
-   * @brief Operator overload to output a modified ostream object which properties are set thanks to the OS_Decorator class.
+   * @brief Operator overload to output a modified ostream object which properties are set thanks to the Decorator class.
    * 
    * @tparam T The template parameter of the object sent into the output stream.
-   * @param my_shell The OS_Decorator object.
+   * @param my_shell The Decorator object.
    * @param elem The element sent into the output stream.
    * @return std::ostream& The modified output stream.
    */
   template <typename T>
-  std::ostream& operator << ( OS_Decorator my_shell, const T& elem )
+  std::ostream& operator << ( Decorator my_shell, const T& elem )
    {
     if ( my_shell.getColor( my_shell.getCurrentStream() ) != "" )
      {

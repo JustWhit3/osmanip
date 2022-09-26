@@ -3,11 +3,12 @@
 //====================================================
 
 //My headers
-#include "../include/manipulators/printer.hpp"
+#include "../include/manipulators/decorator.hpp"
 #include "../include/manipulators/colsty.hpp"
 
 //Extra headers
 #include <arsenalgear/utils.hpp>
+#include <arsenalgear/stream.hpp>
 
 //STD headers
 #include <iostream>
@@ -22,19 +23,19 @@ namespace osm
   //     Default constructor
   //====================================================
   /**
-   * @brief Default constructor of OS_Decorator class.
+   * @brief Default constructor of Decorator class.
    * 
    */
-  OS_Decorator::OS_Decorator(){}
+  Decorator::Decorator(){}
 
   //====================================================
   //     Destructor
   //====================================================
   /**
-   * @brief Destructor of OS_Decorator class.
+   * @brief Destructor of Decorator class.
    * 
    */
-  OS_Decorator::~OS_Decorator()
+  Decorator::~Decorator()
    {
     std::cout << feat( rst, "all" );
    }
@@ -48,7 +49,7 @@ namespace osm
    * @param color The color to be set for the stream.
    * @param os The stream to be modified. Default is std::cout.
    */
-  void OS_Decorator::setColor( const std::string& color, std::ostream& os )
+  void Decorator::setColor( const std::string& color, std::ostream& os )
    {
     if( colors.count( &os ) == 1 ) colors[ &os ] = color;
     else colors.insert( { &os, color } );
@@ -63,7 +64,7 @@ namespace osm
    * @param color The style to be set for the stream.
    * @param os The stream to be modified. Default is std::cout.
    */
-  void OS_Decorator::setStyle( const std::string& style, std::ostream& os )
+  void Decorator::setStyle( const std::string& style, std::ostream& os )
    {
     if( styles.count( &os ) == 1 ) styles[ &os ] = style;
     else styles.insert( { &os, style } );
@@ -78,7 +79,7 @@ namespace osm
    * @param color The color to be reset for the stream.
    * @param os The stream to be modified. Default is std::cout.
    */
-  void OS_Decorator::resetColor( std::ostream& os )
+  void Decorator::resetColor( std::ostream& os )
    {
     colors.erase( &os );
    }
@@ -92,7 +93,7 @@ namespace osm
    * @param color The style to be reset for the stream.
    * @param os The stream to be modified. Default is std::cout.
    */
-  void OS_Decorator::resetStyle( std::ostream& os )
+  void Decorator::resetStyle( std::ostream& os )
    {
     styles.erase( &os );
    }
@@ -106,7 +107,7 @@ namespace osm
    * @param color The style to be reset for the stream.
    * @param os The stream to be modified. Default is std::cout.
    */
-  void OS_Decorator::removeStyle( const std::string& style, std::ostream& os )
+  void Decorator::removeStyle( const std::string& style, std::ostream& os )
    {
     std::string str_mod = styles.at( &os );
     std::string::size_type sub_str = str_mod.find( style );
@@ -126,7 +127,7 @@ namespace osm
    * 
    * @param os The stream to be modified. Default is std::cout.
    */
-  void OS_Decorator::resetFeatures( std::ostream& os )
+  void Decorator::resetFeatures( std::ostream& os )
    {
     colors.erase( &os );
     styles.erase( &os );
@@ -143,7 +144,7 @@ namespace osm
    * 
    * @return std::string The current color of the stream.
    */
-  std::string OS_Decorator::getColor( std::ostream& os )
+  std::string Decorator::getColor( std::ostream& os )
    {
     return colors[ &os ];
    }
@@ -158,7 +159,7 @@ namespace osm
    * 
    * @return std::string The current style of the stream.
    */
-  std::string OS_Decorator::getStyle( std::ostream& os )
+  std::string Decorator::getStyle( std::ostream& os )
    {
     return styles[ &os ];
    }
@@ -171,7 +172,7 @@ namespace osm
    * 
    * @return std::map <std::ostream*, std::string> The stream-color map.
    */
-  std::unordered_map <std::ostream*, std::string> OS_Decorator::getColorList()
+  std::unordered_map <std::ostream*, std::string> Decorator::getColorList()
    {
     return colors;
    }
@@ -184,7 +185,7 @@ namespace osm
    * 
    * @return std::map <std::ostream*, std::string> The stream-color map.
    */
-  std::unordered_map <std::ostream*, std::string> OS_Decorator::getStyleList()
+  std::unordered_map <std::ostream*, std::string> Decorator::getStyleList()
    {
     return styles;
    }
@@ -197,7 +198,7 @@ namespace osm
    * 
    * @return std::ostream& The used stream to output stuff.
    */
-  std::ostream& OS_Decorator::getCurrentStream()
+  std::ostream& Decorator::getCurrentStream()
    {
     return *current_stream;
    }
@@ -209,9 +210,9 @@ namespace osm
    * @brief Operator overload to assign the value into parentheses to the "current_stream" variable.
    * 
    * @param os Input value, i.e. the stream put into parentheses.
-   * @return const OS_Decorator& The class pointer.
+   * @return const Decorator& The class pointer.
    */
-  const OS_Decorator& OS_Decorator::operator () ( std::ostream& os )
+  const Decorator& Decorator::operator () ( std::ostream& os )
    {
     current_stream = &os;
     return *this;

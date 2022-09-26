@@ -90,23 +90,22 @@ namespace osm
    * @param generic_map The feature map.
    * @param feat_string The feature name.
    * @param feat_int Extra integer argument to correctly set the parameter of the crs map.
-   * @return std::string The output feature.
+   * @return const std::string The output feature.
    */
-  std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int )
+  const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int )
    {
-    if( generic_map.find( feat_string ) == generic_map.end() ) 
+    try
      {
-      throw agr::except_error_func( generic_map.at( "error" ).first, feat_string, "is not supported!" );
-     }
-    else
-     {
+      auto it = generic_map.at( feat_string );
       if( generic_map == crs || generic_map == tcsc )
        {
-        return generic_map.at( feat_string ).first + 
-               std::to_string( feat_int ) + 
-               generic_map.at( feat_string ).second;
+        return it.first + std::to_string( feat_int ) + it.second;
        }
-      return generic_map.at( feat_string ).first;
+      return it.first;
+     }
+    catch( const std::exception& except )
+     {
+      throw agr::except_error_func( generic_map.at( "error" ).first, feat_string, "is not supported!" );
      }
    }
 
@@ -118,9 +117,9 @@ namespace osm
    * 
    * @param x The x position of the cursor in the screen.
    * @param y The y position of the cursor in the screen
-   * @return std::string The (x,y) position of the cursor in the screen.
+   * @return const std::string The (x,y) position of the cursor in the screen.
    */
-  std::string go_to( const int& x, const int& y )
+  const std::string go_to( const int& x, const int& y )
    {
     return "\u001b[" + 
            std::to_string( x ) + ";"s +

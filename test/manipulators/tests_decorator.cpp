@@ -8,7 +8,7 @@
 //====================================================
 
 //My headers
-#include "../include/manipulators/printer.hpp"
+#include "../include/manipulators/decorator.hpp"
 
 //Extra headers
 #include <doctest/doctest.h>
@@ -29,7 +29,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
   //====================================================
   TEST_SUITE_BEGIN( "Testing setters, resetters and getters." );
 
-  osm::OS_Decorator deco;
+  osm::Decorator deco;
 
   SUBCASE( "Testing the color methods." )
    {
@@ -115,7 +115,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
   //====================================================
   TEST_SUITE_BEGIN( "Testing the operators overload." );
 
-  osm::OS_Decorator my_shell;
+  osm::Decorator my_shell;
 
   SUBCASE( "Testing the operator () overload" )
    {

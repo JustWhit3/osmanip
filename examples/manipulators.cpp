@@ -1,6 +1,6 @@
 //My headers
 #include "../include/manipulators/colsty.hpp"
-#include "../include/manipulators/printer.hpp"
+#include "../include/manipulators/decorator.hpp"
 #ifdef _WIN32
 #include "../include/utility/windows.hpp"
 #endif
@@ -155,35 +155,13 @@ void colsty()
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
  }
 
-void printer()
+void Decorator()
  {
-  //====================================================
-  //     Printing function features
-  //====================================================
-  std::cout << "\n" << "======================================================" << "\n"
-            << "     PRINTING FUNCTIONS                                           " << "\n"
-            << "======================================================" << "\n\n";
-
-  //Normal examples:
-  osm::print( std::cout, "This is the ", "\"printf\" ", "function for the normal output stream! ", 100, "% working!" );
-  osm::print( std::cerr, "This is the printf function for the stderr stream! ", "Managing errors is always important!" );
-  osm::print( std::clog, "Also writing in stdlog is important! ", osm::feat( osm::sty, "underlined" ), "Very important", osm::feat( osm::rst, "underlined" ), "!" );
-  osm::print( "" );
-
-  //Writing on a file:
-  std::ofstream file_stream;
-  file_stream.open( "file.txt", std::ios::trunc );
-  osm::print( file_stream, "You can also write in a file! ", 1, 2, 3, 4.5, 7 );
-  file_stream.close();
-  osm::print( "Text has been wrote to ", "file.txt ", "file!" );
-
-  std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
-  
   std::cout << "\n" << "======================================================" << "\n"
             << "     OS_DECORATOR                                        " << "\n"
             << "======================================================" << "\n\n";
 
-  osm::OS_Decorator my_shell;
+  osm::Decorator my_shell;
 
   // std::cout 
   my_shell.setColor( "green", std::cout );
@@ -213,7 +191,7 @@ int main()
   osm::OPTION( osm::CURSOR::OFF );
  
   colsty(); //Color/style.
-  printer(); //For printing functions.
+  Decorator(); //For printing functions.
 
   osm::OPTION( osm::CURSOR::ON );
   

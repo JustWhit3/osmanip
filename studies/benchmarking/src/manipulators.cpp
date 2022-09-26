@@ -5,6 +5,7 @@
 // My headers
 #include "../../../include/manipulators/colsty.hpp"
 #include "../../../include/manipulators/cursor.hpp"
+#include "../../../include/manipulators/decorator.hpp"
 
 // Headers for comparison
 #include "../deps/termcolor.hpp"
@@ -29,13 +30,7 @@ namespace bm = benchmark;
 static void osmanip_common_feat( bm::State& state ) 
  {
   for ( auto _ : state ) bm::DoNotOptimize( std::cout << osm::feat( osm::col, "red" ) );
-  std::cout << osm::reset( "color" );
- }
-
-// osmanip_colsty_reset
-static void osmanip_colsty_reset( bm::State& state ) 
- {
-  for ( auto _ : state ) bm::DoNotOptimize( std::cout << osm::reset( "color" ) );
+  std::cout << osm::feat( osm::rst, "color" );
  }
 
 // osmanip_colsty_RGB
@@ -56,6 +51,18 @@ static void osmanip_cursor_go_to( bm::State& state )
   for ( auto _ : state ) bm::DoNotOptimize( osm::go_to( 0, 0 ) );
  }
 
+// osmanip_printer_print
+/*static void osmanip_printer_print( bm::State& state ) 
+ {
+  for ( auto _ : state ) bm::DoNotOptimize( osm::print( std::cout, "" ) );
+ }
+
+// osmanip_printer_print_default
+static void osmanip_printer_print_default( bm::State& state ) 
+ {
+  for ( auto _ : state ) bm::DoNotOptimize( osm::print( "" ) );
+ }*/
+
 //====================================================
 //     termcolor
 //====================================================
@@ -66,25 +73,19 @@ static void termcolor_feat( bm::State& state )
   for ( auto _ : state )bm::DoNotOptimize( std::cout << termcolor::red );
  }
 
-// termcolor_reset
-static void termcolor_reset( bm::State& state ) 
- {
-  for ( auto _ : state )bm::DoNotOptimize( std::cout << termcolor::reset );
- }
-
 //====================================================
 //     Benchmarking settings
 //====================================================
 
 // osmanip
 BENCHMARK( osmanip_common_feat );
-BENCHMARK( osmanip_colsty_reset );
 BENCHMARK( osmanip_colsty_RGB );
 BENCHMARK( osmanip_cursor_feat );
 BENCHMARK( osmanip_cursor_go_to );
+/*BENCHMARK( osmanip_printer_print );
+BENCHMARK( osmanip_printer_print_default );*/
 
 // termcolor
 BENCHMARK( termcolor_feat );
-BENCHMARK( termcolor_reset );
 
 BENCHMARK_MAIN();

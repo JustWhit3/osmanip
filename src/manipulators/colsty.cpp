@@ -142,9 +142,9 @@ namespace osm
    * @param r The r singlet of the tripled.
    * @param g The g singlet of the tripled.
    * @param b The b singlet of the tripled.
-   * @return std::string The rgb triplet of the color.
+   * @return const std::string The rgb triplet of the color.
    */
-  std::string RGB( const int& r, const int& g, const int& b )
+  const std::string RGB( const int& r, const int& g, const int& b )
    {
     return "\x1b[38;2;" +
             std::to_string( r ) + ";"s +

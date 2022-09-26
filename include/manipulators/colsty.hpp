@@ -25,7 +25,7 @@ namespace osm
   //====================================================
   //     Functions
   //====================================================
-  extern std::string RGB( const int& r, const int& g, const int& b );
+  extern const std::string RGB( const int& r, const int& g, const int& b );
  }
 
 #endif
