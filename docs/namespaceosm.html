@@ -82,8 +82,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1Plot2DCanvas.html">Plot2DCanvas</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is used to plot mathematical functions R -&gt; R. In addition to all the properties of a basic <a class="el" href="classosm_1_1Canvas.html" title="Instances of this class are used to draw in a limited 2D space. All the functions that modify the can...">Canvas</a>, this one also has an offset and a scale for the plot. The offset is the first value in x and y to be represented in the canvas and the scale is the difference in x or y that each character represents relative to the previous one. For example: a canvas of size = (15, 10) with offset = (3,2) and scale = (7, 5) will represent the functions you draw from x=3 to x=3+15*7=108 and from y=2 to y=2+10*5=52.  <a href="classosm_1_1Plot2DCanvas.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OS__Decorator.html">OS_Decorator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class used to decorate an output stream. Each setting is set permanently on the chosen output stream until the destructor is met or one of the reset functions is called.  <a href="classosm_1_1OS__Decorator.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1Decorator.html">Decorator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class used to decorate an output stream. Each setting is set permanently on the chosen output stream until the destructor is met or one of the reset functions is called.  <a href="classosm_1_1Decorator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structosm_1_1indices.html">indices</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to generate indices for parameter packs.  <a href="structosm_1_1indices.html#details">More...</a><br /></td></tr>
@@ -144,18 +144,18 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4ba79e32855ee7f13095509656e59668"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">RGB</a> (const int &amp;r, const int &amp;g, const int &amp;b)</td></tr>
-<tr class="memdesc:a4ba79e32855ee7f13095509656e59668"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors <a href="http://www.aksiom.net/rgb.html">http://www.aksiom.net/rgb.html</a>). It can be used to output a wider variety of colors with respect to the standard available from the col map.  <a href="namespaceosm.html#a4ba79e32855ee7f13095509656e59668">More...</a><br /></td></tr>
-<tr class="separator:a4ba79e32855ee7f13095509656e59668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d8501863608f8a2fabc98f751a9b1a4"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a6d8501863608f8a2fabc98f751a9b1a4">RGB</a> (const int &amp;r, const int &amp;g, const int &amp;b)</td></tr>
+<tr class="memdesc:a6d8501863608f8a2fabc98f751a9b1a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors <a href="http://www.aksiom.net/rgb.html">http://www.aksiom.net/rgb.html</a>). It can be used to output a wider variety of colors with respect to the standard available from the col map.  <a href="namespaceosm.html#a6d8501863608f8a2fabc98f751a9b1a4">More...</a><br /></td></tr>
+<tr class="separator:a6d8501863608f8a2fabc98f751a9b1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7a38e64cf69c6449e10cb4ec035192a"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a> (const std::unordered_map&lt; std::string, std::string &gt; &amp;generic_map, const std::string &amp;feat_string)</td></tr>
 <tr class="memdesc:ae7a38e64cf69c6449e10cb4ec035192a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes an std::map object as the first argument and an std::string object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.  <a href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">More...</a><br /></td></tr>
 <tr class="separator:ae7a38e64cf69c6449e10cb4ec035192a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89eb04b3457ccd8ddf2d0baf76840961"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a89eb04b3457ccd8ddf2d0baf76840961">feat</a> (const <a class="el" href="namespaceosm.html#a81c6ab03be9043632d38d68a0c87336d">string_pair_map</a> &amp;generic_map, const std::string &amp;feat_string, const int &amp;feat_int)</td></tr>
-<tr class="memdesc:a89eb04b3457ccd8ddf2d0baf76840961"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#a89eb04b3457ccd8ddf2d0baf76840961">More...</a><br /></td></tr>
-<tr class="separator:a89eb04b3457ccd8ddf2d0baf76840961"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0ec07fe2d7e4b3f5780598f654170fd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd">go_to</a> (const int &amp;x, const int &amp;y)</td></tr>
-<tr class="memdesc:ad0ec07fe2d7e4b3f5780598f654170fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#ad0ec07fe2d7e4b3f5780598f654170fd">More...</a><br /></td></tr>
-<tr class="separator:ad0ec07fe2d7e4b3f5780598f654170fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade513910e4e64dda34740ebe8ace659e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ade513910e4e64dda34740ebe8ace659e">feat</a> (const <a class="el" href="namespaceosm.html#a81c6ab03be9043632d38d68a0c87336d">string_pair_map</a> &amp;generic_map, const std::string &amp;feat_string, const int &amp;feat_int)</td></tr>
+<tr class="memdesc:ade513910e4e64dda34740ebe8ace659e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#ade513910e4e64dda34740ebe8ace659e">More...</a><br /></td></tr>
+<tr class="separator:ade513910e4e64dda34740ebe8ace659e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ded1bcb1014bee2a528bca1db6397f1"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8ded1bcb1014bee2a528bca1db6397f1">go_to</a> (const int &amp;x, const int &amp;y)</td></tr>
+<tr class="memdesc:a8ded1bcb1014bee2a528bca1db6397f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#a8ded1bcb1014bee2a528bca1db6397f1">More...</a><br /></td></tr>
+<tr class="separator:a8ded1bcb1014bee2a528bca1db6397f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbaaec24c76f4c983dd6493bc274261d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#adbaaec24c76f4c983dd6493bc274261d">BOOST_PP_SEQ_FOR_EACH</a> (<a class="el" href="progress__bar_8cpp.html#a3b6be5d37265f4171b93e0a112d31c31">PROGRESSBAR</a>, _, <a class="el" href="progress__bar_8cpp.html#aebcb0ebc8914c2b7139d80db18960c44">ARGS</a>(int, long, long long, double, long double, float))</td></tr>
 <tr class="memdesc:adbaaec24c76f4c983dd6493bc274261d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit instantiation of the <a class="el" href="classosm_1_1ProgressBar.html" title="Template class used to create customized progress bars.">ProgressBar</a> objects.  <a href="namespaceosm.html#adbaaec24c76f4c983dd6493bc274261d">More...</a><br /></td></tr>
 <tr class="separator:adbaaec24c76f4c983dd6493bc274261d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,18 +171,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a0825eb925269f7eabcf04c85af12c144"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0825eb925269f7eabcf04c85af12c144">disableUNICODE</a> ()</td></tr>
 <tr class="memdesc:a0825eb925269f7eabcf04c85af12c144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to disable UNICODE characters (used for Windows only).  <a href="namespaceosm.html#a0825eb925269f7eabcf04c85af12c144">More...</a><br /></td></tr>
 <tr class="separator:a0825eb925269f7eabcf04c85af12c144"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6e217b3090afddfe1acaaeecdf27695"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:aa6e217b3090afddfe1acaaeecdf27695"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695">print</a> (std::ostream &amp;os=agr::null_stream, const Args &amp;... args)</td></tr>
-<tr class="memdesc:aa6e217b3090afddfe1acaaeecdf27695"><td class="mdescLeft">&#160;</td><td class="mdescRight">It can be used to print messages and strings to the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the general case.  <a href="namespaceosm.html#aa6e217b3090afddfe1acaaeecdf27695">More...</a><br /></td></tr>
-<tr class="separator:aa6e217b3090afddfe1acaaeecdf27695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c5ff292df49692cd6f52fe784086354"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a9c5ff292df49692cd6f52fe784086354"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a9c5ff292df49692cd6f52fe784086354">print</a> (Args &amp;... args)</td></tr>
-<tr class="memdesc:a9c5ff292df49692cd6f52fe784086354"><td class="mdescLeft">&#160;</td><td class="mdescRight">It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the 0-arguments case.  <a href="namespaceosm.html#a9c5ff292df49692cd6f52fe784086354">More...</a><br /></td></tr>
-<tr class="separator:a9c5ff292df49692cd6f52fe784086354"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f2177f70d3a9497df6e670a01cf0de9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6f2177f70d3a9497df6e670a01cf0de9"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a6f2177f70d3a9497df6e670a01cf0de9">operator&lt;&lt;</a> (<a class="el" href="classosm_1_1OS__Decorator.html">OS_Decorator</a> my_shell, const T &amp;elem)</td></tr>
-<tr class="memdesc:a6f2177f70d3a9497df6e670a01cf0de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator overload to output a modified ostream object which properties are set thanks to the <a class="el" href="classosm_1_1OS__Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">OS_Decorator</a> class.  <a href="namespaceosm.html#a6f2177f70d3a9497df6e670a01cf0de9">More...</a><br /></td></tr>
-<tr class="separator:a6f2177f70d3a9497df6e670a01cf0de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4c43da6b860f7b739d6dd226b97858"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0e4c43da6b860f7b739d6dd226b97858"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0e4c43da6b860f7b739d6dd226b97858">operator&lt;&lt;</a> (<a class="el" href="classosm_1_1Decorator.html">Decorator</a> my_shell, const T &amp;elem)</td></tr>
+<tr class="memdesc:a0e4c43da6b860f7b739d6dd226b97858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator overload to output a modified ostream object which properties are set thanks to the <a class="el" href="classosm_1_1Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">Decorator</a> class.  <a href="namespaceosm.html#a0e4c43da6b860f7b739d6dd226b97858">More...</a><br /></td></tr>
+<tr class="separator:a0e4c43da6b860f7b739d6dd226b97858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a075383a0e8d513f82c078daee8eee31e"><td class="memTemplParams" colspan="2">template&lt;class... Indicators&gt; </td></tr>
 <tr class="memitem:a075383a0e8d513f82c078daee8eee31e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classosm_1_1make__MultiProgressBar.html">make_MultiProgressBar</a>&lt; typename std::remove_reference&lt; Indicators &gt;::type... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a075383a0e8d513f82c078daee8eee31e">MultiProgressBar</a> (Indicators &amp;&amp;... inds)</td></tr>
 <tr class="memdesc:a075383a0e8d513f82c078daee8eee31e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function used for deduction guides.  <a href="namespaceosm.html#a075383a0e8d513f82c078daee8eee31e">More...</a><br /></td></tr>
@@ -533,14 +525,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a89eb04b3457ccd8ddf2d0baf76840961"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89eb04b3457ccd8ddf2d0baf76840961">&#9670;&nbsp;</a></span>feat() <span class="overload">[2/2]</span></h2>
+<a id="ade513910e4e64dda34740ebe8ace659e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade513910e4e64dda34740ebe8ace659e">&#9670;&nbsp;</a></span>feat() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string osm::feat </td>
+          <td class="memname">const std::string osm::feat </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespaceosm.html#a81c6ab03be9043632d38d68a0c87336d">string_pair_map</a> &amp;&#160;</td>
           <td class="paramname"><em>generic_map</em>, </td>
@@ -574,18 +566,18 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string The output feature. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>const std::string The output feature. </dd></dl>
 
 </div>
 </div>
-<a id="ad0ec07fe2d7e4b3f5780598f654170fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0ec07fe2d7e4b3f5780598f654170fd">&#9670;&nbsp;</a></span>go_to()</h2>
+<a id="a8ded1bcb1014bee2a528bca1db6397f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ded1bcb1014bee2a528bca1db6397f1">&#9670;&nbsp;</a></span>go_to()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string osm::go_to </td>
+          <td class="memname">const std::string osm::go_to </td>
           <td>(</td>
           <td class="paramtype">const int &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -612,7 +604,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string The (x,y) position of the cursor in the screen. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>const std::string The (x,y) position of the cursor in the screen. </dd></dl>
 
 </div>
 </div>
@@ -651,8 +643,8 @@ template&lt;class... Indicators&gt; </div>
 
 </div>
 </div>
-<a id="a6f2177f70d3a9497df6e670a01cf0de9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f2177f70d3a9497df6e670a01cf0de9">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
+<a id="a0e4c43da6b860f7b739d6dd226b97858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4c43da6b860f7b739d6dd226b97858">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -662,7 +654,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">std::ostream&amp; osm::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classosm_1_1OS__Decorator.html">OS_Decorator</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classosm_1_1Decorator.html">Decorator</a>&#160;</td>
           <td class="paramname"><em>my_shell</em>, </td>
         </tr>
         <tr>
@@ -679,7 +671,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operator overload to output a modified ostream object which properties are set thanks to the <a class="el" href="classosm_1_1OS__Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">OS_Decorator</a> class. </p>
+<p>Operator overload to output a modified ostream object which properties are set thanks to the <a class="el" href="classosm_1_1Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">Decorator</a> class. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The template parameter of the object sent into the output stream. </td></tr>
@@ -688,7 +680,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">my_shell</td><td>The <a class="el" href="classosm_1_1OS__Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">OS_Decorator</a> object. </td></tr>
+    <tr><td class="paramname">my_shell</td><td>The <a class="el" href="classosm_1_1Decorator.html" title="Class used to decorate an output stream. Each setting is set permanently on the chosen output stream ...">Decorator</a> object. </td></tr>
     <tr><td class="paramname">elem</td><td>The element sent into the output stream. </td></tr>
   </table>
   </dd>
@@ -786,109 +778,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a9c5ff292df49692cd6f52fe784086354"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c5ff292df49692cd6f52fe784086354">&#9670;&nbsp;</a></span>print() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void osm::print </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>It can be used to print messages and strings in the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the 0-arguments case. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Args</td><td>The parameter pack of the various types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">args</td><td>One or more objects to be printed. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa6e217b3090afddfe1acaaeecdf27695"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6e217b3090afddfe1acaaeecdf27695">&#9670;&nbsp;</a></span>print() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void osm::print </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em> = <code>agr::null_stream</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Args &amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>It can be used to print messages and strings to the output stream, specifying also the stream you want to use. Different standard colors are set for each output-stream type. If the output stream is not specified std::cout will be used as default. This overload is used for the general case. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Args</td><td>The parameter pack of the various types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">os</td><td>The output stream. </td></tr>
-    <tr><td class="paramname">args</td><td>One or more objects to be printed. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4ba79e32855ee7f13095509656e59668"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ba79e32855ee7f13095509656e59668">&#9670;&nbsp;</a></span>RGB()</h2>
+<a id="a6d8501863608f8a2fabc98f751a9b1a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d8501863608f8a2fabc98f751a9b1a4">&#9670;&nbsp;</a></span>RGB()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string osm::RGB </td>
+          <td class="memname">const std::string osm::RGB </td>
           <td>(</td>
           <td class="paramtype">const int &amp;&#160;</td>
           <td class="paramname"><em>r</em>, </td>
@@ -922,7 +819,7 @@ template&lt;typename... Args&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string The rgb triplet of the color. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>const std::string The rgb triplet of the color. </dd></dl>
 
 </div>
 </div>
