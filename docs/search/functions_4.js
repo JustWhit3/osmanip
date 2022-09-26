@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['enableansi_171',['enableANSI',['../namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59',1,'osm']]],
-  ['enableframe_172',['enableFrame',['../classosm_1_1Canvas.html#a95044b9f98d159e46b37d337ec05ae1d',1,'osm::Canvas']]],
-  ['enableunicode_173',['enableUNICODE',['../namespaceosm.html#ab6d031c3a72211bf1058c3a26ad52b99',1,'osm']]]
+  ['feat_167',['feat',['../namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a',1,'osm::feat(const std::unordered_map&lt; std::string, std::string &gt; &amp;generic_map, const std::string &amp;feat_string)'],['../namespaceosm.html#ade513910e4e64dda34740ebe8ace659e',1,'osm::feat(const string_pair_map &amp;generic_map, const std::string &amp;feat_string, const int &amp;feat_int)']]],
+  ['for_5feach_168',['for_each',['../classosm_1_1make__MultiProgressBar.html#abab6d301f7884712b79d615f1b5c5b89',1,'osm::make_MultiProgressBar']]],
+  ['for_5fone_169',['for_one',['../classosm_1_1make__MultiProgressBar.html#af5b337ea3c0f357bcccc6fdaa1dcf167',1,'osm::make_MultiProgressBar']]]
 ];

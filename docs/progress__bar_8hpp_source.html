@@ -81,180 +81,624 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//     Headers</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//====================================================</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//STD headers</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceosm.html">osm</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">//     Aliases</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">   26</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">string_set_map</a> = std::unordered_map &lt;std::string, std::set &lt;std::string&gt; &gt;;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">   27</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">steady_clock</a> = <a class="code" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">std::chrono::steady_clock</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">   28</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">duration</a> = std::chrono::duration &lt;float, steady_clock::period&gt;;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">//     ProgressBar class</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> bar_type&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html">   39</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classosm_1_1ProgressBar.html">ProgressBar</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;   {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//     Constructors and destructors</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;     <a class="code" href="classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6">ProgressBar</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;     <a class="code" href="classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6">ProgressBar</a>( <span class="keyword">const</span> bar_type&amp; min, <span class="keyword">const</span> bar_type&amp; max );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;     <a class="code" href="classosm_1_1ProgressBar.html#a302c6949c938833acfddd576c42317bf">~ProgressBar</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">//     Setters</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a1cda9f9aa2f3b49aefa39d7edb7a7dce">setMax</a>( <span class="keyword">const</span> bar_type&amp; max );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ab2bb14015acd7b4f24df753c510d17e5">setMin</a>( <span class="keyword">const</span> bar_type&amp; min );</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">setStyle</a>( <span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; style );</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">setStyle</a>( <span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; style_p, <span class="keyword">const</span> std::string&amp; style_l );</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe">setMessage</a>( <span class="keyword">const</span> std::string&amp; message );</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a2a2b9ac444ba6554c890858437d71c17">setBrackets</a>( <span class="keyword">const</span> std::string&amp; brackets_open, <span class="keyword">const</span> std::string&amp; brackets_close );</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a811e5501381f56cab0bb1f40be9d1250">setBegin</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#abb6fe0c970315dc9cf40ed8f366cefc4">setEnd</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ac5d8c7b8bad15eefe06e6b3d6e8ffce3">setColor</a>( <span class="keyword">const</span> std::string&amp; color );</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a91d84b261ed3dc11676dad6f4eedd0f9">setRemainingTimeFlag</a>( <span class="keyword">const</span> std::string&amp; time_flag );</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">//     Resetters</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2">resetAll</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d">resetMax</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2">resetMin</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023">resetStyle</a>();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ad8f3d55a9ff711442756d11c4153b045">resetMessage</a>();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e">resetTime</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e">resetRemainingTime</a>();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a661ab077b857cf7bf5f21a30fb02ffea">resetBrackets</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a112340d2942ca29a38b9c3e69d8bfcaf">resetColor</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//     Getters</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;     <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901">getTime</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;     bar_type <a class="code" href="classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01">getMax</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;     bar_type <a class="code" href="classosm_1_1ProgressBar.html#aa343c3d8e622bb4f649a97c5e1da9e6a">getMin</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;     bar_type <a class="code" href="classosm_1_1ProgressBar.html#a0b841a6a825cbc0d16f639dbfda3f83a">getIteratingVar</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#a5f0e4ef76662284087319652d4dd1b1a">getStyle</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#aa21653921a5395048f1e0de51d38d8d9">getStyleComplete</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e">getMessage</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#a3f48cb1bc81f63d508e10f5e464f41e9">getBrackets_open</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a">getBrackets_close</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#af56b979a3e98ade5c590eff50920bdbe">getColor</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb">getColorName</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8">getType</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;     std::string <a class="code" href="classosm_1_1ProgressBar.html#a140d44c2b24739925baae5019caaa91b">getRemainingTimeFlag</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">//     Other methods</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a5eae57dd999e0720ade7a568d83a89d6">update</a>( <span class="keyword">const</span> bar_type&amp; iterating_var );</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a37a91eb88d83ec6bc1e182b7d8abcf00">print</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a95e629fd78b99a9c4f38b532a06e22d7">addStyle</a>( <span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; style );</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">//     Private methods</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;     <span class="keywordtype">void</span> update_output( <span class="keyword">const</span> std::string&amp; output );</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;     <span class="keywordtype">void</span> remaining_time();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">//     Static attributes</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;     <span class="keyword">static</span> <a class="code" href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">string_set_map</a> styles_map_;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;     <span class="keyword">static</span> std::vector &lt;bar_type&gt; counter_;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;     <span class="keyword">static</span> std::mutex mutex_;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;     </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">//     Non-static attributes</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;     <span class="keywordtype">long</span> <span class="keywordtype">long</span> time_count_;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;     std::uint64_t ticks_occurred;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;     bar_type max_, max_spin_, min_, iterating_var_, iterating_var_spin_, width_;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;     std::string style_, style_p_, style_l_, type_, conct_, message_, brackets_open_, brackets_close_, </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                 output_, color_, time_flag_, color_name_;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;     steady_clock::time_point begin, end, begin_timer;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;   };</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//My headers</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../include/manipulators/colsty.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../include/manipulators/cursor.hpp&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../include/progressbar/progress_bar.hpp&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//Extra headers</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;arsenalgear/constants.hpp&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;arsenalgear/utils.hpp&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;arsenalgear/math.hpp&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;arsenalgear/operators.hpp&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//STD headers</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//     Namespaces</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using namespace </span>std::literals::string_literals;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceosm.html">osm</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">//     Aliases</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">   44</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">string_set_map</a> = std::unordered_map &lt;std::string, std::set &lt;std::string&gt; &gt;;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">   45</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">steady_clock</a> = <a class="code" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">std::chrono::steady_clock</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">   46</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">duration</a> = std::chrono::duration &lt;float, steady_clock::period&gt;;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">//     ProgressBar class</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> bar_type&gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html">   57</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classosm_1_1ProgressBar.html">ProgressBar</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;   {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;     <span class="comment">//     Constructors and destructors</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;     <span class="comment">// Default constructor</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6">   71</a></span>&#160;<span class="comment"></span>     <a class="code" href="classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6">ProgressBar</a>():</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      max_( 0 ), </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      min_( 0 ), </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      style_( <span class="stringliteral">&quot;&quot;</span> ), </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      type_( <span class="stringliteral">&quot;&quot;</span> ),</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      message_( <span class="stringliteral">&quot;&quot;</span> ), </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      time_count_( <a class="code" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">duration</a>::zero().count() ),</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      brackets_open_( <span class="stringliteral">&quot;&quot;</span> ), </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      brackets_close_( <span class="stringliteral">&quot;&quot;</span> ), </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      begin_timer( <a class="code" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">steady_clock</a>::now() ),</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      color_( <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ) ),</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      color_name_( <span class="stringliteral">&quot;&quot;</span> ),</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      ticks_occurred ( 0 ),</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      time_flag_ ( <span class="stringliteral">&quot;off&quot;</span> )</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      {}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;     <span class="comment">// Parametric constructor</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a641b705a1f3d5c3ba8307dbd148f9e02">   95</a></span>&#160;<span class="comment"></span>     <a class="code" href="classosm_1_1ProgressBar.html#a641b705a1f3d5c3ba8307dbd148f9e02">ProgressBar</a>( <span class="keyword">const</span> bar_type&amp; min, <span class="keyword">const</span> bar_type&amp; max ):</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      max_( max ), </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      min_( min ), </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      style_( <span class="stringliteral">&quot;&quot;</span> ), </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      type_( <span class="stringliteral">&quot;&quot;</span> ),</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      message_( <span class="stringliteral">&quot;&quot;</span> ), </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      time_count_( <a class="code" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">duration</a>::zero().count() ),</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      brackets_open_( <span class="stringliteral">&quot;&quot;</span> ), </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      brackets_close_( <span class="stringliteral">&quot;&quot;</span> ), </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      begin_timer( <a class="code" href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">steady_clock</a>::now() ),</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      color_( <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ) ),</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      color_name_( <span class="stringliteral">&quot;&quot;</span> ),</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      ticks_occurred ( 0 ),</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      time_flag_ ( <span class="stringliteral">&quot;off&quot;</span> )</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      {}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;     <span class="comment">//     Setters</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;     </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;     <span class="comment">// setMax</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a1cda9f9aa2f3b49aefa39d7edb7a7dce">  122</a></span>&#160;<span class="comment"></span>     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a1cda9f9aa2f3b49aefa39d7edb7a7dce">setMax</a>( <span class="keyword">const</span> bar_type&amp; max )</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      { </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;       max_ = max; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="comment">//     Operator &lt;&lt; redefinition</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"></span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> bar_type&gt;</div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920">  139</a></span>&#160;  std::ostream&amp; <a class="code" href="namespaceosm.html#a0e4c43da6b860f7b739d6dd226b97858">operator &lt;&lt; </a>( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classosm_1_1ProgressBar.html">ProgressBar&lt;bar_type&gt;</a> &amp;pb )</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;   {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    os &lt;&lt; <span class="stringliteral">&quot;Max: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01">getMax</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Min: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#aa343c3d8e622bb4f649a97c5e1da9e6a">getMin</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Time counter: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901">getTime</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span> </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Style: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a5f0e4ef76662284087319652d4dd1b1a">getStyle</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Type: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8">getType</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Message: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e">getMessage</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Brackets style: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a3f48cb1bc81f63d508e10f5e464f41e9">getBrackets_open</a>() &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a">getBrackets_close</a>()&lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Color: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb">getColorName</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Show remaining time: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a140d44c2b24739925baae5019caaa91b">getRemainingTimeFlag</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;   }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html"><div class="ttname"><a href="classosm_1_1ProgressBar.html">osm::ProgressBar</a></div><div class="ttdoc">Template class used to create customized progress bars.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:40</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a019e2ecfdfdd229a856bbb60e367b80e"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e">osm::ProgressBar::resetTime</a></div><div class="ttdeci">void resetTime()</div><div class="ttdoc">Reset the ProgressBar time count.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:397</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a0b841a6a825cbc0d16f639dbfda3f83a"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a0b841a6a825cbc0d16f639dbfda3f83a">osm::ProgressBar::getIteratingVar</a></div><div class="ttdeci">bar_type getIteratingVar() const</div><div class="ttdoc">Get the ProgressBar iterating variable value.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:502</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a112340d2942ca29a38b9c3e69d8bfcaf"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a112340d2942ca29a38b9c3e69d8bfcaf">osm::ProgressBar::resetColor</a></div><div class="ttdeci">void resetColor()</div><div class="ttdoc">Reset the ProgressBar color.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:441</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a131bf2a58e787bb3556ae57781f70de2"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2">osm::ProgressBar::resetAll</a></div><div class="ttdeci">void resetAll()</div><div class="ttdoc">Reset the ProgressBar variables.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:317</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a140d44c2b24739925baae5019caaa91b"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a140d44c2b24739925baae5019caaa91b">osm::ProgressBar::getRemainingTimeFlag</a></div><div class="ttdeci">std::string getRemainingTimeFlag() const</div><div class="ttdoc">Get the ProgressBar time remaining variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:644</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a17c514f0f5f1d0f5f44e8cefdc57b0cb"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb">osm::ProgressBar::getColorName</a></div><div class="ttdeci">std::string getColorName() const</div><div class="ttdoc">Get the ProgressBar color name variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:629</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a18e398b562df8cb0fdebff9497d6369e"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e">osm::ProgressBar::getMessage</a></div><div class="ttdeci">std::string getMessage() const</div><div class="ttdoc">Get the ProgressBar Message variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:569</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a1cda9f9aa2f3b49aefa39d7edb7a7dce"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a1cda9f9aa2f3b49aefa39d7edb7a7dce">osm::ProgressBar::setMax</a></div><div class="ttdeci">void setMax(const bar_type &amp;max)</div><div class="ttdoc">Set the maximum value of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:124</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a2a2b9ac444ba6554c890858437d71c17"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a2a2b9ac444ba6554c890858437d71c17">osm::ProgressBar::setBrackets</a></div><div class="ttdeci">void setBrackets(const std::string &amp;brackets_open, const std::string &amp;brackets_close)</div><div class="ttdoc">Set brackets of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:271</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a302c6949c938833acfddd576c42317bf"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a302c6949c938833acfddd576c42317bf">osm::ProgressBar::~ProgressBar</a></div><div class="ttdeci">~ProgressBar()</div><div class="ttdoc">Destroy the ProgressBar &lt;bar_type&gt;::ProgressBar object. Standard destructor: it doesn't do anything.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:95</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a30e43da878d156f1ce7a14f0e8b24023"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023">osm::ProgressBar::resetStyle</a></div><div class="ttdeci">void resetStyle()</div><div class="ttdoc">Reset the ProgressBar Style variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:368</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a37a91eb88d83ec6bc1e182b7d8abcf00"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a37a91eb88d83ec6bc1e182b7d8abcf00">osm::ProgressBar::print</a></div><div class="ttdeci">void print() const</div><div class="ttdoc">Prints on the screen the progress bar variable values.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:805</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a3f48cb1bc81f63d508e10f5e464f41e9"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a3f48cb1bc81f63d508e10f5e464f41e9">osm::ProgressBar::getBrackets_open</a></div><div class="ttdeci">std::string getBrackets_open() const</div><div class="ttdoc">Get the ProgressBar brackets_open variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:584</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a4d28b5b65467fefeb782e74a91a2a2e6"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6">osm::ProgressBar::ProgressBar</a></div><div class="ttdeci">ProgressBar()</div><div class="ttdoc">Construct a new ProgressBar &lt;bar_type&gt;::ProgressBar object. Default constructor which set to null val...</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:43</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a5eae57dd999e0720ade7a568d83a89d6"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a5eae57dd999e0720ade7a568d83a89d6">osm::ProgressBar::update</a></div><div class="ttdeci">void update(const bar_type &amp;iterating_var)</div><div class="ttdoc">Update the progress bar indicator.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:718</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a5f0e4ef76662284087319652d4dd1b1a"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a5f0e4ef76662284087319652d4dd1b1a">osm::ProgressBar::getStyle</a></div><div class="ttdeci">std::string getStyle() const</div><div class="ttdoc">Get the ProgressBar Style variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:517</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a661ab077b857cf7bf5f21a30fb02ffea"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a661ab077b857cf7bf5f21a30fb02ffea">osm::ProgressBar::resetBrackets</a></div><div class="ttdeci">void resetBrackets()</div><div class="ttdoc">Reset the ProgressBar brackets.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:426</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a78a690d90ecaa2e9ba5ee3d224741901"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901">osm::ProgressBar::getTime</a></div><div class="ttdeci">long long getTime() const</div><div class="ttdoc">Get the ProgressBar current time value.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:487</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a811e5501381f56cab0bb1f40be9d1250"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a811e5501381f56cab0bb1f40be9d1250">osm::ProgressBar::setBegin</a></div><div class="ttdeci">void setBegin()</div><div class="ttdoc">Set begin time count.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:240</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a8d49c0777f1bfcdce65e143bf66b028a"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a">osm::ProgressBar::getBrackets_close</a></div><div class="ttdeci">std::string getBrackets_close() const</div><div class="ttdoc">Get the ProgressBar brackets_close variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:599</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a91d84b261ed3dc11676dad6f4eedd0f9"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a91d84b261ed3dc11676dad6f4eedd0f9">osm::ProgressBar::setRemainingTimeFlag</a></div><div class="ttdeci">void setRemainingTimeFlag(const std::string &amp;time_flag)</div><div class="ttdoc">Set the remaining time of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:303</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a95e629fd78b99a9c4f38b532a06e22d7"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a95e629fd78b99a9c4f38b532a06e22d7">osm::ProgressBar::addStyle</a></div><div class="ttdeci">void addStyle(const std::string &amp;type, const std::string &amp;style)</div><div class="ttdoc">Add customized styles to the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:829</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_a968c89302c97005f349f4eb56b4f69d2"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2">osm::ProgressBar::resetMin</a></div><div class="ttdeci">void resetMin()</div><div class="ttdoc">Reset the ProgressBar Min variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:357</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_aa21653921a5395048f1e0de51d38d8d9"><div class="ttname"><a href="classosm_1_1ProgressBar.html#aa21653921a5395048f1e0de51d38d8d9">osm::ProgressBar::getStyleComplete</a></div><div class="ttdeci">std::string getStyleComplete() const</div><div class="ttdoc">Get the ProgressBar Style variable for &quot;complete&quot; variable type.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:532</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_aa343c3d8e622bb4f649a97c5e1da9e6a"><div class="ttname"><a href="classosm_1_1ProgressBar.html#aa343c3d8e622bb4f649a97c5e1da9e6a">osm::ProgressBar::getMin</a></div><div class="ttdeci">bar_type getMin() const</div><div class="ttdoc">Get the ProgressBar Min variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:472</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_ab2bb14015acd7b4f24df753c510d17e5"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ab2bb14015acd7b4f24df753c510d17e5">osm::ProgressBar::setMin</a></div><div class="ttdeci">void setMin(const bar_type &amp;min)</div><div class="ttdoc">Set the minimum value of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:139</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_abb6fe0c970315dc9cf40ed8f366cefc4"><div class="ttname"><a href="classosm_1_1ProgressBar.html#abb6fe0c970315dc9cf40ed8f366cefc4">osm::ProgressBar::setEnd</a></div><div class="ttdeci">void setEnd()</div><div class="ttdoc">Set end time count.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:254</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_ac3636d329268d9c3e205b10e8fbcded8"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8">osm::ProgressBar::getType</a></div><div class="ttdeci">std::string getType() const</div><div class="ttdoc">Get the ProgressBar Type variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:554</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_ac5d8c7b8bad15eefe06e6b3d6e8ffce3"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ac5d8c7b8bad15eefe06e6b3d6e8ffce3">osm::ProgressBar::setColor</a></div><div class="ttdeci">void setColor(const std::string &amp;color)</div><div class="ttdoc">Set the color of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:287</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_acd438b7c7622a459c9a2462bc085361e"><div class="ttname"><a href="classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e">osm::ProgressBar::resetRemainingTime</a></div><div class="ttdeci">void resetRemainingTime()</div><div class="ttdoc">Reset the ProgressBar time remaining count.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:411</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_ad205e192d5169f6af906616f9ee285fe"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe">osm::ProgressBar::setMessage</a></div><div class="ttdeci">void setMessage(const std::string &amp;message)</div><div class="ttdoc">Set the message of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:226</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_ad8f3d55a9ff711442756d11c4153b045"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ad8f3d55a9ff711442756d11c4153b045">osm::ProgressBar::resetMessage</a></div><div class="ttdeci">void resetMessage()</div><div class="ttdoc">Reset the ProgressBar Message variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:383</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_ae4d6027f18f3855ec9e60ba6ea86aa01"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01">osm::ProgressBar::getMax</a></div><div class="ttdeci">bar_type getMax() const</div><div class="ttdoc">Get the ProgressBar Max variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:457</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_ae7396965b85300e79639d151264baf26"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">osm::ProgressBar::setStyle</a></div><div class="ttdeci">void setStyle(const std::string &amp;type, const std::string &amp;style)</div><div class="ttdoc">Set the type and style of the ProgressBar. Available: &quot;indicator&quot; (&quot;%&quot;, &quot;/100&quot;), &quot;loader&quot; (&quot;#&quot;,...</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:155</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_af56b979a3e98ade5c590eff50920bdbe"><div class="ttname"><a href="classosm_1_1ProgressBar.html#af56b979a3e98ade5c590eff50920bdbe">osm::ProgressBar::getColor</a></div><div class="ttdeci">std::string getColor() const</div><div class="ttdoc">Get the ProgressBar color variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:614</div></div>
-<div class="ttc" id="aclassosm_1_1ProgressBar_html_afd43e6063ab9c24abb24e776f32cc34d"><div class="ttname"><a href="classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d">osm::ProgressBar::resetMax</a></div><div class="ttdeci">void resetMax()</div><div class="ttdoc">Reset the ProgressBar Max variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.cpp:343</div></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;     <span class="comment">// setMin</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#ab2bb14015acd7b4f24df753c510d17e5">  134</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ab2bb14015acd7b4f24df753c510d17e5">setMin</a>( <span class="keyword">const</span> bar_type&amp; min )</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;       min_ = min; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;     <span class="comment">// setStyle first overload</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">  147</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">setStyle</a>( <span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; style )</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;       <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;         <span class="keywordflow">if</span>( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;          { </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;           style_ = style;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;           type_ = type;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;          }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;          {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;           <span class="keywordflow">throw</span> agr::except_error_func( <span class="stringliteral">&quot;Inserted ProgressBar style&quot;</span>, style, <span class="stringliteral">&quot;is not supported for this type!&quot;</span> );</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;          }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;         <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;          {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;           <span class="keywordflow">throw</span> agr::except_error_func( <span class="stringliteral">&quot;Inserted ProgressBar type&quot;</span>, type, <span class="stringliteral">&quot;is not supported!&quot;</span> );</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;          }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;       <span class="keywordflow">catch</span> ( std::out_of_range <span class="keyword">const</span>&amp; exception )</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;         <span class="keywordflow">throw</span> agr::except_error_func( <span class="stringliteral">&quot;Inserted ProgressBar type&quot;</span>, type, <span class="stringliteral">&quot;is not supported!&quot;</span> );</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;   </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;     <span class="comment">// setStyle second overload</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#af16bdec724cd65d3d47b013213d79334">  180</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#af16bdec724cd65d3d47b013213d79334">setStyle</a>( <span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; style_p, <span class="keyword">const</span> std::string&amp; style_l )</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;       <span class="keywordflow">if</span>( styles_map_.at( <span class="stringliteral">&quot;indicator&quot;</span> ).find( style_p ) != styles_map_.at( <span class="stringliteral">&quot;indicator&quot;</span> ).end() &amp;&amp;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;           styles_map_.at( <span class="stringliteral">&quot;loader&quot;</span> ).find( style_l ) != styles_map_.at( <span class="stringliteral">&quot;loader&quot;</span> ).end() &amp;&amp;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;           type == <span class="stringliteral">&quot;complete&quot;</span> )</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;         style_ = style_p + style_l;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;         style_p_ = style_p;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;         style_l_ = style_l;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;         type_ = type;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span>( styles_map_.at( <span class="stringliteral">&quot;indicator&quot;</span> ).find( style_p ) == styles_map_.at( <span class="stringliteral">&quot;indicator&quot;</span> ).end() )</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;         <span class="keywordflow">throw</span> agr::except_error_func( <span class="stringliteral">&quot;Inserted indicator style&quot;</span>, style_p, <span class="stringliteral">&quot;is not supported for this type!&quot;</span> );</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span>( styles_map_.at( <span class="stringliteral">&quot;loader&quot;</span> ).find( style_l ) == styles_map_.at( <span class="stringliteral">&quot;loader&quot;</span> ).end() )</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;         <span class="keywordflow">throw</span> agr::except_error_func( <span class="stringliteral">&quot;Inserted loader style&quot;</span>, style_l, <span class="stringliteral">&quot;is not supported for this type!&quot;</span> );</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;       <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;         <span class="keywordflow">throw</span> agr::except_error_func( <span class="stringliteral">&quot;Inserted ProgressBar type&quot;</span>, type, <span class="stringliteral">&quot;is not supported!&quot;</span> );</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;   </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;     <span class="comment">// setMessage</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe">  212</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe">setMessage</a>( <span class="keyword">const</span> std::string&amp; message )</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      { </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;       message_ = message; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;     <span class="comment">// setBegin</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a811e5501381f56cab0bb1f40be9d1250">  223</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a811e5501381f56cab0bb1f40be9d1250">setBegin</a>()</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      { </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;       begin = steady_clock::now();</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;     <span class="comment">// setEnd</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#abb6fe0c970315dc9cf40ed8f366cefc4">  234</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#abb6fe0c970315dc9cf40ed8f366cefc4">setEnd</a>()</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;         {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;          end = steady_clock::now();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;       time_count_ += std::chrono::duration_cast &lt;std::chrono::milliseconds&gt;( end - begin ).count();</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;     <span class="comment">// setBrackets</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a2a2b9ac444ba6554c890858437d71c17">  248</a></span>&#160;<span class="comment"></span>           <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a2a2b9ac444ba6554c890858437d71c17">setBrackets</a>( <span class="keyword">const</span> std::string&amp; brackets_open, <span class="keyword">const</span> std::string&amp; brackets_close )</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;         { </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;          brackets_open_ = brackets_open,</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;       brackets_close_ = brackets_close;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      }</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;     <span class="comment">// setColor</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#ac5d8c7b8bad15eefe06e6b3d6e8ffce3">  261</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ac5d8c7b8bad15eefe06e6b3d6e8ffce3">setColor</a>( <span class="keyword">const</span> std::string&amp; color )</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      { </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;       color_ = <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a9cd60a9e70771e9ba62cd5e2860695ff">col</a>, color );</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;       color_name_ = color;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;   </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;     <span class="comment">// setRemainingTimeFlag</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a91d84b261ed3dc11676dad6f4eedd0f9">  274</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a91d84b261ed3dc11676dad6f4eedd0f9">setRemainingTimeFlag</a>( <span class="keyword">const</span> std::string&amp; time_flag )</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      { </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;       time_flag_ = time_flag;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;     <span class="comment">//     Resetters</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;     <span class="comment">// resetAll</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2">  289</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2">resetAll</a>()</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      { </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;       max_ = <span class="keyword">static_cast&lt;</span>bar_type<span class="keyword">&gt;</span> ( NULL ), </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;       min_ = <span class="keyword">static_cast&lt;</span>bar_type<span class="keyword">&gt;</span> ( NULL ), </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;       style_ = <span class="stringliteral">&quot;&quot;</span>, </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;       type_ = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;       message_ = <span class="stringliteral">&quot;&quot;</span>, </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;       time_count_ = 0,</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;       ticks_occurred = 0,</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;       begin_timer = steady_clock::now(),</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;       brackets_open_ = <span class="stringliteral">&quot;&quot;</span>, </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;       brackets_close_= <span class="stringliteral">&quot;&quot;</span>, </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;       color_ = <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ); </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;       color_name_ = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;       time_flag_ = <span class="stringliteral">&quot;off&quot;</span>;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      <span class="comment">// resetMax</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d">  312</a></span>&#160;<span class="comment"></span>         <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d">resetMax</a>()</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;       { </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        max_ = <span class="keyword">static_cast&lt;</span>bar_type<span class="keyword">&gt;</span> ( NULL );</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;       }</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      <span class="comment">// resetMin</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2">  323</a></span>&#160;<span class="comment"></span>         <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2">resetMin</a>()</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;       {</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        min_ = <span class="keyword">static_cast&lt;</span>bar_type<span class="keyword">&gt;</span> ( NULL );</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;       }</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      <span class="comment">// resetStyle</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023">  334</a></span>&#160;<span class="comment"></span>         <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023">resetStyle</a>()</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;       {</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        style_.clear();</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        type_.clear();</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;       } </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      <span class="comment">// resetMessage</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#ad8f3d55a9ff711442756d11c4153b045">  346</a></span>&#160;<span class="comment"></span>         <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#ad8f3d55a9ff711442756d11c4153b045">resetMessage</a>()</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;       {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        message_.clear();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;       } </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      <span class="comment">// resetTime</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e">  357</a></span>&#160;<span class="comment"></span>         <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e">resetTime</a>()</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;       {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        time_count_ = duration::zero().count();</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;       }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    </div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      <span class="comment">// resetRemainingTime</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e">  368</a></span>&#160;<span class="comment"></span>         <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e">resetRemainingTime</a>()</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;       {</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        ticks_occurred = 0;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        begin_timer = steady_clock::now();</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;       }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;      <span class="comment">// resetBrackets</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a661ab077b857cf7bf5f21a30fb02ffea">  380</a></span>&#160;<span class="comment"></span>         <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a661ab077b857cf7bf5f21a30fb02ffea">resetBrackets</a>()</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;       {</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        brackets_open_.clear(),</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        brackets_close_.clear(); </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;       }</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      <span class="comment">// resetColor</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a112340d2942ca29a38b9c3e69d8bfcaf">  392</a></span>&#160;<span class="comment"></span>         <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a112340d2942ca29a38b9c3e69d8bfcaf">resetColor</a>()</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;       { </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        color_ = <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ); </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        color_name_ = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;       }</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;     <span class="comment">//     Getters</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;     <span class="comment">// getMax</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01">  409</a></span>&#160;<span class="comment"></span>     bar_type <a class="code" href="classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01">getMax</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;       <span class="keywordflow">return</span> max_; </div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;      }</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  </div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;     <span class="comment">// getMin</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#aa343c3d8e622bb4f649a97c5e1da9e6a">  421</a></span>&#160;<span class="comment"></span>     bar_type <a class="code" href="classosm_1_1ProgressBar.html#aa343c3d8e622bb4f649a97c5e1da9e6a">getMin</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;       <span class="keywordflow">return</span> min_;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      } </div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;   </div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;     <span class="comment">// getTime</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901">  433</a></span>&#160;<span class="comment"></span>     <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901">getTime</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;       <span class="keywordflow">return</span> time_count_;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      }</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;   </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;     <span class="comment">// getIteratingVar</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a0b841a6a825cbc0d16f639dbfda3f83a">  445</a></span>&#160;<span class="comment"></span>     bar_type <a class="code" href="classosm_1_1ProgressBar.html#a0b841a6a825cbc0d16f639dbfda3f83a">getIteratingVar</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;       <span class="keywordflow">return</span> iterating_var_; </div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;      }</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;   </div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;     <span class="comment">// getStyle</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a5f0e4ef76662284087319652d4dd1b1a">  457</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#a5f0e4ef76662284087319652d4dd1b1a">getStyle</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;       <span class="keywordflow">return</span> style_; </div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      }</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;   </div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;     <span class="comment">// getStyleComplete</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#aa21653921a5395048f1e0de51d38d8d9">  469</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#aa21653921a5395048f1e0de51d38d8d9">getStyleComplete</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;       <span class="keywordflow">if</span>( type_ == <span class="stringliteral">&quot;complete&quot;</span> )</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        {</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;         <span class="keywordflow">return</span> <span class="stringliteral">&quot;Percentage: \&quot;&quot;</span> + style_p_ + <span class="stringliteral">&quot;\&quot;\n&quot;</span> + <span class="stringliteral">&quot;Loader: \&quot;&quot;</span> + style_l_ + <span class="stringliteral">&quot;\&quot;\n&quot;</span>; </div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        }</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;       <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        {</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;         <span class="keywordflow">return</span> style_; </div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        }</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;      }</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;   </div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;     <span class="comment">// getType</span></div>
+<div class="line"><a name="l00488"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8">  488</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8">getType</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;       <span class="keywordflow">return</span> type_; </div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;      }</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;   </div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;     <span class="comment">// getMessage</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e">  500</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e">getMessage</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;       <span class="keywordflow">return</span> message_; </div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;      }</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;   </div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;     <span class="comment">// getBrackets_open</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a3f48cb1bc81f63d508e10f5e464f41e9">  512</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#a3f48cb1bc81f63d508e10f5e464f41e9">getBrackets_open</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;       <span class="keywordflow">return</span> brackets_open_; </div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;      }</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;   </div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;     <span class="comment">// getBrackets_close</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a">  524</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a">getBrackets_close</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;       <span class="keywordflow">return</span> brackets_close_; </div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;      }</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;   </div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;     <span class="comment">// getColor</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#af56b979a3e98ade5c590eff50920bdbe">  536</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#af56b979a3e98ade5c590eff50920bdbe">getColor</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;       <span class="keywordflow">return</span> color_; </div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;      }</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;   </div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;     <span class="comment">// getColorName</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb">  548</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb">getColorName</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;       <span class="keywordflow">return</span> color_name_; </div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;      }</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;   </div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;     <span class="comment">// getRemainingTimeFlag</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a140d44c2b24739925baae5019caaa91b">  560</a></span>&#160;<span class="comment"></span>     std::string <a class="code" href="classosm_1_1ProgressBar.html#a140d44c2b24739925baae5019caaa91b">getRemainingTimeFlag</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="keyword">      </span>{ </div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;       <span class="keywordflow">return</span> time_flag_; </div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;      }</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;   </div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;     <span class="comment">//     Other methods</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160; </div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;     <span class="comment">// update</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a5eae57dd999e0720ade7a568d83a89d6">  576</a></span>&#160;<span class="comment"></span>     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a5eae57dd999e0720ade7a568d83a89d6">update</a>( <span class="keyword">const</span> bar_type&amp; iterating_var )</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;      {</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;       std::lock_guard &lt;std::mutex&gt; lock{ mutex_ };</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;   </div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;       iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - agr::one( iterating_var ) ),</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;       iterating_var_spin_ = agr::isFloatingPoint( iterating_var ) ?</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                             ( agr::roundoff( iterating_var, 1 ) * 10 ) :</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                             iterating_var,</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;       width_ = ( iterating_var_ + 1 ) / 4;</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;   </div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;       <span class="comment">//Update of the progress indicator only:</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;       <span class="keywordflow">if</span>( styles_map_.at( <span class="stringliteral">&quot;indicator&quot;</span> ).find( style_ ) != styles_map_.at( <span class="stringliteral">&quot;indicator&quot;</span> ).end() )</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        {</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;         output_ = <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a>, <span class="stringliteral">&quot;left&quot;</span>, 100 ) + </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                   getColor() +</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                   std::to_string( <span class="keyword">static_cast &lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> ( round( iterating_var_ ++ ) ) ) +</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                   <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ) + </div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                   getStyle();</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;   </div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;         update_output( output_ );</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        }</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;   </div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;       <span class="comment">//Update of the loader indicator only:</span></div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span>( styles_map_.at( <span class="stringliteral">&quot;loader&quot;</span> ).find( style_ ) != styles_map_.at( <span class="stringliteral">&quot;loader&quot;</span> ).end() )</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        {</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;         output_ = <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a>, <span class="stringliteral">&quot;left&quot;</span>, 100 ) + </div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                   getBrackets_open() + </div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                   getColor() + </div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                   getStyle() * width_ + </div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                   agr::empty_space&lt;std::string&gt; * ( ( agr::isFloatingPoint( iterating_var ) ? 26 : 25 ) - width_ ) + </div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                   <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ) + </div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;                   getBrackets_close();  </div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                        </div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;         update_output( output_ );</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;   </div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        }</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;   </div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;       <span class="comment">//Update of the whole progress bar:</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( style_.find( style_p_ ) != std::string::npos &amp;&amp; style_.find( style_l_ ) != std::string::npos &amp;&amp;</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                 type_ == <span class="stringliteral">&quot;complete&quot;</span>  )</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        {</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;         output_= <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a>, <span class="stringliteral">&quot;left&quot;</span>, 100 ) + </div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                  getBrackets_open() + </div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                  getColor() + </div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                  style_l_ * width_ + </div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                  agr::empty_space&lt;std::string&gt; * ( ( agr::isFloatingPoint( iterating_var ) ? 26 : 25 ) - width_ ) + </div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;                  <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ) +</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;                  getBrackets_close() + </div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;                  getColor() + </div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                  agr::empty_space&lt;std::string&gt; + </div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                  std::to_string( <span class="keyword">static_cast &lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> ( round( iterating_var_ ++ ) ) ) + </div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                  <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ) + </div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                  style_p_; </div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;   </div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;         update_output( output_ );</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;        }</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;   </div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;       <span class="comment">//Update of the progress spinner:</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span>( styles_map_.at( <span class="stringliteral">&quot;spinner&quot;</span> ).find( style_ ) != styles_map_.at( <span class="stringliteral">&quot;spinner&quot;</span> ).end() )</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        {</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;         output_ = <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a>, <span class="stringliteral">&quot;left&quot;</span>, 100 ) + </div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;                   getColor() +</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                   getStyle()[ <span class="keyword">static_cast &lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span> ( iterating_var_spin_ ) &amp; 3 ] +</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                   <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a9cd60a9e70771e9ba62cd5e2860695ff">col</a>, <span class="stringliteral">&quot;green&quot;</span> ) +</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                    ( ( agr::roundoff( iterating_var, 1 ) == agr::roundoff( max_, 1 ) - agr::one( iterating_var ) ) ?</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                      ( <span class="keyword">static_cast &lt;</span>std::string<span class="keyword">&gt;</span> ( <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a>, <span class="stringliteral">&quot;left&quot;</span>, 100 ) + <span class="stringliteral">&quot;0&quot;</span> ) ) : <span class="stringliteral">&quot;&quot;</span>s</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                    ) +</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;                   <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> );</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;   </div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;         update_output( output_ );</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;        }</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  </div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;       <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;        {</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;         <span class="keywordflow">throw</span> std::runtime_error( <span class="stringliteral">&quot;ProgressBar style has not been set!&quot;</span> );</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        }</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;      }</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;     <span class="comment">// print</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a37a91eb88d83ec6bc1e182b7d8abcf00">  660</a></span>&#160;<span class="comment"></span>     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a37a91eb88d83ec6bc1e182b7d8abcf00">print</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;       std::cout &lt;&lt; <span class="stringliteral">&quot;Max: &quot;</span> &lt;&lt; max_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;Min: &quot;</span> &lt;&lt; min_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span> </div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;Time counter: &quot;</span> &lt;&lt; time_count_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;Style: &quot;</span> &lt;&lt; style_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;Type: &quot;</span> &lt;&lt; type_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;Message: &quot;</span> &lt;&lt; message_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;Brackets style: &quot;</span> &lt;&lt; brackets_open_ &lt;&lt; brackets_close_&lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;Color: &quot;</span> &lt;&lt; color_name_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;Show remaining time: &quot;</span> &lt;&lt; time_flag_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;      }</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160; </div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;     <span class="comment">// addStyle</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a95e629fd78b99a9c4f38b532a06e22d7">  681</a></span>&#160;<span class="comment"></span>     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a95e629fd78b99a9c4f38b532a06e22d7">addStyle</a>( <span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; style )</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;      {</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;       <span class="keywordflow">if</span>( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        {</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;         styles_map_.at(type).insert(style);</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        }</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span>( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;        {</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;         <span class="keywordflow">throw</span> agr::except_error_func( <span class="stringliteral">&quot;Inserted ProgressBar style&quot;</span>, style, <span class="stringliteral">&quot;is already available!&quot;</span> ); </div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        }</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;       <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        {</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;         <span class="keywordflow">throw</span> agr::except_error_func( <span class="stringliteral">&quot;Inserted ProgressBar type&quot;</span>, type, <span class="stringliteral">&quot;is already available!&quot;</span> );</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;        }</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;      }</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;  </div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;     <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160; </div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;     <span class="comment">//     Private methods</span></div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160; </div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;     <span class="comment">// remaining_time</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment"></span>     <span class="keywordtype">void</span> remaining_time()</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;      {</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;       max_spin_ = agr::isFloatingPoint( max_ ) ?</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                   ( agr::roundoff( max_ - min_, 1 ) * 10 + 1 ) :</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                   ( max_ - min_ + 1 );</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;   </div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;       <a class="code" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">duration</a> time_taken = steady_clock::now() - begin_timer;</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;       <span class="keywordtype">float</span> percentage_done = <span class="keyword">static_cast &lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span> ( ticks_occurred ) / ( max_spin_ );</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;       <a class="code" href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">duration</a> time_left = time_taken * ( 1 / percentage_done - 1 );</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;       std::chrono::minutes minutes_left = std::chrono::duration_cast &lt;std::chrono::minutes&gt; ( time_left );</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;       std::chrono::seconds seconds_left = std::chrono::duration_cast &lt;std::chrono::seconds&gt; ( time_left - minutes_left );</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;   </div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;       std::cout &lt;&lt; <span class="stringliteral">&quot;[&quot;</span></div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                 &lt;&lt; <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a5c3de8caf875adb236937ea7f60f74b0">sty</a>, <span class="stringliteral">&quot;italics&quot;</span> ) + <span class="stringliteral">&quot;Estimated time left: &quot;</span>  + <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;italics&quot;</span> )</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                 &lt;&lt; <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a9cd60a9e70771e9ba62cd5e2860695ff">col</a>, <span class="stringliteral">&quot;green&quot;</span> ) &lt;&lt; minutes_left.count() &lt;&lt; <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ) &lt;&lt; <span class="stringliteral">&quot;m &quot;</span> </div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                 &lt;&lt; <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a9cd60a9e70771e9ba62cd5e2860695ff">col</a>, <span class="stringliteral">&quot;green&quot;</span> ) &lt;&lt; seconds_left.count() &lt;&lt; <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> ) &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> </div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot;]&quot;</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                 &lt;&lt; <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">tcsc</a>, <span class="stringliteral">&quot;cln&quot;</span>, 0 );</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                 </div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;      }</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160; </div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;     <span class="comment">// update_output</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment"></span>     <span class="keywordtype">void</span> update_output( <span class="keyword">const</span> std::string&amp; output )</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;      {    </div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;       std::cout &lt;&lt; output</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                 &lt;&lt; getColor()</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                 &lt;&lt; ( ( message_ != agr::null_str&lt;std::string&gt; ) ?</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;                    ( agr::empty_space&lt;std::string&gt; + message_ + agr::empty_space&lt;std::string&gt; ) :</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                    agr::empty_space&lt;std::string&gt; )</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                 &lt;&lt; <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>( <a class="code" href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">rst</a>, <span class="stringliteral">&quot;color&quot;</span> );</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;   </div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;       <span class="keywordflow">if</span>( time_flag_ == <span class="stringliteral">&quot;on&quot;</span> )</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        {</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;         ticks_occurred ++;</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;         remaining_time();</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;        }</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;        </div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;       std::cout &lt;&lt; std::flush;</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;      }</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160; </div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;     <span class="comment">//     Private static attributes</span></div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;      <span class="keyword">static</span> <a class="code" href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">string_set_map</a> styles_map_;</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;      <span class="keyword">static</span> std::vector &lt;bar_type&gt; counter_;</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;      <span class="keyword">static</span> std::mutex mutex_;</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;     </div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;     <span class="comment">//     Private attributes</span></div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;     <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;      <span class="keywordtype">long</span> <span class="keywordtype">long</span> time_count_;</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;      std::uint64_t ticks_occurred;</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;      bar_type max_, max_spin_, min_, iterating_var_, iterating_var_spin_, width_;</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;      std::string style_, style_p_, style_l_, type_, conct_, message_, brackets_open_, brackets_close_, </div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                  output_, color_, time_flag_, color_name_;</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;      steady_clock::time_point begin, end, begin_timer;</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;   };</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;  <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;  <span class="comment">//     Operator &lt;&lt; redefinition</span></div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;  <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="comment"></span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> bar_type&gt;</div>
+<div class="line"><a name="l00786"></a><span class="lineno"><a class="line" href="namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920">  786</a></span>&#160;  std::ostream&amp; <a class="code" href="namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920">operator &lt;&lt; </a>( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classosm_1_1ProgressBar.html">ProgressBar&lt;bar_type&gt;</a> &amp;pb )</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;   {</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;    os &lt;&lt; <span class="stringliteral">&quot;Max: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01">getMax</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Min: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#aa343c3d8e622bb4f649a97c5e1da9e6a">getMin</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Time counter: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901">getTime</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span> </div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Style: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a5f0e4ef76662284087319652d4dd1b1a">getStyle</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Type: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8">getType</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Message: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e">getMessage</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Brackets style: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a3f48cb1bc81f63d508e10f5e464f41e9">getBrackets_open</a>() &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a">getBrackets_close</a>()&lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Color: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb">getColorName</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;Show remaining time: &quot;</span> &lt;&lt; pb.<a class="code" href="classosm_1_1ProgressBar.html#a140d44c2b24739925baae5019caaa91b">getRemainingTimeFlag</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160; </div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;   }</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160; </div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;  <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;  <span class="comment">//     Static attributes declaration</span></div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;  <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> bar_type&gt;</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;  <a class="code" href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">string_set_map</a> ProgressBar &lt;bar_type&gt;::styles_map_</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;   {</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    { <span class="stringliteral">&quot;indicator&quot;</span>, { <span class="stringliteral">&quot;%&quot;</span>, <span class="stringliteral">&quot;/100&quot;</span> } },</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;    { <span class="stringliteral">&quot;loader&quot;</span>, { <span class="stringliteral">&quot;#&quot;</span>, <span class="stringliteral">&quot;■&quot;</span> } },</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;    { <span class="stringliteral">&quot;spinner&quot;</span>, { <span class="stringliteral">&quot;/-\\|&quot;</span> } },</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;   };</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160; </div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> bar_type&gt;</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;  std::vector &lt;bar_type&gt; ProgressBar &lt;bar_type&gt;::counter_ (2);</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160; </div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> bar_type&gt;</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;  std::mutex ProgressBar &lt;bar_type&gt;::mutex_;</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160; }</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;      </div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html"><div class="ttname"><a href="classosm_1_1ProgressBar.html">osm::ProgressBar</a></div><div class="ttdoc">Template class used to create customized progress bars.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:58</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a019e2ecfdfdd229a856bbb60e367b80e"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e">osm::ProgressBar::resetTime</a></div><div class="ttdeci">void resetTime()</div><div class="ttdoc">Reset the ProgressBar time count.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:357</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a0b841a6a825cbc0d16f639dbfda3f83a"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a0b841a6a825cbc0d16f639dbfda3f83a">osm::ProgressBar::getIteratingVar</a></div><div class="ttdeci">bar_type getIteratingVar() const</div><div class="ttdoc">Get the ProgressBar iterating variable value.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:445</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a112340d2942ca29a38b9c3e69d8bfcaf"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a112340d2942ca29a38b9c3e69d8bfcaf">osm::ProgressBar::resetColor</a></div><div class="ttdeci">void resetColor()</div><div class="ttdoc">Reset the ProgressBar color.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:392</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a131bf2a58e787bb3556ae57781f70de2"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2">osm::ProgressBar::resetAll</a></div><div class="ttdeci">void resetAll()</div><div class="ttdoc">Reset the ProgressBar variables.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:289</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a140d44c2b24739925baae5019caaa91b"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a140d44c2b24739925baae5019caaa91b">osm::ProgressBar::getRemainingTimeFlag</a></div><div class="ttdeci">std::string getRemainingTimeFlag() const</div><div class="ttdoc">Get the ProgressBar time remaining variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:560</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a17c514f0f5f1d0f5f44e8cefdc57b0cb"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a17c514f0f5f1d0f5f44e8cefdc57b0cb">osm::ProgressBar::getColorName</a></div><div class="ttdeci">std::string getColorName() const</div><div class="ttdoc">Get the ProgressBar color name variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:548</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a18e398b562df8cb0fdebff9497d6369e"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e">osm::ProgressBar::getMessage</a></div><div class="ttdeci">std::string getMessage() const</div><div class="ttdoc">Get the ProgressBar Message variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:500</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a1cda9f9aa2f3b49aefa39d7edb7a7dce"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a1cda9f9aa2f3b49aefa39d7edb7a7dce">osm::ProgressBar::setMax</a></div><div class="ttdeci">void setMax(const bar_type &amp;max)</div><div class="ttdoc">Set the maximum value of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:122</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a2a2b9ac444ba6554c890858437d71c17"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a2a2b9ac444ba6554c890858437d71c17">osm::ProgressBar::setBrackets</a></div><div class="ttdeci">void setBrackets(const std::string &amp;brackets_open, const std::string &amp;brackets_close)</div><div class="ttdoc">Set brackets of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:248</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a30e43da878d156f1ce7a14f0e8b24023"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023">osm::ProgressBar::resetStyle</a></div><div class="ttdeci">void resetStyle()</div><div class="ttdoc">Reset the ProgressBar Style variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:334</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a37a91eb88d83ec6bc1e182b7d8abcf00"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a37a91eb88d83ec6bc1e182b7d8abcf00">osm::ProgressBar::print</a></div><div class="ttdeci">void print() const</div><div class="ttdoc">Prints on the screen the progress bar variable values.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:660</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a3f48cb1bc81f63d508e10f5e464f41e9"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a3f48cb1bc81f63d508e10f5e464f41e9">osm::ProgressBar::getBrackets_open</a></div><div class="ttdeci">std::string getBrackets_open() const</div><div class="ttdoc">Get the ProgressBar brackets_open variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:512</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a4d28b5b65467fefeb782e74a91a2a2e6"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6">osm::ProgressBar::ProgressBar</a></div><div class="ttdeci">ProgressBar()</div><div class="ttdoc">Construct a new ProgressBar &lt;bar_type&gt;::ProgressBar object. Default constructor which set to null val...</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:71</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a5eae57dd999e0720ade7a568d83a89d6"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a5eae57dd999e0720ade7a568d83a89d6">osm::ProgressBar::update</a></div><div class="ttdeci">void update(const bar_type &amp;iterating_var)</div><div class="ttdoc">Update the progress bar indicator.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:576</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a5f0e4ef76662284087319652d4dd1b1a"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a5f0e4ef76662284087319652d4dd1b1a">osm::ProgressBar::getStyle</a></div><div class="ttdeci">std::string getStyle() const</div><div class="ttdoc">Get the ProgressBar Style variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:457</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a641b705a1f3d5c3ba8307dbd148f9e02"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a641b705a1f3d5c3ba8307dbd148f9e02">osm::ProgressBar::ProgressBar</a></div><div class="ttdeci">ProgressBar(const bar_type &amp;min, const bar_type &amp;max)</div><div class="ttdoc">Construct a new ProgressBar &lt;bar_type&gt;::ProgressBar object. Parametric constructor which set to null ...</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:95</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a661ab077b857cf7bf5f21a30fb02ffea"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a661ab077b857cf7bf5f21a30fb02ffea">osm::ProgressBar::resetBrackets</a></div><div class="ttdeci">void resetBrackets()</div><div class="ttdoc">Reset the ProgressBar brackets.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:380</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a78a690d90ecaa2e9ba5ee3d224741901"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901">osm::ProgressBar::getTime</a></div><div class="ttdeci">long long getTime() const</div><div class="ttdoc">Get the ProgressBar current time value.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:433</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a811e5501381f56cab0bb1f40be9d1250"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a811e5501381f56cab0bb1f40be9d1250">osm::ProgressBar::setBegin</a></div><div class="ttdeci">void setBegin()</div><div class="ttdoc">Set begin time count.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:223</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a8d49c0777f1bfcdce65e143bf66b028a"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a">osm::ProgressBar::getBrackets_close</a></div><div class="ttdeci">std::string getBrackets_close() const</div><div class="ttdoc">Get the ProgressBar brackets_close variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:524</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a91d84b261ed3dc11676dad6f4eedd0f9"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a91d84b261ed3dc11676dad6f4eedd0f9">osm::ProgressBar::setRemainingTimeFlag</a></div><div class="ttdeci">void setRemainingTimeFlag(const std::string &amp;time_flag)</div><div class="ttdoc">Set the remaining time of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:274</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a95e629fd78b99a9c4f38b532a06e22d7"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a95e629fd78b99a9c4f38b532a06e22d7">osm::ProgressBar::addStyle</a></div><div class="ttdeci">void addStyle(const std::string &amp;type, const std::string &amp;style)</div><div class="ttdoc">Add customized styles to the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:681</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_a968c89302c97005f349f4eb56b4f69d2"><div class="ttname"><a href="classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2">osm::ProgressBar::resetMin</a></div><div class="ttdeci">void resetMin()</div><div class="ttdoc">Reset the ProgressBar Min variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:323</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_aa21653921a5395048f1e0de51d38d8d9"><div class="ttname"><a href="classosm_1_1ProgressBar.html#aa21653921a5395048f1e0de51d38d8d9">osm::ProgressBar::getStyleComplete</a></div><div class="ttdeci">std::string getStyleComplete() const</div><div class="ttdoc">Get the ProgressBar Style variable for &quot;complete&quot; variable type.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:469</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_aa343c3d8e622bb4f649a97c5e1da9e6a"><div class="ttname"><a href="classosm_1_1ProgressBar.html#aa343c3d8e622bb4f649a97c5e1da9e6a">osm::ProgressBar::getMin</a></div><div class="ttdeci">bar_type getMin() const</div><div class="ttdoc">Get the ProgressBar Min variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:421</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_ab2bb14015acd7b4f24df753c510d17e5"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ab2bb14015acd7b4f24df753c510d17e5">osm::ProgressBar::setMin</a></div><div class="ttdeci">void setMin(const bar_type &amp;min)</div><div class="ttdoc">Set the minimum value of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:134</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_abb6fe0c970315dc9cf40ed8f366cefc4"><div class="ttname"><a href="classosm_1_1ProgressBar.html#abb6fe0c970315dc9cf40ed8f366cefc4">osm::ProgressBar::setEnd</a></div><div class="ttdeci">void setEnd()</div><div class="ttdoc">Set end time count.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:234</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_ac3636d329268d9c3e205b10e8fbcded8"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8">osm::ProgressBar::getType</a></div><div class="ttdeci">std::string getType() const</div><div class="ttdoc">Get the ProgressBar Type variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:488</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_ac5d8c7b8bad15eefe06e6b3d6e8ffce3"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ac5d8c7b8bad15eefe06e6b3d6e8ffce3">osm::ProgressBar::setColor</a></div><div class="ttdeci">void setColor(const std::string &amp;color)</div><div class="ttdoc">Set the color of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:261</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_acd438b7c7622a459c9a2462bc085361e"><div class="ttname"><a href="classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e">osm::ProgressBar::resetRemainingTime</a></div><div class="ttdeci">void resetRemainingTime()</div><div class="ttdoc">Reset the ProgressBar time remaining count.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:368</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_ad205e192d5169f6af906616f9ee285fe"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe">osm::ProgressBar::setMessage</a></div><div class="ttdeci">void setMessage(const std::string &amp;message)</div><div class="ttdoc">Set the message of the ProgressBar.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:212</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_ad8f3d55a9ff711442756d11c4153b045"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ad8f3d55a9ff711442756d11c4153b045">osm::ProgressBar::resetMessage</a></div><div class="ttdeci">void resetMessage()</div><div class="ttdoc">Reset the ProgressBar Message variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:346</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_ae4d6027f18f3855ec9e60ba6ea86aa01"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01">osm::ProgressBar::getMax</a></div><div class="ttdeci">bar_type getMax() const</div><div class="ttdoc">Get the ProgressBar Max variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:409</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_ae7396965b85300e79639d151264baf26"><div class="ttname"><a href="classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26">osm::ProgressBar::setStyle</a></div><div class="ttdeci">void setStyle(const std::string &amp;type, const std::string &amp;style)</div><div class="ttdoc">Set the type and style of the ProgressBar. Available: &quot;indicator&quot; (&quot;%&quot;, &quot;/100&quot;), &quot;loader&quot; (&quot;#&quot;,...</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:147</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_af16bdec724cd65d3d47b013213d79334"><div class="ttname"><a href="classosm_1_1ProgressBar.html#af16bdec724cd65d3d47b013213d79334">osm::ProgressBar::setStyle</a></div><div class="ttdeci">void setStyle(const std::string &amp;type, const std::string &amp;style_p, const std::string &amp;style_l)</div><div class="ttdoc">Set the style of the complete ProgressBar. Available: &quot;indicator&quot; (&quot;%&quot;, &quot;/100&quot;), &quot;loader&quot; (&quot;#&quot;,...</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:180</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_af56b979a3e98ade5c590eff50920bdbe"><div class="ttname"><a href="classosm_1_1ProgressBar.html#af56b979a3e98ade5c590eff50920bdbe">osm::ProgressBar::getColor</a></div><div class="ttdeci">std::string getColor() const</div><div class="ttdoc">Get the ProgressBar color variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:536</div></div>
+<div class="ttc" id="aclassosm_1_1ProgressBar_html_afd43e6063ab9c24abb24e776f32cc34d"><div class="ttname"><a href="classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d">osm::ProgressBar::resetMax</a></div><div class="ttdeci">void resetMax()</div><div class="ttdoc">Reset the ProgressBar Max variable.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:312</div></div>
 <div class="ttc" id="anamespaceosm_html"><div class="ttname"><a href="namespaceosm.html">osm</a></div><div class="ttdef"><b>Definition:</b> canvas.cpp:15</div></div>
-<div class="ttc" id="anamespaceosm_html_a0e4c43da6b860f7b739d6dd226b97858"><div class="ttname"><a href="namespaceosm.html#a0e4c43da6b860f7b739d6dd226b97858">osm::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(Decorator my_shell, const T &amp;elem)</div><div class="ttdoc">Operator overload to output a modified ostream object which properties are set thanks to the Decorato...</div><div class="ttdef"><b>Definition:</b> decorator.hpp:93</div></div>
-<div class="ttc" id="anamespaceosm_html_a12c9bec9ac0ae5f9182aa7a0d3cce897"><div class="ttname"><a href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">osm::steady_clock</a></div><div class="ttdeci">std::chrono::steady_clock steady_clock</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:27</div></div>
-<div class="ttc" id="anamespaceosm_html_a8a574177f2495c425a3a7e6246daefa8"><div class="ttname"><a href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">osm::duration</a></div><div class="ttdeci">std::chrono::duration&lt; float, steady_clock::period &gt; duration</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:28</div></div>
-<div class="ttc" id="anamespaceosm_html_aac2e7abadeebe1bc737211e2a0fc87b2"><div class="ttname"><a href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">osm::string_set_map</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::set&lt; std::string &gt; &gt; string_set_map</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:26</div></div>
+<div class="ttc" id="anamespaceosm_html_a12c9bec9ac0ae5f9182aa7a0d3cce897"><div class="ttname"><a href="namespaceosm.html#a12c9bec9ac0ae5f9182aa7a0d3cce897">osm::steady_clock</a></div><div class="ttdeci">std::chrono::steady_clock steady_clock</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:45</div></div>
+<div class="ttc" id="anamespaceosm_html_a4cefaf71da9e5b1e2746189dee3cd24c"><div class="ttname"><a href="namespaceosm.html#a4cefaf71da9e5b1e2746189dee3cd24c">osm::rst</a></div><div class="ttdeci">const std::unordered_map&lt; std::string, std::string &gt; rst</div><div class="ttdoc">It is used to store the reset features commands.</div><div class="ttdef"><b>Definition:</b> colsty.cpp:114</div></div>
+<div class="ttc" id="anamespaceosm_html_a5c3de8caf875adb236937ea7f60f74b0"><div class="ttname"><a href="namespaceosm.html#a5c3de8caf875adb236937ea7f60f74b0">osm::sty</a></div><div class="ttdeci">const std::unordered_map&lt; std::string, std::string &gt; sty</div><div class="ttdoc">It is used to store the styles.</div><div class="ttdef"><b>Definition:</b> colsty.cpp:90</div></div>
+<div class="ttc" id="anamespaceosm_html_a8a574177f2495c425a3a7e6246daefa8"><div class="ttname"><a href="namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8">osm::duration</a></div><div class="ttdeci">std::chrono::duration&lt; float, steady_clock::period &gt; duration</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:46</div></div>
+<div class="ttc" id="anamespaceosm_html_a9cd60a9e70771e9ba62cd5e2860695ff"><div class="ttname"><a href="namespaceosm.html#a9cd60a9e70771e9ba62cd5e2860695ff">osm::col</a></div><div class="ttdeci">const std::unordered_map&lt; std::string, std::string &gt; col</div><div class="ttdoc">It is used to store the colors. Note: &quot;bg&quot; is the prefix of the background color features and &quot;bd&quot; is...</div><div class="ttdef"><b>Definition:</b> colsty.cpp:31</div></div>
+<div class="ttc" id="anamespaceosm_html_aac2e7abadeebe1bc737211e2a0fc87b2"><div class="ttname"><a href="namespaceosm.html#aac2e7abadeebe1bc737211e2a0fc87b2">osm::string_set_map</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::set&lt; std::string &gt; &gt; string_set_map</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:44</div></div>
+<div class="ttc" id="anamespaceosm_html_ac7e18d52b63a1c96c42a1a0bb009d369"><div class="ttname"><a href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">osm::tcsc</a></div><div class="ttdeci">const string_pair_map tcsc</div><div class="ttdoc">It is used to store the terminal control sequences for clear line / screen.</div><div class="ttdef"><b>Definition:</b> cursor.cpp:75</div></div>
+<div class="ttc" id="anamespaceosm_html_adbcc39535554329cee231dc3dd33ffd3"><div class="ttname"><a href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">osm::crs</a></div><div class="ttdeci">const string_pair_map crs</div><div class="ttdoc">It is used to store the cursor commands.</div><div class="ttdef"><b>Definition:</b> cursor.cpp:31</div></div>
+<div class="ttc" id="anamespaceosm_html_ae7a38e64cf69c6449e10cb4ec035192a"><div class="ttname"><a href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">osm::feat</a></div><div class="ttdeci">const std::string &amp; feat(const std::unordered_map&lt; std::string, std::string &gt; &amp;generic_map, const std::string &amp;feat_string)</div><div class="ttdoc">It takes an std::map object as the first argument and an std::string object (map key) as the second a...</div><div class="ttdef"><b>Definition:</b> common.cpp:28</div></div>
+<div class="ttc" id="anamespaceosm_html_af39d33e13c1d113bf8519fa8d316a920"><div class="ttname"><a href="namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920">osm::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const ProgressBar&lt; bar_type &gt; &amp;pb)</div><div class="ttdoc">Operator &lt;&lt; used to print the progress bar properties.</div><div class="ttdef"><b>Definition:</b> progress_bar.hpp:786</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -4,12 +4,11 @@ var indexSectionsWithContent =
   1: "cdgimptu",
   2: "o",
   3: "cdmopw",
-  4: "abcdefgimoprsu~",
+  4: "acdefgimoprsu~",
   5: "chorstw",
   6: "dst",
   7: "acfu",
-  8: "abeo",
-  9: "ap"
+  8: "abeo"
 };
 
 var indexSectionNames =
@@ -22,8 +21,7 @@ var indexSectionNames =
   5: "variables",
   6: "typedefs",
   7: "enums",
-  8: "enumvalues",
-  9: "defines"
+  8: "enumvalues"
 };
 
 var indexSectionLabels =
@@ -36,7 +34,6 @@ var indexSectionLabels =
   5: "Variables",
   6: "Typedefs",
   7: "Enumerations",
-  8: "Enumerator",
-  9: "Macros"
+  8: "Enumerator"
 };
 
