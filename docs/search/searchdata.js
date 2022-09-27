@@ -8,7 +8,8 @@ var indexSectionsWithContent =
   5: "chorstw",
   6: "dst",
   7: "acfu",
-  8: "abeo"
+  8: "abeo",
+  9: "cdmopw"
 };
 
 var indexSectionNames =
@@ -21,7 +22,8 @@ var indexSectionNames =
   5: "variables",
   6: "typedefs",
   7: "enums",
-  8: "enumvalues"
+  8: "enumvalues",
+  9: "defines"
 };
 
 var indexSectionLabels =
@@ -34,6 +36,7 @@ var indexSectionLabels =
   5: "Variables",
   6: "Typedefs",
   7: "Enumerations",
-  8: "Enumerator"
+  8: "Enumerator",
+  9: "Macros"
 };
 
