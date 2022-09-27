@@ -1,6 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
+#pragma once
 #ifndef DECORATOR_HPP
 #define DECORATOR_HPP
 

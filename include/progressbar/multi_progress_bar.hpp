@@ -1,6 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
+#pragma once
 #ifndef MULTIPROGRESSBAR_HPP
 #define MULTIPROGRESSBAR_HPP
 

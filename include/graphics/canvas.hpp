@@ -1,6 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
+#pragma once
 #ifndef OSM_CANVAS_HPP
 #define OSM_CANVAS_HPP
 

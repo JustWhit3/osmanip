@@ -1,6 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
+#pragma once
 #ifndef PROGRESSBAR_HPP
 #define PROGRESSBAR_HPP
 

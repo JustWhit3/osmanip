@@ -1,6 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
+#pragma once
 #ifndef WINDOWS_HPP
 #define WINDOWS_HPP
 

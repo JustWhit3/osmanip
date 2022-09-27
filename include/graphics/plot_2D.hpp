@@ -1,6 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
+#pragma once
 #ifndef PLOT2DCANVAS
 #define PLOT2DCANVAS
 

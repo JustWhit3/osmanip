@@ -1,6 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
+#pragma once
 #ifndef CURSOR_HPP
 #define CURSOR_HPP
 

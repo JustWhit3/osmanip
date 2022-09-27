@@ -1,6 +1,7 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
+#pragma once
 #ifndef COLSTY_HPP
 #define COLSTY_HPP
 
