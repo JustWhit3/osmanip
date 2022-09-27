@@ -1,4 +1,14 @@
 //====================================================
+//     File data
+//====================================================
+/**
+ * @file decorator.hpp
+ * @author Gianluca Bianco (biancogianluca9@gmail.com)
+ * @date 2022-06-06
+ * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ */
+
+//====================================================
 //     Preprocessor settings
 //====================================================
 #pragma once

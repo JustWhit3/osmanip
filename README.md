@@ -176,7 +176,7 @@ loading_bar.setStyle( "loader", "#" );
 loading_bar.setBrackets( "{", "}" );
 loading_bar.setMessage( "processing..." );
 
-std::cout << "This is a normal loading bar: " << "\n";
+std::cout << "This is a loading bar: with message: " << "\n";
 osm::OPTION( osm::CURSOR::OFF ); // Hide cursor for better output rendering
 for ( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
  {
