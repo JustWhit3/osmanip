@@ -77,9 +77,8 @@ echo ""
 
 #====================================================
 #     COMPILATION OF THE SOURCE CODE
-#     (check if doctest is installed)
 #====================================================
-echo "Compiling only the main code of osmanip (this is not a problem for the installation)..."
+echo "Compiling..."
 if ! make ; then
     echo "Compilation failed!"
     exit

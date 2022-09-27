@@ -12,7 +12,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && ./scripts/install.sh && cd ../proj && make bin/manipulators bin/progressbar bin/graphics CXX=g++"'
+        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/osmanip $$ cp -r include/* /usr/include/osmanip && cd ../proj && make bin/manipulators bin/progressbar bin/graphics CXX=g++"'
 
     # gcc 8
     build_gcc_8:
