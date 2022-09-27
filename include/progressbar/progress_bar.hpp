@@ -20,9 +20,8 @@
 //====================================================
 
 //My headers
-#include "../include/manipulators/colsty.hpp"
-#include "../include/manipulators/cursor.hpp"
-#include "../include/progressbar/progress_bar.hpp"
+#include "../manipulators/colsty.hpp"
+#include "../manipulators/cursor.hpp"
 
 //Extra headers
 #include <arsenalgear/constants.hpp>
@@ -34,7 +33,7 @@
 #include <iostream>
 #include <string>
 #include <chrono>
-#include <set>
+#include <unordered_set>
 #include <unordered_map>
 #include <vector>
 #include <mutex>
@@ -52,7 +51,7 @@ namespace osm
   //====================================================
   //     Aliases
   //====================================================
-  using string_set_map = std::unordered_map <std::string, std::set <std::string> >;
+  using string_set_map = std::unordered_map <std::string, std::unordered_set <std::string> >;
   using steady_clock = std::chrono::steady_clock;
   using duration = std::chrono::duration <float, steady_clock::period>;
 

@@ -27,7 +27,7 @@ else
 	TEST_EXEC := tests.exe
 endif
 LIB := libosmanip.a
-CC := g++
+CXX := g++
 
 #====================================================
 #     Directories
@@ -41,7 +41,7 @@ LIB_DIR := lib
 # Source directories
 SRC_DIR := src
 EX_DIR := examples
-TEST_DIR := test
+TEST_DIR := test/unit_tests
 
 #====================================================
 #     Source files
@@ -87,8 +87,9 @@ else
 	INC_DIR := $(SRC_DIR)
 endif
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
-WFLAGS := -Wall -Wextra -Wno-reorder
-CPPFLAGS := -std=c++17 -g $(INC_FLAGS) -MMD -MP $(WFLAGS)
+WFLAGS := -Wall -Wextra -Wno-reorder -pedantic
+CXXFLAGS := -std=c++17
+CPPFLAGS := $(CXXFLAGS) -g $(INC_FLAGS) -MMD -MP $(WFLAGS)
 LDFLAGS := -pthread -larsenalgear
 
 #====================================================
@@ -107,24 +108,24 @@ tests: $(BUILD_DIR)/$(TEST_EXEC)
 # Manipulators
 $(BUILD_DIR)/$(EX_MANIP_EXEC): $(OBJ_MANIP)
 	@ mkdir -p $(dir $@)
-	$(CC) $(OBJ_MANIP) -o $@ $(LDFLAGS)
+	$(CXX) $(OBJ_MANIP) -o $@ $(LDFLAGS)
 
 # Progress bar
 $(BUILD_DIR)/$(EX_PB_EXEC): $(OBJ_PB)
 	@ mkdir -p $(dir $@)
-	$(CC) $(OBJ_PB) -o $@ $(LDFLAGS)
+	$(CXX) $(OBJ_PB) -o $@ $(LDFLAGS)
 
 # Graphics
 $(BUILD_DIR)/$(EX_GRAPH_EXEC): $(OBJ_GRAPH)
 	@ mkdir -p $(dir $@)
-	$(CC) $(OBJ_GRAPH) -o $@ $(LDFLAGS)
+	$(CXX) $(OBJ_GRAPH) -o $@ $(LDFLAGS)
 
 #====================================================
 #     Building tests
 #====================================================
 $(BUILD_DIR)/$(TEST_EXEC): $(TEST_OBJ)
 	@ mkdir -p $(dir $@)
-	$(CC) $(TEST_OBJ) -o $@ $(LDFLAGS)
+	$(CXX) $(TEST_OBJ) -o $@ $(LDFLAGS)
 
 #====================================================
 #     Reordering objects
