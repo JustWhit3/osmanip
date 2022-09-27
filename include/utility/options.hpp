@@ -31,26 +31,24 @@
 namespace osm
  {
   //====================================================
-  //     CURSOR
+  //     Enum classes
   //====================================================
+
+  // CURSOR
   /**
    * @brief It is used to store the OPTION function options for the cursor view. Current options are: ON to enable cursor view and OFF to disable it.
    * 
    */
   enum class CURSOR { ON, OFF };
 
-  //====================================================
-  //     ANSI
-  //====================================================
+  // ANSI
   /**
    * @brief It is used to store the OPTION function options for the ANSI escape sequences enabling. Current options are: ON to enable and OFF to disable.
    * 
    */
   enum class ANSI { ON, OFF };
 
-  //====================================================
-  //     UNICODECH
-  //====================================================
+  // UNICODECH
   /**
    * @brief It is used to store the OPTION function options for the UNICODE characters enabling. Current options are: ON to enable and OFF to disable.
    * 
@@ -58,8 +56,10 @@ namespace osm
   enum class UNICODECH { ON, OFF };
 
   //====================================================
-  //     OPTION
+  //     Functions
   //====================================================
+
+  // OPTION
   /**
    * @brief It is used to set a specific option.
    * 

@@ -18,8 +18,10 @@
 namespace osm
  {
   //====================================================
-  //     Parametric constructor
+  //     Constructors
   //====================================================
+
+  // Parametric constructor
   /**
    * @brief Construct a new Plot2D:: Plot2D object. The same as its parent, the constructor requires the dimensions of the canvas.
    * 
@@ -36,8 +38,10 @@ namespace osm
     }
 
   //====================================================
-  //     setOffset
+  //     Setters
   //====================================================
+
+  // setOffset
   /**
    * @brief Set the offset_x and offset_y of the canvas.
    * 
@@ -50,9 +54,7 @@ namespace osm
     offset_y_ = yOff;
    }
 
-  //====================================================
-  //     setScale
-  //====================================================
+  // setScale
   /** 
    * @brief Set the scale_x and scale_y of the canvas.
    * 
@@ -66,8 +68,10 @@ namespace osm
    }
 
   //====================================================
-  //     getOffsetX
+  //     Getters
   //====================================================
+
+  // getOffsetX
   /**
    * @brief Get the offset_x of the canvas.
    * 
@@ -78,9 +82,7 @@ namespace osm
     return offset_x_;
    }
 
-  //====================================================
-  //     getOffsetY
-  //====================================================
+  // getOffsetY
   /** 
    * @brief Get the offset_y of the canvas.
    * 
@@ -91,9 +93,7 @@ namespace osm
     return offset_y_;
    }
 
-  //====================================================
-  //     getScaleX
-  //====================================================
+  // getScaleX
   /** 
    * @brief Get the scale_x of the canvas.
    * 
@@ -104,9 +104,7 @@ namespace osm
     return scale_x_;
    }
 
-  //====================================================
-  //     getScaleY
-  //====================================================
+  // getScaleY
   /** 
    * @brief Get the scale_y of the canvas.
    * 

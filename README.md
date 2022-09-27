@@ -425,24 +425,22 @@ To run all examples:
 
 > **NOTE**: executables end with `.exe` if you are on Windows of course.
 
-To compile tests:
+Tests are produced using `-Wall -Wextra -pedantic` flags. To check them you need some prerequisites:
 
-```shell
-make tests
+- [Valgrind](https://valgrind.org/) for profiling.
+- [doctest](https://github.com/onqtam/doctest) for testing.
+- [cppcheck](https://cppcheck.sourceforge.io/) for testing.
+
+They are installed in the second step of the installation through the `install.sh` script. Before running test codes you need to compile them:
+
+```txt
+make bin/tests
 ```
 
-To run tests:
+To launch all tests simultaneously:
 
-```shell
-./bin/tests
-```
-
-> **NOTE**: executables end with `.exe` if you are on Windows of course.
-
-There is also an option to go back to the pre-compilation state of the code, to do this simply type this command:
-
-```shell
-make clean
+```txt
+./all_tests.sh
 ```
 
 ## Useful scripts

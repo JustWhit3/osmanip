@@ -60,8 +60,10 @@ namespace osm
      float getScaleY() const; 
 
      //====================================================
-     //     Draw
+     //     Methods
      //====================================================
+
+     // Draw
      /**
       * @brief Plot a function that receives an argument of a numeric type X and returns a numeric value of type Y. Represent it with a given char c and an optional feat.
       * 

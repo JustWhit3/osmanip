@@ -31,8 +31,10 @@ using namespace std::literals::string_literals;
 namespace osm
  {
   //====================================================
-  //     col
+  //     Variables
   //====================================================
+
+  // col
   /**
    * @brief It is used to store the colors. Note: "bg" is the prefix of the background color features and "bd" is the one of the bold color features.
    * 
@@ -89,9 +91,7 @@ namespace osm
     { "bd gray", "\033[1;37m" }
    };
 
-  //====================================================
-  //     sty
-  //====================================================
+  // sty
   /**
    * @brief It is used to store the styles.
    * 
@@ -113,9 +113,7 @@ namespace osm
     { "d-underlined", "\033[21m" }
    };
  
-  //====================================================
-  //     rst
-  //====================================================
+  // rst
   /**
    * @brief It is used to store the reset features commands.
    * 
@@ -144,8 +142,10 @@ namespace osm
    };
 
   //====================================================
-  //     RGB
+  //     Functions
   //====================================================
+
+  // RGB
   /**
    * @brief It takes three integers as arguments which are the corresponding rgb triplets of a color (see here for the full list of available colors http://www.aksiom.net/rgb.html). It can be used to output a wider variety of colors with respect to the standard available from the col map.
    * 

@@ -24,8 +24,10 @@
 namespace osm
  {
   //====================================================
-  //     Parametric constructor
+  //     Constructors
   //====================================================
+
+  // Parametric constructor
   /**
    * @brief Construct a new Canvas:: Canvas object. The size of the canvas in characters must be specified upon construction.
    * 
@@ -45,8 +47,10 @@ namespace osm
    }
 
   //====================================================
-  //     setBackground
+  //     Setters
   //====================================================
+
+  // setBackground
   /**
    * @brief Set the char that fills the background and an optional feat.
    * 
@@ -60,21 +64,10 @@ namespace osm
    }
 
   //====================================================
-  //     enableFrame
+  //     Setters
   //====================================================
-  /**
-   * @brief Flag to frame or not the canvas. The frame doesn't increase the size taken by the canvas. Instead, reduces the 2D space to draw in two columns and two rows (used to print the frame itself).
-   * 
-   * @param frame_enabled Set to True to enable the frame. Otherwise set to False.
-   */
-  void Canvas::enableFrame( bool frame_enabled )
-   {
-    frame_enabled_ = frame_enabled;
-   }
 
-  //====================================================
-  //     setFrame
-  //====================================================
+  // setFrame
   /**
    * @brief Set the FrameStyle of the canvas and an optional feat.
    * 
@@ -87,9 +80,7 @@ namespace osm
     frame_feat_ = feat;
    }
 
-  //====================================================
-  //     setWidth
-  //====================================================
+  // setWidth
   /**
    * @brief Set the width of the canvas.
    * 
@@ -101,9 +92,7 @@ namespace osm
     resizeCanvas();
    }
 
-  //====================================================
-  //     setHeight
-  //====================================================
+  // setHeight
   /**
    * @brief Set the height of the canvas.
    * 
@@ -116,8 +105,10 @@ namespace osm
    }
 
   //====================================================
-  //     getWidth
+  //     Getters
   //====================================================
+
+  // getWidth
   /**
    * @brief Get the width of the canvas.
    * 
@@ -128,9 +119,7 @@ namespace osm
     return width_;
    }
 
-  //====================================================
-  //     getHeight
-  //====================================================
+  // getHeight
   /**
    * @brief Get the height of the canvas.
    * 
@@ -141,9 +130,7 @@ namespace osm
     return height_;
    }
 
-  //====================================================
-  //     getBackground
-  //====================================================
+  // getBackground
   /**
    * @brief Get the char that fills the background.
    * 
@@ -154,9 +141,7 @@ namespace osm
     return bg_char_;
    }
 
-  //====================================================
-  //     getBackgroundFeat
-  //====================================================
+  // getBackgroundFeat
   /** 
    * @brief Get the optional feat of the background.
    * 
@@ -166,23 +151,8 @@ namespace osm
    {
     return bg_feat_;
    }
- 
-  //====================================================
-  //     isFrameEnabled
-  //====================================================
-  /**
-   * @brief Return True if the frame is enabled. Otherwise return False.
-   * 
-   * @return bool The frame enabled flag.
-   */
-  bool Canvas::isFrameEnabled() const
-   {
-    return frame_enabled_;
-   }
 
-  //====================================================
-  //     getFrameFeat
-  //====================================================
+  // getFrameFeat
   /**
    * @brief Get the frame feature (if set).
    * 
@@ -193,9 +163,7 @@ namespace osm
     return frame_feat_;
    }
 
-  //====================================================
-  //     getFrameStyle
-  //====================================================
+  // getFrameStyle
   /**
    * @brief Get the frame style.
    * 
@@ -207,8 +175,32 @@ namespace osm
    }
 
   //====================================================
-  //     clear
+  //     Methods
   //====================================================
+
+  // enableFrame
+  /**
+   * @brief Flag to frame or not the canvas. The frame doesn't increase the size taken by the canvas. Instead, reduces the 2D space to draw in two columns and two rows (used to print the frame itself).
+   * 
+   * @param frame_enabled Set to True to enable the frame. Otherwise set to False.
+   */
+  void Canvas::enableFrame( bool frame_enabled )
+   {
+    frame_enabled_ = frame_enabled;
+   }
+  
+  // isFrameEnabled
+  /**
+   * @brief Return True if the frame is enabled. Otherwise return False.
+   * 
+   * @return bool The frame enabled flag.
+   */
+  bool Canvas::isFrameEnabled() const
+   {
+    return frame_enabled_;
+   }
+
+  // clear
   /**
    * @brief Fill the canvas with the background.
    */
@@ -218,9 +210,7 @@ namespace osm
     feat_buffer_.assign( static_cast<long> ( width_ ) * height_, bg_feat_ );
    }
 
-  //====================================================
-  //     put
-  //====================================================
+  // put
   /** 
    * @brief Put a character in the canvas, given its coordinates and an optional feat. An out-of-bounds exception will be thrown if the coordinates are outside the canvas.
    * 
@@ -235,9 +225,7 @@ namespace osm
     feat_buffer_.at( y * width_ + x ) = feat;
    }
 
-  //====================================================
-  //     refresh
-  //====================================================
+  // refresh
   /** 
    * @brief Display the canvas in the console.
    */
@@ -322,9 +310,7 @@ namespace osm
     already_drawn_ = true;
    }
 
-  //====================================================
-  //     resizeCanvas
-  //====================================================
+  // resizeCanvas
   /** 
    * @brief Resize the canvas.
    */

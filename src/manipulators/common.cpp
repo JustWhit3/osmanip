@@ -26,8 +26,10 @@
 namespace osm
  {
   //====================================================
-  //     feat (first overload)
+  //     Function
   //====================================================
+
+  // feat (first overload)
   /**
    * @brief It takes an std::map object as the first argument and an std::string object (map key) as the second argument and returns the interested color / style feature by returning the map value from the corresponding key.
    * 

@@ -31,8 +31,10 @@ using namespace std::literals::string_literals;
 namespace osm
  {  
   //====================================================
-  //     crs
+  //     Variables
   //====================================================
+
+  // crs
   /**
    * @brief It is used to store the cursor commands.
    * 
@@ -49,9 +51,7 @@ namespace osm
     { "left", std::make_pair( "\u001b[", "D" ) }
    };
 
-  //====================================================
-  //     tcs
-  //====================================================
+  // tcs
   /**
    * @brief It is used to store the terminal control sequences.
    * 
@@ -74,9 +74,7 @@ namespace osm
     { "scrs", "\u001b[?25h" }             //Show cursor
    };
 
-  //====================================================
-  //     tcsc
-  //====================================================
+  // tcsc
   /**
    * @brief It is used to store the terminal control sequences for clear line / screen.
    * 
@@ -92,8 +90,10 @@ namespace osm
    };
 
   //====================================================
-  //     feat (second overload)
+  //     Functions
   //====================================================
+
+  // feat (second overload)
   /**
    * @brief This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.
    * 
@@ -119,9 +119,7 @@ namespace osm
      }
    }
 
-  //====================================================
-  //     go_to
-  //====================================================
+  // go_to
   /**
    * @brief It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.
    * 

@@ -30,7 +30,7 @@
 namespace osm
  {
   //====================================================
-  //     Default constructor
+  //     Constructors
   //====================================================
   /**
    * @brief Default constructor of Decorator class.
@@ -51,8 +51,10 @@ namespace osm
    }
 
   //====================================================
-  //     setColor
+  //     Setters
   //====================================================
+
+  // setColor
   /**
    * @brief Method used to set the color of a stream.
    * 
@@ -65,9 +67,7 @@ namespace osm
     else colors.insert( { &os, color } );
    }
 
-  //====================================================
-  //     setStyle
-  //====================================================
+  // setStyle
   /**
    * @brief Method used to set the style of a stream.
    * 
@@ -80,9 +80,7 @@ namespace osm
     else styles.insert( { &os, style } );
    }
 
-  //====================================================
-  //     resetColor
-  //====================================================
+  // resetColor
   /**
    * @brief Method used to reset the color of a stream.
    * 
@@ -94,9 +92,7 @@ namespace osm
     colors.erase( &os );
    }
 
-  //====================================================
-  //     resetStyle
-  //====================================================
+  // resetStyle
   /**
    * @brief Method used to reset the style or of a stream.
    * 
@@ -108,9 +104,7 @@ namespace osm
     styles.erase( &os );
    }
 
-  //====================================================
-  //     removeStyle
-  //====================================================
+  // removeStyle
   /**
    * @brief Method used to remove one of the set styles (useful in case they are more than one).
    * 
@@ -129,9 +123,7 @@ namespace osm
 
    }
 
-  //====================================================
-  //     resetFeatures
-  //====================================================
+  // resetFeatures
   /**
    * @brief Method used to reset all the features of a stream.
    * 
@@ -145,8 +137,10 @@ namespace osm
    }
 
   //====================================================
-  //     getColor
+  //     Getters
   //====================================================
+
+  // getColor
   /**
    * @brief Method used to return the selected color of a stream.
    * 
@@ -159,9 +153,7 @@ namespace osm
     return colors[ &os ];
    }
 
-  //====================================================
-  //     getStyle
-  //====================================================
+  // getStyle
   /**
    * @brief Method used to return the selected style of a stream.
    * 
@@ -174,9 +166,7 @@ namespace osm
     return styles[ &os ];
    }
 
-  //====================================================
-  //     getColorList
-  //====================================================
+  // getColorList
   /**
    * @brief Method used to return the map of streams with the respective color.
    * 
@@ -187,9 +177,7 @@ namespace osm
     return colors;
    }
 
-  //====================================================
-  //     getStyleList
-  //====================================================
+  // getStyleList
   /**
    * @brief Method used to return the map of streams with the respective style.
    * 
@@ -200,9 +188,7 @@ namespace osm
     return styles;
    }
 
-  //====================================================
-  //     getCurrentStream
-  //====================================================
+  // getCurrentStream
   /**
    * @brief Method used to return the stream that is used to output stuff.
    * 
@@ -214,8 +200,10 @@ namespace osm
    }
 
   //====================================================
-  //     operator ()
+  //     Operators
   //====================================================
+
+  // operator ()
   /**
    * @brief Operator overload to assign the value into parentheses to the "current_stream" variable.
    * 

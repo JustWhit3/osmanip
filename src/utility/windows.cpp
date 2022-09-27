@@ -51,8 +51,10 @@ namespace osm
   std::string old_chcp;
   
   //====================================================
-  //     enableANSI
+  //     Functions
   //====================================================
+
+  // enableANSI
   /**
    * @brief Function used to enable ANSI escape sequences on Windows. 
    * 
@@ -88,9 +90,7 @@ namespace osm
     #endif
    }
   
-  //====================================================
-  //     disableANSI
-  //====================================================
+  // disableANSI
   void disableANSI()
   /**
    * @brief Function used to disable ANSI escape sequences on Windows.
@@ -112,9 +112,7 @@ namespace osm
     #endif
    }
 
-  //====================================================
-  //     enableUNICODE
-  //====================================================
+  // enableUNICODE
   /**
    * @brief Function used to enable UNICODE characters (used for Windows only).
    * 
@@ -132,9 +130,7 @@ namespace osm
     #endif
    }
 
-  //====================================================
-  //     disableUNICODE
-  //====================================================
+  // disableUNICODE
   /**
    * @brief Function used to disable UNICODE characters (used for Windows only).
    * 
