@@ -17,6 +17,9 @@
 ## Table of contents
 
 - [Introduction](#introduction)
+- [Architectures support](#architectures-support)
+  - [Operating systems](#operating-systems)
+  - [Compilers](#compilers)
 - [List of features](#list-of-features)
   - [ANSI escape sequences manipulators](#ANSI-escape-sequences-manipulators)
   - [Progress bars](#progress-bars)
@@ -59,7 +62,9 @@ The software is and will stay **free**, but if you want to support me with a don
 
 <a href="https://www.buymeacoffee.com/JustWhit33" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-Supported operating systems
+## Architectures support
+
+### Operating systems
 
 - **Linux**
   - *Ubuntu* (tested)
@@ -68,7 +73,20 @@ Supported operating systems
   - *MSYS2* (tested)
   - *MinGW* (tested)
   - *WSL* (tested)
+  - *Powershell* (tested)
 - **MacOS**
+
+### Compilers
+
+- **gcc**:
+  - *C++17*: 7/8/9/10/11/12
+  - *C++20*: 10/11/12
+- **clang**:
+  - *C++17*: 5/6/7/8/9/10/11/12/13/14/15
+  - *C++20*: 9/10/11/12/13/14/15
+- **MSVC**:
+  - *C++17*: 19 (only this one tested)
+  - *C++20*: //
 
 ## List of features
 
