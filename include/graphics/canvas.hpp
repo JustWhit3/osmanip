@@ -12,8 +12,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSM_CANVAS_HPP
-#define OSM_CANVAS_HPP
+#ifndef OSMANIP_CANVAS_HPP
+#define OSMANIP_CANVAS_HPP
 
 //====================================================
 //     Headers
@@ -26,8 +26,10 @@
 namespace osm
  {
   //====================================================
-  //     FrameStyle
+  //     Enums
   //====================================================
+
+  // FrameStyle
   /** 
    * @brief Enum class used to define the frame style.
    */
@@ -39,8 +41,10 @@ namespace osm
    } FrameStyle;
 
   //====================================================
-  //     Canvas
+  //     Classes
   //====================================================
+
+  // Canvas
   /**
    * @brief Instances of this class are used to draw in a limited 2D space. All the functions that modify the canvas do it internally; to make the changes effective in the console, you must use the refresh method.
    * 

@@ -12,8 +12,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef COLSTY_HPP
-#define COLSTY_HPP
+#ifndef OSMANIP_COLSTY_HPP
+#define OSMANIP_COLSTY_HPP
 
 //====================================================
 //     Headers
@@ -36,7 +36,7 @@ namespace osm
   //====================================================
   //     Functions
   //====================================================
-  extern const std::string RGB( const int& r, const int& g, const int& b );
+  extern const std::string RGB( int r, int g, int b );
  }
 
 #endif

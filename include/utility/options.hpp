@@ -12,8 +12,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OPTIONS_HPP
-#define OPTIONS_HPP
+#ifndef OSMANIP_OPTIONS_HPP
+#define OSMANIP_OPTIONS_HPP
 
 //====================================================
 //     Headers
@@ -72,18 +72,18 @@ namespace osm
    {
     if constexpr ( std::is_same_v<T, CURSOR> ) 
      {
-        if ( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
-        else if ( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
+      if ( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
+      else if ( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
      } 
     else if constexpr ( std::is_same_v<T, ANSI> ) 
      {
-        if ( opt == ANSI::ON ) enableANSI();
-        else if ( opt == ANSI::OFF ) disableANSI();
+      if ( opt == ANSI::ON ) enableANSI();
+      else if ( opt == ANSI::OFF ) disableANSI();
      }
     else if constexpr ( std::is_same_v<T, UNICODECH> ) 
      {
-        if ( opt == UNICODECH::ON ) enableUNICODE();
-        else if ( opt == UNICODECH::OFF ) disableUNICODE();
+      if ( opt == UNICODECH::ON ) enableUNICODE();
+      else if ( opt == UNICODECH::OFF ) disableUNICODE();
      }
     else std::cerr << feat( col, "red" ) << "Inserted cursor option is not supported!"  << feat( rst, "all" ) << "\n";
    }

@@ -12,8 +12,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef CURSOR_HPP
-#define CURSOR_HPP
+#ifndef OSMANIP_CURSOR_HPP
+#define OSMANIP_CURSOR_HPP
 
 //====================================================
 //     Headers
@@ -25,7 +25,7 @@
 //STD headers
 #include <string>
 #include <unordered_map>
-#include <set>
+#include <utility>
 
 namespace osm
  {
@@ -43,8 +43,8 @@ namespace osm
   //====================================================
   //     Functions
   //====================================================
-  extern const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int );
-  extern const std::string go_to( const int& x, const int& y );
+  extern const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, int feat_int );
+  extern const std::string go_to( int x, int y );
  }
 
 #endif

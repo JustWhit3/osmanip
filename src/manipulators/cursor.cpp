@@ -21,12 +21,9 @@
 //STD headers
 #include <string>
 #include <unordered_map>
-#include <set>
-
-//====================================================
-//     Namespaces
-//====================================================
-using namespace std::literals::string_literals;
+#include <utility>
+#include <sstream>
+#include <stdexcept>
 
 namespace osm
  {  
@@ -70,8 +67,8 @@ namespace osm
     { "crt", "\x0D" },      //Carriage return
 
     //Control sequences variables:
-    { "hcrs", "\u001b[?25l" },            //Hide cursor
-    { "scrs", "\u001b[?25h" }             //Show cursor
+    { "hcrs", "\u001b[?25l" },      //Hide cursor
+    { "scrs", "\u001b[?25h" }       //Show cursor
    };
 
   // tcsc
@@ -102,7 +99,7 @@ namespace osm
    * @param feat_int Extra integer argument to correctly set the parameter of the crs map.
    * @return const std::string The output feature.
    */
-  const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, const int& feat_int )
+  const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, int feat_int )
    {
     try
      {
@@ -127,10 +124,13 @@ namespace osm
    * @param y The y position of the cursor in the screen
    * @return const std::string The (x,y) position of the cursor in the screen.
    */
-  const std::string go_to( const int& x, const int& y )
+  const std::string go_to( int x, int y )
    {
-    return "\u001b[" + 
-           std::to_string( x ) + ";"s +
-           std::to_string( y ) + "H"s;
+    std::ostringstream oss;
+    oss.str( "" );
+    oss.clear();
+    oss << "\u001b[" << x << ";" << y << "H";
+    
+    return oss.str();
    }
  }

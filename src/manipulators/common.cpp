@@ -19,9 +19,9 @@
 #include <arsenalgear/utils.hpp>
 
 //STD headers
-#include <iostream>
 #include <string>
 #include <unordered_map>
+#include <stdexcept>
 
 namespace osm
  {

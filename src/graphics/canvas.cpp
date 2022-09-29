@@ -20,6 +20,8 @@
 //STD headers
 #include <sstream>
 #include <iostream>
+#include <vector>
+#include <string>
 
 namespace osm
  {
@@ -34,14 +36,8 @@ namespace osm
    * @param width Width of the canvas.
    * @param height Height of the canvas.
    */
-  Canvas::Canvas( unsigned int width, unsigned int height )
+  Canvas::Canvas( unsigned int width, unsigned int height ): already_drawn_( false ), width_( width ), height_( height ), bg_char_( ' ' ), bg_feat_( "" ), frame_enabled_( false )
    {
-    already_drawn_ = false;
-    width_ = width;
-    height_ = height;
-    bg_char_ = ' ';
-    bg_feat_ = "";
-    frame_enabled_ = false;
     resizeCanvas();
     clear();
    }

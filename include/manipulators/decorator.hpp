@@ -12,8 +12,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef DECORATOR_HPP
-#define DECORATOR_HPP
+#ifndef OSMANIP_DECORATOR_HPP
+#define OSMANIP_DECORATOR_HPP
 
 //====================================================
 //     Headers
@@ -36,8 +36,10 @@
 namespace osm
  {
   //====================================================
-  //     Decorator class
+  //     Classes
   //====================================================
+
+  // Decorator
   /**
    * @brief Class used to decorate an output stream. Each setting is set permanently on the chosen output stream until the destructor is met or one of the reset functions is called.
    * 

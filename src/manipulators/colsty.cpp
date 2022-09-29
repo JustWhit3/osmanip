@@ -22,11 +22,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
-
-//====================================================
-//     Namespaces
-//====================================================
-using namespace std::literals::string_literals;
+#include <sstream>
 
 namespace osm
  {
@@ -154,11 +150,13 @@ namespace osm
    * @param b The b singlet of the tripled.
    * @return const std::string The rgb triplet of the color.
    */
-  const std::string RGB( const int& r, const int& g, const int& b )
+  const std::string RGB( int r, int g, int b )
    {
-    return "\x1b[38;2;" +
-            std::to_string( r ) + ";"s +
-            std::to_string( g ) + ";"s +
-            std::to_string( b ) + "m"s;
+    static std::ostringstream oss;
+    oss.str( "" );
+    oss.clear();
+    oss << "\x1b[38;2;" << r << ";" << g << ";" << b << "m";
+
+    return oss.str();
    }
  }

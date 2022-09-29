@@ -12,8 +12,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef PROGRESSBAR_HPP
-#define PROGRESSBAR_HPP
+#ifndef OSMANIP_PROGRESSBAR_HPP
+#define OSMANIP_PROGRESSBAR_HPP
 
 //====================================================
 //     Headers
@@ -37,14 +37,8 @@
 #include <unordered_map>
 #include <vector>
 #include <mutex>
-#include <cstdint>
 #include <cmath>
 #include <stdexcept>
-
-//====================================================
-//     Namespaces
-//====================================================
-using namespace std::literals::string_literals;
 
 namespace osm
  {
@@ -129,7 +123,7 @@ namespace osm
       * @tparam bar_type The type of the ProgressBar.
       * @param max The maximum value of the ProgressBar.
       */
-     void setMax( const bar_type& max )
+     void setMax( bar_type max )
       { 
        max_ = max; 
       }
@@ -141,7 +135,7 @@ namespace osm
       * @tparam bar_type The type of the ProgressBar.
       * @param min The minimum value of the ProgressBar.
       */
-        void setMin( const bar_type& min )
+     void setMin( bar_type min )
       {
        min_ = min; 
       }
@@ -154,7 +148,7 @@ namespace osm
       * @param type The type (flavor) of the ProgressBar.
       * @param style The style of the ProgressBar. Available: 
       */
-        void setStyle( const std::string& type, const std::string& style )
+     void setStyle( const std::string& type, const std::string& style )
       {
        try
         {
@@ -187,7 +181,7 @@ namespace osm
       * @param style_p The style of the percentage part of the progress bar.
       * @param style_l The style of the bar part of the progress bar.
       */
-        void setStyle( const std::string& type, const std::string& style_p, const std::string& style_l )
+     void setStyle( const std::string& type, const std::string& style_p, const std::string& style_l )
       {
        if( styles_map_.at( "indicator" ).find( style_p ) != styles_map_.at( "indicator" ).end() &&
            styles_map_.at( "loader" ).find( style_l ) != styles_map_.at( "loader" ).end() &&
@@ -219,7 +213,7 @@ namespace osm
       * @tparam bar_type The type of the ProgressBar.
       * @param message The message of the ProgressBar.
       */
-        void setMessage( const std::string& message )
+     void setMessage( const std::string& message )
       { 
        message_ = message; 
       }
@@ -230,7 +224,7 @@ namespace osm
       * 
       * @tparam bar_type The type of the ProgressBar.
       */
-        void setBegin()
+     void setBegin()
       { 
        begin = steady_clock::now();
       }
@@ -241,9 +235,9 @@ namespace osm
       * 
       * @tparam bar_type The type of the ProgressBar.
       */
-        void setEnd()
-         {
-          end = steady_clock::now();
+     void setEnd()
+      {
+       end = steady_clock::now();
        time_count_ += std::chrono::duration_cast <std::chrono::milliseconds>( end - begin ).count();
       }
 
@@ -255,9 +249,9 @@ namespace osm
       * @param brackets_open Open bracket.
       * @param brackets_close Close bracket.
       */
-           void setBrackets( const std::string& brackets_open, const std::string& brackets_close )
-         { 
-          brackets_open_ = brackets_open,
+     void setBrackets( const std::string& brackets_open, const std::string& brackets_close )
+      { 
+       brackets_open_ = brackets_open,
        brackets_close_ = brackets_close;
       }
 
@@ -268,7 +262,7 @@ namespace osm
       * @tparam bar_type The type of the ProgressBar.
       * @param color The color of the ProgressBar.
       */
-        void setColor( const std::string& color )
+     void setColor( const std::string& color )
       { 
        color_ = feat( col, color );
        color_name_ = color;
@@ -281,7 +275,7 @@ namespace osm
       * @tparam bar_type The type of the ProgressBar.
       * @param time_flag The flag of the remaining time.
       */
-        void setRemainingTimeFlag( const std::string& time_flag )
+     void setRemainingTimeFlag( const std::string& time_flag )
       { 
        time_flag_ = time_flag;
       }
@@ -296,10 +290,10 @@ namespace osm
       * 
       * @tparam bar_type The type of the ProgressBar.
       */
-        void resetAll()
+     void resetAll()
       { 
-       max_ = static_cast<bar_type> ( NULL ), 
-       min_ = static_cast<bar_type> ( NULL ), 
+       max_ = nullptr, 
+       min_ = nullptr, 
        style_ = "", 
        type_ = "",
        message_ = "", 
@@ -319,9 +313,9 @@ namespace osm
        * 
        * @tparam bar_type The type of the ProgressBar.
        */
-         void resetMax()
+      void resetMax()
        { 
-        max_ = static_cast<bar_type> ( NULL );
+        max_ = nullptr;
        }
       
       // resetMin
@@ -330,9 +324,9 @@ namespace osm
        * 
        * @tparam bar_type The type of the ProgressBar.
        */
-         void resetMin()
+      void resetMin()
        {
-        min_ = static_cast<bar_type> ( NULL );
+        min_ = nullptr;
        }
     
       // resetStyle
@@ -341,7 +335,7 @@ namespace osm
        * 
        * @tparam bar_type The type of the ProgressBar.
        */
-         void resetStyle()
+      void resetStyle()
        {
         style_.clear();
         type_.clear();
@@ -353,7 +347,7 @@ namespace osm
        * 
        * @tparam bar_type The type of the ProgressBar.
        */
-         void resetMessage()
+      void resetMessage()
        {
         message_.clear();
        } 
@@ -364,7 +358,7 @@ namespace osm
        * 
        * @tparam bar_type The type of the ProgressBar.
        */
-         void resetTime()
+      void resetTime()
        {
         time_count_ = duration::zero().count();
        }
@@ -375,7 +369,7 @@ namespace osm
        * 
        * @tparam bar_type The type of the ProgressBar.
        */
-         void resetRemainingTime()
+      void resetRemainingTime()
        {
         ticks_occurred = 0;
         begin_timer = steady_clock::now();
@@ -387,7 +381,7 @@ namespace osm
        * 
        * @tparam bar_type The type of the ProgressBar.
        */
-         void resetBrackets()
+      void resetBrackets()
        {
         brackets_open_.clear(),
         brackets_close_.clear(); 
@@ -399,7 +393,7 @@ namespace osm
        * 
        * @tparam bar_type The type of the ProgressBar.
        */
-         void resetColor()
+      void resetColor()
        { 
         color_ = feat( rst, "color" ); 
         color_name_ = "";
@@ -482,10 +476,7 @@ namespace osm
         {
          return "Percentage: \"" + style_p_ + "\"\n" + "Loader: \"" + style_l_ + "\"\n"; 
         }
-       else
-        {
-         return style_; 
-        }
+       return style_; 
       }
    
      // getType
@@ -583,14 +574,12 @@ namespace osm
       * @tparam bar_type The type of the ProgressBar.
       * @param value The value of the progress bar indicator.
       */
-     void update( const bar_type& iterating_var )
+     void update( bar_type iterating_var )
       {
        std::lock_guard <std::mutex> lock{ mutex_ };
    
        iterating_var_ = 100 * ( iterating_var - min_ ) / ( max_ - min_ - agr::one( iterating_var ) ),
-       iterating_var_spin_ = agr::isFloatingPoint( iterating_var ) ?
-                             ( agr::roundoff( iterating_var, 1 ) * 10 ) :
-                             iterating_var,
+       iterating_var_spin_ = agr::isFloatingPoint( iterating_var ) ? ( agr::roundoff( iterating_var, 1 ) * 10 ) : iterating_var,
        width_ = ( iterating_var_ + 1 ) / 4;
    
        //Update of the progress indicator only:
@@ -648,7 +637,7 @@ namespace osm
                    getStyle()[ static_cast <unsigned long> ( iterating_var_spin_ ) & 3 ] +
                    feat( col, "green" ) +
                     ( ( agr::roundoff( iterating_var, 1 ) == agr::roundoff( max_, 1 ) - agr::one( iterating_var ) ) ?
-                      ( static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ) ) : ""s
+                      ( static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ) ) : ""
                     ) +
                    feat( rst, "color" );
    
@@ -734,8 +723,7 @@ namespace osm
                  << feat( col, "green" ) << minutes_left.count() << feat( rst, "color" ) << "m " 
                  << feat( col, "green" ) << seconds_left.count() << feat( rst, "color" ) << "s" 
                  << "]"
-                 << feat( tcsc, "cln", 0 );
-                 
+                 << feat( tcsc, "cln", 0 );      
       }
 
      // update_output
