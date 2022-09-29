@@ -12,5 +12,5 @@ var searchData=
   ['resetremainingtime_226',['resetRemainingTime',['../classosm_1_1ProgressBar.html#acd438b7c7622a459c9a2462bc085361e',1,'osm::ProgressBar']]],
   ['resetstyle_227',['resetStyle',['../classosm_1_1Decorator.html#ad34fe35252eb58c45187fa862e71af5e',1,'osm::Decorator::resetStyle()'],['../classosm_1_1ProgressBar.html#a30e43da878d156f1ce7a14f0e8b24023',1,'osm::ProgressBar::resetStyle()']]],
   ['resettime_228',['resetTime',['../classosm_1_1ProgressBar.html#a019e2ecfdfdd229a856bbb60e367b80e',1,'osm::ProgressBar']]],
-  ['rgb_229',['RGB',['../namespaceosm.html#a6d8501863608f8a2fabc98f751a9b1a4',1,'osm']]]
+  ['rgb_229',['RGB',['../namespaceosm.html#abc65aaaeedab5f29fb71b6386b7863b1',1,'osm']]]
 ];

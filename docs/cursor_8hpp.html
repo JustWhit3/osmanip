@@ -79,17 +79,17 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="common_8hpp_source.html">common.hpp</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &lt;set&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for cursor.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="cursor_8hpp__incl.png" border="0" usemap="#ainclude_2manipulators_2cursor_8hpp" alt=""/></div>
 <map name="ainclude_2manipulators_2cursor_8hpp" id="ainclude_2manipulators_2cursor_8hpp">
-<area shape="rect" title=" " alt="" coords="74,5,215,47"/>
-<area shape="rect" href="common_8hpp.html" title=" " alt="" coords="54,95,150,121"/>
+<area shape="rect" title=" " alt="" coords="58,5,199,47"/>
+<area shape="rect" href="common_8hpp.html" title=" " alt="" coords="38,95,134,121"/>
 <area shape="rect" title=" " alt="" coords="5,169,60,196"/>
-<area shape="rect" title=" " alt="" coords="116,169,227,196"/>
-<area shape="rect" title=" " alt="" coords="225,95,265,121"/>
+<area shape="rect" title=" " alt="" coords="100,169,211,196"/>
+<area shape="rect" title=" " alt="" coords="209,95,261,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -115,8 +115,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aad03957468149cdc5ba5d12093bf1e1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cursor_8hpp.html#aad03957468149cdc5ba5d12093bf1e1a">CURSOR_HPP</a></td></tr>
-<tr class="separator:aad03957468149cdc5ba5d12093bf1e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40b93387877caad93d9beb7f792a2f22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cursor_8hpp.html#a40b93387877caad93d9beb7f792a2f22">OSMANIP_CURSOR_HPP</a></td></tr>
+<tr class="separator:a40b93387877caad93d9beb7f792a2f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -125,26 +125,26 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ade513910e4e64dda34740ebe8ace659e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ade513910e4e64dda34740ebe8ace659e">osm::feat</a> (const string_pair_map &amp;generic_map, const std::string &amp;feat_string, const int &amp;feat_int)</td></tr>
-<tr class="memdesc:ade513910e4e64dda34740ebe8ace659e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#ade513910e4e64dda34740ebe8ace659e">More...</a><br /></td></tr>
-<tr class="separator:ade513910e4e64dda34740ebe8ace659e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ded1bcb1014bee2a528bca1db6397f1"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8ded1bcb1014bee2a528bca1db6397f1">osm::go_to</a> (const int &amp;x, const int &amp;y)</td></tr>
-<tr class="memdesc:a8ded1bcb1014bee2a528bca1db6397f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#a8ded1bcb1014bee2a528bca1db6397f1">More...</a><br /></td></tr>
-<tr class="separator:a8ded1bcb1014bee2a528bca1db6397f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f30ec1e20deaf81a4d0b2e67abc61bc">osm::feat</a> (const string_pair_map &amp;generic_map, const std::string &amp;feat_string, int feat_int)</td></tr>
+<tr class="memdesc:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#a8f30ec1e20deaf81a4d0b2e67abc61bc">More...</a><br /></td></tr>
+<tr class="separator:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9">osm::go_to</a> (int x, int y)</td></tr>
+<tr class="memdesc:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9">More...</a><br /></td></tr>
+<tr class="separator:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Gianluca Bianco (<a href="#" onclick="location.href='mai'+'lto:'+'bia'+'nc'+'ogi'+'an'+'luc'+'a9'+'@gm'+'ai'+'l.c'+'om'; return false;">bianc<span style="display: none;">.nosp@m.</span>ogia<span style="display: none;">.nosp@m.</span>nluca<span style="display: none;">.nosp@m.</span>9@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-06-06 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 Gianluca Bianco under the MIT license. </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aad03957468149cdc5ba5d12093bf1e1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad03957468149cdc5ba5d12093bf1e1a">&#9670;&nbsp;</a></span>CURSOR_HPP</h2>
+<a id="a40b93387877caad93d9beb7f792a2f22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40b93387877caad93d9beb7f792a2f22">&#9670;&nbsp;</a></span>OSMANIP_CURSOR_HPP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CURSOR_HPP</td>
+          <td class="memname">#define OSMANIP_CURSOR_HPP</td>
         </tr>
       </table>
 </div><div class="memdoc">

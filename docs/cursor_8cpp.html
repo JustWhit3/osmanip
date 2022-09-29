@@ -79,18 +79,22 @@ $(function() {
 <code>#include &lt;arsenalgear/utils.hpp&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &lt;set&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for cursor.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="cursor_8cpp__incl.png" border="0" usemap="#asrc_2manipulators_2cursor_8cpp" alt=""/></div>
 <map name="asrc_2manipulators_2cursor_8cpp" id="asrc_2manipulators_2cursor_8cpp">
-<area shape="rect" title=" " alt="" coords="172,5,355,32"/>
-<area shape="rect" href="cursor_8hpp.html" title=" " alt="" coords="75,80,225,121"/>
+<area shape="rect" title=" " alt="" coords="240,5,423,32"/>
+<area shape="rect" href="cursor_8hpp.html" title=" " alt="" coords="92,80,243,121"/>
 <area shape="rect" title=" " alt="" coords="5,244,60,271"/>
 <area shape="rect" title=" " alt="" coords="148,244,259,271"/>
-<area shape="rect" title=" " alt="" coords="241,169,281,196"/>
-<area shape="rect" title=" " alt="" coords="355,87,497,114"/>
+<area shape="rect" title=" " alt="" coords="241,169,293,196"/>
+<area shape="rect" title=" " alt="" coords="369,87,510,114"/>
+<area shape="rect" title=" " alt="" coords="534,87,603,114"/>
+<area shape="rect" title=" " alt="" coords="628,87,707,114"/>
 <area shape="rect" href="common_8hpp.html" title=" " alt="" coords="70,169,166,196"/>
 </map>
 </div>
@@ -102,12 +106,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ade513910e4e64dda34740ebe8ace659e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ade513910e4e64dda34740ebe8ace659e">osm::feat</a> (const string_pair_map &amp;generic_map, const std::string &amp;feat_string, const int &amp;feat_int)</td></tr>
-<tr class="memdesc:ade513910e4e64dda34740ebe8ace659e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#ade513910e4e64dda34740ebe8ace659e">More...</a><br /></td></tr>
-<tr class="separator:ade513910e4e64dda34740ebe8ace659e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ded1bcb1014bee2a528bca1db6397f1"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8ded1bcb1014bee2a528bca1db6397f1">osm::go_to</a> (const int &amp;x, const int &amp;y)</td></tr>
-<tr class="memdesc:a8ded1bcb1014bee2a528bca1db6397f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#a8ded1bcb1014bee2a528bca1db6397f1">More...</a><br /></td></tr>
-<tr class="separator:a8ded1bcb1014bee2a528bca1db6397f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f30ec1e20deaf81a4d0b2e67abc61bc">osm::feat</a> (const string_pair_map &amp;generic_map, const std::string &amp;feat_string, int feat_int)</td></tr>
+<tr class="memdesc:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#a8f30ec1e20deaf81a4d0b2e67abc61bc">More...</a><br /></td></tr>
+<tr class="separator:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9">osm::go_to</a> (int x, int y)</td></tr>
+<tr class="memdesc:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9">More...</a><br /></td></tr>
+<tr class="separator:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
