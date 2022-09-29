@@ -274,8 +274,8 @@ $(function() {
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;     <span class="comment">// resetAll</span></div>
 <div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2">  293</a></span>&#160;<span class="comment"></span>     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2">resetAll</a>()</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      { </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;       max_ = <span class="keyword">nullptr</span>, </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;       min_ = <span class="keyword">nullptr</span>, </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;       max_ = <span class="keyword">static_cast&lt;</span>bar_type<span class="keyword">&gt;</span>( nullptr ), </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;       min_ = <span class="keyword">static_cast&lt;</span>bar_type<span class="keyword">&gt;</span>( <span class="keyword">nullptr</span> ), </div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;       style_ = <span class="stringliteral">&quot;&quot;</span>, </div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;       type_ = <span class="stringliteral">&quot;&quot;</span>,</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;       message_ = <span class="stringliteral">&quot;&quot;</span>, </div>
@@ -292,13 +292,13 @@ $(function() {
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="comment">// resetMax</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d">  316</a></span>&#160;<span class="comment"></span>      <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#afd43e6063ab9c24abb24e776f32cc34d">resetMax</a>()</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;       { </div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        max_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        max_ = <span class="keyword">static_cast&lt;</span>bar_type<span class="keyword">&gt;</span>( nullptr );</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;       }</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      </div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      <span class="comment">// resetMin</span></div>
 <div class="line"><a name="l00327"></a><span class="lineno"><a class="line" href="classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2">  327</a></span>&#160;<span class="comment"></span>      <span class="keywordtype">void</span> <a class="code" href="classosm_1_1ProgressBar.html#a968c89302c97005f349f4eb56b4f69d2">resetMin</a>()</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;       {</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        min_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        min_ = <span class="keyword">static_cast&lt;</span>bar_type<span class="keyword">&gt;</span>( nullptr );</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;       }</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    </div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="comment">// resetStyle</span></div>
