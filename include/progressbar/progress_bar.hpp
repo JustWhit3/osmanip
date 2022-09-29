@@ -292,8 +292,8 @@ namespace osm
       */
      void resetAll()
       { 
-       max_ = nullptr, 
-       min_ = nullptr, 
+       max_ = static_cast<bar_type>( nullptr ), 
+       min_ = static_cast<bar_type>( nullptr ), 
        style_ = "", 
        type_ = "",
        message_ = "", 
@@ -315,7 +315,7 @@ namespace osm
        */
       void resetMax()
        { 
-        max_ = nullptr;
+        max_ = static_cast<bar_type>( nullptr );
        }
       
       // resetMin
@@ -326,7 +326,7 @@ namespace osm
        */
       void resetMin()
        {
-        min_ = nullptr;
+        min_ = static_cast<bar_type>( nullptr );
        }
     
       // resetStyle
