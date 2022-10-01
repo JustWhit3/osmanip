@@ -89,7 +89,7 @@ endif
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 WFLAGS := -Wall -Wextra -Wno-reorder -pedantic
 CXXFLAGS := -std=c++17
-CPPFLAGS := $(CXXFLAGS) -g $(INC_FLAGS) -MMD -MP $(WFLAGS)
+CPPFLAGS := $(CXXFLAGS) $(INC_FLAGS) -MMD -MP $(WFLAGS)
 LDFLAGS := -pthread -larsenalgear
 
 #====================================================
