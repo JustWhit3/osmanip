@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
 
-<h3 align="center">A library used to manipulate the output stream of a program using ANSI escape sequences. Features: colors and styles manipulators, progress bars and terminal graphics. </h3>
+<h3 align="center">A library used to manipulate the output stream of a program using ANSI escape sequences. </h3>
 <p align="center">
   <img title="v4.2" alt="v4.2" src="https://img.shields.io/badge/version-v4.2-informational?style=flat-square">
   <img title="MIT License" alt="license" src="https://img.shields.io/badge/license-MIT-informational?style=flat-square">
