@@ -1,17 +1,3 @@
-### This is a custom fork of osmanip
-
-So far, this has only been tested using WSL2 on Windows 10, and there is no guarantee it will work on other systems out-of-the-box.
-
-To get started, run: 
-```shell
-git clone --recursive https://github.com/joeletho/osmanip.git
-cd osmanip/sandbox
-cmake . && cmake --build .
-./bin/osmanip_redirection
-```
-
-***
-
 <p align="center"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
 
 <h3 align="center">A library used to manipulate the output stream of a program using ANSI escape sequences. </h3>
@@ -437,6 +423,7 @@ To run all examples:
 ./bin/manipulators
 ./bin/progressbar
 ./bin/graphics
+./bin/redirection
 ```
 
 > **NOTE**: executables end with `.exe` if you are on Windows of course.
