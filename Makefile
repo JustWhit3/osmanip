@@ -85,7 +85,7 @@ TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 #====================================================
 #     Dependencies and flags
 #====================================================
-DEPS := $(OBJ_MANIP:.o=.d) $(OBJ_PB:.o=.d) $(OBJ_GRAPH:.o=.d $(OBJ_REDIR:.o=.d)
+DEPS := $(OBJ_MANIP:.o=.d) $(OBJ_PB:.o=.d) $(OBJ_GRAPH:.o=.d) $(OBJ_REDIR:.o=.d)
 ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
 	INC_DIR := $(shell find $(SRC_DIR) -type d)
 else
