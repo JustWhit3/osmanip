@@ -414,7 +414,7 @@ If you are using the library in a program, add the `-losmanip` flag to link [sou
 To compile example codes:
 
 ```shell
-make main
+make all
 ```
 
 To run all examples:
