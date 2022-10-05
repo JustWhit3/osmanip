@@ -15,7 +15,7 @@ endif
 #====================================================
 #     Variables
 #====================================================
-ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))  
+ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),MacOS Linux))
 	EX_MANIP_EXEC := manipulators
 	EX_PB_EXEC := progressbar
 	EX_GRAPH_EXEC := graphics
