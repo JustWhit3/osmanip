@@ -7,8 +7,8 @@
  * @date 2022-10-5
  */
 
-#include "output_redirector.h"
-#include "../utility/strings.h"
+#include "../../include/redirection/output_redirector.hpp"
+#include "../../include/utility/strings.hpp"
 
 #include <iostream>
 #include <fstream>

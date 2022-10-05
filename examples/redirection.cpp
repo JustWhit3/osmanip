@@ -6,7 +6,7 @@
 #endif
 #include "../include/utility/options.hpp"
 
-#include "../src/redirection/output_redirector.h"
+#include "../include/redirection/output_redirector.hpp"
 
 // STD headers
 #include <chrono>
@@ -381,12 +381,12 @@ int main()
 
   osm::OPTION( osm::CURSOR::OFF );
 
-  std::cout << "This will be printed to the console!\n";
+  std::cout << "Redirecting the output to " << s_redirect.get_filename() << "\n";
 
   // Begin redirecting std::cout to a file
   s_redirect.begin();
 
-  std::cout << "This will be redirected to a file!\n";
+  std::cout << "Progress bars, with logging!\n";
   s_redirect.end();
 
   /** Important note: ==============================================================
@@ -396,32 +396,29 @@ int main()
    *    There's probably a way around this...
    * ================================================================================*/
 
-  std::cout << "Running percentage bars example\n";
+  std::cout << "Running percentage bars example...\n";
   s_redirect.begin();
   perc_bars();
   s_redirect.end();
 
-  std::cout << "Running loading bars example\n";
+  std::cout << "> Done\nRunning loading bars example...\n";
   s_redirect.begin();
   load_bars();
   s_redirect.end();
 
-  std::cout << "Running mixed bars example\n";
+  std::cout << "> Done\nRunning mixed bars example...\n";
   s_redirect.begin();
   mixed_bars();
   s_redirect.end();
 
-  std::cout << "Running progress spinners example\n";
+  std::cout << "> Done\nRunning progress spinners example...\n";
   s_redirect.begin();
   progress_spinner();
-
-  //! Cannot redirect multithreaded data
-  //   multi_bars();
 
   // End the redirection and return output to console
   s_redirect.end();
 
-  std::cout << "This will be printed to the console again!\n";
+  std::cout << "All done!\n";
 
   osm::OPTION( osm::CURSOR::ON );
 
