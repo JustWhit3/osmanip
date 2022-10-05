@@ -4,12 +4,14 @@ So far, this has only been tested using WSL2 on Windows 10, and there is no guar
 
 To get started, run: 
 ```shell
-git clone --recursive https://github.com/joeletho/osmanip.git
+git clone --recursive -b redirection https://github.com/joeletho/osmanip.git
 cd osmanip/sandbox
 cmake . && cmake --build .
 ./bin/osmanip_redirection
 ```
+Once the program finishes, open the file 'redirected_output.txt' to see the results.
 
+*Note: You must have Python 3+ installed inorder built libosmanip with CMake. Otherwise, follow the instructions below for proper installation and setup. Furthermore, ```arsenalgear``` is required to build libosmanip. Currently, this cannot be done with CMake, so follow the instructions below before running CMake.*
 ***
 
 <p align="center"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
