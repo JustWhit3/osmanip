@@ -411,9 +411,16 @@ int main()
   mixed_bars();
   s_redirect.end();
 
-  std::cout << "> Done\nRunning progress spinners example...\n";
+  std::cout << "> Done\nSkipping multi bars example.\n";
+  // Doesn't work with multiple threads
+  //   multi_bars();
+
+  std::cout << "> Running progress spinners example...\n";
   s_redirect.begin();
   progress_spinner();
+  s_redirect.end();
+
+
 
   // End the redirection and return output to console
   s_redirect.end();
