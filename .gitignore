@@ -32,5 +32,6 @@ guides
 #====================================================
 #     OTHER FILES
 #====================================================
+sandbox/Makefile
 !sandbox/example/redirected_output.txt
 !CMakeLists.txt
