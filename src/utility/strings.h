@@ -25,14 +25,14 @@ namespace osm
       }
     }
     return std::string::npos;
-  };
+  }
 
   // Returns a formatted the string, effectively removing all escape sequences presenting in the string.
   std::string get_formatted_string( const std::string & string )
   {
     std::string result = string;
 
-    for( int i = 0; i < result.size(); ++i )
+    for( size_t i = 0; i < result.size(); ++i )
     {
       if( size_t esc_pos = result.find( "\u001b[", i ); esc_pos != std::string::npos )
       {

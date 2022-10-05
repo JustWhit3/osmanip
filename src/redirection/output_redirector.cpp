@@ -8,7 +8,7 @@
  */
 
 #include "output_redirector.h"
-#include "../utils/strings.h"
+#include "../utility/strings.h"
 
 #include <iostream>
 #include <fstream>

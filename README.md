@@ -1,19 +1,3 @@
-### This is a custom fork of osmanip
-
-So far, this has only been tested using WSL2 on Windows 10, and there is no guarantee it will work on other systems out-of-the-box.
-
-To get started, run: 
-```shell
-git clone --recursive -b redirection https://github.com/joeletho/osmanip.git
-cd osmanip/sandbox
-cmake . && cmake --build .
-./bin/osmanip_redirection
-```
-Once the program finishes, open the file 'redirected_output.txt' to see the results.
-
-*Note: You must have Python 3+ installed inorder built libosmanip with CMake. Otherwise, follow the instructions below for proper installation and setup. Furthermore, ```arsenalgear``` is required to build libosmanip. Currently, this cannot be done with CMake, so follow the instructions below before running CMake.*
-***
-
 <p align="center"><img src="https://github.com/JustWhit3/osmanip/blob/main/img/logo.svg" height=220></p>
 
 <h3 align="center">A library used to manipulate the output stream of a program using ANSI escape sequences. </h3>
@@ -430,7 +414,7 @@ If you are using the library in a program, add the `-losmanip` flag to link [sou
 To compile example codes:
 
 ```shell
-make main
+make all
 ```
 
 To run all examples:
@@ -439,6 +423,7 @@ To run all examples:
 ./bin/manipulators
 ./bin/progressbar
 ./bin/graphics
+./bin/redirection
 ```
 
 > **NOTE**: executables end with `.exe` if you are on Windows of course.
