@@ -6,7 +6,7 @@
 #endif
 #include "../include/utility/options.hpp"
 
-#include "src/redirection/output_redirector.h"
+#include "../src/redirection/output_redirector.h"
 
 // STD headers
 #include <chrono>

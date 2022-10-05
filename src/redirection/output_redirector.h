@@ -43,7 +43,7 @@ namespace osm
       void file_not_found_exception() const;
 
     private:
-    std::string filename_ = "output/redirected_output.txt";
+    std::string filename_ = "redirected_output.txt";
     std::streambuf * streambuf_backup_;
     std::stringbuf * output_stringbuf_;
   };

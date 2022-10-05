@@ -7,9 +7,6 @@ bin
 a.out
 **/*.o
 studies/benchmarking/manipulators
-sandbox/CMakeFiles
-sandbox/build
-sandbox/Testing
 
 #====================================================
 #     PERSONAL FILES
@@ -27,11 +24,4 @@ guides
 *.txt
 *.odt
 *.rtf
-*.cmake
 
-#====================================================
-#     OTHER FILES
-#====================================================
-sandbox/Makefile
-!sandbox/example/redirected_output.txt
-!CMakeLists.txt
