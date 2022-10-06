@@ -27,7 +27,7 @@ namespace osm
     return std::string::npos;
   }
 
-  // Returns a formatted the string, effectively removing all escape sequences presenting in the string.
+  // Returns a formatted the string, effectively removing all escape sequences present in the string.
   std::string get_formatted_string( const std::string & string )
   {
     std::string result = string;
