@@ -162,6 +162,41 @@ my_shell.setStyle( "bold italics", std::cerr ); // NOTE: added 2 styles
 my_shell( std::cerr ) << "The stderr stream has been changed using the Decorator class!" << "\n";
 ```
 
+- Class to manage output redirection (*Currently not thread safe*)
+
+```C++
+#include <thread>
+#include <iostream>
+#include  <osmanip/progressbar/progress_bar.hpp>
+#include  <osmanip/redirection/output_redirector.hpp>
+
+std::string filename = "output.txt";
+osm::OutputRedirector redirector( filename );
+
+// Normal percentage bar.
+osm::ProgressBar<int> percentage_bar;
+percentage_bar.setMin( 5 );
+percentage_bar.setMax( 46 );
+percentage_bar.setStyle( "indicator", "%" );
+
+// Redirect output
+redirector.begin();
+
+std::cout << "This is a normal percentage bar: " << "\n";
+for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+{
+  // Flush the buffer at the start of each loop
+  redirector.flush();
+
+  std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  percentage_bar.update( i );
+  // Do some operations...
+}
+
+// Return output to std::cout
+redirector.end();
+```
+
 More examples and how-to guides can be
 found [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators).
 
@@ -349,41 +384,6 @@ for( float i = 0; i < 40; i++ )
   plot_2d_canvas.refresh();
   sleep_for( milliseconds( 100 ) );
  }
-```
-  
-- Output redirection (*Currently not thread safe*)
-
-```C++
-#include <thread>
-#include <iostream>
-#include  <osmanip/progressbar/progress_bar.hpp>
-#include  <osmanip/redirection/output_redirector.hpp>
-
-std::string filename = "output.txt";
-osm::OutputRedirector redirector( filename );
-
-// Normal percentage bar.
-osm::ProgressBar<int> percentage_bar;
-percentage_bar.setMin( 5 );
-percentage_bar.setMax( 46 );
-percentage_bar.setStyle( "indicator", "%" );
-
-// Redirect output
-redirector.begin();
-
-std::cout << "This is a normal percentage bar: " << "\n";
-for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-{
-  // Flush the buffer at the start of each loop
-  redirector.flush();
-
-  std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
-  percentage_bar.update( i );
-  // Do some operations...
-}
-
-// Return output to std::cout
-redirector.end();
 ```
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/canvas_sincos.gif" width="370">
