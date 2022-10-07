@@ -156,19 +156,15 @@ namespace osm
   {
     lock_guard guard( mutex_ );
 
-    if( fstream_.open( filename_, std::fstream::in ); fstream_.is_open() )
+    if( fstream_.open( filename_, std::fstream::in ); !fstream_.is_open() )
     {
-      fstream_.close();
+      if( fstream_.open( filename_, std::fstream::trunc | std::fstream::out ); !fstream_.is_open() )
+      {
+        exception_file_not_found();
+      }
     }
-    else if( fstream_.open( filename_, std::fstream::trunc | std::fstream::out );
-             fstream_.is_open() )
-    {
-      fstream_.close();
-    }
-    else
-    {
-      exception_file_not_found();
-    }
+
+    fstream_.close();
   }
 
   //====================================================
@@ -182,42 +178,21 @@ namespace osm
    */
   void OutputRedirector::redirect_output( std::string & filename )
   {
-    std::stringstream sstream;
+    std::string output_str;
+    std::string file_contents;
 
     touch();
-    {
-      scoped_lock slock( mutex_ );
-
-      if( fstream_.open( filename, std::fstream::in ); fstream_.is_open() )
-      {
-        sstream << fstream_.rdbuf();
-        fstream_.close();
-      }
-      else
-      {
-        exception_file_not_found();
-        return;
-      }
-    }
+    file_contents = read_file( filename );
 
     // Erase the last line of the file to make it consistent to the CLI output
-    std::string contents = erase_last_line( sstream.str() );
+    file_contents = erase_last_line( file_contents );
 
     {
       scoped_lock slock( mutex_ );
-
-      std::string write_str = get_formatted_string( output_stringbuf_->str() );
-
-      if( fstream_.open( filename, std::fstream::out ); fstream_.is_open() )
-      {
-        fstream_ << contents << write_str;
-        fstream_.close();
-      }
-      else
-      {
-        exception_file_not_found();
-      }
+      output_str = get_formatted_string( output_stringbuf_->str() );
     }
+
+    write_to_file( filename, file_contents + output_str );
   }
 
   // clear_buffer
@@ -239,6 +214,7 @@ namespace osm
   /**
    * @brief Throws an std::invalid_argument error if the file was not found or could not be opened. It is important to note that the calling thread is excepted to own the mutex. Calling this function will retain ownership of the mutex and release it before throwing the exception.
    *
+   * @throws std::invalid_argument
    */
   void OutputRedirector::exception_file_not_found()
   {
@@ -248,6 +224,64 @@ namespace osm
     }
 
     throw std::invalid_argument( std::string( "Could not open file " ) + "'" + filename_ + "'" );
+  }
+
+  // read_file
+  /**
+   * @brief Reads a file and returns a string of its entire contents.
+   *
+   * @param filename the name of the file to be read.
+   *
+   * @throws std::invalid_argument if unsuccessful.
+   *
+   * @return std::string of the file contents if successful, otherwise an empty string.
+   */
+  std::string OutputRedirector::read_file( const std::string & filename )
+  {
+    std::stringstream sstream;
+    scoped_lock slock( mutex_ );
+
+    if( fstream_.open( filename, std::fstream::in ); fstream_.is_open() )
+    {
+      sstream << fstream_.rdbuf();
+      fstream_.close();
+    }
+    else
+    {
+      exception_file_not_found();
+    }
+
+    return "";
+  }
+
+  // write_to_file
+  /**
+   * @brief Writes a string to a file. The file will be cleared before the string is written.
+   *
+   * @param filename the name of the file to be written.
+   * @param out_string the string to be written to the file.
+   *
+   * @throws std::invalid_argument if unsuccessful.
+   *
+   * @return true if successful, otherwise, false.
+   */
+  bool OutputRedirector::write_to_file( const std::string & filename, const std::string & out_string )
+  {
+    scoped_lock slock( mutex_ );
+
+    if( fstream_.open( filename, std::fstream::trunc | std::fstream::out ); fstream_.is_open() )
+    {
+      fstream_ << out_string;
+      fstream_.close();
+
+      return true;
+    }
+    else
+    {
+      exception_file_not_found();
+    }
+
+    return false;
   }
 
 }      // namespace osm

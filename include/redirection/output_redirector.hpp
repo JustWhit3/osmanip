@@ -14,16 +14,15 @@
 #ifndef OSMANIP_OUTPUTREDIRECTOR_HPP
 #define OSMANIP_OUTPUTREDIRECTOR_HPP
 
-
 //====================================================
 //     Headers
 //====================================================
 
 // STD headers
-#include <mutex>
-#include <string>
-#include <fstream>
-#include <streambuf>
+#  include <mutex>
+#  include <string>
+#  include <fstream>
+#  include <streambuf>
 
 namespace osm
 {
@@ -85,8 +84,10 @@ namespace osm
     //     Private methods
     //====================================================
     void clear_buffer();
-    void redirect_output( std::string & filename );
     void exception_file_not_found();
+    void redirect_output( std::string & filename );
+    std::string read_file( const std::string & filename );
+    bool write_to_file( const std::string & filename, const std::string & out_string );
   };
 
 }      // namespace osm
