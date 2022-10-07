@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['enableansi_174',['enableANSI',['../namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59',1,'osm']]],
-  ['enableframe_175',['enableFrame',['../classosm_1_1Canvas.html#a95044b9f98d159e46b37d337ec05ae1d',1,'osm::Canvas']]],
-  ['enableunicode_176',['enableUNICODE',['../namespaceosm.html#ab6d031c3a72211bf1058c3a26ad52b99',1,'osm']]]
+  ['decorator_190',['Decorator',['../classosm_1_1Decorator.html#a66a0e783a4f6b56908fdd6e76695f083',1,'osm::Decorator']]],
+  ['disableansi_191',['disableANSI',['../namespaceosm.html#af472191a970f5e5f16b3eb1f8dbe95db',1,'osm']]],
+  ['disableunicode_192',['disableUNICODE',['../namespaceosm.html#a0825eb925269f7eabcf04c85af12c144',1,'osm']]],
+  ['draw_193',['draw',['../classosm_1_1Plot2DCanvas.html#af5fbf005d04fcd46f20533bffe8ae7ab',1,'osm::Plot2DCanvas']]]
 ];

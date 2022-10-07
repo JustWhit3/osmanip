@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['make_5fmultiprogressbar_208',['make_MultiProgressBar',['../classosm_1_1make__MultiProgressBar.html#a82fc7fab185e835fcf4c29f4d5438323',1,'osm::make_MultiProgressBar']]],
-  ['multiprogressbar_209',['MultiProgressBar',['../namespaceosm.html#a075383a0e8d513f82c078daee8eee31e',1,'osm']]]
+  ['isframeenabled_232',['isFrameEnabled',['../classosm_1_1Canvas.html#a7bd6a767d15497e639e9c768a0a5fe23',1,'osm::Canvas']]]
 ];

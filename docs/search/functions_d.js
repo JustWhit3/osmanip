@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7edecorator_247',['~Decorator',['../classosm_1_1Decorator.html#a625915eeb12c0e8dfd7b86596cb97a89',1,'osm::Decorator']]]
+  ['touch_273',['touch',['../classosm_1_1OutputRedirector.html#accb08c8ad90c522c27c881fa76ba75c4',1,'osm::OutputRedirector']]]
 ];

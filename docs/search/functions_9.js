@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['plot2dcanvas_213',['Plot2DCanvas',['../classosm_1_1Plot2DCanvas.html#a87ad63e2d6d11dd5437df33aedbf2c98',1,'osm::Plot2DCanvas']]],
-  ['print_214',['print',['../classosm_1_1ProgressBar.html#a37a91eb88d83ec6bc1e182b7d8abcf00',1,'osm::ProgressBar']]],
-  ['progressbar_215',['ProgressBar',['../classosm_1_1ProgressBar.html#a4d28b5b65467fefeb782e74a91a2a2e6',1,'osm::ProgressBar::ProgressBar()'],['../classosm_1_1ProgressBar.html#a641b705a1f3d5c3ba8307dbd148f9e02',1,'osm::ProgressBar::ProgressBar(const bar_type &amp;min, const bar_type &amp;max)']]],
-  ['put_216',['put',['../classosm_1_1Canvas.html#a490058618fdbfae70ad9ccdbe714ed2d',1,'osm::Canvas']]]
+  ['operator_28_29_235',['operator()',['../classosm_1_1Decorator.html#acd4213d4bc91cc595967a959bf4fbcd4',1,'osm::Decorator::operator()()'],['../structosm_1_1updater.html#ae923dcfd5f29ccc59c843adfe8f18361',1,'osm::updater::operator()()']]],
+  ['operator_3c_3c_236',['operator&lt;&lt;',['../namespaceosm.html#a0e4c43da6b860f7b739d6dd226b97858',1,'osm::operator&lt;&lt;(Decorator my_shell, const T &amp;elem)'],['../namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920',1,'osm::operator&lt;&lt;(std::ostream &amp;os, const ProgressBar&lt; bar_type &gt; &amp;pb)']]],
+  ['option_237',['OPTION',['../namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29',1,'osm']]],
+  ['outputredirector_238',['OutputRedirector',['../classosm_1_1OutputRedirector.html#a4cc61328e5652ad7bade97be6b75605e',1,'osm::OutputRedirector::OutputRedirector()'],['../classosm_1_1OutputRedirector.html#ae365cefe53112fb4e1938ca17fbef10a',1,'osm::OutputRedirector::OutputRedirector(std::string &amp;filename)']]]
 ];

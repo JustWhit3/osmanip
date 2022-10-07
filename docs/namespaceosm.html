@@ -106,6 +106,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1ProgressBar.html">ProgressBar</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template class used to create customized progress bars.  <a href="classosm_1_1ProgressBar.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html">OutputRedirector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is used to redirected output to a file.  <a href="classosm_1_1OutputRedirector.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -184,6 +187,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">OPTION</a> (T opt)</td></tr>
 <tr class="memdesc:ab97e4347ae4e25d091a0b79b118e2a29"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to set a specific option.  <a href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">More...</a><br /></td></tr>
 <tr class="separator:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af318a294240d73ef3692b4d8eb6afa74"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#af318a294240d73ef3692b4d8eb6afa74">find_first_alpha</a> (size_t pos, const std::string &amp;string)</td></tr>
+<tr class="memdesc:af318a294240d73ef3692b4d8eb6afa74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the index of the first alphabetic character in the string, starting from the given position.  <a href="namespaceosm.html#af318a294240d73ef3692b4d8eb6afa74">More...</a><br /></td></tr>
+<tr class="separator:af318a294240d73ef3692b4d8eb6afa74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac45eb188f72c0ad0777cf104216aaa25"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ac45eb188f72c0ad0777cf104216aaa25">get_formatted_string</a> (const std::string &amp;string)</td></tr>
+<tr class="memdesc:ac45eb188f72c0ad0777cf104216aaa25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a copy of the given string with all ANSI escape sequences removed.  <a href="namespaceosm.html#ac45eb188f72c0ad0777cf104216aaa25">More...</a><br /></td></tr>
+<tr class="separator:ac45eb188f72c0ad0777cf104216aaa25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -528,6 +537,71 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>const std::string The output feature. </dd></dl>
+
+</div>
+</div>
+<a id="af318a294240d73ef3692b4d8eb6afa74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af318a294240d73ef3692b4d8eb6afa74">&#9670;&nbsp;</a></span>find_first_alpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t osm::find_first_alpha </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>string</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the index of the first alphabetic character in the string, starting from the given position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>the starting position. </td></tr>
+    <tr><td class="paramname">string</td><td>the string to be searched.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>size_t of the index if successful, otherwise std::string::npos. </dd></dl>
+
+</div>
+</div>
+<a id="ac45eb188f72c0ad0777cf104216aaa25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45eb188f72c0ad0777cf104216aaa25">&#9670;&nbsp;</a></span>get_formatted_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string osm::get_formatted_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a copy of the given string with all ANSI escape sequences removed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>the string to be formatted.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string copy without ANSI escape sequences. </dd></dl>
 
 </div>
 </div>

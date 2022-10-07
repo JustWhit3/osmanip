@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['canvas_168',['Canvas',['../classosm_1_1Canvas.html#abce191d8ced93b66b6c419fa25e1ba0c',1,'osm::Canvas']]],
-  ['clear_169',['clear',['../classosm_1_1Canvas.html#a1505bf52113de81e87ba3f69d5c2a188',1,'osm::Canvas']]]
+  ['begin_187',['begin',['../classosm_1_1OutputRedirector.html#acc59eaf756a9b647bc6e863e1dbe70fa',1,'osm::OutputRedirector']]]
 ];
