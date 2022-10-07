@@ -18,35 +18,45 @@
 
 - [Introduction](#introduction)
 - [Architectures support](#architectures-support)
-  - [Operating systems](#operating-systems)
-  - [Compilers](#compilers)
+    - [Operating systems](#operating-systems)
+    - [Compilers](#compilers)
 - [List of features](#list-of-features)
-  - [ANSI escape sequences manipulators](#ANSI-escape-sequences-manipulators)
-  - [Progress bars](#progress-bars)
-  - [Terminal graphics](#terminal-graphics)
-  - [Extra support for UNICODE and ANSI on Windows](#extra-support-for-unicode-and-ansi-on-windows)
+    - [ANSI escape sequences manipulators](#ANSI-escape-sequences-manipulators)
+    - [Progress bars](#progress-bars)
+    - [Terminal graphics](#terminal-graphics)
+    - [Extra support for UNICODE and ANSI on Windows](#extra-support-for-unicode-and-ansi-on-windows)
 - [Install and use](#install-and-use)
-  - [Install](#install)
-  - [Use in your device](#use-in-your-device)
-  - [Compile examples and test codes](#compile-examples-and-test-codes)
+    - [Install](#install)
+    - [Use in your device](#use-in-your-device)
+    - [Compile examples and test codes](#compile-examples-and-test-codes)
 - [Useful scripts](#useful-scripts)
 - [Todo](#todo)
 - [Credits](#credits)
-  - [Project leaders](#project-leaders)
-  - [Other contributors](#other-contributors)
-  - [Other contributors with no GitHub account](#other-contributors-with-no-github-account)
+    - [Project leaders](#project-leaders)
+    - [Other contributors](#other-contributors)
+    - [Other contributors with no GitHub account](#other-contributors-with-no-github-account)
 
 ## Introduction
 
-*osmanip* is a C++ library containing useful tools to manipulate [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) and customize the output stream of your programs. Within this tools you can add [colors and styles](ANSI-escape-sequences-manipulators) to the printed strings, [change cursor location](ANSI-escape-sequences-manipulators) on the terminal and manage other tools like [progress bars](#progress-bars) and [terminal graphics](#terminal-graphics). Using this features may be very useful to adorn your general output stream log or to perform cursor operations.
+*osmanip* is a C++ library containing useful tools to
+manipulate [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) and customize the
+output stream of your programs. Within this tools you can add [colors and styles](ANSI-escape-sequences-manipulators) to
+the printed strings, [change cursor location](ANSI-escape-sequences-manipulators) on the terminal and manage other tools
+like [progress bars](#progress-bars) and [terminal graphics](#terminal-graphics). Using this features may be very useful
+to adorn your general output stream log or to perform cursor operations.
 
-This is a fully *type-* and *thread-safe* library with *automatic memory management*, with only indispensable [dependencies](#install-and-use).
+This is a fully *type-* and *thread-safe* library with *automatic memory management*, with only
+indispensable [dependencies](#install-and-use).
 
-If you want to mention this software in one of your project / articles, please [cite it](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
+If you want to mention this software in one of your project / articles,
+please [cite it](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
 
-If you want to contribute to the repository, please read [this](https://github.com/JustWhit3/osmanip/blob/main/CONTRIBUTING.md) file before.
+If you want to contribute to the repository, please
+read [this](https://github.com/JustWhit3/osmanip/blob/main/CONTRIBUTING.md) file before.
 
-Code documentation is generated using [*Doxygen*](https://www.doxygen.nl/manual/starting.html) and can be accessed [here](https://justwhit3.github.io/osmanip/). An extra [wiki](https://github.com/JustWhit3/osmanip/wiki) is also provided and contains how-to guides and many examples.
+Code documentation is generated using [*Doxygen*](https://www.doxygen.nl/manual/starting.html) and can be
+accessed [here](https://justwhit3.github.io/osmanip/). An extra [wiki](https://github.com/JustWhit3/osmanip/wiki) is
+also provided and contains how-to guides and many examples.
 
 Colors and styles manipulators examples:
 
@@ -69,32 +79,34 @@ The software is and will stay **free**, but if you want to support me with a don
 ### Operating systems
 
 - **Linux**
-  - *Ubuntu* (tested)
+    - *Ubuntu* (tested)
 - **Windows** (release 10 or higher)
-  - *Cygwin64* (tested)
-  - *MSYS2* (tested)
-  - *MinGW* (tested)
-  - *WSL* (tested)
-  - *Powershell* (tested)
+    - *Cygwin64* (tested)
+    - *MSYS2* (tested)
+    - *MinGW* (tested)
+    - *WSL* (tested)
+    - *Powershell* (tested)
 - **MacOS**
 
 ### Compilers
 
 - **gcc**:
-  - *C++17*: 7/8/9/10/11/12
-  - *C++20*: 10/11/12
+    - *C++17*: 7/8/9/10/11/12
+    - *C++20*: 10/11/12
 - **clang**:
-  - *C++17*: 5/6/7/8/9/10/11/12/13/14/15
-  - *C++20*: 9/10/11/12/13/14/15
+    - *C++17*: 5/6/7/8/9/10/11/12/13/14/15
+    - *C++20*: 9/10/11/12/13/14/15
 - **MSVC**:
-  - *C++17*: 19 (only this one tested)
-  - *C++20*: //
+    - *C++17*: 19 (only this one tested)
+    - *C++20*: //
 
 ## List of features
 
 ### ANSI escape sequences manipulators
 
-- [Color and style manipulation](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#colors-and-styles-manipulators) (list of all available colors and styles [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#colors-and-styles-manipulators))
+- [Color and style manipulation](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#colors-and-styles-manipulators) (
+  list of all available colors and
+  styles [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#colors-and-styles-manipulators))
 
 ```c++
 #include <iostream>
@@ -117,7 +129,9 @@ std::cout << osm::feat( osm::sty, "red" ) << "This string is bold!" << osm::feat
 std::cout << osm::feat( osm::crs, "right", 2 ) << "Cursor moved!";
 ```
 
-- [Terminal control sequences](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences) (list of all the available terminal control sequences [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences))
+- [Terminal control sequences](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences) (
+  list of all the available terminal control
+  sequences [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators#terminal-control-sequences))
 
 ```c++
 #include <iostream>
@@ -148,13 +162,51 @@ my_shell.setStyle( "bold italics", std::cerr ); // NOTE: added 2 styles
 my_shell( std::cerr ) << "The stderr stream has been changed using the Decorator class!" << "\n";
 ```
 
-More examples and how-to guides can be found [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators).
+- Class to manage output redirection (*Currently not thread safe*)
+
+```C++
+#include <thread>
+#include <iostream>
+#include  <osmanip/progressbar/progress_bar.hpp>
+#include  <osmanip/redirection/output_redirector.hpp>
+
+std::string filename = "output.txt";
+osm::OutputRedirector redirector( filename );
+
+// Normal percentage bar.
+osm::ProgressBar<int> percentage_bar;
+percentage_bar.setMin( 5 );
+percentage_bar.setMax( 46 );
+percentage_bar.setStyle( "indicator", "%" );
+
+// Redirect output
+redirector.begin();
+
+std::cout << "This is a normal percentage bar: " << "\n";
+for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+{
+  // Flush the buffer at the start of each loop
+  redirector.flush();
+
+  std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  percentage_bar.update( i );
+  // Do some operations...
+}
+
+// Return output to std::cout
+redirector.end();
+```
+
+More examples and how-to guides can be
+found [here](https://github.com/JustWhit3/osmanip/wiki/ANSI-escape-sequences-manipulators).
 
 Why choosing this library for ANSI escape sequences manipulation:
 
 - All the functions used to manipulate these sequences are very easy to use and don't require complex code signatures.
 - All the most common ANSI sequences can be manipulated.
-- Using the [Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B) class you can set the style of an output stream at the beginning of your program and keep it unchanged until the end.
+- Using
+  the [Decorator](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B)
+  class you can set the style of an output stream at the beginning of your program and keep it unchanged until the end.
 
 ### Progress bars
 
@@ -266,9 +318,17 @@ Why choosing this library for progress bars? Some properties:
 
 - Extremely easy to use.
 - Compatible with positive or negative variable of any standard type (integer, float, double and others).
-- Maximum and minimum values can be set with [any value](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=NOTE%3A%20you%20can%20insert%20each%20min%20and%20max%20value%20you%20prefer%2C%20like%20also%20%2D3%20and%2052%20for%20example%2C%20and%20the%20bar%20will%20work%20perfectly%20too.) you prefer and the progress bars will be self-built with respect to them.
-- Each progress bar [feature](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=Type%3A%20percentage%20indicator,progress%20bars%20simultaneously.) can be fully customized (messages, style, color, brackets type, time remaining info etc...) regarding to your requirements. You can also choose to use only a progress indicator or a loading bar instead of a complete progress bar.
-- It is thread-safe, hence you can use also [multiple progress bars](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=To%20add%20more%20progress%20bar%20simultaneously%20using%20threads%3A) simultaneously.
+- Maximum and minimum values can be set
+  with [any value](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=NOTE%3A%20you%20can%20insert%20each%20min%20and%20max%20value%20you%20prefer%2C%20like%20also%20%2D3%20and%2052%20for%20example%2C%20and%20the%20bar%20will%20work%20perfectly%20too.)
+  you prefer and the progress bars will be self-built with respect to them.
+- Each progress
+  bar [feature](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=Type%3A%20percentage%20indicator,progress%20bars%20simultaneously.)
+  can be fully customized (messages, style, color, brackets type, time remaining info etc...) regarding to your
+  requirements. You can also choose to use only a progress indicator or a loading bar instead of a complete progress
+  bar.
+- It is thread-safe, hence you can use
+  also [multiple progress bars](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=To%20add%20more%20progress%20bar%20simultaneously%20using%20threads%3A)
+  simultaneously.
 
 ### Terminal graphics
 
@@ -334,7 +394,9 @@ Why choosing this library for terminal graphics:
 
 - There are very few C++ libraries doing this job, and this is one of them.
 - High level of customizability.
-- A faster and most comfortable alternative to [plot simple functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=To%20plot%202D%20canvas%20with%20sin%20and%20cos%20functions%3A) without the needing of GUI.
+- A faster and most comfortable alternative
+  to [plot simple functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=To%20plot%202D%20canvas%20with%20sin%20and%20cos%20functions%3A)
+  without the needing of GUI.
 
 ### Extra support for UNICODE and ANSI on Windows
 
@@ -372,16 +434,20 @@ Steps to be reproduced:
 
 This script supports the installation on Ubuntu, MacOS and Windows operating systems.
 
-> **NOTE**: if you are on *Cygwin64* you may get an error related to the `\r` character. To solve it run the `dos2unix` command on the script (ex: `dos2unix install.sh`) before running it.
+> **NOTE**: if you are on *Cygwin64* you may get an error related to the `\r` character. To solve it run the `dos2unix`
+> command on the script (ex: `dos2unix install.sh`) before running it.
 
-A new library *libosmanip.a* will be created into the `/usr/lib` folder of your computer and the [*header*](https://github.com/JustWhit3/osmanip/blob/main/include) files will be installed into `/usr/include` path.
-> **NOTE**: if you are on MacOS or Windows the paths are slightly different (looks at [install.sh](https://github.com/JustWhit3/arsenalgear-cpp/blob/main/scripts/install.sh)).
+A new library *libosmanip.a* will be created into the `/usr/lib` folder of your computer and the [*
+header*](https://github.com/JustWhit3/osmanip/blob/main/include) files will be installed into `/usr/include` path.
+> **NOTE**: if you are on MacOS or Windows the paths are slightly different (looks
+> at [install.sh](https://github.com/JustWhit3/arsenalgear-cpp/blob/main/scripts/install.sh)).
 
 Mandatory prerequisites (automatically installed with the script):
 
 - C++17 standard.
 - g++ compiler (g++ 9.3.0 has been tested so far) for compilation.
-- [GNU make](https://www.opensourceforu.com/2012/06/gnu-make-in-detail-for-beginners/#:~:text=Installing%20GNU%20Make,install%20build%2Dessential.) for compilation.
+- [GNU make](https://www.opensourceforu.com/2012/06/gnu-make-in-detail-for-beginners/#:~:text=Installing%20GNU%20Make,install%20build%2Dessential.)
+  for compilation.
 - [arsenalgear](https://github.com/JustWhit3/arsenalgear-cpp) library.
 
 4) **EXTRA**: to update the repository after some time
@@ -405,16 +471,19 @@ Tu use on or more headers of the library:
 #include <osmanip/module_folder/module_name.hpp>
 ```
 
-If you are using the library in a program, add the `-losmanip` flag to link [source](https://github.com/JustWhit3/osmanip/tree/main/src) code.
+If you are using the library in a program, add the `-losmanip` flag to
+link [source](https://github.com/JustWhit3/osmanip/tree/main/src) code.
 
-> **NOTE**: remember also to add `-pthread` flag if you want to use some thread-dependent libraries like [**progressbar/multi_progress_bar.hpp**](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp).
+> **NOTE**: remember also to add `-pthread` flag if you want to use some thread-dependent libraries like [**
+progressbar/multi_progress_bar.hpp**](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp)
+> .
 
 ### Compile examples and test codes
 
 To compile example codes:
 
 ```shell
-make main
+make all
 ```
 
 To run all examples:
@@ -423,6 +492,7 @@ To run all examples:
 ./bin/manipulators
 ./bin/progressbar
 ./bin/graphics
+./bin/redirection
 ```
 
 > **NOTE**: executables end with `.exe` if you are on Windows of course.
@@ -433,7 +503,8 @@ Tests are produced using `-Wall -Wextra -pedantic` flags. To check them you need
 - [doctest](https://github.com/onqtam/doctest) for testing.
 - [cppcheck](https://cppcheck.sourceforge.io/) for testing.
 
-They are installed in the second step of the installation through the `install.sh` script. Before running test codes you need to compile them:
+They are installed in the second step of the installation through the `install.sh` script. Before running test codes you
+need to compile them:
 
 ```txt
 make bin/tests
@@ -447,9 +518,11 @@ To launch all tests simultaneously:
 
 ## Useful scripts
 
-Other scripts have been provided into the [**scripts**](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder. After compiling the source code, they can be run from the repository home directory.
+Other scripts have been provided into the [**scripts**](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder.
+After compiling the source code, they can be run from the repository home directory.
 
-The `debug.sh` script is used to run [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) debugging tools on the whole code.
+The `debug.sh` script is used to run [Valgrind](https://valgrind.org/)
+and [Cppcheck](https://github.com/danmar/cppcheck) debugging tools on the whole code.
 
 You can run Valgrind debugging tools with a specific executable:
 
@@ -462,12 +535,15 @@ You can run Valgrind debugging tools with a specific executable:
 **ANSI escape sequences manipulators**
 
 - Add UNICODE characters manipulators.
-- Add new methods to the [`decorator`](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B) class.
+- Add new methods to
+  the [`decorator`](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B)
+  class.
 - Implement file redirection when manipulating the output.
 
 **Progress bars**
 
-- Add an `elapsedTime()` method to show elapsed progress bar time and substitute it to the already existing  `getTime()` method.
+- Add an `elapsedTime()` method to show elapsed progress bar time and substitute it to the already existing  `getTime()`
+  method.
 
 **Terminal graphics**
 

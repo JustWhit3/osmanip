@@ -15,6 +15,7 @@ studies/benchmarking/manipulators
 !.github/
 guides
 **/deps
+.idea
 
 #====================================================
 #     OTHER FILES
@@ -23,3 +24,4 @@ guides
 *.txt
 *.odt
 *.rtf
+
