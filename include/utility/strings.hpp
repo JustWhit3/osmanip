@@ -13,7 +13,6 @@
 #pragma once
 #ifndef OSMANIP_STRINGS_HPP
 #define OSMANIP_STRINGS_HPP
-#endif
 
 //====================================================
 //     Headers
@@ -95,3 +94,5 @@ namespace osm
   }
 
 }      // namespace osm
+
+#endif

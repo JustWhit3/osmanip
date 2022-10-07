@@ -12,8 +12,8 @@
 //====================================================
 #pragma once
 #ifndef OSMANIP_OUTPUTREDIRECTOR_HPP
-#  define OSMANIP_OUTPUTREDIRECTOR_HPP
-#endif
+#define OSMANIP_OUTPUTREDIRECTOR_HPP
+
 
 //====================================================
 //     Headers
@@ -90,3 +90,5 @@ namespace osm
   };
 
 }      // namespace osm
+
+#endif
