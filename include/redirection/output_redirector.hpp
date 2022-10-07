@@ -7,45 +7,86 @@
  * @date 2022-10-5
  */
 
+//====================================================
+//     Preprocessor settings
+//====================================================
 #pragma once
+#ifndef OSMANIP_OUTPUTREDIRECTOR
+#  define OSMANIP_OUTPUTREDIRECTOR
+#endif
 
-#include <streambuf>
+//====================================================
+//     Headers
+//====================================================
+
+// STD headers
+#include <mutex>
 #include <string>
+#include <fstream>
+#include <streambuf>
 
 namespace osm
 {
+  //====================================================
+  //     Classes
+  //====================================================
+
+  // OutputRedirector
   /**
-   * @brief Object used to redirect std::cout output to a file.
-   *    Not thread safe!
+   * @brief This class is used to redirected output to a file.
    *
-   * @tparam filename_  Filename of the file to receive output.
-   * @tparam streambuf_backup_  Buffer to store the cout stream buffer while output is being redirected.
-   * @tparam output_stringbuf_  Buffer to store the redirected output.
    */
   class OutputRedirector
   {
+    typedef std::scoped_lock<std::mutex> scoped_lock;
+    typedef std::lock_guard<std::mutex> lock_guard;
+
     public:
+    //====================================================
+    //     Constructors
+    //====================================================
     OutputRedirector();
     explicit OutputRedirector( std::string & filename );
+
+    //====================================================
+    //     Destructor
+    //====================================================
     ~OutputRedirector();
 
+    //====================================================
+    //     Setters
+    //====================================================
+    void setFilename( const std::string & filename );
+
+    //====================================================
+    //     Getters
+    //====================================================
+    [[nodiscard]] std::string & getFilename();
+
+    //====================================================
+    //     Methods
+    //====================================================
     void end();
     void begin();
     void flush();
-    void touch() const;
-    void redirect_output( std::string & filename ) const;
-    void clear_buffer();
-
-    void set_filename( const std::string & filename );
-    [[nodiscard]] const std::string & get_filename() const;
+    void touch();
 
     private:
-      void file_not_found_exception() const;
-
-    private:
-    std::string filename_ = "redirected_output.txt";
-    std::streambuf * streambuf_backup_;
+    //====================================================
+    //     Private attributes
+    //====================================================
+    std::mutex mutex_;
+    std::string filename_;
+    std::fstream fstream_;
     std::stringbuf * output_stringbuf_;
+    std::streambuf * streambuf_backup_;
+
+    //====================================================
+    //     Private methods
+    //====================================================
+    void clear_buffer();
+    void redirect_output( std::string & filename );
+    void exception_file_not_found();
   };
 
 }      // namespace osm
