@@ -14,9 +14,9 @@
 #include <thread>
 
 //====================================================
-//     Static OutputRedirector
+//     Global OutputRedirector
 //====================================================
-osm::OutputRedirector s_redirect;
+osm::OutputRedirector redirector {};
 
 //====================================================
 //     Percentage bar
@@ -41,7 +41,7 @@ void perc_bars()
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar.update( i );
@@ -58,7 +58,7 @@ void perc_bars()
             << "\n";
   for( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar_2.update( i );
@@ -74,7 +74,7 @@ void perc_bars()
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     percentage_bar.setBegin();
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
@@ -97,7 +97,7 @@ void perc_bars()
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar.update( i );
@@ -129,7 +129,7 @@ void load_bars()
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
@@ -146,7 +146,7 @@ void load_bars()
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
@@ -165,7 +165,7 @@ void load_bars()
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
@@ -196,7 +196,7 @@ void mixed_bars()
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
@@ -212,7 +212,7 @@ void mixed_bars()
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
@@ -230,7 +230,7 @@ void mixed_bars()
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
@@ -340,7 +340,7 @@ void progress_spinner()
             << "\n";
   for( int i = spinner.getMin(); i < spinner.getMax(); i++ )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     spinner.update( i );
@@ -361,7 +361,7 @@ void progress_spinner()
             << "\n";
   for( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
   {
-    s_redirect.flush();
+    redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     spinner_float.update( i );
@@ -381,13 +381,18 @@ int main()
 
   osm::OPTION( osm::CURSOR::OFF );
 
-  std::cout << "Redirecting the output to " << s_redirect.get_filename() << "\n";
+  // Use default filename or set your own
+  redirector.setFilename( "example_output.txt" );
+
+  std::cout << "Redirecting example output to '" << redirector.getFilename() << "'.\n";
 
   // Begin redirecting std::cout to a file
-  s_redirect.begin();
+  redirector.begin();
 
-  std::cout << "Progress bars, with logging!\n";
-  s_redirect.end();
+  std::cout << "------------------------------------\n"
+            << "Progress bars, with logging!\n"
+            << "------------------------------------\n";
+  redirector.end();
 
   /** Important note: ==============================================================
    *    When in a loop, you must update file with the newest data by calling flush()
@@ -396,36 +401,41 @@ int main()
    *    There's probably a way around this...
    * ================================================================================*/
 
-  std::cout << "Running percentage bars example...\n";
-  s_redirect.begin();
+  std::cout << "-- Running percentage bars example... " << std::flush;
+  redirector.begin();
   perc_bars();
-  s_redirect.end();
+  redirector.end();
 
-  std::cout << "> Done\nRunning loading bars example...\n";
-  s_redirect.begin();
+  std::cout << "Done.\n-- Running loading bars example... " << std::flush;
+  redirector.begin();
   load_bars();
-  s_redirect.end();
+  redirector.end();
 
-  std::cout << "> Done\nRunning mixed bars example...\n";
-  s_redirect.begin();
+  std::cout << "Done.\n-- Running mixed bars example... " << std::flush;
+  redirector.begin();
   mixed_bars();
-  s_redirect.end();
+  redirector.end();
 
-  std::cout << "> Done\nSkipping multi bars example.\n";
-  // Doesn't work with multiple threads
-  //   multi_bars();
+  std::cout << "Done.\n-- Skipping multi bars example.\n"
+            << std::flush;
+  // Doesn't work well with multiple threads
+  //   redirector.begin();
+  //     multi_bars();
+  //   redirector.end();
 
-  std::cout << "> Running progress spinners example...\n";
-  s_redirect.begin();
+  std::cout << "-- Running progress spinners example... " << std::flush;
+  redirector.begin();
   progress_spinner();
-  s_redirect.end();
 
-
+  std::cout << "\n------------------------------------\n"
+            << "Example complete!\n"
+            << "------------------------------------\n";
 
   // End the redirection and return output to console
-  s_redirect.end();
+  redirector.end();
 
-  std::cout << "All done!\n";
+  std::cout << "Done\nOpen `" + redirector.getFilename() + "` to view output.\n"
+            << std::flush;
 
   osm::OPTION( osm::CURSOR::ON );
 
