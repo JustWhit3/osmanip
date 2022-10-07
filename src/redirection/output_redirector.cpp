@@ -156,15 +156,18 @@ namespace osm
   {
     lock_guard guard( mutex_ );
 
-    if( fstream_.open( filename_, std::fstream::in ); !fstream_.is_open() )
+    if( fstream_.open( filename_, std::fstream::in ); fstream_.is_open() )
     {
-      if( fstream_.open( filename_, std::fstream::trunc | std::fstream::out ); !fstream_.is_open() )
-      {
-        exception_file_not_found();
-      }
+      fstream_.close();
     }
-
-    fstream_.close();
+    else if( fstream_.open( filename_, std::fstream::trunc | std::fstream::out ); fstream_.is_open() )
+    {
+      fstream_.close();
+    }
+    else
+    {
+      exception_file_not_found();
+    }
   }
 
   //====================================================
@@ -178,7 +181,7 @@ namespace osm
    */
   void OutputRedirector::redirect_output( std::string & filename )
   {
-    std::string output_str;
+    std::string output_string_fmt;
     std::string file_contents;
 
     touch();
@@ -189,10 +192,10 @@ namespace osm
 
     {
       scoped_lock slock( mutex_ );
-      output_str = get_formatted_string( output_stringbuf_->str() );
+      output_string_fmt = get_formatted_string( output_stringbuf_->str() );
     }
 
-    write_to_file( filename, file_contents + output_str );
+    write_to_file( filename, file_contents + output_string_fmt );
   }
 
   // clear_buffer
@@ -245,6 +248,8 @@ namespace osm
     {
       sstream << fstream_.rdbuf();
       fstream_.close();
+
+      return sstream.str();
     }
     else
     {
