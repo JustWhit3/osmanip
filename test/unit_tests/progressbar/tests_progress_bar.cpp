@@ -50,11 +50,11 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
 
   SUBCASE( "Testing naked getters and constructor." ) 
    {
-    CHECK_EQ( bar.getMax(), static_cast<T> ( NULL ) );
-    CHECK_EQ( bar.getMin(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getMax(), static_cast<T> ( 0 ) );
+    CHECK_EQ( bar.getMin(), static_cast<T> ( 0 ) );
     CHECK_EQ( bar.getStyle(), "" );
     CHECK_EQ( bar.getType(), "" );
-    CHECK_EQ( bar.getTime(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getTime(), static_cast<T> ( 0 ) );
     CHECK_EQ( bar.getMessage(), "" );
     CHECK_EQ( bar.getBrackets_close(), "" );
     CHECK_EQ( bar.getBrackets_open(), "" );
@@ -72,8 +72,8 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   bar.setRemainingTimeFlag( "on" );
 
   //Require values have been correctly initialized.
-  REQUIRE( bar.getMax() != static_cast<T> ( NULL ) );
-  REQUIRE( bar.getMin() != static_cast<T> ( NULL ) );
+  REQUIRE( bar.getMax() != static_cast<T> ( 0 ) );
+  REQUIRE( bar.getMin() != static_cast<T> ( 0 ) );
   REQUIRE( bar.getStyle() != "" );
   REQUIRE( bar.getType() != "" );
   REQUIRE( bar.getMessage() != "" );
@@ -120,8 +120,8 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
    {
     bar.resetAll();
 
-    CHECK_EQ( bar.getMax(), static_cast<T> ( NULL ) );
-    CHECK_EQ( bar.getMin(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getMax(), static_cast<T> ( 0) );
+    CHECK_EQ( bar.getMin(), static_cast<T> ( 0) );
     CHECK_EQ( bar.getStyle(), "" );
     CHECK_EQ( bar.getType(), "" );
     CHECK_EQ( bar.getMessage(), "" );
@@ -146,8 +146,8 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
     bar.resetBrackets();
     bar.resetColor();
 
-    CHECK_EQ( bar.getMin(), static_cast<T> ( NULL ) );
-    CHECK_EQ( bar.getMax(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getMin(), static_cast<T> ( 0) );
+    CHECK_EQ( bar.getMax(), static_cast<T> ( 0) );
     CHECK_EQ( bar.getStyle(), "" );
     CHECK_EQ( bar.getType(), "" );
     CHECK_EQ( bar.getMessage(), "" );
@@ -181,7 +181,7 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
 
     bar.resetTime();
 
-    CHECK_EQ( bar.getTime(), static_cast<T> ( NULL ) );
+    CHECK_EQ( bar.getTime(), static_cast<T> ( 0 ) );
    }
 
   //====================================================
