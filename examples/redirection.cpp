@@ -418,10 +418,11 @@ int main()
 
   std::cout << "Done.\n-- Skipping multi bars example.\n"
             << std::flush;
+
   // Doesn't work well with multiple threads
-  //   redirector.begin();
-  //     multi_bars();
-  //   redirector.end();
+//   redirector.begin();
+//   multi_bars();
+//   redirector.end();
 
   std::cout << "-- Running progress spinners example... " << std::flush;
   redirector.begin();
