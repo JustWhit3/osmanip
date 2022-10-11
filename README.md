@@ -34,6 +34,7 @@
 - [Credits](#credits)
     - [Project leaders](#project-leaders)
     - [Other contributors](#other-contributors)
+    - [Other contributors with no GitHub account](#other-contributors-with-no-github-account)
 
 ## Introduction
 
@@ -587,3 +588,7 @@ You can run Valgrind debugging tools with a specific executable:
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+### Other contributors with no GitHub account
+
+- [StoryTeller](https://stackoverflow.com/users/817643/storyteller-unslander-monica)

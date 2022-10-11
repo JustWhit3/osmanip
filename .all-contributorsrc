@@ -63,10 +63,20 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "ohz10",
+      "name": "oz_10",
+      "avatar_url": "https://avatars.githubusercontent.com/u/250468?v=4",
+      "profile": "https://github.com/ohz10",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "projectName": "osmanip",
   "projectOwner": "JustWhit3",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "commitConvention": "angular"
 }
