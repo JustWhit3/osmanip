@@ -4,9 +4,9 @@
 #ifdef _WIN32
 #  include "../include/utility/windows.hpp"
 #endif
-#include "../../osmanip/include/utility/options.hpp"
 
-#include "../../osmanip/include/redirection/output_redirector.hpp"
+#include "../include/utility/options.hpp"
+#include "../include/redirection/output_redirector.hpp"
 
 // STD headers
 #include <chrono>
