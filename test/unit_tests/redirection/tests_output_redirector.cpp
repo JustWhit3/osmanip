@@ -1,3 +1,7 @@
+//====================================================
+//     Headers
+//====================================================
+
 // My headers
 #include "../include/progressbar/progress_bar.hpp"
 #include "../include/redirection/output_redirector.hpp"
@@ -36,6 +40,7 @@ void test_perc_bars( osm::OutputRedirector & redirector );
 void test_load_bars( osm::OutputRedirector & redirector );
 void test_mixed_bars( osm::OutputRedirector & redirector );
 void test_progress_spinner( osm::OutputRedirector & redirector );
+
 
 TEST_CASE( "Testing OutputRedirector class" )
 {
@@ -259,7 +264,7 @@ TEST_CASE( "Testing OutputRedirector class" )
                               "[■■■■■■■■■■■■■■■■■■■■■■■■■] 100% elaborating... [Estimated time left: 0m 0s]\n"
                               "\n"
                               "This is a mixed progress bar with two customized styles: \n"
-                              "[*************************] 100/100 elaborating... \n\n";
+                              "[>>>>>>>>>>>>>>>>>>>>>>>>>] 100|100 elaborating... \n\n";
 
     std::string file_contents = read_file( redirector.getFilename() );
     CHECK_EQ( file_contents, output_text );
@@ -545,8 +550,9 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
   std::cout << "\n\n";
 
   mixed_bar.resetColor();
-  mixed_bar.addStyle( "loader", "*" );
-  mixed_bar.setStyle( "complete", "/100", "*" );
+  mixed_bar.addStyle( "indicator", "|100" );
+  mixed_bar.addStyle( "loader", ">" );
+  mixed_bar.setStyle( "complete", "|100", ">" );
   mixed_bar.setRemainingTimeFlag( "off" );
 
   std::cout << "This is a mixed progress bar with two customized styles: "

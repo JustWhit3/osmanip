@@ -1,12 +1,12 @@
 // My headers
-#include "../include/progressbar/multi_progress_bar.hpp"
-#include "../include/progressbar/progress_bar.hpp"
+#include "../../osmanip/include/progressbar/multi_progress_bar.hpp"
+#include "../../osmanip/include/progressbar/progress_bar.hpp"
 #ifdef _WIN32
 #  include "../include/utility/windows.hpp"
 #endif
-#include "../include/utility/options.hpp"
+#include "../../osmanip/include/utility/options.hpp"
 
-#include "../include/redirection/output_redirector.hpp"
+#include "../../osmanip/include/redirection/output_redirector.hpp"
 
 // STD headers
 #include <chrono>
@@ -381,6 +381,13 @@ int main()
 
   osm::OPTION( osm::CURSOR::OFF );
 
+  std::cout << "======================================================"
+            << "\n"
+            << "     OUTPUT REDIRECTION                               "
+            << "\n"
+            << "======================================================"
+            << "\n\n";
+
   // Use default filename or set your own
   redirector.setFilename( "example_output.txt" );
 
@@ -420,9 +427,9 @@ int main()
             << std::flush;
 
   // Doesn't work well with multiple threads
-//   redirector.begin();
-//   multi_bars();
-//   redirector.end();
+  //   redirector.begin();
+  //   multi_bars();
+  //   redirector.end();
 
   std::cout << "-- Running progress spinners example... " << std::flush;
   redirector.begin();
@@ -435,7 +442,7 @@ int main()
   // End the redirection and return output to console
   redirector.end();
 
-  std::cout << "Done\nOpen `" + redirector.getFilename() + "` to view output.\n"
+  std::cout << "Done\nOpen `" + redirector.getFilename() + "` to view output.\n\n"
             << std::flush;
 
   osm::OPTION( osm::CURSOR::ON );

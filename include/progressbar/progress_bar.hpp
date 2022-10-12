@@ -292,8 +292,8 @@ namespace osm
       */
      void resetAll()
       { 
-       max_ = static_cast<bar_type>( NULL ), 
-       min_ = static_cast<bar_type>( NULL ), 
+       max_ = static_cast<bar_type>( 0 ), 
+       min_ = static_cast<bar_type>( 0 ), 
        style_ = "", 
        type_ = "",
        message_ = "", 
@@ -315,7 +315,7 @@ namespace osm
        */
       void resetMax()
        { 
-        max_ = static_cast<bar_type>( NULL );
+        max_ = static_cast<bar_type>( 0 );
        }
       
       // resetMin
@@ -326,7 +326,7 @@ namespace osm
        */
       void resetMin()
        {
-        min_ = static_cast<bar_type>( NULL );
+        min_ = static_cast<bar_type>( 0 );
        }
     
       // resetStyle
@@ -679,18 +679,7 @@ namespace osm
      */
      void addStyle( const std::string& type, const std::string& style )
       {
-       if( styles_map_.at( type ).find( style ) == styles_map_.at( type ).end() )
-        {
-         styles_map_.at(type).insert(style);
-        }
-       else if( styles_map_.at( type ).find( style ) != styles_map_.at( type ).end() )
-        {
-         throw agr::except_error_func( "Inserted ProgressBar style", style, "is already available!" ); 
-        }
-       else
-        {
-         throw agr::except_error_func( "Inserted ProgressBar type", type, "is already available!" );
-        }
+       styles_map_.at( type ).insert( style );
       }
   
      private:

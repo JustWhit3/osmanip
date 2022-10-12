@@ -34,7 +34,6 @@
 - [Credits](#credits)
     - [Project leaders](#project-leaders)
     - [Other contributors](#other-contributors)
-    - [Other contributors with no GitHub account](#other-contributors-with-no-github-account)
 
 ## Introduction
 
@@ -580,6 +579,7 @@ You can run Valgrind debugging tools with a specific executable:
       <td align="center"><a href="https://github.com/myermo"><img src="https://avatars.githubusercontent.com/u/93035284?v=4" width="100px;" alt=""/><br /><sub><b>myermo</b></sub></a></td>
       <td align="center"><a href="http://nickb.website"><img src="https://avatars.githubusercontent.com/u/25168557?v=4" width="100px;" alt=""/><br /><sub><b>nick-botticelli</b></sub></a></td>
       <td align="center"><a href="https://github.com/joeletho"><img src="https://avatars.githubusercontent.com/u/12375294?v=4" width="100px;" alt=""/><br /><sub><b>Joel Thomas</b></sub></a></td>
+      <td align="center"><a href="https://github.com/ohz10"><img src="https://avatars.githubusercontent.com/u/250468?v=4" width="100px;" alt=""/><br /><sub><b>oz_10</b></sub></a></td>
     </tr>
   </tbody>
 </table>
@@ -588,7 +588,3 @@ You can run Valgrind debugging tools with a specific executable:
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-### Other contributors with no GitHub account
-
-- [StoryTeller](https://stackoverflow.com/users/817643/storyteller-unslander-monica)
