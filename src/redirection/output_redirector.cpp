@@ -17,9 +17,7 @@
 
 // STD headers
 #include <iostream>
-#include <sstream>
 #include <utility>
-#include <cassert>
 
 namespace osm
 {
