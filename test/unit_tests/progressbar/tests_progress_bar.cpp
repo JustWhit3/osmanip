@@ -207,17 +207,19 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   //====================================================
   SUBCASE( "Testing addStyle method." )
    {
+    bar.addStyle( "indicator", "tst" );
     bar.addStyle( "indicator", "|100" );
+    bar.addStyle( "indicator", "|100" ); // Check map replacement
     bar.setStyle( "indicator", "|100" );
 
     CHECK_EQ( bar.getStyle(), "|100" );
 
+    bar.addStyle( "loader", "tst" );
     bar.addStyle( "loader", ">" );
+    bar.addStyle( "loader", ">" ); // Check map replacement
     bar.setStyle( "complete", "|100", ">" );
 
     CHECK_EQ( bar.getStyle(), "|100>" );
-    CHECK_THROWS_AS( bar.addStyle( "indicator", "%" ), std::runtime_error );
-    CHECK_THROWS_AS( bar.addStyle( "loader", "#" ), std::runtime_error );
     CHECK_THROWS_AS( bar.addStyle( "indicatorr", "%" ), std::out_of_range );
    }
    
