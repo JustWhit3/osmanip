@@ -12,17 +12,20 @@
 //====================================================
 #pragma once
 #ifndef OSMANIP_STRINGS_HPP
-#define OSMANIP_STRINGS_HPP
+#  define OSMANIP_STRINGS_HPP
 
 //====================================================
 //     Headers
 //====================================================
 
 // STD headers
-#include <string>
+#  include <string>
 
 namespace osm
 {
+  //====================================================
+  //     Functions
+  //====================================================
 
   // find_first_alpha
   /**
@@ -33,7 +36,7 @@ namespace osm
    *
    * @return size_t of the index if successful, otherwise std::string::npos.
    */
-  size_t find_first_alpha( size_t pos, const std::string & string )
+  static size_t find_first_alpha( size_t pos, const std::string & string )
   {
     for( size_t i = pos; i < string.size(); ++i )
     {
@@ -53,7 +56,7 @@ namespace osm
    *
    * @return std::string copy without ANSI escape sequences.
    */
-  std::string get_formatted_string( const std::string & string )
+  static std::string get_formatted_string( const std::string & string )
   {
     std::string result = string;
 
