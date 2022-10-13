@@ -69,6 +69,7 @@ if [ "$1" == "include" ] || [ "$1" == "" ]; then
   ./test/include_tests.sh progressbar/progress_bar.hpp
   ./test/include_tests.sh redirection/output_redirector.hpp
   ./test/include_tests.sh utility/options.hpp
+  ./test/include_tests.sh utility/strings.hpp
   ./test/include_tests.sh utility/windows.hpp
 fi
 
