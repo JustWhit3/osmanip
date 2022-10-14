@@ -1,12 +1,12 @@
 // My headers
-#include "../include/progressbar/multi_progress_bar.hpp"
+#include "../include/utility/options.hpp"
 #include "../include/progressbar/progress_bar.hpp"
+#include "../include/redirection/output_redirector.hpp"
+#include "../include/progressbar/multi_progress_bar.hpp"
+
 #ifdef _WIN32
 #  include "../include/utility/windows.hpp"
 #endif
-#include "../include/utility/options.hpp"
-
-#include "../include/redirection/output_redirector.hpp"
 
 // STD headers
 #include <chrono>
@@ -56,6 +56,7 @@ void perc_bars()
 
   std::cout << "This is a percentage bar with message and the /100 style: "
             << "\n";
+
   for( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
   {
     redirector.flush();
@@ -379,19 +380,42 @@ int main()
   osm::enableANSI();
 #endif
 
+  static bool test_perc_bars = true;
+  static bool test_load_bars = true;
+  static bool test_mixed_bars = true;
+  static bool test_prog_spinners = true;
+
+  // Does not work well with multi bars at this time. Results are very ugly.
+  static bool test_multi_bars = false;
+
   osm::OPTION( osm::CURSOR::OFF );
+
+  std::cout << "======================================================"
+            << "\n"
+            << "     OUTPUT REDIRECTION                               "
+            << "\n"
+            << "======================================================"
+            << "\n\n"
+            << std::flush;
 
   // Use default filename or set your own
   redirector.setFilename( "example_output.txt" );
 
-  std::cout << "Redirecting example output to '" << redirector.getFilename() << "'.\n";
+  std::cout << osm::feat( osm::col, "lt cyan" )
+            << "Redirecting example output to '"
+            << osm::feat( osm::sty, "underlined" ) << osm::feat( osm::col, "white" )
+            << redirector.getFilename()
+            << osm::feat( osm::rst, "underlined" ) << osm::feat( osm::col, "lt cyan" ) << "'."
+            << osm::feat( osm::rst, "all" ) << std::flush;
 
-  // Begin redirecting std::cout to a file
+  // Begin redirecting the output stream to a file
   redirector.begin();
 
   std::cout << "------------------------------------\n"
             << "Progress bars, with logging!\n"
             << "------------------------------------\n";
+
+  // End the redirection and return output to console
   redirector.end();
 
   /** Important note: ==============================================================
@@ -401,41 +425,108 @@ int main()
    *    There's probably a way around this...
    * ================================================================================*/
 
-  std::cout << "-- Running percentage bars example... " << std::flush;
+  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+
+  if( test_perc_bars )
+  {
+    std::cout << "Running percentage bars example... " << std::flush;
+    redirector.begin();
+    perc_bars();
+    redirector.end();
+    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
+  else
+  {
+    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+              << "Skipping percentage bars example."
+              << osm::feat( osm::rst, "all" ) << std::flush;
+  }
+
+  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+
+  if( test_load_bars )
+  {
+    std::cout << "Running loading bars example... " << std::flush;
+    redirector.begin();
+    load_bars();
+    redirector.end();
+    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
+  else
+  {
+    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+              << "Skipping loading bars example."
+              << osm::feat( osm::rst, "all" ) << std::flush;
+  }
+
+  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+
+  if( test_mixed_bars )
+  {
+    std::cout << "Running mixed bars example... " << std::flush;
+    redirector.begin();
+    mixed_bars();
+    redirector.end();
+    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
+  else
+  {
+    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+              << "Skipping mixed bars example."
+              << osm::feat( osm::rst, "all" ) << std::flush;
+  }
+
+  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+
+  if( test_multi_bars )
+  {
+
+    std::cout << "Running multi bars example... " << std::flush;
+    redirector.begin();
+    multi_bars();
+    redirector.end();
+    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
+  else
+  {
+    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+              << "Skipping multi bars example."
+              << osm::feat( osm::rst, "all" ) << std::flush;
+  }
+
+  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+
+  if( test_prog_spinners )
+  {
+
+    std::cout << "Running progress spinners example... " << std::flush;
+    redirector.begin();
+    progress_spinner();
+    redirector.end();
+    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
+  else
+  {
+    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+              << "Skipping progress spinners example."
+              << osm::feat( osm::rst, "all" ) << std::flush;
+  }
+
   redirector.begin();
-  perc_bars();
+  std::cout << "\n"
+               "------------------------------------\n"
+               "Example complete!\n"
+               "------------------------------------\n";
   redirector.end();
 
-  std::cout << "Done.\n-- Running loading bars example... " << std::flush;
-  redirector.begin();
-  load_bars();
-  redirector.end();
-
-  std::cout << "Done.\n-- Running mixed bars example... " << std::flush;
-  redirector.begin();
-  mixed_bars();
-  redirector.end();
-
-  std::cout << "Done.\n-- Skipping multi bars example.\n"
-            << std::flush;
-  // Doesn't work well with multiple threads
-  //   redirector.begin();
-  //     multi_bars();
-  //   redirector.end();
-
-  std::cout << "-- Running progress spinners example... " << std::flush;
-  redirector.begin();
-  progress_spinner();
-
-  std::cout << "\n------------------------------------\n"
-            << "Example complete!\n"
-            << "------------------------------------\n";
-
-  // End the redirection and return output to console
-  redirector.end();
-
-  std::cout << "Done\nOpen `" + redirector.getFilename() + "` to view output.\n"
-            << std::flush;
+  std::cout << '\n'
+            << osm::feat( osm::col, "lt cyan" )
+            << "Open `"
+            << osm::feat( osm::col, "white" ) << osm::feat( osm::sty, "underlined" )
+            << redirector.getFilename()
+            << osm::feat( osm::rst, "underlined" ) << osm::feat( osm::col, "lt cyan" )
+            << "` to view output.\n\n"
+            << osm::feat( osm::rst, "all" ) << std::flush;
 
   osm::OPTION( osm::CURSOR::ON );
 
