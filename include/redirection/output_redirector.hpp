@@ -30,7 +30,7 @@
     #include <filesystem>
   #endif
 #else
-#include <filesystem>
+  #include <filesystem>
 #endif
 #include <atomic>
 
@@ -45,7 +45,7 @@ namespace osm
     #else
       namespace fs = std::filesystem;
     #endif
-    #else
+  #else
       namespace fs = std::filesystem;
   #endif
 
