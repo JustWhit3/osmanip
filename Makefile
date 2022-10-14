@@ -98,8 +98,12 @@ WFLAGS := -Wall -Wextra -Wno-reorder -pedantic
 CXXFLAGS := -std=c++17
 CPPFLAGS := $(CXXFLAGS) $(INC_FLAGS) -MMD -MP $(WFLAGS)
 
+ifeq ($(O_SYSTEM),$(filter $(O_SYSTEM),Linux))
 ifeq "$(IS_GCC_ABOVE_MIN_VERSION)" "0"
     LDFLAGS := -lstdc++fs -pthread -larsenalgear
+else
+	LDFLAGS := -pthread -larsenalgear
+endif
 else
 	LDFLAGS := -pthread -larsenalgear
 endif
