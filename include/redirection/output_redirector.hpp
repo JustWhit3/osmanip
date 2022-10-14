@@ -23,6 +23,9 @@
 # include <string>
 # include <fstream>
 # include <streambuf>
+#include <atomic>
+
+// Procedure for experimental header
 #ifndef __APPLE__
   #if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
     #include <experimental/filesystem>
@@ -32,7 +35,6 @@
 #else
   #include <filesystem>
 #endif
-#include <atomic>
 
 namespace osm
 {
