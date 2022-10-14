@@ -23,10 +23,14 @@
 # include <string>
 # include <fstream>
 # include <streambuf>
-#if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
-  #include <experimental/filesystem>
+#ifndef __APPLE__
+  #if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
+    #include <experimental/filesystem>
+  #else
+    #include <filesystem>
+  #endif
 #else
-  #include <filesystem>
+#include <filesystem>
 #endif
 #include <atomic>
 
@@ -35,10 +39,14 @@ namespace osm
   //====================================================
   //     Aliases
   //====================================================
-  #if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
-    namespace fs = std::experimental::filesystem;
-  #else
-    namespace fs = std::filesystem;
+  #ifndef __APPLE__
+    #if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
+      namespace fs = std::experimental::filesystem;
+    #else
+      namespace fs = std::filesystem;
+    #endif
+    #else
+      namespace fs = std::filesystem;
   #endif
 
   //====================================================
