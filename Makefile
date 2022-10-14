@@ -30,6 +30,8 @@ else
 endif
 LIB := libosmanip.a
 CXX := g++
+MIN_GCC_VERSION = "8.0"
+IS_GCC_ABOVE_MIN_VERSION := $(shell expr "$(GCC_VERSION)" ">=" "$(MIN_GCC_VERSION)")
 
 #====================================================
 #     Directories
@@ -95,7 +97,12 @@ INC_FLAGS := $(addprefix -I,$(INC_DIR))
 WFLAGS := -Wall -Wextra -Wno-reorder -pedantic
 CXXFLAGS := -std=c++17
 CPPFLAGS := $(CXXFLAGS) $(INC_FLAGS) -MMD -MP $(WFLAGS)
-LDFLAGS := -pthread -larsenalgear
+
+ifeq "$(IS_GCC_ABOVE_MIN_VERSION)" "0"
+    LDFLAGS := -lstdc++fs -pthread -larsenalgear
+else
+	LDFLAGS := -pthread -larsenalgear
+endif
 
 #====================================================
 #     Aliases

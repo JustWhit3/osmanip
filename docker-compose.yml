@@ -12,7 +12,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd ../proj && make bin/manipulators bin/progressbar bin/graphics CXX=g++"'
+        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd ../proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++"'
 
     # gcc 8
     build_gcc_8:
@@ -21,7 +21,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=g++"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++"'
 
     # gcc 9
     build_gcc_9:
@@ -30,7 +30,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=g++"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++"'
 
     # gcc 10
     build_gcc_10:
@@ -39,7 +39,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=g++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=g++ CXXFLAGS=-std=c++20"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++20"'
 
     # gcc 11
     build_gcc_11:
@@ -48,7 +48,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=g++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=g++ CXXFLAGS=-std=c++20"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++20"'
 
     # gcc 12
     build_gcc_12:
@@ -57,7 +57,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=g++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=g++ CXXFLAGS=-std=c++20"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++20"'
 
     ##########################################
     #      CLANG
@@ -70,7 +70,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++"'
+        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
 
     # clang 6
     build_clang_6:
@@ -79,7 +79,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
 
     # clang 7
     build_clang_7:
@@ -88,7 +88,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
 
     # clang 8
     build_clang_8:
@@ -97,7 +97,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
 
     # clang 9
     build_clang_9:
@@ -106,7 +106,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
 
     # clang 10
     build_clang_10:
@@ -115,7 +115,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
 
     # clang 11
     build_clang_11:
@@ -124,7 +124,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
 
     # clang 12
     build_clang_12:
@@ -133,7 +133,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
 
     # clang 13
     build_clang_13:
@@ -142,7 +142,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
 
     # clang 14
     build_clang_14:
@@ -151,4 +151,4 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: 'bash -c "cd /proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'

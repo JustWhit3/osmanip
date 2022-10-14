@@ -12,26 +12,34 @@
 //====================================================
 #pragma once
 #ifndef OSMANIP_OUTPUTREDIRECTOR_HPP
-#  define OSMANIP_OUTPUTREDIRECTOR_HPP
+#define OSMANIP_OUTPUTREDIRECTOR_HPP
 
 //====================================================
 //     Headers
 //====================================================
 
 // STD headers
-#  include <mutex>
-#  include <string>
-#  include <fstream>
-#  include <streambuf>
-#  include <filesystem>
-#  include <atomic>
+# include <mutex>
+# include <string>
+# include <fstream>
+# include <streambuf>
+#if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
+  #include <experimental/filesystem>
+#else
+  #include <filesystem>
+#endif
+#include <atomic>
 
 namespace osm
 {
   //====================================================
   //     Aliases
   //====================================================
-  namespace fs = std::filesystem;
+  #if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
+    namespace fs = std::experimental::filesystem;
+  #else
+    namespace fs = std::filesystem;
+  #endif
 
   //====================================================
   //     Classes
