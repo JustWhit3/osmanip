@@ -366,7 +366,6 @@ Why choosing this library for terminal graphics:
 ### Output redirection
 
 ```C++
-#include <thread>
 #include <iostream>
 #include <osmanip/progressbar/progress_bar.hpp>
 #include <osmanip/redirection/output_redirector.hpp>
