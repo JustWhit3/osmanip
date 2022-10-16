@@ -5,6 +5,7 @@
  * @file output_redirector.cpp
  * @author Joel Thomas (joelthomas.e@gmail.com)
  * @date 2022-10-5
+ * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
  */
 
 //====================================================

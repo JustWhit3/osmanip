@@ -18,22 +18,22 @@
 
 - [Introduction](#introduction)
 - [Architectures support](#architectures-support)
-    - [Operating systems](#operating-systems)
-    - [Compilers](#compilers)
+  - [Operating systems](#operating-systems)
+  - [Compilers](#compilers)
 - [List of features](#list-of-features)
-    - [ANSI escape sequences manipulators](#ANSI-escape-sequences-manipulators)
-    - [Progress bars](#progress-bars)
-    - [Terminal graphics](#terminal-graphics)
-    - [Extra support for UNICODE and ANSI on Windows](#extra-support-for-unicode-and-ansi-on-windows)
+  - [ANSI escape sequences manipulators](#ANSI-escape-sequences-manipulators)
+  - [Progress bars](#progress-bars)
+  - [Terminal graphics](#terminal-graphics)
+  - [Extra support for UNICODE and ANSI on Windows](#extra-support-for-unicode-and-ansi-on-windows)
 - [Install and use](#install-and-use)
-    - [Install](#install)
-    - [Use in your device](#use-in-your-device)
-    - [Compile examples and test codes](#compile-examples-and-test-codes)
-- [Useful scripts](#useful-scripts)
+  - [Install](#install)
+  - [Use in your device](#use-in-your-device)
+  - [Compile examples and test codes](#compile-examples-and-test-codes)
 - [Todo](#todo)
+- [List of know projects which use this library](list-of-known-projects-which-use-this-library)
 - [Credits](#credits)
-    - [Project leaders](#project-leaders)
-    - [Other contributors](#other-contributors)
+  - [Project leaders](#project-leaders)
+  - [Other contributors](#other-contributors)
 
 ## Introduction
 
@@ -49,6 +49,8 @@ indispensable [dependencies](#install-and-use).
 
 If you want to mention this software in one of your project / articles,
 please [cite it](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
+
+If you use this library please tell me so I can add you to the [list of know projects which use this library](list-of-known-projects-which-use-this-library)].
 
 If you want to contribute to the repository, please
 read [this](https://github.com/JustWhit3/osmanip/blob/main/CONTRIBUTING.md) file before.
@@ -433,12 +435,12 @@ Steps to be reproduced:
 
 This script supports the installation on Ubuntu, MacOS and Windows operating systems.
 
-> **NOTE**: if you are on *Cygwin64* you may get an error related to the `\r` character. To solve it run the `dos2unix`
+> :warning:: if you are on *Cygwin64* you may get an error related to the `\r` character. To solve it run the `dos2unix`
 > command on the script (ex: `dos2unix install.sh`) before running it.
 
 A new library *libosmanip.a* will be created into the `/usr/lib` folder of your computer and the [*
 header*](https://github.com/JustWhit3/osmanip/blob/main/include) files will be installed into `/usr/include` path.
-> **NOTE**: if you are on MacOS or Windows the paths are slightly different (looks
+> :warning:: if you are on MacOS or Windows the paths are slightly different (looks
 > at [install.sh](https://github.com/JustWhit3/arsenalgear-cpp/blob/main/scripts/install.sh)).
 
 Mandatory prerequisites (automatically installed with the script):
@@ -473,7 +475,7 @@ Tu use on or more headers of the library:
 If you are using the library in a program, add the `-losmanip` flag to
 link [source](https://github.com/JustWhit3/osmanip/tree/main/src) code.
 
-> **NOTE**: remember also to add `-pthread` flag if you want to use some thread-dependent libraries like [**
+> :warning:: remember also to add `-pthread` flag if you want to use some thread-dependent libraries like [**
 progressbar/multi_progress_bar.hpp**](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp)
 > .
 
@@ -494,7 +496,9 @@ To run all examples:
 ./bin/redirection
 ```
 
-> **NOTE**: executables end with `.exe` if you are on Windows of course.
+> :warning: executables end with `.exe` if you are on Windows of course.
+
+> :warning: remember to install the library before launching include tests, or an error will appear.
 
 Tests are produced using `-Wall -Wextra -pedantic` flags. To check them you need some prerequisites:
 
@@ -515,20 +519,6 @@ To launch all tests simultaneously:
 ./all_tests.sh
 ```
 
-## Useful scripts
-
-Other scripts have been provided into the [**scripts**](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder.
-After compiling the source code, they can be run from the repository home directory.
-
-The `debug.sh` script is used to run [Valgrind](https://valgrind.org/)
-and [Cppcheck](https://github.com/danmar/cppcheck) debugging tools on the whole code.
-
-You can run Valgrind debugging tools with a specific executable:
-
-```shell
-./scripts/debug_cpp.sh [valgrind-tool-name] [executable-name]
-```
-
 ## Todo
 
 **ANSI escape sequences manipulators**
@@ -537,7 +527,7 @@ You can run Valgrind debugging tools with a specific executable:
 - Add new methods to
   the [`decorator`](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B)
   class.
-- Implement file redirection when manipulating the output.
+- Implement file redirection to HTML and other type of files when manipulating the output.
 
 **Progress bars**
 
@@ -555,6 +545,10 @@ You can run Valgrind debugging tools with a specific executable:
 
 - Improve the compilation using CMake.
 - Benchmarking and other studies with respect to similar libraries.
+
+## List of know projects which use this library
+
+- [SAFD-algorithm](https://github.com/JustWhit3/SAFD-algorithm)
 
 ## Credits
 

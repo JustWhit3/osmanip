@@ -3,7 +3,7 @@
 //====================================================
 /**
  * @file plot_2D.cpp
- * @author Gianluca Bianco (biancogianluca9@gmail.com)
+ * @author Miguel MJ (miguelmjvg@gmail.com)
  * @date 2022-06-06
  * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
  */
