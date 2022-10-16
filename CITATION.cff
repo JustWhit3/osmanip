@@ -4,7 +4,7 @@ authors:
 - family-names: "Gianluca"
   given-names: "Bianco"
 title: "osmanip"
-version: 4.2.2
+version: 4.3.0
 doi: https://zenodo.org/badge/latestdoi/417898328
 date-released: 2021-12-25
 url: "https://github.com/JustWhit3/osmanip"
