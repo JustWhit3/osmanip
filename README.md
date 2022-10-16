@@ -24,6 +24,7 @@
   - [ANSI escape sequences manipulators](#ANSI-escape-sequences-manipulators)
   - [Progress bars](#progress-bars)
   - [Terminal graphics](#terminal-graphics)
+  - [Output redirection](#output-redirection)
   - [Extra support for UNICODE and ANSI on Windows](#extra-support-for-unicode-and-ansi-on-windows)
 - [Install and use](#install-and-use)
   - [Install](#install)
@@ -80,26 +81,26 @@ The software is and will stay **free**, but if you want to support me with a don
 ### Operating systems
 
 - **Linux**
-    - *Ubuntu* (tested)
+  - *Ubuntu* (tested)
 - **Windows** (release 10 or higher)
-    - *Cygwin64* (tested)
-    - *MSYS2* (tested)
-    - *MinGW* (tested)
-    - *WSL* (tested)
-    - *Powershell* (tested)
+  - *Cygwin64* (tested)
+  - *MSYS2* (tested)
+  - *MinGW* (tested)
+  - *WSL* (tested)
+  - *Powershell* (tested)
 - **MacOS**
 
 ### Compilers
 
 - **gcc**:
-    - *C++17*: 7/8/9/10/11/12
-    - *C++20*: 10/11/12
+  - *C++17*: 7/8/9/10/11/12
+  - *C++20*: 10/11/12
 - **clang**:
-    - *C++17*: 5/6/7/8/9/10/11/12/13/14/15
-    - *C++20*: 9/10/11/12/13/14/15
+  - *C++17*: 5/6/7/8/9/10/11/12/13/14/15
+  - *C++20*: 9/10/11/12/13/14/15
 - **MSVC**:
-    - *C++17*: 19 (only this one tested)
-    - *C++20*: //
+  - *C++17*: 19 (only this one tested)
+  - *C++20*: //
 
 ## List of features
 
@@ -161,41 +162,6 @@ my_shell.setColor( "red", std::cerr );
 my_shell.setStyle( "bold italics", std::cerr ); // NOTE: added 2 styles
 
 my_shell( std::cerr ) << "The stderr stream has been changed using the Decorator class!" << "\n";
-```
-
-- Class to manage output redirection (*Currently not thread safe*)
-
-```C++
-#include <thread>
-#include <iostream>
-#include  <osmanip/progressbar/progress_bar.hpp>
-#include  <osmanip/redirection/output_redirector.hpp>
-
-std::string filename = "output.txt";
-osm::OutputRedirector redirector( filename );
-
-// Normal percentage bar.
-osm::ProgressBar<int> percentage_bar;
-percentage_bar.setMin( 5 );
-percentage_bar.setMax( 46 );
-percentage_bar.setStyle( "indicator", "%" );
-
-// Redirect output
-redirector.begin();
-
-std::cout << "This is a normal percentage bar: " << "\n";
-for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-{
-  // Flush the buffer at the start of each loop
-  redirector.flush();
-
-  std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
-  percentage_bar.update( i );
-  // Do some operations...
-}
-
-// Return output to std::cout
-redirector.end();
 ```
 
 More examples and how-to guides can be
@@ -398,6 +364,37 @@ Why choosing this library for terminal graphics:
 - A faster and most comfortable alternative
   to [plot simple functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=To%20plot%202D%20canvas%20with%20sin%20and%20cos%20functions%3A)
   without the needing of GUI.
+
+### Output redirection
+
+```C++
+#include <iostream>
+#include <osmanip/progressbar/progress_bar.hpp>
+#include <osmanip/redirection/output_redirector.hpp>
+  
+osm::OutputRedirector redirector( "output.txt" );
+
+std::cout << "I am printing to the console!\n";
+
+// Redirect output to the file
+redirector.begin();
+
+std::cout << "Now I am printing to a file!\n";
+
+osm::ProgressBar<int> my_bar;
+// ...
+
+for( int i = my_bar.getMin(); i < my_bar.getMax(); i++ )
+{
+  // Flush the buffer at the start of each loop
+  redirector.flush();
+
+  my_bar.update( i );
+}
+
+// Return output to the console
+redirector.end();
+```
 
 ### Extra support for UNICODE and ANSI on Windows
 
