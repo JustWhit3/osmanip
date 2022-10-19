@@ -23,7 +23,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <ext/alloc_traits.h>
 
 namespace osm
  {
