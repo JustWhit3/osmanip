@@ -41,7 +41,9 @@ void test_load_bars( osm::OutputRedirector & redirector );
 void test_mixed_bars( osm::OutputRedirector & redirector );
 void test_progress_spinner( osm::OutputRedirector & redirector );
 
-
+//====================================================
+//     Testing OutputRedirector class
+//====================================================
 TEST_CASE( "Testing OutputRedirector class" )
 {
   osm::OutputRedirector redirector;
@@ -59,12 +61,12 @@ TEST_CASE( "Testing OutputRedirector class" )
   TEST_SUITE_BEGIN( "Setters, getters and constructors." );
 
   SUBCASE( "Testing naked getters and constructor." )
-  {
+   {
     CHECK_EQ( redirector.getFilename(), default_filename );
-  }
+   }
 
   SUBCASE( "Testing setters and getters with initialized values." )
-  {
+   {
     osm::OutputRedirector init_redirector( TEST_FILENAME );
 
     CHECK_NE( init_redirector.getFilename(), default_filename );
@@ -74,7 +76,7 @@ TEST_CASE( "Testing OutputRedirector class" )
 
     CHECK_NE( init_redirector.getFilename(), TEST_FILENAME );
     CHECK_EQ( init_redirector.getFilename(), default_filename );
-  }
+   }
 
   TEST_SUITE_END();
 
@@ -86,7 +88,7 @@ TEST_CASE( "Testing OutputRedirector class" )
   //     Testing "touch" method
   //====================================================
   SUBCASE( "Testing touch method." )
-  {
+   {
     CHECK_EQ( file_exists( redirector.getFilename() ), false );
 
     redirector.touch();
@@ -105,7 +107,7 @@ TEST_CASE( "Testing OutputRedirector class" )
     CHECK_EQ( find_file( redirector.getFilename() ), test_filepath );
     CHECK_EQ( delete_file( redirector.getFilename() ), true );
     CHECK_EQ( file_exists( redirector.getFilename() ), false );
-  }
+   }
 
   TEST_SUITE_END();
 
@@ -117,7 +119,7 @@ TEST_CASE( "Testing OutputRedirector class" )
   //     Testing "begin", "flush", and "end" methods
   //====================================================
   SUBCASE( "Testing begin, flush, and end methods." )
-  {
+   {
     CHECK_THROWS_AS( redirector.end(), std::runtime_error );
     CHECK_THROWS_AS( redirector.flush(), std::runtime_error );
 
@@ -128,7 +130,7 @@ TEST_CASE( "Testing OutputRedirector class" )
 
     CHECK_NOTHROW( redirector.end() );
     CHECK_THROWS_AS( redirector.end(), std::runtime_error );
-  }
+   }
 
   delete_file( redirector.getFilename() );
 
@@ -140,7 +142,7 @@ TEST_CASE( "Testing OutputRedirector class" )
   //     Testing "output redirection" feature
   //====================================================
   SUBCASE( "Testing normal output redirection." )
-  {
+   {
     std::string test_redirection_str = "Testing \"output redirection\".";
 
     redirector.begin();
@@ -175,7 +177,7 @@ TEST_CASE( "Testing OutputRedirector class" )
 
     CHECK_EQ( file_contents, lorem_ipsum_str );
     redirector.end();
-  }
+   }
 
   delete_file( redirector.getFilename() );
 
@@ -183,7 +185,7 @@ TEST_CASE( "Testing OutputRedirector class" )
   //     Testing "progress bar" redirection
   //====================================================
   SUBCASE( "Testing normal progress bar redirection" )
-  {
+   {
     redirector.begin();
     test_perc_bars( redirector );
     redirector.end();
@@ -210,12 +212,12 @@ TEST_CASE( "Testing OutputRedirector class" )
 
     std::string file_contents = read_file( redirector.getFilename() );
     CHECK_EQ( file_contents, output_text );
-  }
+   }
 
   delete_file( redirector.getFilename() );
 
   SUBCASE( "Testing loading bar redirection" )
-  {
+   {
     redirector.begin();
     test_load_bars( redirector );
     redirector.end();
@@ -239,12 +241,12 @@ TEST_CASE( "Testing OutputRedirector class" )
 
     std::string file_contents = read_file( redirector.getFilename() );
     CHECK_EQ( file_contents, output_text );
-  }
+   }
 
   delete_file( redirector.getFilename() );
 
   SUBCASE( "Testing mixed progress bar redirection" )
-  {
+   {
     redirector.begin();
     test_mixed_bars( redirector );
     redirector.end();
@@ -268,12 +270,12 @@ TEST_CASE( "Testing OutputRedirector class" )
 
     std::string file_contents = read_file( redirector.getFilename() );
     CHECK_EQ( file_contents, output_text );
-  }
+   }
 
   delete_file( redirector.getFilename() );
 
   SUBCASE( "Testing progress spinner redirection" )
-  {
+   {
     redirector.begin();
     test_progress_spinner( redirector );
     redirector.end();
@@ -294,7 +296,7 @@ TEST_CASE( "Testing OutputRedirector class" )
 
     std::string file_contents = read_file( redirector.getFilename() );
     CHECK_EQ( file_contents, output_text );
-  }
+   }
 
   delete_file( redirector.getFilename() );
 
@@ -307,59 +309,59 @@ TEST_CASE( "Testing OutputRedirector class" )
 
 // Finds a file and return its absolute path
 bool file_exists( const std::string & filename )
-{
+ {
   namespace fs = std::filesystem;
 
   auto working_path = fs::current_path();
 
   return fs::exists( working_path /= filename );
-}
+ }
 
 // Finds a file and return its absolute path
 fs::path find_file( const std::string & filename )
-{
+ {
   namespace fs = std::filesystem;
 
   auto working_path = fs::current_path();
 
   // Search current directory first
   for( const auto & working_dir_entry: fs::recursive_directory_iterator( working_path ) )
-  {
+   {
     if( working_dir_entry.is_regular_file() && working_dir_entry.path().filename() == filename )
-    {
+     {
       return working_dir_entry.path();
-    }
-  }
+     }
+   }
 
   // Recursively search the entire dir
   for( const auto & dir_entry: fs::recursive_directory_iterator( working_path ) )
-  {
+   {
     if( dir_entry.is_regular_file() && dir_entry.path().filename() == filename )
-    {
+     {
       return dir_entry.path();
-    }
-  }
+     }
+   }
 
   return {};
-}
+ }
 
 std::string read_file( const std::string & filename )
-{
+ {
   std::fstream fstream( filename );
   CHECK_EQ( fstream.is_open(), true );
   std::stringstream sstream;
   sstream << fstream.rdbuf();
   fstream.close();
   return sstream.str();
-}
+ }
 
 bool delete_file( const std::string & filename )
-{
+ {
   return fs::remove( find_file( filename ) );
-}
+ }
 
 void test_perc_bars( osm::OutputRedirector & redirector )
-{
+ {
   std::cout << "\n"
             << "======================================================"
             << "\n"
@@ -377,13 +379,13 @@ void test_perc_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a normal percentage bar: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     percentage_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Percentage bar with message and different style:
@@ -394,13 +396,13 @@ void test_perc_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a percentage bar with message and the /100 style: "
             << "\n";
   for( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     percentage_bar_2.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Percentage bar with time consuming info:
@@ -410,7 +412,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a percentage bar with time consuming info: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     percentage_bar.setBegin();
@@ -418,7 +420,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
     percentage_bar.update( i );
     // Do some operations...
     percentage_bar.setEnd();
-  }
+   }
 
   std::cout << "\n\n";
 
@@ -431,18 +433,18 @@ void test_perc_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a percentage bar with time-remaining info: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     percentage_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
-}
+ }
 
 void test_load_bars( osm::OutputRedirector & redirector )
-{
+ {
   std::cout << "\n"
             << "======================================================"
             << "\n"
@@ -460,13 +462,13 @@ void test_load_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a normal loading bar: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     loading_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Loading bar with message:
@@ -477,13 +479,13 @@ void test_load_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a loading bar with message: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     loading_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Loading bar with time remaining info:
@@ -496,18 +498,18 @@ void test_load_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a loading bar with time-remaining info: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     loading_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
-}
+ }
 
 void test_mixed_bars( osm::OutputRedirector & redirector )
-{
+ {
   std::cout << "\n"
             << "======================================================"
             << "\n"
@@ -524,13 +526,13 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a mixed progress bar: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     mixed_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   mixed_bar.setColor( "red" );
@@ -540,13 +542,13 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a mixed progress bar with color and time remaining info: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     mixed_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   mixed_bar.resetColor();
@@ -558,18 +560,18 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
   std::cout << "This is a mixed progress bar with two customized styles: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     mixed_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
-}
+ }
 
 void test_progress_spinner( osm::OutputRedirector & redirector )
-{
+ {
   std::cout << "\n"
             << "======================================================"
             << "\n"
@@ -587,13 +589,13 @@ void test_progress_spinner( osm::OutputRedirector & redirector )
   std::cout << "This is a progress spinner: "
             << "\n";
   for( int i = spinner.getMin(); i < spinner.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     spinner.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Float progress spinner.
@@ -608,12 +610,12 @@ void test_progress_spinner( osm::OutputRedirector & redirector )
   std::cout << "This is another progress spinner: "
             << "\n";
   for( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     spinner_float.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
-}
+ }

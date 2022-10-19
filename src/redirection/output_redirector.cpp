@@ -22,8 +22,7 @@
 #include <utility>
 
 namespace osm
-{
-
+ {
   //====================================================
   //     Constant variable
   //====================================================
@@ -45,7 +44,8 @@ namespace osm
    filepath_( DEFAULT_FILEPATH ),
    output_stringbuf_( new std::stringbuf() ),
    streambuf_backup_( nullptr ),
-   ref_count( 0 ) {}
+   ref_count( 0 )
+   {}
 
   // Parametric constructor
   /**
@@ -58,7 +58,8 @@ namespace osm
    filepath_( fs::current_path() /= filename_ ),
    output_stringbuf_( new std::stringbuf() ),
    streambuf_backup_( nullptr ),
-   ref_count( 0 ) {}
+   ref_count( 0 )
+   {}
 
   // Destructor
   /**
@@ -66,10 +67,10 @@ namespace osm
    *
    */
   OutputRedirector::~OutputRedirector()
-  {
+   {
     sanity_check( "destruction" );
     delete output_stringbuf_;
-  }
+   }
 
   //====================================================
   //     Setters
@@ -82,11 +83,11 @@ namespace osm
    * @param filename the filename of the output file.
    */
   void OutputRedirector::setFilename( const std::string & filename )
-  {
+   {
     scoped_lock slock( mutex_ );
     filename_ = filename;
     filepath_ = DEFAULT_FILE_DIR + filename_;
-  }
+   }
 
   //   void OutputRedirector::setFilepath( fs::path & path )
   //   {
@@ -104,13 +105,19 @@ namespace osm
    *
    * @return std::string containing the filename of the output file.
    */
-  std::string & OutputRedirector::getFilename()
+  std::string& OutputRedirector::getFilename()
   {
     scoped_lock slock( mutex_ );
     return filename_;
   }
 
-  std::string & OutputRedirector::getFilepath()
+  // getFilepath
+  /**
+   * @brief Get the name of the path to the output file.
+   *
+   * @return std::string containing the name of the path to the output file.
+   */
+  std::string& OutputRedirector::getFilepath()
   {
     scoped_lock slock( mutex_ );
     return filepath_;
@@ -126,7 +133,7 @@ namespace osm
    *
    */
   void OutputRedirector::begin()
-  {
+   {
     sanity_check( "begin" );
     ++ref_count;
 
@@ -137,7 +144,7 @@ namespace osm
 
     // Redirect output to the output string buffer
     std::cout.rdbuf( output_stringbuf_ );
-  }
+   }
 
   // end
   /**
@@ -145,20 +152,19 @@ namespace osm
    *
    */
   void OutputRedirector::end()
-  {
+   {
     sanity_check( "end" );
 
-    {
+     {
       scoped_lock slock( mutex_ );
 
       // Redirect std::cout back to screen
       std::cout.rdbuf( streambuf_backup_ );
-    }
-
+     }
     flush();
-
+    
     --ref_count;
-  }
+   }
 
   // flush
   /**
@@ -166,21 +172,21 @@ namespace osm
    *
    */
   void OutputRedirector::flush()
-  {
+   {
     sanity_check( "flush" );
 
     try
-    {
+     {
       redirect_output( filename_ );
-    }
+     }
     catch( std::runtime_error & e )
-    {
+     {
       std::cout << e.what();
-    }
+     }
 
     scoped_lock slock( mutex_ );
     clear_buffer();
-  }
+   }
 
   // touch
   /**
@@ -188,19 +194,19 @@ namespace osm
    *
    */
   void OutputRedirector::touch()
-  {
+   {
     lock_guard guard( mutex_ );
 
     if( fstream_.open( filename_, std::fstream::in ); !fstream_.is_open() )
-    {
+     {
       if( fstream_.open( filename_, std::fstream::trunc | std::fstream::out ); !fstream_.is_open() )
-      {
+       {
         exception_file_not_found();
-      }
-    }
+       }
+     }
 
     fstream_.close();
-  }
+   }
 
   //====================================================
   //     Private methods
@@ -212,7 +218,7 @@ namespace osm
    *
    */
   void OutputRedirector::redirect_output( std::string & filename )
-  {
+   {
     std::string output_string_fmt;
     std::string file_contents;
 
@@ -222,13 +228,13 @@ namespace osm
     // Erase the last line of the file to make it consistent to the CLI output
     file_contents = erase_last_line( file_contents );
 
-    {
+     {
       scoped_lock slock( mutex_ );
       output_string_fmt = get_formatted_string( output_stringbuf_->str() );
-    }
+     }
 
     write_to_file( filename, file_contents + output_string_fmt );
-  }
+   }
 
   // clear_buffer
   /**
@@ -236,14 +242,14 @@ namespace osm
    *
    */
   void OutputRedirector::clear_buffer()
-  {
-    if( !output_stringbuf_ )
-    {
+   {
+    if( ! output_stringbuf_ )
+     {
       output_stringbuf_ = new std::stringbuf();
-    }
+     }
 
     output_stringbuf_->str( "" );
-  }
+   }
 
   // read_file
   /**
@@ -256,24 +262,24 @@ namespace osm
    * @return std::string of the file contents if successful, otherwise an empty string.
    */
   std::string OutputRedirector::read_file( const std::string & filename )
-  {
+   {
     std::stringstream sstream;
     scoped_lock slock( mutex_ );
 
     if( fstream_.open( filename, std::fstream::in ); fstream_.is_open() )
-    {
+     {
       sstream << fstream_.rdbuf();
       fstream_.close();
 
       return sstream.str();
-    }
+     }
     else
-    {
+     {
       exception_file_not_found();
-    }
+     }
 
     return "";
-  }
+   }
 
   // write_to_file
   /**
@@ -287,20 +293,20 @@ namespace osm
    * @return true if successful, otherwise, false.
    */
   bool OutputRedirector::write_to_file( const std::string & filename, const std::string & out_string )
-  {
+   {
     scoped_lock slock( mutex_ );
 
     if( fstream_.open( filename, std::fstream::trunc | std::fstream::out ); !fstream_.is_open() )
-    {
+     {
       exception_file_not_found();
       return false;
-    }
+     }
 
     fstream_ << out_string;
     fstream_.close();
 
     return true;
-  }
+   }
 
   // sanity_check
   /**
@@ -310,26 +316,26 @@ namespace osm
    * @throws std::invalid_argument if an unknown function name is used.
    */
   void OutputRedirector::sanity_check( const std::string & func_name )
-  {
+   {
     if( func_name == "begin" || func_name == "destruction")
-    {
+     {
       if( ref_count != 0 )
-      {
+       {
         throw std::runtime_error( "Did you forget to call 'end()'?" );
-      }
-    }
+       }
+     }
     else if( func_name == "end" || func_name == "flush" )
-    {
+     {
       if( ref_count != 1 )
-      {
+       {
         throw std::runtime_error( "Did you forget to call 'begin()'?" );
-      }
-    }
+       }
+     }
     else
-    {
+     {
       throw std::invalid_argument( "Unknown function name." );
-    }
-  }
+     }
+   }
 
   // exception_file_not_found
   /**
@@ -338,13 +344,12 @@ namespace osm
    * @throws std::invalid_argument
    */
   void OutputRedirector::exception_file_not_found()
-  {
-    {
+   {
+     {
       mutex_.try_lock();
       lock_guard guard( mutex_, std::adopt_lock );
-    }
+     }
 
     throw std::invalid_argument( std::string( "Could not open file " ) + "'" + filename_ + "'" );
-  }
-
-}      // namespace osm
+   }
+ }
