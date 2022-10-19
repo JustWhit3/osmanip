@@ -144,13 +144,13 @@ $(function() {
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;     <span class="comment">//====================================================</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;     <span class="comment">//     Setters</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;     <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1OutputRedirector.html#a6b92c69f3cecc6d384e3a238e22b61fa">setFilename</a>( <span class="keyword">const</span> std::string &amp; filename );</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="classosm_1_1OutputRedirector.html#a6b92c69f3cecc6d384e3a238e22b61fa">setFilename</a>( <span class="keyword">const</span> std::string&amp; filename );</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;     <span class="comment">//====================================================</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;     <span class="comment">//     Getters</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;     <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;     [[nodiscard]] std::string &amp; <a class="code" href="classosm_1_1OutputRedirector.html#aa7fe7a1142a8cc379fdb9f01fc94f354">getFilename</a>();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;     [[nodiscard]] std::string &amp; <a class="code" href="classosm_1_1OutputRedirector.html#a13c69adca11f67b4655528ebbe810779">getFilepath</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;     [[nodiscard]] std::string&amp; <a class="code" href="classosm_1_1OutputRedirector.html#aa7fe7a1142a8cc379fdb9f01fc94f354">getFilename</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;     [[nodiscard]] std::string&amp; <a class="code" href="classosm_1_1OutputRedirector.html#a13c69adca11f67b4655528ebbe810779">getFilepath</a>();</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;     <span class="comment">//====================================================</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;     <span class="comment">//     Methods</span></div>
@@ -173,15 +173,15 @@ $(function() {
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;     <span class="comment">//     Private attributes</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;     <span class="comment">//====================================================</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;     std::mutex mutex_;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;     std::atomic&lt;int32_t&gt; ref_count;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;     std::atomic &lt;int32_t&gt; ref_count;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;     std::string file_dir_;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;     std::string filename_;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;     std::string filepath_;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;     std::fstream fstream_;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;     std::stringbuf * output_stringbuf_;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;     std::streambuf * streambuf_backup_;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;     std::stringbuf* output_stringbuf_;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;     std::streambuf* streambuf_backup_;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;     <span class="comment">//====================================================</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;     <span class="comment">//     Private methods</span></div>
