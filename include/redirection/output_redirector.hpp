@@ -23,8 +23,8 @@
 #include <mutex>
 #include <string>
 #include <fstream>
-#include <streambuf>
 #include <atomic>
+#include <stdint.h>
 
 // Procedure for experimental header
 #ifndef __APPLE__

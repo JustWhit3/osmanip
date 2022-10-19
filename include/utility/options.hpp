@@ -23,10 +23,11 @@
 #include "../utility/windows.hpp"
 #include "../manipulators/cursor.hpp"
 #include "../manipulators/colsty.hpp"
+#include "../manipulators/common.hpp"
 
 //STD headers
 #include <iostream>
-#include <type_traits>
+#include <string>
 
 namespace osm
  {

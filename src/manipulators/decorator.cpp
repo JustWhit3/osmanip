@@ -13,17 +13,13 @@
 //====================================================
 
 //My headers
-#include "../include/manipulators/decorator.hpp"
-#include "../include/manipulators/colsty.hpp"
-
-//Extra headers
-#include <arsenalgear/utils.hpp>
-#include <arsenalgear/stream.hpp>
+#include "../../include/manipulators/decorator.hpp"
+#include "../../include/manipulators/colsty.hpp"
+#include "../../include/manipulators/common.hpp"
 
 //STD headers
 #include <iostream>
 #include <string>
-#include <vector>
 #include <unordered_map>
 
 namespace osm

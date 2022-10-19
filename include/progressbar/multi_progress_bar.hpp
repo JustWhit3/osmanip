@@ -26,9 +26,10 @@
 #include <iostream>
 #include <type_traits>
 #include <tuple>
-#include <functional>
 #include <mutex>
 #include <utility>
+#include <stddef.h>
+#include <string>
 
 namespace osm
  {

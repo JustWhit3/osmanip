@@ -13,13 +13,13 @@
 //====================================================
 
 // My headers
-#include "../include/redirection/output_redirector.hpp"
-#include "../include/utility/strings.hpp"
+#include "../../include/redirection/output_redirector.hpp"
+#include "../../include/utility/strings.hpp"
 
 // STD headers
 #include <iostream>
-#include <sstream>
 #include <utility>
+#include <stdexcept>
 
 namespace osm
  {

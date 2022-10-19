@@ -19,9 +19,6 @@
 //     Headers
 //====================================================
 
-//My headers
-#include "common.hpp"
-
 //STD headers
 #include <string>
 #include <unordered_map>

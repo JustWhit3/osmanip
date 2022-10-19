@@ -24,7 +24,6 @@
 #include "colsty.hpp"
 
 //Extra headers
-#include <arsenalgear/stream.hpp>
 #include <arsenalgear/utils.hpp>
 
 //STD headers

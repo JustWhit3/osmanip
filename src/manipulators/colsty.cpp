@@ -13,10 +13,7 @@
 //====================================================
 
 //My headers
-#include "../include/manipulators/colsty.hpp"
-
-//Extra headers
-#include <arsenalgear/utils.hpp>
+#include "../../include/manipulators/colsty.hpp"
 
 //STD headers
 #include <iostream>

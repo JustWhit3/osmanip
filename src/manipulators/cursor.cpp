@@ -13,7 +13,7 @@
 //====================================================
 
 //My headers
-#include "../include/manipulators/cursor.hpp"
+#include "../../include/manipulators/cursor.hpp"
 
 //Extra headers
 #include <arsenalgear/utils.hpp>
@@ -23,7 +23,8 @@
 #include <unordered_map>
 #include <utility>
 #include <sstream>
-#include <stdexcept>
+#include <exception>
+#include <type_traits>
 
 namespace osm
  {  

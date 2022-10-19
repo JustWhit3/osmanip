@@ -21,7 +21,8 @@
 
 // STD headers
 #include <string>
-
+#include <stddef.h>
+#include <cctype>
 namespace osm
  {
   //====================================================

@@ -13,15 +13,17 @@
 //====================================================
 
 //My headers
-#include "../include/graphics/canvas.hpp"
-#include "../include/manipulators/cursor.hpp"
-#include "../include/manipulators/colsty.hpp"
+#include "../../include/graphics/canvas.hpp"
+#include "../../include/manipulators/cursor.hpp"
+#include "../../include/manipulators/colsty.hpp"
+#include "../../include/manipulators/common.hpp"
 
 //STD headers
 #include <sstream>
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ext/alloc_traits.h>
 
 namespace osm
  {

@@ -13,7 +13,8 @@
 //====================================================
 
 //My headers
-#include "../include/graphics/plot_2D.hpp"
+#include "../../include/graphics/plot_2D.hpp"
+#include "../../include/graphics/canvas.hpp"
 
 namespace osm
  {

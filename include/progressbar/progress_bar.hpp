@@ -22,6 +22,7 @@
 //My headers
 #include "../manipulators/colsty.hpp"
 #include "../manipulators/cursor.hpp"
+#include "../manipulators/common.hpp"
 
 //Extra headers
 #include <arsenalgear/constants.hpp>
@@ -39,6 +40,8 @@
 #include <mutex>
 #include <cmath>
 #include <stdexcept>
+#include <stdint.h>
+#include <ratio>
 
 namespace osm
  {

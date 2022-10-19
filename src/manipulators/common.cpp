@@ -13,7 +13,7 @@
 //====================================================
 
 //My headers
-#include "../include/manipulators/common.hpp"
+#include "../../include/manipulators/common.hpp"
 
 //Extra headers
 #include <arsenalgear/utils.hpp>
@@ -21,7 +21,7 @@
 //STD headers
 #include <string>
 #include <unordered_map>
-#include <stdexcept>
+#include <exception>
 
 namespace osm
  {
