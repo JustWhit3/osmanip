@@ -17,26 +17,26 @@
 #include <string>
 
 TEST_CASE( "Testing the strings utilities" )
-{
+ {
   SUBCASE( "Testing find_first_alpha." )
-  {
+   {
     std::string mixed_string = "112$@!141!f1@!!165H23@&(1p";
     CHECK_EQ( osm::find_first_alpha( 0, mixed_string ), 10 );
     CHECK_EQ( osm::find_first_alpha( 11, mixed_string ), 18 );
     CHECK_EQ( osm::find_first_alpha( 19, mixed_string ), 25 );
-  }
+   }
 
   SUBCASE( "Testing get_formatted_string." )
-  {
+   {
     std::string csi_string = "\u001b[2TThis \u001b[1Sis\u001b[0K a \u001b[33mstring";
     std::string formatted_string = osm::get_formatted_string( csi_string );
     std::string normal_string = "This is a string";
     CHECK_NE( formatted_string, csi_string );
     CHECK_EQ( formatted_string, normal_string );
-  }
+   }
 
   SUBCASE( "Testing erase_last_line." )
-  {
+   {
     std::string lorem_ipsum_str;
     std::string modified_str;
 
@@ -74,5 +74,5 @@ TEST_CASE( "Testing the strings utilities" )
 
     // '\n' not met, so string does not change.
     CHECK_EQ( lorem_ipsum_str, modified_str );
-  }
-}
+   }
+ }
