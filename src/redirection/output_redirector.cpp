@@ -352,4 +352,4 @@ namespace osm
 
     throw std::invalid_argument( std::string( "Could not open file " ) + "'" + filename_ + "'" );
    }
- }
+  }

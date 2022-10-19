@@ -82,13 +82,13 @@ namespace osm
      //====================================================
      //     Setters
      //====================================================
-     void setFilename( const std::string & filename );
+     void setFilename( const std::string& filename );
  
      //====================================================
      //     Getters
      //====================================================
-     [[nodiscard]] std::string & getFilename();
-     [[nodiscard]] std::string & getFilepath();
+     [[nodiscard]] std::string& getFilename();
+     [[nodiscard]] std::string& getFilepath();
  
      //====================================================
      //     Methods
@@ -111,15 +111,15 @@ namespace osm
      //     Private attributes
      //====================================================
      std::mutex mutex_;
-     std::atomic<int32_t> ref_count;
+     std::atomic <int32_t> ref_count;
  
      std::string file_dir_;
      std::string filename_;
      std::string filepath_;
  
      std::fstream fstream_;
-     std::stringbuf * output_stringbuf_;
-     std::streambuf * streambuf_backup_;
+     std::stringbuf* output_stringbuf_;
+     std::streambuf* streambuf_backup_;
  
      //====================================================
      //     Private methods
