@@ -24,7 +24,6 @@
   - [ANSI escape sequences manipulators](#ANSI-escape-sequences-manipulators)
   - [Progress bars](#progress-bars)
   - [Terminal graphics](#terminal-graphics)
-  - [Output redirection](#output-redirection)
   - [Extra support for UNICODE and ANSI on Windows](#extra-support-for-unicode-and-ansi-on-windows)
 - [Install and use](#install-and-use)
   - [Install](#install)
@@ -279,6 +278,37 @@ osm::OPTION( osm::CURSOR::ON );
 
 <img src="https://github.com/JustWhit3/osmanip/blob/main/img/spinner.gif" width="550">
 
+- Output redirection on file when using progress bars
+
+```C++
+#include <iostream>
+#include <osmanip/progressbar/progress_bar.hpp>
+#include <osmanip/redirection/output_redirector.hpp>
+  
+osm::OutputRedirector redirector( "output.txt" );
+
+std::cout << "I am printing to the console!\n";
+
+// Redirect output to the file
+redirector.begin();
+
+std::cout << "Now I am printing to a file!\n";
+
+osm::ProgressBar<int> my_bar;
+// ...
+
+for( int i = my_bar.getMin(); i < my_bar.getMax(); i++ )
+{
+  // Flush the buffer at the start of each loop
+  redirector.flush();
+
+  my_bar.update( i );
+}
+
+// Return output to the console
+redirector.end();
+```
+
 More examples and how-to guides can be found [here](https://github.com/JustWhit3/osmanip/wiki/Progress-bars).
 
 Why choosing this library for progress bars? Some properties:
@@ -364,37 +394,6 @@ Why choosing this library for terminal graphics:
 - A faster and most comfortable alternative
   to [plot simple functions](https://github.com/JustWhit3/osmanip/blob/main/doc/How-to-use.md#:~:text=To%20plot%202D%20canvas%20with%20sin%20and%20cos%20functions%3A)
   without the needing of GUI.
-
-### Output redirection
-
-```C++
-#include <iostream>
-#include <osmanip/progressbar/progress_bar.hpp>
-#include <osmanip/redirection/output_redirector.hpp>
-  
-osm::OutputRedirector redirector( "output.txt" );
-
-std::cout << "I am printing to the console!\n";
-
-// Redirect output to the file
-redirector.begin();
-
-std::cout << "Now I am printing to a file!\n";
-
-osm::ProgressBar<int> my_bar;
-// ...
-
-for( int i = my_bar.getMin(); i < my_bar.getMax(); i++ )
-{
-  // Flush the buffer at the start of each loop
-  redirector.flush();
-
-  my_bar.update( i );
-}
-
-// Return output to the console
-redirector.end();
-```
 
 ### Extra support for UNICODE and ANSI on Windows
 
