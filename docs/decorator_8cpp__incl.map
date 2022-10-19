@@ -1,12 +1,11 @@
 <map id="src/manipulators/decorator.cpp" name="src/manipulators/decorator.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="378,5,578,32"/>
-<area shape="rect" id="node2" href="$decorator_8hpp.html" title=" " alt="" coords="347,80,498,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="412,319,467,345"/>
-<area shape="rect" id="node5" title=" " alt="" coords="163,319,274,345"/>
-<area shape="rect" id="node6" href="$colsty_8hpp.html" title=" " alt="" coords="260,169,340,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="28,169,185,196"/>
-<area shape="rect" id="node8" title=" " alt="" coords="465,169,606,196"/>
-<area shape="rect" id="node9" title=" " alt="" coords="630,169,702,196"/>
-<area shape="rect" id="node10" title=" " alt="" coords="726,169,785,196"/>
-<area shape="rect" id="node3" href="$common_8hpp.html" title=" " alt="" coords="281,244,377,271"/>
+<area shape="rect" id="node1" title=" " alt="" coords="355,5,555,32"/>
+<area shape="rect" id="node2" href="$decorator_8hpp.html" title=" " alt="" coords="299,80,460,121"/>
+<area shape="rect" id="node3" href="$common_8hpp.html" title=" " alt="" coords="475,169,571,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="73,244,128,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="425,244,536,271"/>
+<area shape="rect" id="node6" href="$colsty_8hpp.html" title=" " alt="" coords="22,169,102,196"/>
+<area shape="rect" id="node8" title=" " alt="" coords="595,169,667,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="177,169,318,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="342,169,401,196"/>
 </map>

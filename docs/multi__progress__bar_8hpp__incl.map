@@ -1,13 +1,12 @@
 <map id="include/progressbar/multi_progress_bar.hpp" name="include/progressbar/multi_progress_bar.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="330,5,490,47"/>
-<area shape="rect" id="node2" href="$cursor_8hpp.html" title=" " alt="" coords="27,95,198,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="209,169,261,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="273,95,345,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="369,95,451,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="475,95,526,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="551,95,629,121"/>
-<area shape="rect" id="node11" title=" " alt="" coords="653,95,711,121"/>
-<area shape="rect" id="node3" href="$common_8hpp.html" title=" " alt="" coords="38,169,134,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,244,60,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="100,244,211,271"/>
+<area shape="rect" id="node1" title=" " alt="" coords="314,5,474,47"/>
+<area shape="rect" id="node2" href="$cursor_8hpp.html" title=" " alt="" coords="62,95,233,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,169,60,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="235,169,287,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="307,95,379,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="403,95,486,121"/>
+<area shape="rect" id="node8" title=" " alt="" coords="510,95,561,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="585,95,643,121"/>
+<area shape="rect" id="node10" title=" " alt="" coords="667,95,735,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="92,169,203,196"/>
 </map>
