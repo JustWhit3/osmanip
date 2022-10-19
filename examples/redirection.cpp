@@ -1,9 +1,12 @@
+//====================================================
+//     Headers
+//====================================================
+
 // My headers
 #include "../include/utility/options.hpp"
 #include "../include/progressbar/progress_bar.hpp"
 #include "../include/redirection/output_redirector.hpp"
 #include "../include/progressbar/multi_progress_bar.hpp"
-
 #ifdef _WIN32
 #  include "../include/utility/windows.hpp"
 #endif
@@ -26,7 +29,7 @@ void perc_bars()
   std::cout << "\n"
             << "======================================================"
             << "\n"
-            << "     PERCENTAGE BARS                                    "
+            << "     PERCENTAGE BARS"
             << "\n"
             << "======================================================"
             << "\n\n";
@@ -40,13 +43,13 @@ void perc_bars()
   std::cout << "This is a normal percentage bar: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Percentage bar with message and different style:
@@ -58,13 +61,13 @@ void perc_bars()
             << "\n";
 
   for( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar_2.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Percentage bar with time consuming info:
@@ -74,7 +77,7 @@ void perc_bars()
   std::cout << "This is a percentage bar with time consuming info: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     percentage_bar.setBegin();
@@ -82,7 +85,7 @@ void perc_bars()
     percentage_bar.update( i );
     // Do some operations...
     percentage_bar.setEnd();
-  }
+   }
   std::cout << "\n"
             << "Time needed to complete the previous loop: "
             << percentage_bar.getTime() << " ms."
@@ -97,21 +100,21 @@ void perc_bars()
   std::cout << "This is a percentage bar with time-remaining info: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     percentage_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
-}
+ }
 
 //====================================================
 //     Loading bar
 //====================================================
 void load_bars()
-{
+ {
   std::cout << "\n"
             << "======================================================"
             << "\n"
@@ -129,30 +132,30 @@ void load_bars()
   std::cout << "This is a normal loading bar: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Loading bar with message:
   loading_bar.resetBrackets();
   loading_bar.setMessage( "processing..." );
-  loading_bar.setBrackets( "{", "}" );
+  loading_bar.setBrackets( " {", "}" );
 
   std::cout << "This is a loading bar with message: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Loading bar with time remaining info:
@@ -165,21 +168,21 @@ void load_bars()
   std::cout << "This is a loading bar with time-remaining info: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     loading_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
-}
+ }
 
 //====================================================
 //     Mixed bar
 //====================================================
 void mixed_bars()
-{
+ {
   std::cout << "\n"
             << "======================================================"
             << "\n"
@@ -196,13 +199,13 @@ void mixed_bars()
   std::cout << "This is a mixed progress bar: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   mixed_bar.setColor( "red" );
@@ -212,13 +215,13 @@ void mixed_bars()
   std::cout << "This is a mixed progress bar with color and time remaining info: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   mixed_bar.resetColor();
@@ -230,21 +233,21 @@ void mixed_bars()
   std::cout << "This is a mixed progress bar with two customized styles: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     mixed_bar.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
-}
+ }
 
 //====================================================
 //     Multi bars
 //====================================================
 void multi_bars()
-{
+ {
   std::cout << "\n"
             << "======================================================"
             << "\n"
@@ -281,31 +284,31 @@ void multi_bars()
   auto bars = MultiProgressBar( prog_int, prog_int_2, prog_float );
 
   auto job1 = [ &bars, &prog_int ]()
-  {
+   {
     for( int i = prog_int.getMin(); i < prog_int.getMax(); i++ )
-    {
+     {
       bars.for_one( 0, osm::updater {}, i );
       std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
-    }
-  };
+     }
+   };
 
   auto job2 = [ &bars, &prog_int_2 ]()
-  {
+   {
     for( int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++ )
-    {
+     {
       bars.for_one( 1, osm::updater {}, i );
       std::this_thread::sleep_for( std::chrono::milliseconds( 200 ) );
-    }
-  };
+     }
+   };
 
   auto job3 = [ &bars, &prog_float ]()
-  {
+   {
     for( float i = prog_float.getMin(); i < prog_float.getMax(); i += 0.1f )
-    {
+     {
       bars.for_one( 2, osm::updater {}, i );
       std::this_thread::sleep_for( std::chrono::milliseconds( 60 ) );
-    }
-  };
+     }
+   };
 
   std::thread first_job( job1 );
   std::thread second_job( job2 );
@@ -316,13 +319,13 @@ void multi_bars()
   third_job.join();
 
   std::cout << "\n\n\n";
-}
+ }
 
 //====================================================
 //     Progress spinner
 //====================================================
 void progress_spinner()
-{
+ {
   std::cout << "\n"
             << "======================================================"
             << "\n"
@@ -340,13 +343,13 @@ void progress_spinner()
   std::cout << "This is a progress spinner: "
             << "\n";
   for( int i = spinner.getMin(); i < spinner.getMax(); i++ )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     spinner.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
 
   // Float progress spinner.
@@ -361,21 +364,21 @@ void progress_spinner()
   std::cout << "This is another progress spinner: "
             << "\n";
   for( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
-  {
+   {
     redirector.flush();
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
     spinner_float.update( i );
     // Do some operations...
-  }
+   }
   std::cout << "\n\n";
-}
+ }
 
 //====================================================
 //     Main
 //====================================================
 int main()
-{
+ {
 #ifdef _WIN32
   osm::enableANSI();
 #endif
@@ -428,89 +431,89 @@ int main()
   std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_perc_bars )
-  {
+   {
     std::cout << "Running percentage bars example... " << std::flush;
     redirector.begin();
     perc_bars();
     redirector.end();
     std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-  }
+   }
   else
-  {
+   {
     std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping percentage bars example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-  }
+   }
 
   std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_load_bars )
-  {
+   {
     std::cout << "Running loading bars example... " << std::flush;
     redirector.begin();
     load_bars();
     redirector.end();
     std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-  }
+   }
   else
-  {
+   {
     std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping loading bars example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-  }
+   }
 
   std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_mixed_bars )
-  {
+   {
     std::cout << "Running mixed bars example... " << std::flush;
     redirector.begin();
     mixed_bars();
     redirector.end();
     std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-  }
+   }
   else
-  {
+   {
     std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping mixed bars example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-  }
+   }
 
   std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_multi_bars )
-  {
+   {
 
     std::cout << "Running multi bars example... " << std::flush;
     redirector.begin();
     multi_bars();
     redirector.end();
     std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-  }
+   }
   else
-  {
+   {
     std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping multi bars example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-  }
+   }
 
   std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_prog_spinners )
-  {
+   {
 
     std::cout << "Running progress spinners example... " << std::flush;
     redirector.begin();
     progress_spinner();
     redirector.end();
     std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-  }
+   }
   else
-  {
+   {
     std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping progress spinners example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-  }
+   }
 
   redirector.begin();
   std::cout << "\n"
@@ -533,4 +536,4 @@ int main()
 #ifdef _WIN32
   osm::disableANSI();
 #endif
-}
+ }
