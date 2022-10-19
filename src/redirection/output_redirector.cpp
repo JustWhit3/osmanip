@@ -20,6 +20,7 @@
 #include <iostream>
 #include <utility>
 #include <stdexcept>
+#include <streambuf>
 
 namespace osm
  {
