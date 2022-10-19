@@ -18,9 +18,9 @@
 
 // STD headers
 #include <iostream>
+#include <sstream>
 #include <utility>
 #include <stdexcept>
-#include <streambuf>
 
 namespace osm
  {

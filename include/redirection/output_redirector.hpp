@@ -24,8 +24,8 @@
 #include <string>
 #include <fstream>
 #include <atomic>
-#include <stdint.h>
 #include <streambuf>
+#include <stdint.h>
 
 // Procedure for experimental header
 #ifndef __APPLE__
