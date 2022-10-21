@@ -5,7 +5,7 @@
 // My headers
 #include "../include/utility/options.hpp"
 #include "../include/progressbar/progress_bar.hpp"
-#include "../include/redirection/output_redirector.hpp"
+#include "../include/utility/output_redirector.hpp"
 #include "../include/progressbar/multi_progress_bar.hpp"
 #ifdef _WIN32
 #  include "../include/utility/windows.hpp"

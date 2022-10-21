@@ -13,7 +13,7 @@
 //====================================================
 
 // My headers
-#include "../../include/redirection/output_redirector.hpp"
+#include "../../include/utility/output_redirector.hpp"
 #include "../../include/utility/strings.hpp"
 
 // STD headers

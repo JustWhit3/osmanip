@@ -3,8 +3,8 @@
 //====================================================
 
 // My headers
-#include "../include/progressbar/progress_bar.hpp"
-#include "../include/redirection/output_redirector.hpp"
+#include "../../../include/progressbar/progress_bar.hpp"
+#include "../../../include/utility/output_redirector.hpp"
 
 // Extra headers
 #include <doctest/doctest.h>
