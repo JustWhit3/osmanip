@@ -67,7 +67,7 @@ if [ "$1" == "include" ] || [ "$1" == "" ]; then
   ./test/include_tests.sh manipulators/decorator.hpp
   ./test/include_tests.sh progressbar/multi_progress_bar.hpp
   ./test/include_tests.sh progressbar/progress_bar.hpp
-  ./test/include_tests.sh redirection/output_redirector.hpp
+  ./test/include_tests.sh utility/output_redirector.hpp
   ./test/include_tests.sh utility/options.hpp
   ./test/include_tests.sh utility/strings.hpp
   ./test/include_tests.sh utility/windows.hpp
@@ -80,5 +80,5 @@ if [ "$1" == "cppcheck" ] || [ "$1" == "" ]; then
   echo "     CPPCHECK TESTS"
   echo "======================================================"
   echo ""
-  cppcheck include/graphics/* include/manipulators/* include/progressbar/* include/redirection/* include/options/* include/utility/* src/graphics/* src/manipulators/* src/progressbar/* include/redirection/* src/utility/* src/options/*
+  cppcheck include/graphics/* include/manipulators/* include/progressbar/* include/options/* include/utility/* src/graphics/* src/manipulators/* src/progressbar/* src/utility/* src/options/*
 fi
