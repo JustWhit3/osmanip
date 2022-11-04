@@ -8,6 +8,7 @@
 //====================================================
 
 //My headers
+#include "../../../include/utility/iostream.hpp"
 #include "../include/manipulators/decorator.hpp"
 
 //Extra headers
@@ -15,7 +16,6 @@
 #include <arsenalgear/stream.hpp>
 
 //STD headers
-#include <iostream>
 #include <streambuf>
 #include <sstream>
 
@@ -38,7 +38,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     deco.setColor( "red" );
     CHECK_EQ( deco.getColor(), "red" );
     CHECK( ! deco.getColorList().empty() );
-    CHECK( deco.getColorList().find( &std::cout ) != deco.getColorList().end() );
+    CHECK( deco.getColorList().find( &osm::cout ) != deco.getColorList().end() );
     deco.resetColor();
     CHECK( deco.getColorList().empty() );
 
@@ -63,7 +63,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
 
     // Testing exceptions
     deco.setColor( "ciccio" );
-    CHECK_THROWS_AS( deco( std::cout ) << "Test", std::runtime_error );
+    CHECK_THROWS_AS( deco( osm::cout ) << "Test", std::runtime_error );
     deco.resetColor();
    }
 
@@ -74,7 +74,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
     deco.setStyle( "bold" );
     CHECK_EQ( deco.getStyle(), "bold" );
     CHECK( ! deco.getStyleList().empty() );
-    CHECK( deco.getStyleList().find( &std::cout ) != deco.getStyleList().end() );
+    CHECK( deco.getStyleList().find( &osm::cout ) != deco.getStyleList().end() );
     deco.resetStyle();
     CHECK( deco.getStyleList().empty() );
 
@@ -104,7 +104,7 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
 
     // Testing exceptions
     deco.setStyle( "ciccio" );
-    CHECK_THROWS_AS( deco( std::cout ) << "Test", std::runtime_error );
+    CHECK_THROWS_AS( deco( osm::cout ) << "Test", std::runtime_error );
     deco.resetStyle();
    }
 
@@ -119,8 +119,8 @@ TEST_CASE( "Testing the OS_Decorator class methods." )
 
   SUBCASE( "Testing the operator () overload" )
    {
-    my_shell( std::cout );
-    CHECK_EQ( &my_shell.getCurrentStream(), &std::cout );
+    my_shell( osm::cout );
+    CHECK_EQ( &my_shell.getCurrentStream(), &osm::cout );
 
     my_shell( std::cerr );
     CHECK_EQ( &my_shell.getCurrentStream(), &std::cerr );

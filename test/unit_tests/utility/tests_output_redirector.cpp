@@ -3,6 +3,7 @@
 //====================================================
 
 // My headers
+#include "../../../include/utility/iostream.hpp"
 #include "../../../include/progressbar/progress_bar.hpp"
 #include "../../../include/utility/output_redirector.hpp"
 
@@ -10,7 +11,6 @@
 #include <doctest/doctest.h>
 
 // STD headers
-#include <iostream>
 #include <thread>
 #include <filesystem>
 
@@ -146,7 +146,7 @@ TEST_CASE( "Testing OutputRedirector class" )
     std::string test_redirection_str = "Testing \"output redirection\".";
 
     redirector.begin();
-    std::cout << test_redirection_str << std::flush;
+    osm::cout << test_redirection_str << std::flush;
     redirector.end();
 
     std::string file_contents = read_file( redirector.getFilename() );
@@ -171,7 +171,7 @@ TEST_CASE( "Testing OutputRedirector class" )
                                   "Amet venenatis urna cursus eget nunc scelerisque.Ut placerat orci nulla pellentesque.";
 
     redirector.begin();
-    std::cout << lorem_ipsum_str;
+    osm::cout << lorem_ipsum_str;
     redirector.flush();
     file_contents = read_file( redirector.getFilename() );
 
@@ -362,7 +362,7 @@ bool delete_file( const std::string & filename )
 
 void test_perc_bars( osm::OutputRedirector & redirector )
  {
-  std::cout << "\n"
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     PERCENTAGE BARS                                    "
@@ -376,7 +376,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
   percentage_bar.setMax( 46 );
   percentage_bar.setStyle( "indicator", "%" );
 
-  std::cout << "This is a normal percentage bar: "
+  osm::cout << "This is a normal percentage bar: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
@@ -386,14 +386,14 @@ void test_perc_bars( osm::OutputRedirector & redirector )
     percentage_bar.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
 
   // Percentage bar with message and different style:
   osm::ProgressBar<float> percentage_bar_2( 1.2f, 4.4f );
   percentage_bar_2.setMessage( "processing..." );
   percentage_bar_2.setStyle( "indicator", "/100" );
 
-  std::cout << "This is a percentage bar with message and the /100 style: "
+  osm::cout << "This is a percentage bar with message and the /100 style: "
             << "\n";
   for( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
    {
@@ -403,13 +403,13 @@ void test_perc_bars( osm::OutputRedirector & redirector )
     percentage_bar_2.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
 
   // Percentage bar with time consuming info:
   percentage_bar.resetMessage();
   percentage_bar.setStyle( "indicator", "%" );
 
-  std::cout << "This is a percentage bar with time consuming info: "
+  osm::cout << "This is a percentage bar with time consuming info: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
@@ -422,7 +422,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
     percentage_bar.setEnd();
    }
 
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
 
   // Percentage bar with estimated time left:
   percentage_bar.setMin( 2 );
@@ -430,7 +430,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
   percentage_bar.setRemainingTimeFlag( "on" );
   percentage_bar.resetRemainingTime();
 
-  std::cout << "This is a percentage bar with time-remaining info: "
+  osm::cout << "This is a percentage bar with time-remaining info: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
@@ -440,12 +440,12 @@ void test_perc_bars( osm::OutputRedirector & redirector )
     percentage_bar.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
  }
 
 void test_load_bars( osm::OutputRedirector & redirector )
  {
-  std::cout << "\n"
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     LOADING BARS                                    "
@@ -459,7 +459,7 @@ void test_load_bars( osm::OutputRedirector & redirector )
   loading_bar.setStyle( "loader", "#" );
   loading_bar.setBrackets( "[", "]" );
 
-  std::cout << "This is a normal loading bar: "
+  osm::cout << "This is a normal loading bar: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
@@ -469,14 +469,14 @@ void test_load_bars( osm::OutputRedirector & redirector )
     loading_bar.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
 
   // Loading bar with message:
   loading_bar.resetBrackets();
   loading_bar.setMessage( "processing..." );
   loading_bar.setBrackets( "{", "}" );
 
-  std::cout << "This is a loading bar with message: "
+  osm::cout << "This is a loading bar with message: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
@@ -486,7 +486,7 @@ void test_load_bars( osm::OutputRedirector & redirector )
     loading_bar.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
 
   // Loading bar with time remaining info:
   loading_bar.setMin( 3 );
@@ -495,7 +495,7 @@ void test_load_bars( osm::OutputRedirector & redirector )
   loading_bar.setRemainingTimeFlag( "on" );
   loading_bar.resetRemainingTime();
 
-  std::cout << "This is a loading bar with time-remaining info: "
+  osm::cout << "This is a loading bar with time-remaining info: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
@@ -505,12 +505,12 @@ void test_load_bars( osm::OutputRedirector & redirector )
     loading_bar.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
  }
 
 void test_mixed_bars( osm::OutputRedirector & redirector )
  {
-  std::cout << "\n"
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     FULL PROGRESS BARS                                    "
@@ -523,7 +523,7 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( "elaborating..." );
 
-  std::cout << "This is a mixed progress bar: "
+  osm::cout << "This is a mixed progress bar: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
@@ -533,13 +533,13 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
     mixed_bar.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
 
   mixed_bar.setColor( "red" );
   mixed_bar.setRemainingTimeFlag( "on" );
   mixed_bar.resetRemainingTime();
 
-  std::cout << "This is a mixed progress bar with color and time remaining info: "
+  osm::cout << "This is a mixed progress bar with color and time remaining info: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
@@ -549,7 +549,7 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
     mixed_bar.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
 
   mixed_bar.resetColor();
   mixed_bar.addStyle( "indicator", "|100" );
@@ -557,7 +557,7 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
   mixed_bar.setStyle( "complete", "|100", ">" );
   mixed_bar.setRemainingTimeFlag( "off" );
 
-  std::cout << "This is a mixed progress bar with two customized styles: "
+  osm::cout << "This is a mixed progress bar with two customized styles: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
@@ -567,12 +567,12 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
     mixed_bar.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
  }
 
 void test_progress_spinner( osm::OutputRedirector & redirector )
  {
-  std::cout << "\n"
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     PROGRESS SPINNER                                    "
@@ -586,7 +586,7 @@ void test_progress_spinner( osm::OutputRedirector & redirector )
   spinner.setMax( 33 );
   spinner.setStyle( "spinner", "/-\\|" );
 
-  std::cout << "This is a progress spinner: "
+  osm::cout << "This is a progress spinner: "
             << "\n";
   for( int i = spinner.getMin(); i < spinner.getMax(); i++ )
    {
@@ -596,7 +596,7 @@ void test_progress_spinner( osm::OutputRedirector & redirector )
     spinner.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
 
   // Float progress spinner.
   osm::ProgressBar<float> spinner_float;
@@ -607,7 +607,7 @@ void test_progress_spinner( osm::OutputRedirector & redirector )
   spinner_float.setStyle( "spinner", "|/_\\" );
   spinner_float.setMessage( "elaborating data..." );
 
-  std::cout << "This is another progress spinner: "
+  osm::cout << "This is another progress spinner: "
             << "\n";
   for( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
    {
@@ -617,5 +617,5 @@ void test_progress_spinner( osm::OutputRedirector & redirector )
     spinner_float.update( i );
     // Do some operations...
    }
-  std::cout << "\n\n";
+  osm::cout << "\n\n";
  }

@@ -8,6 +8,7 @@
 //====================================================
 
 //My headers
+#include "../../../include/utility/iostream.hpp"
 #include "../include/progressbar/progress_bar.hpp"
 #include "../include/progressbar/multi_progress_bar.hpp"
 
@@ -53,10 +54,10 @@ TEST_CASE( "Testing MultiProgressBar class" )
       auto first_output_multi = [ &i, &bars ]( std::ostream& ){ bars.for_one( 0, osm::updater{}, i ); };
       auto first_output_normal = [ &i, &bar1 ]( std::ostream& ){ bar1.update( i ); };
   
-      auto old_buffer = std::cout.rdbuf(nullptr);
+      auto old_buffer = osm::cout.rdbuf(nullptr);
       first_output_multi( ss_multi );
       first_output_normal( ss_normal );
-      std::cout.rdbuf(old_buffer);
+      osm::cout.rdbuf(old_buffer);
   
       CHECK_EQ( ss_multi.str(), ss_normal.str() );
      }  
@@ -70,10 +71,10 @@ TEST_CASE( "Testing MultiProgressBar class" )
       auto first_output_multi = [ &i, &bars ]( std::ostream& ){ bars.for_one( 1, osm::updater{}, i ); };
       auto first_output_normal = [ &i, &bar2 ]( std::ostream& ){ bar2.update( i ); };
   
-      auto old_buffer = std::cout.rdbuf(nullptr);
+      auto old_buffer = osm::cout.rdbuf(nullptr);
       first_output_multi( ss_multi );
       first_output_normal( ss_normal );
-      std::cout.rdbuf(old_buffer);
+      osm::cout.rdbuf(old_buffer);
   
       CHECK_EQ( ss_multi.str(), ss_normal.str() );
      }  
@@ -87,10 +88,10 @@ TEST_CASE( "Testing MultiProgressBar class" )
       auto first_output_multi = [ &i, &bars ]( std::ostream& ){ bars.for_one( 2, osm::updater{}, i ); };
       auto first_output_normal = [ &i, &bar3 ]( std::ostream& ){ bar3.update( i ); };
   
-      auto old_buffer = std::cout.rdbuf(nullptr);
+      auto old_buffer = osm::cout.rdbuf(nullptr);
       first_output_multi( ss_multi );
       first_output_normal( ss_normal );
-      std::cout.rdbuf(old_buffer);
+      osm::cout.rdbuf(old_buffer);
   
       CHECK_EQ( ss_multi.str(), ss_normal.str() );
      }
