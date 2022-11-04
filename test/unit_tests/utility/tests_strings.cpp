@@ -75,5 +75,5 @@ TEST_CASE( "Testing the strings utilities" )
 //
 //     // '\n' not met, so string does not change.
 //     CHECK_EQ( lorem_ipsum_str, modified_str );
-  }
+//   }
 }
