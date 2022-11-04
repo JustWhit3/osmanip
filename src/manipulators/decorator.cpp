@@ -13,12 +13,12 @@
 //====================================================
 
 //My headers
+#include "../include/utility/iostream.hpp"
 #include "../../include/manipulators/decorator.hpp"
 #include "../../include/manipulators/colsty.hpp"
 #include "../../include/manipulators/common.hpp"
 
 //STD headers
-#include <iostream>
 #include <string>
 #include <unordered_map>
 
@@ -42,7 +42,7 @@ namespace osm
    */
   Decorator::~Decorator()
    {
-    std::cout << feat( rst, "all" );
+    osm::cout << feat( rst, "all" );
    }
 
   //====================================================
@@ -54,7 +54,7 @@ namespace osm
    * @brief Method used to set the color of a stream.
    * 
    * @param color The color to be set for the stream.
-   * @param os The stream to be modified. Default is std::cout.
+   * @param os The stream to be modified. Default is osm::cout.
    */
   void Decorator::setColor( const std::string& color, std::ostream& os )
    {
@@ -67,7 +67,7 @@ namespace osm
    * @brief Method used to set the style of a stream.
    * 
    * @param color The style to be set for the stream.
-   * @param os The stream to be modified. Default is std::cout.
+   * @param os The stream to be modified. Default is osm::cout.
    */
   void Decorator::setStyle( const std::string& style, std::ostream& os )
    {
@@ -80,7 +80,7 @@ namespace osm
    * @brief Method used to reset the color of a stream.
    * 
    * @param color The color to be reset for the stream.
-   * @param os The stream to be modified. Default is std::cout.
+   * @param os The stream to be modified. Default is osm::cout.
    */
   void Decorator::resetColor( std::ostream& os )
    {
@@ -92,7 +92,7 @@ namespace osm
    * @brief Method used to reset the style or of a stream.
    * 
    * @param color The style to be reset for the stream.
-   * @param os The stream to be modified. Default is std::cout.
+   * @param os The stream to be modified. Default is osm::cout.
    */
   void Decorator::resetStyle( std::ostream& os )
    {
@@ -104,7 +104,7 @@ namespace osm
    * @brief Method used to remove one of the set styles (useful in case they are more than one).
    * 
    * @param color The style to be reset for the stream.
-   * @param os The stream to be modified. Default is std::cout.
+   * @param os The stream to be modified. Default is osm::cout.
    */
   void Decorator::removeStyle( const std::string& style, std::ostream& os )
    {
@@ -122,7 +122,7 @@ namespace osm
   /**
    * @brief Method used to reset all the features of a stream.
    * 
-   * @param os The stream to be modified. Default is std::cout.
+   * @param os The stream to be modified. Default is osm::cout.
    */
   void Decorator::resetFeatures( std::ostream& os )
    {
@@ -139,7 +139,7 @@ namespace osm
   /**
    * @brief Method used to return the selected color of a stream.
    * 
-   * @param os The stream which color is returned. Default is std::cout.
+   * @param os The stream which color is returned. Default is osm::cout.
    * 
    * @return std::string The current color of the stream.
    */
@@ -152,7 +152,7 @@ namespace osm
   /**
    * @brief Method used to return the selected style of a stream.
    * 
-   * @param os The stream which style is returned. Default is std::cout.
+   * @param os The stream which style is returned. Default is osm::cout.
    * 
    * @return std::string The current style of the stream.
    */

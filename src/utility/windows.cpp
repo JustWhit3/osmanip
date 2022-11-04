@@ -19,13 +19,13 @@
 
 // My headers
 #include "../../include/utility/windows.hpp"
+#include "../../include/utility/iostream.hpp"
 
 //Extra headers
 #include <arsenalgear/system.hpp>
 #include <arsenalgear/utils.hpp>
 
 // STD headers
-#include <iostream>
 #include <string>
 #include <sstream>
 
@@ -97,7 +97,7 @@ namespace osm
    */
    {
     // Reset all styles and colors
-    std::cout << "\033[0m";
+    osm::cout << "\033[0m";
   
     // Settings for Windows mode
     #ifdef _WIN32

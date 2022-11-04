@@ -21,6 +21,7 @@
 
 //My headers
 #include "../utility/windows.hpp"
+#include "../utility/iostream.hpp"
 #include "../manipulators/cursor.hpp"
 #include "../manipulators/colsty.hpp"
 #include "../manipulators/common.hpp"
@@ -73,8 +74,8 @@ namespace osm
    {
     if constexpr ( std::is_same_v<T, CURSOR> ) 
      {
-      if ( opt == CURSOR::ON ) std::cout << feat( tcs, "scrs" );
-      else if ( opt == CURSOR::OFF ) std::cout << feat( tcs, "hcrs" ); 
+      if ( opt == CURSOR::ON ) osm::cout << feat( tcs, "scrs" );
+      else if ( opt == CURSOR::OFF ) osm::cout << feat( tcs, "hcrs" ); 
      } 
     else if constexpr ( std::is_same_v<T, ANSI> ) 
      {

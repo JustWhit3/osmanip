@@ -23,6 +23,7 @@
 #include "../manipulators/colsty.hpp"
 #include "../manipulators/cursor.hpp"
 #include "../manipulators/common.hpp"
+#include "../utility/iostream.hpp"
 
 //Extra headers
 #include <arsenalgear/constants.hpp>
@@ -31,7 +32,6 @@
 #include <arsenalgear/operators.hpp>
 
 //STD headers
-#include <iostream>
 #include <string>
 #include <chrono>
 #include <unordered_set>
@@ -661,7 +661,7 @@ namespace osm
      */
      void print() const
       {
-       std::cout << "Max: " << max_ << "\n"
+       osm::cout << "Max: " << max_ << "\n"
                  << "Min: " << min_ << "\n" 
                  << "Time counter: " << time_count_ << "\n"
                  << "Style: " << style_ << "\n"
@@ -710,7 +710,7 @@ namespace osm
        std::chrono::minutes minutes_left = std::chrono::duration_cast <std::chrono::minutes> ( time_left );
        std::chrono::seconds seconds_left = std::chrono::duration_cast <std::chrono::seconds> ( time_left - minutes_left );
    
-       std::cout << "["
+       osm::cout << "["
                  << feat( sty, "italics" ) + "Estimated time left: "  + feat( rst, "italics" )
                  << feat( col, "green" ) << minutes_left.count() << feat( rst, "color" ) << "m " 
                  << feat( col, "green" ) << seconds_left.count() << feat( rst, "color" ) << "s" 
@@ -727,7 +727,7 @@ namespace osm
       */
      void update_output( const std::string& output )
       {    
-       std::cout << output
+       osm::cout << output
                  << getColor()
                  << ( ( message_ != agr::null_str<std::string> ) ?
                     ( agr::empty_space<std::string> + message_ + agr::empty_space<std::string> ) :
@@ -740,7 +740,7 @@ namespace osm
          remaining_time();
         }
         
-       std::cout << std::flush;
+       osm::cout << std::flush;
       }
 
      //====================================================
