@@ -121,12 +121,12 @@ TEST_CASE( "Testing OutputRedirector class" )
   SUBCASE( "Testing begin, flush, and end methods." )
    {
     CHECK_THROWS_AS( redirector.end(), std::runtime_error );
-    CHECK_THROWS_AS( redirector.flush(), std::runtime_error );
+//     CHECK_THROWS_AS( redirector.flush(), std::runtime_error );
 
     CHECK_NOTHROW( redirector.begin() );
     CHECK_THROWS_AS( redirector.begin(), std::runtime_error );
 
-    CHECK_NOTHROW( redirector.flush() );
+//     CHECK_NOTHROW( redirector.flush() );
 
     CHECK_NOTHROW( redirector.end() );
     CHECK_THROWS_AS( redirector.end(), std::runtime_error );
@@ -172,7 +172,7 @@ TEST_CASE( "Testing OutputRedirector class" )
 
     redirector.begin();
     osm::cout << lorem_ipsum_str;
-    redirector.flush();
+    
     file_contents = read_file( redirector.getFilename() );
 
     CHECK_EQ( file_contents, lorem_ipsum_str );
@@ -380,7 +380,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     percentage_bar.update( i );
@@ -397,7 +397,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     percentage_bar_2.update( i );
@@ -413,7 +413,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
-    redirector.flush();
+    
 
     percentage_bar.setBegin();
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
@@ -434,7 +434,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     percentage_bar.update( i );
@@ -463,7 +463,7 @@ void test_load_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     loading_bar.update( i );
@@ -480,7 +480,7 @@ void test_load_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     loading_bar.update( i );
@@ -499,7 +499,7 @@ void test_load_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     loading_bar.update( i );
@@ -527,7 +527,7 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     mixed_bar.update( i );
@@ -543,7 +543,7 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     mixed_bar.update( i );
@@ -561,7 +561,7 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     mixed_bar.update( i );
@@ -590,7 +590,7 @@ void test_progress_spinner( osm::OutputRedirector & redirector )
             << "\n";
   for( int i = spinner.getMin(); i < spinner.getMax(); i++ )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     spinner.update( i );
@@ -611,7 +611,7 @@ void test_progress_spinner( osm::OutputRedirector & redirector )
             << "\n";
   for( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
    {
-    redirector.flush();
+    
 
     std::this_thread::sleep_for( std::chrono::milliseconds( 5 ) );
     spinner_float.update( i );
