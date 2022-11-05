@@ -5,7 +5,6 @@
 // My headers
 #include "../../../include/utility/iostream.hpp"
 #include "../../../include/progressbar/progress_bar.hpp"
-#include "../../../include/utility/output_redirector.hpp"
 
 // Extra headers
 #include <doctest/doctest.h>
@@ -36,18 +35,17 @@ fs::path find_file( const std::string & filename );
 std::string read_file( const std::string & filename );
 
 //Test functions
-void test_perc_bars( osm::OutputRedirector & redirector );
-void test_load_bars( osm::OutputRedirector & redirector );
-void test_mixed_bars( osm::OutputRedirector & redirector );
-void test_progress_spinner( osm::OutputRedirector & redirector );
+void test_perc_bars( );
+void test_load_bars( );
+void test_mixed_bars( );
+void test_progress_spinner( );
 
 //====================================================
 //     Testing OutputRedirector class
 //====================================================
 TEST_CASE( "Testing OutputRedirector class" )
 {
-  osm::OutputRedirector redirector;
-  std::string default_filename = redirector.getFilename();
+  std::string default_filename = osm::redirout.getFilename();
 
   fs::path default_filepath = WORKING_DIR_PATH;
   default_filepath /= default_filename;
@@ -62,21 +60,21 @@ TEST_CASE( "Testing OutputRedirector class" )
 
   SUBCASE( "Testing naked getters and constructor." )
    {
-    CHECK_EQ( redirector.getFilename(), default_filename );
+    CHECK_EQ( osm::redirout.getFilename(), default_filename );
    }
 
-  SUBCASE( "Testing setters and getters with initialized values." )
-   {
-    osm::OutputRedirector init_redirector( TEST_FILENAME );
-
-    CHECK_NE( init_redirector.getFilename(), default_filename );
-    CHECK_EQ( init_redirector.getFilename(), TEST_FILENAME );
-
-    init_redirector.setFilename( default_filename );
-
-    CHECK_NE( init_redirector.getFilename(), TEST_FILENAME );
-    CHECK_EQ( init_redirector.getFilename(), default_filename );
-   }
+//   SUBCASE( "Testing setters and getters with initialized values." )
+//    {
+//     osm::OutputRedirector init_redirector( TEST_FILENAME );
+//
+//     CHECK_NE( init_redirector.getFilename(), default_filename );
+//     CHECK_EQ( init_redirector.getFilename(), TEST_FILENAME );
+//
+//     init_redirector.setFilename( default_filename );
+//
+//     CHECK_NE( init_redirector.getFilename(), TEST_FILENAME );
+//     CHECK_EQ( init_redirector.getFilename(), default_filename );
+//    }
 
   TEST_SUITE_END();
 
@@ -89,29 +87,29 @@ TEST_CASE( "Testing OutputRedirector class" )
   //====================================================
   SUBCASE( "Testing touch method." )
    {
-    CHECK_EQ( file_exists( redirector.getFilename() ), false );
+    CHECK_EQ( file_exists( osm::redirout.getFilename() ), false );
 
-    redirector.touch();
+    osm::redirout.touch();
 
-    CHECK_EQ( file_exists( redirector.getFilename() ), true );
-    CHECK_EQ( find_file( redirector.getFilename() ), default_filepath );
-    CHECK_EQ( delete_file( redirector.getFilename() ), true );
-    CHECK_EQ( file_exists( redirector.getFilename() ), false );
+    CHECK_EQ( file_exists( osm::redirout.getFilename() ), true );
+    CHECK_EQ( find_file( osm::redirout.getFilename() ), default_filepath );
+    CHECK_EQ( delete_file( osm::redirout.getFilename() ), true );
+    CHECK_EQ( file_exists( osm::redirout.getFilename() ), false );
 
-    redirector.setFilename( TEST_FILENAME );
+    osm::redirout.setFilename( TEST_FILENAME );
 
-    CHECK_EQ( file_exists( redirector.getFilename() ), false );
+    CHECK_EQ( file_exists( osm::redirout.getFilename() ), false );
 
-    redirector.touch();
+    osm::redirout.touch();
 
-    CHECK_EQ( find_file( redirector.getFilename() ), test_filepath );
-    CHECK_EQ( delete_file( redirector.getFilename() ), true );
-    CHECK_EQ( file_exists( redirector.getFilename() ), false );
+    CHECK_EQ( find_file( osm::redirout.getFilename() ), test_filepath );
+    CHECK_EQ( delete_file( osm::redirout.getFilename() ), true );
+    CHECK_EQ( file_exists( osm::redirout.getFilename() ), false );
    }
 
   TEST_SUITE_END();
 
-  redirector.setFilename( TEST_FILENAME );
+  osm::redirout.setFilename( TEST_FILENAME );
 
   TEST_SUITE_BEGIN( "Other methods." );
 
@@ -120,19 +118,16 @@ TEST_CASE( "Testing OutputRedirector class" )
   //====================================================
   SUBCASE( "Testing begin, flush, and end methods." )
    {
-    CHECK_THROWS_AS( redirector.end(), std::runtime_error );
-//     CHECK_THROWS_AS( redirector.flush(), std::runtime_error );
+    CHECK_THROWS_AS( osm::redirout.end(), std::runtime_error );
 
-    CHECK_NOTHROW( redirector.begin() );
-    CHECK_THROWS_AS( redirector.begin(), std::runtime_error );
+    CHECK_NOTHROW( osm::redirout.begin() );
+    CHECK_THROWS_AS( osm::redirout.begin(), std::runtime_error );
 
-//     CHECK_NOTHROW( redirector.flush() );
-
-    CHECK_NOTHROW( redirector.end() );
-    CHECK_THROWS_AS( redirector.end(), std::runtime_error );
+    CHECK_NOTHROW( osm::redirout.end() );
+    CHECK_THROWS_AS( osm::redirout.end(), std::runtime_error );
    }
 
-  delete_file( redirector.getFilename() );
+  delete_file( osm::redirout.getFilename() );
 
   TEST_SUITE_END();
 
@@ -141,166 +136,166 @@ TEST_CASE( "Testing OutputRedirector class" )
   //====================================================
   //     Testing "output redirection" feature
   //====================================================
-  SUBCASE( "Testing normal output redirection." )
-   {
-    std::string test_redirection_str = "Testing \"output redirection\".";
-
-    redirector.begin();
-    osm::cout << test_redirection_str << std::flush;
-    redirector.end();
-
-    std::string file_contents = read_file( redirector.getFilename() );
-
-    CHECK_EQ( file_contents, test_redirection_str );
-    CHECK_NE( file_contents, "Not equal to " + test_redirection_str );
-
-    std::ofstream cleared_file( redirector.getFilename(), std::fstream::trunc | std::fstream::out );
-
-    CHECK_EQ( cleared_file.is_open(), true );
-    cleared_file.close();
-    file_contents = read_file( redirector.getFilename() );
-
-    CHECK_EQ( file_contents, "" );
-
-    std::string lorem_ipsum_str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt "
-                                  "ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus. Ut tortor "
-                                  "pretium viverra suspendisse. Nunc aliquet bibendum enim facilisis gravida neque convallis "
-                                  "a cras.\nPellentesque dignissim enim sit amet venenatis urna. At lectus urna duis convallis."
-                                  "\nVolutpat sed cras ornare arcu dui. Congue mauris rhoncus aenean vel elit scelerisque "
-                                  "mauris pellentesque pulvinar. Blandit.\nJusto eget magna fermentum iaculis eu non diam.\n"
-                                  "Amet venenatis urna cursus eget nunc scelerisque.Ut placerat orci nulla pellentesque.";
-
-    redirector.begin();
-    osm::cout << lorem_ipsum_str;
-    
-    file_contents = read_file( redirector.getFilename() );
-
-    CHECK_EQ( file_contents, lorem_ipsum_str );
-    redirector.end();
-   }
-
-  delete_file( redirector.getFilename() );
+//   SUBCASE( "Testing normal output redirection." )
+//    {
+//     std::string test_redirection_str = "Testing \"output redirection\".";
+//
+//     osm::redirout.begin();
+//     osm::cout << test_redirection_str << std::flush;
+//     osm::redirout.end();
+//
+//     std::string file_contents = read_file( osm::redirout.getFilename() );
+//
+//     CHECK_EQ( file_contents, test_redirection_str );
+//     CHECK_NE( file_contents, "Not equal to " + test_redirection_str );
+//
+//     std::ofstream cleared_file( osm::redirout.getFilename(), std::fstream::trunc | std::fstream::out );
+//
+//     CHECK_EQ( cleared_file.is_open(), true );
+//     cleared_file.close();
+//     file_contents = read_file( osm::redirout.getFilename() );
+//
+//     CHECK_EQ( file_contents, "" );
+//
+//     std::string lorem_ipsum_str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt "
+//                                   "ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus. Ut tortor "
+//                                   "pretium viverra suspendisse. Nunc aliquet bibendum enim facilisis gravida neque convallis "
+//                                   "a cras.\nPellentesque dignissim enim sit amet venenatis urna. At lectus urna duis convallis."
+//                                   "\nVolutpat sed cras ornare arcu dui. Congue mauris rhoncus aenean vel elit scelerisque "
+//                                   "mauris pellentesque pulvinar. Blandit.\nJusto eget magna fermentum iaculis eu non diam.\n"
+//                                   "Amet venenatis urna cursus eget nunc scelerisque.Ut placerat orci nulla pellentesque.";
+//
+//     osm::redirout.begin();
+//     osm::cout << lorem_ipsum_str;
+//
+//     file_contents = read_file( osm::redirout.getFilename() );
+//
+//     CHECK_EQ( file_contents, lorem_ipsum_str );
+//     osm::redirout.end();
+//    }
+//
+//   delete_file( osm::redirout.getFilename() );
 
   //====================================================
   //     Testing "progress bar" redirection
   //====================================================
-  SUBCASE( "Testing normal progress bar redirection" )
-   {
-    redirector.begin();
-    test_perc_bars( redirector );
-    redirector.end();
-
-    // Check output vs. static string
-    std::string output_text = "\n"
-                              "======================================================"
-                              "\n"
-                              "     PERCENTAGE BARS                                    "
-                              "\n"
-                              "======================================================"
-                              "\n\n"
-                              "This is a normal percentage bar: \n"
-                              "100% \n"
-                              "\n"
-                              "This is a percentage bar with message and the /100 style: \n"
-                              "100/100 processing... \n"
-                              "\n"
-                              "This is a percentage bar with time consuming info: \n"
-                              "100% \n"
-                              "\n"
-                              "This is a percentage bar with time-remaining info: \n"
-                              "100% [Estimated time left: 0m 0s]\n\n";
-
-    std::string file_contents = read_file( redirector.getFilename() );
-    CHECK_EQ( file_contents, output_text );
-   }
-
-  delete_file( redirector.getFilename() );
-
-  SUBCASE( "Testing loading bar redirection" )
-   {
-    redirector.begin();
-    test_load_bars( redirector );
-    redirector.end();
-
-    // Check output vs. static string
-    std::string output_text = "\n"
-                              "======================================================"
-                              "\n"
-                              "     LOADING BARS                                    "
-                              "\n"
-                              "======================================================"
-                              "\n\n"
-                              "This is a normal loading bar: \n"
-                              "[#########################] \n"
-                              "\n"
-                              "This is a loading bar with message: \n"
-                              "{#########################} processing... \n"
-                              "\n"
-                              "This is a loading bar with time-remaining info: \n"
-                              "{#########################} [Estimated time left: 0m 0s]\n\n";
-
-    std::string file_contents = read_file( redirector.getFilename() );
-    CHECK_EQ( file_contents, output_text );
-   }
-
-  delete_file( redirector.getFilename() );
-
-  SUBCASE( "Testing mixed progress bar redirection" )
-   {
-    redirector.begin();
-    test_mixed_bars( redirector );
-    redirector.end();
-
-    // Check output vs. static string
-    std::string output_text = "\n"
-                              "======================================================"
-                              "\n"
-                              "     FULL PROGRESS BARS                                    "
-                              "\n"
-                              "======================================================"
-                              "\n\n"
-                              "This is a mixed progress bar: \n"
-                              "[■■■■■■■■■■■■■■■■■■■■■■■■■] 100% elaborating... \n"
-                              "\n"
-                              "This is a mixed progress bar with color and time remaining info: \n"
-                              "[■■■■■■■■■■■■■■■■■■■■■■■■■] 100% elaborating... [Estimated time left: 0m 0s]\n"
-                              "\n"
-                              "This is a mixed progress bar with two customized styles: \n"
-                              "[>>>>>>>>>>>>>>>>>>>>>>>>>] 100|100 elaborating... \n\n";
-
-    std::string file_contents = read_file( redirector.getFilename() );
-    CHECK_EQ( file_contents, output_text );
-   }
-
-  delete_file( redirector.getFilename() );
-
-  SUBCASE( "Testing progress spinner redirection" )
-   {
-    redirector.begin();
-    test_progress_spinner( redirector );
-    redirector.end();
-
-    // Check output vs. static string
-    std::string output_text = "\n"
-                              "======================================================"
-                              "\n"
-                              "     PROGRESS SPINNER                                    "
-                              "\n"
-                              "======================================================"
-                              "\n\n"
-                              "This is a progress spinner: \n"
-                              "/0 \n"
-                              "\n"
-                              "This is another progress spinner: \n"
-                              "\\0 elaborating data... \n\n";
-
-    std::string file_contents = read_file( redirector.getFilename() );
-    CHECK_EQ( file_contents, output_text );
-   }
-
-  delete_file( redirector.getFilename() );
-
-  TEST_SUITE_END();
+//   SUBCASE( "Testing normal progress bar redirection" )
+//    {
+//     osm::redirout.begin();
+//     test_perc_bars();
+//     osm::redirout.end();
+//
+//     // Check output vs. static string
+//     std::string output_text = "\n"
+//                               "======================================================"
+//                               "\n"
+//                               "     PERCENTAGE BARS                                    "
+//                               "\n"
+//                               "======================================================"
+//                               "\n\n"
+//                               "This is a normal percentage bar: \n"
+//                               "100% \n"
+//                               "\n"
+//                               "This is a percentage bar with message and the /100 style: \n"
+//                               "100/100 processing... \n"
+//                               "\n"
+//                               "This is a percentage bar with time consuming info: \n"
+//                               "100% \n"
+//                               "\n"
+//                               "This is a percentage bar with time-remaining info: \n"
+//                               "100% [Estimated time left: 0m 0s]\n\n";
+//
+//     std::string file_contents = read_file( osm::redirout.getFilename() );
+//     CHECK_EQ( file_contents, output_text );
+//    }
+//
+//   delete_file( osm::redirout.getFilename() );
+//
+//   SUBCASE( "Testing loading bar redirection" )
+//    {
+//     osm::redirout.begin();
+//     test_load_bars();
+//     osm::redirout.end();
+//
+//     // Check output vs. static string
+//     std::string output_text = "\n"
+//                               "======================================================"
+//                               "\n"
+//                               "     LOADING BARS                                    "
+//                               "\n"
+//                               "======================================================"
+//                               "\n\n"
+//                               "This is a normal loading bar: \n"
+//                               "[#########################] \n"
+//                               "\n"
+//                               "This is a loading bar with message: \n"
+//                               "{#########################} processing... \n"
+//                               "\n"
+//                               "This is a loading bar with time-remaining info: \n"
+//                               "{#########################} [Estimated time left: 0m 0s]\n\n";
+//
+//     std::string file_contents = read_file( osm::redirout.getFilename() );
+//     CHECK_EQ( file_contents, output_text );
+//    }
+//
+//   delete_file( osm::redirout.getFilename() );
+//
+//   SUBCASE( "Testing mixed progress bar redirection" )
+//    {
+//     osm::redirout.begin();
+//     test_mixed_bars();
+//     osm::redirout.end();
+//
+//     // Check output vs. static string
+//     std::string output_text = "\n"
+//                               "======================================================"
+//                               "\n"
+//                               "     FULL PROGRESS BARS                                    "
+//                               "\n"
+//                               "======================================================"
+//                               "\n\n"
+//                               "This is a mixed progress bar: \n"
+//                               "[■■■■■■■■■■■■■■■■■■■■■■■■■] 100% elaborating... \n"
+//                               "\n"
+//                               "This is a mixed progress bar with color and time remaining info: \n"
+//                               "[■■■■■■■■■■■■■■■■■■■■■■■■■] 100% elaborating... [Estimated time left: 0m 0s]\n"
+//                               "\n"
+//                               "This is a mixed progress bar with two customized styles: \n"
+//                               "[>>>>>>>>>>>>>>>>>>>>>>>>>] 100|100 elaborating... \n\n";
+//
+//     std::string file_contents = read_file( osm::redirout.getFilename() );
+//     CHECK_EQ( file_contents, output_text );
+//    }
+//
+//   delete_file( osm::redirout.getFilename() );
+//
+//   SUBCASE( "Testing progress spinner redirection" )
+//    {
+//     osm::redirout.begin();
+//     test_progress_spinner();
+//     osm::redirout.end();
+//
+//     // Check output vs. static string
+//     std::string output_text = "\n"
+//                               "======================================================"
+//                               "\n"
+//                               "     PROGRESS SPINNER                                    "
+//                               "\n"
+//                               "======================================================"
+//                               "\n\n"
+//                               "This is a progress spinner: \n"
+//                               "/0 \n"
+//                               "\n"
+//                               "This is another progress spinner: \n"
+//                               "\\0 elaborating data... \n\n";
+//
+//     std::string file_contents = read_file( osm::redirout.getFilename() );
+//     CHECK_EQ( file_contents, output_text );
+//    }
+//
+//   delete_file( osm::redirout.getFilename() );
+//
+//   TEST_SUITE_END();
 }
 
 //====================================================
@@ -360,7 +355,7 @@ bool delete_file( const std::string & filename )
   return fs::remove( find_file( filename ) );
  }
 
-void test_perc_bars( osm::OutputRedirector & redirector )
+void test_perc_bars( )
  {
   osm::cout << "\n"
             << "======================================================"
@@ -443,7 +438,7 @@ void test_perc_bars( osm::OutputRedirector & redirector )
   osm::cout << "\n\n";
  }
 
-void test_load_bars( osm::OutputRedirector & redirector )
+void test_load_bars( )
  {
   osm::cout << "\n"
             << "======================================================"
@@ -508,7 +503,7 @@ void test_load_bars( osm::OutputRedirector & redirector )
   osm::cout << "\n\n";
  }
 
-void test_mixed_bars( osm::OutputRedirector & redirector )
+void test_mixed_bars( )
  {
   osm::cout << "\n"
             << "======================================================"
@@ -570,7 +565,7 @@ void test_mixed_bars( osm::OutputRedirector & redirector )
   osm::cout << "\n\n";
  }
 
-void test_progress_spinner( osm::OutputRedirector & redirector )
+void test_progress_spinner( )
  {
   osm::cout << "\n"
             << "======================================================"
