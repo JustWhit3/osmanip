@@ -36,6 +36,11 @@ namespace osm
    */
   std::string trim_string( const std::string & str )
   {
+    if( str.empty() )
+    {
+      return str;
+    }
+
     std::string res = str;
     size_t first = 0, last = res.size() - 1;
 
@@ -100,13 +105,13 @@ namespace osm
     ch.reserve( 1 );
 
     // Get the most recently formatted string (if available)
-    if( last_dst_str_len > 0 && str.size() >= last_dst_str_len )
+    if( last_dst_str_len > 0 && ( int )str.size() >= last_dst_str_len )
     {
       res = str.substr( 0, last_dst_str_len );
       src_crsr_pos = last_dst_str_len;
     }
 
-    for( ; src_crsr_pos < str.size(); ++src_crsr_pos )
+    for( ; src_crsr_pos < ( int )str.size(); ++src_crsr_pos )
     {
       ch = str.at( src_crsr_pos );
 
@@ -118,7 +123,7 @@ namespace osm
         // Not a complete CSI
         if( csi_str.empty() )
         {
-          if( src_crsr_pos + 1 < str.size() && str.at( src_crsr_pos + 1 ) == '[' )
+          if( src_crsr_pos + 1 < ( int )str.size() && str.at( src_crsr_pos + 1 ) == '[' )
           {
             // Move past the bracket
             src_crsr_pos += 2;
@@ -303,7 +308,7 @@ namespace osm
 
     char code = get_ansi_csi_code( csi_str );
 
-    int curr_pos = *dst_crsr_pos < dst_str.size() ? *dst_crsr_pos : ( int )dst_str.size();
+    int curr_pos = *dst_crsr_pos < ( int )dst_str.size() ? *dst_crsr_pos : ( int )dst_str.size();
     int starting_pos = 0;
     int line_len = 0;
     bool first_line = true;
@@ -320,7 +325,7 @@ namespace osm
          */
       case 'A':
       {
-        for( size_t line_count = 0; line_count < number; ++line_count )
+        for( size_t line_count = 0; (int)line_count < number; ++line_count )
         {
           for( ; curr_pos - 1 >= 0; --curr_pos, ++line_len )
           {
@@ -365,9 +370,9 @@ namespace osm
       }
       case 'B':
       {
-        for( size_t line_count = 0; line_count < number; ++line_count )
+        for( size_t line_count = 0; (int)line_count < number; ++line_count )
         {
-          for( ; curr_pos >= 0 && curr_pos < dst_str.size(); ++curr_pos, ++line_len )
+          for( ; curr_pos >= 0 && curr_pos < ( int )dst_str.size(); ++curr_pos, ++line_len )
           {
             if( char ch = dst_str.at( curr_pos ); ch == '\n' )
             {
@@ -395,14 +400,14 @@ namespace osm
           line_len = 0;
         }
 
-        if( curr_pos >= dst_str.size() )
+        if( curr_pos >= (int)dst_str.size() )
         {
           *dst_crsr_pos = ( int )dst_str.size();
         }
         else
         {
           // Get the length of the current line
-          for( int next_pos = curr_pos; next_pos < dst_str.size(); ++next_pos, ++line_len )
+          for( int next_pos = curr_pos; next_pos < ( int )dst_str.size(); ++next_pos, ++line_len )
           {
             if( dst_str.at( next_pos ) == '\n' )
             {
@@ -475,7 +480,7 @@ namespace osm
       {
         if( number == 0 )
         {
-          for( ; curr_pos < dst_str.size(); ++curr_pos, ++line_len )
+          for( ; curr_pos < (int)dst_str.size(); ++curr_pos, ++line_len )
           {
             if( char ch = dst_str.at( curr_pos ); ch == '\n' )
             {
