@@ -21,7 +21,7 @@
 //====================================================
 
 // My headers
-#include "../../include/utility/output_redirector.hpp"
+#include "output_redirector.hpp"
 
 // STD headers
 #  include <ostream>
