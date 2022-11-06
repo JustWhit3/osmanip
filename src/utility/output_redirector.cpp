@@ -23,6 +23,7 @@
 // STD headers
 #include <stdexcept>
 #include <algorithm>
+#include <mutex>
 
 namespace osm
 {

@@ -166,7 +166,7 @@ $(LIB_DIR)/$(LIB): $(OBJ_LIB)
 #     Clean
 #====================================================
 clean:
-	rm -r $(OBJ_DIR) $(BUILD_DIR) $(LIB_DIR)
+	rm -rf $(OBJ_DIR) $(BUILD_DIR) $(LIB_DIR)
 
 #====================================================
 #     Include

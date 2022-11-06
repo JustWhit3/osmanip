@@ -23,36 +23,16 @@
 #include "sstream.hpp"
 
 // STD headers
-#  include <atomic>
-#  include <fstream>
-
-// Procedure for experimental header
-#  ifndef __APPLE__
-#    if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
-#      include <experimental/filesystem>
-#    else
-#      include <filesystem>
-#    endif
-#  else
-#    include <filesystem>
-#  endif
+#include <atomic>
+#include <fstream>
+#include <filesystem>
 
 namespace osm
-{
-
+ {
   //====================================================
   //     Aliases
   //====================================================
-
-#  ifndef __APPLE__
-#    if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
-  namespace fs = std::experimental::filesystem;
-#    else
   namespace fs = std::filesystem;
-#    endif
-#  else
-  namespace fs = std::filesystem;
-#  endif
 
   //====================================================
   //     Classes
@@ -149,6 +129,6 @@ namespace osm
   //     Global variables
   //====================================================
 
-}      // namespace osm
+ }      // namespace osm
 
 #endif

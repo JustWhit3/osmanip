@@ -96,7 +96,7 @@ The software is and will stay **free**, but if you want to support me with a don
 ### Compilers
 
 - **gcc**:
-  - *C++17*: 7/8/9/10/11/12
+  - *C++17*: 8/9/10/11/12
   - *C++20*: 10/11/12
 - **clang**:
   - *C++17*: 5/6/7/8/9/10/11/12/13/14/15
