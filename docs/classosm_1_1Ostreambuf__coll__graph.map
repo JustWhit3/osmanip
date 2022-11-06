@@ -1,0 +1,5 @@
+<map id="osm::Ostreambuf" name="osm::Ostreambuf">
+<area shape="rect" id="node1" title="This class inherits Stringbuf and adds the ability to send output to a specific std::ostream buffer a..." alt="" coords="5,155,127,181"/>
+<area shape="rect" id="node2" href="$classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and threadsafety." alt="" coords="13,80,119,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="18,5,114,32"/>
+</map>

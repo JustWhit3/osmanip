@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['make_5fmultiprogressbar_234',['make_MultiProgressBar',['../classosm_1_1make__MultiProgressBar.html#a82fc7fab185e835fcf4c29f4d5438323',1,'osm::make_MultiProgressBar']]],
-  ['multiprogressbar_235',['MultiProgressBar',['../namespaceosm.html#a075383a0e8d513f82c078daee8eee31e',1,'osm']]]
+  ['isenabled_272',['isEnabled',['../classosm_1_1OutputRedirector.html#a8f01babfc6f408a621982eb5917189c0',1,'osm::OutputRedirector']]],
+  ['isframeenabled_273',['isFrameEnabled',['../classosm_1_1Canvas.html#a7bd6a767d15497e639e9c768a0a5fe23',1,'osm::Canvas']]]
 ];

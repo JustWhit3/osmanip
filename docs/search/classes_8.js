@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updater_166',['updater',['../structosm_1_1updater.html',1,'osm']]]
+  ['type_5fidentity_192',['type_identity',['../structosm_1_1type__identity.html',1,'osm']]]
 ];

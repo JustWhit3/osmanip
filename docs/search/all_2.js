@@ -9,8 +9,10 @@ var searchData=
   ['colsty_2ehpp_11',['colsty.hpp',['../colsty_8hpp.html',1,'']]],
   ['common_2ecpp_12',['common.cpp',['../common_8cpp.html',1,'']]],
   ['common_2ehpp_13',['common.hpp',['../common_8hpp.html',1,'']]],
-  ['crs_14',['crs',['../namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3',1,'osm']]],
-  ['cursor_15',['CURSOR',['../namespaceosm.html#a793613c2bce496156326ba85a53b6d13',1,'osm']]],
-  ['cursor_2ecpp_16',['cursor.cpp',['../cursor_8cpp.html',1,'']]],
-  ['cursor_2ehpp_17',['cursor.hpp',['../cursor_8hpp.html',1,'']]]
+  ['cout_14',['cout',['../namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee',1,'osm']]],
+  ['cout_5fbuf_15',['cout_buf',['../namespaceosm.html#a4adf83a5db1806e996d902699712831b',1,'osm']]],
+  ['crs_16',['crs',['../namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3',1,'osm']]],
+  ['cursor_17',['CURSOR',['../namespaceosm.html#a793613c2bce496156326ba85a53b6d13',1,'osm']]],
+  ['cursor_2ecpp_18',['cursor.cpp',['../cursor_8cpp.html',1,'']]],
+  ['cursor_2ehpp_19',['cursor.hpp',['../cursor_8hpp.html',1,'']]]
 ];

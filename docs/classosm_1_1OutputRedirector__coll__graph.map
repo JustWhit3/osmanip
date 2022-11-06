@@ -1,0 +1,6 @@
+<map id="osm::OutputRedirector" name="osm::OutputRedirector">
+<area shape="rect" id="node1" title="This class is used to redirected output to a file." alt="" coords="38,155,189,181"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,99,107"/>
+<area shape="rect" id="node3" href="$classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and threadsafety." alt="" coords="123,80,229,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="128,5,224,32"/>
+</map>

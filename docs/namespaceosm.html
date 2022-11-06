@@ -109,6 +109,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html">OutputRedirector</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is used to redirected output to a file.  <a href="classosm_1_1OutputRedirector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1Stringbuf.html">Stringbuf</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class inherits std::stringbuf and adds additional functionality and threadsafety.  <a href="classosm_1_1Stringbuf.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1Ostreambuf.html">Ostreambuf</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class inherits <a class="el" href="classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and threadsafety.">Stringbuf</a> and adds the ability to send output to a specific std::ostream buffer as well as redirect output to <a class="el" href="namespaceosm.html#a8ac7a7b9764da0aa1f2e4d507bf9e069" title="Link to osm::cout.">osm::redirout</a>.  <a href="classosm_1_1Ostreambuf.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -159,6 +165,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9">go_to</a> (int x, int y)</td></tr>
 <tr class="memdesc:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9">More...</a><br /></td></tr>
 <tr class="separator:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f816d54bc6a15187ade6729cd3ff49a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f816d54bc6a15187ade6729cd3ff49a">trim_string</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a8f816d54bc6a15187ade6729cd3ff49a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all leading and trailing spaces from a string.  <a href="namespaceosm.html#a8f816d54bc6a15187ade6729cd3ff49a">More...</a><br /></td></tr>
+<tr class="separator:a8f816d54bc6a15187ade6729cd3ff49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd39a0e1b6bbf21bcc85a6f48c3c4082"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#acd39a0e1b6bbf21bcc85a6f48c3c4082">find_first_alpha</a> (const std::string &amp;str, size_t pos)</td></tr>
+<tr class="memdesc:acd39a0e1b6bbf21bcc85a6f48c3c4082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the index of the first alphabetic character in the str, starting from the given position.  <a href="namespaceosm.html#acd39a0e1b6bbf21bcc85a6f48c3c4082">More...</a><br /></td></tr>
+<tr class="separator:acd39a0e1b6bbf21bcc85a6f48c3c4082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f6b27c64233f9b7090df576ea003e17"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0f6b27c64233f9b7090df576ea003e17">get_formatted_from_ansi</a> (const std::string &amp;str, int *last_pos, int *last_size)</td></tr>
+<tr class="memdesc:a0f6b27c64233f9b7090df576ea003e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a string according to the ANSI (Control Sequence Introducer) escape sequences present within the string. Can be used in a loop with appending data by using optional arguments.  <a href="namespaceosm.html#a0f6b27c64233f9b7090df576ea003e17">More...</a><br /></td></tr>
+<tr class="separator:a0f6b27c64233f9b7090df576ea003e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae3bbd83781d29ab35ef32494d5d2fb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#abae3bbd83781d29ab35ef32494d5d2fb">get_ansi_csi_string</a> (const std::string &amp;str, size_t esc_pos)</td></tr>
+<tr class="separator:abae3bbd83781d29ab35ef32494d5d2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9df8903024d0af41b7eaafae55587470"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a9df8903024d0af41b7eaafae55587470">get_ansi_csi_number</a> (const std::string &amp;csi)</td></tr>
+<tr class="separator:a9df8903024d0af41b7eaafae55587470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8aa1e35e8b5b32f5eff46b2bda57ef"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aed8aa1e35e8b5b32f5eff46b2bda57ef">get_ansi_csi_code</a> (const std::string &amp;csi)</td></tr>
+<tr class="separator:aed8aa1e35e8b5b32f5eff46b2bda57ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f45bbea2f7a0b9c6229c797dc4f7c59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59">enableANSI</a> ()</td></tr>
 <tr class="memdesc:a0f45bbea2f7a0b9c6229c797dc4f7c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to enable ANSI escape sequences on Windows.  <a href="namespaceosm.html#a0f45bbea2f7a0b9c6229c797dc4f7c59">More...</a><br /></td></tr>
 <tr class="separator:a0f45bbea2f7a0b9c6229c797dc4f7c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,6 +208,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">OPTION</a> (T opt)</td></tr>
 <tr class="memdesc:ab97e4347ae4e25d091a0b79b118e2a29"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to set a specific option.  <a href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">More...</a><br /></td></tr>
 <tr class="separator:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec6953a464a7331c0a780b9108f29d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8ec6953a464a7331c0a780b9108f29d0">trim_string</a> (std::string &amp;str)</td></tr>
+<tr class="separator:a8ec6953a464a7331c0a780b9108f29d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab696e47c6ce8aea5ca9a12d88d2bf2bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab696e47c6ce8aea5ca9a12d88d2bf2bb">handle_csi</a> (const std::string &amp;csi_str, std::string &amp;dst_str, int *dst_crsr_pos)</td></tr>
+<tr class="separator:ab696e47c6ce8aea5ca9a12d88d2bf2bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -208,8 +233,15 @@ Variables</h2></td></tr>
 <tr class="memitem:ac7e18d52b63a1c96c42a1a0bb009d369"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceosm.html#a81c6ab03be9043632d38d68a0c87336d">string_pair_map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">tcsc</a></td></tr>
 <tr class="memdesc:ac7e18d52b63a1c96c42a1a0bb009d369"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to store the terminal control sequences for clear line / screen.  <a href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">More...</a><br /></td></tr>
 <tr class="separator:ac7e18d52b63a1c96c42a1a0bb009d369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4adf83a5db1806e996d902699712831b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classosm_1_1Ostreambuf.html">Ostreambuf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a4adf83a5db1806e996d902699712831b">cout_buf</a> { &amp;std::cout }</td></tr>
+<tr class="separator:a4adf83a5db1806e996d902699712831b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ac7a7b9764da0aa1f2e4d507bf9e069"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classosm_1_1OutputRedirector.html">OutputRedirector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8ac7a7b9764da0aa1f2e4d507bf9e069">redirout</a> {}</td></tr>
+<tr class="memdesc:a8ac7a7b9764da0aa1f2e4d507bf9e069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Link to <a class="el" href="namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee">osm::cout</a>.  <a href="namespaceosm.html#a8ac7a7b9764da0aa1f2e4d507bf9e069">More...</a><br /></td></tr>
+<tr class="separator:a8ac7a7b9764da0aa1f2e4d507bf9e069"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f5f91647fa15a927b2ea4846d659c6d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f5f91647fa15a927b2ea4846d659c6d">old_chcp</a></td></tr>
 <tr class="separator:a8f5f91647fa15a927b2ea4846d659c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6448cb29b54abb14058bfd6e06e5cee"><td class="memItemLeft" align="right" valign="top">std::ostream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee">cout</a></td></tr>
+<tr class="separator:aa6448cb29b54abb14058bfd6e06e5cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a8a574177f2495c425a3a7e6246daefa8"></a>
@@ -534,6 +566,153 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="acd39a0e1b6bbf21bcc85a6f48c3c4082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd39a0e1b6bbf21bcc85a6f48c3c4082">&#9670;&nbsp;</a></span>find_first_alpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t osm::find_first_alpha </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the index of the first alphabetic character in the str, starting from the given position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>the string be searched. </td></tr>
+    <tr><td class="paramname">pos</td><td>the starting position.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the index of the alpha char if successful, otherwise std::string::npos. </dd></dl>
+
+</div>
+</div>
+<a id="aed8aa1e35e8b5b32f5eff46b2bda57ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8aa1e35e8b5b32f5eff46b2bda57ef">&#9670;&nbsp;</a></span>get_ansi_csi_code()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char osm::get_ansi_csi_code </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>csi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9df8903024d0af41b7eaafae55587470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9df8903024d0af41b7eaafae55587470">&#9670;&nbsp;</a></span>get_ansi_csi_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int osm::get_ansi_csi_number </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>csi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abae3bbd83781d29ab35ef32494d5d2fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae3bbd83781d29ab35ef32494d5d2fb">&#9670;&nbsp;</a></span>get_ansi_csi_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string osm::get_ansi_csi_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>esc_pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f6b27c64233f9b7090df576ea003e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f6b27c64233f9b7090df576ea003e17">&#9670;&nbsp;</a></span>get_formatted_from_ansi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string osm::get_formatted_from_ansi </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>last_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>last_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats a string according to the ANSI (Control Sequence Introducer) escape sequences present within the string. Can be used in a loop with appending data by using optional arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>the string to be formatted. </td></tr>
+    <tr><td class="paramname">last_pos</td><td>[Optional] the final position (index) of the last string to be formatted. </td></tr>
+    <tr><td class="paramname">last_size</td><td>[Optional] the size of the last string to be formatted.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a correctly formatted string, free of any ANSI escape sequences. </dd></dl>
+
+</div>
+</div>
 <a id="a66d950ed54e1eee09f6d137e1eeaf9d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66d950ed54e1eee09f6d137e1eeaf9d9">&#9670;&nbsp;</a></span>go_to()</h2>
 
@@ -569,6 +748,40 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>const std::string The (x,y) position of the cursor in the screen. </dd></dl>
+
+</div>
+</div>
+<a id="ab696e47c6ce8aea5ca9a12d88d2bf2bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab696e47c6ce8aea5ca9a12d88d2bf2bb">&#9670;&nbsp;</a></span>handle_csi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osm::handle_csi </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>csi_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>dst_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>dst_crsr_pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -787,6 +1000,51 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a8f816d54bc6a15187ade6729cd3ff49a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f816d54bc6a15187ade6729cd3ff49a">&#9670;&nbsp;</a></span>trim_string() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string osm::trim_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes all leading and trailing spaces from a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>the string to be trimmed.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string with no leading or tailing spaces. </dd></dl>
+
+</div>
+</div>
+<a id="a8ec6953a464a7331c0a780b9108f29d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ec6953a464a7331c0a780b9108f29d0">&#9670;&nbsp;</a></span>trim_string() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string osm::trim_string </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a9cd60a9e70771e9ba62cd5e2860695ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9cd60a9e70771e9ba62cd5e2860695ff">&#9670;&nbsp;</a></span>col</h2>
@@ -801,6 +1059,42 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>It is used to store the colors. Note: "bg" is the prefix of the background color features and "bd" is the one of the bold color features. </p>
+
+</div>
+</div>
+<a id="aa6448cb29b54abb14058bfd6e06e5cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6448cb29b54abb14058bfd6e06e5cee">&#9670;&nbsp;</a></span>cout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream osm::cout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4adf83a5db1806e996d902699712831b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4adf83a5db1806e996d902699712831b">&#9670;&nbsp;</a></span>cout_buf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream <a class="el" href="namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee">cout</a> &amp; osm::cout_buf { &amp;std::cout }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -841,6 +1135,23 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ac7a7b9764da0aa1f2e4d507bf9e069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ac7a7b9764da0aa1f2e4d507bf9e069">&#9670;&nbsp;</a></span>redirout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classosm_1_1OutputRedirector.html">OutputRedirector</a> osm::redirout {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Link to <a class="el" href="namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee">osm::cout</a>. </p>
+<p>Linked to standard output. </p>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_5fidentity_165',['type_identity',['../structosm_1_1type__identity.html',1,'osm']]]
+  ['stringbuf_191',['Stringbuf',['../classosm_1_1Stringbuf.html',1,'osm']]]
 ];
