@@ -16,7 +16,6 @@
 #include "../../include/manipulators/colsty.hpp"
 
 //STD headers
-#include <iostream>
 #include <string>
 #include <unordered_map>
 #include <sstream>

@@ -14,13 +14,13 @@
 
 //My headers
 #include "../../include/graphics/canvas.hpp"
+#include "../../include/utility/iostream.hpp"
 #include "../../include/manipulators/cursor.hpp"
 #include "../../include/manipulators/colsty.hpp"
 #include "../../include/manipulators/common.hpp"
 
 //STD headers
 #include <sstream>
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -240,7 +240,7 @@ namespace osm
      {
       for( unsigned int i = 0; i < height_; i++ )
       {
-        std::cout << feat( crs, "up", 1 );
+        osm::cout << feat( crs, "up", 1 );
       }
      }
 
@@ -303,7 +303,7 @@ namespace osm
        }
       ss << std::endl;
      }
-    std::cout << ss.str();
+    osm::cout << ss.str();
     already_drawn_ = true;
    }
 

@@ -22,12 +22,12 @@
 //My headers
 #include "common.hpp"
 #include "colsty.hpp"
+#include "../utility/iostream.hpp"
 
 //Extra headers
 #include <arsenalgear/utils.hpp>
 
 //STD headers
-#include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_map>
@@ -56,22 +56,22 @@ namespace osm
      //====================================================
      //     Setters
      //====================================================
-     void setColor( const std::string& color, std::ostream& os = std::cout );
-     void setStyle( const std::string& style, std::ostream& os = std::cout );
+     void setColor( const std::string& color, std::ostream& os = osm::cout );
+     void setStyle( const std::string& style, std::ostream& os = osm::cout );
  
      //====================================================
      //     Resetters
      //====================================================
-     void resetColor( std::ostream& os = std::cout );
-     void resetStyle( std::ostream& os = std::cout );
-     void removeStyle( const std::string& style, std::ostream& os = std::cout );
-     void resetFeatures( std::ostream& os = std::cout );
+     void resetColor( std::ostream& os = osm::cout );
+     void resetStyle( std::ostream& os = osm::cout );
+     void removeStyle( const std::string& style, std::ostream& os = osm::cout );
+     void resetFeatures( std::ostream& os = osm::cout );
  
      //====================================================
      //     Getters
      //====================================================
-     std::string getColor( std::ostream& os = std::cout );
-     std::string getStyle( std::ostream& os = std::cout );
+     std::string getColor( std::ostream& os = osm::cout );
+     std::string getStyle( std::ostream& os = osm::cout );
      std::unordered_map <std::ostream*, std::string> getColorList();
      std::unordered_map <std::ostream*, std::string> getStyleList();
      std::ostream& getCurrentStream();
@@ -79,7 +79,7 @@ namespace osm
      //====================================================
      //     Operators
      //====================================================
-     const Decorator& operator () ( std::ostream& os = std::cout );
+     const Decorator& operator () ( std::ostream& os = osm::cout );
 
     private:
 

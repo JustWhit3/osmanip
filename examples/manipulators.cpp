@@ -5,9 +5,9 @@
 #include "../include/utility/windows.hpp"
 #endif
 #include "../include/utility/options.hpp"
+#include "../include/utility/iostream.hpp"
 
 //STD headers
-#include <iostream>
 #include <thread>
 #include <chrono>
 #include <fstream>
@@ -17,7 +17,7 @@ void colsty()
   //====================================================
   //     csmanip
   //====================================================
-  std::cout << "\n" << "======================================================" << "\n"
+  osm::cout << "\n" << "======================================================" << "\n"
             << "     COLORS                                           " << "\n"
             << "======================================================" << "\n"
   
@@ -56,7 +56,7 @@ void colsty()
 
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
        
-  std::cout << "\n" << "======================================================" << "\n"
+  osm::cout << "\n" << "======================================================" << "\n"
             << "     BOLD COLORS                                      " << "\n"
             << "======================================================" << "\n\n"
             
@@ -79,7 +79,7 @@ void colsty()
 
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
        
-  std::cout << "\n" << "======================================================" << "\n"
+  osm::cout << "\n" << "======================================================" << "\n"
             << "     BACKGROUND COLORS                                " << "\n"
             << "======================================================" << "\n\n"
             
@@ -118,7 +118,7 @@ void colsty()
 
   std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
        
-  std::cout << "\n" << "======================================================" << "\n"
+  osm::cout << "\n" << "======================================================" << "\n"
             << "     STYLES                                           " << "\n"
             << "======================================================" << "\n\n"
             
@@ -141,7 +141,7 @@ void colsty()
             << osm::feat( osm::sty, "blink" ) << "This is a blink string." 
             << osm::feat( osm::rst, "blink" ) << "\n";
        
-  std::cout << "\n" << "======================================================" << "\n"
+  osm::cout << "\n" << "======================================================" << "\n"
             << "     MIXED                                           " << "\n"
             << "======================================================" << "\n\n"
             
@@ -157,16 +157,16 @@ void colsty()
 
 void Decorator()
  {
-  std::cout << "\n" << "======================================================" << "\n"
+  osm::cout << "\n" << "======================================================" << "\n"
             << "     OS_DECORATOR                                        " << "\n"
             << "======================================================" << "\n\n";
 
   osm::Decorator my_shell;
 
-  // std::cout 
-  my_shell.setColor( "green", std::cout );
-  my_shell.setStyle( "underlined", std::cout );
-  my_shell( std::cout ) << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
+  // osm::cout 
+  my_shell.setColor( "green", osm::cout );
+  my_shell.setStyle( "underlined", osm::cout );
+  my_shell( osm::cout ) << "The stdout stream has been changed using the OS_Decorator class!" << "\n";
 
   // std::cerr 
   my_shell.setColor( "red", std::cerr );

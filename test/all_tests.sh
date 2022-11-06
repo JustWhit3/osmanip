@@ -23,10 +23,10 @@ if [ "$1" == "memory" ] || [ "$1" == "" ]; then
   echo "======================================================"
   echo "     MEMORY TESTS"
   echo "======================================================"
+  ./test/profiling.sh memcheck ./bin/graphics
   ./test/profiling.sh memcheck ./bin/manipulators
   ./test/profiling.sh memcheck ./bin/progressbar
   ./test/profiling.sh memcheck ./bin/redirection
-  ./test/profiling.sh memcheck ./bin/graphics
 fi
 
 # Threading tests
@@ -36,9 +36,9 @@ if [ "$1" == "threading" ] || [ "$1" == "" ]; then
   echo "     THREADING TESTS"
   echo "======================================================"
   echo ""
+  ./test/profiling.sh helgrind ./bin/graphic
   ./test/profiling.sh helgrind ./bin/manipulators
   ./test/profiling.sh helgrind ./bin/progressbar
-  ./test/profiling.sh helgrind ./bin/graphic
   ./test/profiling.sh helgrind ./bin/redirection
 fi
 
@@ -67,8 +67,10 @@ if [ "$1" == "include" ] || [ "$1" == "" ]; then
   ./test/include_tests.sh manipulators/decorator.hpp
   ./test/include_tests.sh progressbar/multi_progress_bar.hpp
   ./test/include_tests.sh progressbar/progress_bar.hpp
-  ./test/include_tests.sh utility/output_redirector.hpp
+  ./test/include_tests.sh utility/iostream.hpp
   ./test/include_tests.sh utility/options.hpp
+  ./test/include_tests.sh utility/output_redirector.hpp
+  ./test/include_tests.sh utility/sstream.hpp
   ./test/include_tests.sh utility/strings.hpp
   ./test/include_tests.sh utility/windows.hpp
 fi
@@ -80,5 +82,5 @@ if [ "$1" == "cppcheck" ] || [ "$1" == "" ]; then
   echo "     CPPCHECK TESTS"
   echo "======================================================"
   echo ""
-  cppcheck include/graphics/* include/manipulators/* include/progressbar/* include/options/* include/utility/* src/graphics/* src/manipulators/* src/progressbar/* src/utility/* src/options/*
+  cppcheck include/graphics/* include/manipulators/* include/progressbar/* include/utility/* src/graphics/* src/manipulators/* src/progressbar/* src/utility/*
 fi

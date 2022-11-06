@@ -4,8 +4,8 @@
 
 // My headers
 #include "../include/utility/options.hpp"
+#include "../include/utility/iostream.hpp"
 #include "../include/progressbar/progress_bar.hpp"
-#include "../include/utility/output_redirector.hpp"
 #include "../include/progressbar/multi_progress_bar.hpp"
 #ifdef _WIN32
 #  include "../include/utility/windows.hpp"
@@ -13,20 +13,14 @@
 
 // STD headers
 #include <chrono>
-#include <iostream>
 #include <thread>
-
-//====================================================
-//     Global OutputRedirector
-//====================================================
-osm::OutputRedirector redirector {};
 
 //====================================================
 //     Percentage bar
 //====================================================
 void perc_bars()
 {
-  std::cout << "\n"
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     PERCENTAGE BARS"
@@ -40,53 +34,47 @@ void perc_bars()
   percentage_bar.setMax( 46 );
   percentage_bar.setStyle( "indicator", "%" );
 
-  std::cout << "This is a normal percentage bar: "
+  osm::cout << "This is a normal percentage bar: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     percentage_bar.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
+  }
+  osm::cout << "\n\n";
 
   // Percentage bar with message and different style:
   osm::ProgressBar<float> percentage_bar_2( 1.2f, 4.4f );
   percentage_bar_2.setMessage( "processing..." );
   percentage_bar_2.setStyle( "indicator", "/100" );
 
-  std::cout << "This is a percentage bar with message and the /100 style: "
+  osm::cout << "This is a percentage bar with message and the /100 style: "
             << "\n";
 
   for( float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax(); i += 0.1f )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     percentage_bar_2.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
+  }
+  osm::cout << "\n\n";
 
   // Percentage bar with time consuming info:
   percentage_bar.resetMessage();
   percentage_bar.setStyle( "indicator", "%" );
 
-  std::cout << "This is a percentage bar with time consuming info: "
+  osm::cout << "This is a percentage bar with time consuming info: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-   {
-    redirector.flush();
-
+  {
     percentage_bar.setBegin();
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     percentage_bar.update( i );
     // Do some operations...
     percentage_bar.setEnd();
-   }
-  std::cout << "\n"
+  }
+  osm::cout << "\n"
             << "Time needed to complete the previous loop: "
             << percentage_bar.getTime() << " ms."
             << "\n\n";
@@ -97,25 +85,23 @@ void perc_bars()
   percentage_bar.setRemainingTimeFlag( "on" );
   percentage_bar.resetRemainingTime();
 
-  std::cout << "This is a percentage bar with time-remaining info: "
+  osm::cout << "This is a percentage bar with time-remaining info: "
             << "\n";
   for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     percentage_bar.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
- }
+  }
+  osm::cout << "\n\n";
+}
 
 //====================================================
 //     Loading bar
 //====================================================
 void load_bars()
- {
-  std::cout << "\n"
+{
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     LOADING BARS                                    "
@@ -129,34 +115,30 @@ void load_bars()
   loading_bar.setStyle( "loader", "#" );
   loading_bar.setBrackets( "[", "]" );
 
-  std::cout << "This is a normal loading bar: "
+  osm::cout << "This is a normal loading bar: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     loading_bar.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
+  }
+  osm::cout << "\n\n";
 
   // Loading bar with message:
   loading_bar.resetBrackets();
   loading_bar.setMessage( "processing..." );
-  loading_bar.setBrackets( " {", "}" );
+  loading_bar.setBrackets( "{", "}" );
 
-  std::cout << "This is a loading bar with message: "
+  osm::cout << "This is a loading bar with message: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     loading_bar.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
+  }
+  osm::cout << "\n\n";
 
   // Loading bar with time remaining info:
   loading_bar.setMin( 3 );
@@ -165,25 +147,23 @@ void load_bars()
   loading_bar.setRemainingTimeFlag( "on" );
   loading_bar.resetRemainingTime();
 
-  std::cout << "This is a loading bar with time-remaining info: "
+  osm::cout << "This is a loading bar with time-remaining info: "
             << "\n";
   for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     loading_bar.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
- }
+  }
+  osm::cout << "\n\n";
+}
 
 //====================================================
 //     Mixed bar
 //====================================================
 void mixed_bars()
- {
-  std::cout << "\n"
+{
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     FULL PROGRESS BARS                                    "
@@ -196,33 +176,29 @@ void mixed_bars()
   mixed_bar.setBrackets( "[", "]" );
   mixed_bar.setMessage( "elaborating..." );
 
-  std::cout << "This is a mixed progress bar: "
+  osm::cout << "This is a mixed progress bar: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     mixed_bar.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
+  }
+  osm::cout << "\n\n";
 
   mixed_bar.setColor( "red" );
   mixed_bar.setRemainingTimeFlag( "on" );
   mixed_bar.resetRemainingTime();
 
-  std::cout << "This is a mixed progress bar with color and time remaining info: "
+  osm::cout << "This is a mixed progress bar with color and time remaining info: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     mixed_bar.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
+  }
+  osm::cout << "\n\n";
 
   mixed_bar.resetColor();
   mixed_bar.addStyle( "indicator", "|100" );
@@ -230,25 +206,23 @@ void mixed_bars()
   mixed_bar.setStyle( "complete", "|100", ">" );
   mixed_bar.setRemainingTimeFlag( "off" );
 
-  std::cout << "This is a mixed progress bar with two customized styles: "
+  osm::cout << "This is a mixed progress bar with two customized styles: "
             << "\n";
   for( float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     mixed_bar.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
- }
+  }
+  osm::cout << "\n\n";
+}
 
 //====================================================
 //     Multi bars
 //====================================================
 void multi_bars()
- {
-  std::cout << "\n"
+{
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     MULTI PROGRESS BARS                                    "
@@ -256,7 +230,7 @@ void multi_bars()
             << "======================================================"
             << "\n\n";
 
-  std::cout << "These are 3 progress bars printed simultaneously: "
+  osm::cout << "These are 3 progress bars printed simultaneously: "
             << "\n\n\n";
 
   osm::ProgressBar<int> prog_int;
@@ -284,31 +258,31 @@ void multi_bars()
   auto bars = MultiProgressBar( prog_int, prog_int_2, prog_float );
 
   auto job1 = [ &bars, &prog_int ]()
-   {
+  {
     for( int i = prog_int.getMin(); i < prog_int.getMax(); i++ )
-     {
+    {
       bars.for_one( 0, osm::updater {}, i );
-      std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
-     }
-   };
+      std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
+    }
+  };
 
   auto job2 = [ &bars, &prog_int_2 ]()
-   {
+  {
     for( int i = prog_int_2.getMin(); i < prog_int_2.getMax(); i++ )
-     {
+    {
       bars.for_one( 1, osm::updater {}, i );
-      std::this_thread::sleep_for( std::chrono::milliseconds( 200 ) );
-     }
-   };
+      std::this_thread::sleep_for( std::chrono::milliseconds( 60 ) );
+    }
+  };
 
   auto job3 = [ &bars, &prog_float ]()
-   {
+  {
     for( float i = prog_float.getMin(); i < prog_float.getMax(); i += 0.1f )
-     {
+    {
       bars.for_one( 2, osm::updater {}, i );
-      std::this_thread::sleep_for( std::chrono::milliseconds( 60 ) );
-     }
-   };
+      std::this_thread::sleep_for( std::chrono::milliseconds( 15 ) );
+    }
+  };
 
   std::thread first_job( job1 );
   std::thread second_job( job2 );
@@ -318,15 +292,15 @@ void multi_bars()
   second_job.join();
   third_job.join();
 
-  std::cout << "\n\n\n";
- }
+  osm::cout << "\n\n\n";
+}
 
 //====================================================
 //     Progress spinner
 //====================================================
 void progress_spinner()
- {
-  std::cout << "\n"
+{
+  osm::cout << "\n"
             << "======================================================"
             << "\n"
             << "     PROGRESS SPINNER                                    "
@@ -340,17 +314,15 @@ void progress_spinner()
   spinner.setMax( 33 );
   spinner.setStyle( "spinner", "/-\\|" );
 
-  std::cout << "This is a progress spinner: "
+  osm::cout << "This is a progress spinner: "
             << "\n";
   for( int i = spinner.getMin(); i < spinner.getMax(); i++ )
-   {
-    redirector.flush();
-
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+  {
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     spinner.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
+  }
+  osm::cout << "\n\n";
 
   // Float progress spinner.
   osm::ProgressBar<float> spinner_float;
@@ -361,24 +333,23 @@ void progress_spinner()
   spinner_float.setStyle( "spinner", "|/_\\" );
   spinner_float.setMessage( "elaborating data..." );
 
-  std::cout << "This is another progress spinner: "
+  osm::cout << "This is another progress spinner: "
             << "\n";
   for( float i = spinner_float.getMin(); i < spinner_float.getMax(); i += 0.1f )
-   {
-    redirector.flush();
+  {
 
-    std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+    std::this_thread::sleep_for( std::chrono::milliseconds( 30 ) );
     spinner_float.update( i );
     // Do some operations...
-   }
-  std::cout << "\n\n";
- }
+  }
+  osm::cout << "\n\n";
+}
 
 //====================================================
 //     Main
 //====================================================
 int main()
- {
+{
 #ifdef _WIN32
   osm::enableANSI();
 #endif
@@ -386,14 +357,12 @@ int main()
   static bool test_perc_bars = true;
   static bool test_load_bars = true;
   static bool test_mixed_bars = true;
+  static bool test_multi_bars = true;
   static bool test_prog_spinners = true;
-
-  // Does not work well with multi bars at this time. Results are very ugly.
-  static bool test_multi_bars = false;
 
   osm::OPTION( osm::CURSOR::OFF );
 
-  std::cout << "======================================================"
+  osm::cout << "======================================================"
             << "\n"
             << "     OUTPUT REDIRECTION                               "
             << "\n"
@@ -402,24 +371,24 @@ int main()
             << std::flush;
 
   // Use default filename or set your own
-  redirector.setFilename( "example_output.txt" );
+  osm::redirout.setFilename( "example_output.txt" );
 
-  std::cout << osm::feat( osm::col, "lt cyan" )
+  osm::cout << osm::feat( osm::col, "lt cyan" )
             << "Redirecting example output to '"
             << osm::feat( osm::sty, "underlined" ) << osm::feat( osm::col, "white" )
-            << redirector.getFilename()
+            << osm::redirout.getFilename()
             << osm::feat( osm::rst, "underlined" ) << osm::feat( osm::col, "lt cyan" ) << "'."
             << osm::feat( osm::rst, "all" ) << std::flush;
 
   // Begin redirecting the output stream to a file
-  redirector.begin();
+  osm::redirout.begin();
 
-  std::cout << "------------------------------------\n"
+  osm::cout << "------------------------------------\n"
             << "Progress bars, with logging!\n"
             << "------------------------------------\n";
 
   // End the redirection and return output to console
-  redirector.end();
+  osm::redirout.end();
 
   /** Important note: ==============================================================
    *    When in a loop, you must update file with the newest data by calling flush()
@@ -428,105 +397,105 @@ int main()
    *    There's probably a way around this...
    * ================================================================================*/
 
-  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+  osm::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_perc_bars )
-   {
-    std::cout << "Running percentage bars example... " << std::flush;
-    redirector.begin();
+  {
+    osm::cout << "Running percentage bars example... " << std::flush;
+    osm::redirout.begin();
     perc_bars();
-    redirector.end();
-    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-   }
+    osm::redirout.end();
+    osm::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
   else
-   {
-    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+  {
+    osm::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping percentage bars example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-   }
+  }
 
-  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+  osm::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_load_bars )
-   {
-    std::cout << "Running loading bars example... " << std::flush;
-    redirector.begin();
+  {
+    osm::cout << "Running loading bars example... " << std::flush;
+    osm::redirout.begin();
     load_bars();
-    redirector.end();
-    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-   }
+    osm::redirout.end();
+    osm::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
   else
-   {
-    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+  {
+    osm::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping loading bars example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-   }
+  }
 
-  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+  osm::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_mixed_bars )
-   {
-    std::cout << "Running mixed bars example... " << std::flush;
-    redirector.begin();
+  {
+    osm::cout << "Running mixed bars example... " << std::flush;
+    osm::redirout.begin();
     mixed_bars();
-    redirector.end();
-    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-   }
+    osm::redirout.end();
+    osm::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
   else
-   {
-    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+  {
+    osm::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping mixed bars example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-   }
+  }
 
-  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+  osm::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_multi_bars )
-   {
+  {
 
-    std::cout << "Running multi bars example... " << std::flush;
-    redirector.begin();
+    osm::cout << "Running multi bars example... " << std::flush;
+    osm::redirout.begin();
     multi_bars();
-    redirector.end();
-    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-   }
+    osm::redirout.end();
+    osm::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
   else
-   {
-    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+  {
+    osm::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping multi bars example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-   }
+  }
 
-  std::cout << osm::feat( osm::col, "white" ) << "\n-- ";
+  osm::cout << osm::feat( osm::col, "white" ) << "\n-- ";
 
   if( test_prog_spinners )
-   {
+  {
 
-    std::cout << "Running progress spinners example... " << std::flush;
-    redirector.begin();
+    osm::cout << "Running progress spinners example... " << std::flush;
+    osm::redirout.begin();
     progress_spinner();
-    redirector.end();
-    std::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
-   }
+    osm::redirout.end();
+    osm::cout << osm::feat( osm::col, "lt green" ) << "Done." << std::flush;
+  }
   else
-   {
-    std::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
+  {
+    osm::cout << osm::feat( osm::col, "dk gray" ) << osm::feat( osm::sty, "italics" )
               << "Skipping progress spinners example."
               << osm::feat( osm::rst, "all" ) << std::flush;
-   }
+  }
 
-  redirector.begin();
-  std::cout << "\n"
+  osm::redirout.begin();
+  osm::cout << "\n"
                "------------------------------------\n"
                "Example complete!\n"
                "------------------------------------\n";
-  redirector.end();
+  osm::redirout.end();
 
-  std::cout << '\n'
+  osm::cout << '\n'
             << osm::feat( osm::col, "lt cyan" )
             << "Open `"
             << osm::feat( osm::col, "white" ) << osm::feat( osm::sty, "underlined" )
-            << redirector.getFilename()
+            << osm::redirout.getFilename()
             << osm::feat( osm::rst, "underlined" ) << osm::feat( osm::col, "lt cyan" )
             << "` to view output.\n\n"
             << osm::feat( osm::rst, "all" ) << std::flush;
@@ -536,4 +505,4 @@ int main()
 #ifdef _WIN32
   osm::disableANSI();
 #endif
- }
+}

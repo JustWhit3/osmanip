@@ -13,45 +13,46 @@
 //====================================================
 #pragma once
 #ifndef OSMANIP_OUTPUTREDIRECTOR_HPP
-#define OSMANIP_OUTPUTREDIRECTOR_HPP
+#  define OSMANIP_OUTPUTREDIRECTOR_HPP
 
 //====================================================
 //     Headers
 //====================================================
 
+// My headers
+#include "sstream.hpp"
+
 // STD headers
-#include <mutex>
-#include <string>
-#include <fstream>
-#include <atomic>
-#include <streambuf>
-#include <stdint.h>
+#  include <atomic>
+#  include <fstream>
 
 // Procedure for experimental header
-#ifndef __APPLE__
-  #if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
-    #include <experimental/filesystem>
-  #else
-    #include <filesystem>
-  #endif
-#else
-  #include <filesystem>
-#endif
+#  ifndef __APPLE__
+#    if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
+#      include <experimental/filesystem>
+#    else
+#      include <filesystem>
+#    endif
+#  else
+#    include <filesystem>
+#  endif
 
 namespace osm
- {
+{
+
   //====================================================
   //     Aliases
   //====================================================
-  #ifndef __APPLE__
-    #if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
-      namespace fs = std::experimental::filesystem;
-    #else
-      namespace fs = std::filesystem;
-    #endif
-  #else
-      namespace fs = std::filesystem;
-  #endif
+
+#  ifndef __APPLE__
+#    if defined( __GNUC__ ) && ( __GNUC___ <= 8 )
+  namespace fs = std::experimental::filesystem;
+#    else
+  namespace fs = std::filesystem;
+#    endif
+#  else
+  namespace fs = std::filesystem;
+#  endif
 
   //====================================================
   //     Classes
@@ -63,81 +64,91 @@ namespace osm
    *
    */
   class OutputRedirector
-   {
-    typedef std::scoped_lock<std::mutex> scoped_lock;
-    typedef std::lock_guard<std::mutex> lock_guard;
-
+   : public std::ostream
+   , public Stringbuf
+  {
     public:
+    //====================================================
+    //     Constructors
+    //====================================================
 
-     //====================================================
-     //     Constructors
-     //====================================================
-     OutputRedirector();
-     explicit OutputRedirector( std::string filename );
- 
-     //====================================================
-     //     Destructor
-     //====================================================
-     ~OutputRedirector();
- 
-     //====================================================
-     //     Setters
-     //====================================================
-     void setFilename( const std::string& filename );
- 
-     //====================================================
-     //     Getters
-     //====================================================
-     [[nodiscard]] std::string& getFilename();
-     [[nodiscard]] std::string& getFilepath();
- 
-     //====================================================
-     //     Methods
-     //====================================================
-     void end();
-     void begin();
-     void flush();
-     void touch();
- 
-     //====================================================
-     //     Static public variables
-     //====================================================
-     static const std::string DEFAULT_FILE_DIR;
-     static const std::string DEFAULT_FILEPATH;
-     static const std::string DEFAULT_FILENAME;
- 
+    OutputRedirector();
+    explicit OutputRedirector( std::string filename );
+
+    //====================================================
+    //     Destructor
+    //====================================================
+
+    ~OutputRedirector() override;
+
+    //====================================================
+    //     Setters
+    //====================================================
+
+    void setFilename( const std::string & filename );
+
+    //====================================================
+    //     Getters
+    //====================================================
+
+    [[nodiscard]] std::string & getFilename();
+    [[nodiscard]] std::string & getFilepath();
+
+    //====================================================
+    //     Methods
+    //====================================================
+
+    void end();
+    void begin();
+    void touch();
+
+    bool isEnabled();
+
+    //====================================================
+    //     Static public variables
+    //====================================================
+
+    static const std::string DEFAULT_FILE_DIR;
+    static const std::string DEFAULT_FILEPATH;
+    static const std::string DEFAULT_FILENAME;
+
     private:
+    //====================================================
+    //     Private attributes
+    //====================================================
+    std::atomic<bool> enabled_;
 
-     //====================================================
-     //     Private attributes
-     //====================================================
-     std::mutex mutex_;
-     std::atomic <int32_t> ref_count;
- 
-     std::string file_dir_;
-     std::string filename_;
-     std::string filepath_;
- 
-     std::fstream fstream_;
-     std::stringbuf* output_stringbuf_;
-     std::streambuf* streambuf_backup_;
- 
-     //====================================================
-     //     Private methods
-     //====================================================
+    std::string file_dir_;
+    std::string filename_;
+    std::string filepath_;
 
-     // General
-     void clear_buffer();
-     void redirect_output( std::string & filename );
- 
-     // File
-     std::string read_file( const std::string & filename );
-     bool write_to_file( const std::string & filename, const std::string & out_string );
- 
-     // Exceptions
-     void sanity_check( const std::string & func_name );
-     void exception_file_not_found();
-   };
- }
+    std::fstream fstream_;
+    std::stringstream output_str_;
+
+    int last_ansi_str_index_;
+    int last_ansi_str_size_;
+
+    //====================================================
+    //     Private methods
+    //====================================================
+
+    // Virtual
+    int sync() override;
+
+    // Helpers
+    void write_output();
+    void prepare_output();
+    void read_file();
+
+    // Exceptions
+    void sanity_check( const std::string & func_name );
+    void exception_file_not_found();
+  };
+
+  //====================================================
+  //     Global variables
+  //====================================================
+
+}      // namespace osm
 
 #endif

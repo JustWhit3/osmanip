@@ -6,9 +6,9 @@
 #include "../include/utility/windows.hpp"
 #endif
 #include "../include/utility/options.hpp"
+#include "../include/utility/iostream.hpp"
 
 //STD headers
-#include <iostream>
 #include <thread>
 #include <chrono>
 
@@ -17,11 +17,11 @@
 //====================================================
 void canvas_2d()
  {
-  std::cout << "\n" << "======================================================" << "\n"
+  osm::cout << "\n" << "======================================================" << "\n"
             << "     CANVAS                                    " << "\n"
             << "======================================================" << "\n\n";
   
-    std::cout << "Display an animation in a canvas" << "\n";
+    osm::cout << "Display an animation in a canvas" << "\n";
 
     osm::Canvas canvas(10,10);
     canvas.setBackground( '.', osm::feat( osm::col, "bg white" ) + osm::feat( osm::col, "black" ) );
@@ -36,7 +36,7 @@ void canvas_2d()
       std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
      }
     
-    std::cout << "\n" << "Canvas with an ASCII frame" << "\n";
+    osm::cout << "\n" << "Canvas with an ASCII frame" << "\n";
     
     osm::Canvas ascii_framed_canvas( 15, 10 );
     ascii_framed_canvas.enableFrame( true );
@@ -51,7 +51,7 @@ void canvas_2d()
     
     std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
     
-    std::cout << "\n" << "Canvas with a BOX frame" << "\n";
+    osm::cout << "\n" << "Canvas with a BOX frame" << "\n";
     
     osm::Canvas box_framed_canvas( 20, 8 );
     box_framed_canvas.enableFrame( true );
@@ -66,7 +66,7 @@ void canvas_2d()
     
     std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
     
-    std::cout << "\n" << "Plot2DCanvas with sin and cos" << "\n";
+    osm::cout << "\n" << "Plot2DCanvas with sin and cos" << "\n";
 
     osm::Plot2DCanvas plot_2d_canvas( 50, 20 );
     plot_2d_canvas.setBackground( ' ', osm::feat( osm::col, "bg white" ) );
@@ -89,7 +89,7 @@ void canvas_2d()
       std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
      }
 
-    std::cout << "\n\n";
+    osm::cout << "\n\n";
  }
 
 //====================================================

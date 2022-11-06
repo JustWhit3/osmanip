@@ -21,9 +21,9 @@
 
 //My headers
 #include "../manipulators/cursor.hpp"
+#include "../utility/iostream.hpp"
 
 //STD headers
-#include <iostream>
 #include <type_traits>
 #include <tuple>
 #include <mutex>
@@ -173,7 +173,7 @@ namespace osm
         }
        for( int i = 0; i < idx_delta; i++ )
         {                                                                                                               
-         std::cout << feat( crs, direction, 1 );
+         osm::cout << feat( crs, direction, 1 );
         }
        last_updated_index = idx;
        [](...) {} 
