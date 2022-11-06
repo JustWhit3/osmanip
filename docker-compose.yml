@@ -61,7 +61,7 @@ services:
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make clean && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
+        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
 
     # clang 6
     build_clang_6:
