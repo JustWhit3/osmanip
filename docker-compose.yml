@@ -6,7 +6,7 @@ services:
     ##########################################
 
     # gcc 8
-    build_gcc_7:
+    build_gcc_8:
         image: gcc:8.1.0
         network_mode: bridge
         volumes:
