@@ -30,10 +30,10 @@
   - [Use in your device](#use-in-your-device)
   - [Compile examples and test codes](#compile-examples-and-test-codes)
 - [Todo](#todo)
-  - [ANSI escape sequences manipulators](#ansi-escape-sequences-manipulators)
-  - [Progress bars](#progress-bars)
-  - [Terminal graphics](#terminal-graphics)
-  - [System features](#system-features)
+  - [Todo for ANSI escape sequences manipulators](#todo-for-ansi-escape-sequences-manipulators)
+  - [Todo for progress bars](#todo-for-progress-bars)
+  - [Todo for terminal graphics](#todo-for-terminal-graphics)
+  - [Todo for system features](#todo-for-system-features)
 - [List of known projects which use this library](#list-of-known-projects-which-use-this-library)
 - [Credits](#credits)
   - [Project leaders](#project-leaders)
@@ -528,7 +528,7 @@ To launch all tests simultaneously:
 
 ## Todo
 
-**ANSI escape sequences manipulators**
+**Todo for ANSI escape sequences manipulators**
 
 - Add UNICODE characters manipulators.
 - Add new methods to
@@ -536,19 +536,19 @@ To launch all tests simultaneously:
   class.
 - Implement file redirection to HTML and other type of files when manipulating the output.
 
-**Progress bars**
+**Todo for progress bars**
 
 - Add an `elapsedTime()` method to show elapsed progress bar time and substitute it to the already existing  `getTime()`
   method.
 
-**Terminal graphics**
+**Todo for terminal graphics**
 
 - Add a method to set the Legend of a plot.
 - Add automatic plot resize.
 - Add option to display axes.
 - Extend the 2D terminal-graphics to 3D.
 
-**System features**
+**Todo for system features**
 
 - Improve the compilation using CMake.
 - Benchmarking and other studies with respect to similar libraries.
