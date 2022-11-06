@@ -34,10 +34,11 @@
   - [Progress bars](#progress-bars)
   - [Terminal graphics](#terminal-graphics)
   - [System features](#system-features)
-- [List of know projects which use this library](#list-of-known-projects-which-use-this-library)
+- [List of known projects which use this library](#list-of-known-projects-which-use-this-library)
 - [Credits](#credits)
   - [Project leaders](#project-leaders)
   - [Other contributors](#other-contributors)
+ - [Stargazers over time](#stargazers-over-time)
 
 ## Introduction
 
@@ -588,3 +589,9 @@ To launch all tests simultaneously:
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/JustWhit3/osmanip.svg)](https://starchart.cc/JustWhit3/osmanip)
+
