@@ -18,6 +18,8 @@
 
 // STD headers
 #include <stdexcept>
+#include <stdio.h>
+#include <cctype>
 
 namespace osm
 {
@@ -92,11 +94,11 @@ namespace osm
    * @return a correctly formatted string, free of any ANSI escape sequences.
    *
    */
-  std::string get_formatted_from_ansi( const std::string & str, int * last_pos, int * last_size )
+  std::string get_formatted_from_ansi( const std::string & str, int32_t * last_pos, int32_t * last_size )
   {
-    int dst_crsr_pos = last_pos ? *last_pos : 0;
-    int last_dst_str_len = last_size ? *last_size : 0;
-    int src_crsr_pos = 0;
+    int32_t dst_crsr_pos = last_pos ? *last_pos : 0;
+    int32_t last_dst_str_len = last_size ? *last_size : 0;
+    int32_t src_crsr_pos = 0;
 
     std::string res;
     res.reserve( str.size() );
@@ -105,13 +107,13 @@ namespace osm
     ch.reserve( 1 );
 
     // Get the most recently formatted string (if available)
-    if( last_dst_str_len > 0 && ( int )str.size() >= last_dst_str_len )
+    if( last_dst_str_len > 0 && ( int32_t )str.size() >= last_dst_str_len )
     {
       res = str.substr( 0, last_dst_str_len );
       src_crsr_pos = last_dst_str_len;
     }
 
-    for( ; src_crsr_pos < ( int )str.size(); ++src_crsr_pos )
+    for( ; src_crsr_pos < ( int32_t )str.size(); ++src_crsr_pos )
     {
       ch = str.at( src_crsr_pos );
 
@@ -123,7 +125,7 @@ namespace osm
         // Not a complete CSI
         if( csi_str.empty() )
         {
-          if( src_crsr_pos + 1 < ( int )str.size() && str.at( src_crsr_pos + 1 ) == '[' )
+          if( src_crsr_pos + 1 < ( int32_t )str.size() && str.at( src_crsr_pos + 1 ) == '[' )
           {
             // Move past the bracket
             src_crsr_pos += 2;
@@ -137,7 +139,7 @@ namespace osm
         else
         {
           // Move past the CSI and handle it in the res string
-          src_crsr_pos += ( int )csi_str.size();
+          src_crsr_pos += ( int32_t )csi_str.size();
           handle_csi( csi_str, res, &dst_crsr_pos );
         }
 
@@ -145,10 +147,10 @@ namespace osm
       }
       else
       {
-        if( ch.front() == '\n' || dst_crsr_pos >= ( int )res.size() )
+        if( ch.front() == '\n' || dst_crsr_pos >= ( int32_t )res.size() )
         {
           res += ch;
-          dst_crsr_pos = ( int )res.size();
+          dst_crsr_pos = ( int32_t )res.size();
         }
         else
         {
@@ -173,7 +175,7 @@ namespace osm
     }
     if( last_size )
     {
-      *last_size = ( int )res.size();
+      *last_size = ( int32_t )res.size();
     }
 
     res.shrink_to_fit();
@@ -216,11 +218,11 @@ namespace osm
    * @return the number of the ANSI CSI if found.
    *
    */
-  [[maybe_unused]] int get_ansi_csi_number( const std::string & csi )
+  [[maybe_unused]] int32_t get_ansi_csi_number( const std::string & csi )
   {
     const size_t n_pos = 2;
 
-    int number = -1;
+    int32_t number = -1;
 
     if( n_pos < csi.size() )
     {
@@ -293,9 +295,9 @@ namespace osm
    * @param dst_crsr_pos the current position (index) of the destination string
    *
    */
-  [[maybe_unused]] void handle_csi( const std::string & csi_str, std::string & dst_str, int * dst_crsr_pos )
+  [[maybe_unused]] void handle_csi( const std::string & csi_str, std::string & dst_str, int32_t * dst_crsr_pos )
   {
-    int number;
+    int32_t number;
     try
     {
       number = get_ansi_csi_number( csi_str );
@@ -308,9 +310,9 @@ namespace osm
 
     char code = get_ansi_csi_code( csi_str );
 
-    int curr_pos = *dst_crsr_pos < ( int )dst_str.size() ? *dst_crsr_pos : ( int )dst_str.size();
-    int starting_pos = 0;
-    int line_len = 0;
+    int32_t curr_pos = *dst_crsr_pos < ( int32_t )dst_str.size() ? *dst_crsr_pos : ( int32_t )dst_str.size();
+    int32_t starting_pos = 0;
+    int32_t line_len = 0;
     bool first_line = true;
 
     // Handle the sequence
@@ -325,7 +327,7 @@ namespace osm
          */
       case 'A':
       {
-        for( size_t line_count = 0; (int)line_count < number; ++line_count )
+        for( size_t line_count = 0; (int32_t)line_count < number; ++line_count )
         {
           for( ; curr_pos - 1 >= 0; --curr_pos, ++line_len )
           {
@@ -349,7 +351,7 @@ namespace osm
         }
         else
         {
-          for( int prev_pos = curr_pos - 1; prev_pos >= 0; --prev_pos, ++line_len )
+          for( int32_t prev_pos = curr_pos - 1; prev_pos >= 0; --prev_pos, ++line_len )
           {
             if( dst_str.at( prev_pos ) == '\n' )
             {
@@ -370,16 +372,16 @@ namespace osm
       }
       case 'B':
       {
-        for( size_t line_count = 0; (int)line_count < number; ++line_count )
+        for( size_t line_count = 0; (int32_t)line_count < number; ++line_count )
         {
-          for( ; curr_pos >= 0 && curr_pos < ( int )dst_str.size(); ++curr_pos, ++line_len )
+          for( ; curr_pos >= 0 && curr_pos < ( int32_t )dst_str.size(); ++curr_pos, ++line_len )
           {
             if( char ch = dst_str.at( curr_pos ); ch == '\n' )
             {
               if( first_line )
               {
                 // Get the original position of the cursor on the line
-                int prev_pos = curr_pos - line_len - 1;
+                int32_t prev_pos = curr_pos - line_len - 1;
                 for( ; prev_pos >= 0; --prev_pos, ++line_len )
                 {
                   if( dst_str.at( prev_pos ) == '\n' )
@@ -400,14 +402,14 @@ namespace osm
           line_len = 0;
         }
 
-        if( curr_pos >= (int)dst_str.size() )
+        if( curr_pos >= (int32_t)dst_str.size() )
         {
-          *dst_crsr_pos = ( int )dst_str.size();
+          *dst_crsr_pos = ( int32_t )dst_str.size();
         }
         else
         {
           // Get the length of the current line
-          for( int next_pos = curr_pos; next_pos < ( int )dst_str.size(); ++next_pos, ++line_len )
+          for( int32_t next_pos = curr_pos; next_pos < ( int32_t )dst_str.size(); ++next_pos, ++line_len )
           {
             if( dst_str.at( next_pos ) == '\n' )
             {
@@ -434,9 +436,9 @@ namespace osm
       case 'D':
       {
         // "ESC[100D" is not always enough to return to the edge of the screen, so guarantee it by increasing the number
-        number = ( number == 100 ) ? ( int )dst_str.size() : number;
+        number = ( number == 100 ) ? ( int32_t )dst_str.size() : number;
 
-        for( int prev_pos = curr_pos - 1; prev_pos >= 0 && line_len < number; --prev_pos, ++line_len )
+        for( int32_t prev_pos = curr_pos - 1; prev_pos >= 0 && line_len < number; --prev_pos, ++line_len )
         {
           if( dst_str.at( prev_pos ) == '\n' )
           {
@@ -480,7 +482,7 @@ namespace osm
       {
         if( number == 0 )
         {
-          for( ; curr_pos < (int)dst_str.size(); ++curr_pos, ++line_len )
+          for( ; curr_pos < (int32_t)dst_str.size(); ++curr_pos, ++line_len )
           {
             if( char ch = dst_str.at( curr_pos ); ch == '\n' )
             {

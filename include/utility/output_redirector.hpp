@@ -26,6 +26,8 @@
 #include <atomic>
 #include <fstream>
 #include <filesystem>
+#include <stdint.h>
+#include <string>
 
 namespace osm
  {
@@ -105,15 +107,15 @@ namespace osm
     std::fstream fstream_;
     std::stringstream output_str_;
 
-    int last_ansi_str_index_;
-    int last_ansi_str_size_;
+    int32_t last_ansi_str_index_;
+    int32_t last_ansi_str_size_;
 
     //====================================================
     //     Private methods
     //====================================================
 
     // Virtual
-    int sync() override;
+    int32_t sync() override;
 
     // Helpers
     void write_output();
@@ -124,10 +126,6 @@ namespace osm
     void sanity_check( const std::string & func_name );
     void exception_file_not_found();
   };
-
-  //====================================================
-  //     Global variables
-  //====================================================
 
  }      // namespace osm
 

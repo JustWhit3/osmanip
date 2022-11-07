@@ -23,7 +23,7 @@
 //====================================================
 TEST_CASE( "Testing MultiProgressBar class" )
  {
-  osm::ProgressBar <int> bar1;
+  osm::ProgressBar <int32_t> bar1;
   osm::ProgressBar <double> bar2;
   osm::ProgressBar <float> bar3;
   auto bars = osm::MultiProgressBar( bar1, bar2, bar3 );
@@ -49,7 +49,7 @@ TEST_CASE( "Testing MultiProgressBar class" )
   
     static std::stringstream ss_multi, ss_normal;
   
-    for( int i = bar1.getMin(); i < bar1.getMax(); i++ ) 
+    for( int32_t i = bar1.getMin(); i < bar1.getMax(); i++ ) 
      {
       auto first_output_multi = [ &i, &bars ]( std::ostream& ){ bars.for_one( 0, osm::updater{}, i ); };
       auto first_output_normal = [ &i, &bar1 ]( std::ostream& ){ bar1.update( i ); };

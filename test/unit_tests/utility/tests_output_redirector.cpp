@@ -366,14 +366,14 @@ void test_perc_bars( )
             << "\n\n";
 
   // Normal percentage bar.
-  osm::ProgressBar<int> percentage_bar;
+  osm::ProgressBar<int32_t> percentage_bar;
   percentage_bar.setMin( 5 );
   percentage_bar.setMax( 46 );
   percentage_bar.setStyle( "indicator", "%" );
 
   osm::cout << "This is a normal percentage bar: "
             << "\n";
-  for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+  for( int32_t i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
     
 
@@ -406,7 +406,7 @@ void test_perc_bars( )
 
   osm::cout << "This is a percentage bar with time consuming info: "
             << "\n";
-  for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+  for( int32_t i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
     
 
@@ -427,7 +427,7 @@ void test_perc_bars( )
 
   osm::cout << "This is a percentage bar with time-remaining info: "
             << "\n";
-  for( int i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
+  for( int32_t i = percentage_bar.getMin(); i < percentage_bar.getMax(); i++ )
    {
     
 
@@ -448,7 +448,7 @@ void test_load_bars( )
             << "======================================================"
             << "\n\n";
 
-  osm::ProgressBar<int> loading_bar;
+  osm::ProgressBar<int32_t> loading_bar;
   loading_bar.setMin( 3 );
   loading_bar.setMax( 25 );
   loading_bar.setStyle( "loader", "#" );
@@ -456,7 +456,7 @@ void test_load_bars( )
 
   osm::cout << "This is a normal loading bar: "
             << "\n";
-  for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
+  for( int32_t i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
     
 
@@ -473,7 +473,7 @@ void test_load_bars( )
 
   osm::cout << "This is a loading bar with message: "
             << "\n";
-  for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
+  for( int32_t i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
     
 
@@ -492,7 +492,7 @@ void test_load_bars( )
 
   osm::cout << "This is a loading bar with time-remaining info: "
             << "\n";
-  for( int i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
+  for( int32_t i = loading_bar.getMin(); i < loading_bar.getMax(); i++ )
    {
     
 
@@ -576,14 +576,14 @@ void test_progress_spinner( )
             << "\n\n";
 
   // Integer progress spinner.
-  osm::ProgressBar<int> spinner;
+  osm::ProgressBar<int32_t> spinner;
   spinner.setMin( 2 );
   spinner.setMax( 33 );
   spinner.setStyle( "spinner", "/-\\|" );
 
   osm::cout << "This is a progress spinner: "
             << "\n";
-  for( int i = spinner.getMin(); i < spinner.getMax(); i++ )
+  for( int32_t i = spinner.getMin(); i < spinner.getMax(); i++ )
    {
     
 

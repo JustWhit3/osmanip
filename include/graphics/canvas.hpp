@@ -22,6 +22,7 @@
 //STD headers
 #include <vector>
 #include <string>
+#include <stdint.h>
 
 namespace osm
  {
@@ -56,7 +57,7 @@ namespace osm
      //====================================================
      //     Constructors
      //====================================================
-     Canvas( unsigned int width, unsigned int height );
+     Canvas( uint32_t width, uint32_t height );
 
      //====================================================
      //     Setters
@@ -64,8 +65,8 @@ namespace osm
      void enableFrame( bool frame_enabled );
      void setFrame( FrameStyle, const std::string& feat = "" );
      void setBackground( char c, const std::string& feat = "" );
-     void setWidth( unsigned int width );
-     void setHeight( unsigned int height );
+     void setWidth( uint32_t width );
+     void setHeight( uint32_t height );
 
      //====================================================
      //     Getters
@@ -75,14 +76,14 @@ namespace osm
      bool isFrameEnabled() const;
      std::string getFrameFeat() const;
      FrameStyle getFrameStyle() const;
-     unsigned int getWidth() const;
-     unsigned int getHeight() const;
+     uint32_t getWidth() const;
+     uint32_t getHeight() const;
 
      //====================================================
      //     Other methods
      //====================================================
      void clear();
-     void put( unsigned int x, unsigned int y, char c, const std::string& feat = "" );
+     void put( uint32_t x, uint32_t y, char c, const std::string& feat = "" );
      void refresh();
 
     private:
@@ -109,7 +110,7 @@ namespace osm
      //====================================================
      //     Protected attributes
      //====================================================
-     unsigned int width_, height_;
+     uint32_t width_, height_;
     };
  }
 

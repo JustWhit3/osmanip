@@ -15,9 +15,10 @@
 // My headers
 #include "../../include/utility/sstream.hpp"
 #include "../../include/utility/iostream.hpp"
+#include "../../include/utility/output_redirector.hpp"
 
 // STD headers
-#include <iostream>
+#include <memory>
 
 namespace osm
 {
@@ -71,7 +72,7 @@ namespace osm
    * @return the error state of the underlying buffer.
    *
    */
-  int Stringbuf::sync()
+  int32_t Stringbuf::sync()
   {
     return basic_streambuf::sync();
   }
@@ -164,7 +165,7 @@ namespace osm
    * @return the error state of the stream buffer.
    *
    */
-  int Ostreambuf::sync()
+  int32_t Ostreambuf::sync()
   {
     if( redirout.isEnabled() )
     {

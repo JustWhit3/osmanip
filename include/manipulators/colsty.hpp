@@ -22,6 +22,7 @@
 //STD headers
 #include <string>
 #include <unordered_map>
+#include <stdint.h>
 
 namespace osm
  {
@@ -33,7 +34,7 @@ namespace osm
   //====================================================
   //     Functions
   //====================================================
-  extern const std::string RGB( int r, int g, int b );
+  extern const std::string RGB( int32_t r, int32_t g, int32_t b );
  }
 
 #endif

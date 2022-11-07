@@ -26,6 +26,7 @@
 #include <functional>
 #include <cmath>
 #include <string>
+#include <stdint.h>
 
 namespace osm
  {
@@ -45,7 +46,7 @@ namespace osm
      //====================================================
      //     Constructors
      //====================================================
-     Plot2DCanvas( unsigned int w, unsigned int h ); 
+     Plot2DCanvas( uint32_t w, uint32_t h ); 
       
      //====================================================
      //     Setters
@@ -78,11 +79,11 @@ namespace osm
      template <typename Y, typename X>
      inline void draw( std::function<Y( X )> function, char c, const std::string& feat = "" )
       {
-       for( unsigned int x = 0; x < width_; x++ )
+       for( uint32_t x = 0; x < width_; x++ )
         {
          float real_x = offset_x_ + x * scale_x_;
          Y real_y = function( real_x );
-         unsigned int y = std::round( ( real_y - offset_y_ ) / scale_y_ );
+         uint32_t y = std::round( ( real_y - offset_y_ ) / scale_y_ );
          if( y > 0 && y < height_ ) put( x, y, c, feat );
         }
       }

@@ -19,6 +19,7 @@
 #include <string>
 #include <unordered_map>
 #include <sstream>
+#include <stdint.h>
 
 namespace osm
  {
@@ -146,7 +147,7 @@ namespace osm
    * @param b The b singlet of the tripled.
    * @return const std::string The rgb triplet of the color.
    */
-  const std::string RGB( int r, int g, int b )
+  const std::string RGB( int32_t r, int32_t g, int32_t b )
    {
     static std::ostringstream oss;
     oss.str( "" );

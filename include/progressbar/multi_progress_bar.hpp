@@ -30,6 +30,7 @@
 #include <utility>
 #include <stddef.h>
 #include <string>
+#include <stdint.h>
 
 namespace osm
  {
@@ -159,7 +160,7 @@ namespace osm
      void call_one( size_t idx, indices <Ids...>, Func func, Args&&... args )
       {
        std::lock_guard <std::mutex> lock{ mutex_ };
-       int idx_delta = idx - last_updated_index;
+       int32_t idx_delta = idx - last_updated_index;
        std::string direction;
 
        if( idx_delta < 0 )
@@ -171,7 +172,7 @@ namespace osm
         {
          direction = "down";
         }
-       for( int i = 0; i < idx_delta; i++ )
+       for( int32_t i = 0; i < idx_delta; i++ )
         {                                                                                                               
          osm::cout << feat( crs, direction, 1 );
         }
@@ -208,7 +209,7 @@ namespace osm
      //====================================================
      std::tuple <Indicators&...> bars_;
      std::mutex mutex_;
-     unsigned int last_updated_index;
+     uint32_t last_updated_index;
    };
   
   //====================================================

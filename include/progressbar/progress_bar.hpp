@@ -40,8 +40,8 @@
 #include <mutex>
 #include <cmath>
 #include <stdexcept>
-#include <stdint.h>
 #include <ratio>
+#include <stdint.h>
 
 namespace osm
  {
@@ -590,7 +590,7 @@ namespace osm
         {
          output_ = feat( crs, "left", 100 ) + 
                    getColor() +
-                   std::to_string( static_cast <int> ( round( iterating_var_ ++ ) ) ) +
+                   std::to_string( static_cast <int32_t> ( round( iterating_var_ ++ ) ) ) +
                    feat( rst, "color" ) + 
                    getStyle();
    
@@ -625,7 +625,7 @@ namespace osm
                   getBrackets_close() + 
                   getColor() + 
                   agr::empty_space<std::string> + 
-                  std::to_string( static_cast <int> ( round( iterating_var_ ++ ) ) ) + 
+                  std::to_string( static_cast <int32_t> ( round( iterating_var_ ++ ) ) ) + 
                   feat( rst, "color" ) + 
                   style_p_; 
    
@@ -637,7 +637,7 @@ namespace osm
         {
          output_ = feat( crs, "left", 100 ) + 
                    getColor() +
-                   getStyle()[ static_cast <unsigned long> ( iterating_var_spin_ ) & 3 ] +
+                   getStyle()[ static_cast <uint64_t> ( iterating_var_spin_ ) & 3 ] +
                    feat( col, "green" ) +
                     ( ( agr::roundoff( iterating_var, 1 ) == agr::roundoff( max_, 1 ) - agr::one( iterating_var ) ) ?
                       ( static_cast <std::string> ( feat( crs, "left", 100 ) + "0" ) ) : ""

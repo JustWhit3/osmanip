@@ -84,3 +84,13 @@ if [ "$1" == "cppcheck" ] || [ "$1" == "" ]; then
   echo ""
   cppcheck include/graphics/* include/manipulators/* include/progressbar/* include/utility/* src/graphics/* src/manipulators/* src/progressbar/* src/utility/*
 fi
+
+# IWYU
+if [ "$1" == "IWYU" ] || [ "$1" == "" ]; then
+  echo ""
+  echo "======================================================"
+  echo "     IWYU TESTS"
+  echo "======================================================"
+  echo ""
+  ./test/IWYU.sh
+fi

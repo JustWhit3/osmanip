@@ -16,14 +16,17 @@
 #include "../../include/utility/output_redirector.hpp"
 #include "../../include/utility/iostream.hpp"
 #include "../../include/utility/strings.hpp"
+#include "../../include/utility/sstream.hpp"
 
 // External headers
 #include <arsenalgear/utils.hpp>
 
 // STD headers
 #include <stdexcept>
-#include <algorithm>
 #include <mutex>
+#include <filesystem>
+#include <sstream>
+#include <utility>
 
 namespace osm
 {
@@ -222,7 +225,7 @@ namespace osm
    * @return the error state of the stream buffer
    *
    */
-  int OutputRedirector::sync()
+  int32_t OutputRedirector::sync()
   {
     // Verify file is available
     touch();

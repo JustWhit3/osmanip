@@ -36,7 +36,7 @@ const std::string style_l_ = "#";
 //====================================================
 //     Testing ProgressBar
 //====================================================
-TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long long, double, long double, float )
+TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int32_t, int64_t, long long, double, long double, float )
  {
   osm::ProgressBar <T> bar; 
   T max = 10.,
@@ -167,16 +167,16 @@ TEST_CASE_TEMPLATE( "Testing the ProgressBar class methods.", T, int, long, long
   SUBCASE( "Testing time methods." )
    {
     bar.setBegin();
-     for ( int i = 0; i < 5; i++ )
+     for ( int32_t i = 0; i < 5; i++ )
       {
        std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
       }
     bar.setEnd();
     
     #ifdef _WIN32
-    CHECK( agr::IsInBounds( static_cast <int>( bar.getTime() ), 530, 560 ) );
+    CHECK( agr::IsInBounds( static_cast <int32_t>( bar.getTime() ), 530, 560 ) );
     #else
-    CHECK( agr::IsInBounds( static_cast <int>( bar.getTime() ), 490, 510 ) );
+    CHECK( agr::IsInBounds( static_cast <int32_t>( bar.getTime() ), 490, 510 ) );
     #endif
 
     bar.resetTime();

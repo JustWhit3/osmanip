@@ -12,7 +12,10 @@
 //     Headers
 //====================================================
 
-//My headers
+// STD headers
+#include <stdint.h>
+
+// My headers
 #include "../../include/graphics/plot_2D.hpp"
 #include "../../include/graphics/canvas.hpp"
 
@@ -29,7 +32,7 @@ namespace osm
    * @param width Width of the canvas.
    * @param height Height of the canvas.
    */
-  Plot2DCanvas::Plot2DCanvas( unsigned int w, unsigned int h ):
+  Plot2DCanvas::Plot2DCanvas( uint32_t w, uint32_t h ):
    Canvas( w, h )
     {
      offset_x_ = 0;

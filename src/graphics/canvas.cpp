@@ -23,6 +23,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <stdint.h>
 
 namespace osm
  {
@@ -37,7 +38,7 @@ namespace osm
    * @param width Width of the canvas.
    * @param height Height of the canvas.
    */
-  Canvas::Canvas( unsigned int width, unsigned int height ): already_drawn_( false ), width_( width ), height_( height ), bg_char_( ' ' ), bg_feat_( "" ), frame_enabled_( false )
+  Canvas::Canvas( uint32_t width, uint32_t height ): already_drawn_( false ), width_( width ), height_( height ), bg_char_( ' ' ), bg_feat_( "" ), frame_enabled_( false )
    {
     resizeCanvas();
     clear();
@@ -83,7 +84,7 @@ namespace osm
    * 
    * @param width The canvas width to set.
    */
-  void Canvas::setWidth( unsigned int width )
+  void Canvas::setWidth( uint32_t width )
    {
     width_ = width;
     resizeCanvas();
@@ -95,7 +96,7 @@ namespace osm
    * 
    * @param height The canvas height to set.
    */
-  void Canvas::setHeight( unsigned int height )
+  void Canvas::setHeight( uint32_t height )
    {
     height_ = height;
     resizeCanvas();
@@ -109,9 +110,9 @@ namespace osm
   /**
    * @brief Get the width of the canvas.
    * 
-   * @return unsigned int The width of the canvas.
+   * @return uint32_t The width of the canvas.
    */
-  unsigned int Canvas::getWidth() const
+  uint32_t Canvas::getWidth() const
    {
     return width_;
    }
@@ -120,9 +121,9 @@ namespace osm
   /**
    * @brief Get the height of the canvas.
    * 
-   * @return unsigned int The height of the canvas.
+   * @return uint32_t The height of the canvas.
    */
-  unsigned int Canvas::getHeight() const
+  uint32_t Canvas::getHeight() const
    {
     return height_;
    }
@@ -203,8 +204,8 @@ namespace osm
    */
   void Canvas::clear()
    {
-    char_buffer_.assign( static_cast<long> ( width_ ) * height_, bg_char_ );
-    feat_buffer_.assign( static_cast<long> ( width_ ) * height_, bg_feat_ );
+    char_buffer_.assign( static_cast<int64_t> ( width_ ) * height_, bg_char_ );
+    feat_buffer_.assign( static_cast<int64_t> ( width_ ) * height_, bg_feat_ );
    }
 
   // put
@@ -216,7 +217,7 @@ namespace osm
    * @param y The y position.
    * @param feat The optional feature.
    */
-  void Canvas::put( unsigned int x, unsigned int y, char c, const std::string & feat )
+  void Canvas::put( uint32_t x, uint32_t y, char c, const std::string & feat )
    {
     char_buffer_.at( y * width_ + x ) = c;
     feat_buffer_.at( y * width_ + x ) = feat;
@@ -238,15 +239,15 @@ namespace osm
 
     if( already_drawn_ )
      {
-      for( unsigned int i = 0; i < height_; i++ )
+      for( uint32_t i = 0; i < height_; i++ )
       {
         osm::cout << feat( crs, "up", 1 );
       }
      }
 
-    unsigned int y = 0;
+    uint32_t y = 0;
 
-    const auto& frame = [ & ]( unsigned int fi ) -> std::string 
+    const auto& frame = [ & ]( uint32_t fi ) -> std::string 
      {
       return frame_feat_ + frames[ frame_style_ ][ fi ] + feat( rst, "all" );
      };
@@ -257,7 +258,7 @@ namespace osm
      {
       ss << frame( 0 );
 
-      for( unsigned int i = 2; i < width_; i++ )
+      for( uint32_t i = 2; i < width_; i++ )
        {
         ss << frame( 1 );
        }
@@ -272,7 +273,7 @@ namespace osm
       {
         ss << frame( 5 );
 
-        for( unsigned int i = 2; i < width_; i++ )
+        for( uint32_t i = 2; i < width_; i++ )
          {
           ss << frame( 6 );
          }
@@ -281,7 +282,7 @@ namespace osm
         continue;
       }
 
-      for( unsigned int x = 0; x < width_; x++ )
+      for( uint32_t x = 0; x < width_; x++ )
        {
         if( x == 0 && frame_enabled_ )
          {
@@ -295,7 +296,7 @@ namespace osm
           continue;
          }
 
-        unsigned int p = y * width_ + x;
+        uint32_t p = y * width_ + x;
 
         ss << feat_buffer_[ p ]
            << char_buffer_[ p ]
@@ -313,7 +314,7 @@ namespace osm
    */
   void Canvas::resizeCanvas()
    {
-    char_buffer_.resize( static_cast<long> ( width_ ) * height_ );
-    feat_buffer_.resize( static_cast<long> ( width_ ) * height_ );
+    char_buffer_.resize( static_cast<int64_t> ( width_ ) * height_ );
+    feat_buffer_.resize( static_cast<int64_t> ( width_ ) * height_ );
    }
  }

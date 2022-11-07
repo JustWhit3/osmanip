@@ -23,6 +23,7 @@
 #include <string>
 #include <unordered_map>
 #include <utility>
+#include <stdint.h>
 
 namespace osm
  {
@@ -40,8 +41,8 @@ namespace osm
   //====================================================
   //     Functions
   //====================================================
-  extern const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, int feat_int );
-  extern const std::string go_to( int x, int y );
+  extern const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, int32_t feat_int );
+  extern const std::string go_to( int32_t x, int32_t y );
  }
 
 #endif

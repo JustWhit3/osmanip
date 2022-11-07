@@ -25,6 +25,7 @@
 #include <sstream>
 #include <exception>
 #include <type_traits>
+#include <stdint.h>
 
 namespace osm
  {  
@@ -100,7 +101,7 @@ namespace osm
    * @param feat_int Extra integer argument to correctly set the parameter of the crs map.
    * @return const std::string The output feature.
    */
-  const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, int feat_int )
+  const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, int32_t feat_int )
    {
     try
      {
@@ -125,7 +126,7 @@ namespace osm
    * @param y The y position of the cursor in the screen
    * @return const std::string The (x,y) position of the cursor in the screen.
    */
-  const std::string go_to( int x, int y )
+  const std::string go_to( int32_t x, int32_t y )
    {
     std::ostringstream oss;
     oss.str( "" );

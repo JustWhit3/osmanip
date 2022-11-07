@@ -11,18 +11,18 @@
 //====================================================
 //     Preprocessor settings
 //====================================================
-
 #pragma once
 #ifndef OSMANIP_MAIN_INCLUDE_UTILITY_SSTREAM_HPP
-#  define OSMANIP_MAIN_INCLUDE_UTILITY_SSTREAM_HPP
+#define OSMANIP_MAIN_INCLUDE_UTILITY_SSTREAM_HPP
 
 //====================================================
 //     Headers
 //====================================================
 
 // STD headers
-#  include <mutex>
-#  include <sstream>
+#include <mutex>
+#include <sstream>
+#include <stdint.h>
 
 namespace osm
 {
@@ -58,7 +58,7 @@ namespace osm
     //     Virtual methods
     //====================================================
 
-    int sync() override;
+    int32_t sync() override;
 
     private:
     //====================================================
@@ -104,7 +104,7 @@ namespace osm
     //     Virtual methods
     //====================================================
 
-    int sync() override;
+    int32_t sync() override;
 
     private:
     //====================================================
