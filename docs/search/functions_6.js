@@ -1,9 +1,9 @@
 var searchData=
 [
   ['get_5fansi_5fcsi_5fcode_236',['get_ansi_csi_code',['../namespaceosm.html#aed8aa1e35e8b5b32f5eff46b2bda57ef',1,'osm']]],
-  ['get_5fansi_5fcsi_5fnumber_237',['get_ansi_csi_number',['../namespaceosm.html#a9df8903024d0af41b7eaafae55587470',1,'osm']]],
+  ['get_5fansi_5fcsi_5fnumber_237',['get_ansi_csi_number',['../namespaceosm.html#a6b3fcff1e73098c410ec4abf47d39317',1,'osm']]],
   ['get_5fansi_5fcsi_5fstring_238',['get_ansi_csi_string',['../namespaceosm.html#abae3bbd83781d29ab35ef32494d5d2fb',1,'osm']]],
-  ['get_5fformatted_5ffrom_5fansi_239',['get_formatted_from_ansi',['../namespaceosm.html#a0f6b27c64233f9b7090df576ea003e17',1,'osm']]],
+  ['get_5fformatted_5ffrom_5fansi_239',['get_formatted_from_ansi',['../namespaceosm.html#a3f0b09047ec6b099e214d987abcfe878',1,'osm']]],
   ['getbackground_240',['getBackground',['../classosm_1_1Canvas.html#a9c13a2253b8f966713a43193ec9d02d4',1,'osm::Canvas']]],
   ['getbackgroundfeat_241',['getBackgroundFeat',['../classosm_1_1Canvas.html#a1ee33493bd60a97fa187a5459ed0b03d',1,'osm::Canvas']]],
   ['getbrackets_5fclose_242',['getBrackets_close',['../classosm_1_1ProgressBar.html#a8d49c0777f1bfcdce65e143bf66b028a',1,'osm::ProgressBar']]],
@@ -16,7 +16,7 @@ var searchData=
   ['getfilepath_249',['getFilepath',['../classosm_1_1OutputRedirector.html#a13c69adca11f67b4655528ebbe810779',1,'osm::OutputRedirector']]],
   ['getframefeat_250',['getFrameFeat',['../classosm_1_1Canvas.html#a480b5c831444690c33c431e49b8c5f7b',1,'osm::Canvas']]],
   ['getframestyle_251',['getFrameStyle',['../classosm_1_1Canvas.html#aac79ef1ec3e0b734cd8119d261073bfb',1,'osm::Canvas']]],
-  ['getheight_252',['getHeight',['../classosm_1_1Canvas.html#a74a7d22b68e900010b2c5cdc530351b8',1,'osm::Canvas']]],
+  ['getheight_252',['getHeight',['../classosm_1_1Canvas.html#a28d6bfa5e1aebcf44e7dc869a502d41f',1,'osm::Canvas']]],
   ['getiteratingvar_253',['getIteratingVar',['../classosm_1_1ProgressBar.html#a0b841a6a825cbc0d16f639dbfda3f83a',1,'osm::ProgressBar']]],
   ['getmax_254',['getMax',['../classosm_1_1ProgressBar.html#ae4d6027f18f3855ec9e60ba6ea86aa01',1,'osm::ProgressBar']]],
   ['getmessage_255',['getMessage',['../classosm_1_1ProgressBar.html#a18e398b562df8cb0fdebff9497d6369e',1,'osm::ProgressBar']]],
@@ -33,6 +33,6 @@ var searchData=
   ['getstylelist_266',['getStyleList',['../classosm_1_1Decorator.html#ab87c8e00431444ecc9e5121e8b0b41df',1,'osm::Decorator']]],
   ['gettime_267',['getTime',['../classosm_1_1ProgressBar.html#a78a690d90ecaa2e9ba5ee3d224741901',1,'osm::ProgressBar']]],
   ['gettype_268',['getType',['../classosm_1_1ProgressBar.html#ac3636d329268d9c3e205b10e8fbcded8',1,'osm::ProgressBar']]],
-  ['getwidth_269',['getWidth',['../classosm_1_1Canvas.html#a160b7ab568f9d747342fbc3665693328',1,'osm::Canvas']]],
-  ['go_5fto_270',['go_to',['../namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9',1,'osm']]]
+  ['getwidth_269',['getWidth',['../classosm_1_1Canvas.html#a5e12712cb1091946d9c68388e5b6b8db',1,'osm::Canvas']]],
+  ['go_5fto_270',['go_to',['../namespaceosm.html#aa702e08372042d3988d667e422ea2cdc',1,'osm']]]
 ];

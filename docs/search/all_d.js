@@ -7,7 +7,7 @@ var searchData=
   ['setend_140',['setEnd',['../classosm_1_1ProgressBar.html#abb6fe0c970315dc9cf40ed8f366cefc4',1,'osm::ProgressBar']]],
   ['setfilename_141',['setFilename',['../classosm_1_1OutputRedirector.html#a6b92c69f3cecc6d384e3a238e22b61fa',1,'osm::OutputRedirector']]],
   ['setframe_142',['setFrame',['../classosm_1_1Canvas.html#a5a93403f14648c98a13050adfabc6e73',1,'osm::Canvas']]],
-  ['setheight_143',['setHeight',['../classosm_1_1Canvas.html#ad9597694bff029c0743c80b532f2dd8b',1,'osm::Canvas']]],
+  ['setheight_143',['setHeight',['../classosm_1_1Canvas.html#ae6bf6ec4a75ebefa6e519019ef6fcd51',1,'osm::Canvas']]],
   ['setmax_144',['setMax',['../classosm_1_1ProgressBar.html#a06443fea2f8221d347b22755b7ef2e23',1,'osm::ProgressBar']]],
   ['setmessage_145',['setMessage',['../classosm_1_1ProgressBar.html#ad205e192d5169f6af906616f9ee285fe',1,'osm::ProgressBar']]],
   ['setmin_146',['setMin',['../classosm_1_1ProgressBar.html#aac4e65c2fd21922e20c3445d4bfb2c8a',1,'osm::ProgressBar']]],
@@ -16,7 +16,7 @@ var searchData=
   ['setremainingtimeflag_149',['setRemainingTimeFlag',['../classosm_1_1ProgressBar.html#a91d84b261ed3dc11676dad6f4eedd0f9',1,'osm::ProgressBar']]],
   ['setscale_150',['setScale',['../classosm_1_1Plot2DCanvas.html#ab256fb6794df21529480f0edb9e16001',1,'osm::Plot2DCanvas']]],
   ['setstyle_151',['setStyle',['../classosm_1_1Decorator.html#a49e42fd1c080bd72dfe183cf1224aba2',1,'osm::Decorator::setStyle()'],['../classosm_1_1ProgressBar.html#ae7396965b85300e79639d151264baf26',1,'osm::ProgressBar::setStyle(const std::string &amp;type, const std::string &amp;style)'],['../classosm_1_1ProgressBar.html#af16bdec724cd65d3d47b013213d79334',1,'osm::ProgressBar::setStyle(const std::string &amp;type, const std::string &amp;style_p, const std::string &amp;style_l)']]],
-  ['setwidth_152',['setWidth',['../classosm_1_1Canvas.html#ac097db26c317351fe292ae23484051c2',1,'osm::Canvas']]],
+  ['setwidth_152',['setWidth',['../classosm_1_1Canvas.html#abdb3d679765f6e5a9142b7c7bbf8998b',1,'osm::Canvas']]],
   ['size_153',['size',['../classosm_1_1make__MultiProgressBar.html#ac04d446fcdfcb4fa6f3c9125c144e1d0',1,'osm::make_MultiProgressBar']]],
   ['sstream_2ecpp_154',['sstream.cpp',['../sstream_8cpp.html',1,'']]],
   ['sstream_2ehpp_155',['sstream.hpp',['../sstream_8hpp.html',1,'']]],
@@ -27,5 +27,5 @@ var searchData=
   ['strings_2ecpp_160',['strings.cpp',['../strings_8cpp.html',1,'']]],
   ['strings_2ehpp_161',['strings.hpp',['../strings_8hpp.html',1,'']]],
   ['sty_162',['sty',['../namespaceosm.html#a5c3de8caf875adb236937ea7f60f74b0',1,'osm']]],
-  ['sync_163',['sync',['../classosm_1_1Stringbuf.html#a8e6e030c4deb47dd1b39da1c958df519',1,'osm::Stringbuf::sync()'],['../classosm_1_1Ostreambuf.html#a7aa2921b44268df91d528916af371e0e',1,'osm::Ostreambuf::sync()']]]
+  ['sync_163',['sync',['../classosm_1_1Stringbuf.html#af0e8cdc0afc3c157455d2684ad6d6d6b',1,'osm::Stringbuf::sync()'],['../classosm_1_1Ostreambuf.html#a2dbcfaf08028195632498fa57934cc0b',1,'osm::Ostreambuf::sync()']]]
 ];

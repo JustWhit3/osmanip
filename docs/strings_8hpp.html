@@ -76,13 +76,15 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for strings.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="strings_8hpp__incl.png" border="0" usemap="#ainclude_2utility_2strings_8hpp" alt=""/></div>
 <map name="ainclude_2utility_2strings_8hpp" id="ainclude_2utility_2strings_8hpp">
 <area shape="rect" title=" " alt="" coords="5,5,169,32"/>
-<area shape="rect" title=" " alt="" coords="60,80,115,107"/>
+<area shape="rect" title=" " alt="" coords="19,80,73,107"/>
+<area shape="rect" title=" " alt="" coords="98,80,162,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -110,9 +112,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0f6b27c64233f9b7090df576ea003e17"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0f6b27c64233f9b7090df576ea003e17">osm::get_formatted_from_ansi</a> (const std::string &amp;str, int *last_pos, int *last_size)</td></tr>
-<tr class="memdesc:a0f6b27c64233f9b7090df576ea003e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a string according to the ANSI (Control Sequence Introducer) escape sequences present within the string. Can be used in a loop with appending data by using optional arguments.  <a href="namespaceosm.html#a0f6b27c64233f9b7090df576ea003e17">More...</a><br /></td></tr>
-<tr class="separator:a0f6b27c64233f9b7090df576ea003e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f0b09047ec6b099e214d987abcfe878"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a3f0b09047ec6b099e214d987abcfe878">osm::get_formatted_from_ansi</a> (const std::string &amp;str, int32_t *last_pos, int32_t *last_size)</td></tr>
+<tr class="memdesc:a3f0b09047ec6b099e214d987abcfe878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a string according to the ANSI (Control Sequence Introducer) escape sequences present within the string. Can be used in a loop with appending data by using optional arguments.  <a href="namespaceosm.html#a3f0b09047ec6b099e214d987abcfe878">More...</a><br /></td></tr>
+<tr class="separator:a3f0b09047ec6b099e214d987abcfe878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ec6953a464a7331c0a780b9108f29d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8ec6953a464a7331c0a780b9108f29d0">osm::trim_string</a> (std::string &amp;str)</td></tr>
 <tr class="separator:a8ec6953a464a7331c0a780b9108f29d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd39a0e1b6bbf21bcc85a6f48c3c4082"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#acd39a0e1b6bbf21bcc85a6f48c3c4082">osm::find_first_alpha</a> (const std::string &amp;str, size_t pos)</td></tr>
@@ -120,12 +122,12 @@ Functions</h2></td></tr>
 <tr class="separator:acd39a0e1b6bbf21bcc85a6f48c3c4082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae3bbd83781d29ab35ef32494d5d2fb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#abae3bbd83781d29ab35ef32494d5d2fb">osm::get_ansi_csi_string</a> (const std::string &amp;str, size_t esc_pos)</td></tr>
 <tr class="separator:abae3bbd83781d29ab35ef32494d5d2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9df8903024d0af41b7eaafae55587470"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a9df8903024d0af41b7eaafae55587470">osm::get_ansi_csi_number</a> (const std::string &amp;csi)</td></tr>
-<tr class="separator:a9df8903024d0af41b7eaafae55587470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b3fcff1e73098c410ec4abf47d39317"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a6b3fcff1e73098c410ec4abf47d39317">osm::get_ansi_csi_number</a> (const std::string &amp;csi)</td></tr>
+<tr class="separator:a6b3fcff1e73098c410ec4abf47d39317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed8aa1e35e8b5b32f5eff46b2bda57ef"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aed8aa1e35e8b5b32f5eff46b2bda57ef">osm::get_ansi_csi_code</a> (const std::string &amp;csi)</td></tr>
 <tr class="separator:aed8aa1e35e8b5b32f5eff46b2bda57ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab696e47c6ce8aea5ca9a12d88d2bf2bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab696e47c6ce8aea5ca9a12d88d2bf2bb">osm::handle_csi</a> (const std::string &amp;csi_str, std::string &amp;dst_str, int *dst_crsr_pos)</td></tr>
-<tr class="separator:ab696e47c6ce8aea5ca9a12d88d2bf2bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0611e26e72afcb9900c9edf71bb54cc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0611e26e72afcb9900c9edf71bb54cc9">osm::handle_csi</a> (const std::string &amp;csi_str, std::string &amp;dst_str, int32_t *dst_crsr_pos)</td></tr>
+<tr class="separator:a0611e26e72afcb9900c9edf71bb54cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Joel Thomas (<a href="#" onclick="location.href='mai'+'lto:'+'joe'+'lt'+'hom'+'as'+'.e@'+'gm'+'ail'+'.c'+'om'; return false;">joelt<span style="display: none;">.nosp@m.</span>homa<span style="display: none;">.nosp@m.</span>s.e@g<span style="display: none;">.nosp@m.</span>mail<span style="display: none;">.nosp@m.</span>.com</a>) </dd></dl>

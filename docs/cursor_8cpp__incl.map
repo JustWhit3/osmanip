@@ -1,11 +1,12 @@
 <map id="src/manipulators/cursor.cpp" name="src/manipulators/cursor.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="260,5,443,32"/>
-<area shape="rect" id="node2" href="$cursor_8hpp.html" title=" " alt="" coords="48,80,209,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="259,5,441,32"/>
+<area shape="rect" id="node2" href="$cursor_8hpp.html" title=" " alt="" coords="100,80,261,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,169,60,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="89,169,200,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="256,169,308,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="335,87,477,114"/>
-<area shape="rect" id="node7" title=" " alt="" coords="501,87,570,114"/>
-<area shape="rect" id="node8" title=" " alt="" coords="594,87,671,114"/>
-<area shape="rect" id="node9" title=" " alt="" coords="695,87,778,114"/>
+<area shape="rect" id="node4" title=" " alt="" coords="95,169,205,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="235,169,287,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="314,169,378,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="387,87,529,114"/>
+<area shape="rect" id="node8" title=" " alt="" coords="553,87,622,114"/>
+<area shape="rect" id="node9" title=" " alt="" coords="646,87,723,114"/>
+<area shape="rect" id="node10" title=" " alt="" coords="747,87,830,114"/>
 </map>

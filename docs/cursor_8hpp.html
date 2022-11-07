@@ -79,15 +79,17 @@ $(function() {
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for cursor.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="cursor_8hpp__incl.png" border="0" usemap="#ainclude_2manipulators_2cursor_8hpp" alt=""/></div>
 <map name="ainclude_2manipulators_2cursor_8hpp" id="ainclude_2manipulators_2cursor_8hpp">
-<area shape="rect" title=" " alt="" coords="69,5,210,47"/>
+<area shape="rect" title=" " alt="" coords="121,5,262,47"/>
 <area shape="rect" title=" " alt="" coords="5,95,60,121"/>
 <area shape="rect" title=" " alt="" coords="84,95,195,121"/>
 <area shape="rect" title=" " alt="" coords="219,95,271,121"/>
+<area shape="rect" title=" " alt="" coords="295,95,359,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -123,12 +125,12 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f30ec1e20deaf81a4d0b2e67abc61bc">osm::feat</a> (const string_pair_map &amp;generic_map, const std::string &amp;feat_string, int feat_int)</td></tr>
-<tr class="memdesc:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#a8f30ec1e20deaf81a4d0b2e67abc61bc">More...</a><br /></td></tr>
-<tr class="separator:a8f30ec1e20deaf81a4d0b2e67abc61bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9">osm::go_to</a> (int x, int y)</td></tr>
-<tr class="memdesc:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#a66d950ed54e1eee09f6d137e1eeaf9d9">More...</a><br /></td></tr>
-<tr class="separator:a66d950ed54e1eee09f6d137e1eeaf9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81f25fc678e3e538ec41da86afcb3787"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a81f25fc678e3e538ec41da86afcb3787">osm::feat</a> (const string_pair_map &amp;generic_map, const std::string &amp;feat_string, int32_t feat_int)</td></tr>
+<tr class="memdesc:a81f25fc678e3e538ec41da86afcb3787"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overload, with respect to the standard function definition, takes an std::map object as the first argument, but with an std::pair as second type and additionally takes an extra integer argument to correctly set the parameter of the crs map.  <a href="namespaceosm.html#a81f25fc678e3e538ec41da86afcb3787">More...</a><br /></td></tr>
+<tr class="separator:a81f25fc678e3e538ec41da86afcb3787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa702e08372042d3988d667e422ea2cdc"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aa702e08372042d3988d667e422ea2cdc">osm::go_to</a> (int32_t x, int32_t y)</td></tr>
+<tr class="memdesc:aa702e08372042d3988d667e422ea2cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#aa702e08372042d3988d667e422ea2cdc">More...</a><br /></td></tr>
+<tr class="separator:aa702e08372042d3988d667e422ea2cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Gianluca Bianco (<a href="#" onclick="location.href='mai'+'lto:'+'bia'+'nc'+'ogi'+'an'+'luc'+'a9'+'@gm'+'ai'+'l.c'+'om'; return false;">bianc<span style="display: none;">.nosp@m.</span>ogia<span style="display: none;">.nosp@m.</span>nluca<span style="display: none;">.nosp@m.</span>9@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a>) </dd></dl>
