@@ -6,15 +6,15 @@ echo "======================================================"
 echo "     Compiling"
 echo "======================================================"
 echo ""
-make
+cmake --build build
 
-# System tests
+# System testsgraphics
 if [ "$1" == "system" ] || [ "$1" == "" ]; then
   echo ""
-  ./bin/manipulators
-  ./bin/progressbar
-  ./bin/redirection
-  ./bin/graphics
+  ./build/examples/manipulators
+  ./build/examples/progressbar
+  ./build/examples/redirection
+  ./build/examples/graphics
 fi
 
 # Memory tests
@@ -23,10 +23,10 @@ if [ "$1" == "memory" ] || [ "$1" == "" ]; then
   echo "======================================================"
   echo "     MEMORY TESTS"
   echo "======================================================"
-  ./test/profiling.sh memcheck ./bin/graphics
-  ./test/profiling.sh memcheck ./bin/manipulators
-  ./test/profiling.sh memcheck ./bin/progressbar
-  ./test/profiling.sh memcheck ./bin/redirection
+  ./test/profiling.sh memcheck ./build/examples/graphics
+  ./test/profiling.sh memcheck ./build/examples/manipulators
+  ./test/profiling.sh memcheck ./build/examples/progressbar
+  ./test/profiling.sh memcheck ./build/examples/redirection
 fi
 
 # Threading tests
@@ -36,10 +36,10 @@ if [ "$1" == "threading" ] || [ "$1" == "" ]; then
   echo "     THREADING TESTS"
   echo "======================================================"
   echo ""
-  ./test/profiling.sh helgrind ./bin/graphic
-  ./test/profiling.sh helgrind ./bin/manipulators
-  ./test/profiling.sh helgrind ./bin/progressbar
-  ./test/profiling.sh helgrind ./bin/redirection
+  ./test/profiling.sh helgrind ./build/examples/graphic
+  ./test/profiling.sh helgrind ./build/examples/manipulators
+  ./test/profiling.sh helgrind ./build/examples/progressbar
+  ./test/profiling.sh helgrind ./build/examples/redirection
 fi
 
 # Unit tests
@@ -49,7 +49,7 @@ if [ "$1" == "unit" ] || [ "$1" == "" ]; then
   echo "     UNIT TESTS"
   echo "======================================================"
   echo ""
-  ./bin/tests
+  ./build/test/unit_tests
 fi
 
 # Include tests

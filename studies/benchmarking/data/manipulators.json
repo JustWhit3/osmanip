@@ -1,8 +1,8 @@
 {
   "context": {
-    "date": "2022-07-12T21:01:51+02:00",
+    "date": "2022-12-04T14:59:21+01:00",
     "host_name": "ubuntu",
-    "executable": "./bin/manipulators",
+    "executable": "./build/manipulators",
     "num_cpus": 8,
     "mhz_per_cpu": 4200,
     "cpu_scaling_enabled": true,
@@ -32,7 +32,7 @@
         "num_sharing": 8
       }
     ],
-    "load_avg": [0.59,0.55,0.52],
+    "load_avg": [1.16064,0.987305,0.910156],
     "library_build_type": "release"
   },
   "benchmarks": [
@@ -45,9 +45,9 @@
       "repetitions": 1,
       "repetition_index": 0,
       "threads": 1,
-      "iterations": 6591124,
-      "real_time": 1.4103456451433414e+02,
-      "cpu_time": 1.0814394692013077e+02,
+      "iterations": 9829777,
+      "real_time": 1.3421447332936728e+02,
+      "cpu_time": 7.1396671969262371e+01,
       "time_unit": "ns"
     },
     {
@@ -59,9 +59,9 @@
       "repetitions": 1,
       "repetition_index": 0,
       "threads": 1,
-      "iterations": 1604335,
-      "real_time": 4.9724385056739413e+02,
-      "cpu_time": 4.4010125815368991e+02,
+      "iterations": 2276738,
+      "real_time": 4.4729974946604125e+02,
+      "cpu_time": 3.0698771312289784e+02,
       "time_unit": "ns"
     },
     {
@@ -73,9 +73,9 @@
       "repetitions": 1,
       "repetition_index": 0,
       "threads": 1,
-      "iterations": 686317,
-      "real_time": 9.9456168650929737e+02,
-      "cpu_time": 9.9456405421984300e+02,
+      "iterations": 4659271,
+      "real_time": 1.9390222848167926e+02,
+      "cpu_time": 1.4963195551407077e+02,
       "time_unit": "ns"
     },
     {
@@ -87,9 +87,9 @@
       "repetitions": 1,
       "repetition_index": 0,
       "threads": 1,
-      "iterations": 3467305,
-      "real_time": 2.0972721378709056e+02,
-      "cpu_time": 2.0972826705467210e+02,
+      "iterations": 1684739,
+      "real_time": 4.0761040315450850e+02,
+      "cpu_time": 4.0760218170292239e+02,
       "time_unit": "ns"
     },
     {
@@ -101,9 +101,9 @@
       "repetitions": 1,
       "repetition_index": 0,
       "threads": 1,
-      "iterations": 3877448,
-      "real_time": 2.1132981899436643e+02,
-      "cpu_time": 1.8695940474250068e+02,
+      "iterations": 2520845,
+      "real_time": 3.2047684090055583e+02,
+      "cpu_time": 2.7776428935535495e+02,
       "time_unit": "ns"
     }
   ]

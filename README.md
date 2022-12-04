@@ -28,6 +28,7 @@
 - [Install and use](#install-and-use)
   - [Install](#install)
   - [Use in your device](#use-in-your-device)
+  - [Use with CMake](#use-with-cmake)
   - [Compile examples and test codes](#compile-examples-and-test-codes)
 - [Todo](#todo)
 - [List of known projects which use this library](#list-of-known-projects-which-use-this-library)
@@ -93,7 +94,7 @@ The software is and will stay **free**, but if you want to support me with a don
 ### Compilers
 
 - **gcc**:
-  - *C++17*: 8/9/10/11/12
+  - *C++17*: 9/10/11/12
   - *C++20*: 10/11/12
 - **clang**:
   - *C++17*: 5/6/7/8/9/10/11/12/13/14/15
@@ -424,42 +425,34 @@ Steps to be reproduced:
 
 **2)** Unzip and enter the downloaded repository directory
 
-**3)** Install and compile the library and its dependencies with the installer script
+**3)** Install and compile the library and its dependencies:
 
 ```bash
-./script/install.sh
+cmake -B build
 ```
 
-This script supports the installation on Ubuntu, MacOS and Windows operating systems.
+> :warning: If you are on Windows previous command becomes:
+>
+> ```bash
+> cmake -B build -D WIN_INSTALLATION_DIR_INCLUDE=path/to/include/dir -D WIN_INSTALLATION_DIR_LIB=path/to/lib/dir
+> ```
+> 
+> Where `path/to/include/dir` is the path in which you want to install the header and `path/to/lib/dir` is the path used to install the cmake library information.
 
-> :warning:: if you are on *Cygwin64* you may get an error related to the `\r` character. To solve it run the `dos2unix`
-> command on the script (ex: `dos2unix install.sh`) before running it.
+Install:
 
-A new library *libosmanip.a* will be created into the `/usr/lib` folder of your computer and the [*
-header*](https://github.com/JustWhit3/osmanip/blob/main/include) files will be installed into `/usr/include` path.
-> :warning:: if you are on MacOS or Windows the paths are slightly different (looks
-> at [install.sh](https://github.com/JustWhit3/arsenalgear-cpp/blob/main/scripts/install.sh)).
+```bash
+sudo cmake --build build --target install
+```
+
+> :warning: `sudo` is not required on Windows.
 
 Mandatory prerequisites (automatically installed with the script):
 
 - C++17 standard.
-- g++ compiler (g++ 9.3.0 has been tested so far) for compilation.
-- [GNU make](https://www.opensourceforu.com/2012/06/gnu-make-in-detail-for-beginners/#:~:text=Installing%20GNU%20Make,install%20build%2Dessential.)
-  for compilation.
+- g++ compiler.
+- [CMake](https://cmake.org/) (at least version 3.15).
 - [arsenalgear](https://github.com/JustWhit3/arsenalgear-cpp) library.
-
-4) **EXTRA**: to update the repository after some time
-
-```shell
-./scripts/update.sh
-./scripts/install.sh
-```
-
-5) **EXTRA**: to uninstall the repository from the system
-
-```shell
-./scripts/uninstall.sh
-```
 
 ### Use in your device
 
@@ -476,21 +469,31 @@ link [source](https://github.com/JustWhit3/osmanip/tree/main/src) code.
 progressbar/multi_progress_bar.hpp**](https://github.com/JustWhit3/osmanip/blob/main/include/progressbar/multi_progress_bar.hpp)
 > .
 
+### Use with CMake
+
+To get an installed version of the library:
+
+```cmake
+find_package( osmanip )
+```
+
+then, to link it to a target:
+
+```cmake
+target_link_libraries( ${TARGET} osmanip::osmanip )
+```
+
 ### Compile examples and test codes
 
-To compile example codes:
-
-```shell
-make all
-```
+Tests and examples are compiled during the installation procedure.
 
 To run all examples:
 
 ```shell
-./bin/manipulators
-./bin/progressbar
-./bin/graphics
-./bin/redirection
+./build/examples/manipulators
+./build/examples/progressbar
+./build/examples/graphics
+./build/examples/redirection
 ```
 
 > :warning: executables end with `.exe` if you are on Windows of course.
@@ -503,23 +506,18 @@ Tests are produced using `-Wall -Wextra -pedantic` flags. To check them you need
 - [doctest](https://github.com/onqtam/doctest) for testing.
 - [cppcheck](https://cppcheck.sourceforge.io/) for testing.
 
-They are installed in the second step of the installation through the `install.sh` script. Before running test codes you
-need to compile them:
-
-```txt
-make bin/tests
-```
+The doctest package is automatically installed with the installation step.
 
 To launch all tests simultaneously:
 
 ```txt
-./all_tests.sh
+./test/all_tests.sh
 ```
 
 **EXTRA**: to check that only the needed headers are include use this script:
 
 ```txt
-./IWYU.sh
+./test/IWYU.sh
 ```
 
 ## Todo
@@ -546,7 +544,6 @@ To launch all tests simultaneously:
 
 **System features**
 
-- Improve the compilation using CMake.
 - Benchmarking and other studies with respect to similar libraries.
 
 ## List of know projects which use this library

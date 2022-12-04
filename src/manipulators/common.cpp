@@ -13,7 +13,7 @@
 //====================================================
 
 //My headers
-#include "../../include/manipulators/common.hpp"
+#include <include/manipulators/common.hpp>
 
 //Extra headers
 #include <arsenalgear/utils.hpp>

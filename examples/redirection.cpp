@@ -3,12 +3,12 @@
 //====================================================
 
 // My headers
-#include "../include/utility/options.hpp"
-#include "../include/utility/iostream.hpp"
-#include "../include/progressbar/progress_bar.hpp"
-#include "../include/progressbar/multi_progress_bar.hpp"
+#include <include/utility/options.hpp>
+#include <include/utility/iostream.hpp>
+#include <include/progressbar/progress_bar.hpp>
+#include <include/progressbar/multi_progress_bar.hpp>
 #ifdef _WIN32
-#  include "../include/utility/windows.hpp"
+#  include <include/utility/windows.hpp>
 #endif
 
 // STD headers

@@ -12,12 +12,12 @@
 //     Headers
 //====================================================
 
+// My headers
+#include <include/graphics/plot_2D.hpp>
+#include <include/graphics/canvas.hpp>
+
 // STD headers
 #include <stdint.h>
-
-// My headers
-#include "../../include/graphics/plot_2D.hpp"
-#include "../../include/graphics/canvas.hpp"
 
 namespace osm
  {

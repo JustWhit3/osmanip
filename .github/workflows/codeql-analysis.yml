@@ -36,35 +36,22 @@ jobs:
       if: matrix.os == 'ubuntu-latest'
       run: |
        sudo apt install build-essential g++ wget unzip doctest-dev
+       cmake -B build
+       cmake --build build
 
-       wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
-       mv main.zip arsenalgear-cpp-main.zip
-       unzip arsenalgear-cpp-main.zip
-       cd arsenalgear-cpp-main || exit
-       make
-       sudo mkdir -p /usr/include/arsenalgear
-       sudo cp -r include/* /usr/include/arsenalgear
-       sudo cp lib/* /usr/lib
-       cd ..
-       rm -rf arsenalgear-*
-
-       make
     - name: Installing extra dependencies and compiling (MacOS)
       if: matrix.os == 'macos-latest'
       run: |
        brew install doctest
+       cmake -B build
+       cmake --build build
 
-       wget https://github.com/JustWhit3/arsenalgear-cpp/archive/main.zip
-       mv main.zip arsenalgear-cpp-main.zip
-       unzip arsenalgear-cpp-main.zip
-       cd arsenalgear-cpp-main || exit
-       make
-       sudo mkdir -p /usr/local/include/arsenalgear
-       sudo cp include/* /usr/local/include/arsenalgear
-       sudo cp lib/* /usr/local/lib
-       cd ..
-       rm -rf arsenalgear-*
+    - name: Installing extra dependencies and compiling (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+       choco install cmake
+       cmake -B build
+       cmake --build build
 
-       make
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2

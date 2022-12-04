@@ -3,12 +3,12 @@
 //====================================================
 
 // My headers
-#include "../../../include/manipulators/colsty.hpp"
-#include "../../../include/manipulators/cursor.hpp"
-#include "../../../include/manipulators/decorator.hpp"
+#include <include/manipulators/colsty.hpp>
+#include <include/manipulators/cursor.hpp>
+#include <include/manipulators/decorator.hpp>
 
 // Headers for comparison
-#include "../deps/termcolor.hpp"
+#include <termcolor/termcolor.hpp>
 
 // Extra headers
 #include <benchmark/benchmark.h>

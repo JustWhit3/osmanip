@@ -1,12 +1,12 @@
 //My headers
-#include "../include/manipulators/colsty.hpp"
-#include "../include/graphics/canvas.hpp"
-#include "../include/graphics/plot_2D.hpp"
+#include <include/manipulators/colsty.hpp>
+#include <include/graphics/canvas.hpp>
+#include <include/graphics/plot_2D.hpp>
 #ifdef _WIN32
-#include "../include/utility/windows.hpp"
+#include <include/utility/windows.hpp>
 #endif
-#include "../include/utility/options.hpp"
-#include "../include/utility/iostream.hpp"
+#include <include/utility/options.hpp>
+#include <include/utility/iostream.hpp>
 
 //STD headers
 #include <thread>

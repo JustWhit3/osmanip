@@ -9,7 +9,7 @@
 
 //My headers
 #ifdef _WIN32
-#include "../include/utility/windows.hpp"
+    #include <include/utility/windows.hpp>
 #endif
 
 //Extra headers

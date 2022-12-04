@@ -8,7 +8,7 @@
 //====================================================
 
 // My headers
-#include "../../../include/utility/strings.hpp"
+#include <include/utility/strings.hpp>
 
 // Extra headers
 #include <doctest/doctest.h>

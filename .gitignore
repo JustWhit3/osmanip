@@ -6,7 +6,7 @@ lib
 bin
 a.out
 **/*.o
-studies/benchmarking/manipulators
+**/build
 
 #====================================================
 #     PERSONAL FILES
@@ -14,14 +14,17 @@ studies/benchmarking/manipulators
 .vscode
 !.github/
 guides
-**/deps
+**/dependencies
+!deps
 .idea
 
 #====================================================
 #     OTHER FILES
 #====================================================
 *.out.*
-*.txt
 *.odt
 *.rtf
+**/file.txt
+**/example_output.txt
+**/output.txt
 

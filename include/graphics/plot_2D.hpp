@@ -20,7 +20,7 @@
 //====================================================
 
 //My headers
-#include "../graphics/canvas.hpp"
+#include <include/graphics/canvas.hpp>
 
 //STD headers
 #include <functional>

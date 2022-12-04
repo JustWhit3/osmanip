@@ -8,38 +8,67 @@ services:
     # gcc 9
     build_gcc_9:
         image: gcc:9.1.0
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd ../proj && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build
+            && cmake --build build"
 
     # gcc 10
     build_gcc_10:
         image: gcc:10.1.0
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++20"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
 
     # gcc 11
     build_gcc_11:
         image: gcc:11.1.0
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++20"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
 
     # gcc 12
     build_gcc_12:
         image: gcc:12.1.0
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=g++ CXXFLAGS=-std=c++20"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
 
     ##########################################
     #      CLANG
@@ -48,89 +77,157 @@ services:
     # clang 5
     build_clang_5:
         image: silkeh/clang:5
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++
+            && cmake --build build"
 
     # clang 6
     build_clang_6:
         image: silkeh/clang:6
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++
+            && cmake --build build"
 
     # clang 7
     build_clang_7:
         image: silkeh/clang:7
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++
+            && cmake --build build"
 
     # clang 8
     build_clang_8:
         image: silkeh/clang:8
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++
+            && cmake --build build"
 
     # clang 9
     build_clang_9:
         image: silkeh/clang:9
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
 
     # clang 10
     build_clang_10:
         image: silkeh/clang:10
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
 
     # clang 11
     build_clang_11:
         image: silkeh/clang:11
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
 
     # clang 12
     build_clang_12:
         image: silkeh/clang:12
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
 
     # clang 13
     build_clang_13:
         image: silkeh/clang:13
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
 
     # clang 14
     build_clang_14:
         image: silkeh/clang:14
+        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
         container_name: build
-        command: 'bash -c "git clone https://github.com/JustWhit3/arsenalgear-cpp.git && cd arsenalgear-cpp && make bin/containers bin/math bin/operators bin/stream bin/system bin/type bin/utils lib/libarsenalgear.a CXX=clang++ && cp lib/libarsenalgear.a /usr/lib && mkdir /usr/include/arsenalgear && cp -r include/* /usr/include/arsenalgear && cd /proj && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++17 && make clean && make bin/manipulators bin/progressbar bin/graphics bin/redirection CXX=clang++ CXXFLAGS=-std=c++2a"'
+        command: >
+            bash -c "cd /proj
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build
+            && rm -rf build
+            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
+            && cmake --build build"
