@@ -16,7 +16,7 @@ if( EXISTS "${LOC_PATH}" )
 endif()
 
 # Directories
-include_directories( ".." )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
 # Set compiler options
 set( CMAKE_CXX_STANDARD 17 )
@@ -25,7 +25,6 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Declare executables vars
 if( WIN32 )
-    set( GRAPHICS "graphics.exe" )
     set( MANIPULATORS "manipulators.exe" )
     set( PROGRESSBAR "progressbar.exe" )
     set( REDIRECTION "redirection.exe" )

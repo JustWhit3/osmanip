@@ -21,7 +21,7 @@ set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Other settings for paths
-include_directories( ../.. )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
 
 # Declare executables vars
 if( WIN32 )
@@ -31,16 +31,18 @@ else()
 endif()
 
 # Create executables
-file( GLOB graphics graphics/*.cpp )
-file( GLOB manipulators manipulators/*.cpp )
-file( GLOB progressbar progressbar/*.cpp )
-file( GLOB utility utility/*.cpp )
-
 add_executable( ${UNIT} 
-    ${graphics}
-    ${manipulators}
-    ${progressbar}
-    ${utility}
+    graphics/tests_canvas.cpp 
+    graphics/tests_plot_2D.cpp
+    manipulators/tests_cursor.cpp 
+    manipulators/tests_common.cpp 
+    manipulators/tests_colsty.cpp 
+    manipulators/tests_decorator.cpp
+    progressbar/tests_progress_bar.cpp
+    progressbar/tests_multi_progress_bar.cpp
+    utility/tests_windows.cpp
+    utility/tests_strings.cpp
+    utility/tests_output_redirector.cpp
 )
 
 # Adding specific compiler flags

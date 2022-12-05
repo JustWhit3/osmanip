@@ -24,11 +24,22 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 add_subdirectory( deps )
 
 # Other settings for paths
-include_directories( ../.. )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
 
 # Creating the static library
-file( GLOB_RECURSE source ../../src/*cpp )
-add_library( osmanip STATIC ${source} )
+add_library( osmanip STATIC
+    src/graphics/canvas.cpp
+    src/graphics/plot_2D.cpp
+    src/manipulators/cursor.cpp
+    src/manipulators/colsty.cpp
+    src/manipulators/decorator.cpp
+    src/manipulators/common.cpp
+    src/utility/iostream.cpp
+    src/utility/strings.cpp
+    src/utility/output_redirector.cpp
+    src/utility/sstream.cpp
+    src/utility/windows.cpp
+)
 add_library( osmanip::osmanip ALIAS osmanip )
 
 # Create executables
