@@ -42,7 +42,6 @@ jobs:
     - name: Installing extra dependencies and compiling (MacOS)
       if: matrix.os == 'macos-latest'
       run: |
-       brew install doctest
        cmake -B build
        cmake --build build
 
