@@ -49,7 +49,7 @@ if [ "$1" == "unit" ] || [ "$1" == "" ]; then
   echo "     UNIT TESTS"
   echo "======================================================"
   echo ""
-  ./build/test/unit_tests
+  ./build/test/unit_tests/unit
 fi
 
 # Include tests
