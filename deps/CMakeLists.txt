@@ -16,5 +16,5 @@ if( EXISTS "${LOC_PATH}" )
 endif()
 
 # Fetch deps
-add_subdirectory( arsenalgear )
 add_subdirectory( doctest )
+add_subdirectory( arsenalgear )

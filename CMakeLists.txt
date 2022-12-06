@@ -25,6 +25,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
 
 # Fetching deps
 add_subdirectory( deps )
+include_directories( ${CMAKE_CURRENT_BINARY_DIR}/_deps/arsenalgear-src )
 
 # Creating the static library
 add_library( osmanip STATIC
