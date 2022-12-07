@@ -1,19 +1,19 @@
 <map id="include/osmanip/manipulators/decorator.hpp" name="include/osmanip/manipulators/decorator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="355,5,550,47"/>
-<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="240,95,415,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="300,244,355,271"/>
-<area shape="rect" id="node4" title=" " alt="" coords="173,169,284,196"/>
-<area shape="rect" id="node5" href="$colsty_8hpp.html" title=" " alt="" coords="5,95,164,121"/>
-<area shape="rect" id="node7" href="$iostream_8hpp.html" title=" " alt="" coords="490,95,621,121"/>
-<area shape="rect" id="node16" title=" " alt="" coords="645,95,786,121"/>
-<area shape="rect" id="node17" title=" " alt="" coords="810,95,869,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="361,319,425,345"/>
-<area shape="rect" id="node8" href="$output__redirector_8hpp.html" title=" " alt="" coords="472,169,649,196"/>
-<area shape="rect" id="node15" title=" " alt="" coords="674,169,743,196"/>
-<area shape="rect" id="node9" href="$sstream_8hpp.html" title=" " alt="" coords="625,244,752,271"/>
-<area shape="rect" id="node12" title=" " alt="" coords="777,244,838,271"/>
-<area shape="rect" id="node13" title=" " alt="" coords="430,244,497,271"/>
-<area shape="rect" id="node14" title=" " alt="" coords="521,244,601,271"/>
-<area shape="rect" id="node10" title=" " alt="" coords="704,319,761,345"/>
-<area shape="rect" id="node11" title=" " alt="" coords="610,319,679,345"/>
+<area shape="rect" id="node1" title=" " alt="" coords="319,5,513,47"/>
+<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="229,95,379,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="274,273,329,300"/>
+<area shape="rect" id="node4" title=" " alt="" coords="155,191,266,218"/>
+<area shape="rect" id="node5" href="$colsty_8hpp.html" title=" " alt="" coords="5,95,155,136"/>
+<area shape="rect" id="node7" href="$iostream_8hpp.html" title=" " alt="" coords="454,102,637,129"/>
+<area shape="rect" id="node16" title=" " alt="" coords="661,102,803,129"/>
+<area shape="rect" id="node17" title=" " alt="" coords="827,102,885,129"/>
+<area shape="rect" id="node6" title=" " alt="" coords="335,348,399,375"/>
+<area shape="rect" id="node8" href="$output__redirector_8hpp.html" title=" " alt="" coords="459,184,605,225"/>
+<area shape="rect" id="node15" title=" " alt="" coords="629,191,699,218"/>
+<area shape="rect" id="node9" href="$sstream_8hpp.html" title=" " alt="" coords="599,273,779,300"/>
+<area shape="rect" id="node12" title=" " alt="" coords="804,273,865,300"/>
+<area shape="rect" id="node13" title=" " alt="" coords="404,273,471,300"/>
+<area shape="rect" id="node14" title=" " alt="" coords="495,273,575,300"/>
+<area shape="rect" id="node10" title=" " alt="" coords="705,348,762,375"/>
+<area shape="rect" id="node11" title=" " alt="" coords="611,348,680,375"/>
 </map>

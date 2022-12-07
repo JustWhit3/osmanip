@@ -1,9 +1,9 @@
 <map id="include/osmanip/graphics/plot_2D.hpp" name="include/osmanip/graphics/plot_2D.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="151,5,320,47"/>
-<area shape="rect" id="node2" href="$canvas_8hpp.html" title=" " alt="" coords="57,95,198,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="191,5,360,47"/>
+<area shape="rect" id="node2" href="$canvas_8hpp.html" title=" " alt="" coords="43,95,238,121"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,169,60,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="191,169,255,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="273,95,352,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="377,95,435,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="98,169,157,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="218,169,282,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="313,95,392,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="417,95,475,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="111,169,170,196"/>
 </map>
