@@ -1,13 +1,13 @@
-<map id="include/utility/iostream.hpp" name="include/utility/iostream.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="325,5,500,32"/>
-<area shape="rect" id="node2" href="$output__redirector_8hpp.html" title=" " alt="" coords="280,80,417,121"/>
-<area shape="rect" id="node11" title=" " alt="" coords="442,87,511,114"/>
-<area shape="rect" id="node3" href="$sstream_8hpp.html" title=" " alt="" coords="27,169,199,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="197,244,261,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="274,169,335,196"/>
-<area shape="rect" id="node8" title=" " alt="" coords="359,169,426,196"/>
-<area shape="rect" id="node9" title=" " alt="" coords="450,169,530,196"/>
-<area shape="rect" id="node10" title=" " alt="" coords="555,169,609,196"/>
+<map id="include/osmanip/utility/iostream.hpp" name="include/osmanip/utility/iostream.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="331,5,481,47"/>
+<area shape="rect" id="node2" href="$output__redirector_8hpp.html" title=" " alt="" coords="244,95,421,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="446,95,515,121"/>
+<area shape="rect" id="node3" href="$sstream_8hpp.html" title=" " alt="" coords="56,169,183,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="186,244,250,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="258,169,319,196"/>
+<area shape="rect" id="node8" title=" " alt="" coords="343,169,410,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="434,169,514,196"/>
+<area shape="rect" id="node10" title=" " alt="" coords="539,169,593,196"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,244,63,271"/>
 <area shape="rect" id="node5" title=" " alt="" coords="87,244,157,271"/>
 </map>

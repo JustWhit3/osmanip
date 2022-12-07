@@ -1,9 +1,9 @@
-<map id="include/manipulators/common.hpp" name="include/manipulators/common.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="409,5,551,47"/>
+<map id="include/osmanip/manipulators/common.hpp" name="include/osmanip/manipulators/common.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="396,5,591,47"/>
 <area shape="rect" id="node2" href="$canvas_8cpp.html" title=" " alt="" coords="5,102,168,129"/>
 <area shape="rect" id="node3" href="$common_8cpp.html" title=" " alt="" coords="193,102,389,129"/>
-<area shape="rect" id="node4" href="$decorator_8cpp.html" title=" " alt="" coords="380,184,580,211"/>
-<area shape="rect" id="node5" href="$decorator_8hpp.html" title=" " alt="" coords="464,95,605,136"/>
-<area shape="rect" id="node6" href="$progress__bar_8hpp.html" title=" " alt="" coords="630,95,765,136"/>
-<area shape="rect" id="node7" href="$options_8hpp.html" title=" " alt="" coords="789,102,955,129"/>
+<area shape="rect" id="node4" href="$decorator_8cpp.html" title=" " alt="" coords="393,184,593,211"/>
+<area shape="rect" id="node5" href="$decorator_8hpp.html" title=" " alt="" coords="464,95,659,136"/>
+<area shape="rect" id="node6" href="$progress__bar_8hpp.html" title=" " alt="" coords="683,95,871,136"/>
+<area shape="rect" id="node7" href="$options_8hpp.html" title=" " alt="" coords="895,95,1046,136"/>
 </map>
