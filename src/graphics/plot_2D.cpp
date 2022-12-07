@@ -13,8 +13,8 @@
 //====================================================
 
 // My headers
-#include <include/graphics/plot_2D.hpp>
-#include <include/graphics/canvas.hpp>
+#include <graphics/plot_2D.hpp>
+#include <graphics/canvas.hpp>
 
 // STD headers
 #include <stdint.h>

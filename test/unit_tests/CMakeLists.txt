@@ -21,13 +21,13 @@ set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Other settings for paths
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include/osmanip )
 
 # Declare executables vars
 if( WIN32 )
-    set( UNIT "unit.exe" )
+    set( UNIT "osmanip_unit_tests.exe" )
 else()
-    set( UNIT "unit" )
+    set( UNIT "osmanip_unit_tests" )
 endif()
 
 # Create executables

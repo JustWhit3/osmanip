@@ -13,7 +13,7 @@
 //====================================================
 
 //My headers
-#include <include/manipulators/colsty.hpp>
+#include <manipulators/colsty.hpp>
 
 //STD headers
 #include <string>

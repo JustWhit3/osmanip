@@ -8,7 +8,7 @@
 //====================================================
 
 //My headers
-#include <include/manipulators/cursor.hpp>
+#include <manipulators/cursor.hpp>
 
 //Extra headers
 #include <doctest/doctest.h>

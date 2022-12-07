@@ -13,11 +13,11 @@
 //====================================================
 
 //My headers
-#include <include/graphics/canvas.hpp>
-#include <include/utility/iostream.hpp>
-#include <include/manipulators/cursor.hpp>
-#include <include/manipulators/colsty.hpp>
-#include <include/manipulators/common.hpp>
+#include <graphics/canvas.hpp>
+#include <utility/iostream.hpp>
+#include <manipulators/cursor.hpp>
+#include <manipulators/colsty.hpp>
+#include <manipulators/common.hpp>
 
 //STD headers
 #include <sstream>

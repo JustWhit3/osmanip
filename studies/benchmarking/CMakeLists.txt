@@ -24,7 +24,7 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 add_subdirectory( deps )
 
 # Other settings for paths
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include/osmanip )
 
 # Creating the static library
 add_library( osmanip STATIC

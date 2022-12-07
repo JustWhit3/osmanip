@@ -21,11 +21,11 @@ set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Include directories
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include/osmanip )
 
 # Fetching deps
 add_subdirectory( deps )
-include_directories( ${CMAKE_CURRENT_BINARY_DIR}/_deps/arsenalgear-src )
+include_directories( ${CMAKE_CURRENT_BINARY_DIR}/_deps/arsenalgear-src/include )
 
 # Creating the static library
 add_library( osmanip STATIC
@@ -57,8 +57,8 @@ target_include_directories( osmanip INTERFACE
 
 # Installing headers
 INSTALL(
-    DIRECTORY include/manipulators include/progressbar include/utility include/graphics
-    DESTINATION include/osmanip
+    DIRECTORY include/osmanip
+    DESTINATION include
 )
 
 # Creating the package files

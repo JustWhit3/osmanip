@@ -11,10 +11,10 @@ cmake --build build
 # System testsgraphics
 if [ "$1" == "system" ] || [ "$1" == "" ]; then
   echo ""
-  ./build/examples/manipulators
-  ./build/examples/progressbar
-  ./build/examples/redirection
-  ./build/examples/graphics
+  ./build/examples/osmanip_manipulators
+  ./build/examples/osmanip_progressbar
+  ./build/examples/osmanip_redirection
+  ./build/examples/osmanip_graphics
 fi
 
 # Memory tests
@@ -23,10 +23,10 @@ if [ "$1" == "memory" ] || [ "$1" == "" ]; then
   echo "======================================================"
   echo "     MEMORY TESTS"
   echo "======================================================"
-  ./test/profiling.sh memcheck ./build/examples/graphics
-  ./test/profiling.sh memcheck ./build/examples/manipulators
-  ./test/profiling.sh memcheck ./build/examples/progressbar
-  ./test/profiling.sh memcheck ./build/examples/redirection
+  ./test/profiling.sh memcheck ./build/examples/osmanip_graphics
+  ./test/profiling.sh memcheck ./build/examples/osmanip_manipulators
+  ./test/profiling.sh memcheck ./build/examples/osmanip_progressbar
+  ./test/profiling.sh memcheck ./build/examples/osmanip_redirection
 fi
 
 # Threading tests
@@ -36,10 +36,10 @@ if [ "$1" == "threading" ] || [ "$1" == "" ]; then
   echo "     THREADING TESTS"
   echo "======================================================"
   echo ""
-  ./test/profiling.sh helgrind ./build/examples/graphic
-  ./test/profiling.sh helgrind ./build/examples/manipulators
-  ./test/profiling.sh helgrind ./build/examples/progressbar
-  ./test/profiling.sh helgrind ./build/examples/redirection
+  ./test/profiling.sh helgrind ./build/examples/osmanip_graphics
+  ./test/profiling.sh helgrind ./build/examples/osmanip_manipulators
+  ./test/profiling.sh helgrind ./build/examples/osmanip_progressbar
+  ./test/profiling.sh helgrind ./build/examples/osmanip_redirection
 fi
 
 # Unit tests
@@ -49,7 +49,7 @@ if [ "$1" == "unit" ] || [ "$1" == "" ]; then
   echo "     UNIT TESTS"
   echo "======================================================"
   echo ""
-  ./build/test/unit_tests/unit
+  ./build/test/unit_tests/osmanip_unit_tests
 fi
 
 # Include tests

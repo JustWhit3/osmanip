@@ -20,7 +20,7 @@
 //====================================================
 
 // My headers
-#include <include/utility/sstream.hpp>
+#include <utility/sstream.hpp>
 
 // STD headers
 #include <atomic>

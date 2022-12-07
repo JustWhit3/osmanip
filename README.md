@@ -490,10 +490,10 @@ Tests and examples are compiled during the installation procedure.
 To run all examples:
 
 ```shell
-./build/examples/manipulators
-./build/examples/progressbar
-./build/examples/graphics
-./build/examples/redirection
+./build/examples/osmanip_manipulators
+./build/examples/osmanip_progressbar
+./build/examples/osmanip_graphics
+./build/examples/osmanip_redirection
 ```
 
 > :warning: executables end with `.exe` if you are on Windows of course.

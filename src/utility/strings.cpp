@@ -13,8 +13,8 @@
 //====================================================
 
 // My headers
-#include <include/utility/strings.hpp>
-#include <include/utility/iostream.hpp>
+#include <utility/strings.hpp>
+#include <utility/iostream.hpp>
 
 // STD headers
 #include <stdexcept>

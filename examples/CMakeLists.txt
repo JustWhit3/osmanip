@@ -16,7 +16,7 @@ if( EXISTS "${LOC_PATH}" )
 endif()
 
 # Directories
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../include/osmanip )
 
 # Set compiler options
 set( CMAKE_CXX_STANDARD 17 )
@@ -25,14 +25,14 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Declare executables vars
 if( WIN32 )
-    set( MANIPULATORS "manipulators.exe" )
-    set( PROGRESSBAR "progressbar.exe" )
-    set( REDIRECTION "redirection.exe" )
+    set( MANIPULATORS "osmanip_manipulators.exe" )
+    set( PROGRESSBAR "osmanip_progressbar.exe" )
+    set( REDIRECTION "osmanip_redirection.exe" )
 else()
-    set( GRAPHICS "graphics" )
-    set( MANIPULATORS "manipulators" )
-    set( PROGRESSBAR "progressbar" )
-    set( REDIRECTION "redirection" )
+    set( GRAPHICS "osmanip_graphics" )
+    set( MANIPULATORS "osmanip_manipulators" )
+    set( PROGRESSBAR "osmanip_progressbar" )
+    set( REDIRECTION "osmanip_redirection" )
 endif()
 
 # Create executables
