@@ -8,9 +8,9 @@
 //====================================================
 
 //My headers
-#include <utility/iostream.hpp>
-#include <progressbar/progress_bar.hpp>
-#include <progressbar/multi_progress_bar.hpp>
+#include <osmanip/utility/iostream.hpp>
+#include <osmanip/progressbar/progress_bar.hpp>
+#include <osmanip/progressbar/multi_progress_bar.hpp>
 
 //Extra headers
 #include <doctest/doctest.h>

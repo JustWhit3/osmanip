@@ -21,7 +21,7 @@ set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Other settings for paths
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include/osmanip )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include )
 
 # Declare executables vars
 if( WIN32 )

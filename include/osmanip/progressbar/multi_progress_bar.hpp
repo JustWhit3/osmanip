@@ -20,8 +20,8 @@
 //====================================================
 
 //My headers
-#include <manipulators/cursor.hpp>
-#include <utility/iostream.hpp>
+#include <osmanip/manipulators/cursor.hpp>
+#include <osmanip/utility/iostream.hpp>
 
 //STD headers
 #include <type_traits>

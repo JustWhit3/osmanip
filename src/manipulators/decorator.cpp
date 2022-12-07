@@ -13,10 +13,10 @@
 //====================================================
 
 //My headers
-#include <utility/iostream.hpp>
-#include <manipulators/decorator.hpp>
-#include <manipulators/colsty.hpp>
-#include <manipulators/common.hpp>
+#include <osmanip/utility/iostream.hpp>
+#include <osmanip/manipulators/decorator.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/manipulators/common.hpp>
 
 //STD headers
 #include <string>

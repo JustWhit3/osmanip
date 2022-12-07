@@ -16,7 +16,7 @@ if( EXISTS "${LOC_PATH}" )
 endif()
 
 # Directories
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../include/osmanip )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../include )
 
 # Set compiler options
 set( CMAKE_CXX_STANDARD 17 )

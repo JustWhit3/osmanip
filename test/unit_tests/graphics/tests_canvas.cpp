@@ -8,7 +8,7 @@
 //====================================================
 
 //My headers
-#include <graphics/canvas.hpp>
+#include <osmanip/graphics/canvas.hpp>
 
 //Extra headers
 #include <doctest/doctest.h>

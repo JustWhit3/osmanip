@@ -8,7 +8,7 @@
 //====================================================
 
 //My headers
-#include <graphics/plot_2D.hpp>
+#include <osmanip/graphics/plot_2D.hpp>
 
 //Extra headers
 #include <doctest/doctest.h>

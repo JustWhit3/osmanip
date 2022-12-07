@@ -3,9 +3,9 @@
 //====================================================
 
 // My headers
-#include <include/manipulators/colsty.hpp>
-#include <include/manipulators/cursor.hpp>
-#include <include/manipulators/decorator.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/manipulators/cursor.hpp>
+#include <osmanip/manipulators/decorator.hpp>
 
 // Headers for comparison
 #include <termcolor/termcolor.hpp>

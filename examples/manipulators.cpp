@@ -1,11 +1,11 @@
 //My headers
-#include <manipulators/colsty.hpp>
-#include <manipulators/decorator.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/manipulators/decorator.hpp>
 #ifdef _WIN32
-#include <utility/windows.hpp>
+#include <osmanip/utility/windows.hpp>
 #endif
-#include <utility/options.hpp>
-#include <utility/iostream.hpp>
+#include <osmanip/utility/options.hpp>
+#include <osmanip/utility/iostream.hpp>
 
 //STD headers
 #include <thread>

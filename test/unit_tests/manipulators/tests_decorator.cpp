@@ -8,8 +8,8 @@
 //====================================================
 
 //My headers
-#include <utility/iostream.hpp>
-#include <manipulators/decorator.hpp>
+#include <osmanip/utility/iostream.hpp>
+#include <osmanip/manipulators/decorator.hpp>
 
 //Extra headers
 #include <doctest/doctest.h>

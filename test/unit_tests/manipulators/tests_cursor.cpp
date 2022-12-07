@@ -8,7 +8,7 @@
 //====================================================
 
 //My headers
-#include <manipulators/cursor.hpp>
+#include <osmanip/manipulators/cursor.hpp>
 
 //Extra headers
 #include <doctest/doctest.h>

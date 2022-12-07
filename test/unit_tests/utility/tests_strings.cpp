@@ -8,7 +8,7 @@
 //====================================================
 
 // My headers
-#include <utility/strings.hpp>
+#include <osmanip/utility/strings.hpp>
 
 // Extra headers
 #include <doctest/doctest.h>

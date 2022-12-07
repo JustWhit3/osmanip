@@ -9,8 +9,8 @@
 //====================================================
 
 //My headers
-#include <manipulators/common.hpp>
-#include <manipulators/colsty.hpp>
+#include <osmanip/manipulators/common.hpp>
+#include <osmanip/manipulators/colsty.hpp>
 #ifdef _WIN32
 #include <utility/windows.hpp>
 #endif

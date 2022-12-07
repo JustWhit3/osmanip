@@ -13,9 +13,9 @@
 //====================================================
 
 // My headers
-#include <utility/sstream.hpp>
-#include <utility/iostream.hpp>
-#include <utility/output_redirector.hpp>
+#include <osmanip/utility/sstream.hpp>
+#include <osmanip/utility/iostream.hpp>
+#include <osmanip/utility/output_redirector.hpp>
 
 // STD headers
 #include <memory>

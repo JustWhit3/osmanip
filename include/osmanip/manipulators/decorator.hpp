@@ -20,9 +20,9 @@
 //====================================================
 
 //My headers
-#include <manipulators/common.hpp>
-#include <manipulators/colsty.hpp>
-#include <utility/iostream.hpp>
+#include <osmanip/manipulators/common.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/utility/iostream.hpp>
 
 //Extra headers
 #include <arsenalgear/utils.hpp>

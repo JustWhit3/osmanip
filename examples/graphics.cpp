@@ -1,12 +1,12 @@
 //My headers
-#include <manipulators/colsty.hpp>
-#include <graphics/canvas.hpp>
-#include <graphics/plot_2D.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/graphics/canvas.hpp>
+#include <osmanip/graphics/plot_2D.hpp>
 #ifdef _WIN32
-#include <utility/windows.hpp>
+#include <osmanip/utility/windows.hpp>
 #endif
-#include <utility/options.hpp>
-#include <utility/iostream.hpp>
+#include <osmanip/utility/options.hpp>
+#include <osmanip/utility/iostream.hpp>
 
 //STD headers
 #include <thread>

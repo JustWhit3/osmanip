@@ -18,8 +18,8 @@
 #endif
 
 // My headers
-#include <utility/windows.hpp>
-#include <utility/iostream.hpp>
+#include <osmanip/utility/windows.hpp>
+#include <osmanip/utility/iostream.hpp>
 
 //Extra headers
 #include <arsenalgear/system.hpp>

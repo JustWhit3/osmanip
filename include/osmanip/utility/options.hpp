@@ -20,11 +20,11 @@
 //====================================================
 
 //My headers
-#include <utility/windows.hpp>
-#include <utility/iostream.hpp>
-#include <manipulators/cursor.hpp>
-#include <manipulators/colsty.hpp>
-#include <manipulators/common.hpp>
+#include <osmanip/utility/windows.hpp>
+#include <osmanip/utility/iostream.hpp>
+#include <osmanip/manipulators/cursor.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/manipulators/common.hpp>
 
 //STD headers
 #include <iostream>

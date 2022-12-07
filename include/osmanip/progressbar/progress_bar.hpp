@@ -20,10 +20,10 @@
 //====================================================
 
 //My headers
-#include <manipulators/colsty.hpp>
-#include <manipulators/cursor.hpp>
-#include <manipulators/common.hpp>
-#include <utility/iostream.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/manipulators/cursor.hpp>
+#include <osmanip/manipulators/common.hpp>
+#include <osmanip/utility/iostream.hpp>
 
 //Extra headers
 #include <arsenalgear/constants.hpp>

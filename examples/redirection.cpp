@@ -3,12 +3,12 @@
 //====================================================
 
 // My headers
-#include <utility/options.hpp>
-#include <utility/iostream.hpp>
-#include <progressbar/progress_bar.hpp>
-#include <progressbar/multi_progress_bar.hpp>
+#include <osmanip/utility/options.hpp>
+#include <osmanip/utility/iostream.hpp>
+#include <osmanip/progressbar/progress_bar.hpp>
+#include <osmanip/progressbar/multi_progress_bar.hpp>
 #ifdef _WIN32
-#  include <utility/windows.hpp>
+#  include <osmanip/utility/windows.hpp>
 #endif
 
 // STD headers

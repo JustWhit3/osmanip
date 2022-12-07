@@ -13,10 +13,10 @@
 //====================================================
 
 // My headers
-#include <utility/output_redirector.hpp>
-#include <utility/iostream.hpp>
-#include <utility/strings.hpp>
-#include <utility/sstream.hpp>
+#include <osmanip/utility/output_redirector.hpp>
+#include <osmanip/utility/iostream.hpp>
+#include <osmanip/utility/strings.hpp>
+#include <osmanip/utility/sstream.hpp>
 
 // External headers
 #include <arsenalgear/utils.hpp>

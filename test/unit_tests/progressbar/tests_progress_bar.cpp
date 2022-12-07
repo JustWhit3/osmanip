@@ -8,8 +8,8 @@
 //====================================================
 
 //My headers
-#include <manipulators/colsty.hpp>
-#include <progressbar/progress_bar.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/progressbar/progress_bar.hpp>
 
 //Extra headers
 #include <doctest/doctest.h>

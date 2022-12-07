@@ -8,8 +8,8 @@
 //====================================================
 
 //My headers
-#include <manipulators/colsty.hpp>
-#include <manipulators/cursor.hpp>
+#include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/manipulators/cursor.hpp>
 #ifdef _WIN32
 #include <utility/windows.hpp>
 #endif
