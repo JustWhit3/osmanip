@@ -25,6 +25,7 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Declare executables vars
 if( WIN32 )
+    set( GRAPHICS "osmanip_graphics.exe" )
     set( MANIPULATORS "osmanip_manipulators.exe" )
     set( PROGRESSBAR "osmanip_progressbar.exe" )
     set( REDIRECTION "osmanip_redirection.exe" )
