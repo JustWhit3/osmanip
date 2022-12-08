@@ -55,7 +55,7 @@ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
 
 # Adding linker flags
 find_package( doctest )
-target_link_libraries( ${UNIT} PRIVATE doctest::doctest )
+target_link_libraries( ${UNIT} PUBLIC doctest::doctest )
 find_package( arsenalgear )
-target_link_libraries( ${UNIT} PRIVATE arsenalgear::arsenalgear )
-target_link_libraries( ${UNIT} osmanip::osmanip )
+target_link_libraries( ${UNIT} PUBLIC arsenalgear::arsenalgear )
+target_link_libraries( ${UNIT} PRIVATE osmanip::osmanip )

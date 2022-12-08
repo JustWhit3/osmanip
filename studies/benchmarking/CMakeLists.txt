@@ -60,11 +60,11 @@ endif()
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
 
 # Linking to osmanip
-target_link_libraries( ${MANIPULATORS} osmanip::osmanip )
+target_link_libraries( ${MANIPULATORS} PRIVATE osmanip::osmanip )
 
 # Linking to benchmark
 find_package( benchmark )
 target_link_libraries( ${MANIPULATORS} PUBLIC benchmark::benchmark )
 
 # Linking to other deps
-target_link_libraries( ${MANIPULATORS} PRIVATE termcolor::termcolor )
+target_link_libraries( ${MANIPULATORS} PUBLIC termcolor::termcolor )
