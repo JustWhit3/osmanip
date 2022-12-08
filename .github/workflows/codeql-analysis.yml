@@ -37,18 +37,25 @@ jobs:
       run: |
        cmake -B build
        cmake --build build
+       sudo cmake --build build --target install
 
     - name: Installing extra dependencies and compiling (MacOS)
       if: matrix.os == 'macos-latest'
       run: |
        cmake -B build
        cmake --build build
+       sudo cmake --build build --target install
 
     - name: Installing extra dependencies and compiling (Windows)
       if: matrix.os == 'windows-latest'
       run: |
        cmake -B build
-       cmake --build build
+       cmake --build build --target osmanip_unit_tests.exe
+       cmake --build build --target osmanip_graphics.exe
+       cmake --build build --target osmanip_manipulators.exe
+       cmake --build build --target osmanip_progressbar.exe
+       cmake --build build --target osmanip_redirection.exe
+       cmake --build build --target install
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
