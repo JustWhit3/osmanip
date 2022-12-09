@@ -42,6 +42,7 @@ add_executable( ${UNIT}
     progressbar/tests_multi_progress_bar.cpp
     utility/tests_windows.cpp
     utility/tests_strings.cpp
+    utility/tests_output_redirector.cpp
 )
 
 # Adding specific compiler flags

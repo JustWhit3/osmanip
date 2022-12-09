@@ -27,6 +27,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include )
 add_subdirectory( deps )
 include_directories( ${CMAKE_CURRENT_BINARY_DIR}/_deps/arsenalgear-src/include )
 
+
 # Creating the static library
 add_library( osmanip STATIC
     src/graphics/canvas.cpp
@@ -37,16 +38,17 @@ add_library( osmanip STATIC
     src/manipulators/common.cpp
     src/utility/iostream.cpp
     src/utility/strings.cpp
+    src/utility/output_redirector.cpp
     src/utility/sstream.cpp
     src/utility/windows.cpp
 )
 add_library( osmanip::osmanip ALIAS osmanip )
 
 # Compiling unit tests
-add_subdirectory( test/unit_tests )
+#add_subdirectory( test/unit_tests )
 
 # Compiling examples
-add_subdirectory( examples )
+#add_subdirectory( examples )
 
 # Setting installation paths
 target_include_directories( osmanip INTERFACE

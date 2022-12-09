@@ -28,16 +28,19 @@ if( WIN32 )
     set( GRAPHICS "osmanip_graphics.exe" )
     set( MANIPULATORS "osmanip_manipulators.exe" )
     set( PROGRESSBAR "osmanip_progressbar.exe" )
+    set( REDIRECTION "osmanip_redirection.exe" )
 else()
     set( GRAPHICS "osmanip_graphics" )
     set( MANIPULATORS "osmanip_manipulators" )
     set( PROGRESSBAR "osmanip_progressbar" )
+    set( REDIRECTION "osmanip_redirection" )
 endif()
 
 # Create executables
 add_executable( ${GRAPHICS} graphics.cpp )
 add_executable( ${MANIPULATORS} manipulators.cpp )
 add_executable( ${PROGRESSBAR} progressbar.cpp )
+add_executable( ${REDIRECTION} redirection.cpp )
 
 # Adding specific compiler flags
 if( CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
@@ -51,6 +54,7 @@ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
 target_link_libraries( ${MANIPULATORS} PRIVATE osmanip::osmanip )
 target_link_libraries( ${GRAPHICS} PRIVATE osmanip::osmanip )
 target_link_libraries( ${PROGRESSBAR} PRIVATE osmanip::osmanip )
+target_link_libraries( ${REDIRECTION} PRIVATE osmanip::osmanip )
 
 # Link to arsenalgear
 find_package( arsenalgear )
@@ -59,3 +63,4 @@ target_link_libraries( ${MANIPULATORS} PUBLIC arsenalgear::arsenalgear )
 # Link to Threads
 find_package( Threads )
 target_link_libraries( ${PROGRESSBAR} PUBLIC Threads::Threads )
+target_link_libraries( ${REDIRECTION} PUBLIC Threads::Threads )
