@@ -45,10 +45,10 @@ add_library( osmanip STATIC
 add_library( osmanip::osmanip ALIAS osmanip )
 
 # Compiling unit tests
-#add_subdirectory( test/unit_tests )
+add_subdirectory( test/unit_tests )
 
 # Compiling examples
-#add_subdirectory( examples )
+add_subdirectory( examples )
 
 # Setting installation paths
 target_include_directories( osmanip INTERFACE
