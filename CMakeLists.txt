@@ -37,7 +37,6 @@ add_library( osmanip STATIC
     src/manipulators/common.cpp
     src/utility/iostream.cpp
     src/utility/strings.cpp
-    src/utility/output_redirector.cpp
     src/utility/sstream.cpp
     src/utility/windows.cpp
 )

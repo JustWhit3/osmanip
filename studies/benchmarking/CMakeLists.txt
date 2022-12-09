@@ -24,23 +24,7 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 add_subdirectory( deps )
 
 # Other settings for paths
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include )
-
-# Creating the static library
-add_library( osmanip STATIC
-    src/graphics/canvas.cpp
-    src/graphics/plot_2D.cpp
-    src/manipulators/cursor.cpp
-    src/manipulators/colsty.cpp
-    src/manipulators/decorator.cpp
-    src/manipulators/common.cpp
-    src/utility/iostream.cpp
-    src/utility/strings.cpp
-    src/utility/output_redirector.cpp
-    src/utility/sstream.cpp
-    src/utility/windows.cpp
-)
-add_library( osmanip::osmanip ALIAS osmanip )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
 
 # Create executables
 if( WIN32 )
@@ -49,7 +33,20 @@ else()
     set( MANIPULATORS "manipulators" )
 endif()
 
-add_executable( ${MANIPULATORS} src/manipulators.cpp )
+add_executable( ${MANIPULATORS}
+    src/manipulators.cpp 
+    ../../src/graphics/canvas.cpp
+    ../../src/graphics/plot_2D.cpp
+    ../../src/manipulators/cursor.cpp
+    ../../src/manipulators/colsty.cpp
+    ../../src/manipulators/decorator.cpp
+    ../../src/manipulators/common.cpp
+    ../../src/utility/iostream.cpp
+    ../../src/utility/strings.cpp
+    ../../src/utility/output_redirector.cpp
+    ../../src/utility/sstream.cpp
+    ../../src/utility/windows.cpp
+)
 
 # Adding specific compiler flags
 if( CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
@@ -58,9 +55,6 @@ else()
     set( COMPILE_FLAGS "-Wall -Wextra -pedantic -Wno-reorder -Wno-unused-function -Wno-unused-parameter -O3 -O1 -falign-functions=32" )
 endif()
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
-
-# Linking to osmanip
-target_link_libraries( ${MANIPULATORS} PRIVATE osmanip::osmanip )
 
 # Linking to benchmark
 find_package( benchmark )

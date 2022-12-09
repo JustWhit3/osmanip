@@ -58,8 +58,7 @@ namespace osm
    filepath_( DEFAULT_FILEPATH ),
    last_ansi_str_size_( 0 ),
    last_ansi_str_index_( 0 )
-  {
-  }
+   {}
 
   // Parametric constructor
   /**
@@ -74,8 +73,7 @@ namespace osm
    filepath_( fs::current_path() /= filename_ ),
    last_ansi_str_size_( 0 ),
    last_ansi_str_index_( 0 )
-  {
-  }
+   {}
 
   // Destructor
   /**
