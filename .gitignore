@@ -7,7 +7,7 @@ bin
 a.out
 **/*.o
 **/build
-/cmake-
+/cmake-*
 
 #====================================================
 #     PERSONAL FILES
