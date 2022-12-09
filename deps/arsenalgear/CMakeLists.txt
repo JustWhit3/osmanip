@@ -16,7 +16,7 @@ if( EXISTS "${LOC_PATH}" )
 endif()
 
 # Fetch the package
-find_package( arsenalgear )
+find_package ( arsenalgear )
 
 if( NOT arsenalgear_FOUND )
     include(FetchContent)
@@ -26,5 +26,6 @@ if( NOT arsenalgear_FOUND )
       GIT_TAG main
     )
     message( STATUS "Fetching arsenalgear..." )
+    set( ARSENALGEAR_TESTS OFF )
     FetchContent_MakeAvailable( arsenalgear )
 endif()
