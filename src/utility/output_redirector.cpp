@@ -68,9 +68,11 @@ namespace osm
    *
    */
   OutputRedirector::OutputRedirector( std::string filename ):
+    std::ostream( this ),
+    Stringbuf(),
    enabled_( false ),
    filename_( std::move( filename ) ),
-   filepath_( fs::current_path() /= filename_ ),
+   filepath_( (fs::current_path() /= filename_).string() ),
    last_ansi_str_size_( 0 ),
    last_ansi_str_index_( 0 )
    {}
