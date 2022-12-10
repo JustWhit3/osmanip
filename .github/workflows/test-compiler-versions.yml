@@ -17,8 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build with clang 5
-        run: docker-compose run --rm build_clang_5
       - name: Build with clang 6
         run: docker-compose run --rm build_clang_6
       - name: Build with clang 7
