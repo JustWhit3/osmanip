@@ -27,12 +27,7 @@ add_subdirectory( deps )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
 
 # Create executables
-if( WIN32 )
-    set( MANIPULATORS "manipulators.exe" )
-else()
-    set( MANIPULATORS "manipulators" )
-endif()
-
+set( MANIPULATORS "manipulators" )
 add_executable( ${MANIPULATORS}
     src/manipulators.cpp 
     ../../src/graphics/canvas.cpp
