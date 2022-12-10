@@ -7,7 +7,6 @@ services:
 
     # gcc 9
     build_gcc_9:
-        image: gcc:9.1.0
         image: ghcr.io/rikorose/gcc-cmake:gcc-9
         network_mode: bridge
         volumes:
@@ -21,7 +20,6 @@ services:
 
     # gcc 10
     build_gcc_10:
-        image: gcc:10.1.0
         image: ghcr.io/rikorose/gcc-cmake:gcc-10
         network_mode: bridge
         volumes:
@@ -38,7 +36,6 @@ services:
 
     # gcc 11
     build_gcc_11:
-        image: gcc:11.1.0
         image: ghcr.io/rikorose/gcc-cmake:gcc-11
         network_mode: bridge
         volumes:
@@ -55,7 +52,6 @@ services:
 
     # gcc 12
     build_gcc_12:
-        image: gcc:12.1.0
         image: ghcr.io/rikorose/gcc-cmake:gcc-12
         network_mode: bridge
         volumes:
@@ -74,24 +70,9 @@ services:
     #      CLANG
     ##########################################
 
-    # clang 5
-    build_clang_5:
-        image: silkeh/clang:5
-        image: ghcr.io/rikorose/gcc-cmake:latest
-        network_mode: bridge
-        volumes:
-            - .:/proj
-        container_name: build
-        command: >
-            bash -c "cd /proj
-            && rm -rf build
-            && cmake -B build -D CMAKE_CXX_compiler=clang++
-            && cmake --build build"
-
     # clang 6
     build_clang_6:
         image: silkeh/clang:6
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
@@ -105,7 +86,6 @@ services:
     # clang 7
     build_clang_7:
         image: silkeh/clang:7
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
@@ -119,7 +99,6 @@ services:
     # clang 8
     build_clang_8:
         image: silkeh/clang:8
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
@@ -133,7 +112,6 @@ services:
     # clang 9
     build_clang_9:
         image: silkeh/clang:9
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
@@ -150,7 +128,6 @@ services:
     # clang 10
     build_clang_10:
         image: silkeh/clang:10
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
@@ -167,7 +144,6 @@ services:
     # clang 11
     build_clang_11:
         image: silkeh/clang:11
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
@@ -184,7 +160,6 @@ services:
     # clang 12
     build_clang_12:
         image: silkeh/clang:12
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
@@ -201,7 +176,6 @@ services:
     # clang 13
     build_clang_13:
         image: silkeh/clang:13
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj
@@ -218,7 +192,6 @@ services:
     # clang 14
     build_clang_14:
         image: silkeh/clang:14
-        image: ghcr.io/rikorose/gcc-cmake:latest
         network_mode: bridge
         volumes:
             - .:/proj

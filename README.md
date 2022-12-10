@@ -97,7 +97,7 @@ The software is and will stay **free**, but if you want to support me with a don
   - *C++17*: 9/10/11/12
   - *C++20*: 10/11/12
 - **clang**:
-  - *C++17*: 5/6/7/8/9/10/11/12/13/14/15
+  - *C++17*: 6/7/8/9/10/11/12/13/14/15
   - *C++20*: 9/10/11/12/13/14/15
 - **MSVC**:
   - *C++17*: 19 (only this one tested)
