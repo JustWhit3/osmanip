@@ -530,11 +530,10 @@ To launch all tests simultaneously:
 
 **ANSI escape sequences manipulators**
 
-- Add UNICODE characters manipulators.
-- Add new methods to
-  the [`decorator`](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B)
-  class.
+- Add new methods to the [`decorator`](https://github.com/JustWhit3/osmanip/blob/main/include/manipulators/printer.hpp#:~:text=*/-,class%20Decorator,-%7B) class.
 - Implement file redirection to HTML and other type of files when manipulating the output.
+- Implement color palette.
+- Implement output redirection when writing on HTML/CSS or similar files.
 
 **Progress bars**
 
@@ -548,9 +547,12 @@ To launch all tests simultaneously:
 - Add option to display axes.
 - Extend the 2D terminal-graphics to 3D.
 
-**System features**
+**Other**
 
-- Benchmarking and other studies with respect to similar libraries.
+- Benchmarking and other studies with respect to similar libraries (already in progress [here](https://github.com/JustWhit3/osmanip/tree/main/studies/benchmarking)).
+- Add a wiki section for `output_redirector`.
+- Add port to vcpkg.
+- Add support to C++20/23 features.
 
 ## List of know projects which use this library
 
