@@ -23,14 +23,8 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 # Other settings for paths
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include )
 
-# Declare executables vars
-if( WIN32 )
-    set( UNIT "osmanip_unit_tests.exe" )
-else()
-    set( UNIT "osmanip_unit_tests" )
-endif()
-
 # Create executables
+set( UNIT "osmanip_unit_tests" )
 add_executable( ${UNIT} 
     graphics/tests_canvas.cpp 
     graphics/tests_plot_2D.cpp
