@@ -483,6 +483,12 @@ then, to link it to a target:
 target_link_libraries( ${TARGET} osmanip::osmanip )
 ```
 
+To avoid tests compilation:
+
+```cmake
+set( OSMANIP_TESTS OFF )
+```
+
 ### Compile examples and test codes
 
 Tests and examples are compiled during the installation procedure.
