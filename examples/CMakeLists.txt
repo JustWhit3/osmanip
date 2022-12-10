@@ -24,17 +24,10 @@ set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Declare executables vars
-if( WIN32 )
-    set( GRAPHICS "osmanip_graphics.exe" )
-    set( MANIPULATORS "osmanip_manipulators.exe" )
-    set( PROGRESSBAR "osmanip_progressbar.exe" )
-    set( REDIRECTION "osmanip_redirection.exe" )
-else()
-    set( GRAPHICS "osmanip_graphics" )
-    set( MANIPULATORS "osmanip_manipulators" )
-    set( PROGRESSBAR "osmanip_progressbar" )
-    set( REDIRECTION "osmanip_redirection" )
-endif()
+set( GRAPHICS "osmanip_graphics" )
+set( MANIPULATORS "osmanip_manipulators" )
+set( PROGRESSBAR "osmanip_progressbar" )
+set( REDIRECTION "osmanip_redirection" )
 
 # Create executables
 add_executable( ${GRAPHICS} graphics.cpp )
