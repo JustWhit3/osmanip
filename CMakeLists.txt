@@ -44,7 +44,7 @@ add_library( osmanip STATIC
 )
 add_library( osmanip::osmanip ALIAS osmanip )
 
-# Compiling unit tests
+# Compiling unit tests 
 option( OSMANIP_TESTS "Enable / disable tests." ON )
 if( OSMANIP_TESTS )
     add_subdirectory( test/unit_tests )
