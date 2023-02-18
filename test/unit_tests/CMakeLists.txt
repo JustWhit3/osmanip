@@ -32,8 +32,8 @@ add_executable( ${UNIT}
     manipulators/tests_common.cpp 
     manipulators/tests_colsty.cpp 
     manipulators/tests_decorator.cpp
-    #progressbar/tests_progress_bar.cpp
-    #progressbar/tests_multi_progress_bar.cpp
+    progressbar/tests_progress_bar.cpp
+    progressbar/tests_multi_progress_bar.cpp
     #utility/tests_windows.cpp
     #utility/tests_strings.cpp
     #utility/tests_output_redirector.cpp
