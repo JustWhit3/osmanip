@@ -49,7 +49,7 @@ jobs:
     - name: Installing extra dependencies and compiling (Windows)
       if: matrix.os == 'windows-latest'
       run: |
-       cmake -B build
+       cmake -B build -DOSMANIP_TESTS=OFF
        cmake --build build
        cmake --build build --target install
 
