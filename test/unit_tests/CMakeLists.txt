@@ -26,8 +26,8 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include )
 # Create executables
 set( UNIT "osmanip_unit_tests" )
 add_executable( ${UNIT} 
-    #graphics/tests_canvas.cpp 
-    #graphics/tests_plot_2D.cpp
+    graphics/tests_canvas.cpp 
+    graphics/tests_plot_2D.cpp
     manipulators/tests_cursor.cpp 
     manipulators/tests_common.cpp 
     manipulators/tests_colsty.cpp 
