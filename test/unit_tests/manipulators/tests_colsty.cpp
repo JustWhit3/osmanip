@@ -11,7 +11,7 @@
 #include <osmanip/manipulators/colsty.hpp>
 #include <osmanip/manipulators/cursor.hpp>
 #ifdef _WIN32
-#include <utility/windows.hpp>
+#include <osmanip/utility/windows.hpp>
 #endif
 
 //Extra headers
