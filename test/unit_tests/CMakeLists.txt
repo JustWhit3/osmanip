@@ -29,7 +29,7 @@ add_executable( ${UNIT}
     #graphics/tests_canvas.cpp 
     #graphics/tests_plot_2D.cpp
     #manipulators/tests_cursor.cpp 
-    #manipulators/tests_common.cpp 
+    manipulators/tests_common.cpp 
     manipulators/tests_colsty.cpp 
     #manipulators/tests_decorator.cpp
     #progressbar/tests_progress_bar.cpp
