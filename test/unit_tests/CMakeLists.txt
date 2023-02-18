@@ -34,9 +34,9 @@ add_executable( ${UNIT}
     manipulators/tests_decorator.cpp
     progressbar/tests_progress_bar.cpp
     progressbar/tests_multi_progress_bar.cpp
-    #utility/tests_windows.cpp
-    #utility/tests_strings.cpp
-    #utility/tests_output_redirector.cpp
+    utility/tests_windows.cpp
+    utility/tests_strings.cpp
+    utility/tests_output_redirector.cpp
 )
 
 # Adding specific compiler flags
