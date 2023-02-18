@@ -54,7 +54,7 @@ else()
 endif()
 
 # Compiling examples
-add_subdirectory( examples )
+#add_subdirectory( examples )
 
 # Setting installation paths
 target_include_directories( osmanip INTERFACE
