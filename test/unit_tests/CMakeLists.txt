@@ -28,10 +28,10 @@ set( UNIT "osmanip_unit_tests" )
 add_executable( ${UNIT} 
     #graphics/tests_canvas.cpp 
     #graphics/tests_plot_2D.cpp
-    #manipulators/tests_cursor.cpp 
+    manipulators/tests_cursor.cpp 
     manipulators/tests_common.cpp 
     manipulators/tests_colsty.cpp 
-    #manipulators/tests_decorator.cpp
+    manipulators/tests_decorator.cpp
     #progressbar/tests_progress_bar.cpp
     #progressbar/tests_multi_progress_bar.cpp
     #utility/tests_windows.cpp
