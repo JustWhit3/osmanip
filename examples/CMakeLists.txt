@@ -31,8 +31,8 @@ set( REDIRECTION "osmanip_redirection" )
 
 # Create executables
 #add_executable( ${GRAPHICS} graphics.cpp )
-add_executable( ${MANIPULATORS} manipulators.cpp )
-#add_executable( ${PROGRESSBAR} progressbar.cpp )
+#add_executable( ${MANIPULATORS} manipulators.cpp )
+add_executable( ${PROGRESSBAR} progressbar.cpp )
 #add_executable( ${REDIRECTION} redirection.cpp )
 
 # Adding specific compiler flags
