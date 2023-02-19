@@ -12,7 +12,7 @@
 #include <osmanip/manipulators/common.hpp>
 #include <osmanip/manipulators/colsty.hpp>
 #ifdef _WIN32
-#include <utility/windows.hpp>
+#include <osmanip/utility/windows.hpp>
 #endif
 
 //Extra headers
