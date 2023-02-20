@@ -92,6 +92,7 @@ services:
         container_name: build
         command: >
             bash -c "cd /proj
+            && apt update && upgrade
             && rm -rf build
             && cmake -B build -D CMAKE_CXX_compiler=clang++
             && cmake --build build"
