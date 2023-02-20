@@ -47,9 +47,9 @@ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
 target_link_libraries( ${MANIPULATORS} PRIVATE osmanip::osmanip )
 target_link_libraries( ${PROGRESSBAR} PRIVATE osmanip::osmanip )
 target_link_libraries( ${GRAPHICS} PRIVATE osmanip::osmanip )
-#target_link_libraries( ${REDIRECTION} PRIVATE osmanip::osmanip )
+target_link_libraries( ${REDIRECTION} PRIVATE osmanip::osmanip )
 
 # Link to Threads
 find_package( Threads )
 target_link_libraries( ${PROGRESSBAR} PUBLIC Threads::Threads )
-#target_link_libraries( ${REDIRECTION} PUBLIC Threads::Threads )
+target_link_libraries( ${REDIRECTION} PUBLIC Threads::Threads )
