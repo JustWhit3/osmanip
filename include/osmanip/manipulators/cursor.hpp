@@ -19,7 +19,10 @@
 //     Headers
 //====================================================
 
-//STD headers
+// My headers
+#include <osmanip/manipulators/common.hpp>
+
+// STD headers
 #include <string>
 #include <unordered_map>
 #include <utility>

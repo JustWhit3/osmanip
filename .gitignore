@@ -18,7 +18,7 @@ guides
 **/dependencies
 !deps
 .idea
-tests/basic_test.cpp
+test/basic_test.cpp
 
 #====================================================
 #     OTHER FILES
