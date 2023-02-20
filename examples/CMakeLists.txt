@@ -51,7 +51,7 @@ target_link_libraries( ${GRAPHICS} PRIVATE osmanip::osmanip )
 
 # Link to arsenalgear
 find_package( arsenalgear )
-#target_link_libraries( ${MANIPULATORS} PUBLIC arsenalgear::arsenalgear )
+target_link_libraries( ${MANIPULATORS} PUBLIC arsenalgear::arsenalgear )
 
 # Link to Threads
 find_package( Threads )
