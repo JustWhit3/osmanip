@@ -1,8 +1,9 @@
 <map id="src/manipulators/colsty.cpp" name="src/manipulators/colsty.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="77,5,257,32"/>
-<area shape="rect" id="node2" href="$colsty_8hpp.html" title=" " alt="" coords="93,80,242,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,60,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="97,169,208,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="239,169,303,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="317,87,386,114"/>
+<area shape="rect" id="node1" title=" " alt="" coords="245,5,425,32"/>
+<area shape="rect" id="node2" href="$colsty_8hpp.html" title=" " alt="" coords="149,80,298,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,259,60,285"/>
+<area shape="rect" id="node5" title=" " alt="" coords="201,259,312,285"/>
+<area shape="rect" id="node6" title=" " alt="" coords="294,177,358,203"/>
+<area shape="rect" id="node7" title=" " alt="" coords="433,87,502,114"/>
+<area shape="rect" id="node3" href="$common_8hpp.html" title=" " alt="" coords="70,169,219,211"/>
 </map>
