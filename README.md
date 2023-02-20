@@ -2,7 +2,7 @@
 
 <h3 align="center">A library used to manipulate the output stream of a program using ANSI escape sequences. </h3>
 <p align="center">
-  <img title="v4.4" alt="v4.4" src="https://img.shields.io/badge/version-v4.4-informational?style=flat-square">
+  <img title="v4.5" alt="v4.5" src="https://img.shields.io/badge/version-v4.5-informational?style=flat-square">
   <img title="MIT License" alt="license" src="https://img.shields.io/badge/license-MIT-informational?style=flat-square">
 	<img title="C++17" alt="C++17" src="https://img.shields.io/badge/c++-17-informational?style=flat-square"><br/>
 	<img title="Code size" alt="code size" src="https://img.shields.io/github/languages/code-size/JustWhit3/osmanip?color=red">
