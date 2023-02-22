@@ -431,14 +431,6 @@ Steps to be reproduced:
 cmake -B build
 ```
 
-> :warning: If you are on Windows previous command becomes:
->
-> ```bash
-> cmake -B build -D WIN_INSTALLATION_DIR_INCLUDE=path/to/include/dir -D WIN_INSTALLATION_DIR_LIB=path/to/lib/dir
-> ```
-> 
-> Where `path/to/include/dir` is the path in which you want to install the header and `path/to/lib/dir` is the path used to install the cmake library information.
-
 Install:
 
 ```bash
