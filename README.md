@@ -101,7 +101,7 @@ The software is and will stay **free**, but if you want to support me with a don
   - *C++20*: 9/10/11/12/13/14/15
 - **MSVC**:
   - *C++17*: 19 (only this one tested)
-  - *C++20*: //
+  - *C++20*: // (not tested yet)
 
 ## List of features
 
