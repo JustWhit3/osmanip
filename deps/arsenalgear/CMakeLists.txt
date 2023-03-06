@@ -19,7 +19,7 @@ endif()
 find_package ( arsenalgear )
 
 if( NOT arsenalgear_FOUND )
-    include(FetchContent)
+    include( FetchContent )
     FetchContent_Declare(
       arsenalgear
       GIT_REPOSITORY "https://github.com/JustWhit3/arsenalgear-cpp"
