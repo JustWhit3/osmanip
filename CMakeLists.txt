@@ -44,7 +44,7 @@ add_library( osmanip STATIC
 add_library( osmanip::osmanip ALIAS osmanip )
 
 # Link to arsenalgear
-find_package( arsenalgear CONFIG REQUIRED )
+find_package( arsenalgear )
 target_link_libraries( osmanip PUBLIC arsenalgear::arsenalgear )
 
 # Compiling unit tests 
