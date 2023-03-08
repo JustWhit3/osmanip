@@ -72,6 +72,15 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "dg0yt",
+      "name": "Kai Pastor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13567791?v=4",
+      "profile": "https://github.com/dg0yt",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "projectName": "osmanip",
