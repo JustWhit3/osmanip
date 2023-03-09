@@ -27,6 +27,7 @@
   - [Extra support for UNICODE and ANSI on Windows](#extra-support-for-unicode-and-ansi-on-windows)
 - [Install and use](#install-and-use)
   - [Install](#install)
+  - [Package managers](#package-managers)
   - [Use in your device](#use-in-your-device)
   - [Use with CMake](#use-with-cmake)
   - [Compile examples and test codes](#compile-examples-and-test-codes)
@@ -48,6 +49,8 @@ to adorn your general output stream log or to perform cursor operations.
 
 This is a fully *type-* and *thread-safe* library with *automatic memory management*, with only
 indispensable [dependencies](#install-and-use).
+
+It can be installed from source or via `vcpkg`. See [this](#install-and-use) section for further details.
 
 If you want to mention this software in one of your project / articles,
 please [cite it](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
@@ -445,6 +448,12 @@ Mandatory prerequisites (automatically installed with the script):
 - g++ compiler.
 - [CMake](https://cmake.org/) (at least version 3.15).
 - [arsenalgear](https://github.com/JustWhit3/arsenalgear-cpp) library.
+
+### Package managers
+
+This is the list of available package managers for `osmanip`:
+
+- [vcpkg](https://vcpkg.io/en/index.html).
 
 ### Use in your device
 
