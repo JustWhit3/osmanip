@@ -19,14 +19,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build with clang 6
         run: docker-compose run --rm build_clang_6
-      #- name: Build with clang 7
-      #  run: docker-compose run --rm build_clang_7
-      #- name: Build with clang 8
-      #  run: docker-compose run --rm build_clang_8
-      #- name: Build with clang 9
-      #  run: docker-compose run --rm build_clang_9
-      #- name: Build with clang 10
-      #  run: docker-compose run --rm build_clang_10
       - name: Build with clang 11
         run: docker-compose run --rm build_clang_11
       - name: Build with clang 12

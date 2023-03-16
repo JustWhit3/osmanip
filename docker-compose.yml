@@ -83,64 +83,6 @@ services:
             && cmake -B build -D CMAKE_CXX_compiler=clang++
             && cmake --build build"
 
-    # clang 7
-    build_clang_7:
-        image: silkeh/clang:7
-        network_mode: bridge
-        volumes:
-            - .:/proj
-        container_name: build
-        command: >
-            bash -c "cd /proj
-            && rm -rf build
-            && cmake -B build -D CMAKE_CXX_compiler=clang++
-            && cmake --build build"
-
-    # clang 8
-    build_clang_8:
-        image: silkeh/clang:8
-        network_mode: bridge
-        volumes:
-            - .:/proj
-        container_name: build
-        command: >
-            bash -c "cd /proj
-            && rm -rf build
-            && cmake -B build -D CMAKE_CXX_compiler=clang++
-            && cmake --build build"
-
-    # clang 9
-    build_clang_9:
-        image: silkeh/clang:9
-        network_mode: bridge
-        volumes:
-            - .:/proj
-        container_name: build
-        command: >
-            bash -c "cd /proj
-            && rm -rf build
-            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
-            && cmake --build build
-            && rm -rf build
-            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
-            && cmake --build build"
-
-    # clang 10
-    build_clang_10:
-        image: silkeh/clang:10
-        network_mode: bridge
-        volumes:
-            - .:/proj
-        container_name: build
-        command: >
-            bash -c "cd /proj
-            && rm -rf build
-            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
-            && cmake --build build
-            && rm -rf build
-            && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
-            && cmake --build build"
-
     # clang 11
     build_clang_11:
         image: silkeh/clang:11
@@ -150,6 +92,8 @@ services:
         container_name: build
         command: >
             bash -c "cd /proj
+            && apt update
+            && apt install -y git
             && rm -rf build
             && cmake -B build -D CMAKE_CXX_compiler=clang++ -D CMAKE_CXX_STANDARD=17 -D CMAKE_CXX_STANDARD_REQUIRED=ON 
             && cmake --build build
