@@ -4,7 +4,7 @@ jobs:
   GCC:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Build with gcc 9
         run: docker-compose run --rm build_gcc_9
       - name: Build with gcc 10
@@ -16,7 +16,7 @@ jobs:
   CLANG:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Build with clang 6
         run: docker-compose run --rm build_clang_6
       - name: Build with clang 11

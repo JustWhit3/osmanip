@@ -13,7 +13,7 @@ jobs:
 
     steps:
       # checkout myBranch
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # generate the C++ doxygen files
       - name: Doxygen Action C++
@@ -38,7 +38,7 @@ jobs:
     steps:
 
       # checkout the gh-pages branch
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: gh-pages
 
