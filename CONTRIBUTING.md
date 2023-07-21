@@ -41,9 +41,6 @@ Once your pull request will be submitted, I will carefully review it and, if it 
 
 ## How to raise an issue
 
-If you find any bug or something you think doesn't work correctly in the code, you are free to open an issue, but before carefully read this passages:
+If it is related to a bug, follow [this](https://github.com/JustWhit3/osmanip/tree/main/.github/ISSUE_TEMPLATE/bug_report.md) template.
 
-1) If this issue is due to download, compilation or installation of the library, be sure to have read the installation part in the main README in which all the passages are explained in detail.
-2) If this issue is due to a code feature, be sure to have run the main and the tests executables before, in order to see if your machine has all the necessary prerequisites installed.
-
-Once the issue is received, I will analyze it and once is solved I will respond asking confirmation about my fixing. In this case, if any answer is received in 7 days, the issue will be automatically closed.
+If it is related to a feature request, follow [this](https://github.com/JustWhit3/osmanip/tree/main/.github/ISSUE_TEMPLATE/feature_request.md) template.
