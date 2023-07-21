@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['duration_340',['duration',['../namespaceosm.html#a8a574177f2495c425a3a7e6246daefa8',1,'osm']]]
+  ['duration_340',['duration',['../namespaceosm.html#a454465a653de4e01a20f82621591704b',1,'osm']]]
 ];

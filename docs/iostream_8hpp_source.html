@@ -80,7 +80,7 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#a4f8a2d7ce55d10e182afd55d2074c87f">   17</a></span>&#160;<span class="preprocessor">#  define OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#a4f8a2d7ce55d10e182afd55d2074c87f">   17</a></span>&#160;<span class="preprocessor">#define OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//====================================================</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//     Headers</span></div>
@@ -90,23 +90,22 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="output__redirector_8hpp.html">osmanip/utility/output_redirector.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// STD headers</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#  include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceosm.html">osm</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">//     Global variables</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">extern</span> std::ostream <a class="code" href="namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee">cout</a>;              </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">extern</span> OutputRedirector <a class="code" href="namespaceosm.html#a8ac7a7b9764da0aa1f2e4d507bf9e069">redirout</a>;      </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}      <span class="comment">// namespace osm</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif      </span><span class="comment">// OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceosm.html">osm</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//     Global variables</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">extern</span> std::ostream <a class="code" href="namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee">cout</a>;          </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">extern</span> OutputRedirector <a class="code" href="namespaceosm.html#a8ac7a7b9764da0aa1f2e4d507bf9e069">redirout</a>;  </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}  <span class="comment">// namespace osm</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP</span></div>
 <div class="ttc" id="anamespaceosm_html"><div class="ttname"><a href="namespaceosm.html">osm</a></div><div class="ttdef"><b>Definition:</b> canvas.cpp:29</div></div>
-<div class="ttc" id="anamespaceosm_html_a8ac7a7b9764da0aa1f2e4d507bf9e069"><div class="ttname"><a href="namespaceosm.html#a8ac7a7b9764da0aa1f2e4d507bf9e069">osm::redirout</a></div><div class="ttdeci">OutputRedirector redirout</div><div class="ttdoc">Link to osm::cout.</div><div class="ttdef"><b>Definition:</b> iostream.cpp:32</div></div>
+<div class="ttc" id="anamespaceosm_html_a8ac7a7b9764da0aa1f2e4d507bf9e069"><div class="ttname"><a href="namespaceosm.html#a8ac7a7b9764da0aa1f2e4d507bf9e069">osm::redirout</a></div><div class="ttdeci">OutputRedirector redirout</div><div class="ttdoc">Link to osm::cout.</div><div class="ttdef"><b>Definition:</b> iostream.cpp:31</div></div>
 <div class="ttc" id="anamespaceosm_html_aa6448cb29b54abb14058bfd6e06e5cee"><div class="ttname"><a href="namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee">osm::cout</a></div><div class="ttdeci">std::ostream cout</div></div>
 <div class="ttc" id="aoutput__redirector_8hpp_html"><div class="ttname"><a href="output__redirector_8hpp.html">output_redirector.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -151,11 +151,11 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a966cffd6734b5084659dc4dbe9c6418a"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a> = fs::current_path().string()</td></tr>
+<tr class="memitem:a966cffd6734b5084659dc4dbe9c6418a"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a></td></tr>
 <tr class="separator:a966cffd6734b5084659dc4dbe9c6418a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ec4f99622d356de766c485a68a0c77c"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#a0ec4f99622d356de766c485a68a0c77c">DEFAULT_FILEPATH</a> = <a class="el" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a> + <a class="el" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a></td></tr>
+<tr class="memitem:a0ec4f99622d356de766c485a68a0c77c"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#a0ec4f99622d356de766c485a68a0c77c">DEFAULT_FILEPATH</a></td></tr>
 <tr class="separator:a0ec4f99622d356de766c485a68a0c77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abca8ddb0cd026b771cc33a72bcd670b8"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a> = &quot;redirected_output.txt&quot;</td></tr>
+<tr class="memitem:abca8ddb0cd026b771cc33a72bcd670b8"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a></td></tr>
 <tr class="separator:abca8ddb0cd026b771cc33a72bcd670b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -414,7 +414,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILE_DIR = fs::current_path().string()</td>
+          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILE_DIR</td>
         </tr>
       </table>
   </td>
@@ -423,7 +423,9 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        fs::current_path().string()</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="abca8ddb0cd026b771cc33a72bcd670b8"></a>
@@ -436,7 +438,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILENAME = &quot;redirected_output.txt&quot;</td>
+          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILENAME</td>
         </tr>
       </table>
   </td>
@@ -445,7 +447,9 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        <span class="stringliteral">&quot;redirected_output.txt&quot;</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0ec4f99622d356de766c485a68a0c77c"></a>
@@ -458,7 +462,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILEPATH = <a class="el" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a> + <a class="el" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a></td>
+          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILEPATH</td>
         </tr>
       </table>
   </td>
@@ -467,7 +471,11 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        <a class="code" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a> + <a class="code" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a></div>
+<div class="ttc" id="aclassosm_1_1OutputRedirector_html_a966cffd6734b5084659dc4dbe9c6418a"><div class="ttname"><a href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">osm::OutputRedirector::DEFAULT_FILE_DIR</a></div><div class="ttdeci">static const std::string DEFAULT_FILE_DIR</div><div class="ttdef"><b>Definition:</b> output_redirector.hpp:90</div></div>
+<div class="ttc" id="aclassosm_1_1OutputRedirector_html_abca8ddb0cd026b771cc33a72bcd670b8"><div class="ttname"><a href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">osm::OutputRedirector::DEFAULT_FILENAME</a></div><div class="ttdeci">static const std::string DEFAULT_FILENAME</div><div class="ttdef"><b>Definition:</b> output_redirector.hpp:92</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
