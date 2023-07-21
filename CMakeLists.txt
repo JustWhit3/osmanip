@@ -37,7 +37,7 @@ include_directories( ${CMAKE_CURRENT_BINARY_DIR}/_deps/arsenalgear-src/include )
 
 # Adding specific compiler flags
 if( CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
-    set( COMPILE_FLAGS "/Wall /Yd /fsanitize=address,undefined /Oy" )
+    set( COMPILE_FLAGS "/Wall /Yd /Oy" )
 else()
     if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
         set( COMPILE_FLAGS "-Wall -Wextra -pedantic -Wno-reorder -fsanitize=address,undefined -fno-omit-frame-pointer -g" )
