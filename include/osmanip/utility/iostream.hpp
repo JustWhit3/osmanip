@@ -14,7 +14,7 @@
 
 #pragma once
 #ifndef OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP
-#  define OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP
+#define OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP
 
 //====================================================
 //     Headers
@@ -24,18 +24,17 @@
 #include <osmanip/utility/output_redirector.hpp>
 
 // STD headers
-#  include <ostream>
+#include <ostream>
 
-namespace osm
-{
+namespace osm {
 
-  //====================================================
-  //     Global variables
-  //====================================================
+    //====================================================
+    //     Global variables
+    //====================================================
 
-  extern std::ostream cout;              /// Linked to standard output
-  extern OutputRedirector redirout;      /// Linked to output redirection
+    extern std::ostream cout;          /// Linked to standard output
+    extern OutputRedirector redirout;  /// Linked to output redirection
 
-}      // namespace osm
+}  // namespace osm
 
-#endif      // OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP
+#endif  // OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP

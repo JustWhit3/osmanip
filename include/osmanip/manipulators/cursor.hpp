@@ -23,29 +23,32 @@
 #include <osmanip/manipulators/common.hpp>
 
 // STD headers
+#include <stdint.h>
+
 #include <string>
 #include <unordered_map>
 #include <utility>
-#include <stdint.h>
 
-namespace osm
- {
-  //====================================================
-  //     Aliases
-  //====================================================
-  using string_pair_map = std::unordered_map <std::string, std::pair<std::string, std::string>>;
+namespace osm {
+    //====================================================
+    //     Aliases
+    //====================================================
+    using string_pair_map =
+        std::unordered_map<std::string, std::pair<std::string, std::string>>;
 
-  //====================================================
-  //     Variables
-  //====================================================
-  extern const std::unordered_map <std::string, std::string> tcs;
-  extern const string_pair_map crs, tcsc;
+    //====================================================
+    //     Variables
+    //====================================================
+    extern const std::unordered_map<std::string, std::string> tcs;
+    extern const string_pair_map crs, tcsc;
 
-  //====================================================
-  //     Functions
-  //====================================================
-  extern const std::string feat( const string_pair_map& generic_map, const std::string& feat_string, int32_t feat_int );
-  extern const std::string go_to( int32_t x, int32_t y );
- }
+    //====================================================
+    //     Functions
+    //====================================================
+    extern const std::string feat(const string_pair_map& generic_map,
+                                  const std::string& feat_string,
+                                  int32_t feat_int);
+    extern const std::string go_to(int32_t x, int32_t y);
+}  // namespace osm
 
 #endif

@@ -13,22 +13,21 @@
 //====================================================
 
 // My headers
-#include <osmanip/utility/iostream.hpp>
-#include <osmanip/utility/sstream.hpp>
-#include <osmanip/utility/output_redirector.hpp>
-
 #include <iostream>
+#include <osmanip/utility/iostream.hpp>
+#include <osmanip/utility/output_redirector.hpp>
+#include <osmanip/utility/sstream.hpp>
 
-namespace osm
-{
+namespace osm {
 
-  //====================================================
-  //     Global variables
-  //====================================================
+    //====================================================
+    //     Global variables
+    //====================================================
 
-  Ostreambuf cout_buf{ &std::cout };      // NOLINT(cppcoreguidelines-interfaces-global-init)
-  std::ostream cout( &cout_buf );               /// Link to osm::cout
+    Ostreambuf cout_buf{
+        &std::cout};  // NOLINT(cppcoreguidelines-interfaces-global-init)
+    std::ostream cout(&cout_buf);  /// Link to osm::cout
 
-  OutputRedirector redirout{};
+    OutputRedirector redirout{};
 
-}      // namespace osm
+}  // namespace osm

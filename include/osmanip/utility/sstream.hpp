@@ -20,107 +20,108 @@
 //====================================================
 
 // STD headers
-#include <mutex>
-#include <sstream>
 #include <stdint.h>
 
-namespace osm
-{
+#include <mutex>
+#include <sstream>
 
-  //====================================================
-  //     Classes
-  //====================================================
-
-  // Stringbuf
-  /**
-   * @brief This class inherits std::stringbuf and adds additional functionality and threadsafety.
-   *
-   */
-  class Stringbuf : public std::stringbuf
-  {
-    public:
-    //====================================================
-    //     Constructor and destructor
-    //====================================================
-
-    Stringbuf();
-
-    // Destructor
-    ~Stringbuf() override;
+namespace osm {
 
     //====================================================
-    //     Getters
+    //     Classes
     //====================================================
 
-    std::mutex & getMutex();
+    // Stringbuf
+    /**
+     * @brief This class inherits std::stringbuf and adds additional
+     * functionality and threadsafety.
+     *
+     */
+    class Stringbuf : public std::stringbuf {
+       public:
+        //====================================================
+        //     Constructor and destructor
+        //====================================================
 
-    //====================================================
-    //     Virtual methods
-    //====================================================
+        Stringbuf();
 
-    int32_t sync() override;
+        // Destructor
+        ~Stringbuf() override;
 
-    private:
-    //====================================================
-    //     Private attributes
-    //====================================================
+        //====================================================
+        //     Getters
+        //====================================================
 
-    std::mutex mutex_;
-  };
+        std::mutex& getMutex();
 
-  // Ostreambuf
-  /**
-   * @brief This class inherits Stringbuf and adds the ability to send output to a specific std::ostream buffer as well as redirect output to osm::redirout.
-   *
-   */
-  class Ostreambuf : public Stringbuf
-  {
-    public:
-    //====================================================
-    //     Constructors
-    //====================================================
+        //====================================================
+        //     Virtual methods
+        //====================================================
 
-    Ostreambuf();
-    explicit Ostreambuf( std::ostream * ostream );
+        int32_t sync() override;
 
-    //====================================================
-    //     Destructor
-    //====================================================
+       private:
+        //====================================================
+        //     Private attributes
+        //====================================================
 
-    ~Ostreambuf() override;
+        std::mutex mutex_;
+    };
 
-    //====================================================
-    //     Setters
-    //====================================================
+    // Ostreambuf
+    /**
+     * @brief This class inherits Stringbuf and adds the ability to send output
+     * to a specific std::ostream buffer as well as redirect output to
+     * osm::redirout.
+     *
+     */
+    class Ostreambuf : public Stringbuf {
+       public:
+        //====================================================
+        //     Constructors
+        //====================================================
 
-    void setOstream( std::ostream * ostream );
+        Ostreambuf();
+        explicit Ostreambuf(std::ostream* ostream);
 
-    //====================================================
-    //     Getters
-    //====================================================
+        //====================================================
+        //     Destructor
+        //====================================================
 
-    std::ostream * getOstream();
-    //====================================================
-    //     Virtual methods
-    //====================================================
+        ~Ostreambuf() override;
 
-    int32_t sync() override;
+        //====================================================
+        //     Setters
+        //====================================================
 
-    private:
-    //====================================================
-    //     Private attributes
-    //====================================================
+        void setOstream(std::ostream* ostream);
 
-    std::ostream * ostream_;
+        //====================================================
+        //     Getters
+        //====================================================
 
-    //====================================================
-    //     Private methods
-    //====================================================
+        std::ostream* getOstream();
+        //====================================================
+        //     Virtual methods
+        //====================================================
 
-    void sync_output();
-    void sync_redirection();
-  };
+        int32_t sync() override;
 
-}      // namespace osm
+       private:
+        //====================================================
+        //     Private attributes
+        //====================================================
 
-#endif      // OSMANIP_MAIN_INCLUDE_UTILITY_SSTREAM_HPP
+        std::ostream* ostream_;
+
+        //====================================================
+        //     Private methods
+        //====================================================
+
+        void sync_output();
+        void sync_redirection();
+    };
+
+}  // namespace osm
+
+#endif  // OSMANIP_MAIN_INCLUDE_UTILITY_SSTREAM_HPP

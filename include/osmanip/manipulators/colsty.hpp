@@ -23,22 +23,21 @@
 #include <osmanip/manipulators/common.hpp>
 
 // STD headers
-#include <string>
-#include <unordered_map>
 #include <stdint.h>
 
+#include <string>
+#include <unordered_map>
 
-namespace osm
- {
-  //====================================================
-  //     Variables
-  //====================================================
-  extern const std::unordered_map <std::string, std::string> col, sty, rst;
+namespace osm {
+    //====================================================
+    //     Variables
+    //====================================================
+    extern const std::unordered_map<std::string, std::string> col, sty, rst;
 
-  //====================================================
-  //     Functions
-  //====================================================
-  extern const std::string RGB( int32_t r, int32_t g, int32_t b );
- }
+    //====================================================
+    //     Functions
+    //====================================================
+    extern const std::string RGB(int32_t r, int32_t g, int32_t b);
+}  // namespace osm
 
 #endif

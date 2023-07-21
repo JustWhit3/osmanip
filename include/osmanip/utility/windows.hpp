@@ -19,23 +19,22 @@
 //     Headers
 //====================================================
 
-//STD headers
+// STD headers
 #include <string>
 
-namespace osm
- {
-  //====================================================
-  //     Variables
-  //====================================================
-  extern std::string old_chcp;
+namespace osm {
+    //====================================================
+    //     Variables
+    //====================================================
+    extern std::string old_chcp;
 
-  //====================================================
-  //     Functions
-  //====================================================
-  extern void enableANSI();
-  extern void disableANSI();
-  extern void enableUNICODE();
-  extern void disableUNICODE();
- }
+    //====================================================
+    //     Functions
+    //====================================================
+    extern void enableANSI();
+    extern void disableANSI();
+    extern void enableUNICODE();
+    extern void disableUNICODE();
+}  // namespace osm
 
 #endif

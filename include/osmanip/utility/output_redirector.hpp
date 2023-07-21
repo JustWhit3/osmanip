@@ -13,7 +13,7 @@
 //====================================================
 #pragma once
 #ifndef OSMANIP_OUTPUTREDIRECTOR_HPP
-#  define OSMANIP_OUTPUTREDIRECTOR_HPP
+#define OSMANIP_OUTPUTREDIRECTOR_HPP
 
 //====================================================
 //     Headers
@@ -23,110 +23,107 @@
 #include <osmanip/utility/sstream.hpp>
 
 // STD headers
-#include <atomic>
-#include <fstream>
-#include <filesystem>
 #include <stdint.h>
+
+#include <atomic>
+#include <filesystem>
+#include <fstream>
 #include <string>
 
-namespace osm
- {
-  //====================================================
-  //     Aliases
-  //====================================================
-  namespace fs = std::filesystem;
-
-  //====================================================
-  //     Classes
-  //====================================================
-
-  // OutputRedirector
-  /**
-   * @brief This class is used to redirected output to a file.
-   *
-   */
-  class OutputRedirector
-   : public std::ostream
-   , public Stringbuf
-  {
-    public:
+namespace osm {
     //====================================================
-    //     Constructors
+    //     Aliases
     //====================================================
-
-    OutputRedirector();
-    explicit OutputRedirector( std::string filename );
+    namespace fs = std::filesystem;
 
     //====================================================
-    //     Destructor
+    //     Classes
     //====================================================
 
-    ~OutputRedirector() override;
+    // OutputRedirector
+    /**
+     * @brief This class is used to redirected output to a file.
+     *
+     */
+    class OutputRedirector : public std::ostream, public Stringbuf {
+       public:
+        //====================================================
+        //     Constructors
+        //====================================================
 
-    //====================================================
-    //     Setters
-    //====================================================
+        OutputRedirector();
+        explicit OutputRedirector(std::string filename);
 
-    void setFilename( const std::string & filename );
+        //====================================================
+        //     Destructor
+        //====================================================
 
-    //====================================================
-    //     Getters
-    //====================================================
+        ~OutputRedirector() override;
 
-    [[nodiscard]] std::string & getFilename();
-    [[nodiscard]] std::string & getFilepath();
+        //====================================================
+        //     Setters
+        //====================================================
 
-    //====================================================
-    //     Methods
-    //====================================================
+        void setFilename(const std::string& filename);
 
-    void end();
-    void begin();
-    void touch();
+        //====================================================
+        //     Getters
+        //====================================================
 
-    bool isEnabled();
+        [[nodiscard]] std::string& getFilename();
+        [[nodiscard]] std::string& getFilepath();
 
-    //====================================================
-    //     Static public variables
-    //====================================================
+        //====================================================
+        //     Methods
+        //====================================================
 
-    static const std::string DEFAULT_FILE_DIR;
-    static const std::string DEFAULT_FILEPATH;
-    static const std::string DEFAULT_FILENAME;
+        void end();
+        void begin();
+        void touch();
 
-    private:
-    //====================================================
-    //     Private attributes
-    //====================================================
-    std::atomic<bool> enabled_;
+        bool isEnabled();
 
-    std::string file_dir_;
-    std::string filename_;
-    std::string filepath_;
+        //====================================================
+        //     Static public variables
+        //====================================================
 
-    std::fstream fstream_;
-    std::stringstream output_str_;
+        static const std::string DEFAULT_FILE_DIR;
+        static const std::string DEFAULT_FILEPATH;
+        static const std::string DEFAULT_FILENAME;
 
-    int32_t last_ansi_str_index_;
-    int32_t last_ansi_str_size_;
+       private:
+        //====================================================
+        //     Private attributes
+        //====================================================
+        std::atomic<bool> enabled_;
 
-    //====================================================
-    //     Private methods
-    //====================================================
+        std::string file_dir_;
+        std::string filename_;
+        std::string filepath_;
 
-    // Virtual
-    int32_t sync() override;
+        std::fstream fstream_;
+        std::stringstream output_str_;
 
-    // Helpers
-    void write_output();
-    void prepare_output();
-    void read_file();
+        int32_t last_ansi_str_index_;
+        int32_t last_ansi_str_size_;
 
-    // Exceptions
-    void sanity_check( const std::string & func_name );
-    void exception_file_not_found();
-  };
+        //====================================================
+        //     Private methods
+        //====================================================
 
- }      // namespace osm
+        // Virtual
+        int32_t sync() override;
+
+        // Helpers
+        void write_output();
+        void prepare_output();
+        void read_file();
+
+        // Exceptions
+        void sanity_check(const std::string& func_name);
+        void exception_file_not_found();
+    };
+
+}  // namespace osm
 
 #endif
