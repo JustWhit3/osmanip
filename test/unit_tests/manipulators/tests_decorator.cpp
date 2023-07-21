@@ -24,6 +24,7 @@
 //     Testing OS_Decorator
 //====================================================
 TEST_CASE("Testing the OS_Decorator class methods.") {
+      
     //====================================================
     //     Testing setters, resetters and getters
     //====================================================
@@ -32,13 +33,14 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
     osm::Decorator deco;
 
     SUBCASE("Testing the color methods.") {
+
         // Testing the default stream
         CHECK(deco.getColorList().empty());
         deco.setColor("red");
         CHECK_EQ(deco.getColor(), "red");
         CHECK(!deco.getColorList().empty());
-        CHECK(deco.getColorList().find(&osm::cout) !=
-              deco.getColorList().end());
+        auto colorList = deco.getColorList();
+        CHECK(colorList.find(&osm::cout) != colorList.end());
         deco.resetColor();
         CHECK(deco.getColorList().empty());
 
@@ -46,9 +48,9 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
         deco.setColor("blue", std::cerr);
         CHECK_EQ(deco.getColor(std::cerr), "blue");
         deco.setColor("green", std::cerr);
+        colorList = deco.getColorList();
         CHECK(deco.getColorList()[&std::cerr] == "green");
-        CHECK(deco.getColorList().find(&std::cerr) !=
-              deco.getColorList().end());
+        CHECK(colorList.find(&std::cerr) != colorList.end());
         deco.resetColor(std::cerr);
 
         // More complex testing
@@ -56,10 +58,9 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
         deco.setColor("bd blue", std::clog);
         CHECK_EQ(deco.getColor(std::clog), "bd blue");
         CHECK_EQ(deco.getColor(std::cerr), "red");
-        CHECK(deco.getColorList().find(&std::cerr) !=
-              deco.getColorList().end());
-        CHECK(deco.getColorList().find(&std::clog) !=
-              deco.getColorList().end());
+        colorList = deco.getColorList();
+        CHECK(colorList.find(&std::cerr) != colorList.end());
+        CHECK(colorList.find(&std::clog) != colorList.end());
         deco.resetColor(std::cerr);
         deco.resetColor(std::clog);
         CHECK(deco.getColorList().empty());
@@ -71,13 +72,14 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
     }
 
     SUBCASE("Testing the style methods.") {
+      
         // Testing the default stream
         CHECK(deco.getStyleList().empty());
         deco.setStyle("bold");
         CHECK_EQ(deco.getStyle(), "bold");
         CHECK(!deco.getStyleList().empty());
-        CHECK(deco.getStyleList().find(&osm::cout) !=
-              deco.getStyleList().end());
+        auto styleList = deco.getStyleList();
+        CHECK(styleList.find(&osm::cout) != styleList.end());
         deco.resetStyle();
         CHECK(deco.getStyleList().empty());
 
@@ -85,9 +87,9 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
         deco.setStyle("underlined", std::cerr);
         CHECK_EQ(deco.getStyle(std::cerr), "underlined");
         deco.setStyle("italics underlined", std::cerr);
+        styleList = deco.getStyleList();
         CHECK(deco.getStyleList()[&std::cerr] == "italics underlined");
-        CHECK(deco.getStyleList().find(&std::cerr) !=
-              deco.getStyleList().end());
+        CHECK(styleList.find(&std::cerr) != styleList.end());
         deco.removeStyle("italics", std::cerr);
         CHECK(deco.getStyleList()[&std::cerr] == "underlined");
         deco.setStyle("italics underlined", std::cerr);
@@ -100,10 +102,9 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
         deco.setStyle("italics", std::clog);
         CHECK_EQ(deco.getStyle(std::clog), "italics");
         CHECK_EQ(deco.getStyle(std::cerr), "bold");
-        CHECK(deco.getStyleList().find(&std::cerr) !=
-              deco.getStyleList().end());
-        CHECK(deco.getStyleList().find(&std::clog) !=
-              deco.getStyleList().end());
+        styleList = deco.getStyleList();
+        CHECK(styleList.find(&std::cerr) != styleList.end());
+        CHECK(styleList.find(&std::clog) != styleList.end());
         deco.resetStyle(std::cerr);
         deco.resetStyle(std::clog);
         CHECK(deco.getStyleList().empty());

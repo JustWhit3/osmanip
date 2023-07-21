@@ -75,12 +75,3 @@ if [ "$1" == "include" ] || [ "$1" == "" ]; then
   ./test/include_tests.sh utility/windows.hpp
 fi
 
-# Cppcheck
-if [ "$1" == "cppcheck" ] || [ "$1" == "" ]; then
-  echo ""
-  echo "======================================================"
-  echo "     CPPCHECK TESTS"
-  echo "======================================================"
-  echo ""
-  cppcheck include/graphics/* include/manipulators/* include/progressbar/* include/utility/* src/graphics/* src/manipulators/* src/progressbar/* src/utility/*
-fi

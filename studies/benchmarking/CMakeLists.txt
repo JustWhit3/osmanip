@@ -51,6 +51,12 @@ else()
 endif()
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
 
+# Adding cppcheck properties
+if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+    set( cppcheck cppcheck "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
+    set_target_properties( ${MANIPULATORS} PROPERTIES CXX_CPPCHECK ${cppcheck})
+endif()
+
 # Linking to benchmark
 find_package( benchmark )
 target_link_libraries( ${MANIPULATORS} PUBLIC benchmark::benchmark )

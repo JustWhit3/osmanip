@@ -37,11 +37,24 @@ add_executable( ${REDIRECTION} redirection.cpp )
 
 # Adding specific compiler flags
 if( CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
-    set( COMPILE_FLAGS "/Wall /Yd" )
+    set( COMPILE_FLAGS "/Wall /Yd /fsanitize=address,undefined /Oy" )
 else()
-    set( COMPILE_FLAGS "-Wall -Wextra -pedantic -Wno-reorder" )
+    if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+        set( COMPILE_FLAGS "-Wall -Wextra -pedantic -Wno-reorder -fsanitize=address,undefined -fno-omit-frame-pointer -g" )
+    else()
+        set( COMPILE_FLAGS "-Wall -Wextra -pedantic -Wno-reorder -fsanitize=address,undefined -fno-omit-frame-pointer" )
+    endif()
 endif()
-set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}" )
+
+# Adding cppcheck properties
+if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+    set( cppcheck cppcheck "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
+    set_target_properties( ${GRAPHICS} PROPERTIES CXX_CPPCHECK ${cppcheck})
+    set_target_properties( ${MANIPULATORS} PROPERTIES CXX_CPPCHECK ${cppcheck})
+    set_target_properties( ${PROGRESSBAR} PROPERTIES CXX_CPPCHECK ${cppcheck})
+    set_target_properties( ${REDIRECTION} PROPERTIES CXX_CPPCHECK ${cppcheck})
+endif()
 
 # Link to osmanip
 target_link_libraries( ${MANIPULATORS} PRIVATE osmanip::osmanip )
