@@ -212,7 +212,7 @@ namespace osm {
      */
     void Canvas::refresh() {
         static const std::vector<std::vector<std::string> > frames = {
-            
+
             //   TL,  T,   TR,  L,   R,   BL,  B,   BR
             {" ", " ", " ", " ", " ", " ", " ", " "},
             {"+", "-", "+", "|", "|", "+", "-", "+"},

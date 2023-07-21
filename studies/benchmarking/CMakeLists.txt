@@ -57,6 +57,31 @@ if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
     set_target_properties( ${MANIPULATORS} PROPERTIES CXX_CPPCHECK ${cppcheck})
 endif()
 
+# Format the code
+if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+    option( FORMAT "Format the code using clang-format" ON )
+    if( FORMAT )
+        find_program( CLANG_FORMAT_EXECUTABLE clang-format )
+        if( CLANG_FORMAT_EXECUTABLE )
+            message( STATUS "clang-format found: ${CLANG_FORMAT_EXECUTABLE}" )
+            file( GLOB_RECURSE SOURCE_FILES
+                ${CMAKE_SOURCE_DIR}/src/**/*.cpp
+                ${CMAKE_SOURCE_DIR}/include/osmanip/**/*.h
+                ${CMAKE_SOURCE_DIR}/test/unit_tests/**/*.cpp
+                ${CMAKE_SOURCE_DIR}/examples/**/*.cpp
+            )
+            add_custom_target(format
+                COMMAND ${CLANG_FORMAT_EXECUTABLE}
+                -i
+                ${SOURCE_FILES}
+            )
+        else()
+            message(STATUS "clang-format not found. Skipping code formatting.")
+        endif()
+    endif()
+    add_dependencies( ${MANIPULATORS} format )
+endif()
+
 # Linking to benchmark
 find_package( benchmark )
 target_link_libraries( ${MANIPULATORS} PUBLIC benchmark::benchmark )

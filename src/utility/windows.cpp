@@ -58,7 +58,6 @@ namespace osm {
      *
      */
     void enableANSI() {
-
 // Settings for Windows mode
 #ifdef _WIN32
 
@@ -92,7 +91,6 @@ namespace osm {
      *
      */
     {
-
         // Reset all styles and colors
         osm::cout << "\033[0m";
 
@@ -132,7 +130,6 @@ namespace osm {
      *
      */
     void disableUNICODE() {
-        
 // Settings for Windows mode
 #ifdef _WIN32
 

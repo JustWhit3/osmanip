@@ -24,7 +24,6 @@
 //     Testing OS_Decorator
 //====================================================
 TEST_CASE("Testing the OS_Decorator class methods.") {
-      
     //====================================================
     //     Testing setters, resetters and getters
     //====================================================
@@ -33,7 +32,6 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
     osm::Decorator deco;
 
     SUBCASE("Testing the color methods.") {
-
         // Testing the default stream
         CHECK(deco.getColorList().empty());
         deco.setColor("red");
@@ -72,7 +70,6 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
     }
 
     SUBCASE("Testing the style methods.") {
-      
         // Testing the default stream
         CHECK(deco.getStyleList().empty());
         deco.setStyle("bold");

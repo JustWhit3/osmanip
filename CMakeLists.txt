@@ -18,7 +18,7 @@ endif()
 # Info about the build type
 if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
     message( STATUS "Build type: DEBUG" )
-    add_compile_definitions( DEBUG_KEY_MANAGER )
+    add_compile_definitions( DEBUG_OSMANIP )
 else()
     message( STATUS "Build type: RELEASE" )
 endif()
@@ -69,13 +69,37 @@ if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
     set_target_properties( osmanip PROPERTIES CXX_CPPCHECK ${cppcheck})
 endif()
 
+# Format the code
+if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+    option( FORMAT "Format the code using clang-format" ON )
+    if( FORMAT )
+        find_program( CLANG_FORMAT_EXECUTABLE clang-format )
+        if( CLANG_FORMAT_EXECUTABLE )
+            message( STATUS "clang-format found: ${CLANG_FORMAT_EXECUTABLE}" )
+            file( GLOB_RECURSE SOURCE_FILES
+                ${CMAKE_SOURCE_DIR}/src/**/*.cpp
+                ${CMAKE_SOURCE_DIR}/include/osmanip/**/*.h
+                ${CMAKE_SOURCE_DIR}/test/unit_tests/**/*.cpp
+                ${CMAKE_SOURCE_DIR}/examples/**/*.cpp
+            )
+            add_custom_target(format
+                COMMAND ${CLANG_FORMAT_EXECUTABLE}
+                -i
+                ${SOURCE_FILES}
+            )
+        else()
+            message(STATUS "clang-format not found. Skipping code formatting.")
+        endif()
+    endif()
+    add_dependencies( osmanip format )
+endif()
+
 # Link to arsenalgear
 find_package( arsenalgear CONFIG )
 target_link_libraries( osmanip PRIVATE arsenalgear::arsenalgear )
 
 # Compiling unit tests 
-option( OSMANIP_TESTS "Enable / disable tests." ON )
-if( OSMANIP_TESTS )
+if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
     add_subdirectory( test/unit_tests )
 else()
     message( STATUS "Skipping tests." )
