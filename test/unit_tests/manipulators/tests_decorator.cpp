@@ -37,7 +37,8 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
         deco.setColor("red");
         CHECK_EQ(deco.getColor(), "red");
         CHECK(!deco.getColorList().empty());
-        auto colorList = deco.getColorList();
+        std::unordered_map<std::ostream *, std::string> colorList =
+            deco.getColorList();
         CHECK(colorList.find(&osm::cout) != colorList.end());
         deco.resetColor();
         CHECK(deco.getColorList().empty());
@@ -75,7 +76,8 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
         deco.setStyle("bold");
         CHECK_EQ(deco.getStyle(), "bold");
         CHECK(!deco.getStyleList().empty());
-        auto styleList = deco.getStyleList();
+        std::unordered_map<std::ostream *, std::string> styleList =
+            deco.getStyleList();
         CHECK(styleList.find(&osm::cout) != styleList.end());
         deco.resetStyle();
         CHECK(deco.getStyleList().empty());

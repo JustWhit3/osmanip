@@ -13,10 +13,12 @@
 //====================================================
 
 // My headers
-#include <iostream>
 #include <osmanip/utility/iostream.hpp>
 #include <osmanip/utility/output_redirector.hpp>
 #include <osmanip/utility/sstream.hpp>
+
+// STD headers
+#include <iostream>
 
 namespace osm {
 
