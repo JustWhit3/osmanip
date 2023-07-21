@@ -52,7 +52,7 @@ namespace osm {
         //====================================================
         //     Constructors
         //====================================================
-        Canvas(uint32_t width, uint32_t height);
+        explicit Canvas(uint32_t width, uint32_t height);
 
         //====================================================
         //     Setters

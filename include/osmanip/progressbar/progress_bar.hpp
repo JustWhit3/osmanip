@@ -101,7 +101,7 @@ namespace osm {
          * @param min The minimum value of the ProgressBar.
          * @param max The maximum value of the ProgressBar.
          */
-        ProgressBar(const bar_type& min, const bar_type& max)
+        explicit ProgressBar(const bar_type& min, const bar_type& max)
             : max_(max),
               min_(min),
               style_(""),
