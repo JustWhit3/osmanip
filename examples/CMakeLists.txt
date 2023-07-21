@@ -63,7 +63,7 @@ target_link_libraries( ${GRAPHICS} PRIVATE osmanip::osmanip )
 target_link_libraries( ${REDIRECTION} PRIVATE osmanip::osmanip )
 
 # Compile targets which depend on threads (except for clang 14)
-if ( CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT ${CMAKE_CXX_COMPILER_VERSION} VERSION_EQUAL "14.0.0" )
+if ( CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT ${CMAKE_CXX_COMPILER_VERSION} VERSION_GREATER_EQUAL "14.0.0" )
     find_package( Threads )
     target_link_libraries( ${PROGRESSBAR} PUBLIC Threads::Threads )
     target_link_libraries( ${REDIRECTION} PUBLIC Threads::Threads )
