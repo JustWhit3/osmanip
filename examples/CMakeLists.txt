@@ -63,6 +63,8 @@ target_link_libraries( ${GRAPHICS} PRIVATE osmanip::osmanip )
 target_link_libraries( ${REDIRECTION} PRIVATE osmanip::osmanip )
 
 # Link to Threads
-find_package( Threads REQUIRED )
+set( CMAKE_THREAD_PREFER_PTHREAD ON )
+set( THREADS_PREFER_PTHREAD_FLAG TRUE )
+find_package( Threads )
 target_link_libraries( ${PROGRESSBAR} PUBLIC Threads::Threads )
 target_link_libraries( ${REDIRECTION} PUBLIC Threads::Threads )

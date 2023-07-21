@@ -23,9 +23,8 @@
 //====================================================
 //     Testing OS_Decorator
 //====================================================
-#if defined(__linux__) || defined(__APPLE__)
 TEST_CASE("Testing the OS_Decorator class methods.") {
-
+    
     //====================================================
     //     Testing setters, resetters and getters
     //====================================================
@@ -161,4 +160,3 @@ TEST_CASE("Testing the OS_Decorator class methods.") {
 
     TEST_SUITE_END();
 }
-#endif
