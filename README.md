@@ -30,7 +30,8 @@
   - [Package managers](#package-managers)
   - [Use in your device](#use-in-your-device)
   - [Use with CMake](#use-with-cmake)
-  - [Compile examples and test codes](#compile-examples-and-test-codes)
+  - [Compile examples](#compile-examples)
+  - [Developer debug mode and tests](#developer-debug-mode-and-tests)
 - [Todo](#todo)
 - [List of known projects which use this library](#list-of-known-projects-which-use-this-library)
 - [Credits](#credits)
@@ -484,17 +485,11 @@ then, to link it to a target:
 target_link_libraries( ${TARGET} osmanip::osmanip )
 ```
 
-To avoid tests compilation:
+### Compile examples
 
-```cmake
-set( OSMANIP_TESTS OFF )
-```
+Examples are compiled during the installation procedure.
 
-### Compile examples and test codes
-
-Tests and examples are compiled during the installation procedure.
-
-To run all examples:
+To run all the examples:
 
 ```shell
 ./build/examples/osmanip_manipulators
@@ -505,6 +500,15 @@ To run all examples:
 
 > :warning: executables end with `.exe` if you are on Windows of course.
 
+### Developer debug mode and tests
+
+To compile tests you must build the app in debug mode:
+
+```bash
+cmake -B build -DCMAKE_BUILD_TYPE=Debug
+sudo cmake --build build --target install
+```
+
 > :warning: remember to install the library before launching include tests, or an error will appear.
 
 Tests are produced using `-Wall -Wextra -pedantic` flags. To check them you need some prerequisites:
@@ -513,7 +517,7 @@ Tests are produced using `-Wall -Wextra -pedantic` flags. To check them you need
 - [doctest](https://github.com/onqtam/doctest) for testing.
 - [cppcheck](https://cppcheck.sourceforge.io/) for testing.
 
-The doctest package is automatically installed with the installation step.
+The doctest package is automatically installed with the installation step. Also the [clang-format](https://clang.llvm.org/docs/ClangFormat.html) package is required. The format procedure is performed automatically when compiling.
 
 To launch all tests simultaneously:
 

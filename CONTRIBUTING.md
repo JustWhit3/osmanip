@@ -28,11 +28,7 @@ To add your contribution, please follow these guidelines:
 
 and possibly update also the respective files with your news tests, if necessary.
 
-5) Before submitting the code, reformat it using the [`.clang-format`](https://github.com/JustWhit3/osmanip/blob/main/.clang-format.md) file. Simply do:
-
-```bash
-.clang-format -i /path/to/file
-```
+5) Before submitting the code, reformat it using the [`.clang-format`](https://github.com/JustWhit3/osmanip/blob/main/.clang-format.md) file. This passage is automatically done if you compile in debug mode.
 
 5) Optional, but really appreciated: update the [documentation](https://justwhit3.github.io/osmanip/) (directly while writing the code) and the main [README](https://github.com/JustWhit3/osmanip/blob/main/README.md) with the new features you added.
 6) Finally, make the pull request. The Doxygen page will be updated automatically.
