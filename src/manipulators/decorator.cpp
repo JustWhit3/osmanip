@@ -101,8 +101,8 @@ namespace osm {
      * @param os The stream to be modified. Default is osm::cout.
      */
     void Decorator::removeStyle(const std::string &style, std::ostream &os) {
-        std::string str_mod = styles.at(&os);
-        std::string::size_type sub_str = str_mod.find(style);
+        std::string str_mod{styles.at(&os)};
+        std::string::size_type sub_str{str_mod.find(style)};
 
         styles.at(&os) = str_mod.erase(sub_str, style.length());
 

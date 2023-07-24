@@ -25,7 +25,7 @@ TEST_CASE("Testing MultiProgressBar class") {
     osm::ProgressBar<int32_t> bar1;
     osm::ProgressBar<double> bar2;
     osm::ProgressBar<float> bar3;
-    auto bars = osm::MultiProgressBar(bar1, bar2, bar3);
+    auto bars{osm::MultiProgressBar(bar1, bar2, bar3)};
 
     TEST_SUITE_BEGIN("Main methods");
 
@@ -44,7 +44,7 @@ TEST_CASE("Testing MultiProgressBar class") {
 
         static std::stringstream ss_multi, ss_normal;
 
-        for (int32_t i = bar1.getMin(); i < bar1.getMax(); i++) {
+        for (int32_t i{bar1.getMin()}; i < bar1.getMax(); i++) {
             auto first_output_multi = [&i, &bars](std::ostream&) {
                 bars.for_one(0, osm::updater{}, i);
             };
@@ -52,7 +52,7 @@ TEST_CASE("Testing MultiProgressBar class") {
                 bar1.update(i);
             };
 
-            auto old_buffer = osm::cout.rdbuf(nullptr);
+            auto old_buffer{osm::cout.rdbuf(nullptr)};
             first_output_multi(ss_multi);
             first_output_normal(ss_normal);
             osm::cout.rdbuf(old_buffer);
@@ -64,7 +64,7 @@ TEST_CASE("Testing MultiProgressBar class") {
         bar2.setMax(10.0);
         bar2.setStyle("loader", "#");
 
-        for (double i = bar2.getMin(); i < bar2.getMax(); i += 0.1) {
+        for (double i{bar2.getMin()}; i < bar2.getMax(); i += 0.1) {
             auto first_output_multi = [&i, &bars](std::ostream&) {
                 bars.for_one(1, osm::updater{}, i);
             };
@@ -72,7 +72,7 @@ TEST_CASE("Testing MultiProgressBar class") {
                 bar2.update(i);
             };
 
-            auto old_buffer = osm::cout.rdbuf(nullptr);
+            auto old_buffer{osm::cout.rdbuf(nullptr)};
             first_output_multi(ss_multi);
             first_output_normal(ss_normal);
             osm::cout.rdbuf(old_buffer);
@@ -84,7 +84,7 @@ TEST_CASE("Testing MultiProgressBar class") {
         bar3.setMax(5.8f);
         bar3.setStyle("complete", "%", "#");
 
-        for (float i = bar3.getMin(); i < bar3.getMax(); i += 0.1f) {
+        for (float i{bar3.getMin()}; i < bar3.getMax(); i += 0.1f) {
             auto first_output_multi = [&i, &bars](std::ostream&) {
                 bars.for_one(2, osm::updater{}, i);
             };
@@ -92,7 +92,7 @@ TEST_CASE("Testing MultiProgressBar class") {
                 bar3.update(i);
             };
 
-            auto old_buffer = osm::cout.rdbuf(nullptr);
+            auto old_buffer{osm::cout.rdbuf(nullptr)};
             first_output_multi(ss_multi);
             first_output_normal(ss_normal);
             osm::cout.rdbuf(old_buffer);

@@ -211,7 +211,7 @@ namespace osm {
      * @brief Display the canvas in the console.
      */
     void Canvas::refresh() {
-        static const std::vector<std::vector<std::string> > frames = {
+        static const std::vector<std::vector<std::string> > frames{
 
             //   TL,  T,   TR,  L,   R,   BL,  B,   BR
             {" ", " ", " ", " ", " ", " ", " ", " "},
@@ -220,12 +220,12 @@ namespace osm {
              "\u2500", "\u2518"}};
 
         if (already_drawn_) {
-            for (uint32_t i = 0; i < height_; i++) {
+            for (uint32_t i{0}; i < height_; i++) {
                 osm::cout << feat(crs, "up", 1);
             }
         }
 
-        uint32_t y = 0;
+        uint32_t y{0};
 
         const auto &frame = [&](uint32_t fi) -> std::string {
             return frame_feat_ + frames[frame_style_][fi] + feat(rst, "all");
@@ -236,7 +236,7 @@ namespace osm {
         if (frame_enabled_) {
             ss << frame(0);
 
-            for (uint32_t i = 2; i < width_; i++) {
+            for (uint32_t i{2}; i < width_; i++) {
                 ss << frame(1);
             }
 
@@ -248,7 +248,7 @@ namespace osm {
             if (y == height_ - 1 && frame_enabled_) {
                 ss << frame(5);
 
-                for (uint32_t i = 2; i < width_; i++) {
+                for (uint32_t i{2}; i < width_; i++) {
                     ss << frame(6);
                 }
 
@@ -256,7 +256,7 @@ namespace osm {
                 continue;
             }
 
-            for (uint32_t x = 0; x < width_; x++) {
+            for (uint32_t x{0}; x < width_; x++) {
                 if (x == 0 && frame_enabled_) {
                     ss << frame(3);
                     continue;

@@ -26,13 +26,13 @@
 //====================================================
 //     Global variables
 //====================================================
-const std::string style = "%";
-const std::string message = "message";
-const std::string bracket_open = "{";
-const std::string bracket_close = "}";
-const std::string color = "red";
-const std::string style_p_ = "%";
-const std::string style_l_ = "#";
+const std::string style{"%"};
+const std::string message{"message"};
+const std::string bracket_open{"{"};
+const std::string bracket_close{"}"};
+const std::string color{"red"};
+const std::string style_p_{"%"};
+const std::string style_l_{"#"};
 
 //====================================================
 //     Testing ProgressBar
@@ -41,7 +41,7 @@ TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t,
                    int64_t, long long, double, long double, float) {
     osm::ProgressBar<T> bar;
     T max = 10., min = 5.;
-    std::string type = "indicator";
+    std::string type{"indicator"};
 
     //====================================================
     //     Testing getters, setters and constructor
@@ -100,9 +100,9 @@ TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t,
         // Extra test for getStyle:
         bar.setStyle("complete", style_p_, style_l_);
 
-        static const std::string complete_style = "Percentage: \"" + style_p_ +
-                                                  "\"\n" + "Loader: \"" +
-                                                  style_l_ + "\"\n";
+        static const std::string complete_style{"Percentage: \"" + style_p_ +
+                                                "\"\n" + "Loader: \"" +
+                                                style_l_ + "\"\n"};
 
         CHECK_EQ(bar.getStyleComplete(), complete_style);
 
@@ -164,7 +164,7 @@ TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t,
     //====================================================
     SUBCASE("Testing time methods.") {
         bar.setBegin();
-        for (int32_t i = 0; i < 5; i++) {
+        for (int32_t i{0}; i < 5; i++) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
         bar.setEnd();
@@ -185,7 +185,7 @@ TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t,
 
         // There is not much to test in it since it doesn't modify almost
         // anything.
-        for (T i = bar.getMax(); i < bar.getMin(); i++) {
+        for (T i{bar.getMax()}; i < bar.getMin(); i++) {
             bar.update(i);
             CHECK_EQ(bar.getIteratingVar(),
                      100 * (i - bar.getMin()) /

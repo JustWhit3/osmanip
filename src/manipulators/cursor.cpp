@@ -105,7 +105,7 @@ namespace osm {
     const std::string feat(const string_pair_map &generic_map,
                            const std::string &feat_string, int32_t feat_int) {
         try {
-            auto it = generic_map.at(feat_string);
+            auto it{generic_map.at(feat_string)};
             if (generic_map == crs || generic_map == tcsc) {
                 return it.first + std::to_string(feat_int) + it.second;
             }

@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
 
     context.applyCommandLine(argc, argv);
 
-    int32_t res = context.run();
+    int32_t res{context.run()};
 
 #ifdef _WIN32
     osm::disableANSI();

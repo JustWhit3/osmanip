@@ -30,7 +30,7 @@ TEST_CASE("Testing the feat function overload for the crs map.") {
         "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
 
     for (auto& element_m : osm::crs) {
-        static const int32_t feat_int = 100;
+        static const int32_t feat_int{100};
 
         CHECK_EQ(
             osm::feat(osm::crs, element_m.first, feat_int),

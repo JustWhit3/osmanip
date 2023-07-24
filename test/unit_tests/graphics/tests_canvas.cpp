@@ -33,7 +33,7 @@ TEST_CASE("Testing the Canvas class methods.") {
     }
 
     SUBCASE("Testing getters and setters.") {
-        static const std::string str = "str";
+        static const std::string str{"str"};
 
         canvas.setBackground('c', "str");
         CHECK_EQ(canvas.getBackground(), 'c');
