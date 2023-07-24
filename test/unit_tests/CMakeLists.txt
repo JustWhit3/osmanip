@@ -40,8 +40,9 @@ add_executable( ${UNIT}
 )
 
 # Adding specific compiler flags
+set( CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE )
 if( CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
-    set( COMPILE_FLAGS "/Wall /Yd /Oy" )
+    set( COMPILE_FLAGS "/Wall /Yd /Oy /fsanitize=address,undefined /GL /Gw" )
 else()
     if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
         set( COMPILE_FLAGS "-Wall -Wextra -pedantic -Wno-reorder -fsanitize=address,undefined -fno-omit-frame-pointer -g -flto -fdata-sections" )
