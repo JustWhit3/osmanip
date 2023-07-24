@@ -35,7 +35,7 @@ void perc_bars() {
 
     osm::cout << "This is a normal percentage bar: "
               << "\n";
-    for (int32_t i = percentage_bar.getMin(); i < percentage_bar.getMax();
+    for (int32_t i {percentage_bar.getMin()}; i < percentage_bar.getMax();
          i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         percentage_bar.update(i);
@@ -51,7 +51,7 @@ void perc_bars() {
     osm::cout << "This is a percentage bar with message and the /100 style: "
               << "\n";
 
-    for (float i = percentage_bar_2.getMin(); i < percentage_bar_2.getMax();
+    for (float i {percentage_bar_2.getMin()}; i < percentage_bar_2.getMax();
          i += 0.1f) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         percentage_bar_2.update(i);
@@ -65,7 +65,7 @@ void perc_bars() {
 
     osm::cout << "This is a percentage bar with time consuming info: "
               << "\n";
-    for (int32_t i = percentage_bar.getMin(); i < percentage_bar.getMax();
+    for (int32_t i {percentage_bar.getMin()}; i < percentage_bar.getMax();
          i++) {
         percentage_bar.setBegin();
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
@@ -86,7 +86,7 @@ void perc_bars() {
 
     osm::cout << "This is a percentage bar with time-remaining info: "
               << "\n";
-    for (int32_t i = percentage_bar.getMin(); i < percentage_bar.getMax();
+    for (int32_t i {percentage_bar.getMin()}; i < percentage_bar.getMax();
          i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         percentage_bar.update(i);
@@ -115,7 +115,7 @@ void load_bars() {
 
     osm::cout << "This is a normal loading bar: "
               << "\n";
-    for (int32_t i = loading_bar.getMin(); i < loading_bar.getMax(); i++) {
+    for (int32_t i {loading_bar.getMin()}; i < loading_bar.getMax(); i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         loading_bar.update(i);
         // Do some operations...
@@ -129,7 +129,7 @@ void load_bars() {
 
     osm::cout << "This is a loading bar with message: "
               << "\n";
-    for (int32_t i = loading_bar.getMin(); i < loading_bar.getMax(); i++) {
+    for (int32_t i {loading_bar.getMin()}; i < loading_bar.getMax(); i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         loading_bar.update(i);
         // Do some operations...
@@ -145,7 +145,7 @@ void load_bars() {
 
     osm::cout << "This is a loading bar with time-remaining info: "
               << "\n";
-    for (int32_t i = loading_bar.getMin(); i < loading_bar.getMax(); i++) {
+    for (int32_t i {loading_bar.getMin()}; i < loading_bar.getMax(); i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         loading_bar.update(i);
         // Do some operations...
@@ -172,7 +172,7 @@ void mixed_bars() {
 
     osm::cout << "This is a mixed progress bar: "
               << "\n";
-    for (float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f) {
+    for (float i {mixed_bar.getMin()}; i < mixed_bar.getMax(); i += 0.1f) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         mixed_bar.update(i);
         // Do some operations...
@@ -186,7 +186,7 @@ void mixed_bars() {
     osm::cout
         << "This is a mixed progress bar with color and time remaining info: "
         << "\n";
-    for (float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f) {
+    for (float i {mixed_bar.getMin()}; i < mixed_bar.getMax(); i += 0.1f) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         mixed_bar.update(i);
         // Do some operations...
@@ -201,7 +201,7 @@ void mixed_bars() {
 
     osm::cout << "This is a mixed progress bar with two customized styles: "
               << "\n";
-    for (float i = mixed_bar.getMin(); i < mixed_bar.getMax(); i += 0.1f) {
+    for (float i {mixed_bar.getMin()}; i < mixed_bar.getMax(); i += 0.1f) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         mixed_bar.update(i);
         // Do some operations...
@@ -246,7 +246,7 @@ void multi_bars() {
     prog_float.setMessage("Downloading...");
     prog_float.setColor("yellow");
 
-    auto bars = MultiProgressBar(prog_int, prog_int_2, prog_float);
+    auto bars {MultiProgressBar(prog_int, prog_int_2, prog_float)};
 
     auto job1 = [&bars, &prog_int]() {
         for (int32_t i = prog_int.getMin(); i < prog_int.getMax(); i++) {
@@ -301,7 +301,7 @@ void progress_spinner() {
 
     osm::cout << "This is a progress spinner: "
               << "\n";
-    for (int32_t i = spinner.getMin(); i < spinner.getMax(); i++) {
+    for (int32_t i {spinner.getMin()}; i < spinner.getMax(); i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         spinner.update(i);
         // Do some operations...
@@ -319,7 +319,7 @@ void progress_spinner() {
 
     osm::cout << "This is another progress spinner: "
               << "\n";
-    for (float i = spinner_float.getMin(); i < spinner_float.getMax();
+    for (float i {spinner_float.getMin()}; i < spinner_float.getMax();
          i += 0.1f) {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
         spinner_float.update(i);
@@ -336,11 +336,11 @@ int main() {
     osm::enableANSI();
 #endif
 
-    static bool test_perc_bars = true;
-    static bool test_load_bars = true;
-    static bool test_mixed_bars = true;
-    static bool test_multi_bars = true;
-    static bool test_prog_spinners = true;
+    static bool test_perc_bars {true};
+    static bool test_load_bars {true};
+    static bool test_mixed_bars {true};
+    static bool test_multi_bars {true};
+    static bool test_prog_spinners {true};
 
     osm::OPTION(osm::CURSOR::OFF);
 

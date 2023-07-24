@@ -24,7 +24,6 @@
 //     Testing OS_Decorator
 //====================================================
 TEST_CASE("Testing the OS_Decorator class methods.") {
-    
     //====================================================
     //     Testing setters, resetters and getters
     //====================================================

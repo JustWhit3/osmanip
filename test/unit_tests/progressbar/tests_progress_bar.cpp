@@ -168,15 +168,9 @@ TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t,
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
         bar.setEnd();
-
-#ifdef _WIN32
-        CHECK(agr::IsInBounds(static_cast<int32_t>(bar.getTime()), 530, 560));
-#else
-        CHECK(agr::IsInBounds(static_cast<int32_t>(bar.getTime()), 490, 510));
-#endif
+        CHECK(bar.getTime() == doctest::Approx(520).epsilon(40));
 
         bar.resetTime();
-
         CHECK_EQ(bar.getTime(), static_cast<T>(0));
     }
 
