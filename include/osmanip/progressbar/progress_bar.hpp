@@ -212,7 +212,7 @@ namespace osm {
          * @tparam bar_type The type of the ProgressBar.
          * @param message The message of the ProgressBar.
          */
-        void setMessage(const std::string& message) { message_ = message; }
+        void setMessage(std::string_view message) { message_ = message; }
 
         // setBegin
         /**
@@ -244,8 +244,8 @@ namespace osm {
          * @param brackets_open Open bracket.
          * @param brackets_close Close bracket.
          */
-        void setBrackets(const std::string& brackets_open,
-                         const std::string& brackets_close) {
+        void setBrackets(std::string_view brackets_open,
+                         std::string_view brackets_close) {
             brackets_open_ = brackets_open, brackets_close_ = brackets_close;
         }
 
@@ -268,7 +268,7 @@ namespace osm {
          * @tparam bar_type The type of the ProgressBar.
          * @param time_flag The flag of the remaining time.
          */
-        void setRemainingTimeFlag(const std::string& time_flag) {
+        void setRemainingTimeFlag(std::string_view time_flag) {
             time_flag_ = time_flag;
         }
 
@@ -656,7 +656,7 @@ namespace osm {
          * @tparam bar_type The type of the ProgressBar.
          * @param output The output of the progress bar.
          */
-        void update_output(const std::string& output) {
+        void update_output(std::string_view output) {
             osm::cout << output << getColor()
                       << ((message_ != agr::null_str<std::string>)
                               ? (agr::empty_space<std::string> + message_ +

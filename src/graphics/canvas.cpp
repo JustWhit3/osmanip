@@ -24,6 +24,7 @@
 
 #include <sstream>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace osm {
@@ -61,7 +62,7 @@ namespace osm {
      * @param c The char that fills the background.
      * @param feat The optional feat.
      */
-    void Canvas::setBackground(char c, const std::string &feat) {
+    void Canvas::setBackground(char c, std::string_view feat) {
         bg_char_ = c;
         bg_feat_ = feat;
     }
@@ -77,7 +78,7 @@ namespace osm {
      * @param fs The FrameStyle of the canvas.
      * @param feat The optional feature.
      */
-    void Canvas::setFrame(FrameStyle fs, const std::string &feat) {
+    void Canvas::setFrame(FrameStyle fs, std::string_view feat) {
         frame_style_ = fs;
         frame_feat_ = feat;
     }
@@ -136,7 +137,7 @@ namespace osm {
     /**
      * @brief Get the optional feat of the background.
      *
-     * @return const std::string& The optional feat of the background.
+     * @return std::string The optional feat of the background.
      */
     std::string Canvas::getBackgroundFeat() const { return bg_feat_; }
 
@@ -201,7 +202,7 @@ namespace osm {
      * @param y The y position.
      * @param feat The optional feature.
      */
-    void Canvas::put(uint32_t x, uint32_t y, char c, const std::string &feat) {
+    void Canvas::put(uint32_t x, uint32_t y, char c, std::string_view feat) {
         char_buffer_.at(y * width_ + x) = c;
         feat_buffer_.at(y * width_ + x) = feat;
     }

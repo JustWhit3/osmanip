@@ -78,7 +78,7 @@ if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
             message( STATUS "clang-format found: ${CLANG_FORMAT_EXECUTABLE}" )
             file( GLOB_RECURSE SOURCE_FILES
                 ${CMAKE_SOURCE_DIR}/src/**/*.cpp
-                ${CMAKE_SOURCE_DIR}/include/osmanip/**/*.h
+                ${CMAKE_SOURCE_DIR}/include/osmanip/**/*.hpp
                 ${CMAKE_SOURCE_DIR}/test/unit_tests/**/*.cpp
                 ${CMAKE_SOURCE_DIR}/examples/**/*.cpp
             )

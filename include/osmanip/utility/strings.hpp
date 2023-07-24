@@ -34,7 +34,7 @@ namespace osm {
                                                int32_t* last_pos = nullptr,
                                                int32_t* last_size = nullptr);
     [[maybe_unused]] extern std::string trim_string(std::string& str);
-    [[maybe_unused]] extern size_t find_first_alpha(const std::string& str,
+    [[maybe_unused]] extern size_t find_first_alpha(std::string_view str,
                                                     size_t pos);
     [[maybe_unused]] extern std::string get_ansi_csi_string(
         const std::string& str, size_t esc_pos);

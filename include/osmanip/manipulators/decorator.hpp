@@ -29,11 +29,12 @@
 
 // STD headers
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <vector>
 
 namespace osm {
-    
+
     //====================================================
     //     Classes
     //====================================================
@@ -64,8 +65,7 @@ namespace osm {
         //====================================================
         void resetColor(std::ostream& os = osm::cout);
         void resetStyle(std::ostream& os = osm::cout);
-        void removeStyle(const std::string& style,
-                         std::ostream& os = osm::cout);
+        void removeStyle(std::string_view style, std::ostream& os = osm::cout);
         void resetFeatures(std::ostream& os = osm::cout);
 
         //====================================================
@@ -110,7 +110,7 @@ namespace osm {
                 << feat(col, my_shell.getColor(my_shell.getCurrentStream()));
         }
         if (my_shell.getStyle(my_shell.getCurrentStream()) != "") {
-            std::vector<std::string> list_of_styles {agr::split_string(
+            std::vector<std::string> list_of_styles{agr::split_string(
                 my_shell.getStyle(my_shell.getCurrentStream()), " ")};
             for (auto elem : list_of_styles) {
                 my_shell.getCurrentStream() << feat(sty, elem);

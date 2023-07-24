@@ -104,7 +104,7 @@ namespace osm {
      * @param filename the filename of the output file.
      *
      */
-    void OutputRedirector::setFilename(const std::string &filename) {
+    void OutputRedirector::setFilename(std::string_view filename) {
         std::scoped_lock<std::mutex> slock{this->getMutex()};
         filename_ = filename;
         filepath_ = DEFAULT_FILE_DIR + filename_;
@@ -113,12 +113,6 @@ namespace osm {
         last_ansi_str_index_ = 0;
         last_ansi_str_size_ = 0;
     }
-
-    //   void OutputRedirector::setFilepath( fs::path & path )
-    //   {
-    //     std::scoped_lock<std::mutex> slockthis->{ getMutex() };
-    //     filepath_ = path.string() + filename_;
-    //   }
 
     //====================================================
     //     Getters

@@ -70,8 +70,7 @@ namespace osm {
      * std::string::npos.
      *
      */
-    [[maybe_unused]] size_t find_first_alpha(const std::string &str,
-                                             size_t pos) {
+    [[maybe_unused]] size_t find_first_alpha(std::string_view str, size_t pos) {
         for (size_t i = pos; i < str.size(); ++i) {
             if (std::isalpha(static_cast<unsigned char>(str[i]))) {
                 return i;

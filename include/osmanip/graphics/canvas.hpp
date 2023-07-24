@@ -23,6 +23,7 @@
 #include <stdint.h>
 
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace osm {
@@ -58,8 +59,8 @@ namespace osm {
         //     Setters
         //====================================================
         void enableFrame(bool frame_enabled);
-        void setFrame(FrameStyle, const std::string& feat = "");
-        void setBackground(char c, const std::string& feat = "");
+        void setFrame(FrameStyle, std::string_view feat = "");
+        void setBackground(char c, std::string_view feat = "");
         void setWidth(uint32_t width);
         void setHeight(uint32_t height);
 
@@ -78,7 +79,7 @@ namespace osm {
         //     Other methods
         //====================================================
         void clear();
-        void put(uint32_t x, uint32_t y, char c, const std::string& feat = "");
+        void put(uint32_t x, uint32_t y, char c, std::string_view feat = "");
         void refresh();
 
        private:

@@ -64,7 +64,7 @@ namespace osm {
         //     Setters
         //====================================================
 
-        void setFilename(const std::string& filename);
+        void setFilename(std::string_view filename);
 
         //====================================================
         //     Getters
