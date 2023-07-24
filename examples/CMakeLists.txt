@@ -23,18 +23,6 @@ set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
-# Declare executables vars
-set( GRAPHICS "osmanip_graphics" )
-set( MANIPULATORS "osmanip_manipulators" )
-set( PROGRESSBAR "osmanip_progressbar" )
-set( REDIRECTION "osmanip_redirection" )
-
-# Create executables
-add_executable( ${GRAPHICS} graphics.cpp )
-add_executable( ${MANIPULATORS} manipulators.cpp )
-add_executable( ${PROGRESSBAR} progressbar.cpp )
-add_executable( ${REDIRECTION} redirection.cpp )
-
 # Adding specific compiler flags
 if( CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
     set( COMPILE_FLAGS "/Wall /Yd /Oy" )
@@ -47,24 +35,47 @@ else()
 endif()
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}" )
 
-# Adding cppcheck properties
-if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
-    set( cppcheck cppcheck "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
-    set_target_properties( ${GRAPHICS} PROPERTIES CXX_CPPCHECK ${cppcheck})
-    set_target_properties( ${MANIPULATORS} PROPERTIES CXX_CPPCHECK ${cppcheck})
-    set_target_properties( ${PROGRESSBAR} PROPERTIES CXX_CPPCHECK ${cppcheck})
-    set_target_properties( ${REDIRECTION} PROPERTIES CXX_CPPCHECK ${cppcheck})
-endif()
+# Create a function to launch executables
+function( launch_exec )
 
-# Link to osmanip
-target_link_libraries( ${MANIPULATORS} PRIVATE osmanip::osmanip )
-target_link_libraries( ${PROGRESSBAR} PRIVATE osmanip::osmanip )
-target_link_libraries( ${GRAPHICS} PRIVATE osmanip::osmanip )
-target_link_libraries( ${REDIRECTION} PRIVATE osmanip::osmanip )
+    # Declare executables vars
+    set( GRAPHICS "osmanip_graphics" )
+    set( MANIPULATORS "osmanip_manipulators" )
+    set( PROGRESSBAR "osmanip_progressbar" )
+    set( REDIRECTION "osmanip_redirection" )
 
-# Compile targets which depend on threads for each compiler except Clang
-if ( NOT CMAKE_CXX_COMPILER_ID STREQUAL "Clang" )
+    # Create executables
+    add_executable( ${GRAPHICS} graphics.cpp )
+    add_executable( ${MANIPULATORS} manipulators.cpp )
+    add_executable( ${PROGRESSBAR} progressbar.cpp )
+    add_executable( ${REDIRECTION} redirection.cpp )
+
+    # Adding cppcheck properties
+    if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+        set( cppcheck cppcheck "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
+        set_target_properties( ${GRAPHICS} PROPERTIES CXX_CPPCHECK ${cppcheck})
+        set_target_properties( ${MANIPULATORS} PROPERTIES CXX_CPPCHECK ${cppcheck})
+        set_target_properties( ${PROGRESSBAR} PROPERTIES CXX_CPPCHECK ${cppcheck})
+        set_target_properties( ${REDIRECTION} PROPERTIES CXX_CPPCHECK ${cppcheck})
+    endif()
+
+    # Link to osmanip
+    target_link_libraries( ${MANIPULATORS} PRIVATE osmanip::osmanip )
+    target_link_libraries( ${PROGRESSBAR} PRIVATE osmanip::osmanip )
+    target_link_libraries( ${GRAPHICS} PRIVATE osmanip::osmanip )
+    target_link_libraries( ${REDIRECTION} PRIVATE osmanip::osmanip )
+
+    # Link to pthreads
     find_package( Threads )
     target_link_libraries( ${PROGRESSBAR} PRIVATE Threads::Threads )
     target_link_libraries( ${REDIRECTION} PRIVATE Threads::Threads )
+endfunction()
+
+# Compile for every compiler except clang 14
+if ( CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT ${CMAKE_CXX_COMPILER_VERSION} VERSION_GREATER_EQUAL "14.0.0" )
+    launch_exec()
+endif()
+
+if ( NOT CMAKE_CXX_COMPILER_ID STREQUAL "Clang" )
+    launch_exec()
 endif()
