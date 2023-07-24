@@ -2,7 +2,7 @@ var searchData=
 [
   ['redirout_121',['redirout',['../namespaceosm.html#a8ac7a7b9764da0aa1f2e4d507bf9e069',1,'osm']]],
   ['refresh_122',['refresh',['../classosm_1_1Canvas.html#ad4691efdc35f471f6b540b9b82ff8a47',1,'osm::Canvas']]],
-  ['removestyle_123',['removeStyle',['../classosm_1_1Decorator.html#a12ee7c2a2ca934b5074e9d9652bf916e',1,'osm::Decorator']]],
+  ['removestyle_123',['removeStyle',['../classosm_1_1Decorator.html#af5bd1b0057f5ff11da51c6a33a9a96c1',1,'osm::Decorator']]],
   ['resetall_124',['resetAll',['../classosm_1_1ProgressBar.html#a131bf2a58e787bb3556ae57781f70de2',1,'osm::ProgressBar']]],
   ['resetbrackets_125',['resetBrackets',['../classosm_1_1ProgressBar.html#a661ab077b857cf7bf5f21a30fb02ffea',1,'osm::ProgressBar']]],
   ['resetcolor_126',['resetColor',['../classosm_1_1Decorator.html#ab64bf62a63c5e6e2fb69814650d7525e',1,'osm::Decorator::resetColor()'],['../classosm_1_1ProgressBar.html#a112340d2942ca29a38b9c3e69d8bfcaf',1,'osm::ProgressBar::resetColor()']]],

@@ -1,12 +1,13 @@
 <map id="include/osmanip/manipulators/decorator.hpp" name="include/osmanip/manipulators/decorator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="265,5,460,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="329,5,524,47"/>
 <area shape="rect" id="node2" href="$colsty_8hpp.html" title=" " alt="" coords="176,95,325,136"/>
 <area shape="rect" id="node3" href="$common_8hpp.html" title=" " alt="" coords="24,184,173,225"/>
 <area shape="rect" id="node4" title=" " alt="" coords="299,273,354,300"/>
 <area shape="rect" id="node5" title=" " alt="" coords="43,273,154,300"/>
 <area shape="rect" id="node7" href="$iostream_8hpp.html" title=" " alt="" coords="400,102,583,129"/>
 <area shape="rect" id="node16" title=" " alt="" coords="608,102,749,129"/>
-<area shape="rect" id="node17" title=" " alt="" coords="773,102,832,129"/>
+<area shape="rect" id="node17" title=" " alt="" coords="773,102,861,129"/>
+<area shape="rect" id="node18" title=" " alt="" coords="885,102,944,129"/>
 <area shape="rect" id="node6" title=" " alt="" coords="450,348,514,375"/>
 <area shape="rect" id="node8" href="$output__redirector_8hpp.html" title=" " alt="" coords="415,184,560,225"/>
 <area shape="rect" id="node15" title=" " alt="" coords="585,191,654,218"/>
