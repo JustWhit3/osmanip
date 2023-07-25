@@ -14,8 +14,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_COLSTY_HPP
-#define OSMANIP_COLSTY_HPP
+#ifndef OSMANIP_MANIPULATORS_COLSTY_HPP
+#define OSMANIP_MANIPULATORS_COLSTY_HPP
 
 //====================================================
 //     Headers

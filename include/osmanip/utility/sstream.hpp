@@ -13,8 +13,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_MAIN_INCLUDE_UTILITY_SSTREAM_HPP
-#define OSMANIP_MAIN_INCLUDE_UTILITY_SSTREAM_HPP
+#ifndef OSMANIP_UTILITY_SSTREAM_HPP
+#define OSMANIP_UTILITY_SSTREAM_HPP
 
 //====================================================
 //     Headers

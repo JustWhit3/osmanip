@@ -14,8 +14,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_CURSOR_HPP
-#define OSMANIP_CURSOR_HPP
+#ifndef OSMANIP_MANIPULATORS_CURSOR_HPP
+#define OSMANIP_MANIPULATORS_CURSOR_HPP
 
 //====================================================
 //     Headers

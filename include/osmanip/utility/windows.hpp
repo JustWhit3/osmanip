@@ -14,8 +14,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_WINDOWS_HPP
-#define OSMANIP_WINDOWS_HPP
+#ifndef OSMANIP_UTILITY_WINDOWS_HPP
+#define OSMANIP_UTILITY_WINDOWS_HPP
 
 //====================================================
 //     Headers

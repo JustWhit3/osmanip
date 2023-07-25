@@ -14,8 +14,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_MULTIPROGRESSBAR_HPP
-#define OSMANIP_MULTIPROGRESSBAR_HPP
+#ifndef OSMANIP_PROGRESSBAR_MULTIPROGRESSBAR_HPP
+#define OSMANIP_PROGRESSBAR_MULTIPROGRESSBAR_HPP
 
 //====================================================
 //     Headers

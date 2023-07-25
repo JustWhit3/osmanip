@@ -14,8 +14,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_COMMON_HPP
-#define OSMANIP_COMMON_HPP
+#ifndef OSMANIP_MANIPULATORS_COMMON_HPP
+#define OSMANIP_MANIPULATORS_COMMON_HPP
 
 //====================================================
 //     Headers

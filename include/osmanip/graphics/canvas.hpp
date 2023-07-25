@@ -13,8 +13,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_CANVAS_HPP
-#define OSMANIP_CANVAS_HPP
+#ifndef OSMANIP_GRAPHICS_CANVAS_HPP
+#define OSMANIP_GRAPHICS_CANVAS_HPP
 
 //====================================================
 //     Headers

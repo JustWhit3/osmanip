@@ -12,8 +12,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_PLOT2DCANVAS
-#define OSMANIP_PLOT2DCANVAS
+#ifndef OSMANIP_GRAPHICS_PLOT2DCANVAS_HPP
+#define OSMANIP_GRAPHICS_PLOT2DCANVAS_HPP
 
 //====================================================
 //     Headers

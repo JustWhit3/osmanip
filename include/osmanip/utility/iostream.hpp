@@ -14,8 +14,8 @@
 //====================================================
 
 #pragma once
-#ifndef OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP
-#define OSMANIP_COUT_INCLUDE_UTILITY_IOSTREAM_HPP
+#ifndef OSMANIP_UTILITY_IOSTREAM_HPP
+#define OSMANIP_UTILITY_IOSTREAM_HPP
 
 //====================================================
 //     Headers

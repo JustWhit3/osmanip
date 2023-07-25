@@ -13,8 +13,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_OUTPUTREDIRECTOR_HPP
-#define OSMANIP_OUTPUTREDIRECTOR_HPP
+#ifndef OSMANIP_UTILITY_OUTPUTREDIRECTOR_HPP
+#define OSMANIP_UTILITY_OUTPUTREDIRECTOR_HPP
 
 //====================================================
 //     Headers

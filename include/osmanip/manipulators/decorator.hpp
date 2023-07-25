@@ -14,8 +14,8 @@
 //     Preprocessor settings
 //====================================================
 #pragma once
-#ifndef OSMANIP_DECORATOR_HPP
-#define OSMANIP_DECORATOR_HPP
+#ifndef OSMANIP_MANIPULATORS_DECORATOR_HPP
+#define OSMANIP_MANIPULATORS_DECORATOR_HPP
 
 //====================================================
 //     Headers
