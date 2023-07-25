@@ -104,7 +104,7 @@ namespace osm {
         if (my_shell.getStyle(my_shell.getCurrentStream()) != "") {
             std::vector<std::string> list_of_styles{
                 agr::split_string(my_shell.getStyle(my_shell.getCurrentStream()), " ")};
-            for (auto elem : list_of_styles) {
+            for (auto elem: list_of_styles) {
                 my_shell.getCurrentStream() << feat(sty, elem);
             }
         }

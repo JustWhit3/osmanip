@@ -8,3 +8,5 @@ AccessModifierOffset: 0
 IndentAccessModifiers: true
 CommentPragmas: '^$'
 ColumnLimit: 120
+SpaceBeforeRangeBasedForLoopColon: false
+ReferenceAlignment: Left

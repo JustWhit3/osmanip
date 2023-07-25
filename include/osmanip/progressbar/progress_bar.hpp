@@ -620,8 +620,7 @@ namespace osm {
                     agr::isFloatingPoint(iterating_var) ? (agr::roundoff(iterating_var, 1) * 10) : iterating_var,
                 width_ = (iterating_var_ + 1) / 4;
 
-                // Update of the progress
-                // indicator only:
+                // Update of the progress indicator only:
                 if (styles_map_.at("indicator").find(style_) != styles_map_.at("indicator").end()) {
                     output_ = feat(crs, "left", 100) + getColor() +
                               std::to_string(static_cast<int32_t>(round(iterating_var_++))) + feat(rst, "color") +
@@ -630,8 +629,7 @@ namespace osm {
                     update_output(output_);
                 }
 
-                // Update of the loader indicator
-                // only:
+                // Update of the loader indicator only:
                 else if (styles_map_.at("loader").find(style_) != styles_map_.at("loader").end()) {
                     output_ =
                         feat(crs, "left", 100) + getBrackets_open() + getColor() + getStyle() * width_ +
@@ -641,8 +639,7 @@ namespace osm {
                     update_output(output_);
                 }
 
-                // Update of the whole progress
-                // bar:
+                // Update of the whole progress bar:
                 else if (style_.find(style_p_) != std::string::npos && style_.find(style_l_) != std::string::npos &&
                          type_ == "complete") {
                     output_ =
@@ -773,7 +770,6 @@ namespace osm {
             //     Private static attributes
             //====================================================
             static string_set_map styles_map_;
-            static std::vector<bar_type> counter_;
             static std::mutex mutex_;
 
             //====================================================
@@ -782,8 +778,8 @@ namespace osm {
             long long time_count_;
             std::uint64_t ticks_occurred;
             bar_type max_, max_spin_, min_, iterating_var_, iterating_var_spin_, width_;
-            std::string style_, style_p_, style_l_, type_, conct_, message_, brackets_open_, brackets_close_, output_,
-                color_, time_flag_, color_name_;
+            std::string style_, style_p_, style_l_, type_, message_, brackets_open_, brackets_close_, output_, color_,
+                time_flag_, color_name_;
             steady_clock::time_point begin, end, begin_timer;
     };
 
@@ -827,9 +823,6 @@ namespace osm {
         {"loader", {"#", "■"}},
         {"spinner", {"/-\\|"}},
     };
-
-    template <typename bar_type>
-    std::vector<bar_type> ProgressBar<bar_type>::counter_(2);
 
     template <typename bar_type>
     std::mutex ProgressBar<bar_type>::mutex_;

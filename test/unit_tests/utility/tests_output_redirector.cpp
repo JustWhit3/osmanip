@@ -148,14 +148,14 @@ fs::path find_file(const std::string &filename) {
     auto working_path{fs::current_path()};
 
     // Search current directory first
-    for (const auto &working_dir_entry : fs::recursive_directory_iterator(working_path)) {
+    for (const auto &working_dir_entry: fs::recursive_directory_iterator(working_path)) {
         if (working_dir_entry.is_regular_file() && working_dir_entry.path().filename() == filename) {
             return working_dir_entry.path();
         }
     }
 
     // Recursively search the entire dir
-    for (const auto &dir_entry : fs::recursive_directory_iterator(working_path)) {
+    for (const auto &dir_entry: fs::recursive_directory_iterator(working_path)) {
         if (dir_entry.is_regular_file() && dir_entry.path().filename() == filename) {
             return dir_entry.path();
         }
