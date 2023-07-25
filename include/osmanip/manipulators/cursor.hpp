@@ -25,8 +25,7 @@
 #include <osmanip/manipulators/common.hpp>
 
 // STD headers
-#include <stdint.h>
-
+#include <cstdint>
 #include <string>
 #include <unordered_map>
 #include <utility>

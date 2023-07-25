@@ -26,9 +26,8 @@
 #include <osmanip/utility/iostream.hpp>
 
 // STD headers
-#include <stddef.h>
-#include <stdint.h>
-
+#include <cstddef>
+#include <cstdint>
 #include <mutex>
 #include <string>
 #include <tuple>

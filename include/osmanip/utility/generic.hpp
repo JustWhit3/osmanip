@@ -22,10 +22,12 @@
 
 // STD
 #include <cmath>
+#include <cstdlib>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <string_view>
+#include <type_traits>
 #include <vector>
 
 namespace osm {
@@ -145,7 +147,7 @@ namespace osm {
     /**
      * @brief Function to find the incremented unit of a loop. Not easy to understand its purpose without context, but
      * it is used to get the loop incremented unit in case of loops with floating-point indexes. See example usage in
-     * "osmanip" in progress bars "update" method.
+     * progress bars "update" method.
      * @tparam T The type of the iterating variable of the loop.
      * @param iterating_var The iterating variable of the loop.
      * @return T The incremented unit of the loop.

@@ -18,10 +18,13 @@
 #include <osmanip/utility/strings.hpp>
 
 // STD headers
-#include <stdio.h>
-
 #include <cctype>
+#include <cstdint>
+#include <cstdio>
+#include <ostream>
 #include <stdexcept>
+#include <string>
+#include <string_view>
 
 namespace osm {
 

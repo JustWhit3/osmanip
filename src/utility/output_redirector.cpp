@@ -21,10 +21,13 @@
 #include <osmanip/utility/strings.hpp>
 
 // STD headers
+#include <cstdint>
 #include <filesystem>
 #include <mutex>
 #include <sstream>
 #include <stdexcept>
+#include <string>
+#include <string_view>
 #include <utility>
 
 namespace osm {

@@ -18,6 +18,7 @@
 // STD
 #include <array>
 #include <cstdio>
+#include <map>
 #include <memory>
 #include <regex>
 #include <string>

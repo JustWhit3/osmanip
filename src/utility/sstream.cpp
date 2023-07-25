@@ -19,7 +19,10 @@
 #include <osmanip/utility/sstream.hpp>
 
 // STD headers
+#include <cstdint>
 #include <memory>
+#include <mutex>
+#include <ostream>
 
 namespace osm {
     // Stringbuf
