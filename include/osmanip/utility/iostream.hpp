@@ -5,7 +5,8 @@
  * @file iostream.hpp
  * @author Joel Thomas (joelthomas.e@gmail.com)
  * @date 2022-11-2
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -33,7 +34,8 @@ namespace osm {
     //====================================================
 
     extern std::ostream cout;          /// Linked to standard output
-    extern OutputRedirector redirout;  /// Linked to output redirection
+    extern OutputRedirector redirout;  /// Linked to output
+                                       /// redirection
 
 }  // namespace osm
 

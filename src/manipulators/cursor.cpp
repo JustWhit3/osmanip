@@ -3,9 +3,11 @@
 //====================================================
 /**
  * @file cursor.cpp
- * @author Gianluca Bianco (biancogianluca9@gmail.com)
+ * @author Gianluca Bianco
+ * (biancogianluca9@gmail.com)
  * @date 2022-06-06
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -35,27 +37,30 @@ namespace osm {
 
     // crs
     /**
-     * @brief It is used to store the cursor commands.
+     * @brief It is used to store the cursor
+     * commands.
      *
      */
-    const string_pair_map crs{
-        // Error variables:
-        {"error", std::make_pair("Inserted cursor command", "")},
+    const string_pair_map crs{// Error variables:
+                              {"error", std::make_pair("Inserted cursor command", "")},
 
-        // Cursor variables:
-        {"up", std::make_pair("\u001b[", "A")},
-        {"down", std::make_pair("\u001b[", "B")},
-        {"right", std::make_pair("\u001b[", "C")},
-        {"left", std::make_pair("\u001b[", "D")}};
+                              // Cursor variables:
+                              {"up", std::make_pair("\u001b[", "A")},
+                              {"down", std::make_pair("\u001b[", "B")},
+                              {"right", std::make_pair("\u001b[", "C")},
+                              {"left", std::make_pair("\u001b[", "D")}};
 
     // tcs
     /**
-     * @brief It is used to store the terminal control sequences.
+     * @brief It is used to store the terminal
+     * control sequences.
      *
      */
     const std::unordered_map<std::string, std::string> tcs{
         // Error variables:
-        {"error", "Inserted terminal control sequence"},
+        {"error",
+         "Inserted terminal control "
+         "sequence"},
 
         // Control characters variables:
         {"bell", "\x07"},  // Bell sound
@@ -72,8 +77,8 @@ namespace osm {
 
     // tcsc
     /**
-     * @brief It is used to store the terminal control sequences for clear line
-     * / screen.
+     * @brief It is used to store the terminal
+     * control sequences for clear line / screen.
      *
      */
     const string_pair_map tcsc{
@@ -91,19 +96,22 @@ namespace osm {
 
     // feat (second overload)
     /**
-     * @brief This overload, with respect to the standard function definition,
-     * takes an std::map object as the first argument, but with an std::pair as
-     * second type and additionally takes an extra integer argument to correctly
-     * set the parameter of the crs map.
+     * @brief This overload, with respect to the
+     * standard function definition, takes an
+     * std::map object as the first argument, but
+     * with an std::pair as second type and
+     * additionally takes an extra integer
+     * argument to correctly set the parameter of
+     * the crs map.
      *
      * @param generic_map The feature map.
      * @param feat_string The feature name.
-     * @param feat_int Extra integer argument to correctly set the parameter of
-     * the crs map.
-     * @return const std::string The output feature.
+     * @param feat_int Extra integer argument to
+     * correctly set the parameter of the crs map.
+     * @return const std::string The output
+     * feature.
      */
-    const std::string feat(const string_pair_map &generic_map,
-                           const std::string &feat_string, int32_t feat_int) {
+    const std::string feat(const string_pair_map &generic_map, const std::string &feat_string, int32_t feat_int) {
         try {
             auto it{generic_map.at(feat_string)};
             if (generic_map == crs || generic_map == tcsc) {
@@ -111,20 +119,23 @@ namespace osm {
             }
             return it.first;
         } catch (const std::exception &except) {
-            throw agr::except_error_func(generic_map.at("error").first,
-                                         feat_string, "is not supported!");
+            throw agr::except_error_func(generic_map.at("error").first, feat_string, "is not supported!");
         }
     }
 
     // go_to
     /**
-     * @brief It takes two integers as arguments which are the x and y position
-     * of the cursor in the screen and returns the interested position you want
-     * to reach.
+     * @brief It takes two integers as arguments
+     * which are the x and y position of the
+     * cursor in the screen and returns the
+     * interested position you want to reach.
      *
-     * @param x The x position of the cursor in the screen.
-     * @param y The y position of the cursor in the screen
-     * @return const std::string The (x,y) position of the cursor in the screen.
+     * @param x The x position of the cursor in
+     * the screen.
+     * @param y The y position of the cursor in
+     * the screen
+     * @return const std::string The (x,y)
+     * position of the cursor in the screen.
      */
     const std::string go_to(int32_t x, int32_t y) {
         std::ostringstream oss;

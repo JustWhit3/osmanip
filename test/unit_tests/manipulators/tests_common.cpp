@@ -32,7 +32,7 @@ using namespace std::literals::string_literals;
 //====================================================
 //     Main
 //====================================================
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
 #ifdef _WIN32
     osm::enableANSI();
 #endif
@@ -61,15 +61,12 @@ int main(int argc, char** argv) {
 
 // First overload:
 TEST_CASE("Testing the feat function.") {
-    static std::vector<std::unordered_map<std::string, std::string>>
-        maps_vector{osm::col, osm::sty, osm::rst};
-    const std::string test_string =
-        "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
+    static std::vector<std::unordered_map<std::string, std::string>> maps_vector{osm::col, osm::sty, osm::rst};
+    const std::string test_string = "error" + " \""s + "not"s + "\" "s + "supported" + "\n";
 
-    for (auto& element_v : maps_vector) {
-        for (auto& element_m : element_v) {
-            CHECK_EQ(osm::feat(element_v, element_m.first),
-                     element_v.at(element_m.first));
+    for (auto &element_v : maps_vector) {
+        for (auto &element_m : element_v) {
+            CHECK_EQ(osm::feat(element_v, element_m.first), element_v.at(element_m.first));
         }
     }
 

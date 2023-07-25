@@ -5,7 +5,8 @@
  * @file plot_2D.cpp
  * @author Miguel MJ (miguelmjvg@gmail.com)
  * @date 2022-06-06
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -20,24 +21,23 @@
 #include <stdint.h>
 
 namespace osm {
+
     //====================================================
     //     Constructors
     //====================================================
 
     // Parametric constructor
     /**
-     * @brief Construct a new Plot2D:: Plot2D object. The same as its parent,
-     * the constructor requires the dimensions of the canvas.
+     * @brief Construct a new Plot2D:: Plot2D
+     * object. The same as its parent, the
+     * constructor requires the dimensions of the
+     * canvas.
      *
      * @param width Width of the canvas.
      * @param height Height of the canvas.
      */
-    Plot2DCanvas::Plot2DCanvas(uint32_t w, uint32_t h) : Canvas(w, h) {
-        offset_x_ = 0;
-        offset_y_ = 0;
-        scale_x_ = 1;
-        scale_y_ = 1;
-    }
+    Plot2DCanvas::Plot2DCanvas(uint32_t w, uint32_t h)
+        : Canvas(w, h), offset_x_(0), offset_y_(0), scale_x_(1), scale_y_(1) {}
 
     //====================================================
     //     Setters
@@ -45,7 +45,8 @@ namespace osm {
 
     // setOffset
     /**
-     * @brief Set the offset_x and offset_y of the canvas.
+     * @brief Set the offset_x and offset_y of the
+     * canvas.
      *
      * @param offset_x The offset_x of the canvas.
      * @param offset_y The offset_y of the canvas.
@@ -57,7 +58,8 @@ namespace osm {
 
     // setScale
     /**
-     * @brief Set the scale_x and scale_y of the canvas.
+     * @brief Set the scale_x and scale_y of the
+     * canvas.
      *
      * @param scale_x The scale_x of the canvas.
      * @param scale_y The scale_y of the canvas.

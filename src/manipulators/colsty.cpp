@@ -3,9 +3,11 @@
 //====================================================
 /**
  * @file colsty.cpp
- * @author Gianluca Bianco (biancogianluca9@gmail.com)
+ * @author Gianluca Bianco
+ * (biancogianluca9@gmail.com)
  * @date 2022-06-06
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -30,8 +32,10 @@ namespace osm {
 
     // col
     /**
-     * @brief It is used to store the colors. Note: "bg" is the prefix of the
-     * background color features and "bd" is the one of the bold color features.
+     * @brief It is used to store the colors.
+     * Note: "bg" is the prefix of the background
+     * color features and "bd" is the one of the
+     * bold color features.
      *
      */
     const std::unordered_map<std::string, std::string> col{
@@ -90,24 +94,26 @@ namespace osm {
      * @brief It is used to store the styles.
      *
      */
-    const std::unordered_map<std::string, std::string> sty{
-        // Error variables:
-        {"error", "Inserted style"},
+    const std::unordered_map<std::string,
+                             std::string>
+        sty{// Error variables:
+            {"error", "Inserted style"},
 
-        // Style variables:
-        {"bold", "\033[1m"},
-        {"faint", "\033[2m"},
-        {"italics", "\033[3m"},
-        {"underlined", "\033[4m"},
-        {"blink", "\033[5m"},
-        {"inverse", "\033[7m"},
-        {"invisible", "\033[8m"},
-        {"crossed", "\033[9m"},
-        {"d-underlined", "\033[21m"}};
+            // Style variables:
+            {"bold", "\033[1m"},
+            {"faint", "\033[2m"},
+            {"italics", "\033[3m"},
+            {"underlined", "\033[4m"},
+            {"blink", "\033[5m"},
+            {"inverse", "\033[7m"},
+            {"invisible", "\033[8m"},
+            {"crossed", "\033[9m"},
+            {"d-underlined", "\033[21m"}};
 
     // rst
     /**
-     * @brief It is used to store the reset features commands.
+     * @brief It is used to store the reset
+     * features commands.
      *
      */
     const std::unordered_map<std::string, std::string> rst{
@@ -138,15 +144,20 @@ namespace osm {
 
     // RGB
     /**
-     * @brief It takes three integers as arguments which are the corresponding
-     * rgb triplets of a color (see here for the full list of available colors
-     * http://www.aksiom.net/rgb.html). It can be used to output a wider variety
-     * of colors with respect to the standard available from the col map.
+     * @brief It takes three integers as arguments
+     * which are the corresponding rgb triplets of
+     * a color (see here for the full list of
+     * available colors
+     * http://www.aksiom.net/rgb.html). It can be
+     * used to output a wider variety of colors
+     * with respect to the standard available from
+     * the col map.
      *
      * @param r The r singlet of the tripled.
      * @param g The g singlet of the tripled.
      * @param b The b singlet of the tripled.
-     * @return const std::string The rgb triplet of the color.
+     * @return const std::string The rgb triplet
+     * of the color.
      */
     const std::string RGB(int32_t r, int32_t g, int32_t b) {
         static std::ostringstream oss;

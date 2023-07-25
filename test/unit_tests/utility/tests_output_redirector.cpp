@@ -29,10 +29,10 @@ const std::string TEST_FILENAME{"test_output_redirector.txt"};
 //====================================================
 
 // Helper functions
-bool delete_file(const std::string& filename);
-bool file_exists(const std::string& filename);
-fs::path find_file(const std::string& filename);
-std::string read_file(const std::string& filename);
+bool delete_file(const std::string &filename);
+bool file_exists(const std::string &filename);
+fs::path find_file(const std::string &filename);
+std::string read_file(const std::string &filename);
 
 // Test functions
 void test_perc_bars();
@@ -57,9 +57,7 @@ TEST_CASE("Testing OutputRedirector class") {
     //====================================================
     TEST_SUITE_BEGIN("Setters, getters and constructors.");
 
-    SUBCASE("Testing naked getters and constructor.") {
-        CHECK_EQ(osm::redirout.getFilename(), default_filename);
-    }
+    SUBCASE("Testing naked getters and constructor.") { CHECK_EQ(osm::redirout.getFilename(), default_filename); }
 
     //   SUBCASE( "Testing setters and getters with initialized values." )
     //    {
@@ -135,7 +133,7 @@ TEST_CASE("Testing OutputRedirector class") {
 //====================================================
 
 // Finds a file and return its absolute path
-bool file_exists(const std::string& filename) {
+bool file_exists(const std::string &filename) {
     namespace fs = std::filesystem;
 
     auto working_path{fs::current_path()};
@@ -144,25 +142,21 @@ bool file_exists(const std::string& filename) {
 }
 
 // Finds a file and return its absolute path
-fs::path find_file(const std::string& filename) {
+fs::path find_file(const std::string &filename) {
     namespace fs = std::filesystem;
 
     auto working_path{fs::current_path()};
 
     // Search current directory first
-    for (const auto& working_dir_entry :
-         fs::recursive_directory_iterator(working_path)) {
-        if (working_dir_entry.is_regular_file() &&
-            working_dir_entry.path().filename() == filename) {
+    for (const auto &working_dir_entry : fs::recursive_directory_iterator(working_path)) {
+        if (working_dir_entry.is_regular_file() && working_dir_entry.path().filename() == filename) {
             return working_dir_entry.path();
         }
     }
 
     // Recursively search the entire dir
-    for (const auto& dir_entry :
-         fs::recursive_directory_iterator(working_path)) {
-        if (dir_entry.is_regular_file() &&
-            dir_entry.path().filename() == filename) {
+    for (const auto &dir_entry : fs::recursive_directory_iterator(working_path)) {
+        if (dir_entry.is_regular_file() && dir_entry.path().filename() == filename) {
             return dir_entry.path();
         }
     }
@@ -170,7 +164,7 @@ fs::path find_file(const std::string& filename) {
     return {};
 }
 
-std::string read_file(const std::string& filename) {
+std::string read_file(const std::string &filename) {
     std::fstream fstream(filename);
     CHECK_EQ(fstream.is_open(), true);
     std::stringstream sstream;
@@ -179,9 +173,7 @@ std::string read_file(const std::string& filename) {
     return sstream.str();
 }
 
-bool delete_file(const std::string& filename) {
-    return fs::remove(find_file(filename));
-}
+bool delete_file(const std::string &filename) { return fs::remove(find_file(filename)); }
 
 void test_perc_bars() {
     osm::cout << "\n"
@@ -214,8 +206,7 @@ void test_perc_bars() {
 
     osm::cout << "This is a percentage bar with message and the /100 style: "
               << "\n";
-    for (float i{percentage_bar_2.getMin()}; i < percentage_bar_2.getMax();
-         i += 0.1f) {
+    for (float i{percentage_bar_2.getMin()}; i < percentage_bar_2.getMax(); i += 0.1f) {
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
         percentage_bar_2.update(i);
         // Do some operations...
@@ -336,9 +327,8 @@ void test_mixed_bars() {
     mixed_bar.setRemainingTimeFlag("on");
     mixed_bar.resetRemainingTime();
 
-    osm::cout
-        << "This is a mixed progress bar with color and time remaining info: "
-        << "\n";
+    osm::cout << "This is a mixed progress bar with color and time remaining info: "
+              << "\n";
     for (float i{mixed_bar.getMin()}; i < mixed_bar.getMax(); i += 0.1f) {
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
         mixed_bar.update(i);
@@ -397,8 +387,7 @@ void test_progress_spinner() {
 
     osm::cout << "This is another progress spinner: "
               << "\n";
-    for (float i{spinner_float.getMin()}; i < spinner_float.getMax();
-         i += 0.1f) {
+    for (float i{spinner_float.getMin()}; i < spinner_float.getMax(); i += 0.1f) {
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
         spinner_float.update(i);
         // Do some operations...

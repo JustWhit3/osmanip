@@ -3,9 +3,11 @@
 //====================================================
 /**
  * @file common.hpp
- * @author Gianluca Bianco (biancogianluca9@gmail.com)
+ * @author Gianluca Bianco
+ * (biancogianluca9@gmail.com)
  * @date 2022-06-06
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -24,12 +26,12 @@
 #include <unordered_map>
 
 namespace osm {
+
     //====================================================
     //     Functions
     //====================================================
-    extern const std::string& feat(
-        const std::unordered_map<std::string, std::string>& generic_map,
-        const std::string& feat_string);
+    extern const std::string &feat(const std::unordered_map<std::string, std::string> &generic_map,
+                                   const std::string &feat_string);
 }  // namespace osm
 
 #endif

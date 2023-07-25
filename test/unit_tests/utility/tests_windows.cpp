@@ -29,15 +29,13 @@ TEST_CASE("Testing the enableUNICODE and disableUNICODE functions.") {
 
     osm::enableUNICODE();
     const std::string old_chcp_pre_UNICODE = agr::getCommandOut("chcp");
-    std::string old_chcp_UNICODE =
-        agr::split_string(old_chcp_pre_UNICODE, " ").back();
+    std::string old_chcp_UNICODE = agr::split_string(old_chcp_pre_UNICODE, " ").back();
 
     CHECK_EQ(old_chcp_UNICODE, "65001\n");
 
     osm::disableUNICODE();
     const std::string old_chcp_pre_UNICODE_off = agr::getCommandOut("chcp");
-    std::string old_chcp_UNICODE_off =
-        agr::split_string(old_chcp_pre_UNICODE_off, " ").back();
+    std::string old_chcp_UNICODE_off = agr::split_string(old_chcp_pre_UNICODE_off, " ").back();
 
     CHECK_EQ(old_chcp_UNICODE_off, old_chcp);
 }

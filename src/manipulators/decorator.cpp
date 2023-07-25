@@ -3,9 +3,11 @@
 //====================================================
 /**
  * @file decorator.cpp
- * @author Gianluca Bianco (biancogianluca9@gmail.com)
+ * @author Gianluca Bianco
+ * (biancogianluca9@gmail.com)
  * @date 2022-06-06
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -28,7 +30,8 @@ namespace osm {
     //     Constructors
     //====================================================
     /**
-     * @brief Default constructor of Decorator class.
+     * @brief Default constructor of Decorator
+     * class.
      *
      */
     Decorator::Decorator() {}
@@ -48,10 +51,13 @@ namespace osm {
 
     // setColor
     /**
-     * @brief Method used to set the color of a stream.
+     * @brief Method used to set the color of a
+     * stream.
      *
-     * @param color The color to be set for the stream.
-     * @param os The stream to be modified. Default is osm::cout.
+     * @param color The color to be set for the
+     * stream.
+     * @param os The stream to be modified.
+     * Default is osm::cout.
      */
     void Decorator::setColor(const std::string &color, std::ostream &os) {
         if (colors.count(&os) == 1)
@@ -62,10 +68,13 @@ namespace osm {
 
     // setStyle
     /**
-     * @brief Method used to set the style of a stream.
+     * @brief Method used to set the style of a
+     * stream.
      *
-     * @param color The style to be set for the stream.
-     * @param os The stream to be modified. Default is osm::cout.
+     * @param color The style to be set for the
+     * stream.
+     * @param os The stream to be modified.
+     * Default is osm::cout.
      */
     void Decorator::setStyle(const std::string &style, std::ostream &os) {
         if (styles.count(&os) == 1)
@@ -76,29 +85,38 @@ namespace osm {
 
     // resetColor
     /**
-     * @brief Method used to reset the color of a stream.
+     * @brief Method used to reset the color of a
+     * stream.
      *
-     * @param color The color to be reset for the stream.
-     * @param os The stream to be modified. Default is osm::cout.
+     * @param color The color to be reset for the
+     * stream.
+     * @param os The stream to be modified.
+     * Default is osm::cout.
      */
     void Decorator::resetColor(std::ostream &os) { colors.erase(&os); }
 
     // resetStyle
     /**
-     * @brief Method used to reset the style or of a stream.
+     * @brief Method used to reset the style or of
+     * a stream.
      *
-     * @param color The style to be reset for the stream.
-     * @param os The stream to be modified. Default is osm::cout.
+     * @param color The style to be reset for the
+     * stream.
+     * @param os The stream to be modified.
+     * Default is osm::cout.
      */
     void Decorator::resetStyle(std::ostream &os) { styles.erase(&os); }
 
     // removeStyle
     /**
-     * @brief Method used to remove one of the set styles (useful in case they
-     * are more than one).
+     * @brief Method used to remove one of the set
+     * styles (useful in case they are more than
+     * one).
      *
-     * @param color The style to be reset for the stream.
-     * @param os The stream to be modified. Default is osm::cout.
+     * @param color The style to be reset for the
+     * stream.
+     * @param os The stream to be modified.
+     * Default is osm::cout.
      */
     void Decorator::removeStyle(std::string_view style, std::ostream &os) {
         std::string str_mod{styles.at(&os)};
@@ -114,9 +132,11 @@ namespace osm {
 
     // resetFeatures
     /**
-     * @brief Method used to reset all the features of a stream.
+     * @brief Method used to reset all the
+     * features of a stream.
      *
-     * @param os The stream to be modified. Default is osm::cout.
+     * @param os The stream to be modified.
+     * Default is osm::cout.
      */
     void Decorator::resetFeatures(std::ostream &os) {
         colors.erase(&os);
@@ -130,51 +150,57 @@ namespace osm {
 
     // getColor
     /**
-     * @brief Method used to return the selected color of a stream.
+     * @brief Method used to return the selected
+     * color of a stream.
      *
-     * @param os The stream which color is returned. Default is osm::cout.
+     * @param os The stream which color is
+     * returned. Default is osm::cout.
      *
-     * @return std::string The current color of the stream.
+     * @return std::string The current color of
+     * the stream.
      */
     std::string Decorator::getColor(std::ostream &os) { return colors[&os]; }
 
     // getStyle
     /**
-     * @brief Method used to return the selected style of a stream.
+     * @brief Method used to return the selected
+     * style of a stream.
      *
-     * @param os The stream which style is returned. Default is osm::cout.
+     * @param os The stream which style is
+     * returned. Default is osm::cout.
      *
-     * @return std::string The current style of the stream.
+     * @return std::string The current style of
+     * the stream.
      */
     std::string Decorator::getStyle(std::ostream &os) { return styles[&os]; }
 
     // getColorList
     /**
-     * @brief Method used to return the map of streams with the respective
-     * color.
+     * @brief Method used to return the map of
+     * streams with the respective color.
      *
-     * @return std::map <std::ostream*, std::string> The stream-color map.
+     * @return std::map <std::ostream*,
+     * std::string> The stream-color map.
      */
-    std::unordered_map<std::ostream *, std::string> Decorator::getColorList() {
-        return colors;
-    }
+    std::unordered_map<std::ostream *, std::string> Decorator::getColorList() { return colors; }
 
     // getStyleList
     /**
-     * @brief Method used to return the map of streams with the respective
-     * style.
+     * @brief Method used to return the map of
+     * streams with the respective style.
      *
-     * @return std::map <std::ostream*, std::string> The stream-color map.
+     * @return std::map <std::ostream*,
+     * std::string> The stream-color map.
      */
-    std::unordered_map<std::ostream *, std::string> Decorator::getStyleList() {
-        return styles;
-    }
+    std::unordered_map<std::ostream *, std::string> Decorator::getStyleList() { return styles; }
 
     // getCurrentStream
     /**
-     * @brief Method used to return the stream that is used to output stuff.
+     * @brief Method used to return the stream
+     * that is used to output stuff.
      *
-     * @return std::ostream& The used stream to output stuff.
+     * @return std::ostream& The used stream to
+     * output stuff.
      */
     std::ostream &Decorator::getCurrentStream() { return *current_stream; }
 
@@ -184,10 +210,12 @@ namespace osm {
 
     // operator ()
     /**
-     * @brief Operator overload to assign the value into parentheses to the
+     * @brief Operator overload to assign the
+     * value into parentheses to the
      * "current_stream" variable.
      *
-     * @param os Input value, i.e. the stream put into parentheses.
+     * @param os Input value, i.e. the stream put
+     * into parentheses.
      * @return const Decorator& The class pointer.
      */
     const Decorator &Decorator::operator()(std::ostream &os) {

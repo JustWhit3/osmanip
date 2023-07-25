@@ -45,12 +45,8 @@ TEST_CASE("Testing MultiProgressBar class") {
         static std::stringstream ss_multi, ss_normal;
 
         for (int32_t i{bar1.getMin()}; i < bar1.getMax(); i++) {
-            auto first_output_multi = [&i, &bars](std::ostream&) {
-                bars.for_one(0, osm::updater{}, i);
-            };
-            auto first_output_normal = [&i, &bar1](std::ostream&) {
-                bar1.update(i);
-            };
+            auto first_output_multi = [&i, &bars](std::ostream &) { bars.for_one(0, osm::updater{}, i); };
+            auto first_output_normal = [&i, &bar1](std::ostream &) { bar1.update(i); };
 
             auto old_buffer{osm::cout.rdbuf(nullptr)};
             first_output_multi(ss_multi);
@@ -65,12 +61,8 @@ TEST_CASE("Testing MultiProgressBar class") {
         bar2.setStyle("loader", "#");
 
         for (double i{bar2.getMin()}; i < bar2.getMax(); i += 0.1) {
-            auto first_output_multi = [&i, &bars](std::ostream&) {
-                bars.for_one(1, osm::updater{}, i);
-            };
-            auto first_output_normal = [&i, &bar2](std::ostream&) {
-                bar2.update(i);
-            };
+            auto first_output_multi = [&i, &bars](std::ostream &) { bars.for_one(1, osm::updater{}, i); };
+            auto first_output_normal = [&i, &bar2](std::ostream &) { bar2.update(i); };
 
             auto old_buffer{osm::cout.rdbuf(nullptr)};
             first_output_multi(ss_multi);
@@ -85,12 +77,8 @@ TEST_CASE("Testing MultiProgressBar class") {
         bar3.setStyle("complete", "%", "#");
 
         for (float i{bar3.getMin()}; i < bar3.getMax(); i += 0.1f) {
-            auto first_output_multi = [&i, &bars](std::ostream&) {
-                bars.for_one(2, osm::updater{}, i);
-            };
-            auto first_output_normal = [&i, &bar3](std::ostream&) {
-                bar3.update(i);
-            };
+            auto first_output_multi = [&i, &bars](std::ostream &) { bars.for_one(2, osm::updater{}, i); };
+            auto first_output_normal = [&i, &bar3](std::ostream &) { bar3.update(i); };
 
             auto old_buffer{osm::cout.rdbuf(nullptr)};
             first_output_multi(ss_multi);

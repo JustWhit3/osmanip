@@ -5,7 +5,8 @@
  * @file sstream.hpp
  * @author Joel Thomas (joelthomas.e@gmail.com)
  * @date 2022-11-2
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -28,98 +29,68 @@
 namespace osm {
 
     //====================================================
-    //     Classes
+    //     Stringbuf
     //====================================================
-
-    // Stringbuf
     /**
-     * @brief This class inherits std::stringbuf and adds additional
-     * functionality and threadsafety.
+     * @brief This class inherits std::stringbuf
+     * and adds additional functionality and
+     * thread safety.
      *
      */
     class Stringbuf : public std::stringbuf {
-       public:
-        //====================================================
-        //     Constructor and destructor
-        //====================================================
+        public:
 
-        Stringbuf();
+            // Constructors and destructor
+            Stringbuf();
+            ~Stringbuf() override;
 
-        // Destructor
-        ~Stringbuf() override;
+            // Getters
+            std::mutex &getMutex();
 
-        //====================================================
-        //     Getters
-        //====================================================
+            // Methods
+            int32_t sync() override;
 
-        std::mutex& getMutex();
+        private:
 
-        //====================================================
-        //     Virtual methods
-        //====================================================
-
-        int32_t sync() override;
-
-       private:
-        //====================================================
-        //     Private attributes
-        //====================================================
-
-        std::mutex mutex_;
+            // Attributes
+            std::mutex mutex_;
     };
 
-    // Ostreambuf
+    //====================================================
+    //     Ostreambuf
+    //====================================================
     /**
-     * @brief This class inherits Stringbuf and adds the ability to send output
-     * to a specific std::ostream buffer as well as redirect output to
-     * osm::redirout.
+     * @brief This class inherits Stringbuf and
+     * adds the ability to send output to a
+     * specific std::ostream buffer as well as
+     * redirect output to osm::redirout.
      *
      */
     class Ostreambuf : public Stringbuf {
-       public:
-        //====================================================
-        //     Constructors
-        //====================================================
+        public:
 
-        Ostreambuf();
-        explicit Ostreambuf(std::ostream* ostream);
+            // Constructors and destructor
+            Ostreambuf();
+            explicit Ostreambuf(std::ostream *ostream);
+            ~Ostreambuf() override;
 
-        //====================================================
-        //     Destructor
-        //====================================================
+            // Setters
+            void setOstream(std::ostream *ostream);
 
-        ~Ostreambuf() override;
+            // Getters
+            std::ostream *getOstream();
 
-        //====================================================
-        //     Setters
-        //====================================================
+            // Methods
+            int32_t sync() override;
 
-        void setOstream(std::ostream* ostream);
+        private:
 
-        //====================================================
-        //     Getters
-        //====================================================
+            // Methods
+            void sync_output();
+            void sync_redirection();
 
-        std::ostream* getOstream();
-        //====================================================
-        //     Virtual methods
-        //====================================================
-
-        int32_t sync() override;
-
-       private:
-        //====================================================
-        //     Private attributes
-        //====================================================
-
-        std::ostream* ostream_;
-
-        //====================================================
-        //     Private methods
-        //====================================================
-
-        void sync_output();
-        void sync_redirection();
+            // Members
+            std::ostream *ostream_;
     };
 
 }  // namespace osm

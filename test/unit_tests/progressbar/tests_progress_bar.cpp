@@ -37,8 +37,8 @@ const std::string style_l_{"#"};
 //====================================================
 //     Testing ProgressBar
 //====================================================
-TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t,
-                   int64_t, long long, double, long double, float) {
+TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t, int64_t, long long, double, long double,
+                   float) {
     osm::ProgressBar<T> bar;
     T max = 10., min = 5.;
     std::string type{"indicator"};
@@ -100,9 +100,8 @@ TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t,
         // Extra test for getStyle:
         bar.setStyle("complete", style_p_, style_l_);
 
-        static const std::string complete_style{"Percentage: \"" + style_p_ +
-                                                "\"\n" + "Loader: \"" +
-                                                style_l_ + "\"\n"};
+        static const std::string complete_style{"Percentage: \"" + style_p_ + "\"\n" + "Loader: \"" + style_l_ +
+                                                "\"\n"};
 
         CHECK_EQ(bar.getStyleComplete(), complete_style);
 
@@ -187,10 +186,7 @@ TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t,
         // anything.
         for (T i{bar.getMax()}; i < bar.getMin(); i++) {
             bar.update(i);
-            CHECK_EQ(bar.getIteratingVar(),
-                     100 * (i - bar.getMin()) /
-                             (bar.getMax() - bar.getMin() - agr::one(i)) +
-                         1);
+            CHECK_EQ(bar.getIteratingVar(), 100 * (i - bar.getMin()) / (bar.getMax() - bar.getMin() - agr::one(i)) + 1);
         }
     }
 

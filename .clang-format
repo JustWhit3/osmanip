@@ -2,3 +2,9 @@ BasedOnStyle: Google
 IndentWidth: 4
 UseTab: Never
 NamespaceIndentation: All
+EmptyLineAfterAccessModifier: Always
+IndentPPDirectives: None
+AccessModifierOffset: 0
+IndentAccessModifiers: true
+CommentPragmas: '^$'
+ColumnLimit: 120

@@ -3,9 +3,11 @@
 //====================================================
 /**
  * @file options.hpp
- * @author Gianluca Bianco (biancogianluca9@gmail.com)
+ * @author Gianluca Bianco
+ * (biancogianluca9@gmail.com)
  * @date 2022-06-06
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -31,42 +33,44 @@
 #include <string>
 
 namespace osm {
+
     //====================================================
     //     Enum classes
     //====================================================
 
     // CURSOR
     /**
-     * @brief It is used to store the OPTION function options for the cursor
-     * view. Current options are: ON to enable cursor view and OFF to disable
-     * it.
+     * @brief It is used to store the OPTION
+     * function options for the cursor view.
+     * Current options are: ON to enable cursor
+     * view and OFF to disable it.
      *
      */
     enum class CURSOR { ON, OFF };
 
     // ANSI
     /**
-     * @brief It is used to store the OPTION function options for the ANSI
-     * escape sequences enabling. Current options are: ON to enable and OFF to
-     * disable.
+     * @brief It is used to store the OPTION
+     * function options for the ANSI escape
+     * sequences enabling. Current options are: ON
+     * to enable and OFF to disable.
      *
      */
     enum class ANSI { ON, OFF };
 
     // UNICODECH
     /**
-     * @brief It is used to store the OPTION function options for the UNICODE
-     * characters enabling. Current options are: ON to enable and OFF to
-     * disable.
+     * @brief It is used to store the OPTION
+     * function options for the UNICODE characters
+     * enabling. Current options are: ON to enable
+     * and OFF to disable.
      *
      */
     enum class UNICODECH { ON, OFF };
 
     //====================================================
-    //     Functions
+    //     OPTION
     //====================================================
-
-    // OPTION
     /**
      * @brief It is used to set a specific option.
      *
@@ -93,7 +97,8 @@ namespace osm {
                 disableUNICODE();
         } else
             std::cerr << feat(col, "red")
-                      << "Inserted cursor option is not supported!"
+                      << "Inserted cursor option "
+                         "is not supported!"
                       << feat(rst, "all") << "\n";
     }
 }  // namespace osm

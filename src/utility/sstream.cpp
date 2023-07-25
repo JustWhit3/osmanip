@@ -5,7 +5,8 @@
  * @file sstream.cpp
  * @author Joel Thomas (joelthomas.e@gmail.com)
  * @date 2022-11-2
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -28,16 +29,18 @@ namespace osm {
 
     // Default constructor
     /**
-     * @brief Construct a new Stringbuf object. Default constructor will set the
-     * main attributes to default values.
+     * @brief Construct a new Stringbuf object.
+     * Default constructor will set the main
+     * attributes to default values.
      *
      */
     Stringbuf::Stringbuf() = default;
 
     // Destructor
     /**
-     * @brief Destructs OutputRedirector object. Calls this->pubsync() before
-     * being destroyed.
+     * @brief Destructs OutputRedirector object.
+     * Calls this->pubsync() before being
+     * destroyed.
      *
      */
     Stringbuf::~Stringbuf() {
@@ -64,9 +67,11 @@ namespace osm {
 
     // sync
     /**
-     * @brief Calls the base class sync() function.
+     * @brief Calls the base class sync()
+     * function.
      *
-     * @return the error state of the underlying buffer.
+     * @return the error state of the underlying
+     * buffer.
      *
      */
     int32_t Stringbuf::sync() { return basic_streambuf::sync(); }
@@ -78,8 +83,9 @@ namespace osm {
 
     // Default constructor
     /**
-     * @brief Construct a new Ostreambuf object. Default constructor will set
-     * the main attributes to default values.
+     * @brief Construct a new Ostreambuf object.
+     * Default constructor will set the main
+     * attributes to default values.
      *
      */
     Ostreambuf::Ostreambuf() : ostream_(nullptr) {}
@@ -88,15 +94,17 @@ namespace osm {
     /**
      * @brief Construct a new Ostreambuf object.
      *
-     * @param out the std::ostream object to use to output the buffer data.
+     * @param out the std::ostream object to use
+     * to output the buffer data.
      *
      */
     Ostreambuf::Ostreambuf(std::ostream *out) : ostream_(out) {}
 
     // Destructor
     /**
-     * @brief Destructs OutputRedirector object. Calls this->pubsync() before
-     * being destroyed.
+     * @brief Destructs OutputRedirector object.
+     * Calls this->pubsync() before being
+     * destroyed.
      *
      */
     Ostreambuf::~Ostreambuf() {
@@ -112,8 +120,10 @@ namespace osm {
 
     // setOstream
     /**
-     * @brief Sets the std::ostream* object to route output. If there is already
-     * an std::ostream* present, it will be flushed before it is replaced.
+     * @brief Sets the std::ostream* object to
+     * route output. If there is already an
+     * std::ostream* present, it will be flushed
+     * before it is replaced.
      *
      */
     void Ostreambuf::setOstream(std::ostream *out) {
@@ -131,9 +141,11 @@ namespace osm {
 
     // getOstream
     /**
-     * @brief Returns the current std::ostream* object.
+     * @brief Returns the current std::ostream*
+     * object.
      *
-     * @return if present, the std::ostream* object. Otherwise, nullptr.
+     * @return if present, the std::ostream*
+     * object. Otherwise, nullptr.
      *
      */
     std::ostream *Ostreambuf::getOstream() {
@@ -147,9 +159,11 @@ namespace osm {
 
     // sync
     /**
-     * @brief Synchronizes the buffer with the specified object.
+     * @brief Synchronizes the buffer with the
+     * specified object.
      *
-     * @return the error state of the stream buffer.
+     * @return the error state of the stream
+     * buffer.
      *
      */
     int32_t Ostreambuf::sync() {
@@ -170,8 +184,9 @@ namespace osm {
 
     // sync_output
     /**
-     * @brief Synchronizes the buffer with the specified std::ostream object and
-     * calls flush() on the object.
+     * @brief Synchronizes the buffer with the
+     * specified std::ostream object and calls
+     * flush() on the object.
      *
      */
     void Ostreambuf::sync_output() {
@@ -182,8 +197,9 @@ namespace osm {
 
     // sync_redirection
     /**
-     * @brief Synchronizes the buffer with the output redirection object and
-     * calls flush() on the object.
+     * @brief Synchronizes the buffer with the
+     * output redirection object and calls flush()
+     * on the object.
      *
      */
     void Ostreambuf::sync_redirection() {

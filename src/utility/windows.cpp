@@ -3,9 +3,11 @@
 //====================================================
 /**
  * @file windows.cpp
- * @author Gianluca Bianco (biancogianluca9@gmail.com)
+ * @author Gianluca Bianco
+ * (biancogianluca9@gmail.com)
  * @date 2022-06-06
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -54,7 +56,8 @@ namespace osm {
 
     // enableANSI
     /**
-     * @brief Function used to enable ANSI escape sequences on Windows.
+     * @brief Function used to enable ANSI escape
+     * sequences on Windows.
      *
      */
     void enableANSI() {
@@ -87,7 +90,8 @@ namespace osm {
     // disableANSI
     void disableANSI()
     /**
-     * @brief Function used to disable ANSI escape sequences on Windows.
+     * @brief Function used to disable ANSI escape
+     * sequences on Windows.
      *
      */
     {
@@ -107,8 +111,8 @@ namespace osm {
 
     // enableUNICODE
     /**
-     * @brief Function used to enable UNICODE characters (used for Windows
-     * only).
+     * @brief Function used to enable UNICODE
+     * characters (used for Windows only).
      *
      */
     void enableUNICODE() {
@@ -125,8 +129,8 @@ namespace osm {
 
     // disableUNICODE
     /**
-     * @brief Function used to disable UNICODE characters (used for Windows
-     * only).
+     * @brief Function used to disable UNICODE
+     * characters (used for Windows only).
      *
      */
     void disableUNICODE() {

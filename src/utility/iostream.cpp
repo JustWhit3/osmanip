@@ -5,7 +5,8 @@
  * @file iostream.cpp
  * @author Joel Thomas (joelthomas.e@gmail.com)
  * @date 2022-11-2
- * @copyright Copyright (c) 2022 Gianluca Bianco under the MIT license.
+ * @copyright Copyright (c) 2022 Gianluca Bianco
+ * under the MIT license.
  */
 
 //====================================================
@@ -26,9 +27,8 @@ namespace osm {
     //     Global variables
     //====================================================
 
-    Ostreambuf cout_buf{
-        &std::cout};  // NOLINT(cppcoreguidelines-interfaces-global-init)
-    std::ostream cout(&cout_buf);  /// Link to osm::cout
+    Ostreambuf cout_buf{&std::cout};  // NOLINT(cppcoreguidelines-interfaces-global-init)
+    std::ostream cout(&cout_buf);     /// Link to osm::cout
 
     OutputRedirector redirout{};
 
