@@ -448,7 +448,6 @@ Mandatory prerequisites (automatically installed with the script):
 - C++17 standard.
 - g++ compiler.
 - [CMake](https://cmake.org/) (at least version 3.15).
-- [arsenalgear](https://github.com/JustWhit3/arsenalgear-cpp) library.
 
 ### Package managers
 

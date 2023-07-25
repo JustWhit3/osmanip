@@ -16,9 +16,7 @@
 
 // My headers
 #include <osmanip/manipulators/common.hpp>
-
-// Extra headers
-#include <arsenalgear/utils.hpp>
+#include <osmanip/utility/generic.hpp>
 
 // STD headers
 #include <exception>
@@ -49,7 +47,7 @@ namespace osm {
         try {
             return generic_map.at(feat_string);
         } catch (const std::exception &except) {
-            throw agr::except_error_func(generic_map.at("error"), feat_string, "is not supported!");
+            throw osm::except_error_func(generic_map.at("error"), feat_string, "is not supported!");
         }
     }
 }  // namespace osm

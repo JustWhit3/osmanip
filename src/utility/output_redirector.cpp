@@ -14,13 +14,11 @@
 //====================================================
 
 // My headers
+#include <osmanip/utility/generic.hpp>
 #include <osmanip/utility/iostream.hpp>
 #include <osmanip/utility/output_redirector.hpp>
 #include <osmanip/utility/sstream.hpp>
 #include <osmanip/utility/strings.hpp>
-
-// External headers
-#include <arsenalgear/utils.hpp>
 
 // STD headers
 #include <filesystem>
@@ -248,7 +246,7 @@ namespace osm {
     void OutputRedirector::prepare_output() {
         output_str_ << this << std::flush;
 
-        if (agr::is_escape(this->str(), agr::ANSI::generic)) {
+        if (osm::is_escape(this->str(), osm::ANSI_SEARCH::generic)) {
             output_str_.str(get_formatted_from_ansi(output_str_.str(), &last_ansi_str_index_, &last_ansi_str_size_));
         }
         this->str("");

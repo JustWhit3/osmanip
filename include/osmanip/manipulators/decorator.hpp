@@ -24,10 +24,8 @@
 // My headers
 #include <osmanip/manipulators/colsty.hpp>
 #include <osmanip/manipulators/common.hpp>
+#include <osmanip/utility/generic.hpp>
 #include <osmanip/utility/iostream.hpp>
-
-// Extra headers
-#include <arsenalgear/utils.hpp>
 
 // STD headers
 #include <string>
@@ -103,7 +101,7 @@ namespace osm {
         }
         if (my_shell.getStyle(my_shell.getCurrentStream()) != "") {
             std::vector<std::string> list_of_styles{
-                agr::split_string(my_shell.getStyle(my_shell.getCurrentStream()), " ")};
+                osm::split_string(my_shell.getStyle(my_shell.getCurrentStream()), " ")};
             for (auto elem: list_of_styles) {
                 my_shell.getCurrentStream() << feat(sty, elem);
             }

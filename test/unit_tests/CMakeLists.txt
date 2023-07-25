@@ -37,6 +37,7 @@ add_executable( ${UNIT}
     utility/tests_windows.cpp
     utility/tests_strings.cpp
     utility/tests_output_redirector.cpp
+    utility/tests_generic.cpp
 )
 
 # Adding specific compiler flags
@@ -61,7 +62,5 @@ endif()
 find_package( doctest )
 target_link_libraries( ${UNIT} PUBLIC doctest::doctest )
 
-# Link to arsenalgear
-find_package( arsenalgear )
-target_link_libraries( ${UNIT} PUBLIC arsenalgear::arsenalgear )
+# Link to osmanip
 target_link_libraries( ${UNIT} PRIVATE osmanip::osmanip )

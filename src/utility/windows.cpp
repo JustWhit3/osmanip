@@ -20,12 +20,9 @@
 #endif
 
 // My headers
+#include <osmanip/utility/generic.hpp>
 #include <osmanip/utility/iostream.hpp>
 #include <osmanip/utility/windows.hpp>
-
-// Extra headers
-#include <arsenalgear/system.hpp>
-#include <arsenalgear/utils.hpp>
 
 // STD headers
 #include <sstream>
@@ -119,8 +116,8 @@ namespace osm {
 // Settings for Windows mode
 #ifdef _WIN32
 
-        std::string old_chcp_pre = agr::getCommandOut("chcp");
-        old_chcp = agr::split_string(old_chcp_pre, " ").back();
+        std::string old_chcp_pre = osm::getCommandOut("chcp");
+        old_chcp = osm::split_string(old_chcp_pre, " ").back();
 
         system("chcp 65001 > nul");
 

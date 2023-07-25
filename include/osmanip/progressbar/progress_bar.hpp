@@ -25,13 +25,8 @@
 #include <osmanip/manipulators/colsty.hpp>
 #include <osmanip/manipulators/common.hpp>
 #include <osmanip/manipulators/cursor.hpp>
+#include <osmanip/utility/generic.hpp>
 #include <osmanip/utility/iostream.hpp>
-
-// Extra headers
-#include <arsenalgear/constants.hpp>
-#include <arsenalgear/math.hpp>
-#include <arsenalgear/operators.hpp>
-#include <arsenalgear/utils.hpp>
 
 // STD headers
 #include <stdint.h>
@@ -179,7 +174,7 @@ namespace osm {
                         style_ = style;
                         type_ = type;
                     } else if (styles_map_.at(type).find(style) == styles_map_.at(type).end()) {
-                        throw agr::except_error_func(
+                        throw osm::except_error_func(
                             "Inserted "
                             "ProgressBar "
                             "style",
@@ -188,7 +183,7 @@ namespace osm {
                             "supported for "
                             "this type!");
                     } else {
-                        throw agr::except_error_func(
+                        throw osm::except_error_func(
                             "Inserted "
                             "ProgressBar "
                             "type",
@@ -197,7 +192,7 @@ namespace osm {
                             "supported!");
                     }
                 } catch (std::out_of_range const &exception) {
-                    throw agr::except_error_func(
+                    throw osm::except_error_func(
                         "Inserted ProgressBar "
                         "type",
                         type, "is not supported!");
@@ -231,18 +226,18 @@ namespace osm {
                     style_l_ = style_l;
                     type_ = type;
                 } else if (styles_map_.at("indicator").find(style_p) == styles_map_.at("indicator").end()) {
-                    throw agr::except_error_func(
+                    throw osm::except_error_func(
                         "Inserted indicator "
                         "style",
                         style_p,
                         "is not supported for "
                         "this type!");
                 } else if (styles_map_.at("loader").find(style_l) == styles_map_.at("loader").end()) {
-                    throw agr::except_error_func("Inserted loader style", style_l,
+                    throw osm::except_error_func("Inserted loader style", style_l,
                                                  "is not supported for "
                                                  "this type!");
                 } else {
-                    throw agr::except_error_func(
+                    throw osm::except_error_func(
                         "Inserted ProgressBar "
                         "type",
                         type, "is not supported!");
@@ -615,9 +610,9 @@ namespace osm {
             void update(bar_type iterating_var) {
                 std::lock_guard<std::mutex> lock{mutex_};
 
-                iterating_var_ = 100 * (iterating_var - min_) / (max_ - min_ - agr::one(iterating_var)),
+                iterating_var_ = 100 * (iterating_var - min_) / (max_ - min_ - osm::one(iterating_var)),
                 iterating_var_spin_ =
-                    agr::isFloatingPoint(iterating_var) ? (agr::roundoff(iterating_var, 1) * 10) : iterating_var,
+                    osm::isFloatingPoint(iterating_var) ? (osm::roundoff(iterating_var, 1) * 10) : iterating_var,
                 width_ = (iterating_var_ + 1) / 4;
 
                 // Update of the progress indicator only:
@@ -633,7 +628,7 @@ namespace osm {
                 else if (styles_map_.at("loader").find(style_) != styles_map_.at("loader").end()) {
                     output_ =
                         feat(crs, "left", 100) + getBrackets_open() + getColor() + getStyle() * width_ +
-                        agr::empty_space<std::string> * ((agr::isFloatingPoint(iterating_var) ? 26 : 25) - width_) +
+                        osm::empty_space<std::string> * ((osm::isFloatingPoint(iterating_var) ? 26 : 25) - width_) +
                         feat(rst, "color") + getBrackets_close();
 
                     update_output(output_);
@@ -644,8 +639,8 @@ namespace osm {
                          type_ == "complete") {
                     output_ =
                         feat(crs, "left", 100) + getBrackets_open() + getColor() + style_l_ * width_ +
-                        agr::empty_space<std::string> * ((agr::isFloatingPoint(iterating_var) ? 26 : 25) - width_) +
-                        feat(rst, "color") + getBrackets_close() + getColor() + agr::empty_space<std::string> +
+                        osm::empty_space<std::string> * ((osm::isFloatingPoint(iterating_var) ? 26 : 25) - width_) +
+                        feat(rst, "color") + getBrackets_close() + getColor() + osm::empty_space<std::string> +
                         std::to_string(static_cast<int32_t>(round(iterating_var_++))) + feat(rst, "color") + style_p_;
 
                     update_output(output_);
@@ -655,7 +650,7 @@ namespace osm {
                 else if (styles_map_.at("spinner").find(style_) != styles_map_.at("spinner").end()) {
                     output_ = feat(crs, "left", 100) + getColor() +
                               getStyle()[static_cast<uint64_t>(iterating_var_spin_) & 3] + feat(col, "green") +
-                              ((agr::roundoff(iterating_var, 1) == agr::roundoff(max_, 1) - agr::one(iterating_var))
+                              ((osm::roundoff(iterating_var, 1) == osm::roundoff(max_, 1) - osm::one(iterating_var))
                                    ? (static_cast<std::string>(feat(crs, "left", 100) + "0"))
                                    : "") +
                               feat(rst, "color");
@@ -722,7 +717,7 @@ namespace osm {
              * time.
              */
             void remaining_time() {
-                max_spin_ = agr::isFloatingPoint(max_) ? (agr::roundoff(max_ - min_, 1) * 10 + 1) : (max_ - min_ + 1);
+                max_spin_ = osm::isFloatingPoint(max_) ? (osm::roundoff(max_ - min_, 1) * 10 + 1) : (max_ - min_ + 1);
 
                 duration time_taken = steady_clock::now() - begin_timer;
                 float percentage_done = static_cast<float>(ticks_occurred) / (max_spin_);
@@ -753,9 +748,9 @@ namespace osm {
              */
             void update_output(std::string_view output) {
                 osm::cout << output << getColor()
-                          << ((message_ != agr::null_str<std::string>)
-                                  ? (agr::empty_space<std::string> + message_ + agr::empty_space<std::string>)
-                                  : agr::empty_space<std::string>)
+                          << ((message_ != osm::null_str<std::string>)
+                                  ? (osm::empty_space<std::string> + message_ + osm::empty_space<std::string>)
+                                  : osm::empty_space<std::string>)
                           << feat(rst, "color");
 
                 if (time_flag_ == "on") {

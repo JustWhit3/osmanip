@@ -33,7 +33,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include )
 
 # Fetching deps
 add_subdirectory( deps )
-include_directories( ${CMAKE_CURRENT_BINARY_DIR}/_deps/arsenalgear-src/include )
 
 # Adding specific compiler flags
 if( CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
@@ -48,19 +47,12 @@ endif()
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}" )
 
 # Creating the static library
-add_library( osmanip STATIC
-    src/graphics/canvas.cpp
-    src/graphics/plot_2D.cpp
-    src/manipulators/cursor.cpp
-    src/manipulators/colsty.cpp
-    src/manipulators/decorator.cpp
-    src/manipulators/common.cpp
-    src/utility/iostream.cpp
-    src/utility/strings.cpp
-    src/utility/output_redirector.cpp
-    src/utility/sstream.cpp
-    src/utility/windows.cpp
+file( GLOB_RECURSE SRC_FILES 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/manipulators/*.cpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/*.cpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utility/*.cpp 
 )
+add_library( osmanip STATIC ${SRC_FILES} )
 add_library( osmanip::osmanip ALIAS osmanip )
 
 # Adding cppcheck properties
@@ -93,10 +85,6 @@ if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
     endif()
     add_dependencies( osmanip format )
 endif()
-
-# Link to arsenalgear
-find_package( arsenalgear CONFIG )
-target_link_libraries( osmanip PRIVATE arsenalgear::arsenalgear )
 
 # Compiling unit tests 
 if( CMAKE_BUILD_TYPE STREQUAL "Debug" )

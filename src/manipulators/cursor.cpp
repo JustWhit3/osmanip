@@ -16,9 +16,7 @@
 
 // My headers
 #include <osmanip/manipulators/cursor.hpp>
-
-// Extra headers
-#include <arsenalgear/utils.hpp>
+#include <osmanip/utility/generic.hpp>
 
 // STD headers
 #include <stdint.h>
@@ -119,7 +117,7 @@ namespace osm {
             }
             return it.first;
         } catch (const std::exception &except) {
-            throw agr::except_error_func(generic_map.at("error").first, feat_string, "is not supported!");
+            throw osm::except_error_func(generic_map.at("error").first, feat_string, "is not supported!");
         }
     }
 
