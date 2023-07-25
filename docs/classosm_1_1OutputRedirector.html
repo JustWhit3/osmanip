@@ -87,7 +87,7 @@ Inheritance diagram for osm::OutputRedirector:</div>
 <map name="aosm_1_1OutputRedirector_inherit__map" id="aosm_1_1OutputRedirector_inherit__map">
 <area shape="rect" title="This class is used to redirected output to a file." alt="" coords="38,155,189,181"/>
 <area shape="rect" title=" " alt="" coords="5,80,99,107"/>
-<area shape="rect" href="classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and threadsafety." alt="" coords="123,80,229,107"/>
+<area shape="rect" href="classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and thread safety." alt="" coords="123,80,229,107"/>
 <area shape="rect" title=" " alt="" coords="128,5,224,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -98,7 +98,7 @@ Collaboration diagram for osm::OutputRedirector:</div>
 <map name="aosm_1_1OutputRedirector_coll__map" id="aosm_1_1OutputRedirector_coll__map">
 <area shape="rect" title="This class is used to redirected output to a file." alt="" coords="38,155,189,181"/>
 <area shape="rect" title=" " alt="" coords="5,80,99,107"/>
-<area shape="rect" href="classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and threadsafety." alt="" coords="123,80,229,107"/>
+<area shape="rect" href="classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and thread safety." alt="" coords="123,80,229,107"/>
 <area shape="rect" title=" " alt="" coords="128,5,224,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -137,7 +137,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8f01babfc6f408a621982eb5917189c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classosm_1_1Stringbuf"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classosm_1_1Stringbuf')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classosm_1_1Stringbuf.html">osm::Stringbuf</a></td></tr>
 <tr class="memitem:aee1612bcf9ee5f52f95ce38dd2532136 inherit pub_methods_classosm_1_1Stringbuf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1Stringbuf.html#aee1612bcf9ee5f52f95ce38dd2532136">Stringbuf</a> ()</td></tr>
-<tr class="memdesc:aee1612bcf9ee5f52f95ce38dd2532136 inherit pub_methods_classosm_1_1Stringbuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and threadsafety.">Stringbuf</a> object. Default constructor will set the main attributes to default values.  <a href="classosm_1_1Stringbuf.html#aee1612bcf9ee5f52f95ce38dd2532136">More...</a><br /></td></tr>
+<tr class="memdesc:aee1612bcf9ee5f52f95ce38dd2532136 inherit pub_methods_classosm_1_1Stringbuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and thread safety.">Stringbuf</a> object. Default constructor will set the main attributes to default values.  <a href="classosm_1_1Stringbuf.html#aee1612bcf9ee5f52f95ce38dd2532136">More...</a><br /></td></tr>
 <tr class="separator:aee1612bcf9ee5f52f95ce38dd2532136 inherit pub_methods_classosm_1_1Stringbuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9a6fce7b214bfdaa3020f83c2f48d25 inherit pub_methods_classosm_1_1Stringbuf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1Stringbuf.html#ad9a6fce7b214bfdaa3020f83c2f48d25">~Stringbuf</a> () override</td></tr>
 <tr class="memdesc:ad9a6fce7b214bfdaa3020f83c2f48d25 inherit pub_methods_classosm_1_1Stringbuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructs <a class="el" href="classosm_1_1OutputRedirector.html" title="This class is used to redirected output to a file.">OutputRedirector</a> object. Calls this-&gt;pubsync() before being destroyed.  <a href="classosm_1_1Stringbuf.html#ad9a6fce7b214bfdaa3020f83c2f48d25">More...</a><br /></td></tr>
@@ -151,11 +151,11 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a966cffd6734b5084659dc4dbe9c6418a"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a></td></tr>
+<tr class="memitem:a966cffd6734b5084659dc4dbe9c6418a"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a> = fs::current_path().string()</td></tr>
 <tr class="separator:a966cffd6734b5084659dc4dbe9c6418a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ec4f99622d356de766c485a68a0c77c"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#a0ec4f99622d356de766c485a68a0c77c">DEFAULT_FILEPATH</a></td></tr>
+<tr class="memitem:a0ec4f99622d356de766c485a68a0c77c"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#a0ec4f99622d356de766c485a68a0c77c">DEFAULT_FILEPATH</a> = <a class="el" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a> + <a class="el" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a></td></tr>
 <tr class="separator:a0ec4f99622d356de766c485a68a0c77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abca8ddb0cd026b771cc33a72bcd670b8"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a></td></tr>
+<tr class="memitem:abca8ddb0cd026b771cc33a72bcd670b8"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a> = &quot;redirected_output.txt&quot;</td></tr>
 <tr class="separator:abca8ddb0cd026b771cc33a72bcd670b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -414,7 +414,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILE_DIR</td>
+          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILE_DIR = fs::current_path().string()</td>
         </tr>
       </table>
   </td>
@@ -423,9 +423,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">        fs::current_path().string()</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="abca8ddb0cd026b771cc33a72bcd670b8"></a>
@@ -438,7 +436,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILENAME</td>
+          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILENAME = &quot;redirected_output.txt&quot;</td>
         </tr>
       </table>
   </td>
@@ -447,9 +445,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">        <span class="stringliteral">&quot;redirected_output.txt&quot;</span></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a0ec4f99622d356de766c485a68a0c77c"></a>
@@ -462,7 +458,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILEPATH</td>
+          <td class="memname">const std::string osm::OutputRedirector::DEFAULT_FILEPATH = <a class="el" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a> + <a class="el" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a></td>
         </tr>
       </table>
   </td>
@@ -471,11 +467,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">        <a class="code" href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">DEFAULT_FILE_DIR</a> + <a class="code" href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">DEFAULT_FILENAME</a></div>
-<div class="ttc" id="aclassosm_1_1OutputRedirector_html_a966cffd6734b5084659dc4dbe9c6418a"><div class="ttname"><a href="classosm_1_1OutputRedirector.html#a966cffd6734b5084659dc4dbe9c6418a">osm::OutputRedirector::DEFAULT_FILE_DIR</a></div><div class="ttdeci">static const std::string DEFAULT_FILE_DIR</div><div class="ttdef"><b>Definition:</b> output_redirector.hpp:90</div></div>
-<div class="ttc" id="aclassosm_1_1OutputRedirector_html_abca8ddb0cd026b771cc33a72bcd670b8"><div class="ttname"><a href="classosm_1_1OutputRedirector.html#abca8ddb0cd026b771cc33a72bcd670b8">osm::OutputRedirector::DEFAULT_FILENAME</a></div><div class="ttdeci">static const std::string DEFAULT_FILENAME</div><div class="ttdef"><b>Definition:</b> output_redirector.hpp:92</div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

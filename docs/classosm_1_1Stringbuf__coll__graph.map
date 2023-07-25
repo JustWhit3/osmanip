@@ -1,4 +1,4 @@
 <map id="osm::Stringbuf" name="osm::Stringbuf">
-<area shape="rect" id="node1" title="This class inherits std::stringbuf and adds additional functionality and threadsafety." alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node1" title="This class inherits std::stringbuf and adds additional functionality and thread safety." alt="" coords="5,80,111,107"/>
 <area shape="rect" id="node2" title=" " alt="" coords="10,5,106,32"/>
 </map>

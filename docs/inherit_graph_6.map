@@ -2,6 +2,6 @@
 <area shape="rect" id="node1" title=" " alt="" coords="155,5,249,32"/>
 <area shape="rect" id="node2" href="$classosm_1_1OutputRedirector.html" title="This class is used to redirected output to a file." alt="" coords="303,5,453,32"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,56,101,83"/>
-<area shape="rect" id="node4" href="$classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and threadsafety." alt="" coords="149,56,255,83"/>
+<area shape="rect" id="node4" href="$classosm_1_1Stringbuf.html" title="This class inherits std::stringbuf and adds additional functionality and thread safety." alt="" coords="149,56,255,83"/>
 <area shape="rect" id="node5" href="$classosm_1_1Ostreambuf.html" title="This class inherits Stringbuf and adds the ability to send output to a specific std::ostream buffer a..." alt="" coords="317,56,439,83"/>
 </map>

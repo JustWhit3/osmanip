@@ -74,58 +74,56 @@ $(function() {
 <a href="cursor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//====================================================</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//     File data</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//     Preprocessor settings</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef OSMANIP_CURSOR_HPP</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="cursor_8hpp.html#a40b93387877caad93d9beb7f792a2f22">   16</a></span>&#160;<span class="preprocessor">#define OSMANIP_CURSOR_HPP</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//     Headers</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span><span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//     Preprocessor settings</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef OSMANIP_CURSOR_HPP</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="cursor_8hpp.html#a40b93387877caad93d9beb7f792a2f22">   18</a></span>&#160;<span class="preprocessor">#define OSMANIP_CURSOR_HPP</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// My headers</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="common_8hpp.html">osmanip/manipulators/common.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// STD headers</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceosm.html">osm</a> {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">//     Aliases</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">   36</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">string_pair_map</a> =</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        std::unordered_map&lt;std::string, std::pair&lt;std::string, std::string&gt;&gt;;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//     Variables</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//     Headers</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// My headers</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="common_8hpp.html">osmanip/manipulators/common.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// STD headers</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceosm.html">osm</a> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">//     Aliases</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">   39</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">string_pair_map</a> = std::unordered_map&lt;std::string, std::pair&lt;std::string, std::string&gt;&gt;;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> std::unordered_map&lt;std::string, std::string&gt; <a class="code" href="namespaceosm.html#a804b4879b54d32f2c23a0d6217f4043e">tcs</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">string_pair_map</a> <a class="code" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a>, <a class="code" href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">tcsc</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//     Functions</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">//     Variables</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> std::unordered_map&lt;std::string, std::string&gt; <a class="code" href="namespaceosm.html#a804b4879b54d32f2c23a0d6217f4043e">tcs</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">string_pair_map</a> <a class="code" href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">crs</a>, <a class="code" href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">tcsc</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//====================================================</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> std::string <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>(<span class="keyword">const</span> <a class="code" href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">string_pair_map</a>&amp; generic_map,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                  <span class="keyword">const</span> std::string&amp; feat_string,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                  int32_t feat_int);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//     Functions</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">//====================================================</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> std::string <a class="code" href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">feat</a>(<span class="keyword">const</span> <a class="code" href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">string_pair_map</a> &amp;generic_map, <span class="keyword">const</span> std::string &amp;feat_string, int32_t feat_int);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> std::string <a class="code" href="namespaceosm.html#aa702e08372042d3988d667e422ea2cdc">go_to</a>(int32_t x, int32_t y);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}  <span class="comment">// namespace osm</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="acommon_8hpp_html"><div class="ttname"><a href="common_8hpp.html">common.hpp</a></div></div>
 <div class="ttc" id="anamespaceosm_html"><div class="ttname"><a href="namespaceosm.html">osm</a></div><div class="ttdef"><b>Definition:</b> canvas.cpp:30</div></div>
-<div class="ttc" id="anamespaceosm_html_a59c7cf18ab023133af7239d4ee49c6a6"><div class="ttname"><a href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">osm::string_pair_map</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::pair&lt; std::string, std::string &gt; &gt; string_pair_map</div><div class="ttdef"><b>Definition:</b> cursor.hpp:37</div></div>
-<div class="ttc" id="anamespaceosm_html_a804b4879b54d32f2c23a0d6217f4043e"><div class="ttname"><a href="namespaceosm.html#a804b4879b54d32f2c23a0d6217f4043e">osm::tcs</a></div><div class="ttdeci">const std::unordered_map&lt; std::string, std::string &gt; tcs</div><div class="ttdoc">It is used to store the terminal control sequences.</div><div class="ttdef"><b>Definition:</b> cursor.cpp:56</div></div>
-<div class="ttc" id="anamespaceosm_html_aa702e08372042d3988d667e422ea2cdc"><div class="ttname"><a href="namespaceosm.html#aa702e08372042d3988d667e422ea2cdc">osm::go_to</a></div><div class="ttdeci">const std::string go_to(int32_t x, int32_t y)</div><div class="ttdoc">It takes two integers as arguments which are the x and y position of the cursor in the screen and ret...</div><div class="ttdef"><b>Definition:</b> cursor.cpp:129</div></div>
-<div class="ttc" id="anamespaceosm_html_ac7e18d52b63a1c96c42a1a0bb009d369"><div class="ttname"><a href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">osm::tcsc</a></div><div class="ttdeci">const string_pair_map tcsc</div><div class="ttdoc">It is used to store the terminal control sequences for clear line / screen.</div><div class="ttdef"><b>Definition:</b> cursor.cpp:79</div></div>
-<div class="ttc" id="anamespaceosm_html_adbcc39535554329cee231dc3dd33ffd3"><div class="ttname"><a href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">osm::crs</a></div><div class="ttdeci">const string_pair_map crs</div><div class="ttdoc">It is used to store the cursor commands.</div><div class="ttdef"><b>Definition:</b> cursor.cpp:41</div></div>
-<div class="ttc" id="anamespaceosm_html_ae7a38e64cf69c6449e10cb4ec035192a"><div class="ttname"><a href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">osm::feat</a></div><div class="ttdeci">const std::string &amp; feat(const std::unordered_map&lt; std::string, std::string &gt; &amp;generic_map, const std::string &amp;feat_string)</div><div class="ttdoc">It takes an std::map object as the first argument and an std::string object (map key) as the second a...</div><div class="ttdef"><b>Definition:</b> common.cpp:42</div></div>
+<div class="ttc" id="anamespaceosm_html_a59c7cf18ab023133af7239d4ee49c6a6"><div class="ttname"><a href="namespaceosm.html#a59c7cf18ab023133af7239d4ee49c6a6">osm::string_pair_map</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::pair&lt; std::string, std::string &gt; &gt; string_pair_map</div><div class="ttdef"><b>Definition:</b> cursor.hpp:39</div></div>
+<div class="ttc" id="anamespaceosm_html_a804b4879b54d32f2c23a0d6217f4043e"><div class="ttname"><a href="namespaceosm.html#a804b4879b54d32f2c23a0d6217f4043e">osm::tcs</a></div><div class="ttdeci">const std::unordered_map&lt; std::string, std::string &gt; tcs</div><div class="ttdoc">It is used to store the terminal control sequences.</div><div class="ttdef"><b>Definition:</b> cursor.cpp:59</div></div>
+<div class="ttc" id="anamespaceosm_html_aa702e08372042d3988d667e422ea2cdc"><div class="ttname"><a href="namespaceosm.html#aa702e08372042d3988d667e422ea2cdc">osm::go_to</a></div><div class="ttdeci">const std::string go_to(int32_t x, int32_t y)</div><div class="ttdoc">It takes two integers as arguments which are the x and y position of the cursor in the screen and ret...</div><div class="ttdef"><b>Definition:</b> cursor.cpp:140</div></div>
+<div class="ttc" id="anamespaceosm_html_ac7e18d52b63a1c96c42a1a0bb009d369"><div class="ttname"><a href="namespaceosm.html#ac7e18d52b63a1c96c42a1a0bb009d369">osm::tcsc</a></div><div class="ttdeci">const string_pair_map tcsc</div><div class="ttdoc">It is used to store the terminal control sequences for clear line / screen.</div><div class="ttdef"><b>Definition:</b> cursor.cpp:84</div></div>
+<div class="ttc" id="anamespaceosm_html_adbcc39535554329cee231dc3dd33ffd3"><div class="ttname"><a href="namespaceosm.html#adbcc39535554329cee231dc3dd33ffd3">osm::crs</a></div><div class="ttdeci">const string_pair_map crs</div><div class="ttdoc">It is used to store the cursor commands.</div><div class="ttdef"><b>Definition:</b> cursor.cpp:44</div></div>
+<div class="ttc" id="anamespaceosm_html_ae7a38e64cf69c6449e10cb4ec035192a"><div class="ttname"><a href="namespaceosm.html#ae7a38e64cf69c6449e10cb4ec035192a">osm::feat</a></div><div class="ttdeci">const std::string &amp; feat(const std::unordered_map&lt; std::string, std::string &gt; &amp;generic_map, const std::string &amp;feat_string)</div><div class="ttdoc">It takes an std::map object as the first argument and an std::string object (map key) as the second a...</div><div class="ttdef"><b>Definition:</b> common.cpp:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
