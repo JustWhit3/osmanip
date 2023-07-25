@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_5f_339',['width_',['../classosm_1_1Canvas.html#a1646e20014183bd7530f6dee4a0da571',1,'osm::Canvas']]]
+  ['sty_364',['sty',['../namespaceosm.html#a5c3de8caf875adb236937ea7f60f74b0',1,'osm']]]
 ];

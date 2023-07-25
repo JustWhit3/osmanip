@@ -135,6 +135,10 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a8764c3774efea820941d8dc1fed23e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class used to define the frame style.  <a href="namespaceosm.html#a8764c3774efea820941d8dc1fed23e39">More...</a><br /></td></tr>
 <tr class="separator:a8764c3774efea820941d8dc1fed23e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acadda2fa5733885b0082aee6349a9c05"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#acadda2fa5733885b0082aee6349a9c05">ANSI_SEARCH</a> { <a class="el" href="namespaceosm.html#acadda2fa5733885b0082aee6349a9c05a8b04d5e3775d298e78455efc5ca404d5">first</a>
+, <a class="el" href="namespaceosm.html#acadda2fa5733885b0082aee6349a9c05a3d517f8924ac7fd03699a29d97dc52d9">generic</a>
+ }</td></tr>
+<tr class="separator:acadda2fa5733885b0082aee6349a9c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a793613c2bce496156326ba85a53b6d13"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a793613c2bce496156326ba85a53b6d13">CURSOR</a> { <a class="el" href="namespaceosm.html#a793613c2bce496156326ba85a53b6d13a90651ebea9a35ec4e018c8157492e17c">ON</a>
 , <a class="el" href="namespaceosm.html#a793613c2bce496156326ba85a53b6d13a88559a0cfd8250c9d65970cc145c92d4">OFF</a>
  }</td></tr>
@@ -165,6 +169,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aa702e08372042d3988d667e422ea2cdc"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aa702e08372042d3988d667e422ea2cdc">go_to</a> (int32_t x, int32_t y)</td></tr>
 <tr class="memdesc:aa702e08372042d3988d667e422ea2cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">It takes two integers as arguments which are the x and y position of the cursor in the screen and returns the interested position you want to reach.  <a href="namespaceosm.html#aa702e08372042d3988d667e422ea2cdc">More...</a><br /></td></tr>
 <tr class="separator:aa702e08372042d3988d667e422ea2cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bd1ebab2cdb8504947ddaed275a8f0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ad5bd1ebab2cdb8504947ddaed275a8f0">split_string</a> (const std::string &amp;input, const std::string &amp;regex)</td></tr>
+<tr class="memdesc:ad5bd1ebab2cdb8504947ddaed275a8f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to split a string based on a certain reges.  <a href="namespaceosm.html#ad5bd1ebab2cdb8504947ddaed275a8f0">More...</a><br /></td></tr>
+<tr class="separator:ad5bd1ebab2cdb8504947ddaed275a8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f5dfb4053c8e006a97a475daf91c93a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a9f5dfb4053c8e006a97a475daf91c93a">getCommandOut</a> (const char *command)</td></tr>
+<tr class="memdesc:a9f5dfb4053c8e006a97a475daf91c93a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to get the output of a shell command.  <a href="namespaceosm.html#a9f5dfb4053c8e006a97a475daf91c93a">More...</a><br /></td></tr>
+<tr class="separator:a9f5dfb4053c8e006a97a475daf91c93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f816d54bc6a15187ade6729cd3ff49a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f816d54bc6a15187ade6729cd3ff49a">trim_string</a> (const std::string &amp;str)</td></tr>
 <tr class="memdesc:a8f816d54bc6a15187ade6729cd3ff49a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all leading and trailing spaces from a string.  <a href="namespaceosm.html#a8f816d54bc6a15187ade6729cd3ff49a">More...</a><br /></td></tr>
 <tr class="separator:a8f816d54bc6a15187ade6729cd3ff49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,6 +214,26 @@ Functions</h2></td></tr>
 <tr class="memitem:af39d33e13c1d113bf8519fa8d316a920"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classosm_1_1ProgressBar.html">ProgressBar</a>&lt; bar_type &gt; &amp;pb)</td></tr>
 <tr class="memdesc:af39d33e13c1d113bf8519fa8d316a920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator &lt;&lt; used to print the progress bar properties.  <a href="namespaceosm.html#af39d33e13c1d113bf8519fa8d316a920">More...</a><br /></td></tr>
 <tr class="separator:af39d33e13c1d113bf8519fa8d316a920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6988b01f705e0042d7e7d31c0b80fa05"><td class="memTemplParams" colspan="2">template&lt;typename T_err  = std::runtime_error&gt; </td></tr>
+<tr class="memitem:a6988b01f705e0042d7e7d31c0b80fa05"><td class="memTemplItemLeft" align="right" valign="top">T_err&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a6988b01f705e0042d7e7d31c0b80fa05">except_error_func</a> (const std::string &amp;beg=&quot;&quot;, std::string var=nullptr, const std::string &amp;end=&quot;&quot;)</td></tr>
+<tr class="memdesc:a6988b01f705e0042d7e7d31c0b80fa05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to throw customized stdexception error. This function is extremely specific to my purposes and you can find examples usages in other my projects lik "osmanip" or "SAFD-algorithm".  <a href="namespaceosm.html#a6988b01f705e0042d7e7d31c0b80fa05">More...</a><br /></td></tr>
+<tr class="separator:a6988b01f705e0042d7e7d31c0b80fa05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e94486fb398127616ab7b4468872dbb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3e94486fb398127616ab7b4468872dbb"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a3e94486fb398127616ab7b4468872dbb">is_escape</a> (const T &amp;str, const <a class="el" href="namespaceosm.html#acadda2fa5733885b0082aee6349a9c05">ANSI_SEARCH</a> &amp;flag)</td></tr>
+<tr class="memdesc:a3e94486fb398127616ab7b4468872dbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to check if an input variable is an ANSI escape sequency or not.  <a href="namespaceosm.html#a3e94486fb398127616ab7b4468872dbb">More...</a><br /></td></tr>
+<tr class="separator:a3e94486fb398127616ab7b4468872dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adac4e0cd7cdd452f0b305dd8aaa2fb40"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:adac4e0cd7cdd452f0b305dd8aaa2fb40"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#adac4e0cd7cdd452f0b305dd8aaa2fb40">roundoff</a> (T value, unsigned char prec)</td></tr>
+<tr class="memdesc:adac4e0cd7cdd452f0b305dd8aaa2fb40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to round a floating point to n-th decimal place after comma.  <a href="namespaceosm.html#adac4e0cd7cdd452f0b305dd8aaa2fb40">More...</a><br /></td></tr>
+<tr class="separator:adac4e0cd7cdd452f0b305dd8aaa2fb40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a061d5e4280000887dae441b865d043"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2a061d5e4280000887dae441b865d043"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a2a061d5e4280000887dae441b865d043">isFloatingPoint</a> (const T &amp;)</td></tr>
+<tr class="memdesc:a2a061d5e4280000887dae441b865d043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to check if an expression (not a type) is a floating point or not. I know this function is almost useless, but it has been created for lazy purposes and since it is used in other projects it cannot be eliminated now in order to not break backward compatibility.  <a href="namespaceosm.html#a2a061d5e4280000887dae441b865d043">More...</a><br /></td></tr>
+<tr class="separator:a2a061d5e4280000887dae441b865d043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80b15e046f57a780181524b4bfa430e8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a80b15e046f57a780181524b4bfa430e8"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a80b15e046f57a780181524b4bfa430e8">one</a> (const T &amp;iterating_var)</td></tr>
+<tr class="memdesc:a80b15e046f57a780181524b4bfa430e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to find the incremented unit of a loop. Not easy to understand its purpose without context, but it is used to get the loop incremented unit in case of loops with floating-point indexes. See example usage in "osmanip" in progress bars "update" method.  <a href="namespaceosm.html#a80b15e046f57a780181524b4bfa430e8">More...</a><br /></td></tr>
+<tr class="separator:a80b15e046f57a780181524b4bfa430e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab97e4347ae4e25d091a0b79b118e2a29"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">OPTION</a> (T opt)</td></tr>
 <tr class="memdesc:ab97e4347ae4e25d091a0b79b118e2a29"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used to set a specific option.  <a href="namespaceosm.html#ab97e4347ae4e25d091a0b79b118e2a29">More...</a><br /></td></tr>
@@ -240,6 +270,12 @@ Variables</h2></td></tr>
 <tr class="separator:a8ac7a7b9764da0aa1f2e4d507bf9e069"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f5f91647fa15a927b2ea4846d659c6d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a8f5f91647fa15a927b2ea4846d659c6d">old_chcp</a></td></tr>
 <tr class="separator:a8f5f91647fa15a927b2ea4846d659c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fffeb1a9e9fda66f35b3b68cc6d0956"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9fffeb1a9e9fda66f35b3b68cc6d0956"><td class="memTemplItemLeft" align="right" valign="top">const T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a9fffeb1a9e9fda66f35b3b68cc6d0956">null_str</a> = &quot;&quot;</td></tr>
+<tr class="separator:a9fffeb1a9e9fda66f35b3b68cc6d0956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d814e8e61b2e78e67f2617d074cc37b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0d814e8e61b2e78e67f2617d074cc37b"><td class="memTemplItemLeft" align="right" valign="top">const T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceosm.html#a0d814e8e61b2e78e67f2617d074cc37b">empty_space</a> = &quot; &quot;</td></tr>
+<tr class="separator:a0d814e8e61b2e78e67f2617d074cc37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6448cb29b54abb14058bfd6e06e5cee"><td class="memItemLeft" align="right" valign="top">std::ostream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceosm.html#aa6448cb29b54abb14058bfd6e06e5cee">cout</a></td></tr>
 <tr class="separator:aa6448cb29b54abb14058bfd6e06e5cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -325,6 +361,32 @@ Variables</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ade3455d913245d597d1ba27b3e429f3aa90651ebea9a35ec4e018c8157492e17c"></a>ON&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ade3455d913245d597d1ba27b3e429f3aa88559a0cfd8250c9d65970cc145c92d4"></a>OFF&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="acadda2fa5733885b0082aee6349a9c05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acadda2fa5733885b0082aee6349a9c05">&#9670;&nbsp;</a></span>ANSI_SEARCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceosm.html#acadda2fa5733885b0082aee6349a9c05">osm::ANSI_SEARCH</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acadda2fa5733885b0082aee6349a9c05a8b04d5e3775d298e78455efc5ca404d5"></a>first&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acadda2fa5733885b0082aee6349a9c05a3d517f8924ac7fd03699a29d97dc52d9"></a>generic&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -480,6 +542,67 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function used to enable UNICODE characters (used for Windows only). </p>
+
+</div>
+</div>
+<a id="a6988b01f705e0042d7e7d31c0b80fa05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6988b01f705e0042d7e7d31c0b80fa05">&#9670;&nbsp;</a></span>except_error_func()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_err  = std::runtime_error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_err osm::except_error_func </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>beg</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>var</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>end</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function used to throw customized stdexception error. This function is extremely specific to my purposes and you can find examples usages in other my projects lik "osmanip" or "SAFD-algorithm". </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_err</td><td>The type of the exception error. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">beg</td><td>The first part of the error message. </td></tr>
+    <tr><td class="paramname">var</td><td>The variable to be inserted in the error message. </td></tr>
+    <tr><td class="paramname">end</td><td>The last part of the error message. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>T_err The modified exception error. </dd></dl>
 
 </div>
 </div>
@@ -713,6 +836,33 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a9f5dfb4053c8e006a97a475daf91c93a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f5dfb4053c8e006a97a475daf91c93a">&#9670;&nbsp;</a></span>getCommandOut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string osm::getCommandOut </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function used to get the output of a shell command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>The command which output is required. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string The output of the command variable. </dd></dl>
+
+</div>
+</div>
 <a id="aa702e08372042d3988d667e422ea2cdc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa702e08372042d3988d667e422ea2cdc">&#9670;&nbsp;</a></span>go_to()</h2>
 
@@ -785,6 +935,91 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a3e94486fb398127616ab7b4468872dbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e94486fb398127616ab7b4468872dbb">&#9670;&nbsp;</a></span>is_escape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool osm::is_escape </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceosm.html#acadda2fa5733885b0082aee6349a9c05">ANSI_SEARCH</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method is used to check if an input variable is an ANSI escape sequency or not. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Template type of the input variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The input variable. </td></tr>
+    <tr><td class="paramname">flag</td><td>A flag which let to return different things with respect to its value. If flag = <a class="el" href="namespaceosm.html#acadda2fa5733885b0082aee6349a9c05a8b04d5e3775d298e78455efc5ca404d5">ANSI_SEARCH::first</a> the ANSI is searched as the first substring of the str argument, otherwise, if flag = <a class="el" href="namespaceosm.html#acadda2fa5733885b0082aee6349a9c05a3d517f8924ac7fd03699a29d97dc52d9">ANSI_SEARCH::generic</a> the ANSI is searched as a substring inside the str argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the input variable is an ANSI escape sequency. </dd>
+<dd>
+false Otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a2a061d5e4280000887dae441b865d043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a061d5e4280000887dae441b865d043">&#9670;&nbsp;</a></span>isFloatingPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool osm::isFloatingPoint </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to check if an expression (not a type) is a floating point or not. I know this function is almost useless, but it has been created for lazy purposes and since it is used in other projects it cannot be eliminated now in order to not break backward compatibility. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the expression. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the expression is a floating point, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a66a46cd90092132bd1dae05eebc527af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66a46cd90092132bd1dae05eebc527af">&#9670;&nbsp;</a></span>MultiProgressBar()</h2>
 
@@ -817,6 +1052,49 @@ template&lt;class... Indicators&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classosm_1_1make__MultiProgressBar.html" title="Template class used to create multi progress bars.">make_MultiProgressBar</a> &lt;typename std::remove_reference &lt;Indicators&gt;::type...&gt; The update of the various progress bars. </dd></dl>
+
+</div>
+</div>
+<a id="a80b15e046f57a780181524b4bfa430e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80b15e046f57a780181524b4bfa430e8">&#9670;&nbsp;</a></span>one()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T osm::one </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>iterating_var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to find the incremented unit of a loop. Not easy to understand its purpose without context, but it is used to get the loop incremented unit in case of loops with floating-point indexes. See example usage in "osmanip" in progress bars "update" method. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the iterating variable of the loop. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iterating_var</td><td>The iterating variable of the loop. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>T The incremented unit of the loop. </dd></dl>
 
 </div>
 </div>
@@ -1000,6 +1278,98 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="adac4e0cd7cdd452f0b305dd8aaa2fb40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adac4e0cd7cdd452f0b305dd8aaa2fb40">&#9670;&nbsp;</a></span>roundoff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T osm::roundoff </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>prec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to round a floating point to n-th decimal place after comma. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The Type of the variable to be rounded. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The variable to be rounded </td></tr>
+    <tr><td class="paramname">prec</td><td>Precision of the rounding. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>T The rounded variable. </dd></dl>
+
+</div>
+</div>
+<a id="ad5bd1ebab2cdb8504947ddaed275a8f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5bd1ebab2cdb8504947ddaed275a8f0">&#9670;&nbsp;</a></span>split_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; osm::split_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>regex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function used to split a string based on a certain reges. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The input string. </td></tr>
+    <tr><td class="paramname">regex</td><td>The regex. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;std::string&gt; The collection of string elements splitted by the regex. </dd></dl>
+
+</div>
+</div>
 <a id="a8f816d54bc6a15187ade6729cd3ff49a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f816d54bc6a15187ade6729cd3ff49a">&#9670;&nbsp;</a></span>trim_string() <span class="overload">[1/2]</span></h2>
 
@@ -1119,6 +1489,54 @@ template&lt;typename T &gt; </div>
 <div class="line">                              {<span class="stringliteral">&quot;left&quot;</span>, std::make_pair(<span class="stringliteral">&quot;\u001b[&quot;</span>, <span class="stringliteral">&quot;D&quot;</span>)}}</div>
 </div><!-- fragment -->
 <p>It is used to store the cursor commands. </p>
+
+</div>
+</div>
+<a id="a0d814e8e61b2e78e67f2617d074cc37b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d814e8e61b2e78e67f2617d074cc37b">&#9670;&nbsp;</a></span>empty_space</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T osm::empty_space = &quot; &quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fffeb1a9e9fda66f35b3b68cc6d0956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fffeb1a9e9fda66f35b3b68cc6d0956">&#9670;&nbsp;</a></span>null_str</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T osm::null_str = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
