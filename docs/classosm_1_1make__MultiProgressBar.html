@@ -200,15 +200,16 @@ template&lt;class Func , class... Args&gt; </div>
 <p>Method used to update progress bars simultaneously. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Func</td><td></td></tr>
-    <tr><td class="paramname">Args</td><td></td></tr>
+    <tr><td class="paramname">Func</td><td>The type of the callable object (e.g., a function, lambda, or functor). </td></tr>
+    <tr><td class="paramname">Args</td><td>The types of the additional arguments that will be passed to the callable.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td></td></tr>
-    <tr><td class="paramname">args</td><td></td></tr>
+    <tr><td class="paramname">idx</td><td>The index of the progress bar to update. </td></tr>
+    <tr><td class="paramname">func</td><td>The callable object used to update the progress bar. </td></tr>
+    <tr><td class="paramname">args</td><td>Additional arguments to be passed to the callable. </td></tr>
   </table>
   </dd>
 </dl>
@@ -262,16 +263,16 @@ template&lt;class Func , class... Args&gt; </div>
 <p>Method used to update the progress bar for one progress bar only. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Func</td><td></td></tr>
-    <tr><td class="paramname">Args</td><td></td></tr>
+    <tr><td class="paramname">Func</td><td>The type of the callable object (e.g., a function, lambda, or functor). </td></tr>
+    <tr><td class="paramname">Args</td><td>The types of the additional arguments that will be passed to the callable.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td></td></tr>
-    <tr><td class="paramname">func</td><td></td></tr>
-    <tr><td class="paramname">args</td><td></td></tr>
+    <tr><td class="paramname">idx</td><td>The index of the progress bar to update. </td></tr>
+    <tr><td class="paramname">func</td><td>The callable object used to update the progress bar. </td></tr>
+    <tr><td class="paramname">args</td><td>Additional arguments to be passed to the callable. </td></tr>
   </table>
   </dd>
 </dl>
