@@ -56,9 +56,10 @@ add_library( osmanip STATIC ${SRC_FILES} )
 add_library( osmanip::osmanip ALIAS osmanip )
 
 # Adding cppcheck properties
-if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
-    set( cppcheck cppcheck "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
-    set_target_properties( osmanip PROPERTIES CXX_CPPCHECK ${cppcheck})
+find_program( CPPCHECK_FOUND cppcheck )
+if ( CPPCHECK_FOUND AND CMAKE_BUILD_TYPE STREQUAL "Debug" )
+    set( cppcheck_options "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
+    set_target_properties( osmanip PROPERTIES CXX_CPPCHECK "${CPPCHECK_FOUND}" )
 endif()
 
 # Format the code
@@ -79,11 +80,12 @@ if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
                 -i
                 ${SOURCE_FILES}
             )
+            add_dependencies( osmanip format )
         else()
             message(STATUS "clang-format not found. Skipping code formatting.")
         endif()
     endif()
-    add_dependencies( osmanip format )
+    
 endif()
 
 # Compiling unit tests 

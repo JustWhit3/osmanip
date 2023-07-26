@@ -70,13 +70,10 @@ namespace osm {
 
             // Default constructor
             /**
-             * @brief Construct a new ProgressBar
-             * <bar_type>::ProgressBar object.
-             * Default constructor which set to
-             * null values the main attributes.
+             * @brief Construct a new ProgressBar <bar_type>::ProgressBar object. Default constructor which set to null
+             * values the main attributes.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             ProgressBar()
                 : max_(0),
@@ -95,20 +92,13 @@ namespace osm {
 
             // Parametric constructor
             /**
-             * @brief Construct a new ProgressBar
-             * <bar_type>::ProgressBar object.
-             * Parametric constructor which set to
-             * null values the main attributes
-             * except max_ and min which will be
-             * initialized respectively with max
-             * and min.
+             * @brief Construct a new ProgressBar <bar_type>::ProgressBar object. Parametric constructor which set to
+             * null values the main attributes except max_ and min which will be initialized respectively with max and
+             * min.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param min The minimum value of the
-             * ProgressBar.
-             * @param max The maximum value of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param min The minimum value of the ProgressBar.
+             * @param max The maximum value of the ProgressBar.
              */
             explicit ProgressBar(const bar_type &min, const bar_type &max)
                 : max_(max),
@@ -131,42 +121,30 @@ namespace osm {
 
             // setMax
             /**
-             * @brief Set the maximum value of the
-             * ProgressBar.
+             * @brief Set the maximum value of the ProgressBar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param max The maximum value of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param max The maximum value of the ProgressBar.
              */
             void setMax(bar_type max) { max_ = max; }
 
             // setMin
             /**
-             * @brief Set the minimum value of the
-             * ProgressBar.
+             * @brief Set the minimum value of the ProgressBar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param min The minimum value of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param min The minimum value of the ProgressBar.
              */
             void setMin(bar_type min) { min_ = min; }
 
             // setStyle first overload
             /**
-             * @brief Set the type and style of
-             * the ProgressBar. Available:
-             * "indicator" ("%", "/100"), "loader"
-             * ("#", "■"), "spinner"
-             * ("/-\\|").
+             * @brief Set the type and style of the ProgressBar. Available: "indicator" ("%", "/100"), "loader" ("#",
+             * "■"), "spinner" ("/-\\|").
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param type The type (flavor) of
-             * the ProgressBar.
-             * @param style The style of the
-             * ProgressBar. Available:
+             * @tparam bar_type The type of the ProgressBar.
+             * @param type The type (flavor) of the ProgressBar.
+             * @param style The style of the ProgressBar. Available:
              */
             void setStyle(const std::string &type, const std::string &style) {
                 try {
@@ -201,22 +179,13 @@ namespace osm {
 
             // setStyle second overload
             /**
-             * @brief Set the style of the
-             * complete ProgressBar. Available:
-             * "indicator" ("%", "/100"), "loader"
-             * ("#", "■"), "spinner"
-             * ("/-\\|") and "complete" with both
-             * indicator first and loader second.
+             * @brief Set the style of the complete ProgressBar. Available: "indicator" ("%", "/100"), "loader" ("#",
+             * "■"), "spinner" ("/-\\|") and "complete" with both indicator first and loader second.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param type The type (flavor) of
-             * the ProgressBar.
-             * @param style_p The style of the
-             * percentage part of the progress
-             * bar.
-             * @param style_l The style of the bar
-             * part of the progress bar.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param type The type (flavor) of the ProgressBar.
+             * @param style_p The style of the percentage part of the progress bar.
+             * @param style_l The style of the bar part of the progress bar.
              */
             void setStyle(const std::string &type, const std::string &style_p, const std::string &style_l) {
                 if (styles_map_.at("indicator").find(style_p) != styles_map_.at("indicator").end() &&
@@ -246,13 +215,10 @@ namespace osm {
 
             // setMessage
             /**
-             * @brief Set the message of the
-             * ProgressBar.
+             * @brief Set the message of the ProgressBar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param message The message of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param message The message of the ProgressBar.
              */
             void setMessage(std::string_view message) { message_ = message; }
 
@@ -260,8 +226,7 @@ namespace osm {
             /**
              * @brief Set begin time count.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void setBegin() { begin = steady_clock::now(); }
 
@@ -269,8 +234,7 @@ namespace osm {
             /**
              * @brief Set end time count.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the* ProgressBar.
              */
             void setEnd() {
                 end = steady_clock::now();
@@ -279,14 +243,11 @@ namespace osm {
 
             // setBrackets
             /**
-             * @brief Set brackets of the
-             * ProgressBar.
+             * @brief Set brackets of the ProgressBar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              * @param brackets_open Open bracket.
-             * @param brackets_close Close
-             * bracket.
+             * @param brackets_close Close bracket.
              */
             void setBrackets(std::string_view brackets_open, std::string_view brackets_close) {
                 brackets_open_ = brackets_open, brackets_close_ = brackets_close;
@@ -294,13 +255,10 @@ namespace osm {
 
             // setColor
             /**
-             * @brief Set the color of the
-             * ProgressBar.
+             * @brief Set the color of the ProgressBar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param color The color of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param color The color of the ProgressBar.
              */
             void setColor(const std::string &color) {
                 color_ = feat(col, color);
@@ -309,13 +267,10 @@ namespace osm {
 
             // setRemainingTimeFlag
             /**
-             * @brief Set the remaining time of
-             * the ProgressBar.
+             * @brief Set the remaining time of the ProgressBar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param time_flag The flag of the
-             * remaining time.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param time_flag The flag of the remaining time.
              */
             void setRemainingTimeFlag(std::string_view time_flag) { time_flag_ = time_flag; }
 
@@ -325,11 +280,9 @@ namespace osm {
 
             // resetAll
             /**
-             * @brief Reset the ProgressBar
-             * variables.
+             * @brief Reset the ProgressBar variables.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetAll() {
                 max_ = static_cast<bar_type>(0), min_ = static_cast<bar_type>(0), style_ = "", type_ = "",
@@ -341,31 +294,25 @@ namespace osm {
 
             // resetMax
             /**
-             * @brief Reset the ProgressBar Max
-             * variable.
+             * @brief Reset the ProgressBar Max variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetMax() { max_ = static_cast<bar_type>(0); }
 
             // resetMin
             /**
-             * @brief Reset the ProgressBar Min
-             * variable.
+             * @brief Reset the ProgressBar Min variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetMin() { min_ = static_cast<bar_type>(0); }
 
             // resetStyle
             /**
-             * @brief Reset the ProgressBar Style
-             * variable.
+             * @brief Reset the ProgressBar Style variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetStyle() {
                 style_.clear();
@@ -374,31 +321,25 @@ namespace osm {
 
             // resetMessage
             /**
-             * @brief Reset the ProgressBar
-             * Message variable.
+             * @brief Reset the ProgressBar Message variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetMessage() { message_.clear(); }
 
             // resetTime
             /**
-             * @brief Reset the ProgressBar time
-             * count.
+             * @brief Reset the ProgressBar time count.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetTime() { time_count_ = duration::zero().count(); }
 
             // resetRemainingTime
             /**
-             * @brief Reset the ProgressBar time
-             * remaining count.
+             * @brief Reset the ProgressBar time remaining count.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetRemainingTime() {
                 ticks_occurred = 0;
@@ -407,11 +348,9 @@ namespace osm {
 
             // resetBrackets
             /**
-             * @brief Reset the ProgressBar
-             * brackets.
+             * @brief Reset the ProgressBar brackets.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetBrackets() { brackets_open_.clear(), brackets_close_.clear(); }
 
@@ -419,8 +358,7 @@ namespace osm {
             /**
              * @brief Reset the ProgressBar color.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void resetColor() {
                 color_ = feat(rst, "color");
@@ -433,74 +371,55 @@ namespace osm {
 
             // getMax
             /**
-             * @brief Get the ProgressBar Max
-             * variable.
+             * @brief Get the ProgressBar Max variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar Max
-             * variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar Max variable.
              */
             bar_type getMax() const { return max_; }
 
             // getMin
             /**
-             * @brief Get the ProgressBar Min
-             * variable.
+             * @brief Get the ProgressBar Min variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar Min
-             * variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar Min variable.
              */
             bar_type getMin() const { return min_; }
 
             // getTime
             /**
-             * @brief Get the ProgressBar current
-             * time value.
+             * @brief Get the ProgressBar current time value.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar current
-             * time value.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar current time value.
              */
             long long getTime() const { return time_count_; }
 
             // getIteratingVar
             /**
-             * @brief Get the ProgressBar
-             * iterating variable value.
+             * @brief Get the ProgressBar iterating variable value.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar iterating
-             * variable value.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar iterating variable value.
              */
             bar_type getIteratingVar() const { return iterating_var_; }
 
             // getStyle
             /**
-             * @brief Get the ProgressBar Style
-             * variable.
+             * @brief Get the ProgressBar Style variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar Style
-             * variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar Style variable.
              */
             std::string getStyle() const { return style_; }
 
             // getStyleComplete
             /**
-             * @brief Get the ProgressBar Style
-             * variable for "complete" variable
-             * type.
+             * @brief Get the ProgressBar Style variable for "complete" variable type.
              *
-             * @tparam bar_type The style of the
-             * ProgressBar.
-             * @return The ProgressBar Type
-             * variable.
+             * @tparam bar_type The style of the ProgressBar.
+             * @return The ProgressBar Type variable.
              */
             std::string getStyleComplete() const {
                 if (type_ == "complete") {
@@ -511,85 +430,64 @@ namespace osm {
 
             // getType
             /**
-             * @brief Get the ProgressBar Type
-             * variable.
+             * @brief Get the ProgressBar Type variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar Type
-             * variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar Type variable.
              */
             std::string getType() const { return type_; }
 
             // getMessage
             /**
-             * @brief Get the ProgressBar Message
-             * variable.
+             * @brief Get the ProgressBar Message variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar Message
-             * variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar Message variable.
              */
             std::string getMessage() const { return message_; }
 
             // getBrackets_open
             /**
-             * @brief Get the ProgressBar
-             * brackets_open variable.
+             * @brief Get the ProgressBar brackets_open variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar
-             * brackets_open variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar brackets_open variable.
              */
             std::string getBrackets_open() const { return brackets_open_; }
 
             // getBrackets_close
             /**
-             * @brief Get the ProgressBar
-             * brackets_close variable.
+             * @brief Get the ProgressBar brackets_close variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar
-             * brackets_close variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar brackets_close variable.
              */
             std::string getBrackets_close() const { return brackets_close_; }
 
             // getColor
             /**
-             * @brief Get the ProgressBar color
-             * variable.
+             * @brief Get the ProgressBar color variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar color
-             * variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar color variable.
              */
             std::string getColor() const { return color_; }
 
             // getColorName
             /**
-             * @brief Get the ProgressBar color
-             * name variable.
+             * @brief Get the ProgressBar color name variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar color name
-             * variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar color name variable.
              */
             std::string getColorName() const { return color_name_; }
 
             // getRemainingTimeFlag
             /**
-             * @brief Get the ProgressBar time
-             * remaining variable.
+             * @brief Get the ProgressBar time remaining variable.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar time
-             * remaining variable.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar time remaining variable.
              */
             std::string getRemainingTimeFlag() const { return time_flag_; }
 
@@ -599,13 +497,10 @@ namespace osm {
 
             // update
             /**
-             * @brief Update the progress bar
-             * indicator.
+             * @brief Update the progress bar indicator.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param value The value of the
-             * progress bar indicator.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param value The value of the progress bar indicator.
              */
             void update(bar_type iterating_var) {
                 std::lock_guard<std::mutex> lock{mutex_};
@@ -667,11 +562,9 @@ namespace osm {
 
             // print
             /**
-             * @brief Prints on the screen the
-             * progress bar variable values.
+             * @brief Prints on the screen the progress bar variable values.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
              */
             void print() const {
                 osm::cout << "Max: " << max_ << "\n"
@@ -687,15 +580,11 @@ namespace osm {
 
             // addStyle
             /**
-             * @brief Add customized styles to the
-             * ProgressBar.
+             * @brief Add customized styles to the ProgressBar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param type The type of the
-             * ProgressBar.
-             * @param style The style of the
-             * ProgressBar.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param type The type of the ProgressBar.
+             * @param style The style of the ProgressBar.
              */
             void addStyle(const std::string &type, const std::string &style) { styles_map_.at(type).insert(style); }
 
@@ -707,14 +596,10 @@ namespace osm {
 
             // remaining_time
             /**
-             * @brief Compute the remaining time
-             * for the completion of the progress
-             * bar.
+             * @brief Compute the remaining time for the completion of the progress bar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @return The ProgressBar remaining
-             * time.
+             * @tparam bar_type The type of the ProgressBar.
+             * @return The ProgressBar remaining time.
              */
             void remaining_time() {
                 max_spin_ = osm::isFloatingPoint(max_) ? (osm::roundoff(max_ - min_, 1) * 10 + 1) : (max_ - min_ + 1);
@@ -738,13 +623,10 @@ namespace osm {
 
             // update_output
             /**
-             * @brief Update the output of the
-             * progress bar.
+             * @brief Update the output of the progress bar.
              *
-             * @tparam bar_type The type of the
-             * ProgressBar.
-             * @param output The output of the
-             * progress bar.
+             * @tparam bar_type The type of the ProgressBar.
+             * @param output The output of the progress bar.
              */
             void update_output(std::string_view output) {
                 osm::cout << output << getColor()
@@ -782,17 +664,12 @@ namespace osm {
     //     Operator << redefinition
     //====================================================
     /**
-     * @brief Operator << used to print the
-     * progress bar properties.
+     * @brief Operator << used to print the progress bar properties.
      *
-     * @tparam bar_type It is the type of the
-     * progress bar.
-     * @param os It is the output stream used to
-     * print the progress bar.
+     * @tparam bar_type It is the type of the progress bar.
+     * @param os It is the output stream used to print the progress bar.
      * @param pb It is the progress bar object.
-     * @return std::ostream& It is the output
-     * stream with the given progress bar
-     * properties printed out.
+     * @return std::ostream& It is the output stream with the given progress bar properties printed out.
      */
     template <typename bar_type>
     std::ostream &operator<<(std::ostream &os, const ProgressBar<bar_type> &pb) {

@@ -51,12 +51,13 @@ function( launch_exec )
     add_executable( ${REDIRECTION} redirection.cpp )
 
     # Adding cppcheck properties
-    if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
-        set( cppcheck cppcheck "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
-        set_target_properties( ${GRAPHICS} PROPERTIES CXX_CPPCHECK ${cppcheck})
-        set_target_properties( ${MANIPULATORS} PROPERTIES CXX_CPPCHECK ${cppcheck})
-        set_target_properties( ${PROGRESSBAR} PROPERTIES CXX_CPPCHECK ${cppcheck})
-        set_target_properties( ${REDIRECTION} PROPERTIES CXX_CPPCHECK ${cppcheck})
+    find_program( CPPCHECK_FOUND cppcheck )
+    if ( CPPCHECK_FOUND AND CMAKE_BUILD_TYPE STREQUAL "Debug" )
+        set( cppcheck_options "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
+        set_target_properties( ${GRAPHICS} PROPERTIES CXX_CPPCHECK "${CPPCHECK_FOUND}" )
+        set_target_properties( ${MANIPULATORS} PROPERTIES CXX_CPPCHECK "${CPPCHECK_FOUND}" )
+        set_target_properties( ${PROGRESSBAR} PROPERTIES CXX_CPPCHECK "${CPPCHECK_FOUND}" )
+        set_target_properties( ${REDIRECTION} PROPERTIES CXX_CPPCHECK "${CPPCHECK_FOUND}" )
     endif()
 
     # Link to osmanip

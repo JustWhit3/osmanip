@@ -10,12 +10,10 @@
 // My headers
 #include <osmanip/manipulators/colsty.hpp>
 #include <osmanip/progressbar/progress_bar.hpp>
+#include <osmanip/utility/generic.hpp>
 
 // Extra headers
 #include <doctest/doctest.h>
-
-#include <arsenalgear/math.hpp>
-#include <arsenalgear/utils.hpp>
 
 // STD headers
 #include <chrono>
@@ -186,7 +184,7 @@ TEST_CASE_TEMPLATE("Testing the ProgressBar class methods.", T, int32_t, int64_t
         // anything.
         for (T i{bar.getMax()}; i < bar.getMin(); i++) {
             bar.update(i);
-            CHECK_EQ(bar.getIteratingVar(), 100 * (i - bar.getMin()) / (bar.getMax() - bar.getMin() - agr::one(i)) + 1);
+            CHECK_EQ(bar.getIteratingVar(), 100 * (i - bar.getMin()) / (bar.getMax() - bar.getMin() - osm::one(i)) + 1);
         }
     }
 

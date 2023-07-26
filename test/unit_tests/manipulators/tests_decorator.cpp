@@ -14,9 +14,8 @@
 // Extra headers
 #include <doctest/doctest.h>
 
-#include <arsenalgear/stream.hpp>
-
 // STD headers
+#include <iostream>
 #include <sstream>
 #include <streambuf>
 

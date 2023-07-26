@@ -52,8 +52,9 @@ endif()
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
 
 # Adding cppcheck properties
-if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
-    set( cppcheck cppcheck "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
+find_program( CPPCHECK_FOUND cppcheck )
+if ( CPPCHECK_FOUND AND CMAKE_BUILD_TYPE STREQUAL "Debug" )
+    set( cppcheck_options "--enable=warning" "--inconclusive" "--force" "--inline-suppr" )
     set_target_properties( ${MANIPULATORS} PROPERTIES CXX_CPPCHECK ${cppcheck})
 endif()
 

@@ -42,8 +42,7 @@ namespace osm {
 
     // indices
     /**
-     * @brief Type to generate indices for
-     * parameter packs.
+     * @brief Type to generate indices for parameter packs.
      *
      * @tparam Is The indices to generate.
      */
@@ -52,8 +51,7 @@ namespace osm {
 
     // gen_indices
     /**
-     * @brief Type to generate indices for
-     * parameter packs.
+     * @brief Type to generate indices for parameter packs.
      *
      * @tparam I The index to generate.
      * @tparam Is The indices to generate.
@@ -63,8 +61,7 @@ namespace osm {
 
     // gen_indices specialization
     /**
-     * @brief Type to generate indices for
-     * parameter packs.
+     * @brief Type to generate indices for parameter packs.
      *
      * @tparam I The index to generate.
      * @tparam Is The indices to generate.
@@ -76,11 +73,9 @@ namespace osm {
     //     make_MultiProgressBar
     //====================================================
     /**
-     * @brief Template class used to create multi
-     * progress bars.
+     * @brief Template class used to create multi progress bars.
      *
-     * @tparam Indicators The parameter pack of
-     * the various progress bar types.
+     * @tparam Indicators The parameter pack of the various progress bar types.
      */
     template <class... Indicators>
     class make_MultiProgressBar {
@@ -88,12 +83,9 @@ namespace osm {
 
             // Parametric constructor
             /**
-             * @brief Construct a new make
-             * MultiProgressBar object.
+             * @brief Construct a new make MultiProgressBar object.
              *
-             * @tparam Inds The parameter pack of
-             * the various progress bar types
-             * indicators.
+             * @tparam Inds The parameter pack of the various progress bar types indicators.
              * @param bars The progress bars.
              */
             template <class... Inds>
@@ -101,25 +93,22 @@ namespace osm {
 
             // size
             /**
-             * @brief Return the number of the
-             * indicators.
+             * @brief Return the number of the indicators.
              *
-             * @return size_t The number of the
-             * indicators.
+             * @return size_t The number of the indicators.
              */
             static size_t size() { return sizeof...(Indicators); }
 
             // for_one
             /**
-             * @brief Method used to update the
-             * progress bar for one progress bar
-             * only.
+             * @brief Method used to update the progress bar for one progress bar only.
              *
-             * @tparam Func
-             * @tparam Args
-             * @param idx
-             * @param func
-             * @param args
+             * @tparam Func The type of the callable object (e.g., a function, lambda, or functor).
+             * @tparam Args The types of the additional arguments that will be passed to the callable.
+             *
+             * @param idx The index of the progress bar to update.
+             * @param func The callable object used to update the progress bar.
+             * @param args Additional arguments to be passed to the callable.
              */
             template <class Func, class... Args>
             void for_one(size_t idx, Func &&func, Args &&...args) {
@@ -129,13 +118,14 @@ namespace osm {
 
             // for_each
             /**
-             * @brief Method used to update
-             * progress bars simultaneously.
+             * @brief Method used to update progress bars simultaneously.
              *
-             * @tparam Func
-             * @tparam Args
-             * @param func
-             * @param args
+             * @tparam Func The type of the callable object (e.g., a function, lambda, or functor).
+             * @tparam Args The types of the additional arguments that will be passed to the callable.
+             *
+             * @param idx The index of the progress bar to update.
+             * @param func The callable object used to update the progress bar.
+             * @param args Additional arguments to be passed to the callable.
              */
             template <class Func, class... Args>
             void for_each(Func &&func, Args &&...args) {
@@ -146,15 +136,16 @@ namespace osm {
 
             // call_one
             /**
-             * @brief Method used to call only one
-             * progress bar for update.
+             * @brief Method used to call only one progress bar for update.
              *
-             * @tparam Ids
-             * @tparam Func
-             * @tparam Args
-             * @param idx
-             * @param func
-             * @param args
+             * @tparam Ids Variadic template parameter representing the indices of the progress bars to update.
+             * @tparam Func The type of the callable object (e.g., a function, lambda, or functor).
+             * @tparam Args The types of the additional arguments that will be passed to the callable.
+             *
+             * @param idx The index of the progress bar to update.
+             * @param indices An instance of the "indices" template used to expand the variadic template parameter Ids.
+             * @param func The callable object used to update the progress bar.
+             * @param args Additional arguments to be passed to the callable.
              */
             template <size_t... Ids, class Func, class... Args>
             void call_one(size_t idx, indices<Ids...>, Func func, Args &&...args) {
@@ -180,14 +171,15 @@ namespace osm {
 
             // call_all
             /**
-             * @brief Method used to call all
-             * progress bars for update.
+             * @brief Method used to call all progress bars for update.
              *
-             * @tparam Ids
-             * @tparam Func
-             * @tparam Args
-             * @param func
-             * @param args
+             * @tparam Ids Variadic template parameter representing the indices of the progress bars to update.
+             * @tparam Func The type of the callable object (e.g., a function, lambda, or functor).
+             * @tparam Args The types of the additional arguments that will be passed to the callable.
+             *
+             * @param indices An instance of the "indices" template used to expand the variadic template parameter Ids.
+             * @param func The callable object used to update the progress bars.
+             * @param args Additional arguments to be passed to the callable.
              */
             template <size_t... Ids, class Func, class... Args>
             void call_all(indices<Ids...>, Func func, Args &&...args) {
@@ -206,16 +198,12 @@ namespace osm {
     //     MultiProgressBar
     //====================================================
     /**
-     * @brief Helper function used for deduction
-     * guides.
+     * @brief Helper function used for deduction guides.
      *
-     * @tparam Indicators The parameter pack of
-     * the various progress bar types.
+     * @tparam Indicators The parameter pack of the various progress bar types.
      * @param inds The progress bars.
-     * @return make_MultiProgressBar <typename
-     * std::remove_reference
-     * <Indicators>::type...> The update of the
-     * various progress bars.
+     * @return make_MultiProgressBar <typename std::remove_reference <Indicators>::type...> The update of the various
+     * progress bars.
      */
     template <class... Indicators>
     make_MultiProgressBar<typename std::remove_reference<Indicators>::type...> MultiProgressBar(Indicators &&...inds) {
@@ -226,10 +214,9 @@ namespace osm {
     //     type_identity
     //====================================================
     /**
-     * @brief Struct used to to typedef the
-     * functor.
+     * @brief Struct used to to typedef the functor.
      *
-     * @tparam T
+     * @tparam T The type for which the type alias "type" will be created.
      */
     template <class T>
     struct type_identity {
@@ -240,8 +227,7 @@ namespace osm {
     //     updater
     //====================================================
     /**
-     * @brief Functor used to call the ProgressBar
-     * class update method.
+     * @brief Functor used to call the ProgressBar class update method.
      *
      */
     struct updater {

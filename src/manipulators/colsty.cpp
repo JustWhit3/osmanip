@@ -38,7 +38,7 @@ namespace osm {
      * bold color features.
      *
      */
-    const std::unordered_map<std::string, std::string> col{
+    const std::unordered_map<std::string, std::string> col = {
 
         // Error variables:
         {"error", "Inserted color"},
@@ -94,21 +94,19 @@ namespace osm {
      * @brief It is used to store the styles.
      *
      */
-    const std::unordered_map<std::string,
-                             std::string>
-        sty{// Error variables:
-            {"error", "Inserted style"},
+    const std::unordered_map<std::string, std::string> sty = {  // Error variables:
+        {"error", "Inserted style"},
 
-            // Style variables:
-            {"bold", "\033[1m"},
-            {"faint", "\033[2m"},
-            {"italics", "\033[3m"},
-            {"underlined", "\033[4m"},
-            {"blink", "\033[5m"},
-            {"inverse", "\033[7m"},
-            {"invisible", "\033[8m"},
-            {"crossed", "\033[9m"},
-            {"d-underlined", "\033[21m"}};
+        // Style variables:
+        {"bold", "\033[1m"},
+        {"faint", "\033[2m"},
+        {"italics", "\033[3m"},
+        {"underlined", "\033[4m"},
+        {"blink", "\033[5m"},
+        {"inverse", "\033[7m"},
+        {"invisible", "\033[8m"},
+        {"crossed", "\033[9m"},
+        {"d-underlined", "\033[21m"}};
 
     // rst
     /**
@@ -116,7 +114,7 @@ namespace osm {
      * features commands.
      *
      */
-    const std::unordered_map<std::string, std::string> rst{
+    const std::unordered_map<std::string, std::string> rst = {
         // Error variables:
         {"error", "Inserted reset command"},
 

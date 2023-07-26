@@ -15,7 +15,7 @@ services:
         command: >
             bash -c "cd /proj
             && rm -rf build
-            && cmake -B build
+            && cmake -B build -DCMAKE_BUILD_TYPE=Debug
             && cmake --build build"
 
     # gcc 10
