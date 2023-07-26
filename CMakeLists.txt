@@ -89,7 +89,8 @@ if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
 endif()
 
 # Compiling unit tests 
-if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+option( OSMANIP_TESTS "Enable / disable tests." ON )
+if( CMAKE_BUILD_TYPE STREQUAL "Debug" AND OSMANIP_TESTS )
     add_subdirectory( test/unit_tests )
 else()
     message( STATUS "Skipping tests." )

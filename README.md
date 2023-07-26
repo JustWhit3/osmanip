@@ -509,6 +509,7 @@ sudo cmake --build build --target install
 ```
 
 > :warning: remember to install the library before launching include tests, or an error will appear.
+> :warning: if you want to build the library in debug mode, but without compiling tests use also the option `-DOSMANIP_TESTS=OFF`.
 
 Tests are produced using `-Wall -Wextra -pedantic` flags. To check them you need some prerequisites:
 
