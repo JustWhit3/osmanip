@@ -28,10 +28,8 @@ namespace osm {
 
     // Parametric constructor
     /**
-     * @brief Construct a new Plot2D:: Plot2D
-     * object. The same as its parent, the
-     * constructor requires the dimensions of the
-     * canvas.
+     * @brief Construct a new Plot2D:: Plot2D object. The same as its parent, the constructor requires the dimensions of
+     * the canvas.
      *
      * @param width Width of the canvas.
      * @param height Height of the canvas.
@@ -45,8 +43,7 @@ namespace osm {
 
     // setOffset
     /**
-     * @brief Set the offset_x and offset_y of the
-     * canvas.
+     * @brief Set the offset_x and offset_y of the canvas.
      *
      * @param offset_x The offset_x of the canvas.
      * @param offset_y The offset_y of the canvas.
@@ -58,8 +55,7 @@ namespace osm {
 
     // setScale
     /**
-     * @brief Set the scale_x and scale_y of the
-     * canvas.
+     * @brief Set the scale_x and scale_y of the canvas.
      *
      * @param scale_x The scale_x of the canvas.
      * @param scale_y The scale_y of the canvas.

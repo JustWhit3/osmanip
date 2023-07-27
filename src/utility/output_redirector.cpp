@@ -32,8 +32,6 @@
 
 namespace osm {
 
-    //   OutputRedirector redirout;
-
     //====================================================
     //     Constant variables
     //====================================================
@@ -48,9 +46,8 @@ namespace osm {
 
     // Default constructor
     /**
-     * @brief Construct a new OutputRedirector
-     * object. Default constructor will set the
-     * main attributes to default values.
+     * @brief Construct a new OutputRedirector object. Default constructor will set the main attributes to default
+     * values.
      *
      */
     OutputRedirector::OutputRedirector()
@@ -64,9 +61,7 @@ namespace osm {
 
     // Parametric constructor
     /**
-     * @brief Construct a new OutputRedirector
-     * object. The filename must be relative to
-     * the working directory.
+     * @brief Construct a new OutputRedirector object. The filename must be relative to the working directory.
      *
      * @param filename name of the output file.
      *
@@ -82,9 +77,8 @@ namespace osm {
 
     // Destructor
     /**
-     * @brief Destructs OutputRedirector object.
-     * If redirection is still enabled, the buffer
-     * is flushed before being destroyed.
+     * @brief Destructs OutputRedirector object. If redirection is still enabled, the buffer is flushed before being
+     * destroyed.
      *
      */
     OutputRedirector::~OutputRedirector() {
@@ -100,12 +94,9 @@ namespace osm {
 
     // setFilename
     /**
-     * @brief Set the filename of the output file.
-     * The filename must be relative to the
-     * working directory.
+     * @brief Set the filename of the output file. The filename must be relative to the working directory.
      *
-     * @param filename the filename of the output
-     * file.
+     * @param filename the filename of the output file.
      *
      */
     void OutputRedirector::setFilename(std::string_view filename) {
@@ -126,8 +117,7 @@ namespace osm {
     /**
      * @brief Get the filename of the output file.
      *
-     * @return string containing the filename of
-     * the output file.
+     * @return string containing the filename of the output file.
      *
      */
     std::string &OutputRedirector::getFilename() {
@@ -137,11 +127,9 @@ namespace osm {
 
     // getFilepath
     /**
-     * @brief Get the name of the path to the
-     * output file.
+     * @brief Get the name of the path to the output file.
      *
-     * @return string containing the name of the
-     * path to the output file.
+     * @return string containing the name of the path to the output file.
      *
      */
     std::string &OutputRedirector::getFilepath() {
@@ -157,8 +145,7 @@ namespace osm {
     /**
      * @brief Enables output redirection
      *
-     * @throws std::runtime_error if redirection
-     * is already enabled.
+     * @throws std::runtime_error if redirection is already enabled.
      *
      */
     void OutputRedirector::begin() {
@@ -168,11 +155,9 @@ namespace osm {
 
     // end
     /**
-     * @brief Flushes the buffer and disables
-     * output redirection.
+     * @brief Flushes the buffer and disables output redirection.
      *
-     * @throws std::runtime_error if redirection
-     * is currently not enabled.
+     * @throws std::runtime_error if redirection is currently not enabled.
      *
      */
     void OutputRedirector::end() {
@@ -183,11 +168,9 @@ namespace osm {
 
     // touch
     /**
-     * @brief Opens the file, if present.
-     * Otherwise, creates the file.
+     * @brief Opens the file, if present. Otherwise, creates the file.
      *
-     * @throws std::invalid_argument if the file
-     * cannot be opened.
+     * @throws std::invalid_argument if the file cannot be opened.
      *
      */
     void OutputRedirector::touch() {
@@ -204,11 +187,9 @@ namespace osm {
 
     // isEnabled
     /**
-     * @brief Returns the current state of the
-     * output redirection object.
+     * @brief Returns the current state of the output redirection object.
      *
-     * @return true if enabled. Otherwise, returns
-     * false.
+     * @return true if enabled. Otherwise, returns false.
      *
      */
     bool OutputRedirector::isEnabled() { return enabled_; }
@@ -219,12 +200,9 @@ namespace osm {
 
     // sync
     /**
-     * @brief Responsible for calling the
-     * appropriate output update functions and
-     * writing the result to the file.
+     * @brief Responsible for calling the appropriate output update functions and writing the result to the file.
      *
-     * @return the error state of the stream
-     * buffer
+     * @return the error state of the stream buffer
      *
      */
     int32_t OutputRedirector::sync() {
@@ -242,8 +220,7 @@ namespace osm {
 
     // prepare_output
     /**
-     * @brief Updates and formats the output
-     * string and clears the buffer.
+     * @brief Updates and formats the output string and clears the buffer.
      *
      */
     void OutputRedirector::prepare_output() {
@@ -257,12 +234,9 @@ namespace osm {
 
     // write_output
     /**
-     * @brief Writes the output string to the
-     * file. The file will be cleared before the
-     * string is written.
+     * @brief Writes the output string to the file. The file will be cleared before the string is written.
      *
-     * @throws std::invalid_argument if there is a
-     * problem opening the file.
+     * @throws std::invalid_argument if there is a problem opening the file.
      *
      */
     void OutputRedirector::write_output() {
@@ -277,11 +251,9 @@ namespace osm {
 
     // read_file
     /**
-     * @brief Reads the file and stores its entire
-     * contents.
+     * @brief Reads the file and stores its entire contents.
      *
-     * @throws std::invalid_argument if there is a
-     * problem opening the file.
+     * @throws std::invalid_argument if there is a problem opening the file.
      *
      */
     void OutputRedirector::read_file() {
@@ -297,13 +269,10 @@ namespace osm {
 
     // sanity_check
     /**
-     * @brief Asserts the redirection flag is
-     * correct for the specified function.
+     * @brief Asserts the redirection flag is correct for the specified function.
      *
-     * @throws std::runtime_error if the flag is
-     * incorrect.
-     * @throws std::invalid_argument if an unknown
-     * function name is used.
+     * @throws std::runtime_error if the flag is incorrect.
+     * @throws std::invalid_argument if an unknown function name is used.
      *
      */
     void OutputRedirector::sanity_check(const std::string &func_name) {
@@ -324,13 +293,9 @@ namespace osm {
 
     // exception_file_not_found
     /**
-     * @brief Throws an invalid_argument exception
-     * if the file was not found or could not be
-     * opened. It is important to note that the
-     * calling thread is excepted to own the
-     * mutex. Calling this function will retain
-     * ownership of the mutex and release it
-     * before throwing the exception.
+     * @brief Throws an invalid_argument exception if the file was not found or could not be opened. It is important to
+     * note that the calling thread is excepted to own the mutex. Calling this function will retain ownership of the
+     * mutex and release it before throwing the exception.
      *
      * @throws std::invalid_argument
      *

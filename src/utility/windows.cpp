@@ -53,12 +53,10 @@ namespace osm {
 
     // enableANSI
     /**
-     * @brief Function used to enable ANSI escape
-     * sequences on Windows.
+     * @brief Function used to enable ANSI escape sequences on Windows.
      *
      */
     void enableANSI() {
-// Settings for Windows mode
 #ifdef _WIN32
 
         DWORD outMode = 0;
@@ -85,17 +83,14 @@ namespace osm {
     }
 
     // disableANSI
-    void disableANSI()
     /**
-     * @brief Function used to disable ANSI escape
-     * sequences on Windows.
+     * @brief Function used to disable ANSI escape sequences on Windows.
      *
      */
-    {
+    void disableANSI() {
         // Reset all styles and colors
         osm::cout << "\033[0m";
 
-// Settings for Windows mode
 #ifdef _WIN32
 
         // Reset console mode
@@ -108,12 +103,10 @@ namespace osm {
 
     // enableUNICODE
     /**
-     * @brief Function used to enable UNICODE
-     * characters (used for Windows only).
+     * @brief Function used to enable UNICODE characters (used for Windows only).
      *
      */
     void enableUNICODE() {
-// Settings for Windows mode
 #ifdef _WIN32
 
         std::string old_chcp_pre = osm::getCommandOut("chcp");
@@ -126,12 +119,10 @@ namespace osm {
 
     // disableUNICODE
     /**
-     * @brief Function used to disable UNICODE
-     * characters (used for Windows only).
+     * @brief Function used to disable UNICODE characters (used for Windows only).
      *
      */
     void disableUNICODE() {
-// Settings for Windows mode
 #ifdef _WIN32
 
         std::ostringstream oss;

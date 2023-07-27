@@ -29,7 +29,6 @@ namespace osm {
 
     Ostreambuf cout_buf{&std::cout};  // NOLINT(cppcoreguidelines-interfaces-global-init)
     std::ostream cout(&cout_buf);     /// Link to osm::cout
-
     OutputRedirector redirout{};
 
 }  // namespace osm
