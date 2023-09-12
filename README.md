@@ -533,7 +533,7 @@ To launch all tests simultaneously:
 
 ## Todo
 
-- Implement file redirection to HTML and other type of files when manipulating the output.
+- Separate progress bar class into multiple files.
 - Add an `elapsedTime()` method to the `ProgressBar` class, to show elapsed progress bar time and substitute it to the already existing  `getTime()` method.
 - Benchmarking and other studies with respect to similar libraries (already in progress [here](https://github.com/JustWhit3/osmanip/tree/main/studies/benchmarking)).
 - Add a wiki section for `output_redirector`.
