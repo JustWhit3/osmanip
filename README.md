@@ -59,7 +59,7 @@ please [cite it](https://github.com/JustWhit3/osmanip/blob/main/CITATION.cff).
 If you use this library please tell me so I can add you to the [list of know projects which use this library](list-of-known-projects-which-use-this-library).
 
 If you want to contribute to the repository, please
-read [this](https://github.com/JustWhit3/osmanip/blob/main/CONTRIBUTING.md) file before.
+read [this](https://github.com/JustWhit3/osmanip/blob/main/CONTRIBUTING.md) file before. If you have ideas to propose write a post into the [discussion section](https://github.com/JustWhit3/osmanip/discussions).
 
 Code documentation is generated using [*Doxygen*](https://www.doxygen.nl/manual/starting.html) and can be
 accessed [here](https://justwhit3.github.io/osmanip/). An extra [wiki](https://github.com/JustWhit3/osmanip/wiki) is
